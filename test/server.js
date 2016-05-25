@@ -16,7 +16,7 @@ import jsdom from 'jsdom'
 import popsicle from 'popsicle'
 import { readdirSync, readFileSync } from 'fs'
 import { resolve } from 'path'
-import { scrape, scrapeUrl, scrapeHtml, scrapeWindow } from '..'
+import { scrapeUrl, scrapeHtml, scrapeWindow } from '../server'
 
 /**
  * Promisify.
@@ -45,7 +45,7 @@ const fixtures = readdirSync(fixturesDir)
  * Tests.
  */
 
-describe('metascraper', () => {
+describe('server', () => {
 
   describe('scrapeUrl(url, rules)', () => {
     it('it should scrape from a url', async () => {
@@ -81,7 +81,7 @@ describe('metascraper', () => {
     })
   })
 
-  describe('scrapeWindow(html, rules)', () => {
+  describe('scrapeWindow(window, rules)', () => {
     it('it should scrape from a provided dom', async () => {
       const url = 'http://www.theverge.com/2016/5/24/11750454/otterbox-universe-expandable-case-system'
       const window = await env({ url })
