@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" class="no-js lt-ie9 is-ie" lang="en" >
+<![endif]-->
+<!--[if IE 9]> <html class="no-js is-ie"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script src="//cdn.optimizely.com/js/3391221358.js"></script>
+<script type="text/javascript">
+  window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:22,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:9,2:8,3:6,4:10,5:3,6:23,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:9,2:8,3:7,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],6:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:23,2:24,ee:"QJf3ax",gos:"7eSDFh"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:24,2:23,ee:"QJf3ax"}],8:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:24,2:23,ee:"QJf3ax"}],9:[function(t,e){function n(t,e,n){t[0]=o(t[0],"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:24,2:23,ee:"QJf3ax"}],10:[function(t,e){function n(){f.inPlace(this,p,"fn-")}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:6,2:24,ee:"QJf3ax"}],11:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:12,3:10,4:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],12:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],13:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:22,2:23,handle:"D5DuLP"}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),f=c.document,u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:22,2:13,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],22:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],23:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],24:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:23,ee:"QJf3ax"}]},{},["G9z0Bl",4,11,5]);
+  ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"7fc7d5aa08",applicationID:"9746606",sa:1,agent:"js-agent.newrelic.com/nr-632.min.js"}
+</script>
+<!--[if lt IE 9]>
+<script src="https://s0.wp.com/wp-content/themes/vip/fortune/static/js/html5shiv.min.js"></script>
+<script type="text/javascript">
+  var ie8 = true;
+</script>
+<link rel="stylesheet" href="https://s0.wp.com/wp-content/themes/vip/fortune/static/stylesheets/ie8.css">
+<![endif]-->
+
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+<script type="text/javascript">
+if (!window.console){
+  console = { log: function(){} };
+}
+function handleCaptchaResponse($elem, resp) {
+  var $responseField = $elem.siblings("input[name='recaptcha-response']").first();
+  $responseField.val(resp);
+}
+function showCaptcha(elem) {
+  var $el = jQuery(elem);
+  var $divCaptcha = $el.siblings('div.g-recaptcha').first();
+  var $seeAll = $el.parents('.email-wrapper').first().siblings('.see-all-newsletters').first();
+  var siteKey = $divCaptcha.data('sitekey');
+  grecaptcha.render( $divCaptcha[0], { sitekey: siteKey, callback: handleCaptchaResponse.bind(undefined,$el) }  );
+  $seeAll.css('margin-top', '59px');
+}
+</script>
+<script src="https://www.google.com/recaptcha/api.js?hl=en&render=explicit" async defer></script>
+
+<title>HackerRank is helping companies use puzzles to find the best engineers - Fortune</title>
+
+<script type='text/javascript'>
+  // Omniture account string
+  var s_account = 'timefortunecom';
+  // allow requests for *.fortune.com
+  if ( -1 != document.domain.indexOf( 'fortune.com' ) ) {
+    document.domain = 'fortune.com';
+  }
+  // Prevents nativo ad auto-load behavior
+  var _prx = window.top._prx || [];
+  _prx.push(['cfg.SetNoAutoStart']);
+</script>
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link href="https://plus.google.com/+fortune" rel="publisher" />
+
+<script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "NewsArticle",
+    "headline" : "Why your next job search may involve solving online puzzles",
+    "url" : "http://fortune.com/2015/10/05/hackerrank-recruiting-tool/",
+    "thumbnailUrl" : "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=1024",
+    "dateCreated" : "2015-10-05T00:00:00+00:00",
+    "creator" : ["Kia Kokalitcheva"],
+    "articleSection" : "Tech",
+    "keywords" : ["CodeEval","Coding","data scientist","Gild","HackerRank","Hiring","InterviewStreet","Programming","Recruiting","software engineer","technical hiring","technical recruiting","web development"] }
+</script>
+<link rel="pingback" href="http://fortune.com/xmlrpc.php" />
+
+<meta name="description" content="HackerRank, a four-year-old startup, is changing the way companies find and evaluate job applicants." /><meta name="news_keywords" content="Hiring, HackerRank, recruiting, technical recruiting, technical hiring, Gild, CodeEval, coding, programming, web development, software engineer, data scientist, InterviewStreet" />
+<meta name="keywords" content="hiring, hackerrank, recruiting, technical recruiting, technical hiring, gild, codeeval, coding, programming, web development, software engineer, data scientist, interviewstreet" /><meta name="bitly-verification" content="d31810b12dd9" />
+
+<link rel="amphtml" href="http://amp.timeinc.net/fortune/2015/10/05/hackerrank-recruiting-tool/?source=dam" />
+    <script src='https://r-login.wordpress.com/remote-login.php?action=js&amp;host=fortune.com&amp;id=64089429&amp;t=1464130164&amp;back=http%3A%2F%2Ffortune.com%2F2015%2F10%2F05%2Fhackerrank-recruiting-tool%2F' type="text/javascript"></script>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+      if ( 'function' === typeof WPRemoteLogin ) {
+        document.cookie = "wordpress_test_cookie=test; path=/";
+        if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+          WPRemoteLogin();
+        }
+      }
+    /* ]]> */
+    </script>
+    <link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="alternate" type="application/rss+xml" title="Fortune &raquo; Why your next job search may involve solving online puzzles Comments Feed" href="http://fortune.com/2015/10/05/hackerrank-recruiting-tool/feed/" />
+<link rel="canonical" href="http://fortune.com/2015/10/05/hackerrank-recruiting-tool/" />
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    function addLoadEvent(func) {
+      var oldonload = window.onload;
+      if (typeof window.onload != 'function') {
+        window.onload = func;
+      } else {
+        window.onload = function () {
+          oldonload();
+          func();
+        }
+      }
+    }
+    /* ]]> */
+  </script>
+  <meta name="twitter:site" content="@fortunemagazine"/>
+<meta name="twitter:title" content="Why your next job search may involve solving online puzzles"/>
+<meta name="twitter:description" content="A programmer works furiously to solve a puzzle on her computer screen. The prize? A chance to interview for an engineering job at a hot tech company. The correct answer may get her noticed, while a..."/>
+<meta name="twitter:image" content="https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=560"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel='stylesheet' id='all-css-0' href='https://s0.wp.com/_static/??-eJx9jUEOgkAMAD9kLSIxejC+ZVkbWdguDe2G71tIvBkuTdvMZHAViHMxKoZcQXL9pKKY00SKI5mEOMF+naPqCf/jcV7I/yzBNoLpnQJlYseONJbbz9rWwVuHmVWchr6XhVTBJ6fKYIOHdu/Fz0t3bR9t092b8QtnYFC+?cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='fortune-webfonts-css'  href='http://fonts.timeinc.net/ti/fortune/webfonts.css?ver=1.0.00' type='text/css' media='all' />
+<link rel='stylesheet' id='all-css-2' href='https://s1.wp.com/_static/??-eJyVj9EKwjAMRX/IGsUx54P4LVvN2mralCWd+PdWBFFEwafcC+dcCFyysZwUk4J6jCgwhwwjT1oSgmivwdZzJRSPqAISFJdWZAF/q0eUs3J+2AESV4CTPMPHbCwmU3GhMg7ZENu6yemtmJH6MP1SJxyIXY0OKvVSv73hG3DEQ0934BD366bdtF23265ON3ZAcgI=?cssminify=yes' type='text/css' media='all' />
+<script>utag_data = {"author_name":"Kia Kokalitcheva","channel":"fortune","content_id":"1347139","login_status":"not logged in","page_name":"Why your next job search may involve solving online puzzles","publish_date":"2015-10-05T16:52:17+00:00","site_section1":"tech","tag_keywords":"codeeval|coding|data scientist|gild|hackerrank|hiring|interviewstreet|programming|recruiting|software engineer|technical hiring|technical recruiting|web development","template_type":"article","site_display_format":"desktop","url":"https:\/\/fortunedotcom.wordpress.com\/2015\/10\/05\/hackerrank-recruiting-tool\/","site_section2":""};</script><script type='text/javascript' src='https://s2.wp.com/_static/??-eJyFztEKwjAMBdAfsqsVHb6I31JrHKlLWpvUoV9vB/ogDIVAIPdwiZ2yQQ5jPYPY2OZWoTzeq4uysr+AIRyKV+gI+YNDYgXW2VI64QimChQ/tFsruqQFl5MogUhDC+n3S8h3hOkvi6DZh6spIPicW490cNverfdu0+/iCzQBW8w='></script>
+<script type='text/javascript' src='http://tiads.fortune.com/ads/tgx.js?ver=1.1'></script>
+<script async='asyc' type='text/javascript' src='http://admin.brightcove.com/js/BrightcoveExperiences.js?ver=1.0.1#asyncload'></script>
+<script type='text/javascript' src='https://s2.wp.com/wp-content/themes/vip/fortune/js/dist/yeildmo.js?m=1449069362h'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://fortunedotcom.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress.com" />
+<link rel='shortlink' href='http://for.tn/1VvjXbT' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Ffortune.com%2F2015%2F10%2F05%2Fhackerrank-recruiting-tool%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Ffortune.com%2F2015%2F10%2F05%2Fhackerrank-recruiting-tool%2F&amp;for=wpcom-auto-discovery" /><link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=16" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=16" sizes="16x16" />
+<link rel="apple-touch-icon-precomposed" href="http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=114" />
+<link rel='openid.server' href='http://fortunedotcom.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='http://fortunedotcom.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="http://fortune.com/osd.xml" title="Fortune" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+
+
+<!-- BEGIN Sailthru Horizon Meta Information -->
+<meta name="sailthru.date" content="2015-10-05 16:52:17" />
+<meta name="sailthru.title" content="Why your next job search may involve solving online puzzles" />
+<meta name="sailthru.tags" content="CodeEval, Coding, data scientist, Gild, HackerRank, Hiring, InterviewStreet, Programming, Recruiting, software engineer, technical hiring, technical recruiting, web development" />
+<meta name="sailthru.author" content="Kia Kokalitcheva" />
+<meta name="sailthru.description" content="HackerRank, a four-year-old startup, is changing the way companies find and evaluate programmers. " />
+<meta name="sailthru.image.full" content="https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg" />
+<meta name="sailthru.image.thumb" content="https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=50" />
+<!-- END Sailthru Horizon Meta Information -->
+
+    <style>
+    .getty.alignleft {
+      margin-right: 5px;
+    }
+    .getty.alignright {
+      margin-left: 5px;
+    }
+    </style>
+    <meta name="application-name" content="Fortune" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Fortune 500 Daily &amp; Breaking Business News" /><meta name="msapplication-task" content="name=Subscribe;action-uri=http://fortune.com/feed/;icon-uri=http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=16" /><meta property="og:site_name" content="Fortune" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://fortune.com/2015/10/05/hackerrank-recruiting-tool/" />
+<meta property="og:title" content="Why your next job search may involve solving online puzzles" />
+<meta property="og:description" content="HackerRank, a four-year-old startup, is changing the way companies find and evaluate programmers." />
+<meta property="article:published_time" content="2015-10-05T20:52:17+00:00" />
+<meta property="article:modified_time" content="2015-10-05T20:52:17+00:00" />
+<meta property="article:author" content="http://fortune.com/author/kia-kokalitcheva/" />
+<meta property="article:section" content="Tech" />
+<meta property="article:tag" content="CodeEval" />
+<meta property="article:tag" content="Coding" />
+<meta property="article:tag" content="data scientist" />
+<meta property="article:tag" content="Gild" />
+<meta property="article:tag" content="HackerRank" />
+<meta property="article:tag" content="Hiring" />
+<meta property="article:tag" content="InterviewStreet" />
+<meta property="article:tag" content="Programming" />
+<meta property="article:tag" content="Recruiting" />
+<meta property="article:tag" content="software engineer" />
+<meta property="article:tag" content="technical hiring" />
+<meta property="article:tag" content="technical recruiting" />
+<meta property="article:tag" content="web development" />
+<meta property="og:image" content="https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=820&amp;h=570&amp;crop=1" />
+<meta property="fb:app_id" content="859381007513473" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+
+<body class="single single-post postid-1347139 single-format-standard mp6 customizer-styles-applied is-signed-out highlander-enabled highlander-light">
+
+  <header class="main-header" role="banner">
+    <div class="hat-container">
+      <div id="time_inc_hat">
+        <script>
+          jQuery(document).ready(function ($) {
+            TimeHatConfig('fortune');
+          });
+        </script>
+      </div>
+    </div>
+    <div class="main-header-inner">
+      <div class="logo-container">
+        <div class="site-nav-toggle" aria-hidden="true">
+          <span class="icon-menu"></span>
+          <span class="menu-text">menu</span>
+        </div>
+        <span class="screen-reader-text">Main Menu</span>
+                  <div class="main-logo article-logo"><a href="http://fortune.com/"><h2>Fortune.com</h2></a></div>
+                <span class="sign-sub-wrapRail">
+        <a href="https://subscription.fortune.com/storefront/subscribe-to-fortune/link/1024754.html" target="_blank">Subscribe</a></span>
+      </div>
+      <div class="header-right-wrapper">
+
+                  <div class="header-right">
+            <div class="header-ad rail fortune-ad-unit" id="cm-header-ad"></div>
+          </div>
+              </div>
+      <a href="https://subscription.fortune.com/storefront/subscribe-to-fortune/link/1022055.html" class="header-subscribe">Subscribe</a>
+    </div>
+  </header>
+  <span class="left-nav-toggle icon icon-down-arrow" onclick=""></span>
+
+  <nav class="site-nav">
+    <div class="site-nav-section">
+      <form class="site-nav-search site-search" action="http://search-app.fortune.com">
+          <div class="fortune-search">
+        <input type="text" class="site-search-input" id="site-nav-site-search-input" placeholder="Quotes, Companies, Keywords" name="q">
+        <button class="site-search-submit icon icon-search" type="submit" aria-hidden="true" data-event="search event"></button>
+        </div>
+        <span class="screen-reader-text">Search</span>
+      </form>
+    </div>
+    <div class="site-nav-section">
+              <a href="#subscribe" class="site-nav-signin">Sign In</a>
+          </div>
+
+    <div class="site-nav-content"><!-- site nav rankings, section, tag lists loaded here --></div>
+
+    <div class="site-nav-section">
+      <ul><li class="site-nav-link-alt"><p>&copy; 2016 Time Inc. All rights reserved.</p></li></ul>
+    </div>
+
+  </nav>
+
+  <div class="oop_wrapper"></div>
+  <div class="nativo-wrapper" id="nativo-ad"></div>
+
+
+
+  <div id="primary">
+    <div id="content">
+
+      <!-- Static content -->
+      <div class="static-content"></div>
+      <!-- /Static content -->
+
+
+
+<div class="left-rail-container">
+</div>
+
+      <noscript>
+        <div class="header-nav-links-nojs">
+  <ul>
+    <li>
+      <a href="http://fortune.com/category/tech">TECH</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/management">MANAGEMENT</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/finance">FINANCE</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/markets">MARKETS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/careers">CAREERS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/autos">AUTOS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/international">INTERNATIONAL</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/retail">RETAIL</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/features">FEATURES</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/small-business">SMALL BUSINESS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/video">VIDEO</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/magazine">MAGAZINE</a>
+    </li>
+    <li>
+      <a href="http://www.fortuneconferences.com/">FORTUNE CONFERENCES</a>
+    </li>
+  </ul>
+</div>          <div class="content-well">
+
+            <div class="page-wrapper">
+                        <header class="article-header">
+                        <div class="related-tags-and-headline">
+              <div class="article-tags">
+                                  <a class="article-section-tag" itemprop="articleSection" href="http://fortune.com/tech/">Tech</a>
+                                                  <a class="article-primary-tag" itemprop="articleSection" href="http://fortune.com/tag/web-development/">web development</a>
+                              </div>
+            </header>
+
+            <article id="post-1347139" class="post-1347139 post type-post status-publish format-standard has-post-thumbnail hentry category-tech tag-codeeval tag-coding tag-data-scientist tag-gild-2 tag-hackerrank tag-hiring tag-interviewstreet tag-programming tag-recruiting tag-software-engineer tag-technical-hiring tag-technical-recruiting tag-web-development syndication-fortune-syndicate" itemscope itemtype="http://schema.org/Article">
+              <header class="entry-header">
+                <h1 class="entry-title">Why your next job search may involve solving online puzzles</h1>
+              </header><!-- .entry-header -->
+              <div class="article-byline">
+
+                <ul class="article-byline-authors article-byline-item">
+                <li>by&nbsp;</li>
+                  <li>
+                    <a href="http://fortune.com/author/kia-kokalitcheva/" itemprop="author" class="article-byline-author">
+                      <span>Kia Kokalitcheva</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="article-byline-twitters article-byline-item">
+                  <li>
+                    <a href="https://twitter.com/FortuneMagazine" target="_blank" class="author-byline-twitter">@FortuneMagazine</a>
+                  </li>
+                </ul>
+
+                <time pubdate="" datetime="October 5, 2015, 4:17 PM EDT" itemprop="datePublished" class="article-byline-time article-byline-item">October 5, 2015, 4:17 PM EDT</time>
+
+                <div class="social-icons article-byline-social article-social"><div class="article-social-wrapper">
+                <ul class="social-tooltip article-social-icons">
+                  <li>
+                                      <a aria-hidden="true" class="soc-track icon-mail"  href="mailto:?subject=Why your next job search may involve solving online puzzles&body=Why your next job search may involve solving online puzzles" data-share='{ "event_name" : "social_share", "social_network" : "email" , "click_id" : "share-email-button" }'></a>
+                    <span class="screen-reader-text">E-mail</span>
+                  </li>
+                  <li>
+                    <a aria-hidden="true" class="soc-track icon-twitter" target="_blank" href="https://twitter.com/share?url=&text=Why your next job search may involve solving online puzzles via @FortuneMagazine" data-share='{ "event_name" : "social_share", "social_network" : "twitter" , "click_id" : "share-twitter-button" }'></a>
+                    <span class="screen-reader-text">Tweet</span>
+                  </li>
+                  <li>
+                    <a aria-hidden="true" class="soc-track icon-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=&t=Why your next job search may involve solving online puzzles on Fortune.com" data-share='{ "event_name" : "social_share", "social_network" : "facebook" , "click_id" : "share-facebook-button" }'></a>
+                    <span class="screen-reader-text">Facebook</span>
+                  </li>
+                  <li>
+                    <a aria-hidden="true" class="soc-track icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title= on Fortune.com:&amp;source=Fortune" data-share='{ "event_name" : "social_share", "social_network" : "linkedin" , "click_id" : "share-linkedin-button" }'></a>
+                    <span class="screen-reader-text">Linkedin</span>
+                  </li>
+                </ul>
+                <span title="Click to view article share options" aria-hidden="true" class="icon-share show-all-social-icon"></span>
+                <span class="screen-reader-text">Share icons</span></div></div>
+
+              </div>
+              <figure class="article-primary-image featured-img-article_full">
+
+                  <img alt="" itemprop="image" src="https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=1024">
+              </figure>
+              <div class="entry-content">
+                <p>A programmer works furiously to solve a puzzle on her computer screen. The prize? A chance to interview for an engineering job at a hot tech company. The correct answer may get her noticed, while a mistake will likely land her at the bottom of the resume pile.</p>
+<p>As the tech industry&#8217;s demand for engineers grows faster than companies can hire them, recruiters have had to adjust. Today, corporate giants like VMware and upstarts like Quora are increasingly using online tools to cut through the nebulous process of evaluating resumes and directly assess candidates&#8217; technical skills.</p>
+<p><a href="https://www.hackerrank.com/">HackerRank</a>, one of these services, has been quietly gaining momentum among Silicon Valley employers by helping them create puzzles and challenges to test candidates&#8217; skills. To date, more than 1 million developers have completed challenges through its service, up from only 100,000 a year ago.</p>
+<p>“What we’re trying to rank is the <em>Moneyball</em> of developers,” HackerRank co-founder and CEO Vivek Ravisankar told <i>Fortune</i> earlier this summer, referring to the title of a 2003 Michael Lewis bestselling book that popularized data-driven recruiting through the lens of the Oakland Athletics baseball team.</p>
+<p>And in this case, the sports metaphor is a fairly appropriate one. Developers who complete challenges through HackerRank are scored and ranked in comparison to others. Employers can directly see the top performers based on the data, much as the Oakland A&#8217;s manager Billy Beane did when picking recruits.</p>
+<p>But HackerRank has another potential bonus. It can help candidates without prestigious degrees and experience at name brand companies shine instead of their resumes being immediately tossed aside.</p>
+<p>“Our goal has always been, &#8216;how do you make the world flat,&#8217; where you evaluate people based on their skill?” said Ravisankar.</p>
+<p>Skills-based tools for hiring, like HackerRank, could also prove very helpful as more and more candidates learn to program through non-traditional schools. &#8220;Coding bootcamps,&#8221; brief programs that immerse participants in a particular set of programming skills, have been churning out novice web developers who often lack college computer science degrees, but can, nevertheless, be coding geniuses.</p>
+<p>“We consistently miss diamonds in the rough, we consistently miss that person that took an alternate path,” newly hired HackerRank Chief Operating Officer Grady Burnett told <i>Fortune. </i>Previously,<i> </i>Burnett led operations at mobile analytics company Flurry, and spent several years at Facebook and Google before that.</p>
+<p>It also helps U.S. employers tap into talent pools overseas. Ona Lee Allen, a recruiting manager at video games company Pocket Gems, first used HackerRank over three years ago to hire 30 engineers from abroad. She noted, however, that candidates on HackerRank seem to be largely based outside the U.S., something that might not suit every employer&#8217;s needs.</p>
+<p>Ravisankar founded the company in 2011 with Harishankaran Karunanidhi, just as the current crop of startups got started. The company was originally named InterviewStreet and only offered a handful of puzzles developers could solve after it graduated from the prestigious <a href="http://fortune.com/2015/09/30/y-combinator-hardware-unicorn/">Y Combinator startup accelerator program</a> that summer. By the following year, it had a new name and a service that more closely resembles what it is today.</p>
+<p>And business ramped up quickly for the Palo Alto, Calif.-based company. By the summer of 2014 it had worked with tech companies like Snapchat, VMware, Quora, and Evernote, among others, and had raised funding twice, totaling $12.4 million from investors like Khosla Ventures and Battery Ventures. This past summer, it added an additional $7.5 million to its coffers.</p>
+<p>Naturally, HackerRank is far from the only company building tools to improve technical recruiting. For example, CodeEval, acquired by HireVue, provides a very similar service. Then there&#8217;s Gild, which takes a different data-based approach, analyzes various criteria such as contributions to open source projects online and programming styles to show employers which candidate best matches their available positions.</p>
+<p>With increasing competition from other services, HackerRank has added more features to its product to help with more steps in the recruiting process. In addition to letting employers sponsor or even create their own challenge to attract candidates, it has built an online tool that lets them administer live programming tests — complete with video-chatting. The latter comes in handy when an employer is interested in candidates and wants to further evaluate their skills.</p>
+<p>“I have not hired one person that hasn’t been touched by HackerRank in some way,” Zenefits senior recruiting manager Michelle Delcambre told <i>Fortune</i> about her use of the service. Zenefits once sponsored a challenge on HackerRank and ended up hiring 10 developers from it.</p>
+<p>But HackerRank is still far from being a complete tool for hiring. Although it handles some of the initial steps in the process, the service still does not manage job applications beyond identifying potentially high caliber candidates.</p>
+<p>Zenefits is only one of HackerRank&#8217;s 500 enterprise-size customers, up from just 60 a year ago. Including smaller companies using its self-serve tools, HackerRank serves more than 1,200 employers. It charges companies a monthly fee to use its tools, either $199 for the basic version, or more for a custom plan. It currently has an annual revenue run rate of $5 million, the company says.</p>
+<p>HackerRank offers support for 36 programming languages, something Ravisankar says lets his company serve even more employers. It also offers challenges for a variety of jobs including web development, data science, and Android development.</p>
+<p>Ravisankar also says there&#8217;s been an uptick in companies from industries other than technology using HackerRank to hire engineers and other technical roles. When the company first started, it worked almost exclusively with traditional technology companies and startups. Now, banks and even retailers are signing up to use the service.</p>
+<p><em><a href="http://fortune.com/getdatasheet/">Subscribe to Data Sheet</a>, Fortune’s daily newsletter on the business of technology.</em></p>
+<p><em>For more about hiring trends, watch this Fortune video: </em></p>
+<div class="video-wrapper"  data-ratio="0.56363636363636" data-pos="2">
+        <object id="bc-video-4239224221001-2" class="BrightcoveExperience"><param name="bgcolor" value="#FFFFFF"/><param name="width" value="550"/><param name="height" value="310"/><param name="playerID" value="3160175193001"/><param name="playerKey" value="AQ~~,AAAB668kGak~,LMlvL4u4ShOTHD9z00VquajMOcH97tcW"/><param name="isVid" value="true"/><param name="isUI" value="true"/><param name="videoSmoothing" value="true"/><param name="seamlessTabbing" value="false"/><param name="swliveconnect" value="true"/><param name="dynamicStreaming" value="true"/><param name="autoStart" value="false"/><param name="@videoPlayer" value="4239224221001"/><param name="linkBaseURL" value="http://for.tn/1VvjXbT"/><param name="includeAPI" value="true"/><param name="templateLoadHandler" value="Fortune_onTemplateLoad"/><param name="templateReadyHandler" value="Fortune_onTemplateReady"/><param name="wmode" value="opaque"/><param name="adServerURL" value="http://pubads.g.doubleclick.net/gampad/ads?env=vp&#038;gdfp_req=1&#038;impl=s&#038;output=xml_vast2&#038;iu=/8484/fort/video_bc/careers_bc&#038;sz=1000x1&#038;cust_params=tags%3Dfortunelive%2Cleighgallagher%2Clinkedin%2Cmayapopechappell%2Cmillennials%2Cmillennialsintheworkforce%26ch%3Dcareers%26topic%3Dfortunelive&#038;unviewed_position_start=1&#038;correlator=%5Btimestamp%5D"/></object>
+      </div>
+      <script type="text/javascript">
+        brightcove.createExperiences();
+      </script>
+              </div><!-- .entry-content -->
+            </article><!-- #post- -->
+
+            <div class="navigation">
+              <ul>
+                <li>
+                  <a href="http://fortune.com/2015/10/05/hillary-clinton-gun/" rel="prev">&larr; Hillary Clinton takes aim at gun makers’ best legal defense</a>                </li>
+                <li>
+                  <a href="http://fortune.com/2015/10/05/jack-dorsey-twitter-critics/" rel="next">Jack Dorsey’s big challenge: Silencing the critics &rarr;</a>               </li>
+              </ul>
+            </div>
+
+                        </div>
+          </div>
+          <div class="navigation"></div>
+      </noscript>
+      <div class="content-well"></div>
+
+    </div>
+  </div>
+
+<div class="footer-nav-links-nojs">
+  <ul>
+    <li>
+      <a href="http://fortune.com/category/tech">TECH</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/management">MANAGEMENT</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/finance">FINANCE</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/markets">MARKETS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/careers">CAREERS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/autos">AUTOS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/international">INTERNATIONAL</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/retail">RETAIL</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/features">FEATURES</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/category/small-business">SMALL BUSINESS</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/video">VIDEO</a>
+    </li>
+    <li>
+      <a href="http://fortune.com/magazine">MAGAZINE</a>
+    </li>
+    <li>
+      <a href="http://www.fortuneconferences.com/">FORTUNE CONFERENCES</a>
+    </li>
+  </ul>
+  <p>&copy;  Time Inc. All rights reserved.</p>
+  <p>Fortune.com is a part of the Time.com network of sites.</p>
+  <p>Powered by <a href="https://vip.wordpress.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a></p>
+</div>
+<footer id="colophon" role="contentinfo">
+
+  <div class="full-width-element-wrapper">
+    <div class="places">
+                        <a href="http://fortune.com/fortune500/">Fortune 500</a>
+                  <a href="http://fortune.com/autos/">Auto</a>
+                  <a href="http://fortune.com/energy/">Energy</a>
+                  <a href="http://fortune.com/finance/">Finance</a>
+                  <a href="http://fortune.com/leadership/">Leadership</a>
+                  <a href="http://fortune.com/mpw/">Most Powerful Women</a>
+                  <a href="http://fortune.com/retail/">Retail</a>
+                  <a href="http://fortune.com/tech/">Tech</a>
+                  <a href="http://fortune.com/newsletters/">Newsletters</a>
+                  <a href="/rankings/">Rankings</a>
+                  <a href="/video/">Video</a>
+                  </div>
+
+    <div class="footer-right">
+      <a href="https://subscription.fortune.com/storefront/subscribe-to-fortune/link/1022801.html" class="footer-subscribe" data-event="hp-magazine-subscribe">subscribe</a>
+      <ul class="footer-social">
+        <li><a target="_blank" href="https://www.linkedin.com/company/fortune-magazine" title="Connect with Fortune on LinkedIn" data-event="hp-linkedin"><span class="icon icon-linkedin"></span></a></li>
+        <li><a target="_blank" href="https://www.facebook.com/FortuneMagazine" title="Connect with Fortune on Facebook" data-event="hp-fb"><span class="icon icon-facebook"></span></a></li>
+        <li><a target="_blank" href="https://twitter.com/FortuneMagazine" title="Connect with Fortune on Twitter" data-event="hp-twitter"><span class="icon icon-twitter"></span></a></li>
+        <li><a href="http://fortune.com/feedback/" title="Email Fortune" data-event="hp-mail"><span class="icon icon-mail"></span></a></li>
+      </ul>
+      <div class="copyright">
+        <p>&copy; 2016 Time Inc. All rights reserved.</p>
+        <p>Fortune.com is a part of the Time.com network of sites.</p>
+        <p>Powered by <a href="https://vip.wordpress.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a></p>
+      </div>
+    </div>
+
+    <div class="footer-static-content">
+                        <a href="http://subscription-assets.timeinc.com/prod/assets/themes/magazines/default/template-resources/html/legal/ti-corp-behavioral.html">Ad Choices</a>
+                  <a href="http://www.timeincnewsgroupcustompub.com/">Custom Content</a>
+                  <a href="https://secure.customersvc.com/servlet/Show?WESPAGE=fo/home.html&#038;MSRSMAG=FO">Customer Service</a>
+                  <a href="http://fortune.com/feedback/">Feedback</a>
+                  <a href="http://www.fortunedatastore.com">Fortune Datastore</a>
+                  <a href="http://www.fortunemediakit.com/">Media Kit</a>
+                  <a href="https://subscription.timeinc.com/storefront/privacy/fortune/generic_privacy_new.html?dnp-source=I">Privacy Policy</a>
+                  <a href="https://subscription.timeinc.com/storefront/privacy/fortune/generic_privacy_new.html?dnp-source=I#california">Your California Privacy Rights</a>
+                  <a href="http://www.fortunereprints.com">Reprints &amp; Permissions</a>
+                  <a href="http://fortune.com/sitemap/">Site Map</a>
+                  <a href="https://subscription.timeinc.com/storefront/privacy/fortune/privacy_terms_service.html">Terms of Use</a>
+                  </div>
+    <div class="disclaimer" id="marketCopyright">
+      <p class="p1">Quotes delayed at least 15 minutes. Market data provided by <a href="http://www.interactivedata.com/"><span class="s1">Interactive Data</span></a>.</p>
+      <p class="p2"></p>
+      <p class="p1">ETF and Mutual Fund data provided by <a href="http://www.morningstar.com/"><span class="s1">Morningstar, Inc.</span></a></p>
+      <p class="p3"><span class="s2">Dow Jones Terms &amp; Conditions: <a href="http://www.djindexes.com/mdsidx/html/tandc/indexestandcs.html"><span class="s3">http://www.djindexes.com/mdsidx/html/tandc/indexestandcs.html</span></a>.</span></p>
+      <p class="p1">S&amp;P Index data is the property of Chicago Mercantile Exchange Inc. and its licensors.  All rights reserved.</p>
+      <p class="p4"></p>
+      <p class="p3"><span class="s3"><a href="http://www.interactivedata-rts.com/index.php/Contents/show/content/quoteTerms">Terms &amp; Conditions</a></span><span class="s2">. Powered and implemented by <a href="http://www.interactivedata.com/idms/"><span class="s3">Interactive Data Managed Solutions</span></a></span></p>
+    </div>
+    <div class="copyright mobile">
+      <p>&copy; 2016 Time Inc. All rights reserved.</p>
+      <p>Fortune.com is a part of the Time.com network of sites.</p>
+      <p>Powered by <a href="https://vip.wordpress.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a></p>
+    </div>
+  </div>
+</footer><!-- #colophon -->
+
+
+<!-- gum-gum-ad  -->
+
+<div id="gum-gum-ad"></div>
+
+<!-- modals -->
+
+<div class="fortune-modal-overlay"></div>
+
+  <div class="fortune-modal fortune-subscribe-modal">
+    <header class="fortune-modal-header">
+      <h3>Sign In</h3>
+      <span class="icon icon-close" onclick=""></span>
+    </header>
+    <div class="fortune-modal-content">
+      <div class="sign-in subscribe-section">
+        <form class="sign-in-form fortune-modal-form" id="sign-in-form" action="https://auth.fortune.com/login.php" method="post">
+          <input type="hidden" id="rurl" name="rurl">
+          <input type="hidden" id="turl" name="turl">
+
+          <div id="sign-in-modal-error" class="modal-row hidden error">
+            Email address or Password is incorrect          </div>
+
+          <label for="sign-in-modal-email">EMAIL/USERNAME</label>
+          <input type="email" id="sign-in-modal-email" name="username" value="" placeholder="john.doe@example.com">
+
+          <label for="sign-in-modal-password">PASSWORD</label>
+          <input type="password" id="sign-in-modal-password" name="password" value="" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+
+          <input type="submit" id="sign-in-submit" value="Sign In" class="fortune-modal-button subscribe-button">
+
+          <div class="remember-me-forgot">
+            <input type="checkbox" id="Remember-Me" name="remember">
+            <label for="Remember-Me">Remember Me</label>
+            <a class="forgot-password" href="https://subscription.fortune.com/storefront/universalForgotPassword.ep?magcode=FO&origin=paywall" title="forgot password">Forgot Password?</a>
+          </div>
+        </form>
+      </div>
+      <div class="sign-up subscribe-section">
+        <h4>Want the Full Story?</h4>
+        <a class="fortune-modal-button subscribe-button" id="Subscribe" href="https://subscription.fortune.com/storefront/subscribe-to-fortune/link/1022801.html" target="_blank">SUBSCRIBE</a>
+      </div>
+    </div>
+  </div>
+
+<div class="fortune-modal fortune-newsletter-modal">
+  <header class="fortune-modal-header">
+    <h3>Get <span class="newsletter-name"></span></h3>
+    <span class="icon icon-close" onclick="" style="cursor: pointer;"></span>
+  </header>
+  <div class="fortune-modal-content">
+    <div class="newsletter-modal-content" style="position: relative;">
+      <p class="newsletter-description"></p>
+      <!-- Form action gets changed dynamically, default to Fortune CEO Daily -->
+      <form class="fortune-modal-form newsletter-form" action="http://fortune.com/wp-admin/admin-ajax.php" method="post" target="fortune_newsletter_submit_message">
+        <label for="newsletter-subscribe-email">Email</label>
+        <input id='page-type' type="hidden" name="vars[source]">
+        <input type="hidden" name="action" value="newsletter_signup" />
+        <input type="hidden" name="newsletter" value="Fortune Daily" />
+        <br/>
+        <input type="email" class="text input-field" name="email" required id="newsletter-subscribe-email" placeholder="email@fortune.com" style='margin-bottom: 10px'>
+        <input type="submit" class="fortune-modal-button newsletter-submit" value="Subscribe" style='postion: relative; margin-right: 5px;'>
+        <div class="g-recaptcha" data-sitekey="6LerBx4TAAAAAIeGhbqtGx9M72ajOTnJAlfv6tnH"></div>
+        <input type="hidden" name="recaptcha-response" value=""/>
+        <input type="hidden" id="signup" name="signup" value="c15f9e22da" /><input type="hidden" name="_wp_http_referer" value="/2015/10/05/hackerrank-recruiting-tool/" />     </form>
+      <iframe id="fortune_newsletter_submit_message" name="fortune_newsletter_submit_message" src="javascript:false;" width="620" height="200" frameBorder="0" style="display:none;" seamless></iframe>
+      <a class="newsletter-privacy-policy" href="https://subscription.timeinc.com/storefront/privacy/fortune/generic_privacy_new.html?dnp-source=G">Privacy Policy</a>
+    </div>
+  </div>
+</div>
+
+<div id="reprint-modal">
+  <div id="reprint-outer-container">
+    <div id="reprint-inner-container">
+      <div class="x-out-container">
+        <div class="close icon-close"></div>
+      </div>
+      <p>Thank you for your interest in licensing Fortune content. Please find information on various licensing contacts below and choose the one that best suits your needs:</p>
+      <ul>
+        <li>1. To license Fortune articles, excerpts, or headlines for republication in various media (including books, eBooks, film, web, newsletters, newspapers, magazines and others), please email syndication@timeinc.com.</li>
+        <li>2. To license a Fortune cover, order reprint or e-print copies of an article or cover, or license an accolade, please contact PARS International at <a href="http://www.timeincreprints.com" target="_blank">www.timeincreprints.com.</a></li>
+        <li>3. To license text only photocopies of Fortunearticles as print or digital handouts in academic settings, or in academic coursepacks, please contact the Copyright Clearance Center at <a href="http://www.copyright.com" target="_blank">www.copyright.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- end modals -->
+
+<!--[if lt IE 9]>
+<div class="fortune-modal fortune-ie8-modal">
+  <div class="fortune-modal-content">
+    <span class="icon icon-close"></span>
+    <p>Your browser, Internet Explorer 8 or below, is out of date. It has known security flaws and may not display all features of this and other websites.</p>
+    <a href="http://browser-update.org/update.html">Learn how to update your browser</a>
+  </div>
+</div>
+<a href="#ie8" class="ie8-modal-link"></a>
+<![endif]-->
+
+<!-- begin Quantcast block -->
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+
+if($.browser.version == 9.0){
+
+$('[placeholder]').focus(function() {
+  var input = $(this);
+  if (input.val() == input.attr('placeholder') || input.val() == '') {
+  input.val('');
+    input.removeClass('placeholder');
+  $(this).removeAttr('style');
+  }
+  else{
+  $(this).removeAttr('style');
+  }
+}).blur(function() {
+
+  var input = $(this);
+  if (input.val() == '' || input.val() == input.attr('placeholder')) {
+  input.addClass('placeholder');
+    input.val(input.attr('placeholder'));
+  $('[placeholder]').css({"font-size":"18px","font-weight":"bold","color":"#ccc"});
+  $('#site-nav-site-search-input').removeAttr('style');
+  $('#site-nav-site-search-input').css('background','white');
+  }
+  else{
+  $(this).removeAttr('style');
+  }
+
+}).blur().parents('form').submit(function() {
+  $(this).find('[placeholder]').each(function() {
+    var input = $(this);
+    if (input.val() == input.attr('placeholder')) {
+      input.val('');
+    }
+  })
+});
+
+}
+
+});
+
+</script>
+<noscript></noscript>
+<!-- end Quantcast block -->
+
+<script>
+/* Bootstrapped data should be placed here to avoid unnecessarily having to make extra HTTP requests on page load. */
+jQuery(document).ready(function($) {
+  Fortune.bootstrap = {
+    dividers: [
+    "\u003Cdiv class=\"divider-rule\"\/\u003E\n\u003Cdiv class=\"divider-ad divider-full-width-ad fortune-ad-unit\" data-ad-slot=\"divider-full-width-ad\" data-ad-type=\"dfp\"\u003E\u003C\/div\u003E","\u003Cdiv class=\"divider-rule\"\/\u003E\n\u003Cdiv class=\"two_ad\" data-ad-type=\"dfp\"\u003E\n\t\u003Cdiv class=\"divider-ad divider-300x250-ad fortune-ad-unit\" data-ad-slot=\"divider-300x250-ad\"\u003E\u003C\/div\u003E\n\t\u003Cdiv class=\"module\"\u003E\n\t\t\u003Cdiv class=\"sign-up-wrapper\"\u003E\n\t\t \u003Cp class=\"subscribe-to-the-fortune\"\u003ESubscribe to\u003Cspan\u003E \u003C\/span\u003E\u003Cspan class=\"newsletter-title in-Red\"\u003EThe Fortune CEO Daily\u003C\/span\u003E and get updates \u003Cspan class=\"section-primary\"\u003Edaily\u003C\/span\u003E and more!\u003C\/p\u003E\n\t\t \u003Cdiv class=\"email-wrapper clearfix\"\u003E\n\t\t\t\u003Cdiv class=\"text-entry-field-holder\"\u003E\n\t\t\t\u003C!-- Form action gets changed dynamically based on article data, default to Fortune CEO Daily --\u003E\n\t\t\u003Cform action=\"http:\/\/fortune.com\/wp-admin\/admin-ajax.php\" id=\"article-form\" method=\"post\" target=\"fortune_daily_submit_message\" onsubmit=\"window.open(this.action, 'fortune_daily_submit_message', 'width=486,height=250');\"\u003E\n\t\t\t\u003Cinput type=\"hidden\" name=\"vars[source]\" value=\"divider\"\u003E\n\t\t\t\u003Cinput type=\"hidden\" name=\"action\" value=\"newsletter_signup\" \/\u003E\n\t\t\t\u003Cinput type=\"hidden\" name=\"newsletter\" value=\"Fortune Daily\" \/\u003E\n\t\t\t\u003Cinput type=\"hidden\" name=\"recaptcha-response\" value=\"\"\/\u003E\n\t\t\t\u003Cinput required type=\"email\" class=\"enter-email text input-field\" name=\"email\" id=\"newsletter-subscribe-email\" placeholder=\"Enter your email address\" onclick=\"showCaptcha(this)\" style='margin-bottom: 10px'\u003E\n\t\t\t\u003Cinput type=\"submit\" class=\"subscribe-link fortune-modal-button newsletter-submit\" value=\"Subscribe\"\u003E\n\t\t\t\u003Cdiv class=\"g-recaptcha\" data-sitekey=\"6LerBx4TAAAAAIeGhbqtGx9M72ajOTnJAlfv6tnH\"\u003E\u003C\/div\u003E\n\t\t\t\u003Cinput type=\"hidden\" id=\"signup\" name=\"signup\" value=\"c15f9e22da\" \/\u003E\u003Cinput type=\"hidden\" name=\"_wp_http_referer\" value=\"\/2015\/10\/05\/hackerrank-recruiting-tool\/\" \/\u003E\t\t\u003C\/form\u003E\n\t\t\t\u003C\/div\u003E\n\t\t \u003C\/div\u003E\n\t\u003Cdiv id=\"fortune_daily_submit_message\"\u003E\u003C\/div\u003E\n\t  \u003Cdiv class=\"see-all-newsletters\"\u003E\n\t\t\t\u003Ca href=\"https:\/\/fortunedotcom.wordpress.com\/newsletters\" target=\"_blank\"\u003E\n\t\t\t\t\tSee all newsletters\n\t\t\t\u003C\/a\u003E\n\t\t\u003C\/div\u003E\n\t\t\u003C\/div\u003E\n\t \u003C\/div\u003E\n\u003C\/div\u003E\n"    ],
+  }
+  /*
+    On document ready, start the app
+  */
+  Fortune.start();
+});
+</script>
+
+<!-- AOL -->
+<script type="text/javascript">
+if(window.matchMedia) {
+  var mql = window.matchMedia("screen and (min-width: 1025px)"),
+  aol_button = function () {
+    if (mql.matches) {
+      window.UNB = {
+        config: {
+          theme: 'dark',
+          referrer: document.referrer,
+          devId: 'sr1Gdgz3UMHa_lqP',
+          onLoadComplete: function() {
+            jQuery('#unb-bar').css({
+              'left': '407px',
+              'top' : '54px',
+              'width' : '50%',
+        'display' : 'block',
+            });
+          }
+        }
+      };
+      (function(){var o=document.createElement('script');o.id='unb_script';o.type='text/javascript';o.async=true;o.src='https://s.aolcdn.com/os/aol/unb.min.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(o,s);})();
+    }
+  }
+  aol_button();
+  jQuery(window).on('resize', function() {
+    if (mql.matches) {
+      if (jQuery('#unb-bar').length === 0 ) {
+        aol_button();
+      } else {
+        jQuery('#unb-bar').show();
+      }
+    } else {
+      jQuery('#unb-bar').hide();
+    }
+  });
+}
+</script>
+<!-- Comscore tag -->
+<script type="text/javascript">
+  window._comscore = window._comscore || [];
+  _comscore.push({ c1: "2", c2: "6035728" });
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=6035728&c3=&c4=&c5=&c6=&c15=&cv=2.0&cj=1" />
+</noscript>
+<!-- End Comscore tag -->
+
+<!-- params for Google Remarketing tag -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 1041628332,
+    google_custom_params = window.google_tag_params,
+    google_remarketing_only = true;
+  /* ]]> */
+</script>
+<noscript>
+  <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1041628332/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+<!-- end Google Remarketing -->
+
+<!-- FaceBook Remarketing -->
+<script>
+  (function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+      var fbds = document.createElement('script');
+      fbds.async = true;
+      fbds.src = '//connect.facebook.net/en_US/fbds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(fbds, s);
+      _fbq.loaded = true;
+    }
+    _fbq.push(['addPixelId', '1610053349230002']);
+  })();
+  window._fbq = window._fbq || [];
+  window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript>
+  <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1610053349230002&amp;ev=PixelInitialized" />
+</noscript>
+<!-- end Facebook Remarketing --><script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<!-- wpcom_wp_footer -->
+  <div style="display:none">
+  </div>
+<!-- Sailthru Horizon  Async-->
+<script type="text/javascript">
+(function() {
+     function loadHorizon() {
+           var s = document.createElement('script');
+           s.type = 'text/javascript';
+          s.async = true;
+          s.src = location.protocol + '//ak.sail-horizon.com/horizon/v1.js';
+         var x = document.getElementsByTagName('script')[0];
+         x.parentNode.insertBefore(s, x);
+      }
+     loadHorizon();
+      var oldOnLoad = window.onload;
+      window.onload = function() {
+          if (typeof oldOnLoad === 'function') {
+            oldOnLoad();
+         }
+           Sailthru.setup({
+              domain: 'horizon.fortune.com'
+         });
+     };
+  })();
+ </script>
+<script type='text/javascript' src='https://s1.wp.com/_static/??/wp-content/mu-plugins/likes/queuehandler.js,/wp-includes/js/comment-reply.min.js?m=1448399201j'></script>
+<script type='text/javascript' src='http://platform.twitter.com/widgets.js?ver=20111117'></script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJyVyzEOgCAMAMAPiRXjAIPxLYINKWptoOj33dy9/eAREy9WZIWzGTlaIq6gD6liMeFY4x6obEYIQZA34tTn2sGfx3hj+e5yznYanPfOjja/csovZQ=='></script>
+<script type='text/javascript' src='//tags.tiqcdn.com/utag/timeinc/fortune.com/prod/utag.js?ver=4.5.2'></script>
+<script type='text/javascript' src='https://s1.wp.com/_static/??/wp-includes/js/jquery/ui/core.min.js,/wp-includes/js/jquery/ui/effect.min.js?m=1433512424j'></script>
+<script async='asyc' type='text/javascript' src='//b.scorecardresearch.com/beacon.js?ver=1.0.0#asyncload'></script>
+<script async='asyc' type='text/javascript' src='//widgets.outbrain.com/outbrain.js?ver=4.5.2#asyncload'></script>
+<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js?ver=4.5.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcomVipAnalytics = {"is_404":"0","is_home":"0","is_single":"1","is_front_page":"0","is_archive":"0","percentToTrack":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No search results.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate."};
+var uiAutocompleteL10n = {"noResults":"No search results.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/_static/??-eJyFzMEKwjAQBNAfMl1itehB/JaQLmVDsonuriV/bwWv2tMw8GZgbS5WVmSFYq5lW4gFju5FDZLAFi5wyF0pypDkANuAOGabUT4gPQyfHYxgpXlBHQrxf9eqkFLlfVmQ7ZfaavC+758E0xpraRkVv/pebv40Xi9nP05TegOya149'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FB_WP=FB_WP||{};FB_WP.queue={_methods:[],flushed:false,add:function(fn){FB_WP.queue.flushed?fn():FB_WP.queue._methods.push(fn)},flush:function(){for(var fn;fn=FB_WP.queue._methods.shift();){fn()}FB_WP.queue.flushed=true}};window.fbAsyncInit=function(){FB.init({"channelUrl":"https:\/\/fortunedotcom.wordpress.com\/wp-content\/themes\/vip\/plugins\/facebook\/channel.php","xfbml":true});if(FB_WP && FB_WP.queue && FB_WP.queue.flush){FB_WP.queue.flush()}}
+/* ]]> */
+</script>
+<div id="fb-root"></div><script type="text/javascript">(function(d){var id="facebook-jssdk";if(!d.getElementById(id)){var js=d.createElement("script"),ref=d.getElementsByTagName("script")[0];js.id=id,js.async=true,js.src="http:\/\/connect.facebook.net\/en_US\/all.js",ref.parentNode.insertBefore(js,ref)}})(document)</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var videosToSwap = ["4909818297001","4909844541001","4908605121001","4908605099001","4909610191001","4908605092001","4908605087001","4907743210001","4908061085001","4908550881001"];
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var fortune_wp_vars = {"object_id":"1347139","homepage":"","tabs":[{"title":"News","active":true,"endpoint":"articles","object_id":1347139,"meta":{"type":"post","data":[]}},{"title":"Popular","endpoint":"chartbeat","meta":{"type":"popular","data":[]}},{"title":"Videos","endpoint":"videos","object_id":1671131,"meta":{"type":"post","data":[]}},{"title":"Fortune 500","endpoint":"","meta":{"type":"fortune-500","data":[]}}],"ad_config":{"breakpoints":{"desktop":{"regions":{"left_rail":{"units":{"left_rail_multi":{"type":"single","size":{"width":300,"height":250},"args":{"initial_ad_rate":4,"ad_rate":10}},"native_tout":{"type":"single","refresh_disabled":true,"size":{"width":320,"height":80},"args":{"ad_rate":10}}}},"article_body":{"units":{"cm_body_subscribe_snippet":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"subscribebtm","size":{"width":142,"height":70}},"cm_body_subscribe_module":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"submodule","size":{"width":840,"height":264}}}},"dividers":{"units":{"divider_300x250":{"type":"single","size":{"width":300,"height":250}},"divider_full_width":{"type":"multi","size":["900x500","970x418","994x250","728x90"]}}},"right_rail":{"units":{"right_rail_300x600":{"type":"multi","size":["300x250","300x600"]}}},"header":{"units":{"pushdown_multi":{"type":"multi","refresh_disabled":true,"size":["101x1","970x1","970x66"]},"cm_header":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"globalheader","size":{"width":200,"height":50}}}}}},"tablet":{"regions":{"left_rail":{"units":{"left_rail_multi":{"type":"single","size":{"width":300,"height":250},"args":{"initial_ad_rate":4,"ad_rate":10}}}},"article_body":{"units":{"cm_body_subscribe_snippet":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"subscribebtm","size":{"width":142,"height":70}},"cm_body_subscribe_module":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"submodule","size":{"width":840,"height":264}}}},"dividers":{"units":{"divider_300x250":{"type":"single","size":{"width":300,"height":250}},"divider_full_width":{"type":"single","size":{"width":450,"height":375}}}},"right_rail":{"units":{"right_rail_300x600":{"type":"multi","size":["300x250","300x600"]}}},"header":{"units":{"cm_header":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"globalheader","size":{"width":200,"height":50}}}}}},"mobile":{"regions":{"left_rail":{"units":{"left_rail_multi":{"type":"single","size":{"width":300,"height":250},"args":{"initial_ad_rate":4,"ad_rate":10}}}},"article_body":{"units":{"article_body_mobile_multi":{"type":"multi","size":["300x50","320x50","300x250"]},"cm_body_subscribe_snippet":{"type":"single","refresh_disabled":true,"cm":true,"cmpos":"subscribebtm","size":{"width":142,"height":70}}}},"header":{"units":[]}}}}},"device":"desktop","context":"post","info":{"page":1,"context":"post","object_id":1347139,"page_type":"post"},"page_type":"post","paywall_domain":"auth.fortune.com","wp_ajax_url":"https:\/\/fortunedotcom.wordpress.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wp_simplereach_vars = {"pid":"538890ee97b0c992bf00006b","title":"Why your next job search may involve solving online puzzles","url":"http:\/\/fortune.com\/2015\/10\/05\/hackerrank-recruiting-tool\/","date":"2015-10-05 16:52:17 EDT","authors":["Kia Kokalitcheva"],"sections":["Tech"],"tags":["CodeEval","Coding","data scientist","Gild","HackerRank","Hiring","InterviewStreet","Programming","Recruiting","software engineer","technical hiring","technical recruiting","web development"],"landing_url":"http:\/\/fortune.com\/2015\/10\/05\/hackerrank-recruiting-tool\/","domain":"fortune.com"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyV0M0KAjEMBOAXUsPq+nMRwTeJ3WhTbBua7Pr6BvEs9jrMx8DAS9ahFqNiYJEyKSwscK/N5kLAJUDyiMpUG9waP6KFutAm6Qp+U2cTq31tB0CRK2rPhIuOtlGWJxrpH0YNjT8XKLuiRhiiu0s+D+Nhtx9Ox3Gb3jkgeSw='></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="//stats.wp.com/w.js?52" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'64089429','blog_tz':'-4','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'64089429','v':'wpcom','tz':'-4','user_id':'0','post':'1347139','subd':'fortunedotcom'}]);
+function st_vt() {var x=document.createElement("img");x.src="http://pixel.wp.com/g.gif?blog=64089429&v=wpcomvt&tz=-4&user_id=0&post=1347139&subd=fortunedotcom&rand="+Math.random();}
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1BNmNJfGhxNCVxUDExYmtib2E/SzdEJm0lUEtbdFU0fFk4cHZvcUFrZT90Tn4yQm1+R3NyNTd1NW9Tb0U9ZStwWl1kbWdSN344Z3NodzVIUHQscUpSVj8yWzdRckRhZEZEQUxQa29vUXlMcSUwRGsydXRqT1F6c1tqTmprSTdtWU9YSWNtekwuWyw/bTdQdHhJK0YzczNDYXF8VU56fj1ITCxPaHJUaTFyWCxvUkZ8W1kmeW9KSXxkOUl3Z1hXLG8rJj9Ld2EyNjc5RlkrZUIsMnxkcEpXayx8P2UrUS11S1E='}]);
+_stq.push([ 'clickTrackerInit', '64089429', '1347139' ]);
+  </script>
+<noscript><img src="http://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+  wpcom_mobile_user_agent_info.init();
+  var mobileStatsQueryString = "";
+
+  if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+    mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+
+  if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+    mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+
+  if( wpcom_mobile_user_agent_info.isIPad() )
+    mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+  if( "" != mobileStatsQueryString ) {
+    new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+  }
+
+}
+</script></body>
+</html>

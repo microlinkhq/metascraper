@@ -1,0 +1,30 @@
+{
+  "name": "metascraper",
+  "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
+  "version": "0.0.0",
+  "repository": "git://github.com/ianstormtaylor/metascraper.git",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "make dist",
+    "test": "make test"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "mocha": "^2.5.2",
+    "popsicle": "^6.2.0",
+    "source-map-support": "^0.4.0"
+  },
+  "dependencies": {
+    "date.js": "^0.3.1",
+    "is-html": "^1.0.0",
+    "is-isodate": "0.0.1",
+    "is-url": "^1.2.1",
+    "jsdom": "^9.2.0",
+    "promisify-es6": "^1.0.1",
+    "to-title-case": "^1.0.0"
+  }
+}
