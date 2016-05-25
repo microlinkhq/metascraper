@@ -13,11 +13,10 @@ import 'source-map-support/register'
 
 import assert from 'assert'
 import jsdom from 'jsdom'
-import metascraper from '..'
 import popsicle from 'popsicle'
 import { readdirSync, readFileSync } from 'fs'
 import { resolve } from 'path'
-import { scrapeUrl, scrapeHtml, scrapeWindow } from '..'
+import { scrape, scrapeUrl, scrapeHtml, scrapeWindow } from '..'
 
 /**
  * Promisify.

@@ -24,19 +24,35 @@ This metadata...
 
 ## API
 
-#### `scrape(source, [rules])` 
-
-Scrapes the `source` with matching `rules`. In this case, `source` will be automatically determined. It can either be a URL, an HTML string, or 
-
 #### `scrapeUrl(url, [rules])`
+
+```js
+import { scrapeUrl } from 'metascraper'
+
+const metadata = await scrapeUrl('http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance')
+```
 
 Scrapes the `url` with matching `rules`.
 
 #### `scrapeHtml(html, [rules])`
 
+```js
+import { scrapeHtml } from 'metascraper'
+
+const res = fetch('http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance')
+const html = res.body
+const metadata = await scrapeHtml(html)
+```
+
 Scrapes the `html` string with matching `rules`.
 
 #### `scrapeWindow(window, [rules])`
+
+```js
+import { scrapeWindow } from 'metascraper'
+
+const metadata = await scrapeWindow(window)
+```
 
 Scrapes the `window` object with matching `rules`.
 
