@@ -71,3 +71,5 @@ async function rule(window) {
 _In the browser `window` will be the global you'd expect, and server-side it would be a JSDOM instance._
 
 Passing `rules` is optional, and the defaults have been configured for the best results when scraping web articles. But if you want to tweak the results, or want to scrape for additional metadata, you can pass in additional rules, or completely overwrite them.
+
+For an idea of how rules work, [check out the default rules](/lib/rules).
