@@ -3,6 +3,8 @@
 
 A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
 
+Works on the server and in the browser!
+
 
 ## Example
 
@@ -27,7 +29,7 @@ This metadata...
 #### `scrapeUrl(url, [rules])`
 
 ```js
-import { scrapeUrl } from 'metascraper'
+import { scrapeUrl } from 'metascraper/server'
 
 const metadata = await scrapeUrl('http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance')
 ```
@@ -37,10 +39,8 @@ Scrapes the `url` with matching `rules`.
 #### `scrapeHtml(html, [rules])`
 
 ```js
-import { scrapeHtml } from 'metascraper'
+import { scrapeHtml } from 'metascraper/server'
 
-const res = fetch('http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance')
-const html = res.body
 const metadata = await scrapeHtml(html)
 ```
 
@@ -49,7 +49,7 @@ Scrapes the `html` string with matching `rules`.
 #### `scrapeWindow(window, [rules])`
 
 ```js
-import { scrapeWindow } from 'metascraper'
+import { scrapeWindow } from 'metascraper/browser'
 
 const metadata = await scrapeWindow(window)
 ```
