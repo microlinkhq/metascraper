@@ -19,7 +19,7 @@ This metadata...
 
 ...would be scraped from this article...
 
-[![](https://www.dropbox.com/s/m7qp8xb1tnkkksa/Screenshot%202016-05-06%2014.56.28.png?dl=0)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
+[![](/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
 
 
 ## API
