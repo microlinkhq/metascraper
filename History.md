@@ -1,4 +1,8 @@
 
+0.1.1
+-----
+- fix `.npmignore`
+
 0.1.0
 -----
 - add support for sync or async rules
