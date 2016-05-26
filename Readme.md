@@ -83,7 +83,7 @@ In the browser, for example inside of a Chrome extension, you might already have
 import Metascraper from 'metascraper'
 
 Metascraper
-  .scrapeUrl(window)
+  .scrapeWindow(window)
   .then(function (metadata) {
     console.log(metadata)  
   })
