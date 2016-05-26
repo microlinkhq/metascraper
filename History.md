@@ -3,6 +3,8 @@
 -----
 - improve `author` parsing
 - improve `date` parsing
+- improve `description` parsing
+- improve `image` parsing
 - improve `publisher` parsing
 - improve `title` parsing
 
