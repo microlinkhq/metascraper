@@ -1,4 +1,9 @@
 
+0.2.0
+-----
+- add support for single-function rules
+- change to ignore empty string results
+
 0.1.1
 -----
 - fix `.npmignore`
@@ -6,7 +11,7 @@
 0.1.0
 -----
 - add support for sync or async rules
-- switch from `jsdom` to `cheerio`
+- change from `jsdom` to `cheerio`
 - fix bug where babel was a required dependency
 
 0.0.2
