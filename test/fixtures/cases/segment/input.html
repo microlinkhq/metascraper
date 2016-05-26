@@ -1,0 +1,399 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scaling NSQ to 750 Billion Messages</title>
+    <meta name="author" content="Calvin French-Owen">
+    <meta name="description" content="Segment is the analytics API you&#x27;ve always wanted. It&#x27;s the easiest way to install all of your favorite analytics tools at once!">
+    <meta property="og:type" content="blog">
+    <meta property="og:site_name" content="Segment Blog">
+    <meta property="og:title" content="Scaling NSQ to 750 Billion Messages">
+    <meta property="og:description" content="Segment is the analytics API you&#x27;ve always wanted. It&#x27;s the easiest way to install all of your favorite analytics tools at once!">
+    <meta name="twitter:card" content="Segment is the analytics API you&#x27;ve always wanted. It&#x27;s the easiest way to install all of your favorite analytics tools at once!">
+    <meta name="twitter:site" content="@segment">
+    <meta name="twitter:title" value="Scaling NSQ to 750 Billion Messages">
+    <meta name="twitter:description" value="Segment is the analytics API you&#x27;ve always wanted. It&#x27;s the easiest way to install all of your favorite analytics tools at once!">
+    <meta name="twitter:creator" content="@calvinfo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Feed for Scaling NSQ to 750 Billion Messages">
+    <link rel="stylesheet" href="/blog/index.css">
+          <meta property="og:image" content="https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg">
+          <meta name="twitter:image" content="https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg">
+    <link rel="image_src" href="/blog/public/avatars/">
+    <script src="//cdn.optimizely.com/js/170430035.js"></script>
+    <script>!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("jyumwga")
+}}();</script>
+  </head>
+
+  <body>
+      <div class="Navigation Navigation--light">
+        <div class="Navigation-body">
+          <nav class="Navigation-left">
+            <h1 class="Navigation-item">
+              <a href="/" class="Navigation-logo">Segment</a>
+            </h1>
+            <nav class="LinkList Navigation-item">
+              <a href="/sources">Sources</a>
+              <a href="/warehouses">Warehouses</a>
+              <a href="/catalog">Catalog</a>
+              <a href="/pricing">Pricing</a>
+              <a href="/blog" class="selected">Blog</a>
+            </nav>
+          </nav>
+          <nav class="Navigation-right">
+            <form class="Subscribe-form" action="https://segment.us2.list-manage.com/subscribe/post" method="POST" novalidate data-location="navigation">
+              <fieldset>
+                <!-- "MERGE0" is for Mailchimp -->
+                <input name="MERGE0" id="MERGE0" class="TextField" type="email" placeholder="Get our newsletter via email">
+                <button class="SquareButton Button uppercase">Subscribe</button>
+              </fieldset>
+
+              <!-- Mailchimp account and list tokens -->
+              <input type="hidden" name="u" value="e386c08e96bf7e1661a855d90">
+              <input type="hidden" name="id" value="022d800576">
+            </form>
+
+            <a href="/blog/atom.xml" class="Cta-link rss" link="rss" ></a>
+          </nav>
+        </div>
+      </div>
+      <main data-page-type="Post" data-collection="articles,engineering" data-author="Calvin French-Owen" data-published="16 May 2016">
+        <div class="Page-sticky-wrap">
+
+          <article class="Article Article--featured"
+                    data-collection="articles,engineering"
+                    data-author="Calvin French-Owen"
+                    data-published="16 May 2016">
+            <div class="Page-alignment">
+              <div class="content-wrap">
+
+                <section class="Article">
+                  <time class="uppercase Article-date--heading" datetime="2016-05-16T00:00:00+00:00">
+                    16 May 2016
+                  </time>
+                      <a href="/blog/categories/engineering/"
+                        <span class="Category uppercase">engineering</span>
+                      </a>
+                  <h2 class="Article-title">Scaling NSQ to 750 Billion Messages</h2>
+                </section>
+
+                 <aside class="Sidebar" content="author">
+                  <div class="Sidebar-wrap">
+                    <div class="Author">
+                          <figure class="Author-avatar">
+                              <img class="Author-avatarPic" src="https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg">
+                              <img class="Author-avatarGif" src="http://i.giphy.com/3o6gaWVlTihQHsKMo0.gif">
+                          </figure>
+
+                          <section class="Author-details">
+                              <cite>
+                                <a href="/blog/authors/calvin-french-owen/" class="Author-name">
+                                  Calvin French-Owen
+                                </a>
+                              </cite>
+
+                              <p class="Author-role">
+                                  Co-Founder at
+                                Segment
+                              </p>
+
+                            <section class="Author-social">
+                                <a href="http://twitter.com/calvinfo"
+                                    class="SocialMedia-link"
+                                    rel="author"
+                                    data-icon="twitter">
+                                  calvinfo
+                                </a>
+
+                                <div class="twitter-widget">
+                                  <a class="twitter-follow-button SocialMedia-link"
+                                      href="https://twitter.com/calvinfo"
+                                      data-show-screen-name="true"
+                                      data-show-count="false"
+                                      data-lang="en">
+                                      Follow @calvinfo
+                                  </a>
+                                </div>
+                            </section>
+                          </section>
+                      <div class="Sidebar-CTAwrapper Sidebar-CTAwrapper--wideScreen">
+                          <a href="/jobs" class="ui-Button u-Space--bottomSmaller" id="jobsCTA" extras="fluid" size="small" modifier="secondary" u-space="bottom:smaller">We’re hiring</a>
+                      </div>
+
+                      <script type="text/javascript">
+                        window.twttr=(function(d,s,id){
+                        var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};
+                        if(d.getElementById(id))return;
+                          js=d.createElement(s);
+                          js.id=id;
+                          js.src="https://platform.twitter.com/widgets.js";
+                          fjs.parentNode.insertBefore(js,fjs);
+                          t._e=[];
+                          t.ready=function(f){
+                            t._e.push(f);
+                          };return t;}(document,"script","twitter-wjs"));
+                      </script>
+                    </div>
+                  </div>
+                </aside>
+
+                <div class="Article-body">
+                  <p>Since Segment’s first launch in 2012, we’ve used queues <strong>everywhere</strong>. Our API queues messages immediately. Our workers communicate by consuming from one queue and then publishing to another. It’s given us a <em>ton</em> of leeway when it comes to dealing with sudden batches of events or ensuring fault tolerance between services.</p>
+<p>We first started out with <a href="https://www.rabbitmq.com/">RabbitMQ</a>, and a single Rabbit instance handled all of our pubsub. Rabbit had lot of nice tooling around message delivery, but it turned out to be really tough to cluster and scale as we grew. It didn’t help that our client library was a bit of a mess, and frequently dropped messages (<em>anytime you have to do a <a href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf"><strong>seven-way handshake</strong> for a protocol that’s not TLS…</a> maybe re-think the tech you’re using</em>). </p>
+<p>So in January 2014, we started the search for a new queue. We evaluated a few different systems: <a href="https://github.com/wavii/darner">Darner</a>, <a href="http://redis.io/">Redis</a>, <a href="https://twitter.github.io/kestrel/">Kestrel</a>, and <a href="http://kafka.apache.org/">Kafka</a> (more on that later). Each queue had different delivery guarantees, but none of them seemed both scalable and operationally simple. And that’s when <a href="http://nsq.io/">NSQ</a> entered the picture… and it’s worked like a charm.</p>
+<p>As of today, we’ve pushed <strong>750 billion</strong> messages through NSQ, and we’re adding around <strong>150,000</strong> more every second. </p>
+<p><img src="./images/counter.gif" alt=""></p>
+<h2 id="core-concepts">Core Concepts</h2>
+<p>Before discussing how NSQ works in practice, it’s worth understanding how the queue is architected. The design is so simple, it can be understood with only a few core concepts:</p>
+<p><strong>topics</strong> - a topic is the logical key where a program <em>publishes messages</em>. Topics are created when programs first publish to them.</p>
+<p><strong>channels</strong> - channels group related consumers and load balance between them–channels are the “queues” in a sense. Every time a publisher sends a message to a <em>topic</em>, that message is copied into each <em>channel</em> that consumes from it. Consumers will read messages from a particular channel and actually create the channel on the first subscription. Channels will queue messages (first in memory, and spill over to disk) if no consumers are reading from them.</p>
+<p><strong>messages</strong> - messages form the backbone of our data flow. Consumers can choose to <em>finish</em> messages, indicating they were processed normally, or <em>requeue</em> them to be delivered later. Each message contains a <em>count</em> for the number of <em>delivery attempts</em>. Clients should <em>discard</em> messages which pass a certain threshold of deliveries or handle them out of band.</p>
+<p>NSQ also runs two programs during operation:</p>
+<p><strong>nsqd</strong> - the nsqd daemon is the core part of NSQ. It’s a standalone binary that listens for incoming messages on a single port. Each nsqd node operates independently and doesn’t share any state. When a node boots up, it registers with a set of nsqlookupd nodes and broadcasts which topics and channels are stored on the node.</p>
+<p>Clients can publish <em>or</em> read from the nsqd daemon. Typically publishers will publish to a single, <em>local</em> nsqd. Consumers read remotely from the connected set of nsqd nodes with that topic. If you don’t care about adding more nodes dynamically, you can run nsqds standalone.</p>
+<p><strong>nsqlookupd</strong> – the nsqlookupd servers work like consul or etcd, only without coordination or strong consistency (by design). Each one acts as an ephemeral datastore that individual nsqd nodes register to. Consumers connect to these nodes to determine which nsqd nodes to read from. </p>
+<h2 id="the-message-lifecycle">The Message Lifecycle</h2>
+<p>Let’s walk through a more concrete example of how this works in practice. </p>
+<p>NSQ recommends <em>co-locating</em> publishers with their corresponding nsqd instances. That means even in the face of a network partition, messages are stored locally until they are read by a consumer. What’s more, publishers don’t need to discover <em>other</em> nsqd nodes–they can always publish to the local instance.</p>
+<p>First, a publisher sends a message to its local nsqd. To do this, it first opens up a connection, and then sends a <em>PUB</em> command with the topic and message body. In this case, we publish our messages to the <em>events</em> topic to be fanned out to our different workers. </p>
+<p>The <strong><em>events</em></strong> topic will copy the message and queue it in each of the channels linked to the topic. In our case, there are three channels, one of them being the <strong><em>archives</em></strong> channel. Consumers will take these messages and upload them to S3.</p>
+<p><img src="./images/nsq.png" alt=""></p>
+<p>Messages in each of the channels will queue until a worker consumes them. If the queue goes over the in-memory limit, messages will be written to disk. </p>
+<p>The nsqd nodes will first broadcast their location to the nsqlookupds. Once they are registered, workers will discover all the nsqd nodes with the <em>events</em> topic from the lookup servers.</p>
+<p><img src="./images/nsq-lookups.png" alt=""></p>
+<p>Then each worker subscribes to each nsqd host, indicating that it’s ready to receive messages. We don’t need a fully connected graph here, but we <em>do</em> need to ensure that individual nsqd instances have enough consumers to drain their messages (or else the channels will queue up).</p>
+<p>Separate from the client library, here’s an example of what our message handling code might look like:</p>
+<pre><code class="lang-go">msg := &lt;- ch
+if msg.Attempts &gt; MAX_DELIVERY_ATTEMPTS {
+  // we discard the message if it&#39;s more than the max delivery attempts
+  // normally this is handled by the library
+  msg.Finish()
+  return
+}
+
+err, _ := request(msg)
+if err != nil {
+  log.Errorf(&quot;error making request %v\n&quot;, err)
+  msg.Requeue(BACKOFF_TIME) // an error occurred, requeue... (╯°□°)╯︵ ┻━┻
+  return
+}
+
+msg.Finish() // everything worked... (⌐■_■)
+</code></pre>
+<p>If the third party fails for any reason, we can handle the failure. In this snippet, we have three behaviors:</p>
+<ul>
+<li><strong>discard</strong> the message if it’s passed a certain number of delivery attempts</li>
+<li><strong>finish</strong> the message if it’s been processed successfully</li>
+<li><strong>requeue</strong> the message to be delivered later if an error occurs</li>
+</ul>
+<p>As you can see, the queue behavior is both <em>simple</em> and <em>explicit</em>. </p>
+<p>In our example, it’s easy to reason that we’ll tolerate <code>MAX_DELIVERY_ATTEMPTS * BACKOFF_TIME</code> minutes of failure from our integration before discarding messages. </p>
+<p>At Segment, we keep <a href="https://github.com/etsy/statsd/wiki">statsd</a> counters for message attempts, discards, requeues, and finishes to ensure that we’re achieving a good QoS. We’ll alert for services any time the number of discards exceeds the thresholds we’ve set.</p>
+<h2 id="in-practice">In Practice</h2>
+<p>In production, we run nsqd daemons on pretty much all of our instances, co-located with the publishers that write to them. There are a few reasons NSQ works so well in practice:</p>
+<p><strong>Simple protocol</strong> - this isn’t a huge issue if you already have a good client library for your queue. But, it can make a massive difference if your existing client libraries are buggy or outdated.</p>
+<p>NSQ has a fast binary protocol that is easy to implement with just a few days of work. We built our own <a href="https://github.com/segmentio/nsq.js">pure-JS node driver</a>, (at the time, only a coffeescript driver existed) which has been stable and reliable.</p>
+<p><strong>Easy to run</strong> - NSQ doesn’t have complicated watermark settings or JVM-level configuration. Instead, you can configure the number of in-memory messages and the max message size. If a queue fills up past this point, the messages will spill over to disk.</p>
+<p><strong>Distributed</strong> - because NSQ doesn’t share information between individual daemons, it’s built for distributed operation from the beginning. Individual machines can go up and down without affecting the rest of the system. Publishers can publish locally, <em>even in the face of network partitions</em>.</p>
+<p>This ‘distributed-first’ design means that NSQ can essentially scale <strong>forever</strong>. <em>Need more throughput? Add more nsqds!</em> </p>
+<p>The only shared state is kept in the lookup nodes, and even those don’t require a “global view of the universe.” It’s trivial to set up configurations where certain nsqds register with certain lookups. The only key is that the consumers can query to get the complete set. </p>
+<p><strong>Clear failure cases</strong> - NSQ sets up a clear set of trade-offs around components which might fail, and what that means for both deliverability and recovery. </p>
+<p>I’m a firm believer in the <a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment"><em>principle of least surprise</em></a>, particularly when it comes to distributed systems. Systems fail, we get it. But systems that fail in unexpected ways are impossible to build upon. You end up ignoring <em>most</em> failure cases because you can’t even begin to account for them.</p>
+<p>While they might not be as strict of guarantees as a system like Kafka can provide, the simplicity of operating NSQ makes the failure conditions exceedingly apparent.</p>
+<p><strong>UNIX-y tooling</strong> - NSQ is a good general purpose tool. So it’s not surprising that the included utilities are multi-purpose and composable. </p>
+<p>In addition to the TCP protocol, NSQ provides an HTTP interface for simple cURL-able maintenance operations. It ships with binaries for <a href="https://github.com/nsqio/nsq/tree/master/apps/to_nsq">piping from the CLI</a>, <a href="https://github.com/nsqio/nsq/blob/master/apps/nsq_tail/nsq_tail.go">tailing a queue</a>, <a href="https://github.com/nsqio/nsq/blob/master/apps/nsq_to_nsq/nsq_to_nsq.go">piping from one queue to another</a>, and <a href="https://github.com/nsqio/nsq/tree/master/apps/nsq_pubsub">HTTP pubsub</a>.</p>
+<p><img src="./images/nsqadmin.png" alt=""></p>
+<p>There’s even an <a href="https://github.com/nsqio/nsq/tree/master/nsqadmin">admin dashboard for monitoring and pausing queues</a> (including the sweet animated counter above!) that wraps the HTTP API.</p>
+<h2 id="what-s-missing-">What’s missing?</h2>
+<p>As I mentioned, that simplicity doesn’t come without trade-offs:</p>
+<p><strong>No replication</strong> - unlike other queues, NSQ doesn’t provide any sort of replication or clustering. This is part of what makes running it so simple, but it does force some hard guarantees on reliability for published messages.</p>
+<p>We partially get around this by lowering the file sync time (configurable via a flag) and backing our queues with EBS. But there’s still the possibility that a queue could indicate it’s published a message and then die immediately, effectively losing the write. </p>
+<p><strong>Basic message routing</strong> - with NSQ, topics and channels are all you get. There’s no concept of routing or affinity based upon on key. It’s something that we’d love to support for various use cases, whether it’s to filter individual messages, or route certain ones conditionally. Instead we end up building <em>routing workers</em>, which sit in-between queues and act as a smarter pass-through filter.</p>
+<p><strong>No strict ordering</strong> - though Kafka is structured as an ordered log, NSQ is not. Messages could come through at any time, in any order. For our use case, this is generally okay as all the data is timestamped, but doesn’t fit cases which require strict ordering. </p>
+<p><strong>No de-duplication</strong> - Aphyr has <a href="https://aphyr.com/posts/315-jepsen-rabbitmq">talked extensively in his posts</a> about the dangers of timeout-based systems. NSQ also falls into this trap by using a heartbeat mechanism to detect whether consumers are alive or dead. We’ve <a href="https://segment.com/blog/gotchas-from-two-years-of-node/">previously written</a> about various reasons that would cause our workers to fail heartbeat checks, so there has to be a separate step in the workers to ensure idempotency.</p>
+<h2 id="simplicity-works">Simplicity Works</h2>
+<p>As you can see, the underlying motif behind all of these benefits is <strong>simplicity</strong>. NSQ is a simple queue, which means that it’s easy to reason about and easy to spot bugs. Consumers can handle their own failure cases with confidence about how the rest of the system will behave. </p>
+<p>In fact, <em>simplicity</em> was one of the primary reasons we decided to adopt NSQ in the first place (along with many of our other software choices). The payoff has been a queueing layer that has performed flawlessly even as we’ve increased throughput by several orders of magnitude.</p>
+<p>Today, we face a more complex future. More and more of our workers require a stricter set of reliability and ordering guarantees than NSQ can easily provide. </p>
+<p>We plan to start swapping out NSQ for Kafka in those pieces of the infrastructure and get much better at running the JVM in production. There’s a definite trade-off with Kafka; we’ll have to shoulder a lot more operational complexity ourselves. On the other hand, having a replicated, ordered log would provide much better behavior for many of our services.</p>
+<p>But for any workers which fit NSQ’s trade-offs, it’s served us amazingly well. We’re looking forward to continuing to build on its rock-solid foundation.</p>
+<hr>
+<p>Thanks to:</p>
+<p>TJ Holowaychuk for creating <a href="https://github.com/segmentio/nsq.js">nsq.js</a> and helping drive its adoption at Segment.</p>
+<p>Jehiah Czebotar and Matt Reiferson for building NSQ and reading drafts of this article.</p>
+<p>Julian Gruber, Garrett Johnson, and Amir Abu Shareb for maintaining <a href="https://github.com/segmentio/nsq.js">nsq.js</a>.</p>
+<p>Tejas Manohar, Vince Prignano, Steven Miller, Tido Carriero, Andy Jiang, Achille Roussel, Peter Reinhardt, Stephen Mathieson, Brent Summers, Nathan Houle, Garrett Johnson, and Amir Abu Shareb for giving feedback on this article.</p>
+
+                </div>
+                <footer class="Article-footer">
+                  <a href="/blog" class="ui-Button u-Space--bottomSmaller" modifier="secondary" size="medium" link="back">Back to blog</a>
+                    <a href="/jobs" class="ui-Button u-Space--bottomSmaller" id="jobsCTA" size="medium" modifier="secondary" u-space="bottom:smaller">We’re hiring</a>
+                  <form class="Subscribe-form" action="https://segment.us2.list-manage.com/subscribe/post" method="POST" novalidate data-location="article-footer">
+                    <fieldset>
+                      <!-- "MERGE0" is for Mailchimp -->
+                      <input name="MERGE0" id="MERGE0" class="TextField" type="email" placeholder="Get our newsletter via email">
+                      <button class="SquareButton Button uppercase">Subscribe</button>
+                    </fieldset>
+
+                    <!-- Mailchimp account and list tokens -->
+                    <input type="hidden" name="u" value="e386c08e96bf7e1661a855d90">
+                    <input type="hidden" name="id" value="022d800576">
+                  </form>
+
+                  <a href="/blog/atom.xml" class="Cta-link rss" link="rss" ></a>
+                </footer>
+              </div>
+            </div>
+          </article>
+
+          <section class="Articles-list">
+            <div class="Page-alignment">
+              <header class="Articles-list-header uppercase">
+                Suggested Reading
+              </header>
+              <ul>
+                  <li class="Suggested-reading Article-list--item">
+                    <div class="content-wrap"><h2 class="Article-title">
+  <a href="/blog/the-deep-roots-of-js-fatigue/" class="Article-title Action-link">
+    The Deep Roots of Javascript Fatigue
+  </a>
+</h2>
+
+<p class="Article-teaser">I recently jumped back into frontend development for the first time in months, and I was immediately struck by one thing: everything had changed.
+</p>
+
+<div class="Author Author--singleLine">
+    <figure class="Author-avatar">
+        <img class="Author-avatarPic" src="https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg">
+    </figure>
+
+    <div class="Author-details">
+        <cite>
+          <a href="/blog/authors/calvin-french-owen/" class="Author-name">
+            Calvin French-Owen
+          </a>
+        </cite>
+      <time class="Article-date">15 March 2016</time>
+        <a href="/blog/categories/engineering/"
+          <span class="Category uppercase">engineering</span>
+        </a>
+    </div>
+</div>
+</div>
+                  </li>
+                  <li class="Suggested-reading Article-list--item">
+                    <div class="content-wrap"><h2 class="Article-title">
+  <a href="/blog/debugging-mixpanel-and-google-analytics-discrepancies/" class="Article-title Action-link">
+    Mixpanel and Google Analytics: Debugging Reporting Discrepancies in Four Steps
+  </a>
+</h2>
+
+<p class="Article-teaser">It’s common for teams to use multiple tools to understand how users interact with their product. Two very popular analytics tools are Google Analytics and Mixpanel. These tools compliment each other nicely since both offer slightly different analysis capabilities. But the potential downside of using two different tools is data discrepancies. That is to say, when data is inconsistent, it’s hard to trust.
+</p>
+
+<div class="Author Author--singleLine">
+    <figure class="Author-avatar">
+        <img class="Author-avatarPic" src="https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40542-1-1.jpg">
+    </figure>
+
+    <div class="Author-details">
+        <cite>
+          <a href="/blog/authors/andy-jiang/" class="Author-name">
+            Andy Jiang
+          </a>
+        </cite>
+      <time class="Article-date">18 December 2015</time>
+        <a href="/blog/categories/engineering/"
+          <span class="Category uppercase">engineering</span>
+        </a>
+    </div>
+</div>
+</div>
+                  </li>
+                  <li class="Suggested-reading Article-list--item">
+                    <div class="content-wrap"><h2 class="Article-title">
+  <a href="/blog/why-microservices/" class="Article-title Action-link">
+    Why Microservices Work For Us
+  </a>
+</h2>
+
+<p class="Article-teaser">At Segment, we’ve fully embraced the idea of microservices; but not for the reasons you might think.
+</p>
+
+<div class="Author Author--singleLine">
+    <figure class="Author-avatar">
+        <img class="Author-avatarPic" src="https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg">
+    </figure>
+
+    <div class="Author-details">
+        <cite>
+          <a href="/blog/authors/calvin-french-owen/" class="Author-name">
+            Calvin French-Owen
+          </a>
+        </cite>
+      <time class="Article-date">15 December 2015</time>
+        <a href="/blog/categories/engineering/"
+          <span class="Category uppercase">engineering</span>
+        </a>
+    </div>
+</div>
+</div>
+                  </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <div class="Page-alignment">
+        <footer class="Footer">
+          <div class="Footer-unit Footer-unit--large">
+            <a href="/" class="Footer-logo">Segment.io</a>
+          </div>
+          <nav class="Footer-unit Footer-unit--small">
+            <h4 class="Footer-title">Features</h4>
+            <a href="/integrations">Integrations</a>
+            <a href="/warehouses">Warehouses</a>
+            <a href="/business">Business</a>
+            <a href="/pricing">Pricing</a>
+          </nav>
+          <nav class="Footer-unit Footer-unit--small">
+            <h4 class="Footer-title">Company</h4>
+            <a href="/team">Team</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/partners">Partners</a>
+            <a href="/customers">Customers</a>
+          </nav>
+          <nav class="Footer-unit Footer-unit--small">
+            <h4 class="Footer-title">Resources</h4>
+            <a href="/academy">Academy</a>
+            <a href="/docs">Documentation</a>
+            <a href="/help">Help</a>
+            <a href="/blog">Blog</a>
+            <a href="https://github.com/segmentio/press-kit">Press Kit</a>
+          </nav>
+          <nav class="Footer-unit Footer-unit--large">
+            <h4 class="Footer-title">Contact</h4>
+            <p>
+              <a href="/blog/guest-author">Write for Us</a>
+            </p>
+            <address>
+              101 15th Street<br>
+              San Francisco, CA 94010
+            </address>
+          </nav>
+          <div class="Footer-legal">
+            &copy; 2014 Segment
+            <nav class="Footer-legalNav">
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
+            </nav>
+          </div>
+        </footer>      </div>
+
+      <script src="/blog/index.js"></script>
+    </div>
+  </body>
+</html>
