@@ -6,6 +6,7 @@
   "main": "./lib/index.js",
   "dependencies": {
     "cheerio": "^0.20.0",
+    "chrono-node": "^1.2.3",
     "date.js": "^0.3.1",
     "is-html": "^1.0.0",
     "is-isodate": "0.0.1",
