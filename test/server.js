@@ -1,37 +1,10 @@
 
 const assert = require('assert')
-const jsdom = require('jsdom')
-const popsicle = require('popsicle')
 const fs = require('fs')
+const jsdom = require('jsdom')
+const Metascraper = require('..')
 const path = require('path')
-const metascraper = require('..')
-
-const readdirSync = fs.readdirSync
-const readFileSync = fs.readFileSync
-const resolve = path.resolve
-
-/**
- * Promisify.
- */
-
-function env(source) {
-  return new Promise((resolve, reject) => {
-    jsdom.env({
-      url: source.url,
-      done: (err, window) => {
-        if (err) return reject(err)
-        resolve(window)
-      }
-    })
-  })
-}
-
-/**
- * Fixtures.
- */
-
-const fixturesDir = resolve(__dirname, 'fixtures')
-const fixtures = readdirSync(fixturesDir)
+const popsicle = require('popsicle')
 
 /**
  * Tests.
@@ -39,10 +12,14 @@ const fixtures = readdirSync(fixturesDir)
 
 describe('server', () => {
 
-  describe('scrapeUrl(url, rules)', () => {
-    it('it should scrape from a url', () => {
+  describe('rules', () => {
+    testFixtures('rules')
+  })
+
+  describe('api', () => {
+    it('scrapeUrl(url, rules)', () => {
       const url = 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton'
-      return metascraper.scrapeUrl(url).then((metadata) => {
+      return Metascraper.scrapeUrl(url).then((metadata) => {
         assert.deepEqual(metadata, {
           author: 'Jeff Stein',
           date: '2016-05-24T15:30:03.000Z',
@@ -53,14 +30,12 @@ describe('server', () => {
         })
       })
     })
-  })
 
-  describe('scrapeHtml(html, rules)', () => {
-    it('it should scrape from raw html', () => {
+    it('scrapeHtml(html, rules)', () => {
       const url = 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton'
       return popsicle.get(url).then((res) => {
         const html = res.body
-        return metascraper.scrapeHtml(html).then((metadata) => {
+        return Metascraper.scrapeHtml(html).then((metadata) => {
           assert.deepEqual(metadata, {
             author: 'Jeff Stein',
             date: '2016-05-24T15:30:03.000Z',
@@ -72,13 +47,11 @@ describe('server', () => {
         })
       })
     })
-  })
 
-  describe('scrapeWindow(window, rules)', () => {
-    it('it should scrape from a provided dom', () => {
+    it('scrapeWindow(window, rules)', () => {
       const url = 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton'
-      return env({ url }).then((window) => {
-        return metascraper.scrapeWindow(window).then((metadata) => {
+      return env(url).then((window) => {
+        return Metascraper.scrapeWindow(window).then((metadata) => {
           assert.deepEqual(metadata, {
             author: 'Jeff Stein',
             date: '2016-05-24T15:30:03.000Z',
@@ -90,18 +63,74 @@ describe('server', () => {
         })
       })
     })
+
+    it('RULES', () => {
+      assert.equal(typeof Metascraper.RULES, 'object')
+    })
   })
 
-  describe('rules', () => {
-    for (const dir of fixtures) {
-      it(dir, () => {
-        const input = readFileSync(resolve(__dirname, 'fixtures', dir, 'input.html'), 'utf8')
-        const output = require(resolve(__dirname, 'fixtures', dir, 'output.json'))
-        return metascraper.scrapeHtml(input).then((metadata) => {
-          assert.deepEqual(metadata, output)
-        })
-      })
-    }
+  describe('cases', () => {
+    testFixtures('cases')
   })
 
 })
+
+/**
+ * Run tests for a fixtures `collection`.
+ *
+ * @param {String} collection
+ */
+
+function testFixtures(collection) {
+  const dir = resolveFixture(collection)
+  const children = fs.readdirSync(dir)
+
+  for (const child of children) {
+    it(child, () => {
+      const inputFile = resolveFixture(collection, child, 'input.html')
+      const outputFile = resolveFixture(collection, child, 'output.json')
+      const rulesFile = resolveFixture(collection, child, 'rules.js')
+
+      const input = fs.readFileSync(inputFile)
+      const output = require(outputFile)
+      const rules = fs.existsSync(rulesFile) ? require(rulesFile) : undefined
+
+      return Metascraper
+        .scrapeHtml(input, rules)
+        .then((metadata) => {
+          assert.deepEqual(metadata, output)
+        })
+    })
+  }
+
+}
+
+/**
+ * Resolve a fixture file by `...paths`.
+ *
+ * @param {String} ...paths
+ * @return {String} path
+ */
+
+function resolveFixture(...paths) {
+  return path.resolve(__dirname, 'fixtures', ...paths)
+}
+
+/**
+ * Promisify JSDOM.
+ *
+ * @param {String} url
+ * @return {Promise} promise
+ */
+
+function env(url) {
+  return new Promise((resolve, reject) => {
+    jsdom.env({
+      url: url,
+      done: (err, window) => {
+        if (err) return reject(err)
+        resolve(window)
+      }
+    })
+  })
+}
