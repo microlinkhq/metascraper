@@ -45,7 +45,7 @@ import Metascraper from 'metascraper'
 
 Metascraper
   .scrapeUrl('http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance')
-  .then(function (metadata) {
+  .then((metadata) => {
     console.log(metadata)  
   })
 
@@ -84,7 +84,7 @@ import Metascraper from 'metascraper'
 
 Metascraper
   .scrapeWindow(window)
-  .then(function (metadata) {
+  .then((metadata) => {
     console.log(metadata)  
   })
 
@@ -109,14 +109,14 @@ Of course, you can also still scrape directly from `html` or a `url` if you choo
 
 ## Creating & Overiding Rules
 
-By default, Metascraper ships with a set of rules that are tuned to parse out information from online articles—blogs, newspapers, press releases, etc. But there's not that says that you have to use those rules. If you have a different use case, supplying your own rules is simple.
+By default, Metascraper ships with a set of rules that are tuned to parse out information from online articles—blogs, newspapers, press releases, etc. But you don't have to use the default rules. If you have a different use case, supplying your own rules is easy to do.
 
 Each rule is simply a function that receives a [Cheerio](https://github.com/cheeriojs/cheerio) instance of the document, and that returns the value it has scraped. (Or a `Promise` in the case of asynchronous scraping.) Like so:
 
 ```js
-function myRule($) {
-  const heading = $('h1').text()
-  return heading
+function myTitleRule($) {
+  const text = $('h1').text()
+  return text
 }
 ```
 
@@ -162,18 +162,36 @@ For a more complex example of how rules work, [check out the default rules](/lib
 
 ## API
 
-#### `scrapeUrl(url, [rules])`
+#### `Metascraper.scrapeUrl(url, [rules])`
 
 ```js
 import Metascraper from 'metascraper'
 
-const metadata = await Metascraper.scrapeUrl()
+Metascraper
+  .scrapeUrl(url)
+  .then((metadata) => {
+    // ...
+  })
+```
+```js
+import Metascraper from 'metascraper'
+
+const metadata = await Metascraper.scrapeUrl(url)
 ```
 
 Scrapes a `url` with an optional set of `rules`.
 
-#### `scrapeHtml(html, [rules])`
+#### `Metascraper.scrapeHtml(html, [rules])`
 
+```js
+import Metascraper from 'metascraper'
+
+Metascraper
+  .scrapeHtml(html)
+  .then((metadata) => {
+    // ...  
+  })
+```
 ```js
 import Metascraper from 'metascraper'
 
@@ -182,8 +200,17 @@ const metadata = await Metascraper.scrapeHtml(html)
 
 Scrapes an `html` string with an optional set of `rules`.
 
-#### `scrapeWindow(window, [rules])`
+#### `Metascraper.scrapeWindow(window, [rules])`
 
+```js
+import Metascraper from 'metascraper'
+
+Metascraper
+  .scrapeWindow(window)
+  .then((metadata) => {
+    // ...
+  })
+```
 ```js
 import Metascraper from 'metascraper'
 
@@ -191,6 +218,10 @@ const metadata = await Metascraper.scrapeWindow(window)
 ```
 
 Scrapes a `window` object with an optional set of `rules`.
+
+#### `Metascraper.RULES`
+
+A dictionary of the default rules, in case you want to extend them.
 
 
 ## License
