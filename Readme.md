@@ -100,7 +100,7 @@ Metascraper
 
 Or if you are using `async/await` it might look even simpler:
 
-```
+```js
 const metadata = await Metascraper.scrapeWindow(window)
 ```
 
