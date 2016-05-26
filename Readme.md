@@ -157,6 +157,20 @@ import RECIPE_RULES from 'metascraper-recipes'
 const metadata = Metascraper.scrapeHtml(html, RECIPE_RULES)
 ```
 
+And if you want to use the default rules, but with a few tweaks of your own, it's as simple as extending the object:
+
+```js
+import Metascraper from 'metascraper'
+
+const NEW_RULES = {
+  ...Metascraper.RULES,
+  title: myTitleRule,
+  summary: mySummaryRule,
+}
+
+const metadata = Metascraper.scrapeHtml(html, NEW_RULES)
+```
+
 For a more complex example of how rules work, [check out the default rules](/lib/rules).
 
 
