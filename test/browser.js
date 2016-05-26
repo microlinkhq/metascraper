@@ -10,7 +10,6 @@ require('babel-polyfill')
  */
 
 const assert = require('assert')
-const popsicle = require('popsicle')
 const metascraper = require('..')
 
 /**
