@@ -1,4 +1,11 @@
 
+0.2.2 
+-----
+- improve `author` parsing
+- improve `date` parsing
+- improve `publisher` parsing
+- improve `title` parsing
+
 0.2.1
 -----
 - improve `author` parsing
