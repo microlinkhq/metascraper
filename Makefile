@@ -19,15 +19,15 @@ node_modules: ./package.json
 	@ touch ./package.json
 
 # Build the test source.
-test/build.js: $(shell find ./lib) ./test/browser.js
-	@ $(browserify) --transform babelify --outfile ./test/build.js ./test/browser.js
+test/support/build.js: $(shell find ./lib) ./test/browser.js
+	@ $(browserify) --transform babelify --outfile ./test/support/build.js ./test/browser.js
 
 # Run the tests.
 test: test-browser test-server
 
 # Run the browser-side tests.
-test-browser: ./node_modules ./test/build.js
-	@ $(mocha-phantomjs) --reporter spec --timeout 5000 --bail ./test/browser.html
+test-browser: ./node_modules ./test/support/build.js
+	@ $(mocha-phantomjs) --reporter spec --timeout 5000 --bail ./test/support/browser.html
 
 # Run the server-side tests.
 test-server: ./node_modules
