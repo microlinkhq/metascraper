@@ -136,6 +136,18 @@ And then you can pass that rules dictionary into any of the scraping functions a
 const metadata = Metascraper.scrapeHtml(html, MY_RULES)
 ```
 
+Not only that, but instead of being just a function, rules can be passed as an array of fallbacks, in case the earlier functions in the array don't return results. Like so:
+
+```js
+const MY_RULES = {
+  title: [
+    myPreferredTitleRule,
+    myFallbackTitleRule,
+    mySuperLastResortTitleRule,
+  ]
+}
+```
+
 The beauty of the system is that it means simple scraping needs can be defined inline easily, like so:
 
 ```js
@@ -164,8 +176,12 @@ import Metascraper from 'metascraper'
 
 const NEW_RULES = {
   ...Metascraper.RULES,
-  title: myTitleRule,
   summary: mySummaryRule,
+  title: [
+    myPreferredTitleRule,
+    myFallbackTitleRule,
+    mySuperLastResortTitleRule,
+  ]
 }
 
 const metadata = Metascraper.scrapeHtml(html, NEW_RULES)
