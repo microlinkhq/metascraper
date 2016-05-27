@@ -1,4 +1,8 @@
 
+0.2.5
+-----
+- improve `date` parsing
+
 0.2.4
 -----
 - change strict `author` regex to be more inclusive
