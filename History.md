@@ -1,4 +1,8 @@
 
+0.2.4
+-----
+- change strict `author` regex to be more inclusive
+
 0.2.3
 -----
 - add support for scraping `url`
