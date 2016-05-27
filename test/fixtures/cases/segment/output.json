@@ -4,5 +4,6 @@
   "description": "Segment is the analytics API you've always wanted. It's the easiest way to install all of your favorite analytics tools at once!",
   "image": "https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg",
   "publisher": "Segment Blog",
-  "title": "Scaling NSQ to 750 Billion Messages"
+  "title": "Scaling NSQ to 750 Billion Messages",
+  "url": null
 }

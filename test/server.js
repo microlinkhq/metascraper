@@ -27,6 +27,7 @@ describe('server', () => {
           image: 'https://cdn0.vox-cdn.com/thumbor/QYiWYl9YvQu44jM5b43sLSsJOQ4=/0x164:3000x1831/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/49680847/GettyImages-533103972.0.jpg',
           publisher: 'Vox',
           title: 'We asked 5 pollsters if Donald Trump is really now ahead of Hillary Clinton',
+          url: 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton',
         })
       })
     })
@@ -43,6 +44,7 @@ describe('server', () => {
             image: 'https://cdn0.vox-cdn.com/thumbor/QYiWYl9YvQu44jM5b43sLSsJOQ4=/0x164:3000x1831/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/49680847/GettyImages-533103972.0.jpg',
             publisher: 'Vox',
             title: 'We asked 5 pollsters if Donald Trump is really now ahead of Hillary Clinton',
+            url: 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton',
           })
         })
       })
@@ -59,6 +61,7 @@ describe('server', () => {
             image: 'https://cdn0.vox-cdn.com/thumbor/QYiWYl9YvQu44jM5b43sLSsJOQ4=/0x164:3000x1831/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/49680847/GettyImages-533103972.0.jpg',
             publisher: 'Vox',
             title: 'We asked 5 pollsters if Donald Trump is really now ahead of Hillary Clinton',
+            url: 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton',
           })
         })
       })

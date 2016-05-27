@@ -27,11 +27,11 @@ test: test-browser test-server
 
 # Run the browser-side tests.
 test-browser: ./node_modules ./test/support/build.js
-	@ $(mocha-phantomjs) --reporter spec --timeout 5000 --bail ./test/support/browser.html
+	@ $(mocha-phantomjs) --reporter spec --timeout 5000 ./test/support/browser.html
 
 # Run the server-side tests.
 test-server: ./node_modules
-	@ $(mocha) --reporter spec --timeout 5000 --bail ./test/server.js
+	@ $(mocha) --reporter spec --timeout 5000 ./test/server.js
 
 # Phony targets.
 .PHONY: test

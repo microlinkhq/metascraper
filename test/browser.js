@@ -28,6 +28,7 @@ describe('browser', () => {
           image: null,
           publisher: 'Contents',
           title: 'Metascraper',
+          url: null
         })
       })
     })
