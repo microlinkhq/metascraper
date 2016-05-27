@@ -1,4 +1,8 @@
 
+0.2.3
+-----
+- add support for scraping `url`
+
 0.2.2 
 -----
 - improve `author` parsing
