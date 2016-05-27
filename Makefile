@@ -4,6 +4,7 @@ bin = ./node_modules/.bin
 browserify = $(bin)/browserify
 mocha = $(bin)/mocha
 mocha-phantomjs = $(bin)/mocha-phantomjs
+node = node
 
 # Flags.
 DEBUG ?=
@@ -11,12 +12,17 @@ DEBUG ?=
 # Config.
 ifeq ($(DEBUG),true)
 	mocha += debug
+	node += debug
 endif
 
 # Install the dependencies.
 node_modules: ./package.json
 	@ npm install
 	@ touch ./package.json
+
+# Run the comparison script.
+run-comparison:
+	@ $(node) ./support/comparison/index.js
 
 # Build the test source.
 test/support/build.js: $(shell find ./lib) ./test/browser.js
