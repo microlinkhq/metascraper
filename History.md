@@ -1,4 +1,9 @@
 
+0.2.6
+-----
+- add `keywords`
+- add comparison to similar libraries
+
 0.2.5
 -----
 - improve `date` parsing
