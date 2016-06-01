@@ -57,12 +57,11 @@ There are a handful of author libraries on npm that try to solve a similar probl
 
 ###### Author
 
-| Library     | `metascraper` | html-metadata | node-metainspector | open-graph-scraper | unfluff    |
-| :---------- | :---------- | :------------ | :----------------- | :----------------- | :--------- |
-| **Correct** | **87.5%**   | **31.25%**    | **31.25%**         | **0%**             | **34.38%** |
-| Somewhat    | 3.13%       | 0%            | 0%                 | 18.75%             | 31.25%     |
-| Incorrect   | 6.25%       | 3.13%         | 3.15%              | 12.50%             | 18.75%     |
-| Missed      | 3.13%       | 65.63%        | 65.63%             | 68.75%             | 15.63%     |
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
+| Correct   | **87.50%**    | **31.25%**      | **31.25%**           | **0%**               | **34.38%** |
+| Incorrect | 9.38%         | 3.13%           | 3.15%                | 31.25%               | 50.00%     |
+| Missed    | 3.13%         | 65.63%          | 65.63%               | 68.75%               | 15.63%     |
 
 ###### Date
 
