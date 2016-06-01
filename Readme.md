@@ -11,6 +11,7 @@ A library to easily scrape metadata from an article on the web using Open Graph 
 ## Table of Contents
 
 - [Example](#example)
+- [Metadata](#metadata)
 - [Server-side Usage](#server-side-usage)
 - [Browser-side Usage](#browser-side-usage)
 - [Creating & Overriding Rules](#creating-overriding-rules)
@@ -35,6 +36,56 @@ Using Metascraper, this metadata...
 ...would be scraped from this article...
 
 [![](/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
+
+
+## Metadata
+
+Here is a list of the metadata collected:
+
+- `author` — a human-readable representation of the author's name.
+- `date` — an ISO 8601 representation of the date the article was published.
+- `description` — the publisher's chosen description of the article.
+- `image` — an image URL that best represents the article.
+- `publisher` — a human-readable representation of the publisher's name.
+- `title` — the publisher's chosen title of the article.
+- `url` — the URL of the article.
+
+
+## Comparison
+
+There are a handful of author libraries on npm that try to solve a similar problem of collecting metadata from URLs or HTML documents. To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison:
+
+###### Author
+
+| Library     | metascraper | html-metadata | node-metainspector | open-graph-scraper | unfluff    |
+| ----------- | ----------- | ------------- | ------------------ | ------------------ | ---------- |
+| **Correct** | **87.5%**   | **31.25%**    | **31.25%**         | **0%**             | **34.38%** |
+| Somewhat    | 3.13%       | 0%            | 0%                 | 18.75%             | 31.25%     |
+| Incorrect   | 6.25%       | 3.13%         | 3.15%              | 12.50%             | 18.75%     |
+| Missed      | 3.13%       | 65.63%        | 65.63%             | 68.75%             | 15.63%     |
+
+###### Date
+
+| Library     | metascraper | html-metadata | node-metainspector | open-graph-scraper | unfluff    |
+| ----------- | ----------- | ------------- | ------------------ | ------------------ | ---------- |
+| **Correct** |             |               |                    |                    |            |
+| Somewhat    |             |               |                    |                    |            |
+| Incorrect   |             |               |                    |                    |            |
+| Missed      |             |               |                    |                    |            |
+
+
+| Library | Author | Date | Description | Image | Publisher | Title | Url |
+| ------- | ------ | ---- | ----------- | ----- | --------- | ----- | --- |
+| metascraper | 
+| node-metainspector |
+| open-graph-scraper |
+| unfluff |
+
+
+
+**Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
+
+_Note: this comparison was run against [32 sites](/support/comparison/urls.js). If you're interested, you can check out the [full results for each library](/support/comparison/results)._
 
 
 ## Server-side Usage

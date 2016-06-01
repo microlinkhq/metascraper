@@ -33,6 +33,7 @@
     "node-metainspector": "^1.3.0",
     "open-graph-scraper": "^2.1.0",
     "popsicle": "^6.2.0",
+    "rimraf": "^2.5.2",
     "source-map-support": "^0.4.0",
     "summarizer": "^1.0.0",
     "unfluff": "^1.0.0"
