@@ -43,7 +43,7 @@ Using Metascraper, this metadata...
 
 Here is a list of the metadata collected:
 
-- `author` — eg. `Noah Kulwin` — a human-readable representation of the author's name.
+- `author` — a human-readable representation of the author's name.<br/>eg. `Noah Kulwin`
 - `date` — eg. `2016-04-24T19:30:54.000Z` — an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
 - `description` — the publisher's chosen description of the article.
 - `image` — an image URL that best represents the article.
