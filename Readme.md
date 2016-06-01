@@ -136,17 +136,21 @@ _A `publisher` is correct if it's the publisher's proper name, or the publisher'
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
-| Correct   |               |                 |                      |                      |             |
-| Incorrect |               |                 |                      |                      |             |
-| Missed    |               |                 |                      |                      |             |
+| Correct   | **100.00%**   | **100.00%**     | **100.00%**          | **100.00%**          | **100.00%** |
+| Incorrect | 0.00%         | 0.00%           | 0.00%                | 0.00%                | 0.00%       |
+| Missed    | 0.00%         | 0.00%           | 0.00%                | 0.00%                | 0.00%       |
+
+_A `title` is correct if it's the title of the article, or the title of the page._
 
 ###### `url`
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
-| Correct   |               |                 |                      |                      |             |
-| Incorrect |               |                 |                      |                      |             |
-| Missed    |               |                 |                      |                      |             |
+| Correct   | **100.00%**   | **96.88%**      | **100.00%**          | **93.75%**           | **93.75%**  |
+| Incorrect | 0.00%         | 3.13%           | 0.00%                | 0.00%                | 0.00%       |
+| Missed    | 0.00%         | 0.00%           | 0.00%                | 6.25%                | 6.25%       |
+
+_A `url` is correct if it resolves back to the original article._
 
 _Note: this comparison was run against [32 sites](/support/comparison/urls.js). If you're interested, you can check out the [full results for each library](/support/comparison/results)._
 

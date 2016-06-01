@@ -135,7 +135,7 @@ module.exports = [
         description: results.description || null,
         image: results.image || null,
         publisher: results.publisher || null,
-        title: results.title || null,
+        title: results.softTitle || results.title || null,
         url: results.canonicalLink || null,
       }
     },
