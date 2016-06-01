@@ -117,8 +117,8 @@ _A `description` is correct if it's either the description the publisher chose, 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
 | Correct   | **100.00%**   | **100.00%**     | **100.00%**          | **100.00%**          | **100.00%** |
-| Incorrect | 100.00%       | 100.00%         | 100.00%              | 100.00%              | 100.00%     |
-| Missed    | 100.00%       | 100.00%         | 100.00%              | 100.00%              | 100.00%     |
+| Incorrect | 0.00%         | 0.00%           | 0.00%                | 0.00%                | 0.00%       |
+| Missed    | 0.00%         | 0.00%           | 0.00%                | 0.00%                | 0.00%       |
 
 _An `image` is correct if it's either the image the publisher chose, or the first image on the page._
 
@@ -126,9 +126,9 @@ _An `image` is correct if it's either the image the publisher chose, or the firs
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
-| Correct   |               |                 |                      |                      |             |
-| Incorrect |               |                 |                      |                      |             |
-| Missed    |               |                 |                      |                      |             |
+| Correct   | **96.88%**    | **81.25%**      | **0.00%**            | **78.13%**           | **81.25%**  |
+| Incorrect | 0.00%         | 0.00%           | 0.00%                | 12.50%               | 0.00%       |
+| Missed    | 3.13%         | 18.75%          | 100.00%              | 6.25%                | 18.75%      |
 
 ###### `title`
 
