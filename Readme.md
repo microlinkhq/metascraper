@@ -68,49 +68,83 @@ Here is a list of the metadata collected:
 
 ## Comparison
 
-There are a handful of author libraries on npm that try to solve a similar problem of collecting metadata from URLs or HTML documents. To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison:
+There are a handful of author libraries on npm that try to solve a similar problem of collecting metadata from URLs or HTML documents. 
+
+A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
+
+To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison:
+
+###### Overall
+
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   |               |                 |                      |                      |             |
+| Incorrect |               |                 |                      |                      |             |
+| Missed    |               |                 |                      |                      |             |
 
 ###### `author`
 
-| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
-| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
-| Correct   | **87.50%**    | **31.25%**      | **31.25%**           | **0.00%**            | **34.38%** |
-| Incorrect | 9.38%         | 3.13%           | 3.15%                | 31.25%               | 50.00%     |
-| Missed    | 3.13%         | 65.63%          | 65.63%               | 68.75%               | 15.63%     |
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   | **87.50%**    | **31.25%**      | **31.25%**           | **0.00%**            | **34.38%**  |
+| Incorrect | 9.38%         | 3.13%           | 3.15%                | 31.25%               | 50.00%      |
+| Missed    | 3.13%         | 65.63%          | 65.63%               | 68.75%               | 15.63%      |
 
 _An `author` is incorrect if it's not in the format of `First Last`, or has extra junk information in the string._
 
 ###### `date`
 
-| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
-| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
-| Correct   | **87.50%**    | **21.86%**      | **0.00%**            | **0.00%**            | **59.38%** |
-| Incorrect | 0.00%         | 3.13%           | 0.00%                | 0.00%                | 18.75%     |
-| Missed    | 12.50%        | 75.00%          | 0.00%                | 0.00%                | 15.63%     |
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   | **87.50%**    | **21.86%**      | **0.00%**            | **0.00%**            | **59.38%**  |
+| Incorrect | 0.00%         | 3.13%           | 0.00%                | 0.00%                | 18.75%      |
+| Missed    | 12.50%        | 75.00%          | 100.00%              | 100.00%              | 15.63%      |
 
 _A `date` is correct if it's the correct date, regardless of time. A `date` is incorrect if it's not in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format._
 
 ###### `description`
 
-| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
-| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
-| Correct   | **96.88%**    | **90.63%**      | **96.88%**           | **93.75%**           | **90.63%** |
-| Incorrect | 3.13%         | 3.13%           | 3.13%                | 3.13%                | 3.13%      |
-| Missed    | 0.00%         | 6.25%           | 0.00%                | 3.13%                | 6.25%      |
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   | **96.88%**    | **90.63%**      | **96.88%**           | **93.75%**           | **90.63%**  |
+| Incorrect | 3.13%         | 3.13%           | 3.13%                | 3.13%                | 3.13%       |
+| Missed    | 0.00%         | 6.25%           | 0.00%                | 3.13%                | 6.25%       |
 
 _A `description` is correct if it's either the description the publisher chose, or the first paragraph of the article._
 
+###### `image`
 
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   | **100.00%**   | **100.00%**     | **100.00%**          | **100.00%**          | **100.00%** |
+| Incorrect | 100.00%       | 100.00%         | 100.00%              | 100.00%              | 100.00%     |
+| Missed    | 100.00%       | 100.00%         | 100.00%              | 100.00%              | 100.00%     |
 
-| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
-| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
-| Correct   | **87.50%**    | **21.86%**      | **0.00%**            | **0.00%**            | **59.38%** |
-| Incorrect | 0.00%         | 3.13%           | 0.00%                | 0.00%                | 18.75%     |
-| Missed    | 12.50%        | 75.00%          | 0.00%                | 0.00%                | 15.63%     |
+_An `image` is correct if it's either the image the publisher chose, or the first image on the page._
 
+###### `publisher`
 
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   |               |                 |                      |                      |             |
+| Incorrect |               |                 |                      |                      |             |
+| Missed    |               |                 |                      |                      |             |
 
-A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
+###### `title`
+
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   |               |                 |                      |                      |             |
+| Incorrect |               |                 |                      |                      |             |
+| Missed    |               |                 |                      |                      |             |
+
+###### `url`
+
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
+| Correct   |               |                 |                      |                      |             |
+| Incorrect |               |                 |                      |                      |             |
+| Missed    |               |                 |                      |                      |             |
 
 _Note: this comparison was run against [32 sites](/support/comparison/urls.js). If you're interested, you can check out the [full results for each library](/support/comparison/results)._
 
