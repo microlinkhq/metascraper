@@ -78,7 +78,7 @@ There are a handful of author libraries on npm that try to solve a similar probl
 | Incorrect | 9.38%         | 3.13%           | 3.15%                | 31.25%               | 50.00%     |
 | Missed    | 3.13%         | 65.63%          | 65.63%               | 68.75%               | 15.63%     |
 
-_An `author` is marked incorrect if it's not in the format of `First Last`._
+_An `author` is marked incorrect if it's not in the format of `First Last`, or has extra junk information in the string._
 
 ###### `date`
 
