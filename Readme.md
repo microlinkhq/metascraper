@@ -46,31 +46,31 @@ Here is a list of the metadata collected:
 
 ###### `author`
 A human-readable representation of the author's name.
-eg. `Noah Kulwin`
+<br/>eg. `Noah Kulwin`
 
 ###### `date`
 An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
-eg. `2016-05-27T00:00:00.000Z`
+<br/>eg. `2016-05-27T00:00:00.000Z`
 
 ###### `description`
 The publisher's chosen description of the article.
-eg. `Venture capitalists are raising money at the fastest rate...`
+<br/>eg. `Venture capitalists are raising money at the fastest rate...`
 
 ###### `image`
 An image URL that best represents the article.
-eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`
+<br/>eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`
 
 ###### `publisher`
 A human-readable representation of the publisher's name.
-eg. `Fast Company`
+<br/>eg. `Fast Company`
 
 ###### `title`
 The publisher's chosen title of the article.
-eg. `Meet Wall Street's New A.I. Sheriffs`
+<br/>eg. `Meet Wall Street's New A.I. Sheriffs`
 
 ###### `url`
 The URL of the article.
-eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`
+<br/>eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`
 
 
 - `author` — eg. `Noah Kulwin`<br/>
