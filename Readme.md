@@ -130,6 +130,8 @@ _An `image` is correct if it's either the image the publisher chose, or the firs
 | Incorrect | 0.00%         | 0.00%           | 0.00%                | 12.50%               | 0.00%       |
 | Missed    | 3.13%         | 18.75%          | 100.00%              | 6.25%                | 18.75%      |
 
+_A `publisher` is correct if it's the publisher's proper name, or the publisher's domain name._
+
 ###### `title`
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
