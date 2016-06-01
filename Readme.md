@@ -43,8 +43,8 @@ Using Metascraper, this metadata...
 
 Here is a list of the metadata collected:
 
-- `author` — a human-readable representation of the author's name.
-- `date` — an ISO 8601 representation of the date the article was published.
+- `author` — eg. `Noah Kulwin` — a human-readable representation of the author's name.
+- `date` — eg. `2016-04-24T19:30:54.000Z` — an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
 - `description` — the publisher's chosen description of the article.
 - `image` — an image URL that best represents the article.
 - `publisher` — a human-readable representation of the publisher's name.
@@ -64,7 +64,7 @@ There are a handful of author libraries on npm that try to solve a similar probl
 | Incorrect | 9.38%         | 3.13%           | 3.15%                | 31.25%               | 50.00%     |
 | Missed    | 3.13%         | 65.63%          | 65.63%               | 68.75%               | 15.63%     |
 
-_* An `author` is marked incorrect if it is not in the format of `First Last`._
+_An `author` is marked incorrect if it is not in the format of `First Last`._
 
 ###### Date
 
@@ -74,7 +74,7 @@ _* An `author` is marked incorrect if it is not in the format of `First Last`._
 | Incorrect | 0.00%         | 3.13%           | 0.00%                | 0.00%                | 18.75%     |
 | Missed    | 12.50%        | 75.00%          | 0.00%                | 0.00%                | 15.63%     |
 
-_* A `date` is marked correct as long as it has the right publish **date**, regardless of **time**. A `date` is marked incorrect if it is not in the standard ISO 8601 format._
+_A `date` is marked correct if it is the correct **date**, regardless of **time**. A `date` is marked incorrect if it is not in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format._
 
 
 
