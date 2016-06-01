@@ -14,6 +14,7 @@ A library to easily scrape metadata from an article on the web using Open Graph 
 - [Example](#example)
 - [Metadata](#metadata)
 - [Comparison](#comparison)
+- [Installation](#installation)
 - [Server-side Usage](#server-side-usage)
 - [Browser-side Usage](#browser-side-usage)
 - [Creating & Overriding Rules](#creating-overriding-rules)
@@ -66,7 +67,6 @@ Here is a list of the metadata that **Metascraper** collects by default:
   The URL of the article.
 
 
-
 ## Comparison
 
 To give you an idea of how accurate **Metascraper** is, here is a comparison of similar libraries:
@@ -80,6 +80,15 @@ To give you an idea of how accurate **Metascraper** is, here is a comparison of 
 A big part of the reason for **Metascraper**'s higher accuracy is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. **Metascraper**'s default settings are targetted specifically at parsing online articles, which is why it's able to be more highly-tuned than the other libraries for that purpose.
 
 If you're interested in the breakdown by individual pieces of metadata, check out the [full comparison summary](/support/comparison), or dive into the [raw result data for each library](/support/comparison/results).
+
+
+## Installation
+
+Simply install with [`npm`](https://www.npmjs.com/):
+
+```
+npm install metascraper
+```
 
 
 ## Server-side Usage
