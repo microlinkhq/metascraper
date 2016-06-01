@@ -43,57 +43,27 @@ Using Metascraper, this metadata...
 
 Here is a list of the metadata collected:
 
-
-###### `author`
-A human-readable representation of the author's name.
-<br/>eg. `Noah Kulwin`
-
-###### `date`
-An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
-<br/>eg. `2016-05-27T00:00:00.000Z`
-
-###### `description`
-The publisher's chosen description of the article.
-<br/>eg. `Venture capitalists are raising money at the fastest rate...`
-
-###### `image`
-An image URL that best represents the article.
-<br/>eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`
-
-###### `publisher`
-A human-readable representation of the publisher's name.
-<br/>eg. `Fast Company`
-
-###### `title`
-The publisher's chosen title of the article.
-<br/>eg. `Meet Wall Street's New A.I. Sheriffs`
-
-###### `url`
-The URL of the article.
-<br/>eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`
-
-
 - **`author`** — eg. `Noah Kulwin`<br/>
   A human-readable representation of the author's name.
-  
+
 - **`date`** — eg. `2016-05-27T00:00:00.000Z`<br/>
   An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
-  
+
 - **`description`** — eg. `Venture capitalists are raising money at the fastest rate...`<br/>
   The publisher's chosen description of the article.
-  
+
 - **`image`** — eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`<br/>
   An image URL that best represents the article.
-  
+
 - **`publisher`** — eg. `Fast Company`<br/>
   A human-readable representation of the publisher's name.
-  
+
 - **`title`** — eg. `Meet Wall Street's New A.I. Sheriffs`<br/>
   The publisher's chosen title of the article.
-  
+
 - **`url`** — eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`<br/>
   The URL of the article.
-  
+
 
 
 ## Comparison
