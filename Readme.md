@@ -68,7 +68,7 @@ Here is a list of the metadata collected:
 
 ## Comparison
 
-There are a handful of author libraries on npm that try to solve a similar problem of collecting metadata from URLs or HTML documents. To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison of accuracies:
+To give you an idea of how accurate **Metascraper** is, here is a comparison of similar libraries:
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
