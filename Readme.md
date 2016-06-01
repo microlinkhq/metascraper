@@ -90,6 +90,24 @@ _An `author` is incorrect if it's not in the format of `First Last`, or has extr
 
 _A `date` is correct if it's the correct date, regardless of time. A `date` is incorrect if it's not in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format._
 
+###### `description`
+
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
+| Correct   | **96.88%**    | **90.63%**      | **96.88%**           | **93.75%**           | **90.63%** |
+| Incorrect | 3.13%         | 3.13%           | 3.13%                | 3.13%                | 3.13%      |
+| Missed    | 0.00%         | 6.25%           | 0.00%                | 3.13%                | 6.25%      |
+
+_A `description` is correct if it's either the description the publisher chose, or the first paragraph of the article._
+
+
+
+| Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
+| :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
+| Correct   | **87.50%**    | **21.86%**      | **0.00%**            | **0.00%**            | **59.38%** |
+| Incorrect | 0.00%         | 3.13%           | 0.00%                | 0.00%                | 18.75%     |
+| Missed    | 12.50%        | 75.00%          | 0.00%                | 0.00%                | 15.63%     |
+
 
 
 A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
