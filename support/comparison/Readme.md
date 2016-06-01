@@ -9,7 +9,7 @@ To give you an idea of how accurate **Metascraper** is, here is a comparison of 
 | Incorrect | 1.79%         | 1.79%           | 0.89%                | 6.70%                | 10.27%      |
 | Missed    | 2.68%         | 23.67%          | 37.95%               | 26.34%               | 8.95%       |
 
-A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
+A big part of the reason for **Metascraper**'s higher accuracy is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
 
 _Note: this comparison was run against [32 sites](/support/comparison/urls.js) and last updated on June 1, 2016. If you're interested, you can check out the [full results for each library](/support/comparison/results)._
 
