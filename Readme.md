@@ -70,7 +70,7 @@ Here is a list of the metadata collected:
 
 There are a handful of author libraries on npm that try to solve a similar problem of collecting metadata from URLs or HTML documents. To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison:
 
-###### Author
+###### `author`
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
@@ -80,7 +80,7 @@ There are a handful of author libraries on npm that try to solve a similar probl
 
 _An `author` is marked incorrect if it is not in the format of `First Last`._
 
-###### Date
+###### `date`
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`  |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :--------- |
