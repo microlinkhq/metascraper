@@ -70,24 +70,24 @@ Here is a list of the metadata collected:
 
 There are a handful of author libraries on npm that try to solve a similar problem of collecting metadata from URLs or HTML documents. 
 
-A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
-
-To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison:
-
-###### Overall
+To give you an idea of how **Metascraper** performs relative to other libraries, here is a comparison of accuracies:
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
-| Correct   |               |                 |                      |                      |             |
-| Incorrect |               |                 |                      |                      |             |
-| Missed    |               |                 |                      |                      |             |
+| Correct   | **95.54%**    | **74.56%**      | **61.16%**           | **66.52%**           | **70.90%**  |
+| Incorrect | 1.79%         | 1.79%           | 0.89%                | 6.70%                | 10.27%      |
+| Missed    | 2.68%         | 23.67%          | 37.95%               | 26.34%               | 8.95%       |
+
+A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. However, **Metascraper** is specifically targetted at parsing article information, which is why it's able to be more highly-tuned than the other libraries for that purpose.
+
+And here is the accuracy of each individual piece of metadata:
 
 ###### `author`
 
 | Library   | `metascraper` | `html-metadata` | `node-metainspector` | `open-graph-scraper` | `unfluff`   |
 | :-------- | :------------ | :-------------- | :------------------- | :------------------- | :---------- |
 | Correct   | **87.50%**    | **31.25%**      | **31.25%**           | **0.00%**            | **34.38%**  |
-| Incorrect | 9.38%         | 3.13%           | 3.15%                | 31.25%               | 50.00%      |
+| Incorrect | 9.38%         | 3.13%           | 3.13%                | 31.25%               | 50.00%      |
 | Missed    | 3.13%         | 65.63%          | 65.63%               | 68.75%               | 15.63%      |
 
 _An `author` is incorrect if it's not in the format of `First Last`, or has extra junk information in the string._
@@ -152,7 +152,7 @@ _A `title` is correct if it's the title of the article, or the title of the page
 
 _A `url` is correct if it resolves back to the original article._
 
-_Note: this comparison was run against [32 sites](/support/comparison/urls.js). If you're interested, you can check out the [full results for each library](/support/comparison/results)._
+_Note: this comparison was run against [32 sites](/support/comparison/urls.js) and last updated on June 1, 2016. If you're interested, you can check out the [full results for each library](/support/comparison/results)._
 
 
 ## Server-side Usage
