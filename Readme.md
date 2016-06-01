@@ -1,8 +1,9 @@
 
-# metascraper
+# Metascraper
 
 A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks. Following a few principles:
 
+- Have a high accuracy for online articles by default.
 - Be usable on the server and in the browser.
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors. 
@@ -11,6 +12,8 @@ A library to easily scrape metadata from an article on the web using Open Graph 
 ## Table of Contents
 
 - [Example](#example)
+- [Metadata](#metadata)
+- [Comparison](#comparison)
 - [Server-side Usage](#server-side-usage)
 - [Browser-side Usage](#browser-side-usage)
 - [Creating & Overriding Rules](#creating-overriding-rules)
@@ -20,7 +23,7 @@ A library to easily scrape metadata from an article on the web using Open Graph 
 
 ## Example
 
-Using Metascraper, this metadata...
+Using **Metascraper**, this metadata...
 
     {
       "author": "Ellen Huet",
@@ -35,6 +38,48 @@ Using Metascraper, this metadata...
 ...would be scraped from this article...
 
 [![](/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
+
+
+## Metadata
+
+Here is a list of the metadata that **Metascraper** collects by default:
+
+- **`author`** — eg. `Noah Kulwin`<br/>
+  A human-readable representation of the author's name.
+
+- **`date`** — eg. `2016-05-27T00:00:00.000Z`<br/>
+  An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
+
+- **`description`** — eg. `Venture capitalists are raising money at the fastest rate...`<br/>
+  The publisher's chosen description of the article.
+
+- **`image`** — eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`<br/>
+  An image URL that best represents the article.
+
+- **`publisher`** — eg. `Fast Company`<br/>
+  A human-readable representation of the publisher's name.
+
+- **`title`** — eg. `Meet Wall Street's New A.I. Sheriffs`<br/>
+  The publisher's chosen title of the article.
+
+- **`url`** — eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`<br/>
+  The URL of the article.
+
+
+
+## Comparison
+
+To give you an idea of how accurate **Metascraper** is, here is a comparison of similar libraries:
+
+| Library | [`metascraper`](https://www.npmjs.com/package/metascraper) | [`html-metadata`](https://www.npmjs.com/package/html-metadata) | [`node-metainspector`](https://www.npmjs.com/package/node-metainspector) | [`open-graph-scraper`](https://www.npmjs.com/package/open-graph-scraper) | [`unfluff`](https://www.npmjs.com/package/unfluff) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Correct | **95.54%** | **74.56%** | **61.16%** | **66.52%** | **70.90%** |
+| Incorrect | 1.79% | 1.79% | 0.89% | 6.70% | 10.27% |
+| Missed | 2.68% | 23.67% | 37.95% | 26.34% | 8.95% |
+
+A big part of the reason for **Metascraper**'s better performance is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph. **Metascraper**'s default settings are targetted specifically at parsing online articles, which is why it's able to be more highly-tuned than the other libraries for that purpose.
+
+If you're interested in the breakdown by individual pieces of metadata, check out the [full summary](/support/comparison), or dive into the [raw result data for each library](/support/comparison/results).
 
 
 ## Server-side Usage
