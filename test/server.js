@@ -18,50 +18,50 @@ describe('server', () => {
 
   describe('api', () => {
     it('scrapeUrl(url, rules)', () => {
-      const url = 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton'
+      const url = 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents'
       return Metascraper.scrapeUrl(url).then((metadata) => {
         assert.deepEqual(metadata, {
-          author: 'Jeff Stein',
-          date: '2016-05-24T15:30:03.000Z',
-          description: 'Donald Trump "certainly has a much better chance than most people are giving him," one pollster says.',
-          image: 'https://cdn0.vox-cdn.com/thumbor/QYiWYl9YvQu44jM5b43sLSsJOQ4=/0x164:3000x1831/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/49680847/GettyImages-533103972.0.jpg',
+          author: 'Dylan Matthews',
+          date: '2016-05-23T15:25:00.000Z',
+          description: 'Clinton and Carter were middling at best. Obama is LBJ or FDR level.',
+          image: 'https://cdn0.vox-cdn.com/thumbor/ppEZYJfAd9HYz3MRMBA6PLx6DtY=/0x0:3000x1667/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/46741032/GettyImages-480656886.0.jpg',
           publisher: 'Vox',
-          title: 'We asked 5 pollsters if Donald Trump is really now ahead of Hillary Clinton',
-          url: 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton',
+          title: 'Barack Obama is officially one of the most consequential presidents in American history',
+          url: 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents',
         })
       })
     })
 
     it('scrapeHtml(html, rules)', () => {
-      const url = 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton'
+      const url = 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents'
       return popsicle.get(url).then((res) => {
         const html = res.body
         return Metascraper.scrapeHtml(html).then((metadata) => {
           assert.deepEqual(metadata, {
-            author: 'Jeff Stein',
-            date: '2016-05-24T15:30:03.000Z',
-            description: 'Donald Trump "certainly has a much better chance than most people are giving him," one pollster says.',
-            image: 'https://cdn0.vox-cdn.com/thumbor/QYiWYl9YvQu44jM5b43sLSsJOQ4=/0x164:3000x1831/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/49680847/GettyImages-533103972.0.jpg',
+            author: 'Dylan Matthews',
+            date: '2016-05-23T15:25:00.000Z',
+            description: 'Clinton and Carter were middling at best. Obama is LBJ or FDR level.',
+            image: 'https://cdn0.vox-cdn.com/thumbor/ppEZYJfAd9HYz3MRMBA6PLx6DtY=/0x0:3000x1667/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/46741032/GettyImages-480656886.0.jpg',
             publisher: 'Vox',
-            title: 'We asked 5 pollsters if Donald Trump is really now ahead of Hillary Clinton',
-            url: 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton',
+            title: 'Barack Obama is officially one of the most consequential presidents in American history',
+            url: 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents',
           })
         })
       })
     })
 
     it('scrapeWindow(window, rules)', () => {
-      const url = 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton'
+      const url = 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents'
       return env(url).then((window) => {
         return Metascraper.scrapeWindow(window).then((metadata) => {
           assert.deepEqual(metadata, {
-            author: 'Jeff Stein',
-            date: '2016-05-24T15:30:03.000Z',
-            description: 'Donald Trump "certainly has a much better chance than most people are giving him," one pollster says.',
-            image: 'https://cdn0.vox-cdn.com/thumbor/QYiWYl9YvQu44jM5b43sLSsJOQ4=/0x164:3000x1831/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/49680847/GettyImages-533103972.0.jpg',
+            author: 'Dylan Matthews',
+            date: '2016-05-23T15:25:00.000Z',
+            description: 'Clinton and Carter were middling at best. Obama is LBJ or FDR level.',
+            image: 'https://cdn0.vox-cdn.com/thumbor/ppEZYJfAd9HYz3MRMBA6PLx6DtY=/0x0:3000x1667/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/46741032/GettyImages-480656886.0.jpg',
             publisher: 'Vox',
-            title: 'We asked 5 pollsters if Donald Trump is really now ahead of Hillary Clinton',
-            url: 'http://www.vox.com/2016/5/24/11745294/donald-trump-hillary-clinton',
+            title: 'Barack Obama is officially one of the most consequential presidents in American history',
+            url: 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents',
           })
         })
       })
