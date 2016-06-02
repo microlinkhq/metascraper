@@ -1,4 +1,8 @@
 
+1.0.1
+-----
+- remove unused dependencies
+
 1.0.0
 -----
 - no changes
