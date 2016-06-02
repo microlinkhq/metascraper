@@ -15,17 +15,21 @@ ifeq ($(DEBUG),true)
 	node += debug
 endif
 
+# Remove the generated files.
+clean:
+	@ rm -rf node_modules
+
 # Install the dependencies.
 node_modules: ./package.json
 	@ npm install
 	@ touch ./package.json
 
 # Run the comparison script.
-run-comparison:
+run-comparison: ./node_modules
 	@ $(node) ./support/comparison/index.js
 
 # Build the test source.
-test/support/build.js: $(shell find ./lib) ./test/browser.js
+test/support/build.js: ./node_modules $(shell find ./lib) ./test/browser.js
 	@ $(browserify) --transform babelify --outfile ./test/support/build.js ./test/browser.js
 
 # Run the tests.
