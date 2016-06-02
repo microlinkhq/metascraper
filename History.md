@@ -1,4 +1,8 @@
 
+1.0.0
+-----
+- no changes
+
 0.2.6
 -----
 - add `keywords`
