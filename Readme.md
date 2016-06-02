@@ -1,5 +1,5 @@
 
-# Metascraper
+# Metascraper [![Build Status](https://travis-ci.org/ianstormtaylor/metascraper.svg?branch=master)](https://travis-ci.org/ianstormtaylor/metascraper)
 
 A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks. Following a few principles:
 
