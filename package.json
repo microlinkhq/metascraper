@@ -1,7 +1,7 @@
 {
   "name": "metascraper",
   "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "git://github.com/ianstormtaylor/metascraper.git",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -10,7 +10,7 @@
     "chrono-node": "^1.2.3",
     "is-isodate": "0.0.1",
     "is-url": "^1.2.1",
-    "isomorphic-fetch": "^2.2.1",
+    "popsicle": "^6.2.0",
     "to-title-case": "^1.0.0"
   },
   "devDependencies": {
@@ -28,7 +28,6 @@
     "mocha-phantomjs": "^4.0.2",
     "node-metainspector": "^1.3.0",
     "open-graph-scraper": "^2.1.0",
-    "popsicle": "^6.2.0",
     "rimraf": "^2.5.2",
     "source-map-support": "^0.4.0",
     "unfluff": "^1.0.0"

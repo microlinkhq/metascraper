@@ -1,4 +1,8 @@
 
+1.0.3
+-----
+- add cookie jar
+
 1.0.2
 -----
 - remove unused dependencies

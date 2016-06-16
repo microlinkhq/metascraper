@@ -18,50 +18,55 @@ describe('server', () => {
 
   describe('api', () => {
     it('scrapeUrl(url, rules)', () => {
-      const url = 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents'
+      const url = 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html'
       return Metascraper.scrapeUrl(url).then((metadata) => {
         assert.deepEqual(metadata, {
-          author: 'Dylan Matthews',
-          date: '2016-05-23T15:25:00.000Z',
-          description: 'Clinton and Carter were middling at best. Obama is LBJ or FDR level.',
-          image: 'https://cdn0.vox-cdn.com/thumbor/ppEZYJfAd9HYz3MRMBA6PLx6DtY=/0x0:3000x1667/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/46741032/GettyImages-480656886.0.jpg',
-          publisher: 'Vox',
-          title: 'Barack Obama is officially one of the most consequential presidents in American history',
-          url: 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents',
+          author: 'Jeremy W. Peters',
+          date: '2016-05-24T00:00:00.000Z',
+          description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
+          image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
+          publisher: 'NYTimes',
+          title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
+          url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
         })
       })
     })
 
     it('scrapeHtml(html, rules)', () => {
-      const url = 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents'
-      return popsicle.get(url).then((res) => {
+      const url = 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html'
+      const request = popsicle.request({
+        url,
+        options: { jar: popsicle.jar() }
+      })
+
+      return request.then((res) => {
         const html = res.body
         return Metascraper.scrapeHtml(html).then((metadata) => {
           assert.deepEqual(metadata, {
-            author: 'Dylan Matthews',
-            date: '2016-05-23T15:25:00.000Z',
-            description: 'Clinton and Carter were middling at best. Obama is LBJ or FDR level.',
-            image: 'https://cdn0.vox-cdn.com/thumbor/ppEZYJfAd9HYz3MRMBA6PLx6DtY=/0x0:3000x1667/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/46741032/GettyImages-480656886.0.jpg',
-            publisher: 'Vox',
-            title: 'Barack Obama is officially one of the most consequential presidents in American history',
-            url: 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents',
+            author: 'Jeremy W. Peters',
+            date: '2016-05-24T00:00:00.000Z',
+            description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
+            image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
+            publisher: 'NYTimes',
+            title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
+            url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
           })
         })
       })
     })
 
     it('scrapeWindow(window, rules)', () => {
-      const url = 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents'
+      const url = 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html'
       return env(url).then((window) => {
         return Metascraper.scrapeWindow(window).then((metadata) => {
           assert.deepEqual(metadata, {
-            author: 'Dylan Matthews',
-            date: '2016-05-23T15:25:00.000Z',
-            description: 'Clinton and Carter were middling at best. Obama is LBJ or FDR level.',
-            image: 'https://cdn0.vox-cdn.com/thumbor/ppEZYJfAd9HYz3MRMBA6PLx6DtY=/0x0:3000x1667/1080x600/cdn0.vox-cdn.com/uploads/chorus_image/image/46741032/GettyImages-480656886.0.jpg',
-            publisher: 'Vox',
-            title: 'Barack Obama is officially one of the most consequential presidents in American history',
-            url: 'http://www.vox.com/2015/6/26/8849925/obama-obamacare-history-presidents',
+            author: 'Jeremy W. Peters',
+            date: '2016-05-24T00:00:00.000Z',
+            description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
+            image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
+            publisher: 'NYTimes',
+            title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
+            url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
           })
         })
       })
