@@ -1,4 +1,8 @@
 
+1.0.4
+-----
+- remove es6 default argument syntax
+
 1.0.3
 -----
 - add cookie jar
