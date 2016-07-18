@@ -22,7 +22,7 @@ describe('server', () => {
       return Metascraper.scrapeUrl(url).then((metadata) => {
         assert.deepEqual(metadata, {
           author: 'Jeremy W. Peters',
-          date: '2016-05-24T00:00:00.000Z',
+          date: '2016-05-24T18:42:05.000Z',
           description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
           image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
           publisher: 'NYTimes',
@@ -44,7 +44,7 @@ describe('server', () => {
         return Metascraper.scrapeHtml(html).then((metadata) => {
           assert.deepEqual(metadata, {
             author: 'Jeremy W. Peters',
-            date: '2016-05-24T00:00:00.000Z',
+            date: '2016-05-24T18:42:05.000Z',
             description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
             image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
             publisher: 'NYTimes',
@@ -61,7 +61,7 @@ describe('server', () => {
         return Metascraper.scrapeWindow(window).then((metadata) => {
           assert.deepEqual(metadata, {
             author: 'Jeremy W. Peters',
-            date: '2016-05-24T00:00:00.000Z',
+            date: '2016-05-24T18:42:05.000Z',
             description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
             image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
             publisher: 'NYTimes',

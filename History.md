@@ -1,4 +1,8 @@
 
+1.0.5
+-----
+- remove es6 syntax that isn't supported by node 4
+
 1.0.4
 -----
 - remove es6 default argument syntax
