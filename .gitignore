@@ -1,2 +1,3 @@
+dist
 node_modules
 test/support/build.js

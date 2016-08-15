@@ -1,4 +1,8 @@
 
+1.0.6
+-----
+- fix to work in node 4 by transpiling
+
 1.0.5
 -----
 - remove es6 syntax that isn't supported by node 4
