@@ -1,7 +1,7 @@
 {
   "name": "metascraper",
   "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": "git://github.com/ianstormtaylor/metascraper.git",
   "license": "MIT",
   "main": "./dist/index.js",
