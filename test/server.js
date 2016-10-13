@@ -72,6 +72,65 @@ describe('server', () => {
       })
     })
 
+    it('scrape({ html, url, window, rules })', () => {
+      context('when scraping only with url', () => {
+        const url = 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html'
+
+        return Metascraper.scrape({ url }).then((metadata) => {
+          assert.deepEqual(metadata, {
+            author: 'Jeremy W. Peters',
+            date: '2016-05-24T18:42:05.000Z',
+            description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
+            image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
+            publisher: 'NYTimes',
+            title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
+            url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
+          })
+        })
+      })
+
+      context('when scraping with html', () => {
+        const url = 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html'
+        const request = popsicle.request({
+          url,
+          options: { jar: popsicle.jar() }
+        })
+
+        return request.then((res) => {
+          const html = res.body
+          return Metascraper.scrape({ html, url }).then((metadata) => {
+            assert.deepEqual(metadata, {
+              author: 'Jeremy W. Peters',
+              date: '2016-05-24T18:42:05.000Z',
+              description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
+              image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
+              publisher: 'NYTimes',
+              title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
+              url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
+            })
+          })
+        })
+      })
+
+      context('when scraping in window', () => {
+        const url = 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html'
+
+        return env(url).then((window) => {
+          return Metascraper.scrape({ window }).then((metadata) => {
+            assert.deepEqual(metadata, {
+              author: 'Jeremy W. Peters',
+              date: '2016-05-24T18:42:05.000Z',
+              description: 'Iowa and New Hampshire could lose their coveted status as gatekeepers to the presidency, and independents could be barred from voting in Republican contests.',
+              image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
+              publisher: 'NYTimes',
+              title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
+              url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
+            })
+          })
+        })
+      })
+    })
+
     it('RULES', () => {
       assert.equal(typeof Metascraper.RULES, 'object')
     })
