@@ -1,3 +1,4 @@
+"use strict";
 
 const SCRAPERS = require('./scrapers')
 const URLS = require('./urls')
