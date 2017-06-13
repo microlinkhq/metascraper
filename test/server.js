@@ -27,7 +27,7 @@ describe('server', () => {
           image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
           publisher: 'NYTimes',
           title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
-          url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
+          url: 'https://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
         })
       })
     })
@@ -49,7 +49,7 @@ describe('server', () => {
             image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
             publisher: 'NYTimes',
             title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
-            url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
+            url: 'https://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
           })
         })
       })
@@ -66,7 +66,7 @@ describe('server', () => {
             image: 'https://static01.nyt.com/images/2016/05/25/us/25PRIMARYweb/25PRIMARYweb-facebookJumbo.jpg',
             publisher: 'NYTimes',
             title: 'Reeling From 2016 Chaos, G.O.P. Mulls Overhaul of Primaries',
-            url: 'http://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
+            url: 'https://www.nytimes.com/2016/05/25/us/politics/republican-primary-schedule.html',
           })
         })
       })
