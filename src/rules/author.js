@@ -33,7 +33,6 @@ const wrap = rule => $ => {
   if (!isString(value)) return
   if (isUrl(value)) return
   if (value.includes('|')) return
-
   return sanetize(value)
 }
 
