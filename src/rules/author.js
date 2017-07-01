@@ -1,6 +1,24 @@
+'use strict'
 
-let isUrl = require('is-url')
-let toTitle = require('to-title-case')
+const condenseWhitespace = require('condense-whitespace')
+const isString = require('lodash.isstring')
+const toTitle = require('to-title-case')
+const urlRegex = require('url-regex')
+const flow = require('lodash.flow')
+
+const REGEX_BY = /^[\s\n]*by[\s\n]*/im
+
+const isUrl = value => urlRegex().test(value)
+const removeBy = value => value.replace(REGEX_BY, '')
+
+const sanetize = flow([
+  // trim extra whitespace
+  condenseWhitespace,
+  // remove any extra "by" in the start of the string
+  removeBy,
+  // make it title case, since some sites have it in weird casing
+  toTitle
+])
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -9,26 +27,14 @@ let toTitle = require('to-title-case')
  * @return {Function} wrapped
  */
 
-function wrap(rule) {
-  return ($) => {
-    let value = rule($)
-    if (typeof value != 'string') return
-    if (isUrl(value)) return
-    if (value.indexOf('www.') === 0) return
-    if (value.includes('|')) return
+const wrap = rule => $ => {
+  const value = rule($)
 
-    // trim extra whitespace
-    value = value.replace(/\s+/g, ' ')
-    value = value.trim()
+  if (!isString(value)) return
+  if (isUrl(value)) return
+  if (value.includes('|')) return
 
-    // remove any extra "by" in the start of the string
-    value = value.replace(/^[\s\n]*by[\s\n]*/im, '')
-
-    // make it title case, since some sites have it in weird casing
-    value = toTitle(value)
-
-    return value
-  }
+  return sanetize(value)
 }
 
 /**
@@ -38,13 +44,11 @@ function wrap(rule) {
  * @return {Function} stricter
  */
 
-function strict(rule) {
-  return ($) => {
-    let value = rule($)
-    let regexp = /^\S+\s+\S+/
-    if (!regexp.test(value)) return
-    return value
-  }
+const strict = rule => $ => {
+  let value = rule($)
+  let regexp = /^\S+\s+\S+/
+  if (!regexp.test(value)) return
+  return value
 }
 
 /**
@@ -52,16 +56,16 @@ function strict(rule) {
  */
 
 module.exports = [
-  wrap(($) => $('meta[property="article:author"]').attr('content')),
-  wrap(($) => $('meta[name="author"]').attr('content')),
-  wrap(($) => $('meta[name="sailthru.author"]').attr('content')),
-  wrap(($) => $('[rel="author"]').first().text()),
-  wrap(($) => $('[itemprop*="author"] [itemprop="name"]').first().text()),
-  wrap(($) => $('[itemprop*="author"]').first().text()),
-  wrap(($) => $('meta[property="book:author"]').attr('content')),
-  strict(wrap(($) => $('a[class*="author"]').first().text())),
-  strict(wrap(($) => $('[class*="author"] a').first().text())),
-  strict(wrap(($) => $('[class*="author"]').first().text())),
-  strict(wrap(($) => $('[class*="byline"]').text())),
-  strict(wrap(($) => $('a[href*="/author/"]').text())),
+  wrap($ => $('meta[property="article:author"]').attr('content')),
+  wrap($ => $('meta[name="author"]').attr('content')),
+  wrap($ => $('meta[name="sailthru.author"]').attr('content')),
+  wrap($ => $('[rel="author"]').first().text()),
+  wrap($ => $('[itemprop*="author"] [itemprop="name"]').first().text()),
+  wrap($ => $('[itemprop*="author"]').first().text()),
+  wrap($ => $('meta[property="book:author"]').attr('content')),
+  strict(wrap($ => $('a[class*="author"]').first().text())),
+  strict(wrap($ => $('[class*="author"] a').first().text())),
+  strict(wrap($ => $('[class*="author"]').first().text())),
+  strict(wrap($ => $('[class*="byline"]').text())),
+  strict(wrap($ => $('a[href*="/author/"]').text()))
 ]
