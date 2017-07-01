@@ -53,7 +53,7 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown && standard",
     "pretest": "npm run lint",
-    "test": "nyc mocha"
+    "test": "TZ=UTC NODE_ENV=test nyc mocha"
   },
   "license": "MIT",
   "standard": {
