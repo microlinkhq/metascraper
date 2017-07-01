@@ -23,13 +23,11 @@ const sanetize = flow([
  * @return {Function} wrapped
  */
 
-function wrap (rule) {
-  return ($) => {
-    let value = rule($)
+const wrap = rule => $ => {
+  let value = rule($)
 
-    if (!isString(value)) return
-    return sanetize(value)
-  }
+  if (!isString(value)) return
+  return sanetize(value)
 }
 
 /**
@@ -37,12 +35,12 @@ function wrap (rule) {
  */
 
 module.exports = [
-  wrap(($) => $('meta[property="og:description"]').attr('content')),
-  wrap(($) => $('meta[name="twitter:description"]').attr('content')),
-  wrap(($) => $('meta[name="description"]').attr('content')),
-  wrap(($) => $('meta[name="sailthru.description"]').attr('content')),
-  wrap(($) => $('meta[itemprop="description"]').attr('content')),
-  wrap(($) => $('.post-content p').first().text()),
-  wrap(($) => $('.entry-content p').first().text()),
-  wrap(($) => $('article p').first().text())
+  wrap($ => $('meta[property="og:description"]').attr('content')),
+  wrap($ => $('meta[name="twitter:description"]').attr('content')),
+  wrap($ => $('meta[name="description"]').attr('content')),
+  wrap($ => $('meta[name="sailthru.description"]').attr('content')),
+  wrap($ => $('meta[itemprop="description"]').attr('content')),
+  wrap($ => $('.post-content p').first().text()),
+  wrap($ => $('.entry-content p').first().text()),
+  wrap($ => $('article p').first().text())
 ]

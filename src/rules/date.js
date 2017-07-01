@@ -12,7 +12,7 @@ const REGEX_NUMBER = /^[0-9]+$/
  * @return {Function} wrapped
  */
 
-const wrap = (rule) => ($) => {
+const wrap = rule => $ => {
   let value = rule($)
   if (!value) return
 
@@ -43,30 +43,30 @@ const wrap = (rule) => ($) => {
  */
 
 module.exports = [
-  wrap(($) => $('meta[property="article:published_time"]').attr('content')),
-  wrap(($) => $('meta[name="dc.date"]').attr('content')),
-  wrap(($) => $('meta[name="DC.date"]').attr('content')),
-  wrap(($) => $('meta[name="dc.date.issued"]').attr('content')),
-  wrap(($) => $('meta[name="DC.date.issued"]').attr('content')),
-  wrap(($) => $('meta[name="dc.date.created"]').attr('content')),
-  wrap(($) => $('meta[name="DC.date.created"]').attr('content')),
-  wrap(($) => $('meta[name="DC.Date"]').attr('content')),
-  wrap(($) => $('meta[name="date"]').attr('content')),
-  wrap(($) => $('meta[name="dcterms.date"]').attr('content')),
-  wrap(($) => $('[itemprop="datePublished"]').attr('content')),
-  wrap(($) => $('time[itemprop*="pubDate"]').attr('datetime')),
-  wrap(($) => $('time[itemprop*="pubdate"]').attr('datetime')),
-  wrap(($) => $('[property*="dc:date"]').attr('content')),
-  wrap(($) => $('[property*="dc:created"]').attr('content')),
-  wrap(($) => $('time[datetime][pubdate]').attr('datetime')),
-  wrap(($) => $('meta[name="sailthru.date"]').attr('content')),
-  wrap(($) => $('meta[property="book:release_date"]').attr('content')),
-  wrap(($) => $('time[datetime]').attr('datetime')),
-  wrap(($) => $('[class*="byline"]').text()),
-  wrap(($) => $('[class*="dateline"]').text()),
-  wrap(($) => $('[class*="date"]').text()),
-  wrap(($) => $('[id*="date"]').text()),
-  wrap(($) => $('[class*="post-meta"]').text()),
+  wrap($ => $('meta[property="article:published_time"]').attr('content')),
+  wrap($ => $('meta[name="dc.date"]').attr('content')),
+  wrap($ => $('meta[name="DC.date"]').attr('content')),
+  wrap($ => $('meta[name="dc.date.issued"]').attr('content')),
+  wrap($ => $('meta[name="DC.date.issued"]').attr('content')),
+  wrap($ => $('meta[name="dc.date.created"]').attr('content')),
+  wrap($ => $('meta[name="DC.date.created"]').attr('content')),
+  wrap($ => $('meta[name="DC.Date"]').attr('content')),
+  wrap($ => $('meta[name="date"]').attr('content')),
+  wrap($ => $('meta[name="dcterms.date"]').attr('content')),
+  wrap($ => $('[itemprop="datePublished"]').attr('content')),
+  wrap($ => $('time[itemprop*="pubDate"]').attr('datetime')),
+  wrap($ => $('time[itemprop*="pubdate"]').attr('datetime')),
+  wrap($ => $('[property*="dc:date"]').attr('content')),
+  wrap($ => $('[property*="dc:created"]').attr('content')),
+  wrap($ => $('time[datetime][pubdate]').attr('datetime')),
+  wrap($ => $('meta[name="sailthru.date"]').attr('content')),
+  wrap($ => $('meta[property="book:release_date"]').attr('content')),
+  wrap($ => $('time[datetime]').attr('datetime')),
+  wrap($ => $('[class*="byline"]').text()),
+  wrap($ => $('[class*="dateline"]').text()),
+  wrap($ => $('[class*="date"]').text()),
+  wrap($ => $('[id*="date"]').text()),
+  wrap($ => $('[class*="post-meta"]').text()),
   wrap(($, url) => {
     const regexp = /(\d{4}[-/]\d{2}[-/]\d{2})/
     const match = regexp.exec(url)
@@ -76,7 +76,7 @@ module.exports = [
     const date = new Date(string)
     return date.toISOString()
   }),
-  wrap(($) => {
+  wrap($ => {
     const text = $('[class*="byline"]').text()
     if (!text) return
 
