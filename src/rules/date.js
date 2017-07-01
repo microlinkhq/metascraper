@@ -3,6 +3,8 @@
 const isIso = require('is-isodate')
 const chrono = require('chrono-node')
 
+const REGEX_POST_META = /(\d{4}[-/]\d{2}[-/]\d{2})/
+const REGEX_BY_LINE = /(\w+ \d{2},? \d{4})/
 const REGEX_NUMBER = /^[0-9]+$/
 
 /**
@@ -68,8 +70,7 @@ module.exports = [
   wrap($ => $('[id*="date"]').text()),
   wrap($ => $('[class*="post-meta"]').text()),
   wrap(($, url) => {
-    const regexp = /(\d{4}[-/]\d{2}[-/]\d{2})/
-    const match = regexp.exec(url)
+    const match = REGEX_POST_META.exec(url)
     if (!match) return
 
     const string = match[1]
@@ -80,8 +81,7 @@ module.exports = [
     const text = $('[class*="byline"]').text()
     if (!text) return
 
-    const regexp = /(\w+ \d{2},? \d{4})/
-    const match = regexp.exec(text)
+    const match = REGEX_BY_LINE.exec(text)
     if (!match) return
 
     const string = match[1]

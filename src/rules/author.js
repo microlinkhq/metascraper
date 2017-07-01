@@ -7,6 +7,7 @@ const urlRegex = require('url-regex')
 const flow = require('lodash.flow')
 
 const REGEX_BY = /^[\s\n]*by[\s\n]*/im
+const REGEX_STRICT = /^\S+\s+\S+/
 
 const isUrl = value => urlRegex().test(value)
 const removeBy = value => value.replace(REGEX_BY, '')
@@ -44,9 +45,9 @@ const wrap = rule => $ => {
  */
 
 const strict = rule => $ => {
-  let value = rule($)
-  let regexp = /^\S+\s+\S+/
-  if (!regexp.test(value)) return
+  const value = rule($)
+
+  if (!REGEX_STRICT.test(value)) return
   return value
 }
 

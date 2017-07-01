@@ -13,7 +13,7 @@ const isUrl = value => urlRegex().test(value)
  */
 
 const wrap = rule => $ => {
-  let value = rule($)
+  const value = rule($)
 
   if (!isUrl(value)) return
   return normalizeUrl(value, {

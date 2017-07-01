@@ -1,6 +1,10 @@
 'use strict'
 
 const isString = require('lodash.isstring')
+const condenseWhitespace = require('condense-whitespace')
+
+const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
+const REGEX_TITLE = /^.*?\|\s+(.*)$/
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -10,14 +14,10 @@ const isString = require('lodash.isstring')
  */
 
 const wrap = rule => $ => {
-  let value = rule($)
+  const value = rule($)
+
   if (!isString(value)) return
-
-  // remove whitespace and new lines
-  value = value.trim()
-  value = value.replace(/\n/gm, '')
-
-  return value
+  return condenseWhitespace(value)
 }
 
 /**
@@ -42,17 +42,15 @@ module.exports = [
   wrap($ => $('[class*="logo"] a img[alt]').attr('alt')),
   wrap($ => $('[class*="logo"] img[alt]').attr('alt')),
   wrap($ => {
-    let title = $('title').text().trim()
-    let regexp = /^.*?\|\s+(.*)$/
-    let matches = regexp.exec(title)
+    const title = $('title').text().trim()
+    const matches = REGEX_TITLE.exec(title)
     if (!matches) return
     return matches[1]
   }),
   wrap($ => $('[itemtype="http://schema.org/Blog"] [itemprop="name"]').attr('content')),
   wrap($ => {
-    let desc = $('link[rel="alternate"][type="application/atom+xml"]').attr('title')
-    let regexp = /^(.*?)\s[-|]\satom$/i
-    let matches = regexp.exec(desc)
+    const desc = $('link[rel="alternate"][type="application/atom+xml"]').attr('title')
+    const matches = REGEX_RSS.exec(desc)
     if (!matches) return
     return matches[1]
   })

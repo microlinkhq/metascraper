@@ -24,7 +24,7 @@ const sanetize = flow([
  */
 
 const wrap = rule => $ => {
-  let value = rule($)
+  const value = rule($)
 
   if (!isString(value)) return
   return sanetize(value)
