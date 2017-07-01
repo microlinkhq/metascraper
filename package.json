@@ -14,10 +14,6 @@
   "bugs": {
     "url": "https://github.com/smartlinkhq/smartlink-core/issues"
   },
-  "files": [
-    "src",
-    "index.js"
-  ],
   "keywords": [
     "metadata"
   ],
@@ -30,6 +26,7 @@
     "lodash.isstring": "~4.0.1",
     "lodash.reduce": "~4.6.0",
     "normalize-url": "~1.9.1",
+    "req-all": "~1.0.0",
     "to-title-case": "~1.0.0",
     "url-regex": "~4.1.1"
   },
@@ -47,6 +44,10 @@
   "engines": {
     "node": ">= 8"
   },
+  "files": [
+    "index.js",
+    "src"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
