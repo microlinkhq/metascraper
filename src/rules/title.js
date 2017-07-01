@@ -1,16 +1,14 @@
 'use strict'
 
 const isString = require('lodash.isstring')
+const condenseWhitespace = require('condense-whitespace')
 
 function wrap (rule) {
   return ($) => {
     const value = rule($)
 
     if (!isString(value)) return
-
-    return value
-      .replace(/\s+/g, ' ') // remove extra whitespace
-      .trim()
+    return condenseWhitespace(value)
   }
 }
 
