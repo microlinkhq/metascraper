@@ -25,31 +25,10 @@ const get = require('simple-get')
 get.concat('http://example.com', function (err, res, html) {
   if (err) throw err
 
-  const output = smartlinkCore(html)
+  const output = smartlink(html)
   console.log(output)
 })
 ```
-
-## API
-
-### smartlinkCore(input, [options])
-
-#### input
-
-*Required*<br>
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
 ## License
 
 MIT © [](https://github.com/smartlinkhq).
