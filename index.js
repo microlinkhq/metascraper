@@ -1,8 +1,9 @@
 'use strict'
 
-const rules = require('req-all')('./src/rules')
 const reduce = require('lodash.reduce')
-const cheerio = require('cheerio')
+
+const rules = require('req-all')('./src/rules')
+const loadHtml = require('./src/html')
 
 const isValid = result => result !== null && result !== undefined && result !== ''
 
@@ -18,9 +19,7 @@ const getValue = ($, conditions) => {
 }
 
 module.exports = rawHtml => {
-  const html = cheerio.load(rawHtml, {
-    lowerCaseAttributeNames: true
-  })
+  const html = loadHtml(rawHtml)
 
   return reduce(rules, (acc, conditions, ruleName) => {
     const value = getValue(html, conditions)
