@@ -2,9 +2,6 @@
 
 const normalizeUrl = require('normalize-url')
 const isString = require('lodash.isstring')
-const urlRegex = require('url-regex')
-
-const isUrl = value => urlRegex().test(value)
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -16,10 +13,6 @@ const isUrl = value => urlRegex().test(value)
 const wrap = rule => $ => {
   let value = rule($)
   if (!isString(value)) return
-
-  // make sure it's a url
-  value = value.trim()
-  if (!isUrl(value)) return
 
   return normalizeUrl(value, {
     stripWWW: false

@@ -37,7 +37,5 @@ module.exports = [
   wrap($ => $('meta[name="sailthru.image.full"]').attr('content')),
   wrap($ => $('meta[name="sailthru.image.thumb"]').attr('content')),
   wrap($ => $('article img[src]').first().attr('src')),
-  wrap($ => $('#content img[src]').first().attr('src')),
-  wrap($ => $('[class*="article"] img[src]').first().attr('src')),
-  wrap($ => $('img[src]').first().attr('src'))
+  wrap($ => $('#content img[src]').first().attr('src'))
 ]

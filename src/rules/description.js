@@ -41,6 +41,5 @@ module.exports = [
   wrap($ => $('meta[name="sailthru.description"]').attr('content')),
   wrap($ => $('meta[itemprop="description"]').attr('content')),
   wrap($ => $('.post-content p').first().text()),
-  wrap($ => $('.entry-content p').first().text()),
-  wrap($ => $('article p').first().text())
+  wrap($ => $('.entry-content p').first().text())
 ]

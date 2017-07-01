@@ -3,10 +3,6 @@
 const chrono = require('chrono-node')
 const isIso = require('isostring')
 
-const REGEX_POST_META = /(\d{4}[-/]\d{2}[-/]\d{2})/
-const REGEX_BY_LINE = /(\w+ \d{2},? \d{4})/
-const REGEX_NUMBER = /^[0-9]+$/
-
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -23,13 +19,6 @@ const wrap = rule => $ => {
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
-
-  // parse number strings as milliseconds
-  if (REGEX_NUMBER.test(value)) {
-    const int = parseInt(value, 10)
-    const date = new Date(int)
-    return date.toISOString()
-  }
 
   // try to parse with the built-in date parser
   const native = new Date(value)
@@ -68,24 +57,5 @@ module.exports = [
   wrap($ => $('[class*="dateline"]').text()),
   wrap($ => $('[class*="date"]').text()),
   wrap($ => $('[id*="date"]').text()),
-  wrap($ => $('[class*="post-meta"]').text()),
-  wrap(($, url) => {
-    const match = REGEX_POST_META.exec(url)
-    if (!match) return
-
-    const string = match[1]
-    const date = new Date(string)
-    return date.toISOString()
-  }),
-  wrap($ => {
-    const text = $('[class*="byline"]').text()
-    if (!text) return
-
-    const match = REGEX_BY_LINE.exec(text)
-    if (!match) return
-
-    const string = match[1]
-    const date = new Date(string)
-    return date.toISOString()
-  })
+  wrap($ => $('[class*="post-meta"]').text())
 ]
