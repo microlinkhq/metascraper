@@ -1,6 +1,6 @@
 {
   "author": "Tony Gentilcore",
-  "date": "2012-06-13T10:00:00.000Z",
+  "date": "2012-06-13T12:00:00.000Z",
   "description": "Browser performance guru, Nat Duca, has introduced high resolution timing to JavaScript. Ready to try in Chrome 20, the experimental window.performance.webkitNow() interface provides microsecond resolution and guarantees not to flow backward (monotonically nondecreasing).",
   "image": "http://4.bp.blogspot.com/-f2MG3BXeZxY/T8sN8avF8MI/AAAAAAAAJxE/gJmx_aUEK-s/w1200-h630-p-nu/Screen%2BShot%2B2012-06-03%2Bat%2B12.09.18%2BAM.png",
   "publisher": "Fastersite",
