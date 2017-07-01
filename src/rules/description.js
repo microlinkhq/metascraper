@@ -1,3 +1,20 @@
+'use strict'
+
+const condenseWhitespace = require('condense-whitespace')
+const isString = require('lodash.isstring')
+const flow = require('lodash.flow')
+
+const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
+
+const removeLocation = value => value.replace(REGEX_LOCATION, '')
+
+const sanetize = flow([
+  // trim extra whitespace
+  condenseWhitespace,
+  // if it starts with a location, like articles sometimes do in the opening
+  // paragraph, try to remove it
+  removeLocation
+])
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -6,19 +23,12 @@
  * @return {Function} wrapped
  */
 
-function wrap(rule) {
+function wrap (rule) {
   return ($) => {
     let value = rule($)
-    if (typeof value != 'string') return
 
-    // remove extra whitespace
-    value = value.trim()
-
-    // if it starts with a location, like articles sometimes do in the opening
-    // paragraph, try to remove it
-    value = value.replace(/^[A-Z\s]+\s+[-—–]\s+/, '')
-
-    return value
+    if (!isString(value)) return
+    return sanetize(value)
   }
 }
 
@@ -34,5 +44,5 @@ module.exports = [
   wrap(($) => $('meta[itemprop="description"]').attr('content')),
   wrap(($) => $('.post-content p').first().text()),
   wrap(($) => $('.entry-content p').first().text()),
-  wrap(($) => $('article p').first().text()),
+  wrap(($) => $('article p').first().text())
 ]
