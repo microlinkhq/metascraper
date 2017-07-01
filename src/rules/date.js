@@ -1,7 +1,7 @@
 'use strict'
 
-const isIso = require('is-isodate')
 const chrono = require('chrono-node')
+const isIso = require('isostring')
 
 const REGEX_POST_META = /(\d{4}[-/]\d{2}[-/]\d{2})/
 const REGEX_BY_LINE = /(\w+ \d{2},? \d{4})/
