@@ -1,6 +1,9 @@
+'use strict'
 
-let isIso = require('is-isodate')
-let chrono = require('chrono-node')
+const isIso = require('is-isodate')
+const chrono = require('chrono-node')
+
+const REGEX_NUMBER = /^[0-9]+$/
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -9,32 +12,30 @@ let chrono = require('chrono-node')
  * @return {Function} wrapped
  */
 
-function wrap (rule) {
-  return ($) => {
-    let value = rule($)
-    if (!value) return
+const wrap = (rule) => ($) => {
+  let value = rule($)
+  if (!value) return
 
-    // remove whitespace for easier parsing
-    value = value.trim()
+  // remove whitespace for easier parsing
+  value = value.trim()
 
-    // convert isodates to restringify, because sometimes they are truncated
-    if (isIso(value)) return new Date(value).toISOString()
+  // convert isodates to restringify, because sometimes they are truncated
+  if (isIso(value)) return new Date(value).toISOString()
 
-    // parse number strings as milliseconds
-    if (/^[0-9]+$/.test(value)) {
-      let int = parseInt(value, 10)
-      let date = new Date(int)
-      return date.toISOString()
-    }
-
-    // try to parse with the built-in date parser
-    let native = new Date(value)
-    if (!isNaN(native.getTime())) return native.toISOString()
-
-    // try to parse a complex date string
-    let parsed = chrono.parseDate(value)
-    if (parsed) return parsed.toISOString()
+  // parse number strings as milliseconds
+  if (REGEX_NUMBER.test(value)) {
+    const int = parseInt(value, 10)
+    const date = new Date(int)
+    return date.toISOString()
   }
+
+  // try to parse with the built-in date parser
+  const native = new Date(value)
+  if (!isNaN(native.getTime())) return native.toISOString()
+
+  // try to parse a complex date string
+  const parsed = chrono.parseDate(value)
+  if (parsed) return parsed.toISOString()
 }
 
 /**
@@ -67,21 +68,24 @@ module.exports = [
   wrap(($) => $('[id*="date"]').text()),
   wrap(($) => $('[class*="post-meta"]').text()),
   wrap(($, url) => {
-    let regexp = /(\d{4}[\-\/]\d{2}[\-\/]\d{2})/
-    let match = regexp.exec(url)
+    const regexp = /(\d{4}[-/]\d{2}[-/]\d{2})/
+    const match = regexp.exec(url)
     if (!match) return
-    let string = match[1]
-    let date = new Date(string)
+
+    const string = match[1]
+    const date = new Date(string)
     return date.toISOString()
   }),
   wrap(($) => {
-    let text = $('[class*="byline"]').text()
+    const text = $('[class*="byline"]').text()
     if (!text) return
-    let regexp = /(\w+ \d{2},? \d{4})/
-    let match = regexp.exec(text)
+
+    const regexp = /(\w+ \d{2},? \d{4})/
+    const match = regexp.exec(text)
     if (!match) return
-    let string = match[1]
-    let date = new Date(string)
+
+    const string = match[1]
+    const date = new Date(string)
     return date.toISOString()
   })
 ]
