@@ -1,0 +1,212 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When to Track on the Client vs. Server</title>
+  <meta name="description" content="When deciding whether to track users on the server or on the client, there are many gotchas and factors to consider. Here is a short guide with pros and cons of each.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server/">
+  <meta property="og:title" content="When to Track on the Client vs. Server">
+  <meta property="og:site_name" content="Segment">
+  <meta property="og:description" content="When deciding whether to track users on the server or on the client, there are many gotchas and factors to consider. Here is a short guide with pros and cons of each.">
+  <meta property="og:image" content="https://www.segment.com/academy">
+  <meta property="og:image:width" content="257">
+  <meta property="og:image:height" content="257">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@segment">
+  <meta name="twitter:url" value="https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server/">
+  <meta name="twitter:title" value="When to Track on the Client vs. Server">
+  <meta name="twitter:description" value="When deciding whether to track users on the server or on the client, there are many gotchas and factors to consider. Here is a short guide with pros and cons of each.">
+  <meta name="twitter:creator" content="@segment">
+  <meta name="twitter:image" content="https://www.segment.com/academy">
+  <link rel="stylesheet" href="/academy/index.css">
+  <script src="//cdn.optimizely.com/js/170430035.js"></script>
+  <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+    analytics.load("HmNcg5WjBgY1cZUNOrjE6t4aJlhxqDzS");
+    analytics.page();
+    }}();
+  </script></head>
+
+<body>
+  <div id="top">
+
+    <section class="subscribe">
+      <div class="wrapper">
+
+        <span class="flex-row sm">
+          <span class="image"><span class="academy-logo-white sm"></span></span>
+          <button class="subscribe-button button button-green email-button">Subscribe</button>
+          <span style="display: block; overflow:hidden"><input style="width: 100%" name="email" type="email" placeholder="Email address" class="email field-style" /></span>
+        </span>
+
+        <span class="flex-column lg left">
+          <p>Subscribe to get a new lesson each week!</p>
+
+          <span class="image"><span class="academy-logo sm"></span></span>
+          <input name="email" type="email" placeholder="Email address" class="email field-style" />
+          <button class="subscribe-button button button-green email-button">
+            <span class="cta md">Send to email</span>
+            <span class="envelope-icon md"></span>
+          </button>
+        </span>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="wrapper lg">
+        <div class="flex-wrapper">
+          <section class="site-title">
+            <a href="http://segment.com" class="logo">Segment</a>
+            <a href="/academy" class="academy-title">Analytics Academy</a>
+            <button class="button button-green flex-center pull-right" id="unfold">Subscribe</button>
+          </section>
+        </div>
+      </div>
+      <div class="sm">
+      </div>
+    </section>
+  </div>
+
+  <div id="Reading-progress"><span id="Progress-bar" class="bar"></span></div>
+  <main id="container">
+    <div class="wrapper">
+      <ul class="breadcrumbs">
+        <li class="breadcrumb">
+          <a href="/academy/">Syllabus</a>
+        </li>
+          <li class="breadcrumb">
+            <a href="/academy/collecting-data">Collecting the Right Data</a>
+          </li>
+      </ul>      <h1>When to Track on the Client vs. Server</h1>
+      <article class="article-wrapper">
+        <p>Knowing how to consolidate events and effectively use <code>properties</code> can make the implementation easier. However, we are still faced with the choice as to where to implement that tracking&#x2014;on the client or on the server.</p>
+<p>While it&#x2019;s easy to just do everything on the client or everything on the server, in reality it isn&#x2019;t that simple. Depending on what you want to learn about your users, there are types of events that are only available on the client. On the other hand, there are many common pitfalls on the client, such as <a href="https://en.wikipedia.org/wiki/Ad_blocking" target="_blank">ad blockers</a>, that make implementing analytics on the server a better option.</p>
+<p>This week, we&#x2019;ll explore the differences between the client and the server, a quick guide to determining where certain events should be implemented, and explain the trade offs in more detail so you can make an intelligent final call.</p>
+<h3 id="a-quick-note-on-ad-blockers">A Quick Note on Ad Blockers</h3>
+<p>We talk about ad blockers and suggest the alternative of collecting the analytics data (by making the same call on the server). Kindly note that we, by no means, condone gathering data from users who, through the act of using ad blockers, wish to prevent their data from being collected.</p>
+<p>We should respect the privacy of our users and their choice of using ad blockers. If there is something that must be tracked on the client, one suggestion is to nicely ask your users to disable ad blocking so you can provide them a more personalized browsing experience.</p>
+<h2 id="what-_exactly_-is-tracking-on-client-and-server-">What <em>exactly</em> is tracking on client and server?</h2>
+<p>To help understand the nuances and trade offs of tracking on client vs. server, here are basics of their technical capabilities.</p>
+<p>On the web, a client is your browser (or mobile, though this post really details trade offs specific to browsers)&#x2014;what you use to navigate the Internet. The server is a computer that returns web pages to be rendered in your browser. Learn more about web architecture here.</p>
+<p><img src="./images/client-vs-server.png" alt="a diagram of client vs server"></p>
+<p><strong>A</strong>: Whenever any user goes to a website, a request is made to the <a href="https://en.wikipedia.org/wiki/Web_server" target="_blank">web server</a> to retrieve the necessary files (HTML, css, js) to render that page in the browser. This link, while not directly related to either client or server side tracking, shows that you can mimic a client-side call on the server by sending the necessary info from the client to the server then sending the call on the server.</p>
+<p><strong>B</strong>: This is tracking on the client: sending tracking data from the browser to the analytics service. Since the call is made from the browser, client-side tracking gives you easy access to a lot of contextual browser (and, therefore, the user) information. These include:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">cookies</a>: these are a mechanism for websites to remember stateful information or to record the user&#x2019;s historic browsing activity. You&#x2019;ve probably heard of cookies being used to manage shopping carts, whether or not you&#x2019;ve logged in, etc.</li>
+<li><a href="https://en.wikipedia.org/wiki/UTM_parameters" target="_blank">UTM parameters</a>: these parameters are in every digital marketer&#x2019;s toolkit. Their utility is outside the scope of this post, but check out this <a href="http://blog.rafflecopter.com/2014/04/utm-parameters-best-practices/" target="_blank">great introduction to them here</a>. Basically, they&#x2019;re these semantic parameters included in the URL that helps analytics tools know what ad campaign or channel a user went through to land on the destination site.</li>
+<li><a href="https://en.wikipedia.org/wiki/IP_address" target="_blank">IP address</a>: IP address is a numerical label assigned to each device connected to the Internet. From marketers&#x2019; perspectives, it&#x2019;s useful to learn the geographic location of the user. There are many analytics tools or data enrichment services that&#x2019;ll show you the location based on their IP address.</li>
+<li><a href="https://en.wikipedia.org/wiki/User_agent" target="_blank">User agent</a>: Within the context of the Internet, the user agent represents the device and browser specifications of the user. This is great to learn about what devices your users use while on your site.</li>
+</ul>
+<p><strong>C</strong>: This is tracking on the server: sending tracking data from your web server to the analytics service. The web server&#x2019;s main role is to handle <a href="https://www.safaribooksonline.com/library/view/head-first-servlets/9780596516680/ch01s14.html" target="_blank">&#x201C;HTTP requests&#x201D;</a>, which is the underlying protocol upon which the web is built. As such, the server only has access to information in the request, which include (but are not limited to):</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields" target="_blank">Headers</a>: This is mostly information for machines to direct traffic and doesn&#x2019;t provide that much use to humans</li>
+<li><a href="https://en.wikipedia.org/wiki/HTTP_message_body" target="_blank">Request Body</a>: This is the main part of the request. In the majority of cases, this is where you would put data if you want to send it via HTTP.</li>
+</ul>
+<p>Note that the information on the server side is limited to the request, which is more limited than what you can get from the client. In order to send a server-side call that contains UTM param information, you&#x2019;d need some client-side logic that will parse the parameters, send it via <strong>C</strong> to the server, then send it from the server to the analytics service.</p>
+<h2 id="when-do-i-track-on-client-and-server-">When do I track on client and server?</h2>
+<p>We&#x2019;ve made a guide flow chart, depending on your circumstances, that&#x2019;ll recommend whether to implement the event in question on the client or on the server.</p>
+<p>Before we dive in, there are three main dimensions you should consider: your analytics objective (what do you want to learn?), available engineering resources, and the privacy concerns of your target users.</p>
+<ul>
+<li><strong>Analytics Objective</strong>: Some events or tools, due to their nature, must be implemented on the client. For example, session recording/heat mapping tools and ad pixels leverage too much of the browser to be able to replicate on the server.</li>
+<li><strong>Engineering Resources</strong>: Most things that can be tracked on the client (with the exception of client-only events) can also be tracked on the server. However, since some information on the client is more readily accessible (e.g. IP address, user agent, utm parameters), tracking the same thing on the server may take additional engineering resources.</li>
+<li><strong>Privacy Concerns</strong>: the privacy concerns of your users indicate the likelihood they would have Ad Block enabled for their browsers (often in the form of a Chrome extension). Ad Block prevents any analytics data to leave the browsers, meaning that you could be missing data from parts of your user base.</li>
+</ul>
+<p>That being said, keep in mind that the below is just a guide! It&#x2019;s neither definitive nor black and white because there are situations where you make the opposing case given enough thought and engineering resources.</p>
+<p><img src="./images/client-or-server-flowchart.png" alt="flow chart of choosing client or server"></p>
+<h2 id="what-are-the-trade-offs-">What are the trade-offs?</h2>
+<p>The big trade off is context (or the amount of data you can easily access and gather) vs. reliability (or how much control you have over the actual sending of the data).</p>
+<p>To better understand why, let&#x2019;s dive into the technical details that separate client and server.</p>
+<p>The client, being that it&#x2019;s the browser, has easy access to user specific attributes, such as cookies, IP address, user agent, referrer, and UTM parameters. This means that if you track on the client, you easily can collect and track all of these contextual pieces of information. Some common business use cases for tracking these pieces include:</p>
+<ul>
+<li>send targeted marketing messages based on users&#x2019; locations</li>
+<li>learn the breakdown of your users based on mobile, desktop, tablet</li>
+<li>determine marketing campaigns drive traffic and conversion via UTM parameters</li>
+</ul>
+<p>However, the downside about tracking in the client is that you have less control. The end user can enable an ad blocker, which can punch a hole in your analytics data. The browser also has its own unique behaviors such as page unloading (when you click a link on a site and the browser begins loading the next page) that can sometimes interrupt any &#x201C;in-flight&#x201D; outbound analytics requests (more on troubleshooting for this specific browser case). Therefore, we usually suggest tracking on the server. It tends to be more reliable.</p>
+<p>These are the kinds of events that we recommend sending via the server:</p>
+<ul>
+<li>&#x201C;Offsite&#x201D; events: This just means events that aren&#x2019;t tired to a user behavior that occurs on your website or an event that is the result of a calculation based on your production database. An example of this would be our nightly cron job that calculates API usage across our customer base, then sends server side <code>.track()</code> calls.</li>
+<li>Tracking revenue (or other sensitive events): Revenue figures (though should be captured by your billing system) should be sent on the server, since they&#x2019;re sensitive and discrepancies from ad blockers or browser mishaps would be frustrating to debug.</li>
+<li>Mission critical events: If you&#x2019;re using email or marketing automation tools that rely on events to trigger high-value emails, it&#x2019;s best to keep these events on the server side. It would be a bummer to have a customer miss out on a coupon or re-engagement email due to ad block.</li>
+</ul>
+<p>However, there are some reasons why you&#x2019;d want to stay on the client. Since the server can&#x2019;t easily access the information in the browser, you&#x2019;ll need additional engineering resources to mimic the same call on the server. For example, you would need client-side logic to capture the UTM params, send it to the server, and then have the server send it to your analytics service. Since analytics data is useful directionally and for trends, many times the convenience of tracking UTM params, ip address, etc. on the client outweigh the possibility of losing data a small percentage of data here and there to an ad blocker or weird browser behavior.</p>
+<p>Therefore, the rest of the decisions (aside from the first three steps) in the flow chart can be done on either client or server side (though we strongly encourage tracking revenue and sending mission critical events on the server side).</p>
+<hr>
+<p>We hope that this provides some insight as to the trade offs of tracking certain events on the client vs. on the server.</p>
+<p>Do you have a different approach to deciding what goes on the client or server? We&#x2019;d love to hear it on <a href="https://twitter.com/segment" target="_blank">Twitter</a>!</p>
+
+        <!-- <a class="Hackernews" href="#">Discuss on Hacker News.</a> -->
+      </article>
+        <section class="next-section">
+          <p class="meta-info">Next
+              article
+          </p>
+          <h3 class="article-link">
+            <a href="/academy/collecting-data/an-introduction-to-multi-touch-attribution/">An Introduction to Multi-Touch Attribution</a>
+          </h3>
+        </section>
+    </div>
+  </main>
+  <div style="left: 0px; position: relative; top: 40px; text-align: center; font-size: 30px; margin: 40px; font-weight: 100;">
+      Start your free email course today!
+    <div id="">
+      <section>
+        <div class="wrapper" style="margin-top: 20px;">
+          <span class="flex-column lg left">
+            <p style="display: none;">Get lessons right in your inbox!</p>
+            <span class="image"><span class="academy-logo sm"></span></span>
+            <input id="optimizely-email-field" type="email" placeholder="Email address" class="email field-style">
+            <button id="optimizely-subscribe-button" class="button button-green email-button">
+              <span class="cta md">Send to email</span>
+            </button>
+          </span>
+        </div>
+      </section>
+    </div>
+  </div>  <footer class="Footer">
+
+    <span class="Footer-conjunction">Brought to you with <span class="Footer-heart">💚</span> by</span>
+    <a href="https://segment.com"><h2 class="Footer-logo logo" data-logo="Segment.io" data-color="white"></h2></a>
+
+    <div class="Footer-info-wrapper">
+      <div class="Footer-info">
+        We help companies collect and send data to analytics, marketing, and database services with a single API.
+      </div>
+    </div>
+  </footer>  <script src="/academy/index.js"></script>
+  <script>
+
+    window.articleCompleted = false;
+
+    /**
+     * Progress bar.
+     */
+
+    window.addEventListener('scroll', function(e) {
+      var s = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+      var body = document.body;
+      var html = document.documentElement;
+      var d = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+      var c = window.innerHeight;
+      var position = (s / (d - c)) * 100;
+      document.getElementById('Progress-bar').setAttribute('style', 'width: ' + position + '%');
+
+      /**
+       * Track `Article Completed`
+       */
+
+      if (position > 80 && !window.articleCompleted) {
+        window.analytics.track('Article Completed', {
+          title: 'When to Track on the Client vs. Server',
+          course: 'Collecting the Right Data'
+        });
+        window.articleCompleted = true;
+      }
+
+    });
+
+  </script>
+</body>
+</html>

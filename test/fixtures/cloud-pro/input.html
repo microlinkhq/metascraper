@@ -1,0 +1,1007 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie ie8 lte11 lte10 lte9 lte8" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="no-js"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte11 lte10 lte9" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="no-js"
+  xmlns:v="http://rdf.data-vocabulary.org/#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+<!--[if !IE]><!--><html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="no-js"
+  xmlns:v="http://rdf.data-vocabulary.org/#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EDGE,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(e,t){return function(){o(e,[(new Date).getTime()].concat(a(arguments)),null,t)}}var o=e("handle"),i=e(2),a=e(3);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var u=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(u,function(e,t){newrelic[t]=r(f+t,"api")}),i(c,function(e,t){newrelic[t]=r(f+t)}),t.exports=newrelic,newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),o("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(0>o?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=l(n),u=a.length,c=0;u>c;c++)a[c].apply(i,r);var s=f[g[n]];return s&&s.push([m,n,r,i]),i}function p(e,t){w[e]=l(e).concat(t)}function l(e){return w[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",g[n]=t,t in f||(f[t]=[])})}var w={},g={},m={on:p,emit:n,get:d,listeners:l,context:t,buffer:v};return m}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},p=t.exports=o();p.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!w++){var e=v.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(l,function(t,n){e[t]||(e[t]=n)});var n="https"===p.split(":")[0]||e.sslForHttp;v.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=v.proto+e.agent,t.parentNode.insertBefore(r,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var p=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-943.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),v=t.exports={offset:a(),origin:p,features:{},xhrWrappable:d};s.addEventListener?(s.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(s.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),u("mark",["firstbyte",a()],null,"api");var w=0},{}]},{},["loader"]);</script>
+<link rel="canonical" href="http://www.cloudpro.co.uk/sales-crm/6024/sabre-selects-virtustreams-iaas-and-managed-services" />
+<meta name="copyright" content="Dennis Publishing Limited, licensed by Felden" />
+<meta property="og:url" content="http://www.cloudpro.co.uk/go/6024" />
+<meta property="og:site_name" content="Cloud Pro" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<meta property="twitter:card" content="summary" />
+<link rel="shortcut icon" href="http://cdn1.cloudpro.co.uk/sites/cloudprod7/themes/cloudpro/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta property="twitter:site:id" content="267718709" />
+<meta property="twitter:site" content="@cloudprouk" />
+<meta property="twitter:url" content="http://www.cloudpro.co.uk/sales-crm/6024/sabre-selects-virtustreams-iaas-and-managed-services" />
+<meta property="twitter:image" content="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg" />
+<meta property="twitter:title" content="Sabre selects Virtustream&#039;s IaaS and managed services" />
+<link rel="dns-prefetch" href="//" />
+<link rel="dns-prefetch" href="//cdn2.cloudpro.co.uk" />
+<link rel="dns-prefetch" href="//cdn1.cloudpro.co.uk" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<script async="async" data-client-id="udfAsOKGvMDQTIr" type="text/javascript" src="//d3qxwzhswv93jk.cloudfront.net/esf.js"></script><meta name="description" content="The services will enable Sabre to provide its software, data, mobile and distribution solutions to more travel companies" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg" />
+<meta property="og:description" content="The services will enable Sabre to provide its software, data, mobile and distribution solutions to more travel companies" />
+<meta property="og:title" content="Sabre selects Virtustream&#039;s IaaS and managed services" />
+<meta property="twitter:description" content="The services will enable Sabre to provide its software, data, mobile and distribution solutions to more travel companies" />
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+googletag.slots = googletag.slots || {};
+//--><!]]></script>
+  <title>Sabre selects Virtustream&#039;s IaaS and managed services | Cloud Pro</title>
+  <link type="text/css" rel="stylesheet" href="http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/advagg_css/css__dg1VzDAq7tvSorCdNbQft78OcjRtbhSgPuPeEYNUYq8__LrFQAH5-61wUviy8mvOwdahnx7ENUFhlx_YxeN3va44__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/advagg_css/css__U47jffnkeVUrU3f09wWAhbAhaedGKuwIeOXhs5Rf7Nk__wrBl88WJDrtIGhN0vBaVTxiJBiypNYLZKksf6oAtgCs__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+@media all{#__mqtest{position:absolute}}
+/*]]>*/-->
+</style>
+  <script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+
+<!--[if IE 9]>
+<script type="text/javascript" src="http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/advagg_js/js__4yNwYVelofFmpyrjdWTG-iMl-2Lk47KeHlpPCtBoIzM__HWDHPJjYTHomNK_amg-crnbwkDBHMkEgLhkP7eq-saA__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/advagg_js/js__oWDKBGZ3uQnCUumihFqt3TFGDY5i4cVBgceWJnstn2A__nQjOMST_WVcJS83TCe2-QZcU2LIvFsknRDHsh1IG7GA__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.js"></script>
+<script type="text/javascript" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/advagg_js/js__qiNuLI5W4K21nq2dkRfaCIFenO_8bX9-NAkRuW4FAC8__TpleROckbi8VLxPgRi4CNN6h9RKD5UdtyIUsaLUfk9g__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.js"></script>
+
+<!--[if lte IE 8]>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(){var e=['header','nav','section','article','aside','footer','hgroup'];for(var i=0;i<e.length;i++)document.createElement(e[i]);}());
+//--><!]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+window.google_analytics_uacct="UA-21927193-1";
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+var googletag=googletag||{};googletag.cmd=googletag.cmd||[];googletag.slots=googletag.slots||{};
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["out_of_page"]=googletag.defineOutOfPageSlot("/359/cloudpro.co.uk/sales-crm","dfp-ad-out_of_page").addService(googletag.pubads()).setTargeting("position","1");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["nativeslot2"]=googletag.defineSlot("/359/Taboola_Native_Index/cloud_pro",[1,1],"dfp-ad-nativeslot2").addService(googletag.pubads()).setTargeting("tabcontainer","dfp-ad-nativeslot2").setTargeting("tabmode","thumbnails-ac").setTargeting("tabplacement","main-column");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["skin"]=googletag.defineSlot("/359/cloudpro.co.uk/sales-crm",[1000,800],"dfp-ad-skin").addService(googletag.pubads()).setTargeting("position","1");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["leaderboard_1"]=googletag.defineSlot("/359/cloudpro.co.uk/sales-crm",[728,90],"dfp-ad-leaderboard_1").addService(googletag.pubads()).setTargeting("position","1");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["billboard"]=googletag.defineSlot("/359/cloudpro.co.uk/sales-crm",[[994,250],[970,250]],"dfp-ad-billboard").addService(googletag.pubads()).setTargeting("position","1");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["mpu_1"]=googletag.defineSlot("/359/cloudpro.co.uk/sales-crm",[[300,250],[300,600]],"dfp-ad-mpu_1").addService(googletag.pubads()).setTargeting("position","1");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["mpu_2"]=googletag.defineSlot("/359/cloudpro.co.uk/sales-crm",[[300,250],[300,600]],"dfp-ad-mpu_2").addService(googletag.pubads()).setTargeting("position","2");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.slots["leaderboard_2"]=googletag.defineSlot("/359/cloudpro.co.uk/sales-crm",[728,90],"dfp-ad-leaderboard_2").addService(googletag.pubads()).setTargeting("position","2");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.pubads().addEventListener("slotRenderEnded",function(event){try{if(googletag.slots.nativeslot2==event.slot&&event.isEmpty===true){window._taboola=window._taboola||[];_taboola.push({container:"dfp-ad-nativeslot2",mode:"thumbnails-ac",placement:"main-column",});}}catch(e){}});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+googletag.cmd.push(function(){googletag.pubads().enableAsyncRendering();googletag.pubads().enableSingleRequest();googletag.pubads().collapseEmptyDivs();googletag.pubads().setCentering(true);googletag.pubads().setTargeting("article-type","news");googletag.pubads().setTargeting("primary-category","sales-crm");googletag.pubads().setTargeting("category",["sales-crm","hr","marketing","finance"]);googletag.pubads().setTargeting("author","clare-hopping");googletag.pubads().setTargeting("zone","sales-crm");googletag.pubads().setTargeting("article","6024");googletag.pubads().setTargeting("live","yes");googletag.pubads().setTargeting("ord","2847482770");});googletag.enableServices();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+requirejs.config({"paths":{"main":"http:\/\/cdn1.cloudpro.co.uk\/sites\/cloudprod7\/modules\/custom\/site_js\/dist\/main.803491aa","savvior":"http:\/\/cdn2.cloudpro.co.uk\/profiles\/dennis_distro\/libraries\/savviorjs\/dist\/savvior.min"},"waitSeconds":0,"shim":{"lazyload":{"exports":"lazyload"},"rrssb":["jquery"]},"bundles":{"main":["has"]}});define("googletag",[],function(){return googletag});define("jquery",[],function(){return jQuery});define("drupal",[],function(){return Drupal});define("jquery.once",[],function(){return jQuery.fn.once});define("lazyLoadAdSlot",[],function(){return lazyLoadAdSlot});(jQuery(function(){require(["drupal","has"],function(Drupal,has){var settings=Drupal.settings.dennisJs;requirejs.config({"provision":{"dynamicgpt":{"test":settings.dynamicgpt.use&&settings.dynamicgpt.slots},"enquire":{"test":has.mm()},"savvior":{"build":false,"test":settings.narrowStacked.use&&has.mq()},"fastclick":{"test":settings.useFastClick&&window.addEventListener&&has.touch()},"dropdowntouch":{"test":settings.useResponsive&&has.touch()&&has.mm()}}});require(["main"],function(app){app.init();});});}));
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+(function($){typeof $&&typeof $.fn.on!=="function"&&$.fn.extend({on:function(event,callback,fallback){switch(typeof callback){case"function":return this.live(event,callback);case"string":return $(callback).live(event,fallback);}}});}(jQuery));
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-21927193-1",{"cookieDomain":"auto"});ga("require","linkid","linkid.js");ga("require","displayfeatures");ga("set","dimension2","0");ga("set","dimension3","Sales \u0026amp; CRM");ga("set","dimension4","20160520");ga("set","dimension5","News");ga("set","dimension6","Clare Hopping");ga("set","dimension8","6024");ga("set","dimension12","Article");ga("send","pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+(function(w,d){var s=d.createElement("script"),el=d.getElementsByTagName("script")[0];s.async=true;s.src="http://cdn1.cloudpro.co.uk/profiles/dennis_distro/libraries/implied-consent/dist/implied-consent.min.js";el.parentNode.insertBefore(s,el);})(this,this.document);
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+(function($){if((/Trident\/7\./).test(navigator.userAgent))
+$("html").addClass("ie11 lte11");else if($.browser.msie&&$.browser.version==10)
+$("html").addClass("ie10 lte10 lte11");}(jQuery));
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+window._taboola=window._taboola||[];_taboola.push({article:'auto'});!function(e,f,u){e.async=1;e.src=u;f.parentNode.insertBefore(e,f);}
+(document.createElement('script'),document.getElementsByTagName('script')[0],'http://cdn.taboola.com/libtrc/dennispublishing-network/loader.js');
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+jQuery.extend(Drupal.settings,{"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"cloudpro","theme_token":"Hk5Fr4Z5Im8YlfC1ZsUPV5cUOpkolJgJ2JyNS2f16rY","js":{"0":1,"profiles\/dennis_distro\/libraries\/media-match\/media.match.min.js":1,"1":1,"profiles\/dennis_distro\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"profiles\/dennis_distro\/libraries\/requirejs\/require.js":1,"2":1,"profiles\/dennis_distro\/modules\/features\/dennis_dfp\/js\/dennis_dfp.js":1,"http:\/\/www.googletagservices.com\/tag\/js\/gpt.js":1,"misc\/drupal.js":1,"profiles\/dennis_distro\/libraries\/jquery-migrate\/jquery-migrate-1.2.1.min.js":1,"3":1,"4":1,"5":1,"6":1,"7":1,"8":1,"9":1,"10":1,"11":1,"12":1,"13":1,"profiles\/dennis_distro\/libraries\/jwplayer\/jwplayer.js":1,"profiles\/dennis_distro\/modules\/contrib\/pullquote\/pullquote.js":1,"14":1,"sites\/cloudprod7\/modules\/contrib\/taboola\/modules\/taboola_dfp_native\/js\/taboola_dfp_native.js":1,"profiles\/dennis_distro\/modules\/contrib\/lazyadslot\/js\/lazyadslot.js":1,"profiles\/dennis_distro\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"15":1,"profiles\/dennis_distro\/modules\/contrib\/google_analytics_et\/js\/google_analytics_et.js":1,"16":1,"profiles\/dennis_distro\/modules\/contrib\/field_group\/field_group.js":1,"profiles\/dennis_distro\/modules\/contrib\/disqus\/js\/disqus_ga.js":1,"profiles\/dennis_distro\/modules\/contrib\/disqus\/js\/disqus.js":1,"17":1,"18":1,"http:\/\/tags.crwdcntrl.net\/c\/4902\/cc.js?ns=_cc4902":1,"http:\/\/cloudpro.co.uk.intellitxt.com\/intellitxt\/front.asp?ipid=50157":1,"profiles\/dennis_distro\/modules\/contrib\/picture\/picturefill\/picturefill.js":1,"profiles\/dennis_distro\/modules\/contrib\/picture\/picture.js":1,"profiles\/dennis_distro\/libraries\/rrssb\/js\/rrssb.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.messages.css":1,"profiles\/dennis_distro\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"profiles\/dennis_distro\/libraries\/rrssb\/css\/rrssb.css":1,"profiles\/dennis_distro\/modules\/contrib\/sharerich\/css\/sharerich.css":1,"profiles\/dennis_distro\/modules\/contrib\/wysiwyg_boxout\/plugins\/boxout\/boxout.css":1,"profiles\/dennis_distro\/modules\/contrib\/wysiwyg_boxout\/wysiwyg_boxout.css":1,"profiles\/dennis_distro\/modules\/contrib\/wysiwyg_smart_paging_seo\/wysiwyg_smart_paging_seo.css":1,"profiles\/dennis_distro\/themes\/custom\/dennis_base_v2\/css\/master.css":1,"sites\/cloudprod7\/themes\/cloudpro\/css\/site-fixed.css":1,"0":1}},"taboolaDfpNative":{"tags":{"placement1":{"ad_tag":"nativeslot2","loader_identifier":"article","selector":[".field-name-body \u003E p"],"position":"6","targeting":[{"target":"tabContainer","value":"dfp-ad-nativeslot2"},{"target":"tabMode","value":"thumbnails-ac"},{"target":"tabPlacement","value":"main column"}],"renderedDfp":"\u003Cdiv id=\u0022dfp-ad-nativeslot2-wrapper\u0022 class=\u0022dfp-tag-wrapper\u0022\u003E\n\u003Cdiv  id=\u0022dfp-ad-nativeslot2\u0022 class=\u0022dfp-tag-wrapper\u0022\u003E\n    \u003Cscript type=\u0022text\/javascript\u0022\u003E\n    googletag.cmd.push(function() {\n      googletag.display(\u0022dfp-ad-nativeslot2\u0022);\n    });\n  \u003C\/script\u003E\n\u003C\/div\u003E\n\u003C\/div\u003E"}}},"dennisJs":{"dynamicgpt":{"use":true,"slots":{"mobile":["mobile_1","mobile_2","mobile_3"],"narrow":["mpu_1","mpu_2","mpu_3","leaderboard_1","leaderboard_2","skyscraper_left_2","skyscraper_right_1"],"desktop":["mpu_1","mpu_2","mpu_3","leaderboard_1","leaderboard_2","skyscraper_right_1","skyscraper_left_2","billboard"],"wide":["mpu_1","mpu_2","mpu_3","leaderboard_1","leaderboard_2","skyscraper_right_1","skyscraper_left_2","billboard","skin"]}},"breakpoints":{"mobile":"screen and (max-width: 760px)","narrow":"screen and (min-width: 760px) and (max-width: 980px)","desktop":"screen and (min-width: 980px) and (max-width: 1200px)","wide":"screen and (min-width: 1200px)"},"narrowStacked":{"use":true,"adRefresh":true,"config":{".region-sidebar-second":{"screen and (max-width: 760px)":{"columns":1},"screen and (min-width: 760px) and (max-width: 980px)":{"columns":2},"screen and (min-width: 980px) and (max-width: 1200px)":{"columns":1},"screen and (min-width: 1200px)":{"columns":1}}}},"useFastClick":true,"useResponsive":false,"useFixedIe8":false,"useSnap":true},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"googleAnalyticsETSettings":{"selectors":[{"event":"mousedown","selector":".sharerich-buttons li","category":"Share Button","action":"!text","label":"!currentPage","value":0,"noninteraction":false}],"settings":[]},"field_group":{"primary-media":"full","simplediv":"full"},"disqus":{"domain":"dennis-cloudpro","url":"http:\/\/www.cloudpro.co.uk\/sales-crm\/6024\/sabre-selects-virtustreams-iaas-and-managed-services","title":"Sabre selects Virtustream\u0026#039;s IaaS and managed services","identifier":"node\/6024","callbacks":{"onNewComment":["Drupal.disqus.disqusTrackNewComment"]}},"urlIsAjaxTrusted":{"\/sales-crm\/6024\/sabre-selects-virtustreams-iaas-and-managed-services":true}});
+//--><!]]>
+</script>
+</head>
+<body id="pid-sales-crm-6024-sabre-selects-virtustreams-iaas-and-managed-services" class="html not-front not-logged-in page-node page-node- page-node-6024 node-type-article one-sidebar sidebar-second narrow-stacked snap" >
+  <div class="skip-link">
+    <a href="#main-content-area">Skip to main content area</a>
+  </div>
+    <div id="page-top" class="region region-page-top page-top">
+    <div id="dfp-ad-out_of_page-wrapper" class="dfp-tag-wrapper element-hidden">
+<div  id="dfp-ad-out_of_page" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-out_of_page");
+    });
+  </script>
+</div>
+</div><div id="__mqtest"></div>  </div>
+  <div id="snap-content">  <div id="pre-page" class="region region-pre-page pre-page">
+    <div id="block-dfp-skin" class="block block-dfp">
+
+
+    <div class="content">
+    <div id="dfp-ad-skin-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-skin" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-skin");
+    });
+  </script>
+</div>
+</div>  </div>
+  </div>
+  </div>
+
+<div id="page" class="page ">
+
+
+    <div id="header-group" class="header-group region">
+    <div id="header-group-inner" class="header-group-inner inner clearfix">
+              <div id="logo" vocab="http://schema.org/" typeof="Organization">
+          <a property="url" href="http://www.cloudpro.co.uk/" title="Cloud Pro">
+            <img property="logo" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/themes/cloudpro/logo.png" alt="Cloud Pro" />
+          </a>
+        </div>
+              <div id="header" class="region region-header header">
+    <div id="block-dfp-leaderboard-1" class="block block-dfp">
+
+
+    <div class="content">
+    <div id="dfp-ad-leaderboard_1-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-leaderboard_1" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-leaderboard_1");
+    });
+  </script>
+</div>
+</div>  </div>
+  </div>
+  </div>
+    </div><!-- /header-group-inner -->
+  </div><!-- /header-group -->
+
+  <div id="menu-group" class="menu-group region">
+    <div id="menu-group-inner" class="menu-group-inner inner clearfix">
+        <div id="main-menu" class="region region-main-menu main-menu">
+    <div id="block-system-main-menu" class="block block-system block-menu">
+
+      <h4 class="block-title">Main menu</h4>
+
+    <div class="content">
+    <ul class="menu"><li class="first expanded"><a href="/hr"><span class="large-word">HR</span> </a><ul class="menu"><li class="first leaf"><a href="/hr/payroll">Payroll</a></li>
+<li class="leaf"><a href="/hr/recruitment">Recruitment</a></li>
+<li class="leaf"><a href="/hr/timesheeting">Timesheeting</a></li>
+<li class="last leaf"><a href="/hr/training">Training</a></li>
+</ul></li>
+<li class="expanded"><a href="/marketing"><span class="large-word">Marketing</span> </a><ul class="menu"><li class="first leaf"><a href="/marketing/email-marketing">Email Marketing</a></li>
+<li class="leaf"><a href="/marketing/seo">SEO</a></li>
+<li class="leaf"><a href="/marketing/social-media">Social Media</a></li>
+<li class="leaf"><a href="/marketing/content-management">Content Management</a></li>
+<li class="last leaf"><a href="/marketing/ecommerce">E-commerce</a></li>
+</ul></li>
+<li class="expanded"><a href="/finance"><span class="large-word">Finance</span> </a><ul class="menu"><li class="first leaf"><a href="/finance/accounting">Accounting</a></li>
+<li class="leaf"><a href="/finance/budgeting">Budgeting</a></li>
+<li class="leaf"><a href="/finance/compliance">Compliance</a></li>
+<li class="leaf"><a href="/finance/invoicing">Invoicing</a></li>
+<li class="last leaf"><a href="/finance/risk-management">Risk Management</a></li>
+</ul></li>
+<li class="expanded"><a href="/sales-crm"><span class="large-word">Sales</span> & CRM</a><ul class="menu"><li class="first collapsed"><a href="/sales-crm/business-plan">Business Plan</a></li>
+<li class="leaf"><a href="/sales-crm/presentation">Presentation</a></li>
+<li class="leaf"><a href="/sales-crm/crm">CRM</a></li>
+<li class="leaf"><a href="/sales-crm/live-chat">Live Chat</a></li>
+<li class="last leaf"><a href="/sales-crm/contact-centre">Contact Centre</a></li>
+</ul></li>
+<li class="expanded"><a href="/collaboration"><span class="large-word">Collaboration</span> </a><ul class="menu"><li class="first leaf"><a href="/collaboration/document-management">Document Management</a></li>
+<li class="leaf"><a href="/collaboration/email">Email</a></li>
+<li class="leaf"><a href="/collaboration/project-management">Project Management</a></li>
+<li class="leaf"><a href="/collaboration/webinar">Webinar</a></li>
+<li class="leaf"><a href="/collaboration/workflow">Workflow</a></li>
+<li class="last leaf"><a href="/collaboration/productivity">Productivity</a></li>
+</ul></li>
+<li class="expanded"><a href="/leadership"><span class="large-word">Leadership</span> </a><ul class="menu"><li class="first leaf"><a href="/leadership/cloud-essentials">Cloud Essentials</a></li>
+<li class="leaf"><a href="/leadership/risks">Risks</a></li>
+<li class="last leaf"><a href="/leadership/slas">SLAs</a></li>
+</ul></li>
+<li class="leaf"><a href="/business-intelligence"><span class="large-word">Business</span> Intelligence</a></li>
+<li class="last expanded"><a href="/"><span class="large-word">More</span> </a><ul class="menu"><li class="first leaf"><a href="/it-infrastructure">IT & Infrastructure</a></li>
+<li class="last leaf"><a href="/operations">Operations</a></li>
+</ul></li>
+</ul>  </div>
+  </div>
+<div id="block-search-form" class="block block-search">
+
+
+    <div class="content">
+    <form class="form-search form-search-block" action="/sales-crm/6024/sabre-selects-virtustreams-iaas-and-managed-services" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+  <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="SEARCH THE SITE" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><button class="form-search-submit form-submit" type="submit" id="edit-submit" name="op" value="&lt;span&gt;Search&lt;/span&gt;"><span>Search</span></button></div><input type="hidden" name="form_build_id" value="form-rX63OdR5abJKrgciWT42YE23YVDVeUrqUlihTlr_hMQ" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+  </div>
+  </div>
+        <div id="secondary-menu" class="region region-secondary-menu secondary-menu">
+    <div id="block-menu-secondary-menu" class="block block-menu">
+
+      <p class="block-title">Secondary menu</p>
+
+    <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/news">News</a></li>
+<li class="leaf"><a href="/reviews">Reviews</a></li>
+<li class="leaf"><a href="/advice">Features</a></li>
+<li class="leaf"><a href="/case-studies">Case Studies</a></li>
+<li class="leaf"><a href="/opinion">Insight</a></li>
+<li class="leaf"><a href="http://dennis.msgfocus.com/dennis/adtag.php?utm_source=cloudpro.co.uk&amp;utm_medium=referral&amp;utm_campaign=web0001clp" id="newsletter-signup">Newsletter</a></li>
+<li class="leaf"><a href="http://pubads.g.doubleclick.net/gampad/clk?id=67868940&amp;iu=/359/impcount.co.uk">Innovation at work</a></li>
+<li class="leaf"><a href="/cloud-essentials/general/3538/cloud-pro-expert-panel-sets-out-future-direction">Panel</a></li>
+<li class="leaf"><a href="http://www.cloudpro.co.uk/leadership/cloud-essentials/5900/uk-cloud-awards-2016-shortlist-unveiled">UK Cloud Awards</a></li>
+<li class="last leaf"><a href="http://www.cloudpro.co.uk/whitepapers">Whitepapers</a></li>
+</ul>  </div>
+  </div>
+<div id="block-menu-menu-sections-menu" class="block block-menu">
+
+      <p class="block-title">Sections</p>
+
+  </div>
+  </div>
+    </div><!-- /menu-group-inner -->
+  </div><!-- /menu-group -->
+      <div id="breadcrumbs" class="breadcrumbs block grid-block">
+<div class="content">
+<div class="breadcrumb"><a href="/" rel="v:url" property="v:title">Home</a> <span class="delimiter">»</span> <a href="/sales-crm" rel="v:url" property="v:title">Sales &amp; CRM</a> <span class="delimiter">»</span> Sabre selects Virtustream&#039;s IaaS and managed services</div></div>
+</div>
+      <div id="preface-top" class="region region-preface-top preface-top">
+    <div id="block-dfp-billboard" class="block block-dfp">
+
+
+    <div class="content">
+    <div id="dfp-ad-billboard-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-billboard" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-billboard");
+    });
+  </script>
+</div>
+</div>  </div>
+  </div>
+  </div>
+
+    <div id="main" class="main region">
+    <div id="main-inner" class="main-inner inner clearfix">
+
+            <div id="main-group" class="main-group region ">
+        <div id="main-group-inner" class="main-group-inner inner">
+
+          <div id="main-content" class="main-content region nested">
+
+                                                       <div id="title-group" class="title-group">
+                        <div class="inner clearfix">
+                                                      <h1 class="title"><span>Sabre selects Virtustream&#039;s IaaS and managed services</span></h1>
+                                                  </div><!-- /title-group-inner -->
+                      </div><!-- /title-group -->
+
+            <div id="main-content-inner" class="main-content-inner inner">
+              <div id="content-group" class="content-group ">
+                <div id="content-group-inner" class="content-group-inner inner">
+                  <a id="main-content-area"></a>
+
+
+
+
+
+                                        <div id="content" class="region region-content content">
+    <div id="block-system-main" class="block block-system">
+
+
+    <div class="content">
+
+<div class="node node-article node-promoted odd node-full" about="/sales-crm/6024/sabre-selects-virtustreams-iaas-and-managed-services" typeof="sioc:Item foaf:Document">
+
+  <div class="content">
+
+
+
+    <div class="field-group-format group_meta  group-meta field-group-simplediv"><span class="field field-name-field-author field-type-node-reference field-label-hidden">
+      <span class="field-item even"><a href="/authors/clare-hopping">Clare Hopping</a></span>
+  </span><span class="field field-name-field-article-type field-type-taxonomy-term-reference field-label-hidden">
+      <span class="field-item even"><a href="/news" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">News</a></span>
+  </span><div class="field field-name-field-published-date field-type-datetime field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2016-05-20T09:58:00+01:00">20 May, 2016</span></div>    </div></div><div  class="sharerich-wrapper sharerich-article-default-wrapper sharerich-1">
+        <div  class="item-list"><ul  class="sharerich-buttons rrssb-buttons clearfix"><li class="facebook first" weight="0"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services" class="popup">
+  <span class="icon">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+          <path d="M27.825,4.783c0-2.427-2.182-4.608-4.608-4.608H4.783c-2.422,0-4.608,2.182-4.608,4.608v18.434
+              c0,2.427,2.181,4.608,4.608,4.608H14V17.379h-3.379v-4.608H14v-1.795c0-3.089,2.335-5.885,5.192-5.885h3.718v4.608h-3.726
+              c-0.408,0-0.884,0.492-0.884,1.236v1.836h4.609v4.608h-4.609v10.446h4.916c2.422,0,4.608-2.188,4.608-4.608V4.783z"/>
+      </svg>
+  </span>
+  <span class="text">facebook</span>
+</a>
+</li>
+<li class="twitter" weight="1"><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services&text=Sabre%20selects%20Virtustream%27s%20IaaS%20and%20managed%20services&via=cloudpro" class="popup">
+      <span class="icon">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+          <path d="M24.253,8.756C24.689,17.08,18.297,24.182,9.97,24.62c-3.122,0.162-6.219-0.646-8.861-2.32
+              c2.703,0.179,5.376-0.648,7.508-2.321c-2.072-0.247-3.818-1.661-4.489-3.638c0.801,0.128,1.62,0.076,2.399-0.155
+              C4.045,15.72,2.215,13.6,2.115,11.077c0.688,0.275,1.426,0.407,2.168,0.386c-2.135-1.65-2.729-4.621-1.394-6.965
+              C5.575,7.816,9.54,9.84,13.803,10.071c-0.842-2.739,0.694-5.64,3.434-6.482c2.018-0.623,4.212,0.044,5.546,1.683
+              c1.186-0.213,2.318-0.662,3.329-1.317c-0.385,1.256-1.247,2.312-2.399,2.942c1.048-0.106,2.069-0.394,3.019-0.851
+              C26.275,7.229,25.39,8.196,24.253,8.756z"/>
+          </svg>
+      </span>
+      <span class="text">twitter</span>
+    </a></li>
+<li class="googleplus last" weight="2"><a href="https://plus.google.com/share?url=Sabre%20selects%20Virtustream%27s%20IaaS%20and%20managed%20services%20http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services" class="popup">
+  <span class="icon">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+          <g>
+            <g>
+              <path d="M14.703,15.854l-1.219-0.948c-0.372-0.308-0.88-0.715-0.88-1.459c0-0.748,0.508-1.223,0.95-1.663
+                      c1.42-1.119,2.839-2.309,2.839-4.817c0-2.58-1.621-3.937-2.399-4.581h2.097l2.202-1.383h-6.67c-1.83,0-4.467,0.433-6.398,2.027
+                      C3.768,4.287,3.059,6.018,3.059,7.576c0,2.634,2.022,5.328,5.604,5.328c0.339,0,0.71-0.033,1.083-0.068
+                      c-0.167,0.408-0.336,0.748-0.336,1.324c0,1.04,0.551,1.685,1.011,2.297c-1.524,0.104-4.37,0.273-6.467,1.562
+                      c-1.998,1.188-2.605,2.916-2.605,4.137c0,2.512,2.358,4.84,7.289,4.84c5.822,0,8.904-3.223,8.904-6.41
+                      c0.008-2.327-1.359-3.489-2.829-4.731H14.703z M10.269,11.951c-2.912,0-4.231-3.765-4.231-6.037c0-0.884,0.168-1.797,0.744-2.511
+                      c0.543-0.679,1.489-1.12,2.372-1.12c2.807,0,4.256,3.798,4.256,6.242c0,0.612-0.067,1.694-0.845,2.478
+                      c-0.537,0.55-1.438,0.948-2.295,0.951V11.951z M10.302,25.609c-3.621,0-5.957-1.732-5.957-4.142c0-2.408,2.165-3.223,2.911-3.492
+                      c1.421-0.479,3.25-0.545,3.555-0.545c0.338,0,0.52,0,0.766,0.034c2.574,1.838,3.706,2.757,3.706,4.479
+                      c-0.002,2.073-1.736,3.665-4.982,3.649L10.302,25.609z"/>
+              <polygon points="23.254,11.89 23.254,8.521 21.569,8.521 21.569,11.89 18.202,11.89 18.202,13.604 21.569,13.604 21.569,17.004
+                      23.254,17.004 23.254,13.604 26.653,13.604 26.653,11.89      "/>
+            </g>
+          </g>
+      </svg>
+  </span>
+  <span class="text">google+</span>
+</a>
+</li>
+</ul></div>  </div>
+</div><div class="field-group-format group-primary-media field-group-primary-media primary-media-active-field-primary-image"><div class="primary-image">
+      <img typeof="foaf:Image" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/styles/thumbnail_large_620x350/public/4/29//handshake_0.jpg?itok=pgkJn9Ad" />  <div class="imagecaption">
+          </div>
+  </div></div><h2 class="short-teaser">
+The services will enable Sabre to provide its software, data, mobile and distribution solutions to more travel companies</h2>
+<div class="field field-name-body">
+      <p> Travel tech provider Sabre has chosen to run its cloud-based applications using Virtustream's Infrastructure-as-a-Service solution, alongside the company's managed services, allowing it to offer a wider variety of services to its customers.</p>
+<p>Sabre opted to migrate its applications to a SAP HANA environment to save costs while boosting efficiency. Virtustream will also implement its managed services including backup, security and compliance to ensure Sabre can scale its operations as the company grows.</p>
+<p>“Sabre conducted an extensive search to find the right partner to help us transition key supporting technologies to the cloud as we continue to invest in our growing business,” said Steve Strout, vice president of Corporate Systems at Sabre Corporation.</p>
+<p>“We selected Virtustream because of its demonstrated track record working with other global enterprise organisations, as well as its deep SAP expertise.”</p>
+<p>Sabre's software, data, mobile and distribution solutions currently power some of the biggest names in travel, including airlines and hotels.</p>
+<p>The technology is used to power passenger and guest reservations, revenue management, flight, network and crew management systems, plus its own travel marketplace to match travellers with suppliers, which is used to process more than $120 billion (£82 billion) worth of transactions a year.</p>
+<p>“We’re helping Sabre streamline its core business applications suite so that it can stay nimble, secure and competitive,” said Jim Fitzgibbons, vice president of onboarding and migration services at Virtustream.</p>
+<p>“Our patented microVM technology and leading security and compliance functionality, coupled with the global scale of EMC, drives Virtustream’s continued ability to serve marquis enterprise clients such as Sabre.” </p>
+  </div>
+<div  class="sharerich-wrapper sharerich-article-default-wrapper sharerich-2">
+        <div  class="item-list"><ul  class="sharerich-buttons rrssb-buttons clearfix"><li class="facebook first" weight="0"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services" class="popup">
+  <span class="icon">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+          <path d="M27.825,4.783c0-2.427-2.182-4.608-4.608-4.608H4.783c-2.422,0-4.608,2.182-4.608,4.608v18.434
+              c0,2.427,2.181,4.608,4.608,4.608H14V17.379h-3.379v-4.608H14v-1.795c0-3.089,2.335-5.885,5.192-5.885h3.718v4.608h-3.726
+              c-0.408,0-0.884,0.492-0.884,1.236v1.836h4.609v4.608h-4.609v10.446h4.916c2.422,0,4.608-2.188,4.608-4.608V4.783z"/>
+      </svg>
+  </span>
+  <span class="text">facebook</span>
+</a>
+</li>
+<li class="twitter" weight="1"><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services&text=Sabre%20selects%20Virtustream%27s%20IaaS%20and%20managed%20services&via=cloudpro" class="popup">
+      <span class="icon">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+          <path d="M24.253,8.756C24.689,17.08,18.297,24.182,9.97,24.62c-3.122,0.162-6.219-0.646-8.861-2.32
+              c2.703,0.179,5.376-0.648,7.508-2.321c-2.072-0.247-3.818-1.661-4.489-3.638c0.801,0.128,1.62,0.076,2.399-0.155
+              C4.045,15.72,2.215,13.6,2.115,11.077c0.688,0.275,1.426,0.407,2.168,0.386c-2.135-1.65-2.729-4.621-1.394-6.965
+              C5.575,7.816,9.54,9.84,13.803,10.071c-0.842-2.739,0.694-5.64,3.434-6.482c2.018-0.623,4.212,0.044,5.546,1.683
+              c1.186-0.213,2.318-0.662,3.329-1.317c-0.385,1.256-1.247,2.312-2.399,2.942c1.048-0.106,2.069-0.394,3.019-0.851
+              C26.275,7.229,25.39,8.196,24.253,8.756z"/>
+          </svg>
+      </span>
+      <span class="text">twitter</span>
+    </a></li>
+<li class="googleplus last" weight="2"><a href="https://plus.google.com/share?url=Sabre%20selects%20Virtustream%27s%20IaaS%20and%20managed%20services%20http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services" class="popup">
+  <span class="icon">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+          <g>
+            <g>
+              <path d="M14.703,15.854l-1.219-0.948c-0.372-0.308-0.88-0.715-0.88-1.459c0-0.748,0.508-1.223,0.95-1.663
+                      c1.42-1.119,2.839-2.309,2.839-4.817c0-2.58-1.621-3.937-2.399-4.581h2.097l2.202-1.383h-6.67c-1.83,0-4.467,0.433-6.398,2.027
+                      C3.768,4.287,3.059,6.018,3.059,7.576c0,2.634,2.022,5.328,5.604,5.328c0.339,0,0.71-0.033,1.083-0.068
+                      c-0.167,0.408-0.336,0.748-0.336,1.324c0,1.04,0.551,1.685,1.011,2.297c-1.524,0.104-4.37,0.273-6.467,1.562
+                      c-1.998,1.188-2.605,2.916-2.605,4.137c0,2.512,2.358,4.84,7.289,4.84c5.822,0,8.904-3.223,8.904-6.41
+                      c0.008-2.327-1.359-3.489-2.829-4.731H14.703z M10.269,11.951c-2.912,0-4.231-3.765-4.231-6.037c0-0.884,0.168-1.797,0.744-2.511
+                      c0.543-0.679,1.489-1.12,2.372-1.12c2.807,0,4.256,3.798,4.256,6.242c0,0.612-0.067,1.694-0.845,2.478
+                      c-0.537,0.55-1.438,0.948-2.295,0.951V11.951z M10.302,25.609c-3.621,0-5.957-1.732-5.957-4.142c0-2.408,2.165-3.223,2.911-3.492
+                      c1.421-0.479,3.25-0.545,3.555-0.545c0.338,0,0.52,0,0.766,0.034c2.574,1.838,3.706,2.757,3.706,4.479
+                      c-0.002,2.073-1.736,3.665-4.982,3.649L10.302,25.609z"/>
+              <polygon points="23.254,11.89 23.254,8.521 21.569,8.521 21.569,11.89 18.202,11.89 18.202,13.604 21.569,13.604 21.569,17.004
+                      23.254,17.004 23.254,13.604 26.653,13.604 26.653,11.89      "/>
+            </g>
+          </g>
+      </svg>
+  </span>
+  <span class="text">google+</span>
+</a>
+</li>
+</ul></div>  </div>
+<div class="field-group-format group_tags  group-tags field-group-simplediv"><h4 class="group-label"><span>Read more about: </span></h4><div class="field field-name-field-category-primary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/sales-crm" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Sales &amp; CRM</a></div>    </div></div><div class="field field-name-field-category-secondary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/hr" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">HR</a></div>      <div class="field-item odd"><a href="/marketing" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Marketing</a></div>      <div class="field-item even"><a href="/finance" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Finance</a></div>    </div></div></div>  </div>
+
+    <div id="node-bottom" class="region region-node-bottom node-bottom">
+    <div id="block-boxes-whitepaper-link-below-article" class="block block-boxes block-boxes-simple">
+
+
+    <div class="content">
+    <div id='boxes-box-whitepaper_link_below_article' class='boxes-box'><div class="boxes-box-content"><!--smart_paging_autop_filter--><!--smart_paging_filter--><div id="sponsor-whitepaper"><a href="http://pubads.g.doubleclick.net/gampad/clk?id=71674500&amp;iu=/359/impcount.co.uk" target="_blank">End of support for Windows server - your options explained.</a> <img src="http://ad.doubleclick.net/N359/ad/impcount.co.uk/;kw=zynstraarticlebox;sz=1x1;ord=' + ord + '?" /></div>
+</div></div>  </div>
+  </div>
+<div id="block-taboola-taboola-block2" class="block block-taboola">
+
+
+    <div class="content">
+    <div id="taboola-below-article-thumbnails"></div>
+  </div>
+  </div>
+<div id="block-taboola-taboola-block3" class="block block-taboola">
+
+
+    <div class="content">
+    <div id="taboola-below-article-text-links"></div>
+  </div>
+  </div>
+<div id="block-disqus-disqus-comments" class="block block-disqus">
+
+
+    <div class="content">
+    <div id="disqus_thread"><noscript><p><a href="http://dennis-cloudpro.disqus.com/?url=http%3A%2F%2Fwww.cloudpro.co.uk%2Fsales-crm%2F6024%2Fsabre-selects-virtustreams-iaas-and-managed-services">View the discussion thread.</a></p></noscript></div>  </div>
+  </div>
+  </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+                </div><!-- /content-group-inner -->
+              </div><!-- /content-group -->
+
+                <div id="sidebar-second" class="region region-sidebar-second sidebar sidebar-second">
+    <div id="block-dfp-mpu-1" class="block block-dfp">
+
+
+    <div class="content">
+    <div id="dfp-ad-mpu_1-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-mpu_1" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-mpu_1");
+    });
+  </script>
+</div>
+</div>  </div>
+  </div>
+<div id="block-taboola-taboola-block1" class="block block-taboola">
+
+
+    <div class="content">
+    <div id="taboola-right-rail-thumbnails"></div>
+  </div>
+  </div>
+<div id="block-boxes-convertr-box" class="block block-boxes block-boxes-simple">
+
+      <h4 class="block-title">Featured Whitepapers</h4>
+
+    <div class="content">
+    <div id='boxes-box-convertr_box' class='boxes-box'><div class="boxes-box-content"><!--smart_paging_autop_filter--><!--smart_paging_filter--><script src="https://dennis.cvtr.io/whitepapers/block.js?w=8" type="text/javascript"></script></div></div>  </div>
+  </div>
+<div id="block-views-popular-block" class="block block-views">
+
+      <h4 class="block-title">Popular</h4>
+
+    <div class="content">
+    <div class="view view-popular view-id-popular view-display-id-block view-dom-id-f5d4bac590a02239851a0ab31dfd21f0">
+
+
+
+      <div class="view-content">
+        <ul class="view-rows">
+    <li class="first odd">
+
+<div class="node node-article node-promoted odd node-popular">
+
+
+
+  <div class="content">
+
+
+
+    <div class="field field-name-field-short-title field-type-text field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="http://www.cloudpro.co.uk/cloud-essentials/public-cloud/5270/apple-music-vs-spotify-vs-deezer-vs-amazon-prime-music-spotify" title="Spotify fails to turn a profit despite high user growth" class="combined-link">Spotify fails to turn a profit despite high user growth</a></div>    </div></div><div class="field field-name-field-category-primary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/cloud-essentials/public-cloud" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Public Cloud</a></div>    </div></div>  </div>
+
+
+</div>
+    </li>
+      <li class="even">
+
+<div class="node node-article node-promoted even node-popular">
+
+
+
+  <div class="content">
+
+
+
+    <div class="field field-name-field-short-title field-type-text field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="http://www.cloudpro.co.uk/leadership/5581/tor-browser-news-mozilla-calls-for-fbi-to-disclose-tor-hack" title="Mozilla calls for FBI to disclose Tor hack" class="combined-link">Mozilla calls for FBI to disclose Tor hack</a></div>    </div></div><div class="field field-name-field-category-primary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/leadership" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Leadership</a></div>    </div></div>  </div>
+
+
+</div>
+    </li>
+      <li class="odd">
+
+<div class="node node-article node-promoted odd node-popular">
+
+
+
+  <div class="content">
+
+
+
+    <div class="field field-name-field-short-title field-type-text field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="http://www.cloudpro.co.uk/it-infrastructure/5886/android-pay-features-uk-release-date-how-it-works-4" title="Android Pay features, UK release date, how it works" class="combined-link">Android Pay features, UK release date, how it works</a></div>    </div></div><div class="field field-name-field-category-primary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/it-infrastructure" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">IT &amp; infrastructure</a></div>    </div></div>  </div>
+
+
+</div>
+    </li>
+      <li class="even">
+
+<div class="node node-article node-promoted even node-popular">
+
+
+
+  <div class="content">
+
+
+
+    <div class="field field-name-field-short-title field-type-text field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="http://www.cloudpro.co.uk/cloud-essentials/public-cloud/5646/onedrive-vs-google-drive-vs-dropbox-2" title="OneDrive vs Google Drive vs Dropbox" class="combined-link">OneDrive vs Google Drive vs Dropbox</a></div>    </div></div><div class="field field-name-field-category-primary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/cloud-essentials/public-cloud" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Public Cloud</a></div>    </div></div>  </div>
+
+
+</div>
+    </li>
+      <li class="last odd">
+
+<div class="node node-article node-promoted odd node-popular">
+
+
+
+  <div class="content">
+
+
+
+    <div class="field field-name-field-short-title field-type-text field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="http://www.cloudpro.co.uk/marketing/6030/windows-store-news-game-downloads-are-higher-on-windows-10-than-windows-phone-says" title="Game downloads higher on Windows 10 than Windows 10 Mobile" class="combined-link">Game downloads higher on Windows 10 than Windows 10 Mobile</a></div>    </div></div><div class="field field-name-field-category-primary field-type-taxonomy-term-reference field-label-hidden">
+  <div class="field-items">      <div class="field-item even"><a href="/marketing" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Marketing</a></div>    </div></div>  </div>
+
+
+</div>
+    </li>
+    </ul>
+    </div>
+
+
+
+
+
+
+</div>  </div>
+  </div>
+<div id="block-dfp-mpu-2" class="block block-dfp">
+
+
+    <div class="content">
+    <div id="dfp-ad-mpu_2-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-mpu_2" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-mpu_2");
+    });
+  </script>
+</div>
+</div>  </div>
+  </div>
+<div id="block-views-featured-block" class="block block-views">
+
+      <h4 class="block-title">Featured content</h4>
+
+    <div class="content">
+    <div class="view view-featured view-id-featured view-display-id-block view-dom-id-f75af967d5c080f48dc1a81acc1079d2">
+
+
+
+      <div class="view-content">
+        <ol class="view-rows">
+    <li class="first odd">
+          <div class="node node-article node-promoted odd node-sidebar-teaser clearfix">
+
+  <div class="float-right"><div class="teaser-image">
+      <a href="/saas/5977/how-to-turn-your-old-laptop-into-a-chromebook-for-free"><img typeof="foaf:Image" src="http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/styles/thumbnail_small/public/2016/04/cloudready_samsung_nc10.jpg?itok=x-LOQ-rC" /></a>  </div>
+  </div>
+
+      <h2 class="title"><span><a href="/saas/5977/how-to-turn-your-old-laptop-into-a-chromebook-for-free">How to turn your old laptop into a Chromebook for free</a></span></h2>
+
+  <span class="field field-name-field-article-type field-type-taxonomy-term-reference field-label-hidden">
+      <span class="field-item even"><a href="/tutorials" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Tutorials</a></span>
+  </span></div><!-- /#node -->
+    </li>
+      <li class="even">
+          <div class="node node-article node-promoted even node-sidebar-teaser clearfix">
+
+  <div class="float-right"><div class="teaser-image">
+      <a href="/business-intelligence/analytics/5471/ios-health-app-how-to-use-it-properly"><img typeof="foaf:Image" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/styles/thumbnail_small/public/6/12//shutterstock_131746163.jpg?itok=X1IOTIzb" /></a>  </div>
+  </div>
+
+      <h2 class="title"><span><a href="/business-intelligence/analytics/5471/ios-health-app-how-to-use-it-properly">iOS Health app: How to use it properly</a></span></h2>
+
+  <span class="field field-name-field-article-type field-type-taxonomy-term-reference field-label-hidden">
+      <span class="field-item even"><a href="/tutorials" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Tutorials</a></span>
+  </span></div><!-- /#node -->
+    </li>
+      <li class="odd">
+          <div class="node node-article node-promoted odd node-sidebar-teaser clearfix">
+
+  <div class="float-right"><div class="teaser-image">
+      <a href="/leadership/cloud-essentials/5422/aws-and-accenture-launch-cloud-migration-business"><img typeof="foaf:Image" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/styles/thumbnail_small/public/7/83//business%20deal.jpg?itok=V-bYBDJ9" /></a>  </div>
+  </div>
+
+      <h2 class="title"><span><a href="/leadership/cloud-essentials/5422/aws-and-accenture-launch-cloud-migration-business">AWS and Accenture launch cloud migration business</a></span></h2>
+
+  <span class="field field-name-field-article-type field-type-taxonomy-term-reference field-label-hidden">
+      <span class="field-item even"><a href="/news" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">News</a></span>
+  </span></div><!-- /#node -->
+    </li>
+      <li class="even">
+          <div class="node node-article node-promoted even node-sidebar-teaser clearfix">
+
+  <div class="float-right"><div class="teaser-image">
+      <a href="/collaboration/productivity/5414/qa-john-case-corporate-vice-president-microsoft-office"><img typeof="foaf:Image" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/styles/thumbnail_small/public/4/30//john_case.jpg?itok=lyrT4SA9" /></a>  </div>
+  </div>
+
+      <h2 class="title"><span><a href="/collaboration/productivity/5414/qa-john-case-corporate-vice-president-microsoft-office">Q&amp;A: John Case, corporate vice president, Microsoft Office</a></span></h2>
+
+  <span class="field field-name-field-article-type field-type-taxonomy-term-reference field-label-hidden">
+      <span class="field-item even"><a href="/advice" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Advice</a></span>
+  </span></div><!-- /#node -->
+    </li>
+      <li class="last odd">
+          <div class="node node-article node-promoted odd node-sidebar-teaser clearfix">
+
+  <div class="float-right"><div class="teaser-image">
+      <a href="/leadership/5415/what-is-safe-harbour-and-why-has-it-been-revoked"><img typeof="foaf:Image" src="http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/styles/thumbnail_small/public/Fotolia_43983371_Subscription_L.jpg?itok=IuEstjs9" alt="Cloud file transfer" title="Cloud file transfer" /></a>  </div>
+  </div>
+
+      <h2 class="title"><span><a href="/leadership/5415/what-is-safe-harbour-and-why-has-it-been-revoked">What is Safe Harbour, and why has it been revoked?</a></span></h2>
+
+  <span class="field field-name-field-article-type field-type-taxonomy-term-reference field-label-hidden">
+      <span class="field-item even"><a href="/advice" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Advice</a></span>
+  </span></div><!-- /#node -->
+    </li>
+    </ol>
+    </div>
+
+
+
+
+
+
+</div>  </div>
+  </div>
+<div id="block-onscroll-onscroll" class="block block-onscroll">
+
+
+    <div class="content">
+    <div id="onscroll-container"></div><script type="text/javascript">
+var onScrOll=new Object();
+onScrOll.placeholder="onscroll-container";
+onScrOll.code="PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cDovL3d3dy5nb29nbGV0YWdzZXJ2aWNlcy5jb20vdGFnL2pzL2dwdC5qcyI+PC9zY3JpcHQ+CjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij52YXIgZ29vZ2xldGFnID0gZ29vZ2xldGFnIHx8IHt9Owpnb29nbGV0YWcuY21kID0gZ29vZ2xldGFnLmNtZCB8fCBbXTsKZ29vZ2xldGFnLnNsb3RzID0gZ29vZ2xldGFnLnNsb3RzIHx8IHt9Ozwvc2NyaXB0Pgo8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+Z29vZ2xldGFnLnNsb3RzWyJvbnNjcm9sbCJdID0gZ29vZ2xldGFnLmRlZmluZVNsb3QoIi8zNTkvY2xvdWRwcm8uY28udWsvc2FsZXMtY3JtIiwgWzMwMCwgMjUwXSwgImRmcC1hZC1vbnNjcm9sbCIpCiAgLmFkZFNlcnZpY2UoZ29vZ2xldGFnLnB1YmFkcygpKQogIC5zZXRUYXJnZXRpbmcoInBvc2l0aW9uIiwgIjMiKTs8L3NjcmlwdD4KPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPmdvb2dsZXRhZy5jbWQucHVzaChmdW5jdGlvbigpIHsKICBnb29nbGV0YWcucHViYWRzKCkuZW5hYmxlQXN5bmNSZW5kZXJpbmcoKTsKICBnb29nbGV0YWcucHViYWRzKCkuZW5hYmxlU2luZ2xlUmVxdWVzdCgpOwogIGdvb2dsZXRhZy5wdWJhZHMoKS5jb2xsYXBzZUVtcHR5RGl2cygpOwogIGdvb2dsZXRhZy5wdWJhZHMoKS5zZXRDZW50ZXJpbmcodHJ1ZSk7CiAgZ29vZ2xldGFnLnB1YmFkcygpLnNldFRhcmdldGluZygiYXJ0aWNsZS10eXBlIiwgIm5ld3MiKTsKICBnb29nbGV0YWcucHViYWRzKCkuc2V0VGFyZ2V0aW5nKCJwcmltYXJ5LWNhdGVnb3J5IiwgInNhbGVzLWNybSIpOwogIGdvb2dsZXRhZy5wdWJhZHMoKS5zZXRUYXJnZXRpbmcoImNhdGVnb3J5IiwgWyJzYWxlcy1jcm0iLCJociIsIm1hcmtldGluZyIsImZpbmFuY2UiXSk7CiAgZ29vZ2xldGFnLnB1YmFkcygpLnNldFRhcmdldGluZygiYXV0aG9yIiwgImNsYXJlLWhvcHBpbmciKTsKICBnb29nbGV0YWcucHViYWRzKCkuc2V0VGFyZ2V0aW5nKCJ6b25lIiwgInNhbGVzLWNybSIpOwogIGdvb2dsZXRhZy5wdWJhZHMoKS5zZXRUYXJnZXRpbmcoImFydGljbGUiLCAiNjAyNCIpOwogIGdvb2dsZXRhZy5wdWJhZHMoKS5zZXRUYXJnZXRpbmcoImxpdmUiLCAieWVzIik7CiAgZ29vZ2xldGFnLnB1YmFkcygpLnNldFRhcmdldGluZygib3JkIiwgIjI4NDc0ODI3NzAiKTsKfSk7Cgpnb29nbGV0YWcuZW5hYmxlU2VydmljZXMoKTs8L3NjcmlwdD4KPGRpdiBpZD0iZGZwLWFkLW9uc2Nyb2xsLXdyYXBwZXIiIGNsYXNzPSJkZnAtdGFnLXdyYXBwZXIiPgo8ZGl2ICBpZD0iZGZwLWFkLW9uc2Nyb2xsIiBjbGFzcz0iZGZwLXRhZy13cmFwcGVyIj4KICAgIDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4KICAgIGdvb2dsZXRhZy5jbWQucHVzaChmdW5jdGlvbigpIHsKICAgICAgZ29vZ2xldGFnLmRpc3BsYXkoImRmcC1hZC1vbnNjcm9sbCIpOwogICAgfSk7CiAgPC9zY3JpcHQ+CjwvZGl2Pgo8L2Rpdj48c2NyaXB0IHNyYz0iaHR0cDovL2Nkbi5vbnNjcm9sbC5jb20vbXMub3MuanMiPjwvc2NyaXB0Pg==";
+onScrOll.margin=600;
+onScrOll.marginTop=10;
+onScrOll.mode="sticky";
+onScrOll.height=250;
+onScrOll.width=300;
+onScrOll.reload=false;
+onScrOll.campaignId="5373a108d4e6016c34000009";
+onScrOll.creativeId="5373a126d4e6016c3400000a";
+onScrOll.accountId="51dd21a0cfdab67330000019";
+</script><script async type="text/javascript" src="http://cdn.onscroll.com/onscroll.ms.js"></script>  </div>
+  </div>
+  </div>
+                                        </div><!-- /main-content-inner -->
+          </div><!-- /main-content -->
+
+                  </div><!-- /main-group-inner -->
+      </div><!-- /main-group -->
+    </div><!-- /main-inner -->
+  </div><!-- /main -->
+
+      <div id="footer" class="region region-footer footer">
+    <div id="block-dfp-leaderboard-2" class="block block-dfp">
+
+
+    <div class="content">
+    <div id="dfp-ad-leaderboard_2-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-leaderboard_2" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-leaderboard_2");
+    });
+  </script>
+</div>
+</div>  </div>
+  </div>
+<div id="block-boxes-footer_contact" class="block block-boxes block-boxes-simple">
+  <div class="gutter inner clearfix">
+
+
+    <a href="/" id="footer-logo" class="content logo-link"><img src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/themes/cloudpro/logo.png" alt="Home" /></a>        <p class="title block-title" class="block-title"><span>Contact us</span></p>
+
+    <div class="content clearfix">
+      <div id='boxes-box-footer_contact' class='boxes-box'><div class="boxes-box-content"><!--smart_paging_autop_filter--><!--smart_paging_filter--><p>Dennis Publishing Editorial Offices<br />
+30 Cleveland Street<br />
+London, W1T 4JD<br />
+<br />T: +44 (0)20 7907 6000<br />
+<br />
+<p class="title block-title"><span>Connect with us</span></p>
+</div></div><ul data-name="menu-footer-social"><li class="menu-719 first"><a href="http://www.linkedin.com/groups/CloudPro-3821466/about" class="linkedin">Linkedin</a></li>
+<li class="menu-264"><a href="https://twitter.com/cloudpro" class="twitter">Twitter</a></li>
+<li class="menu-263 last"><a href="https://www.facebook.com/cloudpro" class="facebook">Facebook</a></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-menu-menu-footer" class="block block-menu">
+
+      <p class="block-title">Useful links</p>
+
+    <div class="content">
+    <ul class="links"><li class="menu-858 first"><a href="/hr">HR</a></li>
+<li class="menu-859"><a href="/marketing">Marketing</a></li>
+<li class="menu-3136"><a href="/finance">Finance</a></li>
+<li class="menu-861"><a href="/sales-crm">Sales &amp; CRM</a></li>
+<li class="menu-938"><a href="/collaboration">Collaboration</a></li>
+<li class="menu-948"><a href="/leadership">Leadership</a></li>
+<li class="menu-937"><a href="/business-intelligence">Business Intelligence</a></li>
+<li class="menu-962"><a href="/">More</a></li>
+<li class="menu-501"><a href="/contact-us">Contact us</a></li>
+<li class="menu-502"><a href="/about-us">About us</a></li>
+<li class="menu-261"><a href="http://www.dennis.co.uk/">Company Website</a></li>
+<li class="menu-503"><a href="/feeds">Feeds</a></li>
+<li class="menu-262"><a href="http://www.dennis.co.uk/privacy">Privacy Notice</a></li>
+<li class="menu-780"><a href="/authors">Authors</a></li>
+<li class="menu-857 last"><a href="/sitemap">Sitemap</a></li>
+</ul>  </div>
+  </div>
+<div id="block-menu-menu-our-websites" class="block block-menu">
+
+      <p class="block-title">Our Websites</p>
+
+    <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="http://www.autoexpress.co.uk/">Auto Express</a></li>
+<li class="leaf"><a href="http://www.bit-tech.net/">Custom PC</a></li>
+<li class="leaf"><a href="http://www.evo.co.uk/">Evo</a></li>
+<li class="leaf"><a href="http://www.itpro.co.uk/">IT Pro</a></li>
+<li class="leaf"><a href="http://www.itpro.in/">IT Pro India</a></li>
+<li class="leaf"><a href="http://www.macuser.co.uk/">MacUser</a></li>
+<li class="leaf"><a href="http://www.coachmag.co.uk/">Coach</a></li>
+<li class="leaf"><a href="http://www.micromart.co.uk/">Micro Mart</a></li>
+<li class="leaf"><a href="http://www.alphr.com">Alphr</a></li>
+<li class="leaf"><a href="http://www.knowyourmobile.com/">Know Your Mobile</a></li>
+<li class="leaf"><a href="http://www.classicandperformancecar.com/">Classic & Performance Car</a></li>
+<li class="leaf"><a href="http://www.expertreviews.co.uk/">Expert Reviews</a></li>
+<li class="leaf"><a href="http://www.channelpro.co.uk/">Channel Pro</a></li>
+<li class="leaf"><a href="http://www.knowyourmobile.in">Know Your Mobile India</a></li>
+<li class="leaf"><a href="http://www.digitalslrphoto.com">Digital SLR Photography</a></li>
+<li class="leaf"><a href="http://www.denofgeek.co.uk">Den of Geek</a></li>
+<li class="leaf"><a href="http://www.theweek.co.uk">The Week</a></li>
+<li class="leaf"><a href="http://www.computershopper.co.uk">Computer Shopper</a></li>
+<li class="leaf"><a href="http://www.mobiletest.fr">Mobile Test</a></li>
+<li class="leaf"><a href="http://phonedeals.knowyourmobile.com/">Mobile Phone Deals</a></li>
+<li class="leaf"><a href="http://www.magazine-group.co.uk/">Magazines</a></li>
+<li class="leaf"><a href="http://www.healthandfitnessonline.co.uk">Health & Fitness</a></li>
+<li class="leaf"><a href="http://www.carbuyer.co.uk">CarBuyer</a></li>
+<li class="leaf"><a href="http://www.cloudpro.co.uk">Cloud Pro</a></li>
+<li class="leaf"><a href="http://www.magbooks.com">MagBooks</a></li>
+<li class="leaf"><a href="http://www.3d-printing.net/">3D Printing</a></li>
+<li class="last leaf"><a href="http://www.cyclist.co.uk">Cyclist</a></li>
+</ul>  </div>
+  </div>
+<div id="block-dennis-core-dennis-core-footer" class="block block-dennis-core">
+
+
+    <div class="content">
+    <div class="copyright">
+  <p>© Copyright <a title="Hyperlink to The Dennis Publishing web site" href="http://www.dennis.co.uk/"><span>Dennis Publishing</span></a> Limited.<br/>Cloud Pro is a trademark of Felix Dennis.</p>
+</div>
+<ul class="links"><li class="menu-255 first"><a href="http://www.dennis.co.uk/working-at-dennis">Jobs</a></li>
+<li class="menu-256"><a href="http://www.dennis.co.uk/press-room/press-enquiries">Media Information</a></li>
+<li class="menu-257"><a href="http://www.dennis.co.uk/subscriptions">Subscription Enquires</a></li>
+<li class="menu-258"><a href="http://www.dennis.co.uk/books">Books</a></li>
+<li class="menu-259"><a href="http://www.dennis.co.uk/apps">Apps</a></li>
+<li class="menu-260 last"><a href="http://www.youronlinechoices.eu" class="your-online-choices">Your Online Choices</a></li>
+</ul>  </div>
+  </div>
+  </div>
+</div><!-- /page -->
+</div>    <div id="page-bottom" class="region region-page-bottom page-bottom">
+    <!-- Begin comScore Tag -->
+          <script>
+            var _comscore = _comscore || [];
+            _comscore.push({ c1: "2", c2: "6036152", c3: "", c4: "http://www.cloudpro.co.uk/sales-crm/6024/sabre-selects-virtustreams-iaas-and-managed-services", c5: "", c6: "", c15: "" });
+            (function() {
+              var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+              s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+              el.parentNode.insertBefore(s, el);
+            })();
+          </script>
+          <noscript>
+            <img src="http://b.scorecardresearch.com/p?c1=2&c2=6036152&c3=&c4=http://www.cloudpro.co.uk/sales-crm/6024/sabre-selects-virtustreams-iaas-and-managed-services&c5=&c6=&c15=&cv=2.0&cj=1" />
+          </noscript>
+      <!-- End comScore Tag -->  </div>
+<script type="text/javascript" src="http://tags.crwdcntrl.net/c/4902/cc.js?ns=_cc4902" id="LOTCC_4902"></script>
+<script type="text/javascript" async="async" src="http://cloudpro.co.uk.intellitxt.com/intellitxt/front.asp?ipid=50157"></script>
+<script type="text/javascript" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/advagg_js/js__p7HyNHxTNYizVa45tDugqo8_e9nxNIifX2uy1H60rRI__cHidVNZz3b_S-FTpa9aJ98N-ilLaQXayEq8O42CVS1k__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.js"></script>
+<script type="text/javascript" src="http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/advagg_js/js__JrixcaKDENkG897cC3_v7_BFov_cOmhMcVbi1FvUW5E__SN4vRzZxVwDUCHnptLv2bL5VW9PXNK-u4IpqP80Hz5s__q__lki6VYcdg6SjShokKChutwt0UxApuSqla-4rWXGs.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+if(typeof(_cc4902)==="object")_cc4902.bcp();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+var fby=fby||[]
+fby.push(['showTab',{id:'8035',position:'right',color:'#1E6DBE'}]);(function(){var f=document.createElement('script');f.type='text/javascript';f.async=true;f.src='//cdn.feedbackify.com/f.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(f,s);})();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+var impliedConsent=impliedConsent||{};impliedConsent.q=impliedConsent.q||[];impliedConsent.q.push(["init",{"noticeText":"\u003C!--smart_paging_autop_filter--\u003E\u003C!--smart_paging_filter--\u003E\u003Cp\u003EWe use cookies as set out in our \u003Ca href=\u0022http:\/\/www.dennis.co.uk\/cookie-policy\u0022 target=\u0022_blank\u0022 title=\u0022Read more about our cookie policy\u0022\u003Ecookie policy\u003C\/a\u003E. By using this website, you agree we may place these cookies on your device. \u003C\/p\u003E\n","confirmText":"Close","validateByClick":true}]);
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+(function(){_ml=window._ml||{};_ml.pub='220';_ml.ht='shex';_ml.ef=['*83.email'];var s=document.getElementsByTagName('script')[0],cd=new Date(),mltag=document.createElement('script');mltag.type='text/javascript';mltag.async=true;mltag.src='//ml314.com/tag.aspx?'+cd.getDate()+cd.getMonth()+cd.getFullYear();s.parentNode.insertBefore(mltag,s);})();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+window._taboola=window._taboola||[];_taboola.push({mode:'thumbnails-h',container:'taboola-below-article-thumbnails',placement:'Below Article Thumbnails',target_type:'mix'});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+window._taboola=window._taboola||[];_taboola.push({mode:'text-links-a',container:'taboola-below-article-text-links',placement:'Below Article Text Links',target_type:'mix'});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+window._taboola=window._taboola||[];_taboola.push({mode:'thumbnails-i',container:'taboola-right-rail-thumbnails',placement:'Right Rail Thumbnails',target_type:'mix'});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+window._taboola=window._taboola||[];_taboola.push({flush:true});
+//--><!]]>
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"c50bb2a122","applicationID":"970198,1688962","transactionName":"ZAFSYkdTXxECBRcMDl1LcVVBW14MTAgMAQRsFFFRUG1HCwYR","queueTime":0,"applicationTime":424,"atts":"SEZRFA9JTB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
