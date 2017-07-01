@@ -38,7 +38,4 @@ const createCase = fixture => (
   })
 )
 
-describe('smartlink-core', () => {
-  createCase('fastersite')
-  // fixtures.forEach(createCase)
-})
+describe('smartlink-core', () => fixtures.forEach(createCase))
