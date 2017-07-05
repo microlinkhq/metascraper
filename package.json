@@ -18,7 +18,9 @@
     "metadata"
   ],
   "dependencies": {
-    "cheerio": "~1.0.0-rc.1",
+    "async": "~2.5.0",
+    "cb2promise": "~1.1.0",
+    "cheerio": "~1.0.0-rc.2",
     "chrono-node": "~1.3.4",
     "condense-whitespace": "~1.0.0",
     "isostring": "0.0.1",
@@ -35,10 +37,8 @@
     "coveralls": "latest",
     "git-dirty": "latest",
     "json-future": "latest",
-    "lodash.foreach": "latest",
-    "mocha": "latest",
+    "ava": "latest",
     "nyc": "latest",
-    "should": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
@@ -54,7 +54,7 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown && standard",
     "pretest": "npm run lint",
-    "test": "TZ=UTC NODE_ENV=test nyc mocha"
+    "test": "TZ=UTC NODE_ENV=test nyc ava test/index.js --verbose"
   },
   "license": "MIT",
   "standard": {
