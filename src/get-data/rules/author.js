@@ -63,9 +63,10 @@ module.exports = [
   wrap($ => $('[itemprop*="author"] [itemprop="name"]').first().text()),
   wrap($ => $('[itemprop*="author"]').first().text()),
   wrap($ => $('meta[property="book:author"]').attr('content')),
-  strict(wrap($ => $('a[class*="author"]').first().text())),
+  strict(wrap($ => $('a[class*="author"]').text())),
   strict(wrap($ => $('[class*="author"] a').first().text())),
-  strict(wrap($ => $('[class*="author"]').first().text())),
-  strict(wrap($ => $('[class*="byline"]').text())),
-  strict(wrap($ => $('a[href*="/author/"]').text()))
+  strict(wrap($ => $('a[href*="/author/"]').first().text())),
+  strict(wrap($ => $('a[href*="/author/"]').text())),
+  strict(wrap($ => $('[class*="author"]').text())),
+  strict(wrap($ => $('[class*="byline"]').text()))
 ]
