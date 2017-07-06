@@ -53,5 +53,6 @@ module.exports = [
   wrap($ => $('[class*="date"]').text()),
   wrap($ => $('[id*="date"]').text()),
   wrap($ => $('[class*="post-timestamp"]').text()),
-  wrap($ => $('[class*="post-meta"]').text())
+  wrap($ => $('[class*="post-meta"]').text()),
+  wrap($ => $('[class*="metadata"]').text())
 ]
