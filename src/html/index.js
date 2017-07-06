@@ -11,6 +11,10 @@ const sanitize = html => sanitizeHtml(html, {
     meta: (tagName, attribs) => {
       if (attribs.name) attribs.name = attribs.name.toLowerCase()
       return {tagName, attribs}
+    },
+    a: (tagName, attribs) => {
+      if (attribs.href) attribs.href = attribs.href.toLowerCase()
+      return {tagName, attribs}
     }
   }
 })
