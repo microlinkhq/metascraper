@@ -79,5 +79,7 @@ module.exports = [
     .filter((i, el) => $(el).text().trim())
     .first()
     .text()
-  )
+  ),
+
+  wrap($ => $('[class*="user-info"]').text())
 ]
