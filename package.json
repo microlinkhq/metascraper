@@ -37,8 +37,9 @@
     "coveralls": "latest",
     "git-dirty": "latest",
     "json-future": "latest",
-    "ava": "latest",
+    "mocha": "latest",
     "nyc": "latest",
+    "should": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
@@ -54,7 +55,7 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown && standard",
     "pretest": "npm run lint",
-    "test": "TZ=UTC NODE_ENV=test nyc ava test/index.js --verbose"
+    "test": "TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "standard": {

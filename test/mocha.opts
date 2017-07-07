@@ -1,5 +1,5 @@
 --require should
---reporter spec
+--reporter list
 --timeout 120000
 --slow 300
 --bail
