@@ -1,18 +1,18 @@
 {
-  "name": "smartlink-core",
+  "name": "microlink-core",
   "description": "Get metadata from HTML",
-  "homepage": "https://github.com/smartlinkhq/smartlink-core",
+  "homepage": "https://github.com/microlinkhq/microlink-core",
   "version": "0.0.0",
   "main": "index.js",
   "author": {
-    "url": "https://github.com/smartlinkhq"
+    "url": "https://github.com/microlinkhq"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smartlinkhq/smartlink-core.git"
+    "url": "git+https://github.com/microlinkhq/microlink-core.git"
   },
   "bugs": {
-    "url": "https://github.com/smartlinkhq/smartlink-core/issues"
+    "url": "https://github.com/microlinkhq/microlink-core/issues"
   },
   "keywords": [
     "metadata"
