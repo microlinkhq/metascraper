@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Linux Engineer's random thoughts - awk driven IoT </title>
+		<meta charset="utf-8">
+		<meta name="author" content="Anisse Astier">
+		<meta name="description" content="In which I babble about some projects I do and I rant about stuff I like. I'm working as a Linux Kernel engineer as a day job, and I probably play too much video games on my free time.">
+		<meta name="keywords" content="">
+		<meta name="generator" content="Pelican">
+		<link rel="icon" type="image/png" href="/theme/img/favicon.png" sizes="200x200" />
+		<link rel="icon" type="image/png" href="/theme/img/favicon64.png" sizes="64x64" />
+		<link rel="icon" type="image/png" href="/theme/img/favicon48.png" sizes="48x48" />
+		<link rel="icon" type="image/png" href="/theme/img/favicon32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/theme/img/favicon16.png" sizes="16x16" />
+		<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Muli:400,400italic' >
+		<link rel="stylesheet" href="/theme/css/style.min.css?2586c5d2">
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<div id="contener">
+		<header>
+			<nav>
+				<ul>
+					<li>
+					<a href="/" title="Home">
+						<div id="home">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+					</a>
+					</li>
+					<li class="other">
+						<a href="#">Archives</a>
+					</li>
+					<li class="other">
+						<a href="https://github.com/anisse/?tab=repositories">Projects</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+    <article>
+        <div class="encar">
+            <div class="title">
+                <h1> awk driven IoT </h1>
+                <h2> Making toy prototypes with traditional unix tools</h2>
+            </div>
+
+            <div class="time">
+                <h2> July 05, 2017 </h2>
+            </div>
+        </div>        <div class="contenu">
+            <p>With a Raspberry Pi or other modern single-board computers, you can make very simple toys. I started with the hello world of interactive apps: the <a href="https://en.wikipedia.org/wiki/Soundboard_(computer_program)">soundboard</a>. But even then, I was too ambitious.</p>
+<h1>The soundpad</h1>
+<p>Since the main target was kids. I wanted a simple, screen-less toy that would teach the basics of interactivity, as well as serve as a platform for learning. A simple soundboard can be quite useful to learn animal calls for instance, so I was set.</p>
+<p>But I also wanted this toy to be wireless and interact with the house. For the first part, I decided to hook an old <a href="https://en.wikipedia.org/wiki/IControlPad">bluetooth game controller</a> I had lying around. I was able to detect its keys with <code>evtest</code> pretty quickly and make an inventory of all buttons keycodes:</p>
+<div class="highlight"><pre><span></span>304
+305
+306
+307
+308
+312
+313
+314
+315
+316
+317
+318
+</pre></div>
+
+
+<p>For the sounds, I reused the sounds present in the default raspbian scratch installation. There are a few wave files in <code>/usr/share/scratch/Media/Sounds/</code> that proved useful. I made a few directories with symbolic links to the samples I was interested in. Combining <a href="https://joeyh.name/code/moreutils/"><code>vidir</code></a> and the previous keycode list, I ensured each wave file name started with a keycode, like this for the Animal sounds:</p>
+<div class="highlight"><pre><span></span>304-Bird.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Bird.wav
+305-Cricket.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Cricket.wav
+306-Crickets.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Crickets.wav
+307-Dog1.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Dog1.wav
+308-Dog2.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Dog2.wav
+312-Duck.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Duck.wav
+313-Goose.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Goose.wav
+314-Horse.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Horse.wav
+315-HorseGallop.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/HorseGallop.wav
+316-Kitten.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Kitten.wav
+317-Meow.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Meow.wav
+318-Owl.wav -&gt; /usr/share/scratch/Media/Sounds/Animal/Owl.wav
+</pre></div>
+
+
+<p>In order to interact with the house, I paired a bluetooth soundbar to the raspberry pi.</p>
+<p>Once all of this is setup, this is the entirety of the code for the first iteration of the working soundpad (soundboard + joypad):</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">cd</span> <span class="nv">$1</span>
+stdbuf -o0 evtest /dev/input/event0<span class="p">|</span> awk -W interactive <span class="s1">&#39;</span>
+<span class="s1">/EV_KEY/ { if ( $NF == 1) { system(&quot;paplay &quot; $8 &quot;-*.wav&amp;&quot;) }}&#39;</span>
+</pre></div>
+
+
+<ul>
+<li><code>stdbuf</code> is very useful when playing with pipes where the input command is blocking, but you still want interactivity. It allows you to control i/o buffering.</li>
+<li><code>evtest</code> parses input events.</li>
+<li><code>awk -W interactive</code> has the same role as <code>stdbuf -i0</code>, but for <code>mawk</code>'s internal buffering (it's not needed for GNU awk).</li>
+<li>when a matching line is found, <code>paplay</code> is used to play the audio through pulseaudio's bluez sink, that was previously configured as default. The filename corresponds to the button keycode.</li>
+</ul>
+<p>The last iteration has the same core code, but with a bit more setup: using <code>bluetoothctl</code> and <code>pactl</code> to make sure the controller and the soundbars are properly connected and configured mainly.</p>
+<p>It worked, for the most part, but was far from plug-and-play. The soundbar needed to be turned on and put in bluetooth mode. The wireless joypad had to be turned on. It needed constant re-setup of the bluetooth connections, because it lost the pairings regularly. And sometimes the audio would stutter horribly. I tried compiling a more recent version of bluez, to no avail.</p>
+<p>So after a few day of demos and sample playing, I binned this project about 9 months ago.</p>
+<h1>The music portal</h1>
+<p>Fast forward today, I had this thing bothering me about modern music and rhymes for kids. With Deezer &amp; Spotify, we have access to a library we could only dream of. But it's impossible for 2 year old child to operate, or even desirable.</p>
+<p>Even without online services, the only alternative would be to go back to the audio CDs. But the only functional CD player in our house is the CD-ROM drive in my Desktop computer; I therefore backup all our audio CDs in audio files. Playing those has the same level of complexity (and screen-interaction) as interoperating with streaming services, so it's back to square one.</p>
+<p>That's where the music portal comes in. It's a combination of a <a href="https://en.wikipedia.org/wiki/Mir:ror">Violet Mir:ror</a> I had lying around, and a Raspberry PI with a speaker hooked up.</p>
+<p>The Mir:ror is a very simple RFID reader. It's basically plug-and-play on Linux, since it sends raw HID events, with the full ID of the tags it reads, and it has audio and visual feedback. I also evaluated using a <a href="https://en.wikipedia.org/wiki/Skylanders">Skylanders</a> portal, which also sent raw HID events, but its data was much less detailed, with only two bytes of information in the HID events, and the need to do more work to <a href="https://github.com/silicontrip/SkyReader">get the full data</a>, and has no audio or visual feedback.</p>
+<p>So here is the code of the first version:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+sudo stdbuf -o0 hexdump -C /dev/hidraw0 <span class="p">|</span> awk -W interactive <span class="s1">&#39;</span>
+<span class="s1">/02 01 00 00 08 d0 02 1a  03 52 c1 1a 01 00 00 00/ { print &quot;file1 &quot;; play=1; file=&quot;file1.mp3&quot; ; }</span>
+<span class="s1">/02 01 00 00 08 d0 02 1a  03 52 c1 4b ad 00 00 00/ { print &quot;file2 &quot;; play=1; file=&quot;file2.mp3&quot; ; }</span>
+<span class="s1">/02 01 00 00 04 3f d7 5f  35 00 00 00 00 00 00 00/ { print &quot;dir1 &quot;; play=1; file=&quot;dir1/*.mp3&quot; ; }</span>
+<span class="s1">/  02 02 00 00 0. |01 05 00 00 00 00 00 00  00 00 00 00 00 00 00 00/ { print &quot;stop&quot;; system(&quot;killall -q mpg321&quot;); }</span>
+<span class="s1">{</span>
+<span class="s1">if (play) {</span>
+<span class="s1">        system(&quot;mpg321 -q &quot; file &quot; &amp; &quot;);</span>
+<span class="s1">        }</span>
+<span class="s1">play=0 ;</span>
+<span class="s1">}</span>
+<span class="s1">&#39;</span>
+</pre></div>
+
+
+<ul>
+<li>we use the same <code>stdbuf</code> and <code>awk -W interactive</code> trick as before. Fun fact: I rediscovered this <code>mawk</code> argument by reading the man page while doing this project because I had forgotten about it in only 9 months. I don't think I'll forget it again.</li>
+<li>Here we're matching full HID event lines. We don't even bother decoding the payload size, etc. Since it all fits on a line matchable by <code>awk</code>.</li>
+<li>I used <code>mpg321</code> because it has the less footprint when compared to <code>mpg123</code>, <code>gst-launch</code>, <code>mplayer</code>, <code>vlc</code>, and others.</li>
+<li>I used the same symbolic link structure because it's much easier than putting the full file names in the script.</li>
+<li>We handle "tag" removal as well as portal shutdown. The Mir:ror automatically shuts down when turned face down.</li>
+<li>There are race conditions hiding here. It's not a big deal, it's just a prototype.</li>
+</ul>
+<p>What could I use after I setup the two included Nanoztags ? I could put RFID stickers on objects; or I could use my visa card; or anything that has an RFID/NFC feature (like my phone). But there are better, available off-the-shelf choices: <a href="https://en.wikipedia.org/wiki/Toys-to-life">toys-to-life</a> like Skylanders ! There are already made for kids, are very sturdy, and I managed to snag a few on clearance at ~1€ a piece !</p>
+<p>Make sure the Raspberry Pi is connected to your wireless network, so you can add new songs remotely, and throw in a <a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html">systemd.service</a> for automatic starting, and the toy is finished:</p>
+<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Music Portal</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/home/pi/musicportal.sh</span>
+<span class="na">User</span><span class="o">=</span><span class="s">pi</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">pi</span>
+<span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/home/pi</span>
+<span class="na">StandardOutput</span><span class="o">=</span><span class="s">journal+console</span>
+<span class="na">StandardError</span><span class="o">=</span><span class="s">journal+console</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">3</span>
+
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+
+
+<p>And it's truly plug-and-play: you just need to plug the Raspberry Pi, and it powers the speaker through USB, as well as the Mir:ror.</p>
+<p>Here's a video of the final result:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I1Vc38DaTQY" frameborder="0" allowfullscreen></iframe>
+
+<p>Last but not least, the title of this article is <em>awk driven <strong>I</strong>oT</em>. So I integrated <a href="https://github.com/plietar/librespot">librespot</a>, and I can now play songs and rhymes from this online streaming service ! Success ✔</p>
+        </div>
+        </article>
+	<section id="partage">
+		<p>Share</p>
+		<ul>
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on Facebook'); return false;" title="Share on Facebook" target="_blank">
+			<div id="facebook_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+			<li>
+<a href="https://plus.google.com/share?url=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on Google+'); return false;" title="Share on Google+" target="_blank">
+			<div id="googleplus_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+			<li>
+<a href="https://twitter.com/share?text=awk%20driven%20IoT&url=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on Twitter'); return false;" title="Share on Twitter" target="_blank">
+			<div id="twitter_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+			<li>
+<a href="http://blogger.com/blog-this.g?t=With%20a%20Raspberry%20Pi%20or%20other%20modern%20single-board%20computers%2C%20you%20can%20make%20very%20simple%20toys.%20I%20started%20with%20the%20hello%20world%20of%20interactive%20apps%3A%20the%20soundboard.%20But%20even%20then%2C%20I%20was%20too%20ambitious.%20The%20soundpad%20Since%20the%20main%20target%20was%20kids.%20I%20wanted%20a%20simple%2C%20screen-less%20toy%20that%20would%20teach%20...&n=awk%20driven%20IoT&u=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on Blogger'); return false;" title="Share on Blogger" target="_blank">
+			<div id="blogger_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+			<li>
+<a href="http://www.linkedin.com/shareArticle?mini=true&ro=false&title=awk%20driven%20IoT&summary=With%20a%20Raspberry%20Pi%20or%20other%20modern%20single-board%20computers%2C%20you%20can%20make%20very%20simple%20toys.%20I%20started%20with%20the%20hello%20world%20of%20interactive%20apps%3A%20the%20soundboard.%20But%20even%20then%2C%20I%20was%20too%20ambitious.%20The%20soundpad%20Since%20the%20main%20target%20was%20kids.%20I%20wanted%20a%20simple%2C%20screen-less%20toy%20that%20would%20teach%20...&source=Linux%20Engineer%27s%20random%20thoughts&url=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on LinkedIn'); return false;" title="Share on LinkedIn" target="_blank">
+			<div id="linkedin_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+			<li>
+<a href="http://news.ycombinator.com/submitlink?t=awk%20driven%20IoT&u=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on Hacker News'); return false;" title="Share on Hacker News" target="_blank">
+			<div id="hackernews_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+			<li>
+<a href="http://www.reddit.com/submit?url=https%3A//anisse.astier.eu/awk-driven-iot.html" onclick="javascript:openWindow(this.href, 'Share on Reddit'); return false;" title="Share on Reddit" target="_blank">
+			<div id="reddit_logo">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</a>
+</li>
+		</ul>
+
+	</section>
+	<section id="commentaire">
+		<!--
+		TODO STUFF. Will not activate until it's on-demand only.
+	    <div id="disqus_thread"></div>
+			<script type="text/javascript">
+				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				var disqus_shortname = 'XXXXX_EDIT_ME_XXXXX'; // required: replace example with your forum shortname
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			-->
+	</section>
+		</section>
+	</div>
+
+	<aside>
+		<div id="IDprofil">
+			<a href="#" title="Resume">
+				<img src="/images/anisse.jpg" alt="Photo of author Anisse Astier" />
+			</a>
+			<div id="IDname">
+			<h1>
+				<a href="#" title="Resume">Anisse Astier</a>
+			</h1>
+			<h2>
+				<a href="#" title="Resume">Linux Engineer's random thoughts</a>
+			</h2>
+			</div>
+		</div>
+		<div id="aboutme">
+			<p> In which I babble about some projects I do and I rant about stuff I like. I'm working as a Linux Kernel engineer as a day job, and I probably play too much video games on my free time. </p>
+		</div>
+		<ul id="linkRS">
+			<li>
+			<a href="/feed/" title="Atom feed, RSS old School Style">
+				<div id="rss2">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			</a>
+			</li>
+			<li>
+			<a href="mailto:anisse@astier.eu" title="Contact me by email">
+				<div id="mail">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			</a>
+			</li>
+			<li>
+			<a href="https://github.com/anisse" title="GitHub profile">
+				<div id="github1">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			</a>
+			</li>
+			<li>
+			<a href="http://fr.linkedin.com/in/astier" title="LinkedIn profile">
+				<div id="linkedin">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			</a>
+			</li>
+			<li>
+			<a href="https://google.com/+AnisseA" title="Google+ profile">
+				<div id="googleplus">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			</a>
+			</li>
+			<li>
+			<a href="http://www.amazon.fr/registry/wishlist/26EH84J5E46R3" title="Amazon wishlist">
+				<div id="amazon">
+	<div class="part0"></div>
+	<div class="part1">
+		<div class="part2">
+			<div class="part3">
+				<div class="part4">
+					<div class="part5">
+						<div class="part6">
+							<div class="part7">
+								<div class="part8">
+									<div class="part9">
+										<div class="part10"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			</a>
+			</li>
+		</ul>
+	</aside>
+	<footer>
+        <ul>
+            <!--
+            <li><a href="#" title="">sitemap</a></li>
+            <li><a href="#" title="">RSS</a></li>
+            <li><a href="#" title="">copyright 2013</a></li>
+            -->
+            <li>Built with <a href="http://docs.getpelican.com" title="">pelican</a></li>
+            <li><a href="#" title="">web design by Navière Pascal</a></li>
+        </ul>
+	</footer>
+<script type="text/javascript">
+function openWindow(urlStr, windowName) {
+	window.open(urlStr, windowName, 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+} </script>
+	</body>
+</html>
