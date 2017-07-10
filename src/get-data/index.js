@@ -4,19 +4,20 @@ const rules = require('req-all')('./rules')
 
 const isValid = result => result !== null && result !== undefined && result !== ''
 
-const getValue = ($, conditions) => {
+const getValue = ({htmlDom, url, conditions}) => {
   const size = conditions.length
   let index = -1
   let value = null
 
   while (!isValid(value) && index++ < size - 1) {
-    value = conditions[index]($)
+    value = conditions[index](htmlDom, url)
   }
+
   return value
 }
 
-const getData = ($, conditions) => {
-  const data = getValue($, conditions)
+const getData = ({htmlDom, url, conditions}) => {
+  const data = getValue({htmlDom, url, conditions})
   return isValid(data) ? data : null
 }
 

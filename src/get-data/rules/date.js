@@ -50,9 +50,13 @@ module.exports = [
   wrap($ => $('time[datetime]').attr('datetime')),
   wrap($ => $('[class*="byline"]').text()),
   wrap($ => $('[class*="dateline"]').text()),
-  wrap($ => $('[class*="date"]').text()),
   wrap($ => $('[id*="date"]').text()),
+  wrap($ => $('[class*="date"]').text()),
+  wrap($ => $('[id*="publish"]').text()),
+  wrap($ => $('[class*="publish"]').text()),
   wrap($ => $('[class*="post-timestamp"]').text()),
   wrap($ => $('[class*="post-meta"]').text()),
-  wrap($ => $('[class*="metadata"]').text())
+  wrap($ => $('[class*="metadata"]').text()),
+  wrap($ => $('[id*="time"]').text()),
+  wrap($ => $('[class*="time"]').text())
 ]

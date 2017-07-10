@@ -1,9 +1,11 @@
 'use strict'
 
-const normalizeUrl = require('normalize-url')
+const sanetizeUrl = require('normalize-url')
+const {resolve: resolveUrl} = require('url')
 const urlRegex = require('url-regex')
 
 const isUrl = value => urlRegex().test(value)
+const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -12,19 +14,19 @@ const isUrl = value => urlRegex().test(value)
  * @return {Function} wrapped
  */
 
-const wrap = rule => $ => {
-  const value = rule($)
+const wrap = rule => (htmlDom, url) => {
+  const imageUrl = rule(htmlDom)
+  if (!imageUrl) return
 
-  if (!isUrl(value)) return
-  return normalizeUrl(value, {
-    stripWWW: false
-  })
+  if (isUrl(imageUrl)) return normalizeUrl(imageUrl)
+
+  const absoluteImageUrl = resolveUrl(url, imageUrl)
+  if (isUrl(absoluteImageUrl)) return normalizeUrl(absoluteImageUrl)
 }
 
 /**
  * Rules.
  */
-
 module.exports = [
   wrap($ => $('meta[property="og:image:secure_url"]').attr('content')),
   wrap($ => $('meta[property="og:image:url"]').attr('content')),
@@ -37,5 +39,7 @@ module.exports = [
   wrap($ => $('meta[name="sailthru.image.full"]').attr('content')),
   wrap($ => $('meta[name="sailthru.image.thumb"]').attr('content')),
   wrap($ => $('article img[src]').first().attr('src')),
-  wrap($ => $('#content img[src]').first().attr('src'))
+  wrap($ => $('#content img[src]').first().attr('src')),
+  wrap($ => $('img[alt*="author"]').attr('src')),
+  wrap($ => $('img[src]').attr('src'))
 ]
