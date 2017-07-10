@@ -9,7 +9,7 @@ const fs = require('fs')
 const getMetaData = require('../../..')
 const readFile = promisify(fs.readFile)
 
-const url = 'https://anisse.astier.eu'
+const url = 'https://anisse.astier.eu/awk-driven-iot.html'
 
 it('astier', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
