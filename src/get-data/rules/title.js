@@ -1,14 +1,21 @@
 'use strict'
 
-const isString = require('lodash.isstring')
 const condenseWhitespace = require('condense-whitespace')
+const isString = require('lodash.isstring')
+const smartquotes = require('smartquotes')
+const flow = require('lodash.flow')
+
+const sanetize = flow([
+  condenseWhitespace,
+  smartquotes
+])
 
 function wrap (rule) {
   return ($) => {
     const value = rule($)
 
     if (!isString(value)) return
-    return condenseWhitespace(value)
+    return sanetize(value)
   }
 }
 

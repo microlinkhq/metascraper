@@ -2,6 +2,7 @@
 
 const condenseWhitespace = require('condense-whitespace')
 const isString = require('lodash.isstring')
+const smartquotes = require('smartquotes')
 const flow = require('lodash.flow')
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
@@ -13,7 +14,8 @@ const sanetize = flow([
   condenseWhitespace,
   // if it starts with a location, like articles sometimes do in the opening
   // paragraph, try to remove it
-  removeLocation
+  removeLocation,
+  smartquotes
 ])
 
 /**
