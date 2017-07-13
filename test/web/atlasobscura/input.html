@@ -1,0 +1,1718 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"bed08a364b","applicationID":"16192845","transactionName":"Jg1fEkIMXl4HQU0ERRELUgpVEB1BClwV","queueTime":5,"applicationTime":115,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUHVVJSCRABUlBbBQkDUw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire">
+<link rel="icon" href="//assets.atlasobscura.com/assets/favicon-cc5216a130077092525c8c0c8564549de1817d1a1885e1d69369fd98aaff504a.ico">
+<title>This Ikea Bowl Has Been Setting Things on Fire - Atlas Obscura</title>
+<meta property="description" content="The innocent-looking &quot;Blanda blank&quot; is a pyromaniac."/>
+<script src="//maps.google.com/maps/api/js?v=3&amp;key=AIzaSyDS5K_jUTkei2yHIfiUGCoXTjyaHMO0N84&amp;libraries=places&amp;language=en"></script>
+<style>.async-hide{opacity:1!important}</style>
+
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+      })(window,document.documentElement,'async-hide','dataLayer',4000,
+      {'GTM-5KQHXR9':true});</script>
+<meta property="fb:app_id" content="206394544492"/>
+<meta property="fb:admins" content="599046014"/>
+<meta property="fb:admins" content="784963490"/>
+<meta property="fb:admins" content="514970725"/>
+<meta property="fb:admins" content="2208307"/>
+<meta property="fb:admins" content="743664191"/>
+<meta property="og:site_name" content="Atlas Obscura"/>
+<meta name="p:domain_verify" content="0f207004875a5511f774fc29f0a5a3f3"/>
+<meta name="pocket-site-verification" content="8353ea6cd97e141f193687e3013ce3"/>
+<link rel='alternate' type='application/rss+xml' title='Atlas Obscura - Latest Articles and Places' href='http://www.atlasobscura.com/feeds/latest'>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-8347316-6', 'auto');
+    ga('require', 'GTM-5KQHXR9');
+  ga('send', 'pageview');
+</script>
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1494388927542275'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1494388927542275&ev=PageView&noscript=1"/></noscript>
+
+
+<script>
+  !function(d,s,id){
+    var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){
+      js=d.createElement(s);
+      js.id=id;
+      js.async=true;
+      js.src="https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);}
+    }
+  (document,"script","twitter-wjs");
+  </script>
+<script>
+      window.AtlasObscura = {};
+    </script>
+<script>
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    lazySizesConfig.lazyClass = 'lazy';
+    lazySizesConfig.loadMode = 1;
+    </script>
+<script>
+      AtlasObscura.current_article = {"id":8818,"title":"This Ikea Bowl Has Been Setting Things on Fire","associated_places":[]};
+    </script>
+<script type="text/javascript">
+      function isSmallScreen () {
+        return window.innerWidth < 668;
+      }
+    </script>
+<script src="//assets.atlasobscura.com/assets/application-08c889186384736881ee57f83bdb8d5292b002319287a4c53414741d8b83897f.js"></script>
+<style type="text/css">.lazy,.lazyloading{background-image:asset-url("icons/ao.svg");}</style>
+<link rel="stylesheet" media="all" href="//assets.atlasobscura.com/assets/application-e726e1e0eeb37dd4bf38c6ce970c94c34c0c8091e933ac1984dcf62bbb19aa28.css"/>
+<script type='text/javascript'>
+      window.googletag = window.googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      var htlbid = htlbid || {};
+      htlbid.que = htlbid.que || [];
+      htlbid.opts = htlbid.opts || {};
+      (function() {
+          var htlbidEl = document.createElement("script");
+          htlbidEl.type = "text/javascript";
+          htlbidEl.async = true;
+          htlbidEl.src = "//htl.bid/build/bidder-atlasobscura.js";
+          var htlbidTargetEl = document.getElementsByTagName("head")[0];
+          htlbidTargetEl.insertBefore(htlbidEl, htlbidTargetEl.firstChild);
+      })();
+    </script>
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    htlbid.init(); // Initialize Hashtag Labs header bidding script
+
+    googletag.defineSlot('/110134742/1x1_tracking_pixel', [1, 1], '1x1_tracking_pixel')
+    .addService(googletag.pubads());
+
+    var intraContentSize = googletag.sizeMapping()
+      .addSize([0, 0], [300, 250])
+      .addSize([668, 0], [[728, 90], [970, 250]])
+      .build();
+
+    var colSize = googletag.sizeMapping()
+      .addSize([0, 0], [[1,1], [300, 400]])
+      .addSize([668, 0], [[1,1], [535, 400]]);
+
+      if(!isSmallScreen()) {
+        // Only load the below nav ad slot on desktop
+        googletag.defineSlot('/110134742/Rotational_Top_Slot', [[728, 90], [970, 250]], 'Rotational_Top_Slot')
+        .addService(googletag.pubads());
+      }
+
+
+        if(isSmallScreen()) {
+          // Mobile Intra Body ad on features and regular mobile articles
+          googletag.defineSlot('/110134742/Mobile_Rotational_Top_Rectangle', [300, 250], 'Mobile_Rotational_Top_Rectangle')
+            .setCollapseEmptyDiv(true)
+            .addService(googletag.pubads());
+
+          googletag.defineSlot('/110134742/Mobile_Inline_Video', [[1, 1],[300, 400], [535, 400]], 'Mobile_Inline_Video')
+            .defineSizeMapping(colSize)
+            .setCollapseEmptyDiv(true)
+            .addService(googletag.pubads());
+
+          // End Of Article Ad
+          googletag.defineSlot('/110134742/Mobile_Rotational_Bottom_Rectangle', [300, 250], 'Mobile_Rotational_Bottom_Rectangle')
+            .addService(googletag.pubads());
+        } else {
+            // Sidebar ad on Desktop articles, but not on Features
+            googletag.defineSlot('/110134742/Rotational_Rectangle_Desktop', [[300, 250], [300, 600]], 'Rotational_Rectangle_Desktop')
+              .addService(googletag.pubads());
+
+          googletag.defineSlot('/110134742/Rotational_Inline_Video_Desktop', [[1, 1],[300, 400], [535, 400]], 'Rotational_Inline_Video_Desktop')
+            .defineSizeMapping(colSize)
+            .setCollapseEmptyDiv(true)
+            .addService(googletag.pubads());
+        }
+
+        googletag.pubads().addEventListener('slotRenderEnded', function(e) {
+          //this will add a background to all 400 height ads...should be desireable
+          if(e.size[1]===400) {
+            $('#Rotational_Inline_Video_Desktop').addClass('ad-background');
+            $('#Mobile_Inline_Video').addClass('ad-background');
+          };
+        })
+
+
+
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<script type="text/javascript">
+  googletag.cmd.push(function() {
+    googletag.pubads().setTargeting("page", "article")
+      .setTargeting("pid", "article-8818")
+      .setTargeting("tags", ["minor threats", "fire", "news", "fleeting wonders"]);
+  });
+</script>
+<script type="text/javascript">
+      googletag.cmd.push(function() {
+        googletag.pubads().setTargeting("environment", "production")
+          .setTargeting('is_testing', 'no')
+
+        if ( containsAnEmail(window.location.href) ) {
+          console.log('Using alternate ad network...');
+          googletag.pubads().setTargeting('no_ads', 'yes');
+        } else {
+          googletag.pubads().setTargeting('no_ads', 'no');
+        }
+      });
+    </script>
+<meta property="og:title" content="This Ikea Bowl Has Been Setting Things on Fire"/>
+<meta property="og:url" content="http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire"/>
+<meta property="og:image" content="https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2Q3ZjA4OTZkYjgwNjI4OGZmN19TY3JlZW4gU2hvdCAyMDE3LTA2LTIxIGF0IDkuMzYuNDQgQU0ucG5nIl0sWyJwIiwidGh1bWIiLCIxMTQ4eDc2NSsxNysxOTkiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCI2MDB4PiJdXQ/Screen%20Shot%202017-06-21%20at%209.36.44%20AM.png"/>
+<meta property="og:description" content="The innocent-looking &quot;Blanda blank&quot; is a pyromaniac."/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-06-21 09:51:00 -0400"/>
+<meta property="article:modified_time" content="2017-06-22 16:16:06 -0400"/>
+<meta property="article:author" content="Cara Giaimo">
+<meta property="article:tag" content="minor threats"/>
+<meta property="article:tag" content="fire"/>
+<meta property="article:tag" content="news"/>
+<meta property="article:tag" content="fleeting wonders"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@atlasobscura">
+<meta name="twitter:image" content="https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2Q3ZjA4OTZkYjgwNjI4OGZmN19TY3JlZW4gU2hvdCAyMDE3LTA2LTIxIGF0IDkuMzYuNDQgQU0ucG5nIl0sWyJwIiwidGh1bWIiLCIxMTQ4eDc2NSsxNysxOTkiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCI2MDB4PiJdXQ/Screen%20Shot%202017-06-21%20at%209.36.44%20AM.png">
+<script type="text/javascript">
+      /* Version: 0.7 */
+      /* <![CDATA[ */
+      try {
+      var _mag = _mag || {};
+      _mag.kw = "minor threats,fire,news,fleeting wonders";
+      _mag.kw_encoded = 0;
+      _mag.shortName = 'atlasobscura-travel';
+      _mag.default_protocol = ('https:' == document.location.protocol ? 'https:' : 'http:');
+      _mag.startTime = (new Date()).getTime();
+      (function(d,t) {
+      var mag = d.createElement('script'); mag.type = 'text/javascript'; mag.async = true; mag.src = t;
+      var head = d.getElementsByTagName('head')[0] || d.documentElement; head.insertBefore(mag, head.firstChild);
+      })(document,  _mag.default_protocol + '//d3ezl4ajpp2zy8.cloudfront.net/atlasobscura-travel_tag.js');
+      } catch (e) {}
+      /* ]]> */
+    </script>
+<link rel="amphtml" href="http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire.amp"/>
+</head>
+<body class="articles  ">
+<a class="site-top-notification-link eclipse-version hidden-print" href="/oregon-solar-eclipse">
+<div class="site-top-notification-container container-fluid">
+<div class="left bg-image"><img src="http://images-staging.atlasobscura.com/misc/internal-one-offs/eclipse_assets/Toaster Wave Left.png" alt=""></div>
+<div class="right bg-image"><img src="http://images-staging.atlasobscura.com/misc/internal-one-offs/eclipse_assets/Toaster Wave Right.png" alt=""></div>
+<div class="copy-container container">
+<h6>
+<strong>Total Eclipse:</strong> A Once-in-a-Lifetime Festival of Science, Music, and Celestial Wonder. August 19&ndash;21, 2017 in Eastern Oregon.
+</h6>
+</div>
+<div class="js-top-notification-dismiss-link dismiss-link">
+<span class="icon-menu-close"></span>
+</div>
+</div>
+</a>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '206394544492',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+    FB.Event.subscribe('edge.create', function(response) {
+      Cookies.set('fb_subscriber', '1', { expires: 200, path: '/' });
+    });
+    FB.Event.subscribe('edge.remove', function(response) {
+      Cookies.set('fb_subscriber', '0', { expires: 200, path: '/' });
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<header class="page-header">
+<div class="container-fluid no-pad ">
+<nav class="navbar-main">
+<div class="nav-header">
+<div class="row">
+<div class="mobile-logo-link">
+<a class="logo-link" title="Atlas Obscura" href="/">
+<i class="icon icon-atlas-icon"></i></i><i class="icon icon-atlas-logo-alt"></i>
+</a>
+</div>
+<div class="hidden-xs hidden-sm hidden-print nav-tools-right with-notification-spacer hide-spacer js-notification-spaceable">
+</div>
+<div class="nav-search hidden-md hidden-lg">
+<a class="js-launch-search-link nav-header-search-link-m non-decorated-link" data-search-dock="search-dock-m" data-category="Search Suggest" data-action="Opened Search Form" data-label="mobile" href="javascript:void(0)">
+<i class="icon-search"></i>
+<i class="icon-menu-close"></i>
+</a> </div>
+<div class="nav-toggle-container"></div>
+<i class="icon-menu-open nav-toggle js-nav-toggle visible-xs visible-sm"></i>
+</div>
+</div>
+<div class="nav-content js-nav-content is-slider-hidden-m">
+<div class="nav-verticals">
+<div class="nav-left-section">
+<a class="logo-link" title="Atlas Obscura" href="/">
+<i class="icon icon-atlas-icon"></i></i><i class="icon icon-atlas-logo-alt"></i>
+</a>
+</div>
+<div class="nav-center-section">
+<li class="nav-vertical js-taphover nav-atlas">
+<a class="heading-sm nav-link" href="/places">
+<div class="heading-sm nav-link-heading">The Atlas</div>
+</a> <div class="nav-dropdown">
+<div class="container nav-dropdown-content">
+<div class="fake-bg"></div>
+<div class="row table-display">
+<div class="col-md-3 left-panel">
+<ul class="nav-links-column links-column">
+<li>
+<a class="tab selected" data-target="destinations-panel" href="">
+Top Destinations<span class="icon-arrow-down nav-arrow-right"></span>
+</a>
+</li>
+<li>
+<a class="tab" data-target="recent-places-panel" href="">
+Newly Added Places<span class="icon-arrow-down nav-arrow-right"></span>
+</a>
+</li>
+<li>
+<a href="/places?sort=likes_count">
+Most Popular Places
+</a>
+</li>
+<li>
+<a class="js-dropdown-random" href="/random">
+Random Place
+</a>
+</li>
+<li>
+<a href="/lists">
+Lists
+</a>
+</li>
+<hr>
+<li>
+<a class="add-place js-user-required" href=/places/new>
+<i class="icon-add-place"></i>
+Add a Place
+</a>
+</li>
+</ul>
+</div>
+<div id="recent-places-panel" class="col-md-9 right-panel" style="display:none">
+<div class="row">
+<div class="col-md-8">
+<h2 class="nav-category-heading heading-md-non-uppercase">Newly Added Places</h2>
+</div>
+<div class="col-md-4">
+<a class="detail-sm nav-dropdown-viewall-link" href="/places">View All Places »</a>
+</div>
+</div>
+<div class="row">
+<a class="col-md-3 nav-card" href="/places/southwest-duck-pond">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzRjOGIwNGYwZDRiZTA4YTViZl9EU0MwNzMwNS5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIyMjJ4MTQ4IyJdXQ/DSC07305.jpg" alt="" data-width="4592" data-height="3056" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="detail-sm nav-card-location">Washington, D.C.</div>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Southwest Duck Pond</span></h3>
+<div class="lat-lng nav-card-details">
+38.8787, -77.0197
+</div>
+</a> <a class="col-md-3 nav-card" href="/places/cherhill-white-horse">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzL2Y0MWM2ODBiZWVhZjgyMGU4OF93aDIuanBnIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/wh2.jpg" title="Cherhill White Horse, Wiltshire." alt="Cherhill White Horse, Wiltshire." data-width="640" data-height="480" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="detail-sm nav-card-location">Calne, England</div>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Cherhill White Horse</span></h3>
+<div class="lat-lng nav-card-details">
+51.4252, -1.9320
+</div>
+</a> <a class="col-md-3 nav-card" href="/places/coca-museum">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzL2hrcjVpOXZnajQ4eGsxbW05YmE4MjNmOGE4YmFmY2QzYzBfQ3VzY28gMTAuSlBHIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/Cusco%2010.JPG" title="Coca Museum squeezed between other shops on San Blas square" alt="Coca Museum squeezed between other shops on San Blas square" data-width="4288" data-height="2848" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="detail-sm nav-card-location">Cusco, Peru</div>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Coca Museum (Museo de la Coca)</span></h3>
+<div class="lat-lng nav-card-details">
+-13.5151, -71.9749
+</div>
+</a> <a class="col-md-3 nav-card" href="/places/new-jerseys-abandoned-hospitals">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzd2Mm9hZDk1NTEzYzMwYWQxNzU3YmJlYjJhNGRlXzg3LmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjIyMngxNDgjIl1d/87.jpg" title="A wheelchair in the abandoned building" alt="A wheelchair in the abandoned building" data-width="1024" data-height="680" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="detail-sm nav-card-location">Glen Gardner, New Jersey</div>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Abandoned Hagedorn Psychiatric Hospital</span></h3>
+<div class="lat-lng nav-card-details">
+40.6949, -74.9203
+</div>
+</a> </div>
+</div>
+<div id="destinations-panel" class="col-md-9 right-panel">
+<h2 class="nav-category-heading heading-md-non-uppercase">Top Destinations</h2>
+<section class="section-top-content">
+<div class="row">
+<div class="col-md-3 section-top-content-col">
+<div class="places-section-top-content-header">
+<h4 class="section-top-content-title detail-sm">Countries</h4>
+</div>
+<ul id="top-destinations-list-nav" class="top-content-list links-column top-content-list-col-sm-2">
+<li>
+<a href='/things-to-do/australia' title='Australia'>Australia</a>
+</li>
+<li>
+<a href='/things-to-do/canada' title='Canada'>Canada</a>
+</li>
+<li>
+<a href='/things-to-do/china' title='China'>China</a>
+</li>
+<li>
+<a href='/things-to-do/france' title='France'>France</a>
+</li>
+<li>
+<a href='/things-to-do/germany' title='Germany'>Germany</a>
+</li>
+<li>
+<a href='/things-to-do/india' title='India'>India</a>
+</li>
+<li>
+<a href='/things-to-do/italy' title='Italy'>Italy</a>
+</li>
+<li>
+<a href='/things-to-do/japan' title='Japan'>Japan</a>
+</li>
+</ul>
+</div>
+<div class="col-md-9 section-top-content-col">
+<div class="places-section-top-content-header">
+<h4 class="section-top-content-title detail-sm">Cities</h4>
+</div>
+<ul id="top-content-city-list" class="top-content-list links-column top-content-list-col-sm-2">
+<li>
+<a href='/things-to-do/amsterdam-netherlands' title='Amsterdam'>Amsterdam</a>
+</li>
+<li>
+<a href='/things-to-do/barcelona-spain' title='Barcelona'>Barcelona</a>
+</li>
+<li>
+<a href='/things-to-do/beijing-china' title='Beijing'>Beijing</a>
+</li>
+<li>
+<a href='/things-to-do/berlin-germany' title='Berlin'>Berlin</a>
+</li>
+<li>
+<a href='/things-to-do/boston-massachusetts' title='Boston'>Boston</a>
+</li>
+<li>
+<a href='/things-to-do/budapest-hungary' title='Budapest'>Budapest</a>
+</li>
+<li>
+<a href='/things-to-do/chicago-illinois' title='Chicago'>Chicago</a>
+</li>
+<li>
+<a href='/things-to-do/london-england' title='London'>London</a>
+</li>
+<li>
+<a href='/things-to-do/los-angeles-california' title='Los Angeles'>Los Angeles</a>
+</li>
+<li>
+<a href='/things-to-do/mexico-city-mexico' title='Mexico City'>Mexico City</a>
+</li>
+<li>
+<a href='/things-to-do/montreal-quebec' title='Montreal'>Montreal</a>
+</li>
+<li>
+<a href='/things-to-do/moscow-russia' title='Moscow'>Moscow</a>
+</li>
+<li>
+<a href='/things-to-do/new-orleans-louisiana' title='New Orleans'>New Orleans</a>
+</li>
+<li>
+<a href='/things-to-do/new-york' title='New York'>New York</a>
+</li>
+<li>
+<a href='/things-to-do/paris-france' title='Paris'>Paris</a>
+</li>
+<li>
+<a href='/things-to-do/philadelphia-pennsylvania' title='Philadelphia'>Philadelphia</a>
+</li>
+<li>
+<a href='/things-to-do/rome-italy' title='Rome'>Rome</a>
+</li>
+<li>
+<a href='/things-to-do/san-francisco-california' title='San Francisco'>San Francisco</a>
+</li>
+<li>
+<a href='/things-to-do/seattle-washington' title='Seattle'>Seattle</a>
+</li>
+<li>
+<a href='/things-to-do/stockholm-sweden' title='Stockholm'>Stockholm</a>
+</li>
+<li>
+<a href='/things-to-do/tokyo-japan' title='Tokyo'>Tokyo</a>
+</li>
+<li>
+<a href='/things-to-do/toronto-ontario' title='Toronto'>Toronto</a>
+</li>
+<li>
+<a href='/things-to-do/vienna-austria' title='Vienna'>Vienna</a>
+</li>
+<li>
+<a href='/things-to-do/washington-dc' title='Washington, D.C.'>Washington, D.C.</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<a class="btn btn-stretch destination-counter-callout">
+<span class="destination-count-text">
+SEE ALL <span class="btn-number-lg">
+5772</span> DESTINATIONS IN THE ATLAS
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-vertical js-taphover nav-articles">
+<a class="heading-sm nav-link" href="/articles">
+<div class="heading-sm nav-link-heading">Stories</div>
+</a> <div class="nav-dropdown">
+<div class="container nav-dropdown-content">
+<div class="fake-bg"></div>
+<div class="row table-display">
+<div class="col-md-3 left-panel">
+<h3 class="nav-panel-title">BROWSE STORIES BY</h3>
+<ul class="nav-links-column links-column">
+<li><a href="/articles?sort=columns">Columns</a></li>
+<li><a href="/articles?sort=features">Features</a></li>
+<li><a href="/articles?sort=interactive">Interactive</a></li>
+<li><a href="/articles?sort=news">News</a></li>
+<li><a href="/articles?sort=video">Video</a></li>
+<li><a href="/articles?sort=visual">Visual</a></li>
+</ul>
+<hr>
+<a class="nav-brand-bug-link theme-week-link" href="http://www.atlasobscura.com/categories/sin-week">
+<div class="nav-brand-bug">
+<figure class="theme-week-brand-bug brand-bug-figure">
+<figcaption class="theme-week-caption">
+<div class="theme-week-name detail-md">
+<span class="title-underline">Sin Week</span>
+</div>
+<div class="detail-sm theme-week-subtitle">July 10–14</div>
+</figcaption>
+<div class="theme-week-image-module">
+<div class="theme-week-bg-frame">
+<img src="http://atlas-dev.s3.amazonaws.com/2017/07/07/18/17/57/b05ed8f7-389e-4ee2-b428-2d30de18f985/Sin Week.png">
+</div>
+</div>
+</figure>
+</div>
+</a>
+</div>
+<div class="col-md-9 right-panel">
+<div class="row">
+<div class="col-md-8">
+<h2 class="nav-category-heading heading-md-non-uppercase">Most Recent Stories</h2>
+</div>
+<div class="col-md-4">
+<a class="detail-sm nav-dropdown-viewall-link" href="/articles">View All Stories »</a>
+</div>
+</div>
+<div class="row">
+<a class="col-md-3 nav-card" href="/articles/mapping-dante-hell-inferno-satan-divine-comedy">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2JkYjg5OWFlNDczODg3MTdhZV9NaWNoZWxhbmdlbG9fQ2FldGFuaV9Dcm9zc19TZWN0aW9uX29mX0hlbGxfMTg1NV9Db3JuZWxsX0NVTF9QSk1fMTA3MV8wNC5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIyMjJ4MTQ4IyJdXQ/Michelangelo_Caetani_Cross_Section_of_Hell_1855_Cornell_CUL_PJM_1071_04.jpg" title="Michelangelo Caetani&#39;s cross-section of Hell, 1855. " alt="Michelangelo Caetani&#39;s cross-section of Hell, 1855. " data-width="1280" data-height="917" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Mapping Dante&#39;s Inferno, One Circle of Hell at a Time</span></h3>
+<div class="detail-sm nav-card-details js-time-ago" data-timestamp="2017-07-13 12:00:00 UTC"></div>
+</a> <a class="col-md-3 nav-card" href="/articles/purse-lake-25-year-found-south-carolina">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzg4YmI3N2MzZjk5MTc3MjNjZl9ERWpaVnFtWGdBQTVjZmouanBnIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/DEjZVqmXgAA5cfj.jpg" title="The purse was in pretty good condition after 25 years underwater." alt="The purse was in pretty good condition after 25 years underwater." data-width="800" data-height="800" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Fishing Child Reels In a Purse Stolen 25 Years Ago</span></h3>
+<div class="detail-sm nav-card-details js-time-ago" data-timestamp="2017-07-12 20:22:00 UTC"></div>
+</a> <a class="col-md-3 nav-card" href="/articles/lightning-bolt-wedding-toast-father">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzNiNTA1MWIzYmIxOGI3YmIzOV9TY3JlZW4gU2hvdCAyMDE3LTA3LTEyIGF0IDIuMjYuNDQgUE0ucG5nIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/Screen%20Shot%202017-07-12%20at%202.26.44%20PM.png" alt="" data-width="1168" data-height="738" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title"><span class="title-underline">Lightning Bolt Strikes the Father of the Bride, Mid-Wedding Toast</span></h3>
+<div class="detail-sm nav-card-details js-time-ago" data-timestamp="2017-07-12 19:28:00 UTC"></div>
+</a> <a class="col-md-3 nav-card" href="/articles/venereal-disease-posters-sti-world-war-ii-sex-shame">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzkwNzllZGNjODEwMjRhMWFhM19TY3JlZW4gU2hvdCAyMDE3LTA3LTEyIGF0IDMuMDMuMjYgUE0ucG5nIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/Screen%20Shot%202017-07-12%20at%203.03.26%20PM.png" alt="" data-width="530" data-height="329" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title"><span class="title-underline">The Wartime Posters That Tried to Shame Soldiers Away From STDs</span></h3>
+<div class="detail-sm nav-card-details js-time-ago" data-timestamp="2017-07-12 19:10:00 UTC"></div>
+</a> </div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-vertical js-taphover nav-events">
+<a class="heading-sm nav-link" href="/events">
+<div class="heading-sm nav-link-heading">Events</div>
+</a> <div class="nav-dropdown">
+<div class="container nav-dropdown-content">
+<div class="fake-bg"></div>
+<div class="row table-display">
+<div class="col-md-3 left-panel">
+<h3 class="nav-panel-title">Quick Links</h3>
+<ul class="nav-links-column links-column">
+<li><a href="/events">All Events</a></li>
+</ul>
+<h3 class="nav-panel-title">Explore Events</h3>
+<ul class="nav-links-column links-column">
+<li><a href="/things-to-do/chicago-illinois#events">Chicago</a></li>
+<li><a href="/things-to-do/denver-colorado#events">Denver</a></li>
+<li><a href="/things-to-do/los-angeles-california#events">Los Angeles</a></li>
+<li><a href="/things-to-do/new-york#events">New York</a></li>
+<li><a href="/things-to-do/philadelphia-pennsylvania#events">Philadelphia</a></li>
+<li><a href="/things-to-do/san-francisco-california#events">San Francisco</a></li>
+<li><a href="/things-to-do/seattle-washington#events">Seattle</a></li>
+<li><a href="/things-to-do/washington-dc#events">Washington, D.C.</a></li>
+</ul>
+</div>
+<div class="col-md-9 right-panel">
+<div class="row">
+<div class="col-md-9">
+<h2 class="nav-category-heading heading-md-non-uppercase">Upcoming Events</h2>
+</div>
+<div class="col-md-3">
+<a class="detail-sm nav-dropdown-viewall-link" href="/events">View All Events »</a>
+</div>
+</div>
+<div class="row">
+<a class="col-md-3 nav-card" href="/events/obscura-society-il-the-sanfilippo-place-de-la-musique-1490134292">
+<div class="event-image-date-ko">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDMvMjEvMjIvMzEvMDkvNzMyOGZiOTAtMGU3Ny00ZTFiLWE3Y2ItYjEzZDhhZGFkYzRlL0lNR18xNDQ1LmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjIyMngxNDgjIl1d/IMG_1445.jpg" alt="" data-width="3264" data-height="2448" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="event-date-ko">
+<span class="title-md date-ko-month">Jul</span>
+<span class="title-lg date-ko-day">13</span>
+</div>
+</div>
+<div class="detail-sm nav-card-location">Barrington Hills</div>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Place de la Musique Tour </span>
+</h3>
+</a> <a class="col-md-3 nav-card" href="/events/obscura-society-la-hollywoods-first-hidden-getaway-20170714">
+<div class="event-image-date-ko">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDUvMDEvMjEvMTgvMTgvYjgyMTM4YmYtYmEwNS00ZjRjLWEwOTYtYzNhNjcxZjNhNjY4L2dvbGQgY29hc3QuanBnIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/gold%20coast.jpg" title="Palisades and Movie Colony, Santa Monica, Calif." alt="Palisades and Movie Colony, Santa Monica, Calif." data-width="1024" data-height="659" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="event-date-ko">
+<span class="title-md date-ko-month">Jul</span>
+<span class="title-lg date-ko-day">14</span>
+</div>
+</div>
+<div class="detail-sm nav-card-location">Santa Monica</div>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Hollywood&#39;s First Hidden Getaway</span>
+</h3>
+</a> <a class="col-md-3 nav-card" href="/events/hidden-union-station-july-2017">
+<div class="event-image-date-ko">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDYvMDgvMTYvMDAvNTIvOThjNDcyZjUtMTYzMS00YjViLWI0YzUtOTVkYTEzN2M1OGQyLzRhMjc2MTB2LmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjIyMngxNDgjIl1d/4a27610v.jpg" title="Union Station print circa 1905-1915" alt="Union Station print circa 1905-1915" data-width="1024" data-height="754" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="event-date-ko">
+<span class="title-md date-ko-month">Jul</span>
+<span class="title-lg date-ko-day">16</span>
+</div>
+</div>
+<div class="detail-sm nav-card-location">Washington, D.C.</div>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Hidden Union Station</span>
+</h3>
+</a> <a class="col-md-3 nav-card" href="/events/the-tunnels-and-trapdoors-of-tudor-place-july2017">
+<div class="event-image-date-ko">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDYvMTkvMTQvNTIvMzMvYmJiOGVmNWItZTY2Yi00YTA2LWFiMzUtZjFmZjEwZmJmMGU4L1R1bm5lbC5KUEciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIyMjJ4MTQ4IyJdXQ/Tunnel.JPG" alt="" data-width="768" data-height="1024" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="event-date-ko">
+<span class="title-md date-ko-month">Jul</span>
+<span class="title-lg date-ko-day">20</span>
+</div>
+</div>
+<div class="detail-sm nav-card-location">Washington, D.C.</div>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">The Tunnels &amp; Trapdoors of Tudor Place</span>
+</h3>
+</a> </div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-vertical js-taphover nav-events nav-trips">
+<a class="heading-sm nav-link" href="/unusual-trips">
+<div class="heading-sm nav-link-heading">Trips</div>
+</a> <div class="nav-dropdown">
+<div class="container nav-dropdown-content">
+<div class="fake-bg"></div>
+<div class="row table-display">
+<div class="col-md-3 left-panel">
+<h3 class="nav-panel-title">Quick Links</h3>
+<ul class="nav-links-column links-column">
+<li><a href="/unusual-trips">All Trips</a></li>
+</ul>
+<h3 class="nav-panel-title">Where We Travel</h3>
+<ul class="nav-links-column links-column">
+<a href="/unusual-trips/ukraine">
+<li>
+Ukraine
+</li>
+</a> <a href="/unusual-trips/bhutan">
+<li>
+Bhutan
+</li>
+</a> <a href="/unusual-trips/day-of-the-dead-in-the-yucatan">
+<li>
+Yucatán
+</li>
+</a> <a href="/unusual-trips/atacama">
+<li>
+Chile
+</li>
+</a> <a href="/unusual-trips/journey-into-bulgaria-2018">
+<li>
+Bulgaria
+</li>
+</a> <a href="/unusual-trips/expedition-amazon-2018">
+<li>
+The Amazon
+</li>
+</a> </ul>
+</div>
+<div class="col-md-9 right-panel">
+<div class="row">
+<div class="col-md-9">
+<h2 class="nav-category-heading heading-md-non-uppercase">Upcoming Trips</h2>
+</div>
+<div class="col-md-3">
+<a class="detail-sm nav-dropdown-viewall-link" href="/unusual-trips">View All Trips »</a>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<a class="nav-card" href="/unusual-trips/ukraine">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDMvMTUvMTcvMDcvMTcvNjFkMzNjYjYtZGM5NS00NWJiLTg2ZWMtYjRjMTJjN2Q1NmI4L0lNR183MzkyLmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjIyMngxNDgjIl1d/IMG_7392.jpg" alt="" data-width="5112" data-height="3408" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Chernobyl by Day, Kyiv by Night</span>
+</h3>
+</a>
+<a class="disabled-link" href="javascript: void(0)">
+<div class="detail-sm-non-uppercase nav-card-details">
+<span class="nav-sold-out"><div>Sep 08&ndash;Sep 14, 2017</div></span>
+</div>
+</a> </div>
+<div class="col-md-3">
+<a class="nav-card" href="/unusual-trips/bhutan">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDMvMDMvMjIvNTkvMTYvZTA3NzQ5YjktZGU4My00NWUxLThmMGUtMjE0ZWMxZGQxOGEyLzY1OTAyNjk4MTNfYmMyNzZmNGM5NV9vLmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjIyMngxNDgjIl1d/6590269813_bc276f4c95_o.jpg" alt="" data-width="3777" data-height="2698" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Festivals and Mountaintop Temples of Bhutan</span>
+</h3>
+</a>
+<a class="" href="/unusual-trips/bhutan">
+<div class="detail-sm-non-uppercase nav-card-details">
+<span class=""><div>Sep 28&ndash;Oct 06, 2017</div></span>
+</div>
+</a> </div>
+<div class="col-md-3">
+<a class="nav-card" href="/unusual-trips/day-of-the-dead-in-the-yucatan">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDQvMTIvMjIvMzIvMzQvY2E4Yzc5YzAtNzg1My00NmJhLWIyMzktMGE0MDNlNDY4YzU1L0RPRC01IHdvbWVuIDMuanBnIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMjIyeDE0OCMiXV0/DOD-5%20women%203.jpg" alt="" data-width="5472" data-height="2066" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Day of the Dead in the Yucatán</span>
+</h3>
+</a>
+<a class="" href="/unusual-trips/day-of-the-dead-in-the-yucatan">
+<div class="detail-sm-non-uppercase nav-card-details">
+<span class=""><div>Oct 28&ndash;Nov 03, 2017</div></span>
+</div>
+</a> </div>
+<div class="col-md-3">
+<a class="nav-card" href="/unusual-trips/atacama">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsIjIwMTcvMDQvMTMvMTkvMjkvNTUvOTllNTRjMmQtOTAxMy00MTkxLThiZGQtMmNiNTBlNGFlMDQyL3NhbHQtbGFrZS01OTQ2MDFfMTkyMC5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIyMjJ4MTQ4IyJdXQ/salt-lake-594601_1920.jpg" alt="" data-width="1920" data-height="939" class="lazy img-responsive" nopin="nopin" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<h3 class="title-sm nav-card-title">
+<span class="title-underline">Space Out in Chile’s Atacama Desert</span>
+</h3>
+</a>
+<a class="" href="/unusual-trips/atacama">
+<div class="detail-sm-non-uppercase nav-card-details">
+<span class=""><div>Dec 08&ndash;Dec 14, 2017</div></span>
+</div>
+</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-vertical js-taphover hidden-md hidden-lg" style="height: initial;">
+<a class="heading-sm nav-link nav-branded-link-m" href="http://www.atlasobscura.com/categories/sin-week">
+<div class="nav-theme-week-wrap-m">
+<figure class="theme-week-brand-bug brand-bug-figure">
+<figcaption class="theme-week-caption">
+<div class="theme-week-name detail-md">
+Sin Week
+</div>
+<div class="detail-sm theme-week-subtitle">July 10–14</div>
+</figcaption>
+<div class="theme-week-image-module">
+<div class="theme-week-bg-frame">
+<img src="http://atlas-dev.s3.amazonaws.com/2017/07/07/18/17/57/b05ed8f7-389e-4ee2-b428-2d30de18f985/Sin Week.png">
+</div>
+</div>
+</figure>
+</div>
+</a></li>
+<hr class="nav-sessions-m-divider">
+<li class="nav-vertical nav-vertical-sessions-m hidden-md hidden-lg">
+<div class="nav-session-links-wrap-m">
+
+<a href="/sign-in" class="heading-sm nav-session-link-m nav-link">
+<i class="icon-profile nav-session-icon"></i>Sign In
+</a><i class="or-pipe or-pipe-sessions-m"></i>
+<a href="/join" class="heading-sm nav-session-link-m nav-link">
+Join
+</a>
+</div>
+</li>
+</div>
+<div class="nav-right-section">
+<div class="user-cell">
+<div id="nav-profile-menu" class="dropdown">
+<div class="nav-session-link detail-sm profile-dropdown js-profile-dropdown js-taphover">
+<a class="profile-nav-hover-target">
+<i class="icon user-icon icon-profile"></i>
+</a>
+<div class="profile-dropdown-menu js-profile-dropdown-menu dropdown-menu dropdown-menu-right">
+<a id="nav-sign-in-link" class="nav-session-link detail-sm dropdown-item" href="/sign-in">Sign In</a>
+<hr>
+<a id="nav-sign-up-link" class="nav-session-link detail-sm dropdown-item" href="/join">Join</a>
+</div>
+</div>
+</div>
+</div>
+<div class="search-cell">
+<li class="nav-search">
+<a class="heading-sm nav-link js-launch-search-link" data-search-dock="nav-dropdown-search-dock" data-category="Search Suggest" data-action="Opened Search Form" data-label="desktop" href="javascript:void(0)">
+<i class="icon-search"></i>
+<i class="icon-menu-close"></i>
+</a> <div class="nav-dropdown">
+<div class="container">
+<div id="nav-dropdown-search-dock" class="row search-dock">
+<div id="search-takeover-box">
+<div id="combined-search-input-wrap" class="title-sm normal-weight">
+<span class="icon icon-search"></span>
+<form class="js-search-form-ui" autocomplete="off" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;"/>
+<input type="text" name="q" id="combined-search-input" value="" placeholder="Search" class="js-search-location-ui js-search-query-ui"/>
+<div id="search-enter-tip" class="detail-sm">
+Press <span class="enter-key-tip">Enter <span class="enter-key-icon">&#8629;</span></span> for Places <span id="enter-tip-query"></span>
+</div>
+</form> </div>
+<div id="combined-search-all-results" class="row">
+<div id="results-geos" class="results-vertical-container col-md-4">
+<div class="results-header"><span class="results-header-text">City Guides</span><span class="search-link"></span></div>
+<div id="results-geos-content" class="results-content"></div>
+</div>
+<div id="results-places" class="results-vertical-container col-md-4">
+<div class="results-header"><span class="results-header-text">Places</span><span class="search-link"></span></div>
+<div id="results-places-content" class="results-content"></div>
+</div>
+<div id="results-articles" class="results-vertical-container col-md-4">
+<div class="results-header"><span class="results-header-text">Stories</span><span class="search-link"></span></div>
+<div id="results-articles-content" class="results-content"></div>
+</div>
+</div>
+<form class="js-search-form-to-submit" style="display:none;" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;"/>
+</form></div>
+</div>
+</div>
+</div>
+</li>
+</div>
+</div>
+</div>
+<ul class="secondary-nav-verticals nav-context-verticals">
+<div class="verticals-container container">
+<li class="nav-vertical slot-0"><a class="nav-link" href="http://www.atlasobscura.com/random">Random Place</a></li>
+<li class="nav-vertical slot-1"><a class="nav-link" href="http://www.atlasobscura.com/articles/all-11000-places-in-the-atlas-on-one-map">Explore the Map</a></li>
+<li class="nav-vertical slot-2"><a class="nav-link" href="http://www.atlasobscura.com/books">Get the Book</a></li>
+<li class="nav-vertical slot-3"><a class="nav-link" href="http://www.atlasobscura.com/categories/sin-week">Sin Week</a></li>
+<li class="nav-vertical slot-4"><a class="nav-link" href="http://www.atlasobscura.com/categories/objects-of-intrigue">Objects of Intrigue</a></li>
+</div>
+<div class="social-links">
+<a href="https://www.facebook.com/atlasobscura/" class="icon-facebook social-link js-social-action-tracked" data-position="Header" data-service="Facebook" data-action="Like" target="_blank"></a>
+<a href="https://twitter.com/atlasobscura" class="icon-twitter social-link js-social-action-tracked" target="_blank" data-position="Header" data-service="Twitter" data-action="Follow"></a>
+<a href="https://www.instagram.com/atlasobscura/" class="icon-instagram social-link js-social-action-tracked" data-position="Header" data-service="Instagram" data-action="Follow" target="_blank"></a>
+<a href="http://www.atlasobscura.com/feeds/latest" class="icon-rss social-link js-social-action-tracked" data-position="Header" data-service="RSS" data-action="Follow" target="_blank"></a>
+</div>
+</ul>
+<ul class="secondary-nav-verticals gastro-nav-verticals">
+<div class="verticals-container">
+<div class="container">
+<li class="nav-vertical gastro-banner"><span class="gastro-lockup"><img src="//assets.atlasobscura.com/assets/gastro-lockup-e0ccc44b730a7e1b51a3b6565d2f9446ffeeb59f066d36e5c6a5c91210ea30c3.png" alt=""></span></li>
+</div>
+</div>
+</ul>
+<ul class="secondary-nav-verticals mobile-social-verticals hidden-md hidden-lg">
+<div class="verticals-container container">
+<ul id="nav-social-list">
+<li><a href="https://www.facebook.com/atlasobscura/" class="icon-facebook btn-icon nav-social-btn js-social-action-tracked" id="nav-soc-btn-facebook" data-position="Header" data-service="Facebook" data-action="Like" target="_blank"></a></li>
+<li><a href="https://twitter.com/atlasobscura" class="icon-twitter btn-icon nav-social-btn js-social-action-tracked" id="nav-soc-btn-twitter" target="_blank" data-position="Header" data-service="Twitter" data-action="Follow"></a></li>
+<li><a href="https://www.instagram.com/atlasobscura/" class="icon-instagram btn-icon nav-social-btn js-social-action-tracked" data-position="Header" data-service="Instagram" data-action="Follow" id="nav-soc-btn-instagram" target="_blank"></a></li>
+<li><a href="https://www.pinterest.com/atlasobscura/" class="icon-pinterest btn-icon nav-social-btn js-social-action-tracked" data-position="Header" data-service="Pinterest" data-action="Follow" id="nav-soc-btn-pinterest" target="_blank"></a></li>
+<li><a href="http://www.atlasobscura.com/feeds/latest" class="icon-rss btn-icon nav-social-btn js-social-action-tracked" data-position="Header" data-service="RSS" data-action="Follow" id="nav-soc-btn-rss" target="_blank"></a></li>
+</ul>
+</div>
+</ul>
+</div>
+
+<div id='1x1_tracking_pixel' class="not-on-dom-wrapper hidden-print" style="width:1px; height:1px;position:absolute;">
+<script>
+googletag.cmd.push(function() { googletag.display('1x1_tracking_pixel'); });
+</script>
+</div>
+</nav>
+<div id="search-dock-m" class="container-fluid search-dock"></div>
+<div class="m-nearby-search">
+<a class="js-search-nearby btn btn-places btn-icon js-link-tracked" data-category="Search Nearby" data-action="Submitted" data-label="articles" href="https://www.atlasobscura.com/search/search_nearby">
+<i class="icon-nearby-place"></i> What's near me?
+</a> </div>
+<div class="m-gastro-banner">
+<div class="gastro-banner">
+<span class="gastro-lockup">
+</span>
+</div>
+</div>
+</div>
+<div class="ad-background ad-background-below-nav hidden-sm hidden-xs">
+<div id='Rotational_Top_Slot' class='ad-wrapper hidden-print' style='max-width: 970px; max-height: 250px; min-height: 90px; position: relative; z-index: 4999;'>
+<script type="text/javascript">
+    if (!isSmallScreen()) {
+      googletag.cmd.push(function() { googletag.display('Rotational_Top_Slot'); });
+    }
+  </script>
+</div>
+</div>
+<div class="container below-ad-border hidden-sm hidden-xs">
+<hr>
+</div>
+</header>
+<div id="page-content">
+<article class="item-content js-article-content article-content article--content ">
+<div class="container">
+<header class="item-header article-header ">
+<div class="row">
+<div class="col-md-12">
+<h1 class="title-lg item-title">This Ikea Bowl Has Been Setting Things on Fire</h1>
+<div class="article-dek-wrap">
+<h2 class="subtitle-lg item-subtitle">
+The innocent-looking &#8220;Blanda blank&#8221; is a pyromaniac.
+</h2>
+<div class="article-byline-dateline">
+<span class="article-byline">by <a href="/users/caragiaimo?view=articles">Cara Giaimo</a></span>
+<div class="article-byline-date">June 21, 2017</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+</div>
+<div id="article-container" class="container">
+<div class="row">
+<div class="social-siderail-l col-md-1 hidden-print ">
+<div id="social-siderails-btns" class="hidden-xs hidden-sm">
+<div class="item-social-rail-stack social-siderail-btns">
+<a href="" class="icon-facebook btn-icon social-siderail-btn siderail-btn-facebook js-share-button-facebook js-social-action-tracked" data-position="Leftrail" data-service="Facebook" data-action="Share"></a>
+<div class="js-facebook-count detail-sm social-siderail-count hidden-sm hidden-xs"></div>
+<div class="icon-pinterest btn-icon social-siderail-btn siderail-btn-pinterest js-social-action-tracked js-btn-pinterest" data-position="Leftrail" data-service="Pinterest" data-action="Pin">
+</div>
+<a href="http://twitter.com/share?text=This%20Ikea%20Bowl%20Has%20Been%20Setting%20Things%20on%20Fire%20@atlasobscura&amp;count=none&amp;url=http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire" class="icon-twitter btn-icon social-siderail-btn siderail-btn-twitter js-social-action-tracked" target="_blank" data-position="Leftrail" data-service="Twitter" data-action="Share"></a>
+<a href="https://www.reddit.com/submit?url=http%3A%2F%2Fwww.atlasobscura.com%2Farticles%2Fikea-bowl-blanda-blank-fire" target="_blank" class="social-siderail-btn siderail-btn-reddit btn-reddit btn-icon icon-reddit js-social-action-tracked " data-position="Leftrail" data-service="reddit" data-action="Share"></a>
+<a href="" class="icon-envelope btn-icon btn-email social-siderail-btn js-btn-email-share js-social-action-tracked siderail-btn-email" data-position="Leftrail" data-service="Email" data-action="Send" data-toggle="modal" data-target="#desktop-share-by-email-modal"></a>
+</div>
+<aside class="hidden-xs hidden-sm">
+<div id="desktop-share-by-email-modal" class="modal" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-wrap">
+<div class="row modal-bg">
+<div class="modal-body email-share-modal-body col-md-12">
+<span class="icon-modal-close modal-close" data-dismiss="modal"></span>
+<div id="js-email-share-thanks" class="form-complete-notice"></div>
+<form class="js-email-share-form" id="new_share" action="/articles/ikea-bowl-blanda-blank-fire/shares" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+<h4 class="title-lg modal-title">Email This Article</h4>
+<span id="js-email-this-error" class="error"></span>
+<div>
+<fieldset class="modal-fieldset">
+<div class="cta-lg validate-message"></div>
+<label class="cta-lg modal-label">From</label>
+<input class="email-input col-md-12" placeholder="your email" required="required" type="email" name="share[from_email]" id="share_from_email"/>
+</fieldset>
+<fieldset class="modal-fieldset">
+<div class="cta-lg validate-message"></div>
+<label class="cta-lg modal-label">To</label>
+<input class="col-md-12" placeholder="recipient email(s)" required="required" type="text" name="share[to_email]" id="share_to_email"/>
+</fieldset>
+<div class="caption email-share-caption">Please separate multiple addresses with commas. We won't share addresses with third parties.</div>
+<fieldset class="modal-fieldset email-checkbox-fieldset">
+<input name="share[subscribe_general]" type="hidden" value="0"/><input class="email-signup-checkbox hidden-md hidden-lg" type="checkbox" value="1" name="share[subscribe_general]" id="share_subscribe_general"/>
+<label for="share_subscribe_general" class="email-signup-checkdisplay js-email-signup-checkdisplay hidden-sm hidden-xs"></label>
+<div class="email-signup-label-pair">
+<label class="modal-label email-signup-sublabel">Subscribe me to the</label>
+<label class="modal-label cta-lg">Atlas Obscura Newsletter</label>
+</div>
+</fieldset>
+<input type="submit" name="commit" value="Send" class="btn btn-stretch btn-submit"/>
+</form> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<script type="text/javascript">
+  displayFbCount('http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire', '.js-facebook-count');
+</script>
+</div>
+</div>
+<div class="content-body col-md-7">
+<section id="article-body" class="item-body article--body">
+<figure class=" contains-caption "><img class="article-image with-structured-caption " src="http://assets.atlasobscura.com/article_images/43332/image.jpg" alt="The Blanda blank." width="auto" data-kind="article-image" id="article-image-43332"><figcaption class="caption structured-caption noskim">The Blanda blank. <a class="caption-credit" rel="nofollow" target="_blank" href="http://www.ikea.com/us/en/catalog/products/50057254/">Courtesy Ikea</a></figcaption></figure>
+<p class="item-body-text-graf"><span class="section-start-text">At first glance, the Ikea </span>&#8220;<a href="http://www.ikea.com/us/en/catalog/products/50057254/">Blanda blank</a>&#8221; bowl looks like a normal piece of tableware. It&#8217;s stainless steel, and big enough to hold a salad for four&#8212;you know, bowl-sized. It&#8217;s even called the &#8220;Blanda blank,&#8221; for God&#8217;s sake.</p>
+<p class="item-body-text-graf">But based on the experiences of a snacker from Sweden, at least one Blanda blank out there has developed an unusual hobby: setting things on fire.</p>
+<p><iframe style="border: none; overflow: hidden;" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Frichard.walter.792%2Fvideos%2F1476448169085045%2F&amp;show_text=0&amp;width=225" width="225" height="400" frameborder="0" scrolling="no" allowfullscreen="true"></iframe></p>
+<p class="item-body-text-graf">According to <a href="http://www.aftonbladet.se/nyheter/a/zq7nK/ikea-skalen-satte-eld-pa-richards-vindruvor"><em>Aftonbladet</em></a>, as translated by <a href="https://www.thelocal.se/20170620/video-ikea-bowl-sets-swedes-grapes-on-fire">the <em>Local</em></a>, at some point over the unusually hot weekend, Richard Walter put a bunch of grapes into his Ikea bowl and brought it out into the sunshine. He quickly smelled smoke. When he looked down at his grapes, they were aflame.</p>
+<p class="item-body-text-graf">Walter blamed the mirrored bowl: &#8220;There was one intense point where [the sun] hit the twigs,&#8221; he said. &#8220;That&#8217;s where it started.&#8221;</p>
+<p class="item-body-text-graf">He then set a piece of newspaper on fire by putting it in the bowl, as shown in the video above.</p>
+<p class="item-body-text-graf item-body-last">Ikea told the <em>Local</em> they will be performing their own tests on the Blanda blank. In the meantime, be careful, everyone.</p>
+<p class="item-body-text-graf"><em>Every day, we track down a fleeting wonder&#8212;something amazing that&#8217;s only happening right now. Have a tip for us? Tell us about it! Send your temporary miracles to <a href="mailto:cara@atlasobscura.com" target="_blank" rel="noopener noreferrer">cara@atlasobscura.com</a>.</em></p>
+</section>
+<div class="row item-end-row">
+<div class="item-tags col-md-12 col-md-12-nested col-md-pull-1 col-md-pull-1-nested">
+<a href="/categories/fire-21f9d3f8-8c4d-452e-9a2c-f897b0b1307d">#fire</a><a href="/categories/minor-threats">#minor threats</a><a href="/categories/fleeting-wonders">#fleeting wonders</a><a href="/categories/news">#news</a>
+</div>
+</div>
+<div class="row hidden-xs hidden-sm hidden-print item-end-row">
+<div class="col-md-12">
+<div class="item-social-row">
+<a href="" class="icon-facebook btn-facebook btn btn-icon js-share-button-facebook js-social-action-tracked btn-social-row col-md-4" data-position="TextBottom" data-service="Facebook" data-action="Share"></a>
+<a href="http://twitter.com/share?text=This%20Ikea%20Bowl%20Has%20Been%20Setting%20Things%20on%20Fire%20@atlasobscura&amp;count=none&amp;url=http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire" class="icon-twitter btn-twitter btn btn-icon js-social-action-tracked btn-social-row col-md-4" target="_blank" data-position="TextBottom" data-service="Twitter" data-action="Share"></a>
+<a href="https://www.reddit.com/submit?url=http%3A%2F%2Fwww.atlasobscura.com%2Farticles%2Fikea-bowl-blanda-blank-fire" target="_blank" class="btn-reddit btn btn-icon icon-reddit js-social-action-tracked btn-social-row col-md-4 " data-position="TextBottom" data-service="reddit" data-action="Share"></a>
+<a href="" class="icon-envelope btn btn-icon btn-email js-btn-email-share js-social-action-tracked btn-social-row col-md-4" data-position="TextBottom" data-service="Email" data-action="Send" data-toggle="modal" data-target="#desktop-share-by-email-modal"></a>
+</div>
+
+
+</div>
+</div>
+<div class="row next-article-recirc next-article-recirc-a hidden-print">
+<div class="col-md-12">
+<hr>
+<h2 class="detail-sm read-next">Read Next</h2>
+<a href=/articles/this-mummified-chameleon-was-hoping-to-find-water>
+<h3 class="title-underline">
+<span class="next-recirc-article-title">
+This Mummified Chameleon Was Hoping to Find Water</h3>
+</span>
+<span class="icon-arrow-right"></span>
+</a>
+<hr>
+</div>
+</div>
+</div>
+<div class="hidden-md hidden-lg m-social-adhesive-wrap">
+<div id="js-item-social-adhesive" class="item-social-adhesive">
+<div id="js-item-adhesive-btns">
+<a href="" class="col-xs-3 btn btn-adhesive btn-facebook btn-icon js-share-button-facebook js-social-action-tracked" data-position="Bottom-Sticky-mobile" data-service="Facebook" data-action="Share">
+<i class="icon-facebook"></i>
+</a>
+<div class="col-xs-3 btn btn-adhesive btn-pinterest btn-icon js-social-action-tracked js-btn-pinterest" data-position="Bottom-Sticky-mobile" data-service="Pinterest" data-action="Pin">
+<i class="icon-pinterest"></i>
+</div>
+<a href="http://twitter.com/share?text=This%20Ikea%20Bowl%20Has%20Been%20Setting%20Things%20on%20Fire%3A%20@atlasobscura&amp;count=none&amp;url=http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire" class="col-xs-3 btn btn-adhesive btn-twitter btn-icon js-social-action-tracked" target="_blank" data-position="Bottom-Sticky-mobile" data-service="Twitter" data-action="Share">
+<i class="icon-twitter"></i>
+</a>
+<a href="https://www.reddit.com/submit?url=http%3A%2F%2Fwww.atlasobscura.com%2Farticles%2Fikea-bowl-blanda-blank-fire" target="_blank" class="col-xs-3 btn btn-adhesive btn-reddit btn-icon icon-reddit js-social-action-tracked" data-position="Bottom-Sticky-mobile" data-service="reddit" data-action="Share"></a>
+<a href="mailto:?subject=This Ikea Bowl Has Been Setting Things on Fire&body=Discovered on Atlas Obscura: http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire" class="col-xs-3 btn btn-adhesive btn-email btn-icon js-social-action-tracked" data-position="Bottom-Sticky-mobile" data-service="Email" data-action="Send">
+<i class="icon-envelope"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="content-siderail hidden-print">
+<div class="siderail-ad hidden-sm hidden-xs">
+<div class="  ad-background">
+
+<div id='Rotational_Rectangle_Desktop' class='ad-wrapper hidden-print'>
+<script type='text/javascript'>
+if( !isSmallScreen() ){
+	googletag.cmd.push(function() { googletag.display('Rotational_Rectangle_Desktop'); });
+}
+</script>
+</div>
+</div>
+</div>
+<aside id="sidebar-recent" class="aside-recirc-module related-articles-module">
+<h5 class="aside-recirc-header">Recent Stories</h5>
+<div class="aside-recirc-items">
+<a class="aside-recirc-item" href="/articles/mapping-dante-hell-inferno-satan-divine-comedy">
+<img title="Michelangelo Caetani&#39;s cross-section of Hell, 1855. " alt="Michelangelo Caetani&#39;s cross-section of Hell, 1855. " data-width="1280" data-height="917" width="372" height="248" src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2JkYjg5OWFlNDczODg3MTdhZV9NaWNoZWxhbmdlbG9fQ2FldGFuaV9Dcm9zc19TZWN0aW9uX29mX0hlbGxfMTg1NV9Db3JuZWxsX0NVTF9QSk1fMTA3MV8wNC5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIzNzJ4MjQ4IyJdXQ/Michelangelo_Caetani_Cross_Section_of_Hell_1855_Cornell_CUL_PJM_1071_04.jpg"/>
+<h3 class="title-sm recirc-item-title"><span class="title-underline">Mapping Dante&#39;s Inferno, One Circle of Hell at a Time</span></h3>
+<div class="subtitle-sm recirc-item-subtitle">A topography of torment. </div>
+<div data-timestamp="2017-07-13 12:00:00 UTC" class="js-time-ago article-card-english-date detail-sm article-card-detail article-card-date">
+</div>
+</a>
+<a class="aside-recirc-item" href="/articles/purse-lake-25-year-found-south-carolina">
+<h3 class="title-sm recirc-item-title"><span class="title-underline">Fishing Child Reels In a Purse Stolen 25 Years Ago</span></h3>
+<div class="subtitle-sm recirc-item-subtitle">And then a relative tracked down its owner. </div>
+<div data-timestamp="2017-07-12 20:22:00 UTC" class="js-time-ago article-card-english-date detail-sm article-card-detail article-card-date">
+</div>
+</a>
+<a class="aside-recirc-item" href="/articles/lightning-bolt-wedding-toast-father">
+<h3 class="title-sm recirc-item-title"><span class="title-underline">Lightning Bolt Strikes the Father of the Bride, Mid-Wedding Toast</span></h3>
+<div class="subtitle-sm recirc-item-subtitle">&quot;It was amazing.&quot;</div>
+<div data-timestamp="2017-07-12 19:28:00 UTC" class="js-time-ago article-card-english-date detail-sm article-card-detail article-card-date">
+</div>
+</a>
+</div>
+</aside>
+<aside id="sidebar-popular" class="js-most-popular-recircs aside-recirc-module related-articles-module">
+</aside>
+</div>
+</div>
+</div>
+</article>
+<div class="recirc-footer-wrap hidden-print">
+<div id=js-footer-related-articles class="recirc-footer recirc-footer-articles hidden-date">
+<div class="container">
+<div class="row">
+<div class="col-md-offset-1 col-md-1">
+<h5 class="section-title section-title-articles">Related Stories</h5>
+</div>
+</div>
+<div class="row">
+<div class="footer-card-container">
+<a class="content-card article-card" href="/articles/hail-canada-evansburg">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzRmYTczNjhkODNlMjFlNDdhNV9oYWlsLWV2YW5zYnVyZy5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIzNzJ4MjQ4IyJdXQ/hail-evansburg.jpg" title="A Summer Camp in Canada Was Attacked by Giant Hailstones" alt="A Summer Camp in Canada Was Attacked by Giant Hailstones" data-width="620" data-height="349" class="lazy img-responsive content-card-img" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="content-card-text">
+<div class="detail-sm article-card-label">story</div>
+<div class="detail-sm article-card-tag">weather</div>
+<h3 class="title-md content-card-title">
+<span class="title-underline content-card-title-article js-title-content">A Summer Camp in Canada Was Attacked by Giant Hailstones</span>
+</h3>
+<div class="content-card-subtitle content-card-subtitle-article js-subtitle-content">Campers compared them to tomatoes and billiard balls.</div>
+<div class="detail-sm article-card-detail article-card-date">
+July 11, 2017
+</div>
+</div>
+</a>
+</div>
+<div class="footer-card-container">
+<a class="content-card article-card" href="/articles/red-winged-blackbird-attacks-chicago">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzgwZmY4ZmNhMTE2OWZmNGQ3ZV9SZWRfd2luZ2VkX2JsYWNrYmlyZF8tX25hdHVyZXNfcGljcy5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIzNzJ4MjQ4IyJdXQ/Red_winged_blackbird_-_natures_pics.jpg" title="Watch out for this guy." alt="Red-Winged Blackbirds Are Attacking People in Chicago" data-width="1440" data-height="960" class="lazy img-responsive content-card-img" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="content-card-text">
+<div class="detail-sm article-card-label">story</div>
+<div class="detail-sm article-card-tag">minor threats</div>
+<h3 class="title-md content-card-title">
+<span class="title-underline content-card-title-article js-title-content">Red-Winged Blackbirds Are Attacking People in Chicago</span>
+</h3>
+<div class="content-card-subtitle content-card-subtitle-article js-subtitle-content">Someone just sued over it.</div>
+<div class="detail-sm article-card-detail article-card-date">
+June 23, 2017
+</div>
+</div>
+</a>
+</div>
+<div class="footer-card-container">
+<a class="content-card article-card" href="/articles/lightning-bolt-wedding-toast-father">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzNiNTA1MWIzYmIxOGI3YmIzOV9TY3JlZW4gU2hvdCAyMDE3LTA3LTEyIGF0IDIuMjYuNDQgUE0ucG5nIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMzcyeDI0OCMiXV0/Screen%20Shot%202017-07-12%20at%202.26.44%20PM.png" title="Lightning Bolt Strikes the Father of the Bride, Mid-Wedding Toast" alt="Lightning Bolt Strikes the Father of the Bride, Mid-Wedding Toast" data-width="1168" data-height="738" class="lazy img-responsive content-card-img" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="content-card-text">
+<div class="detail-sm article-card-label">story</div>
+<div class="detail-sm article-card-tag">weddings</div>
+<h3 class="title-md content-card-title">
+<span class="title-underline content-card-title-article js-title-content">Lightning Bolt Strikes the Father of the Bride, Mid-Wedding Toast</span>
+</h3>
+<div class="content-card-subtitle content-card-subtitle-article js-subtitle-content">&quot;It was amazing.&quot;</div>
+<div class="detail-sm article-card-detail article-card-date">
+July 12, 2017
+</div>
+</div>
+</a>
+</div>
+<div class="footer-card-container">
+<a class="content-card article-card" href="/articles/hospital-hires-baby-peregrine-falcons-pigeons">
+<img data-src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzEwZDIxZWVkY2RiNWY3ZjE3ZF9GYWxjb19wZXJlZ3JpbnVzXy1Nb3Jyb19Sb2NrLF9Nb3Jyb19CYXksX0NhbGlmb3JuaWEsX1VTQV8tZmx5aW5nLTguanBnIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkxIC1hdXRvLW9yaWVudCJdLFsicCIsInRodW1iIiwiMzcyeDI0OCMiXV0/Falco_peregrinus_-Morro_Rock%2C_Morro_Bay%2C_California%2C_USA_-flying-8.jpg" title="Peregrine falcon. " alt="A Hospital&#39;s New Weapons Against Pigeons Are Baby Falcons" data-width="976" data-height="976" class="lazy img-responsive content-card-img" src="//assets.atlasobscura.com/assets/blank-11b9c95a68e295dddd0ea924647536578ce285b2c8469a223c01df1ff3166af1.png"/>
+<div class="content-card-text">
+<div class="detail-sm article-card-label">story</div>
+<div class="detail-sm article-card-tag">pigeons</div>
+<h3 class="title-md content-card-title">
+<span class="title-underline content-card-title-article js-title-content">A Hospital&#39;s New Weapons Against Pigeons Are Baby Falcons</span>
+</h3>
+<div class="content-card-subtitle content-card-subtitle-article js-subtitle-content">Small, but soon to be mighty. </div>
+<div class="detail-sm article-card-detail article-card-date">
+July 11, 2017
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="recirc-footer recirc-footer-third-party">
+<div class="container">
+<div class="row">
+<div class="col-md-offset-1 col-md-1">
+<h5 class="section-title section-title-third-party">From Elsewhere</h5>
+</div>
+</div>
+<div class="row">
+<div id="zergnet-widget-30991"></div>
+</div>
+</div>
+</div>
+<script language="javascript" type="text/javascript">
+  (function() {
+    var zergnet = document.createElement('script');
+    zergnet.type = 'text/javascript'; zergnet.async = true;
+    zergnet.src = 'http://www.zergnet.com/zerg.js?id=30991';
+    var znscr = document.getElementsByTagName('script')[0];
+    znscr.parentNode.insertBefore(zergnet, znscr);
+  })();
+ </script>
+<div class="footer-reflow">
+
+<aside id="sidebar-recent" class="aside-recirc-module related-articles-module">
+<h5 class="aside-recirc-header">Recent Stories</h5>
+<div class="aside-recirc-items">
+<a class="aside-recirc-item" href="/articles/mapping-dante-hell-inferno-satan-divine-comedy">
+<img title="Michelangelo Caetani&#39;s cross-section of Hell, 1855. " alt="Michelangelo Caetani&#39;s cross-section of Hell, 1855. " data-width="1280" data-height="917" width="372" height="248" src="//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2JkYjg5OWFlNDczODg3MTdhZV9NaWNoZWxhbmdlbG9fQ2FldGFuaV9Dcm9zc19TZWN0aW9uX29mX0hlbGxfMTg1NV9Db3JuZWxsX0NVTF9QSk1fMTA3MV8wNC5qcGciXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIzNzJ4MjQ4IyJdXQ/Michelangelo_Caetani_Cross_Section_of_Hell_1855_Cornell_CUL_PJM_1071_04.jpg"/>
+<h3 class="title-sm recirc-item-title"><span class="title-underline">Mapping Dante&#39;s Inferno, One Circle of Hell at a Time</span></h3>
+<div class="subtitle-sm recirc-item-subtitle">A topography of torment. </div>
+<div data-timestamp="2017-07-13 12:00:00 UTC" class="js-time-ago article-card-english-date detail-sm article-card-detail article-card-date">
+</div>
+</a>
+<a class="aside-recirc-item" href="/articles/purse-lake-25-year-found-south-carolina">
+<h3 class="title-sm recirc-item-title"><span class="title-underline">Fishing Child Reels In a Purse Stolen 25 Years Ago</span></h3>
+<div class="subtitle-sm recirc-item-subtitle">And then a relative tracked down its owner. </div>
+<div data-timestamp="2017-07-12 20:22:00 UTC" class="js-time-ago article-card-english-date detail-sm article-card-detail article-card-date">
+</div>
+</a>
+<a class="aside-recirc-item" href="/articles/lightning-bolt-wedding-toast-father">
+<h3 class="title-sm recirc-item-title"><span class="title-underline">Lightning Bolt Strikes the Father of the Bride, Mid-Wedding Toast</span></h3>
+<div class="subtitle-sm recirc-item-subtitle">&quot;It was amazing.&quot;</div>
+<div data-timestamp="2017-07-12 19:28:00 UTC" class="js-time-ago article-card-english-date detail-sm article-card-detail article-card-date">
+</div>
+</a>
+</div>
+</aside>
+</div>
+<div class="footer-reflow">
+<aside id="reflow-sidebar-popular" class="js-most-popular-recircs aside-recirc-module related-articles-module">
+</aside>
+</div>
+</div>
+<div class="hidden" id="newsletter-email-ask">
+<div class="container-fluid border-container">
+<div class="heading row">
+<div class="col-xs col-xs-offset-1">
+<h4>Enjoying This Story?</h4>
+</div>
+</div>
+<div class="copy-container desktop">
+<p>
+Get our latest, delivered straight to your inbox by <a href="">subscribing to our newsletter</a>.
+</p>
+</div>
+<div class="copy-container tablet">
+<p>
+<a href="">Subscribe to our newsletter</a> and get our latest, sent right to your inbox.
+</p>
+</div>
+<div class="input-container">
+<form class="js-email-ask-form" action="/email_lists/signup" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+<input name="subscribe_general" type="hidden" value="true">
+<input type="hidden" name="source" value="article-email-ask"/>
+<div class="email-quick-signup-wrap">
+<input type="email" name="email" id="email" placeholder="Your Email Address" class="js-article-email-ask-removable" required="required"/>
+<button name="button" type="submit" class="btn btn-default js-article-email-ask-removable">Subscribe</button>
+<div id="js-article-email-ask-thanks" class="subscribe-thanks">
+Thanks for subscribing!
+</div>
+</div>
+</form> </div>
+</div>
+</div>
+<div class="hidden related-articles-interrupt hidden-print" id="js-related-articles-interrupt">
+<div class="container-fluid border-container">
+<div class="heading row">
+<div class="col-xs col-xs-offset-1">
+<h4>Related Stories</h4>
+</div>
+</div>
+<div class="copy-container">
+<a class="recirc-item" href="sulfur-fire-wyoming">Just a Beautiful and Dangerous Sulfur Fire</a>
+<a class="recirc-item" href="weeping-willow-wake-cher-east-village">Manhattan Residents Had a Wake for This Doomed Tree</a>
+<a class="recirc-item" href="bears-outrun-maine-runner-race">A Professional Runner Outran Two Amateur (?) Bears</a>
+</div>
+</div>
+</div>
+<div class="modal lightbox-modal fadeX" id="lightbox" tabindex="-1" role="dialog" aria-labelledby="lightbox">
+<div id="lightbox-content">
+<span class="icon-cancel modal-close" data-dismiss="modal"></span>
+<div id="lightbox-figure-box">
+<figure id="lightbox-figure">
+<img src="" id="lightbox-image"/>
+<figcaption id="lightbox-caption" class="caption">
+</figcaption>
+</figure>
+</div>
+<div id="lightbox-controls">
+<div class="js-lightbox-prev gallery-control lightbox-gallery-control">
+<a href="javascript:void(0)"><i class="icon-arrow-left"></i></a>
+</div>
+<div class="js-lightbox-next gallery-control lightbox-gallery-control">
+<a href="javascript:void(0)"><i class="icon-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+<script async src="https://secure.assets.tumblr.com/post.js"></script>
+<script type="text/javascript">
+  if( isIE() ){
+    $("#article-body .article-image").removeAttr("width");
+  }
+</script>
+<script type="text/javascript" charset="utf-8">
+$(function () {
+
+  function loadMostReadRecircs () {
+    $.ajax({
+      url: '/payloads/most_read_recircs'
+    }).success(function(viewMarkup) {
+      $('.js-most-popular-recircs').append(viewMarkup);
+    });
+  }
+
+  var ArticleBodyState = {};
+  var $articleContent = $('.content-body #article-body').children();
+  placeTeads($articleContent);
+  loadMostReadRecircs();
+
+  if (isSmallScreen()){
+    placeMobileArticleEndAd();
+
+    placeInterruptContent($articleContent, function (domElement) {
+      return (
+        hasImageContent(domElement) ||
+        hasVideoContent(domElement) ||
+        hasTwitterContent(domElement) ||
+        hasHeadingContent(domElement)
+      );
+    }, placeMobileAd, 3);
+  }
+
+  if (!isSubscribed()) {
+    placeInterruptContent($articleContent, shouldNotAbutInterrupt, placeArticleEmailAsk, 5);
+  } else {
+    placeInterruptContent($articleContent, shouldNotAbutInterrupt, placeRelatedArticlesInterrupt, 5);
+  }
+
+
+  function placeInterruptContent($content, nodeCheckFunction, placingFunction, limit) {
+    var limit = (typeof limit !== 'undefined') ?  limit : 7;
+
+    var n = 0;
+    var contentWasPlaced = false;
+
+    $content.each(function (index, p) {
+      // nodeCheckFunction must take a node &
+      // return true/false about its content
+      if ( nodeCheckFunction( $(p) ) ) { return; }
+      n++;
+
+      if (n >= limit) {
+        if ( nodeCheckFunction($(p).next()) ) { return; }
+
+        placingFunction(p);
+        contentWasPlaced = true;
+        return false;
+      }
+    });
+
+    if (!contentWasPlaced) {
+      placingFunction($articleContent.last());
+    }
+  }
+
+  function shouldNotAbutInterrupt(domElement) {
+    return isNotBodyText(domElement);
+  }
+
+  function placeTeads($content) {
+
+    var videoDfp = "";
+    if (isSmallScreen()) {
+      videoDfp = "<!-- /110134742/Mobile_Inline_Video -->\n<div id=\"video-body-ad\" class=\"hidden-print\" style=\"line-height: 0; min-height: 1px; position: relative; bottom: 14px;\">\n	<div id=\'Mobile_Inline_Video\' style=\'height:1px; width:1px;\' class=\'ad-wrapper\'>\n	<script>\n	googletag.cmd.push(function() { googletag.display(\'Mobile_Inline_Video\'); });\n	<\/script>\n	<\/div>\n<\/div>\n\n";
+    } else {
+      videoDfp = "<!-- /110134742/Rotational_Inline_Video_Desktop -->\n<div id=\"video-body-ad\" class=\"hidden-print\" style=\"line-height: 0; min-height: 1px; position: relative; bottom: 14px;\">\n	<div id=\'Rotational_Inline_Video_Desktop\' style=\'height:1px; width:1px;\' class=\'ad-wrapper\'>\n	<script>\n	googletag.cmd.push(function() { googletag.display(\'Rotational_Inline_Video_Desktop\'); });\n	<\/script>\n	<\/div>\n<\/div>\n";
+    }
+
+    var n = 0;
+    var limit = (isSmallScreen() ? 5 : 3);
+
+    $content.each(function (index, p) {
+      if (isNotBodyText(p)) { return; }
+
+      n++;
+      if (n >= limit) {
+        if (hasImageContent($(p).next())) { return; }
+        $(p).after(videoDfp);
+        return false;
+      }
+    });
+  }
+
+  function placeArticleEmailAsk(p) {
+    ArticleBodyState.emailAsk = $('#newsletter-email-ask').detach();
+    ArticleBodyState.emailAsk.insertAfter(p);
+    ArticleBodyState.emailAsk.removeClass("hidden");
+    attachEmailAskListeners();
+  }
+
+  function placeRelatedArticlesInterrupt(p) {
+    if ($('#js-related-articles-interrupt').length > 0) {
+      ArticleBodyState.relatedArticles = $('#js-related-articles-interrupt').detach();
+      ArticleBodyState.relatedArticles.insertAfter(p);
+      ArticleBodyState.relatedArticles.removeClass('hidden');
+    }
+  }
+
+  function attachEmailAskListeners() {
+    ArticleBodyState.emailAsk.on('click', 'a', function (e) {
+      e.preventDefault();
+    });
+
+    ArticleBodyState.emailAsk.on('click', function (e) {
+      e.preventDefault();
+      ArticleBodyState.emailAsk.find('.input-container')
+        .slideToggle(200);
+    });
+
+    ArticleBodyState.emailAsk.find('#email').on('click', function (e) {
+      e.stopPropagation();
+    });
+
+    ArticleBodyState.emailAsk.find('button').on('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  function placeInBodyAd(p) {
+    // Only place the belly band ad on Desktop Features.
+    if(!isSmallScreen()){
+      var bodyWithNow = $("body.articles")[0].offsetWidth;
+      ArticleBodyState.featureAdMarkup = "<div class='ad-background-intra-body hidden-print'>" +
+        "<!-- /110134742/Feature_Inline -->\n<div id=\'Feature_Inline\' class=\'ad-wrapper hidden-print\'>\n<script>\ngoogletag.cmd.push(function() { googletag.display(\'Feature_Inline\'); });\n<\/script>\n<\/div>" +
+        "</div>";
+      Content = $articleContent;
+      $(p).after( ArticleBodyState.featureAdMarkup );
+    }
+  }
+
+  // Inserts the Intra body ad on mobile articles
+  // Currently disabled for feature articles, we need a new slot definition if we
+  // want another ad slot on this page.
+  function placeMobileAd (p) {
+      // Don't insert ad next to article end ad.
+      if (insertionShouldBeSkipped(p)) { return; }
+      $(p).after($("<div class='ad-background-intra-body hidden-print'><!-- /110134742/Mobile_Rotational_Top_Rectangle -->\n<div id=\'Mobile_Rotational_Top_Rectangle\' class=\'ad-wrapper hidden-print\'>\n<script>\nif( isSmallScreen() ) {\n	googletag.cmd.push(function() { googletag.display(\'Mobile_Rotational_Top_Rectangle\'); });\n}\n<\/script>\n<\/div></div>"));
+  }
+
+  function insertionShouldBeSkipped (graf) {
+    return (
+      $(graf).next().hasClass('ad-background-intra-body') ||
+      ($('section#article-body').first().find('> p.item-body-text-graf').length < 5)
+    )
+  }
+
+  function placeMobileArticleEndAd () {
+     $('section#article-body').first().append($("<div class='ad-background-intra-body hidden-print'><!-- /110134742/Mobile_Rotational_Bottom_Rectangle -->\n<div id=\'Mobile_Rotational_Bottom_Rectangle\' class=\'ad-wrapper hidden-print\'>\n<script>\nif( isSmallScreen() ) {\n	googletag.cmd.push(function() { googletag.display(\'Mobile_Rotational_Bottom_Rectangle\'); });\n}\n<\/script>\n<\/div></div>"));
+  }
+
+  // (function simulateABTest() {
+  //   var selector = "#places-near-you-aside, #sidebar-story-places, #sidebar-popular, #reflow-sidebar-popular, div.content-siderail>aside:nth-of-type(1), #js-footer-related-articles, #reflow-places-near-you-aside, .recirc-footer-third-party, .footer-reflow>aside:nth-of-type(1)";
+  //   var hiddenElements = '#places-near-you-aside, #reflow-places-near-you-aside, #map-footer';
+
+  //   $(selector).addClass('recirc-testing');
+  //   $(hiddenElements).remove();
+  //   loadMostReadRecircs();
+  // }())
+});
+</script>
+<script type="text/javascript">
+  var _ain = {
+      id: "1426",
+      url: "http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire",
+      postid: "article-8818",
+      maincontent: "#article-body",
+      title: "This Ikea Bowl Has Been Setting Things on Fire",
+      pubdate: "2017-06-21 13:51:00 UTC",
+      authors: "Cara Giaimo",
+      sections: "News",
+      tags: "minor threats, fire, news, fleeting wonders",
+      comments: ""
+  };
+  (function (d, s) {
+  var sf = d.createElement(s); sf.type = 'text/javascript'; sf.async = true;
+  sf.src = (('https:' == d.location.protocol) ? 'https://d7d3cf2e81d293050033-3dfc0615b0fd7b49143049256703bfce.ssl.cf1.rackcdn.com' : 'http://t.contentinsights.com')+'/stf.js';
+  var t = d.getElementsByTagName(s)[0]; t.parentNode.insertBefore(sf, t);
+  })(document, 'script');
+</script>
+</div>
+<footer class="page-footer">
+<div class="footer-z-cover"></div>
+<div class="container js-page-left-reference">
+<div class="row">
+<div class="footer-links col-md-3">
+<section>
+<h3 class="heading-sm footer-links-heading js-footer-links-heading">
+The Atlas <i class="icon-arrow-down footer-expand-arrow visible-sm visible-xs"></i>
+</h3>
+<div class="is-slider-hidden-m">
+<ul class="links-column">
+<li><a href="/places">Recently Added</a></li>
+<li><a href="/places?sort=likes_count">Most Popular</a></li>
+<li><a href="/random">Random</a></li>
+<li><a href="/curious-facts">Curious Facts</a></li>
+<li><a class="js-user-required" href="/places/new">Add a Place</a></li>
+</ul>
+</div>
+</section>
+<div>
+<section>
+<h3 class="heading-sm footer-links-heading js-footer-links-heading">
+Events <i class="icon-arrow-down footer-expand-arrow visible-sm visible-xs"></i>
+</h3>
+<div class="is-slider-hidden-m">
+<ul class="links-column">
+<li><a href="/events">Upcoming Events</a></li>
+<li><a href="/unusual-trips">Upcoming Trips</a></li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+<div class="footer-links col-md-3">
+<section>
+<h3 class="heading-sm footer-links-heading js-footer-links-heading">
+Stories <i class="icon-arrow-down footer-expand-arrow visible-sm visible-xs"></i>
+</h3>
+<div class="is-slider-hidden-m">
+<ul class="links-column">
+<li><a href="/articles?sort=columns">Columns</a></li>
+<li><a href="/articles?sort=features">Features</a></li>
+<li><a href="/articles?sort=interactive">Interactive</a></li>
+<li><a href="/articles?sort=news">News</a></li>
+<li><a href="/articles?sort=video">Video</a></li>
+<li><a href="/articles?sort=visual">Visual</a></li>
+</ul>
+</div>
+</section>
+</div>
+<div class="footer-links col-md-3">
+<section>
+<h3 class="heading-sm footer-links-heading js-footer-links-heading">
+Company <i class="icon-arrow-down footer-expand-arrow visible-sm visible-xs"></i>
+</h3>
+<div class="is-slider-hidden-m">
+<ul class="links-column">
+<li><a href="/about-us">About</a></li>
+<li class="hidden-md hidden-lg"><a onclick="window.open(this.href,'Contact Atlas Obscura','width=600,height=700,toolbar=no,menubar=no,scrollbars'); return false" href="http://www.atlasobscura.com/contact_form" target="_blank">Contact Us</a></li>
+<li><a href="/faq">FAQ</a></li>
+<li><a href="/work-with-us">Work With Us</a></li>
+<li><a href="mailto:ads@atlasobscura.com">Advertising</a></li>
+<li><a href="/privacy">Privacy Policy</a></li>
+<li><a href="/terms">Terms of Use</a></li>
+</ul>
+</div>
+</section>
+</div>
+<div class="footer-social col-md-3">
+<section class="subscribe-sm footer-subscribe">
+<span>Subscribe to the Atlas Obscura Newsletter and get our latest, delivered straight to your inbox.</span>
+<form class="js-email-ask-form" action="/email_lists/signup" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+<input type="hidden" name="source" id="source" value="footer-email-ask"/>
+<input type="hidden" name="subscribe_general" id="subscribe_general" value="true"/>
+<input type="email" name="email" id="email" placeholder="Your Email" class="js-footer-email-ask-removable"/>
+<input type="submit" name="commit" value="Subscribe" class="btn btn-secondary js-footer-email-ask-removable"/>
+<div id="js-footer-email-ask-thanks" class="subscribe-thanks detail">Thanks for subscribing!</div>
+</form>
+<ul id="footer-social-list">
+<li><a href="https://www.facebook.com/atlasobscura/" class="icon-facebook btn-icon footer-social-btn js-social-action-tracked" target="_blank" data-position="Footer" data-service="Facebook" data-action="Like"></a></li>
+<li><a href="https://www.youtube.com/user/atlasobscura" class="icon-youtube btn-icon footer-social-btn js-social-action-tracked" target="_blank" data-position="Footer" data-service="Youtube" data-action="Follow"></a></li>
+<li><a href="https://twitter.com/atlasobscura" class="icon-twitter btn-icon footer-social-btn js-social-action-tracked" target="_blank" data-position="Footer" data-service="Twitter" data-action="Follow"></a></li>
+<li><a href="https://www.instagram.com/atlasobscura/" class="icon-instagram btn-icon footer-social-btn js-social-action-tracked" target="_blank" data-position="Footer" data-service="Instagram" data-action="Follow"></a></li>
+<li><a href="https://www.pinterest.com/atlasobscura/" class="icon-pinterest btn-icon footer-social-btn js-social-action-tracked" target="_blank" data-position="Footer" data-service="Pinterest" data-action="Follow"></a></li>
+<li><a href="/feeds/latest" class="icon-rss btn-icon footer-social-btn js-social-action-tracked" target="_blank" data-position="Footer" data-service="RSS" data-action="Follow"></a></li>
+</ul>
+</section>
+</div>
+</div>
+<div class="row">
+<div class="copyright col-md-6 hidden-sm hidden-xs">&copy; 2017 Atlas Obscura. All rights reserved.</div>
+<div class="col-md-3 col-md-offset-3 footer-logo-wrap">
+<a href="/" title="Atlas Obscura" class="footer-logo logo-link">
+<i class="icon-atlas-icon"></i>
+<i class="icon-atlas-logo-alt"></i>
+</a>
+</div>
+<div class="copyright hidden-md hidden-lg col-xs-12">&copy; 2017 Atlas Obscura. All rights reserved.</div>
+</div>
+</div>
+</footer>
+<a target="_blank" onclick="window.open(this.href,'Contact Atlas Obscura','width=600,height=700,toolbar=no,menubar=no,scrollbars'); return false" href="http://www.atlasobscura.com/contact_form">
+<button id="btn-site-feedback" class="btn btn-stretch">Questions or Feedback? <span class="static-underline">Contact Us</span></button>
+</a>
+
+<div id="email-roadblock-topographic-modal" class="modal" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-wrap modal-wrap-topographic topographic modal-wrap-responsive">
+<i class="icon-modal-close modal-close" data-dismiss="modal"></i>
+<div class="row modal-bg roadblock-modal-content">
+<div class="modal-body" id="newsletter-email-collection-modal">
+<div id="js-email-roadblock-topographic-modal-thanks" class="form-complete-notice"></div>
+<form class="js-email-roadblock-form js-email-ask-form" action="/email_lists/signup" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+<input type="hidden" name="subscribe_general" value="true"/>
+<input type="hidden" name="source" value="email-roadblock-topographic-modal"/>
+<h4 class="title-lg modal-title-roadblock">Add Some Wonder to Your Inbox</h4>
+<div class="subtitle-md">Every weekday we compile our most wondrous stories and deliver them straight to you.</div>
+<div id="js-email-roadblock-topographic-modal-error"></div>
+<fieldset class="modal-fieldset">
+<div class="cta-lg validate-message"></div>
+<div class="email-submit-group-m">
+<input type="email" name="email" id="email" class="col-md-12" required="required" placeholder="your email"/>
+<button name="button" type="submit" class="btn btn-stretch btn-submit">
+<i class="icon-envelope"></i><span class="hidden-sm hidden-xs">Subscribe</span>
+</button> </div>
+</fieldset>
+<footer class="roadblock-footer">
+<a href="" class="roadblock-dismiss-link cta-lg" data-dismiss="modal">No Thanks</a>
+</footer>
+</form> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="facebook-topographic-modal" class="modal" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-wrap modal-wrap-topographic topographic modal-wrap-responsive modal-wrap-fb">
+<i class="icon-modal-close modal-close" data-dismiss="modal"></i>
+<div class="row modal-bg roadblock-modal-content">
+<div class="modal-body">
+<div id="js-email-roadblock-topographic-modal-thanks" class="form-complete-notice"></div>
+<form class="js-email-roadblock-form" action="/email_lists/signup" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+<input type="hidden" name="subscribe_general" value="true"/>
+<input type="hidden" name="source" value="email-roadblock-topographic-modal"/>
+<h4 class="title-lg modal-title-roadblock" style="font-size: 38px;">We'd Like You to Like Us</h4>
+<div class="subtitle-md">Like Atlas Obscura and get our latest and greatest stories in your Facebook feed.</div>
+<fieldset class="modal-fieldset">
+<div id="fb-modal-like-wrap"></div>
+</fieldset>
+<footer class="roadblock-footer">
+<a href="" class="roadblock-dismiss-link cta-lg" data-dismiss="modal">No Thanks</a>
+</footer>
+</form> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="facebook-page-plugin" class="hidden-sm hidden-xs">
+<i class="icon-modal-close js-close"></i>
+<h3 class="title-sm">Like Us on Facebook</h3>
+<div class="fb-page" data-href="https://www.facebook.com/atlasobscura" data-width="280" data-hide-cover="true" data-show-facepile="true" data-show-posts="false">
+<div class="fb-xfbml-parse-ignore">
+</div>
+</div>
+</div>
+<div id="fixed-notice-m" class="notice js-notice">
+<div class="table-container">
+<i class="icon-info"></i>
+<span class="notice-text-wrapper">
+<span id="fixed-notice-m-text"></span>
+</span>
+<i class="icon-menu-close js-dismiss-notice"></i>
+</div>
+</div>
+<script type="text/javascript" src="//s.skimresources.com/js/89027X1542228.skimlinks.js"></script>
+
+<script>
+      var _comscore = _comscore || [];
+      _comscore.push({ c1: "2", c2: "17564338" });
+      (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+      })();
+    </script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=17564338&cv=2.0&cj=1"/>
+</noscript>
+
+
+<script type="text/javascript">
+    var _qevents = _qevents || [];
+
+    (function() {
+    var elem = document.createElement('script');
+    elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+    elem.async = true;
+    elem.type = "text/javascript";
+    var scpt = document.getElementsByTagName('script')[0];
+    scpt.parentNode.insertBefore(elem, scpt);
+    })();
+    </script>
+<script>
+    _qevents.push({
+    qacct:"p-wCQ2x-2BzmYPY"
+    });
+    </script>
+<noscript>
+<div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-wCQ2x-2BzmYPY.gif" border="0" height="1" width="1" alt="Quantcast"/></div>
+</noscript>
+<script type="text/javascript">
+        adroll_adv_id = "E43IJQYE4FH2BH2673AMQU";
+        adroll_pix_id = "DCSH5EL35RERJEGZMJEB6V";
+        (function () {
+            var _onload = function(){
+                if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+                if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+                var scr = document.createElement("script");
+                var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+                scr.setAttribute('async', 'true');
+                scr.type = "text/javascript";
+                scr.src = host + "/j/roundtrip.js";
+                ((document.getElementsByTagName('head') || [null])[0] ||
+                    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+            };
+            if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+            else {window.attachEvent('onload', _onload)}
+        }());
+    </script>
+<script type="text/javascript">
+        ga('set', 'dimension1', 'Guest');
+      </script>
+</body>
+</html>
