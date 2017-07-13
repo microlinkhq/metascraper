@@ -1,15 +1,6 @@
 <a name="1.0.7"></a>
 ## 1.0.7 (2017-07-13)
 
-* Add bumped ([7792aa0](https://github.com/ianstormtaylor/metascraper/commit/7792aa0))
-* remove makefile ([27340b2](https://github.com/ianstormtaylor/metascraper/commit/27340b2))
-* Returns resolved URL rather than requested URL ([f8ab555](https://github.com/ianstormtaylor/metascraper/commit/f8ab555))
-
-
-
-<a name="1.0.7"></a>
-## 1.0.7 (2017-07-13)
-
 * Add bumped ([6027e01](https://github.com/ianstormtaylor/metascraper/commit/6027e01))
 * remove makefile ([27340b2](https://github.com/ianstormtaylor/metascraper/commit/27340b2))
 * Returns resolved URL rather than requested URL ([f8ab555](https://github.com/ianstormtaylor/metascraper/commit/f8ab555))
