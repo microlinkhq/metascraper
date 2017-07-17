@@ -1,5 +1,7 @@
 # microlink-core
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/microlinkhq/microlink-core.svg)](https://greenkeeper.io/)
+
 ![Last version](https://img.shields.io/github/tag/microlinkhq/microlink-core.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/microlinkhq/microlink-core/master.svg?style=flat-square)](https://travis-ci.org/microlinkhq/microlink-core)
 [![Coverage Status](https://img.shields.io/coveralls/microlinkhq/microlink-core.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/microlink-core)
