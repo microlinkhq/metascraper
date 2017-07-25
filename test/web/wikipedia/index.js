@@ -9,10 +9,9 @@ const fs = require('fs')
 const getMetaData = require('../../..')
 const readFile = promisify(fs.readFile)
 
-it('wired', async () => {
+it('wikipedia', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const json = await loadJSON(resolve(__dirname, 'output.json'))
   const metadata = await getMetaData({html})
-  console.log(JSON.stringify(metadata, null, 2))
   should(metadata).be.eql(json)
 })
