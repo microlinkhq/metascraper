@@ -31,4 +31,4 @@ get.concat('http://example.com', function (err, res, html) {
 ```
 ## License
 
-MIT © [](https://github.com/microlinkhq).
+MIT © [microlonk.io](https://github.com/microlinkhq).
