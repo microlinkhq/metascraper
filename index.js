@@ -1,6 +1,6 @@
 'use strict'
 
-const reduce = require('lodash.reduce')
+const {reduce} = require('lodash')
 const {ensureAsync} = require('async')
 const {promisify} = require('util')
 

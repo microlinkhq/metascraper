@@ -1,7 +1,7 @@
 'use strict'
 
 const sanitizeHtml = require('sanitize-html')
-const flow = require('lodash.flow')
+const {flow} = require('lodash')
 const cheerio = require('cheerio')
 
 const sanitize = html => sanitizeHtml(html, {
@@ -14,6 +14,10 @@ const sanitize = html => sanitizeHtml(html, {
     },
     a: (tagName, attribs) => {
       if (attribs.href) attribs.href = attribs.href.toLowerCase()
+      return {tagName, attribs}
+    },
+    link: (tagName, attribs) => {
+      if (attribs.rel) attribs.rel = attribs.rel.toLowerCase()
       return {tagName, attribs}
     }
   }

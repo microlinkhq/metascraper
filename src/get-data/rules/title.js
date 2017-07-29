@@ -1,9 +1,8 @@
 'use strict'
 
 const condenseWhitespace = require('condense-whitespace')
-const isString = require('lodash.isstring')
+const {isString, flow} = require('lodash')
 const smartquotes = require('smartquotes')
-const flow = require('lodash.flow')
 
 const sanetize = flow([
   condenseWhitespace,

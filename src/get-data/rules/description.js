@@ -1,9 +1,8 @@
 'use strict'
 
 const condenseWhitespace = require('condense-whitespace')
-const isString = require('lodash.isstring')
 const smartquotes = require('smartquotes')
-const flow = require('lodash.flow')
+const {isString, flow} = require('lodash')
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
