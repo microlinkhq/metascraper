@@ -12,6 +12,7 @@ const readFile = promisify(fs.readFile)
 it('atlasobscura', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const json = await loadJSON(resolve(__dirname, 'output.json'))
-  const metadata = await getMetaData({html})
+  const {url} = json
+  const metadata = await getMetaData({html, url})
   should(metadata).be.eql(json)
 })

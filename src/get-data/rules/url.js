@@ -1,7 +1,7 @@
 'use strict'
 
 const sanetizeUrl = require('normalize-url')
-const isString = require('lodash.isstring')
+const {isString} = require('lodash')
 
 const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
 

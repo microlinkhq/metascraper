@@ -1,10 +1,9 @@
 'use strict'
 
 const condenseWhitespace = require('condense-whitespace')
-const isString = require('lodash.isstring')
+const {isString, flow} = require('lodash')
 const toTitle = require('to-title-case')
 const urlRegex = require('url-regex')
-const flow = require('lodash.flow')
 
 const REGEX_BY = /^[\s\n]*by[\s\n]*/im
 const REGEX_STRICT = /^\S+\s+\S+/

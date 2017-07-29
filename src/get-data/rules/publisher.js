@@ -1,6 +1,6 @@
 'use strict'
 
-const isString = require('lodash.isstring')
+const {isString} = require('lodash')
 const condenseWhitespace = require('condense-whitespace')
 
 const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
