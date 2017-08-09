@@ -17,7 +17,7 @@ A library to easily scrape metadata from an article on the web using Open Graph 
 - [Installation](#installation)
 - [Server-side Usage](#server-side-usage)
 - [Browser-side Usage](#browser-side-usage)
-- [Creating & Overriding Rules](#creating-overriding-rules)
+- [Creating & Overriding Rules](#creating--overriding-rules)
 - [API](#api)
 - [License](#license)
 
@@ -162,7 +162,7 @@ const metadata = await Metascraper.scrapeWindow(window)
 Of course, you can also still scrape directly from `html` or a `url` if you choose to.
 
 
-## Creating & Overiding Rules
+## Creating & Overriding Rules
 
 By default, Metascraper ships with a set of rules that are tuned to parse out information from online articles—blogs, newspapers, press releases, etc. But you don't have to use the default rules. If you have a different use case, supplying your own rules is easy to do.
 
