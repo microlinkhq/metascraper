@@ -41,7 +41,6 @@ const getSizes = ($, collection) => chain(collection)
   .value()
 
 const sizeSelectors = [
-  {tag: 'meta[property="og:logo"]', attr: 'content'},
   {tag: 'link[rel="apple-touch-icon"]', attr: 'href'},
   {tag: 'link[rel="apple-touch-icon-precomposed"]', attr: 'href'},
   {tag: 'meta[name="msapplication-TileImage"]', attr: 'content'},
@@ -54,6 +53,10 @@ const sizeSelectors = [
  */
 
 module.exports = [
+  wrap($ => $('meta[property="og:logo"]').attr('content')),
+  wrap($ => $('meta[itemprop="logo"]').attr('content')),
+  wrap($ => $('img[src*="logo"]').attr('src')),
+  wrap($ => $('img[class*="logo"]').attr('src')),
   wrap($ => {
     const sizes = getSizes($, sizeSelectors)
     const size = chain(sizes).first().get('link').value()
