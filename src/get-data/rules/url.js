@@ -1,9 +1,7 @@
 'use strict'
 
-const sanetizeUrl = require('normalize-url')
 const {isString} = require('lodash')
-
-const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
+const {getUrl} = require('../util')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -15,7 +13,7 @@ const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
 const wrap = rule => (htmlDom, url) => {
   const value = rule(htmlDom)
   if (!isString(value)) return
-  return normalizeUrl(value)
+  return getUrl(value)
 }
 
 /**
@@ -27,5 +25,5 @@ module.exports = [
   wrap($ => $('meta[name="twitter:url"]').attr('content')),
   wrap($ => $('link[rel="canonical"]').attr('href')),
   wrap($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
-  ($, url) => isString(url) ? normalizeUrl(url) : null
+  ($, url) => isString(url) ? url : null
 ]

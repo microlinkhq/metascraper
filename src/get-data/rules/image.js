@@ -1,11 +1,6 @@
 'use strict'
 
-const sanetizeUrl = require('normalize-url')
-const {resolve: resolveUrl} = require('url')
-const urlRegex = require('url-regex')
-
-const isUrl = value => urlRegex().test(value)
-const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
+const {getUrl} = require('../util')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -14,14 +9,10 @@ const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
  * @return {Function} wrapped
  */
 
-const wrap = rule => (htmlDom, url) => {
-  const imageUrl = rule(htmlDom)
-  if (!imageUrl) return
-
-  if (isUrl(imageUrl)) return normalizeUrl(imageUrl)
-
-  const absoluteImageUrl = resolveUrl(url, imageUrl)
-  if (isUrl(absoluteImageUrl)) return normalizeUrl(absoluteImageUrl)
+const wrap = rule => (htmlDom, baseUrl) => {
+  const url = rule(htmlDom)
+  if (!url) return
+  return getUrl(url, baseUrl)
 }
 
 /**

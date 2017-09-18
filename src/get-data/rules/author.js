@@ -3,12 +3,11 @@
 const condenseWhitespace = require('condense-whitespace')
 const {isString, flow} = require('lodash')
 const toTitle = require('to-title-case')
-const urlRegex = require('url-regex')
+const {isUrl} = require('../util')
 
 const REGEX_BY = /^[\s\n]*by[\s\n]*/im
 const REGEX_STRICT = /^\S+\s+\S+/
 
-const isUrl = value => urlRegex().test(value)
 const removeBy = value => value.replace(REGEX_BY, '')
 
 const sanetize = flow([

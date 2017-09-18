@@ -1,11 +1,7 @@
 'use strict'
 
-const isRelativeUrl = require('is-relative-url')
-const sanetizeUrl = require('normalize-url')
-const {flow, chain, first, isString, concat, toNumber, split} = require('lodash')
-const {resolve: resolveUrl} = require('url')
-
-const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
+const {isString, flow, chain, first, concat, toNumber, split} = require('lodash')
+const {getUrl} = require('../util')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -15,11 +11,12 @@ const normalizeUrl = url => sanetizeUrl(url, {stripWWW: false})
  */
 
 const wrap = rule => (htmlDom, baseUrl) => {
-  const value = rule(htmlDom)
-  if (!isString(value)) return
-  const url = isRelativeUrl(value) ? resolveUrl(baseUrl, value) : value
-  return normalizeUrl(url)
+  const url = rule(htmlDom)
+  if (!isString(url)) return
+  return getUrl(url, baseUrl)
 }
+
+/* TODO: DELETE */
 
 const getSize = flow([str => split(str, 'x'), first, toNumber])
 
