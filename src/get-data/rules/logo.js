@@ -23,6 +23,7 @@ const wrap = rule => (htmlDom, baseUrl) => {
 module.exports = [
   wrap($ => $('meta[property="og:logo"]').attr('content')),
   wrap($ => $('meta[itemprop="logo"]').attr('content')),
+  wrap($ => $('img[itemprop="logo"]').attr('src')),
   wrap($ => $('img[src*="logo"]').attr('src')),
   wrap($ => $('img[class*="logo"]').attr('src'))
 ]
