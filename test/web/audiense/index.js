@@ -1,18 +1,18 @@
 'use strict'
 
-const {load: loadJSON} = require('json-future')
-const {resolve} = require('path')
+const snapshot = require('snap-shot')
 const {promisify} = require('util')
-const should = require('should')
+const {resolve} = require('path')
+
 const fs = require('fs')
 
 const getMetaData = require('../../..')
 const readFile = promisify(fs.readFile)
 
+const url = 'https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation'
+
 it('audiense', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const json = await loadJSON(resolve(__dirname, 'output.json'))
-  const {url} = json
   const metadata = await getMetaData({html, url})
-  should(metadata).be.eql(json)
+  snapshot(metadata)
 })

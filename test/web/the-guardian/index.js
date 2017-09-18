@@ -1,18 +1,18 @@
 'use strict'
 
-const {load: loadJSON} = require('json-future')
-const {resolve} = require('path')
+const snapshot = require('snap-shot')
 const {promisify} = require('util')
-const should = require('should')
+const {resolve} = require('path')
+
 const fs = require('fs')
 
 const getMetaData = require('../../..')
 const readFile = promisify(fs.readFile)
 
-it('theguardian', async () => {
+const url = 'http://www.theguardian.com/technology/2017/jul/03/facebook-track-browsing-history-california-lawsuit'
+
+it('the-guardian', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const json = await loadJSON(resolve(__dirname, 'output.json'))
-  const {url} = json
   const metadata = await getMetaData({html, url})
-  should(metadata).be.eql(json)
+  snapshot(metadata)
 })

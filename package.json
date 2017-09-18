@@ -39,6 +39,7 @@
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
