@@ -11,9 +11,8 @@ const readFile = promisify(fs.readFile)
 
 const url = 'https://pikabu.ru'
 
-it('nytimes', async () => {
+it('pikabu', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await getMetaData({html, url})
-  console.log(metadata)
   snapshot(metadata)
 })
