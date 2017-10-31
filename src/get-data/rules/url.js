@@ -1,7 +1,7 @@
 'use strict'
 
 const {isString} = require('lodash')
-const {getUrl} = require('../util')
+const {getUrl, isUrl} = require('../util')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -12,8 +12,7 @@ const {getUrl} = require('../util')
 
 const wrap = rule => (htmlDom, url) => {
   const value = rule(htmlDom)
-  if (!isString(value)) return
-  return getUrl(value)
+  return isUrl(value) ? getUrl(value) : url
 }
 
 /**

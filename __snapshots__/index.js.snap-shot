@@ -490,6 +490,18 @@ exports['nytimes 1'] = {
   "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
 }
 
+exports['pikabu 1'] = {
+  "author": null,
+  "date": null,
+  "description": null,
+  "favicon": "https://cs.pikabu.ru/images/icon_ios144.png",
+  "image": "https://ads.adfox.ru/211055/getCode?p1=bvoqq&p2=v&pe=b&pfb=eyxrx&pfc=bpndz&pr=[RANDOM]",
+  "logo": "https://counter.yadro.ru/logo;Pikabu?17.2",
+  "publisher": "Комментарий дня ТОП 50 Вот так камеры в Москве фиксируют штрафы. +1314 figurist; 14 часов назад # Годный интерфейс, как в каком-нибудь фильме про хацкеров (:",
+  "title": "Горячее",
+  "url": "https://pikabu.ru"
+}
+
 exports['pr-newswire 1'] = {
   "author": "Hacker Rank",
   "date": "2016-04-25T15:39:00.000Z",
