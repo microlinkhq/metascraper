@@ -264,7 +264,16 @@ import Metascraper from 'metascraper'
 const metadata = await Metascraper.scrapeUrl(url)
 ```
 
-Scrapes a `url` with an optional set of `rules`.
+Scrapes a `url` with an optional set of `rules`. Instead of an url also an object can be passed to `Metascraper.scrapeUrl` to set HTTP headers for the request:
+
+```json
+{
+	"url": "https://www.example.com",
+	"headers": {
+		"Accept-Language": "en"
+	}
+}
+```
 
 #### `Metascraper.scrapeHtml(html, [rules])`
 
