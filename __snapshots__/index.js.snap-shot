@@ -648,7 +648,7 @@ exports['the-verge 1'] = {
 }
 
 exports['twitter 1'] = {
-  "author": "K I K O B E a T S ⚡️",
+  "author": "Kikobeats",
   "date": "2017-06-28T21:01:00.000Z",
   "description": "“Experimenting with Clearbit API + Apple TV 3D Parallax https://t.co/Qsm163k4mJ https://t.co/5bcuqoEyAa”",
   "image": "https://pbs.twimg.com/profile_images/876748424690925568/14xPNAvw_400x400.jpg",
@@ -656,6 +656,17 @@ exports['twitter 1'] = {
   "publisher": "Twitter",
   "title": "K I K O B E A T S ⚡️ on Twitter",
   "url": "https://twitter.com/Kikobeats/status/880139124791029763"
+}
+
+exports['twitter 2'] = {
+  "author": "K4rliky",
+  "date": "2017-11-25T19:04:00.000Z",
+  "description": "“Lo mejor de @codemotion_es #codemotionMadrid es estar con la gente que quieres 😍@ladyCircus”",
+  "image": "https://pbs.twimg.com/media/DPfzNMGXUAESoL3.jpg:large",
+  "logo": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
+  "publisher": "Twitter",
+  "title": "Asume la realidad: no hay cuchara. on Twitter",
+  "url": "https://twitter.com/k4rliky/status/934482867480121345"
 }
 
 exports['usa-today 1'] = {
