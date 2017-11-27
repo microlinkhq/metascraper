@@ -11,7 +11,7 @@ const readFile = promisify(fs.readFile)
 
 const url = 'https://twitter.com/Kikobeats/status/880139124791029763'
 
-it('twitter', async () => {
+it('twitter (tweet with gif)', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await getMetaData({html, url})
   snapshot(metadata)

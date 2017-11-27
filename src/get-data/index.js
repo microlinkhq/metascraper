@@ -1,26 +1,19 @@
 'use strict'
 
 const rules = require('req-all')('./rules')
+const {isEmpty} = require('lodash')
 
-const isValid = result => result !== null && result !== undefined && result !== ''
-
-const getValue = ({htmlDom, url, conditions}) => {
+module.exports = ({htmlDom, url, conditions}) => {
   const size = conditions.length
   let index = -1
-  let value = null
+  let value
 
-  while (!isValid(value) && index++ < size - 1) {
+  while (isEmpty(value) && index++ < size - 1) {
     value = conditions[index](htmlDom, url)
   }
 
   return value
 }
 
-const getData = ({htmlDom, url, conditions}) => {
-  const data = getValue({htmlDom, url, conditions})
-  return isValid(data) ? data : null
-}
-
-getData.props = rules
-
-module.exports = getData
+module.exports.props = rules
+module.exports.getConnector = require('./connectors')

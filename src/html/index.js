@@ -1,25 +1,21 @@
 'use strict'
 
 const sanitizeHtml = require('sanitize-html')
-const {flow} = require('lodash')
+const {flow, isNil} = require('lodash')
 const cheerio = require('cheerio')
+
+const normalizeAttributes = propName => (tagName, attribs) => {
+  if (!isNil(attribs[propName])) attribs[propName] = attribs[propName].toLowerCase()
+  return {tagName, attribs}
+}
 
 const sanitize = html => sanitizeHtml(html, {
   allowedTags: false,
   allowedAttributes: false,
   transformTags: {
-    meta: (tagName, attribs) => {
-      if (attribs.name) attribs.name = attribs.name.toLowerCase()
-      return {tagName, attribs}
-    },
-    a: (tagName, attribs) => {
-      if (attribs.href) attribs.href = attribs.href.toLowerCase()
-      return {tagName, attribs}
-    },
-    link: (tagName, attribs) => {
-      if (attribs.rel) attribs.rel = attribs.rel.toLowerCase()
-      return {tagName, attribs}
-    }
+    meta: normalizeAttributes('name'),
+    a: normalizeAttributes('href'),
+    link: normalizeAttributes('rel')
   }
 })
 

@@ -1,20 +1,23 @@
 'use strict'
 
-const {reduce} = require('lodash')
+const {isEmpty, reduce} = require('lodash')
 const {ensureAsync} = require('async')
 const {promisify} = require('util')
 
 const getData = require('./src/get-data')
 const loadHtml = require('./src/html')
-const {props} = getData
+const {props, getConnector} = getData
 
 const getMetaData = ensureAsync(({url, html}, cb) => {
   const htmlDom = loadHtml(html)
 
   const output = reduce(props, (acc, conditions, propName) => {
-    const value = getData({htmlDom, url, conditions})
-    // TODO: Avoid response nil values
-    acc[propName] = value
+    const value = Object.assign(
+      getData({htmlDom, url, conditions}) || {},
+      getConnector({htmlDom, url})
+    )
+
+    acc[propName] = !isEmpty(value) ? value : null
     return acc
   }, {})
 

@@ -647,7 +647,7 @@ exports['the-verge 1'] = {
   "url": "http://www.theverge.com/2016/5/24/11763836/apple-siri-speaker-amazon-echo-alexa-google-home-ai"
 }
 
-exports['twitter 1'] = {
+exports['twitter (tweet with gif) 1'] = {
   "author": "Kikobeats",
   "date": "2017-06-28T21:01:00.000Z",
   "description": "“Experimenting with Clearbit API + Apple TV 3D Parallax https://t.co/Qsm163k4mJ https://t.co/5bcuqoEyAa”",
@@ -658,7 +658,7 @@ exports['twitter 1'] = {
   "url": "https://twitter.com/Kikobeats/status/880139124791029763"
 }
 
-exports['twitter 2'] = {
+exports['twitter (tweet with image) 1'] = {
   "author": "K4rliky",
   "date": "2017-11-25T19:04:00.000Z",
   "description": "“Lo mejor de @codemotion_es #codemotionMadrid es estar con la gente que quieres 😍@ladyCircus”",
