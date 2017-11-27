@@ -5,7 +5,7 @@ const {isString, flow} = require('lodash')
 const toTitle = require('to-title-case')
 const {isUrl} = require('../util')
 
-const REGEX_BY = /^[\s\n]*by[\s\n]*/im
+const REGEX_BY = /^[\s\n]*by|@[\s\n]*/im
 const REGEX_STRICT = /^\S+\s+\S+/
 
 const removeBy = value => value.replace(REGEX_BY, '')
@@ -43,10 +43,15 @@ const wrap = rule => $ => {
 
 const strict = rule => $ => {
   const value = rule($)
-
   if (!REGEX_STRICT.test(value)) return
   return value
 }
+
+const getFirst = ($, collection) =>
+  collection
+    .filter((i, el) => $(el).text().trim())
+    .first()
+    .text()
 
 /**
  * Rules.
@@ -63,21 +68,10 @@ module.exports = [
   wrap($ => $('meta[property="book:author"]').attr('content')),
   strict(wrap($ => $('a[class*="author"]').first().text())),
   strict(wrap($ => $('[class*="author"] a').first().text())),
-
-  strict(wrap($ => $('a[href*="/author/"]')
-    .filter((i, el) => $(el).text().trim())
-    .first()
-    .text()
-  )),
-
+  strict(wrap($ => getFirst($, $('a[href*="/author/"]')))),
+  wrap($ => $('a[class*="screenname"]').first().text()),
   strict(wrap($ => $('[class*="author"]').first().text())),
   strict(wrap($ => $('[class*="byline"]').first().text())),
-
-  wrap($ => $('.fullname')
-    .filter((i, el) => $(el).text().trim())
-    .first()
-    .text()
-  ),
-
+  wrap($ => getFirst($, $('.fullname'))),
   wrap($ => $('[class*="user-info"]').text())
 ]
