@@ -11,17 +11,14 @@ const {props, getConnector} = getData
 const getMetaData = ensureAsync(({url, html}, cb) => {
   const htmlDom = loadHtml(html)
 
-  const output = reduce(props, (acc, conditions, propName) => {
-    const value = Object.assign(
-      getData({htmlDom, url, conditions}) || {},
-      getConnector({htmlDom, url})
-    )
-
-    acc[propName] = !isEmpty(value) ? value : null
+  const value = reduce(props, (acc, conditions, propName) => {
+    const data = getData({htmlDom, url, conditions})
+    acc[propName] = !isEmpty(data) ? data : null
     return acc
   }, {})
 
-  return cb(null, output)
+  const connector = getConnector({htmlDom, url})
+  return cb(null, Object.assign({}, value, connector))
 })
 
 const getMetaDataPromise = promisify(getMetaData)
