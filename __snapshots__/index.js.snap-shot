@@ -350,7 +350,18 @@ exports['lean-data 1'] = {
   "url": "http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change"
 }
 
-exports['linkedin 1'] = {
+exports['linkedin (company) 1'] = {
+  "author": null,
+  "date": null,
+  "description": null,
+  "image": null,
+  "logo": "https://static.licdn.com/sc/h/eahiplrwoq61f4uan012ia17i",
+  "publisher": "LinkedIn领英",
+  "title": "LinkedIn",
+  "url": "https://www.linkedin.com/company/10529043/"
+}
+
+exports['linkedin (pulse) 1'] = {
   "author": "Ramya Joseph",
   "date": "2016-05-26T00:00:00.000Z",
   "description": "We had a tweetstorm today on #FinAI and the role AI will play to change financial services. Here is the consolidation of tweets. 1/ Fintech in 2016 is similar to the Internet in 1996 – Yahoo,",
@@ -778,4 +789,3 @@ exports['zdnet 1'] = {
   "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
   "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks"
 }
-

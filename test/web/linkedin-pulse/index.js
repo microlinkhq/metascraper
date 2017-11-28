@@ -11,7 +11,7 @@ const readFile = promisify(fs.readFile)
 
 const url = 'https://www.linkedin.com/pulse/how-can-ai-change-financial-services-consolidation-finai-ramya-joseph'
 
-it('linkedin', async () => {
+it('linkedin (pulse)', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await getMetaData({html, url})
   snapshot(metadata)
