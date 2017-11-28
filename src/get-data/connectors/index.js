@@ -1,9 +1,9 @@
 'use strict'
 
 const reqAll = require('req-all')
-const {find} = require('lodash')
+const {find, flatten} = require('lodash')
 
-const domains = reqAll('./domains')
+const domains = flatten(reqAll('./domains'))
 
 module.exports = ({htmlDom, url}) => {
   const connector = find(domains, domain => domain.test(url))
