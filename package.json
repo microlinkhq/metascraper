@@ -1,21 +1,66 @@
 {
-  "name": "microlink-core",
-  "description": "Get metadata from HTML",
-  "homepage": "https://github.com/microlinkhq/microlink-core",
-  "version": "0.0.0",
+  "name": "metascraper",
+  "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
+  "homepage": "https://metascraper.js.org",
+  "version": "1.0.7",
   "main": "index.js",
   "author": {
-    "url": "https://github.com/microlinkhq"
+    "email": "ian@ianstormtaylor.com",
+    "name": "Ian Storm Taylor",
+    "url": "https://github.com/ianstormtaylor"
   },
+  "contributors": [
+    {
+      "name": "Kiko Beats",
+      "email": "josefrancisco.verdu@gmail.com",
+      "url": "https://github.com/Kikobeats"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/microlink-core.git"
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/microlink-core/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "metadata"
+    "article",
+    "browser",
+    "cheerio",
+    "content",
+    "expand",
+    "extract",
+    "facebook",
+    "fallback",
+    "fetch",
+    "get",
+    "graph",
+    "html",
+    "meta",
+    "metadata",
+    "micro format",
+    "microformat",
+    "og",
+    "open",
+    "open graph",
+    "opengraph",
+    "page",
+    "parse",
+    "parser",
+    "scrape",
+    "scraper",
+    "server",
+    "site",
+    "summarize",
+    "summary",
+    "tag",
+    "tags",
+    "twitter",
+    "unfluff",
+    "unfurl",
+    "url",
+    "web",
+    "website"
   ],
   "dependencies": {
     "async": "~2.5.0",
@@ -47,7 +92,7 @@
     "standard-markdown": "latest"
   },
   "engines": {
-    "node": "8"
+    "node": ">= 8"
   },
   "files": [
     "index.js",
