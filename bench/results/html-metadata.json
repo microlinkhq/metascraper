@@ -1,0 +1,65 @@
+[
+  {
+    "author": null,
+    "date": "2016-01-12T22:34:00.000Z",
+    "description": "HackerRank, a tech recruiting company, has launched HackerRank Jobs, to bridge the gap between the applicant and recruiter.",
+    "image": "https://img.etimg.com/thumb/msid-50551900,width-672,resizemode-4,imgsize-26854/hackerrank-launches-job-search-platform-hackerrank-jobs.jpg",
+    "publisher": "The Economic Times",
+    "title": "HackerRank launches job search platform HackerRank Jobs",
+    "url": "https://economictimes.indiatimes.com/jobs/hackerrank-launches-job-search-platform-hackerrank-jobs/articleshow/50551900.cms"
+  },
+  {
+    "author": null,
+    "date": null,
+    "description": "HackerRank, a four-year-old startup, is changing the way companies find and evaluate programmers.  ",
+    "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg",
+    "publisher": "Fortune",
+    "title": "Why your next job search may involve solving online puzzles",
+    "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool/"
+  },
+  {
+    "author": null,
+    "date": null,
+    "description": "Browser performance guru, Nat Duca, has introduced  high resolution timing to JavaScript. Ready to try in Chrome 20, the experimental window...",
+    "image": "http://4.bp.blogspot.com/-f2MG3BXeZxY/T8sN8avF8MI/AAAAAAAAJxE/gJmx_aUEK-s/w1200-h630-p-k-no-nu/Screen%2BShot%2B2012-06-03%2Bat%2B12.09.18%2BAM.png",
+    "publisher": null,
+    "title": "A better timer for JavaScript",
+    "url": "http://gent.ilcore.com/2012/06/better-timer-for-javascript.html"
+  },
+  {
+    "author": null,
+    "date": "2016-01-20T23:50:25+02:00",
+    "description": "The Netanya base company is transforming how developers and DevOps team manage binary artifacts: JFrog’s total capital raised to date is $62 million.",
+    "image": "http://jewishbusinessnews.com/wp-content/uploads/2016/01/Shlomi-Ben-Haim-JFrog-Co-Founder-and-CEO-Source-JFrog-e1453326404147.jpg",
+    "publisher": "Jewish Business News",
+    "title": "Israeli startup JFrog raises $50 million in C round - Jewish Business News",
+    "url": "http://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round/"
+  },
+  {
+    "author": "Stacey Bishop",
+    "date": null,
+    "description": "Analytics open the door to predictive selling and ensure that your sales team is doing more than hoarding data that it doesn't know how to act on. ",
+    "image": "https://i.amz.mshcdn.com/jw9czJj9h-4ClVBegbu982-Zmb8=/1200x627/2015%2F05%2F13%2Fc6%2Frevenue_ana.65b72.jpg",
+    "publisher": "Mashable",
+    "title": "The sales cycle on steroids: 3 ways analytics power up revenue",
+    "url": "http://mashable.com/2015/05/13/analytics-power-up-revenue/"
+  },
+  {
+    "author": "Frederic Lardinois",
+    "date": null,
+    "description": "Recruiting software engineers is a massive headache for both startups and established companies. For a while now, HackerRank has tried to make both applying..",
+    "image": "https://tctechcrunch2011.files.wordpress.com/2015/08/10-interviewed.png",
+    "publisher": "TechCrunch",
+    "title": "HackerRank Makes Technical Recruiting More Transparent",
+    "url": "http://social.techcrunch.com/2016/01/12/hackerrank-jobs-takes-the-mystery-out-of-technical-recruiting/"
+  },
+  {
+    "author": null,
+    "date": null,
+    "description": "The HR startups go to war.",
+    "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioh_yWEn8gHo/v3/1200x800.jpg",
+    "publisher": "Bloomberg.com",
+    "title": "As Zenefits Stumbles, Gusto Goes Head-On by Selling Insurance",
+    "url": "https://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
+  }
+]

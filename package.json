@@ -80,16 +80,24 @@
   "devDependencies": {
     "coveralls": "latest",
     "git-dirty": "latest",
+    "got": "latest",
+    "html-metadata": "latest",
     "husky": "latest",
     "json-future": "latest",
     "lint-staged": "latest",
+    "mkdirp": "latest",
     "mocha": "latest",
+    "node-metainspector": "latest",
     "nyc": "latest",
+    "open-graph-scraper": "latest",
+    "popsicle": "latest",
     "prettier-standard": "latest",
+    "rimraf": "latest",
     "should": "latest",
     "snap-shot": "latest",
     "standard": "latest",
-    "standard-markdown": "latest"
+    "standard-markdown": "latest",
+    "unfluff": "latest"
   },
   "engines": {
     "node": ">= 8"
