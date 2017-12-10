@@ -1,9 +1,9 @@
 'use strict'
 
 const condenseWhitespace = require('condense-whitespace')
-const {isString, flow} = require('lodash')
+const { isString, flow } = require('lodash')
 const toTitle = require('to-title-case')
-const {isUrl} = require('../util')
+const { isUrl } = require('../../util')
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/im
 const REGEX_STRICT = /^\S+\s+\S+/
@@ -49,7 +49,11 @@ const strict = rule => $ => {
 
 const getFirst = ($, collection) =>
   collection
-    .filter((i, el) => $(el).text().trim())
+    .filter((i, el) =>
+      $(el)
+        .text()
+        .trim()
+    )
     .first()
     .text()
 
@@ -62,16 +66,56 @@ module.exports = [
   wrap($ => $('meta[property="article:author"]').attr('content')),
   wrap($ => $('meta[name="author"]').attr('content')),
   wrap($ => $('meta[name="sailthru.author"]').attr('content')),
-  wrap($ => $('[rel="author"]').first().text()),
-  wrap($ => $('[itemprop*="author"] [itemprop="name"]').first().text()),
-  wrap($ => $('[itemprop*="author"]').first().text()),
+  wrap($ =>
+    $('[rel="author"]')
+      .first()
+      .text()
+  ),
+  wrap($ =>
+    $('[itemprop*="author"] [itemprop="name"]')
+      .first()
+      .text()
+  ),
+  wrap($ =>
+    $('[itemprop*="author"]')
+      .first()
+      .text()
+  ),
   wrap($ => $('meta[property="book:author"]').attr('content')),
-  strict(wrap($ => $('a[class*="author"]').first().text())),
-  strict(wrap($ => $('[class*="author"] a').first().text())),
+  strict(
+    wrap($ =>
+      $('a[class*="author"]')
+        .first()
+        .text()
+    )
+  ),
+  strict(
+    wrap($ =>
+      $('[class*="author"] a')
+        .first()
+        .text()
+    )
+  ),
   strict(wrap($ => getFirst($, $('a[href*="/author/"]')))),
-  wrap($ => $('a[class*="screenname"]').first().text()),
-  strict(wrap($ => $('[class*="author"]').first().text())),
-  strict(wrap($ => $('[class*="byline"]').first().text())),
+  wrap($ =>
+    $('a[class*="screenname"]')
+      .first()
+      .text()
+  ),
+  strict(
+    wrap($ =>
+      $('[class*="author"]')
+        .first()
+        .text()
+    )
+  ),
+  strict(
+    wrap($ =>
+      $('[class*="byline"]')
+        .first()
+        .text()
+    )
+  ),
   wrap($ => getFirst($, $('.fullname'))),
   wrap($ => $('[class*="user-info"]').text())
 ]

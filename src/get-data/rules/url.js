@@ -1,7 +1,7 @@
 'use strict'
 
-const {isString} = require('lodash')
-const {getUrl, isUrl} = require('../util')
+const { isString } = require('lodash')
+const { getUrl, isUrl } = require('../../util')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -24,5 +24,5 @@ module.exports = [
   wrap($ => $('meta[name="twitter:url"]').attr('content')),
   wrap($ => $('link[rel="canonical"]').attr('href')),
   wrap($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
-  ($, url) => isString(url) ? url : null
+  ($, url) => (isString(url) ? url : null)
 ]
