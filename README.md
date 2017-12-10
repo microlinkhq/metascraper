@@ -50,7 +50,7 @@ const targetUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits
 
 ;(async () => {
   const {body: html, url} = await got(targetUrl)
-  const metadata = await microlink({html, url})
+  const metadata = await metascraper({html, url})
   console.log(metadata)
 })()
 ```
