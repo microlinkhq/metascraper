@@ -1,9 +1,9 @@
 'use strict'
 
 const rules = require('req-all')('./rules')
-const {isEmpty} = require('lodash')
+const { isEmpty } = require('lodash')
 
-module.exports = ({htmlDom, url, conditions}) => {
+module.exports = ({ htmlDom, url, conditions }) => {
   const size = conditions.length
   let index = -1
   let value
