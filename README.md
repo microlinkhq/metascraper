@@ -40,7 +40,7 @@ $ npm install metascraper --save
 
 Let's extract accurate information from the followgin article:
 
-[![](https://raw.githubusercontent.com/microlinkhq/metascraper/master/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
+[![](https://raw.githubusercontent.com/microlinkhq/metascraper/add-comparison/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
 
 ```js
 const metascraper = require('metascraper')
