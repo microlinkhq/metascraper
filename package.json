@@ -2,7 +2,7 @@
   "name": "metascraper",
   "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
   "homepage": "https://metascraper.js.org",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "main": "index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
