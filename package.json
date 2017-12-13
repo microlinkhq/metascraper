@@ -85,6 +85,7 @@
     "husky": "latest",
     "json-future": "latest",
     "lint-staged": "latest",
+    "metascraper-clearbit-logo": "latest",
     "mkdirp": "latest",
     "mocha": "latest",
     "node-metainspector": "latest",

@@ -2,20 +2,33 @@
 
 const should = require('should')
 
-const getMetaData = require('../..')
+const createMetascraper = require('../..')
+const clearbitLogo = require('metascraper-clearbit-logo')()
 
 it('url is required', async () => {
+  const metascraper = createMetascraper()
   try {
-    await getMetaData()
+    await metascraper()
   } catch (err) {
     should(err).instanceof(TypeError)
   }
 })
 
 it('html is required', async () => {
+  const metascraper = createMetascraper()
   try {
-    await getMetaData({ url: 'https://foo.com' })
+    await metascraper({ url: 'https://foo.com' })
   } catch (err) {
     should(err).instanceof(TypeError)
   }
+})
+
+it('plugins support', async () => {
+  const metascraper = createMetascraper({ plugins: [clearbitLogo] })
+  const url = 'https://facebook.com'
+  const html = '<div></div>'
+  const meta = await metascraper({ url, html })
+  should(meta.logo).be.equal(
+    'https://logo.clearbit.com/facebook.com?size=128&format=png'
+  )
 })
