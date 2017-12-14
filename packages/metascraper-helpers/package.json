@@ -1,0 +1,36 @@
+{
+  "name": "@metascraper/helpers",
+  "description": "Collection of helper functions used by metascraper",
+  "homepage": "https://metascraper.js.org",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "author": {
+    "email": "ian@ianstormtaylor.com",
+    "name": "Ian Storm Taylor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "dependencies": {
+    "is-relative-url": "~2.0.0",
+    "normalize-url": "~2.0.0",
+    "url-regex": "~4.1.1"
+  },
+  "devDependencies": {
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "exit 0"
+  },
+  "license": "MIT"
+}

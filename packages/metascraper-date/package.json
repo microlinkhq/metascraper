@@ -1,0 +1,35 @@
+{
+  "name": "metascraper-date",
+  "description": "Get date property from HTML markup",
+  "homepage": "https://metascraper.js.org",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": {
+    "email": "ian@ianstormtaylor.com",
+    "name": "Ian Storm Taylor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-date"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "dependencies": {
+    "chrono-node": "~1.3.5",
+    "isostring": "0.0.1"
+  },
+  "devDependencies": {
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "exit 0"
+  },
+  "license": "MIT"
+}

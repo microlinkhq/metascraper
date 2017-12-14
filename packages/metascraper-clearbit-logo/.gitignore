@@ -3,7 +3,9 @@
 ############################
 node_modules
 npm-debug.log
-lerna-debug.log
+.node_history
+yarn.lock
+package-lock.json
 
 ############################
 # tmp, editor & OS files
@@ -30,4 +32,3 @@ coverage
 ############################
 # Other
 ############################
-.node_history
