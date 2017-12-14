@@ -225,9 +225,40 @@ These plugins will not be shipped with  **metascraper** by default and need to b
 
 ## Write your own plugin
 
-Write your own plugin is the way to easily extend **metascraper** functionality.
+A plugin is the simplest way for extending **metascraper** functionality.
 
-*SOON*
+The following schema represents the API compromise that a plugin need to follow:
+
+```js
+'use strict'
+
+// `opts` can be loaded using `.metascraperrc`
+// confguration file
+module.exports = opts => {
+  // define as `rule` as you want.
+  // They receive as parameter:
+  // - htmlDom: the cheerio HTML instance.
+  // - url: The input URL used for extact the content.
+  // - meta: The current state of the information detected.
+  const rule = ({ htmlDom, meta, url: baseUrl }) => {
+    // the logic for determinate if apply or not the rule.
+    // just return the data that you want to be
+    // assigned to the final output
+    return !meta.name && 'hello world'
+  }
+
+  // Rules need to follow an `array` interface.
+  const rules = [rule]
+
+  // Need to assign a property name
+  rules.propName = 'logo'
+
+  // export the rules!
+  return rules
+}
+```
+
+We recommend check [core plugins packages](/packages) as examples to understand better how to connect your code with **metascraper** plugins.
 
 ## API
 
