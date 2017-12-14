@@ -1,0 +1,52 @@
+{
+  "name": "metascraper-clearbit-logo",
+  "description": "metascraper integration with Clearbit Logo API",
+  "homepage": "https://documentup.com/microlinkhq/metascraper-clearbit-logo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper-clearbit-logo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper-clearbit-logo/issues"
+  },
+  "keywords": [
+    "clearbit",
+    "metascraper"
+  ],
+  "devDependencies": {
+    "coveralls": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "TZ=UTC NODE_ENV=test nyc mocha test"
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "prettier-standard",
+      "git add"
+    ]
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}
