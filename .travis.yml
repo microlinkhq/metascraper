@@ -4,9 +4,4 @@ node_js:
   - "node"
   - "lts/*"
 
-install:
-  - npm install
-  - lerna link
-  - lerna bootstrap
-
 after_success: npm run coveralls

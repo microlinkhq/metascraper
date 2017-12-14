@@ -2,6 +2,7 @@
   "name": "metascraper-core",
   "private": true,
   "devDependencies": {
+    "eachdir": "latest",
     "git-dirty": "latest",
     "got": "latest",
     "html-metadata": "latest",
@@ -9,7 +10,6 @@
     "json-future": "latest",
     "lerna": "latest",
     "lint-staged": "latest",
-    "metascraper-clearbit-logo": "latest",
     "mkdirp": "latest",
     "node-metainspector": "latest",
     "open-graph-scraper": "latest",
@@ -23,7 +23,8 @@
     "node": ">= 8"
   },
   "scripts": {
-    "clean": "rm -rf node_modules",
+    "postinstall": "lerna bootstrap && lerna link --force-local",
+    "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
