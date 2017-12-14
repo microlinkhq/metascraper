@@ -65,7 +65,7 @@ module.exports = () => {
     wrap($ => $('[class*="time"]').text())
   ]
 
-  rules.name = 'date'
+  rules.propName = 'date'
 
   return rules
 }

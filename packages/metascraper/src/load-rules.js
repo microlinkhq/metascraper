@@ -1,7 +1,8 @@
 'use strict'
 
-const config = require('cosmiconfig')('metascraper').load(process.cwd())
-const { isObject, isArray, isString } = require('lodash')
+const cwd = process.env.METASCRAPER_CONFIG_CWD || process.cwd()
+const config = require('cosmiconfig')('metascraper').load(cwd)
+const { isObject, isArray, isString, get } = require('lodash')
 
 const DEFAULT_RULES = [
   'metascraper-author',
@@ -18,8 +19,10 @@ let singletonConfig
 
 module.exports = () =>
   singletonConfig ||
-  Promise.resolve(config).then(({ config = { rules: DEFAULT_RULES } }) => {
-    singletonConfig = config.rules.map(rule => {
+  Promise.resolve(config).then(configFile => {
+    const rules = get(configFile, 'config.rules', DEFAULT_RULES)
+
+    singletonConfig = rules.map(rule => {
       let moduleName
       let moduleConfig
 
@@ -35,5 +38,6 @@ module.exports = () =>
 
       return require(moduleName)(moduleConfig)
     })
+
     return singletonConfig
   })

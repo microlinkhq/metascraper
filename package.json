@@ -39,9 +39,8 @@
     ]
   },
   "standard": {
-    "globals": [
-      "describe",
-      "it"
+    "env": [
+      "mocha"
     ]
   },
   "version": "2.0.0"
