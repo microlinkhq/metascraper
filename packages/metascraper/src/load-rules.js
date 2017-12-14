@@ -23,8 +23,9 @@ module.exports = () =>
       let moduleName
       let moduleConfig
 
-      if (isString(rule)) moduleName = rule
-      else if (isArray(rule)) {
+      if (isString(rule)) {
+        moduleName = rule
+      } else if (isArray(rule)) {
         moduleName = rule[0]
         moduleConfig = rule[1]
       } else if (isObject(rule)) {
