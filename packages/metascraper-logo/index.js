@@ -56,19 +56,23 @@ const wrap = rule => ({ htmlDom, url: baseUrl }) => {
  * Rules.
  */
 
-module.exports = [
-  wrap($ => $('meta[property="og:logo"]').attr('content')),
-  wrap($ => $('meta[itemprop="logo"]').attr('content')),
-  wrap($ => $('img[itemprop="logo"]').attr('src')),
-  wrap($ => {
-    const sizes = getSizes($, sizeSelectors)
-    const size = chain(sizes)
-      .first()
-      .get('link')
-      .value()
-    return size
-  }),
-  wrap($ => '/favicon.ico')
-]
+module.exports = () => {
+  const rules = [
+    wrap($ => $('meta[property="og:logo"]').attr('content')),
+    wrap($ => $('meta[itemprop="logo"]').attr('content')),
+    wrap($ => $('img[itemprop="logo"]').attr('src')),
+    wrap($ => {
+      const sizes = getSizes($, sizeSelectors)
+      const size = chain(sizes)
+        .first()
+        .get('link')
+        .value()
+      return size
+    }),
+    wrap($ => '/favicon.ico')
+  ]
 
-module.exports.propName = 'logo'
+  rules.propName = 'logo'
+
+  return rules
+}

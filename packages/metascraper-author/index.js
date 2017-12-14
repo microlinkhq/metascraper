@@ -61,63 +61,67 @@ const getFirst = ($, collection) =>
  * Rules.
  */
 
-module.exports = [
-  wrap($ => $('meta[property="author"]').attr('content')),
-  wrap($ => $('meta[property="article:author"]').attr('content')),
-  wrap($ => $('meta[name="author"]').attr('content')),
-  wrap($ => $('meta[name="sailthru.author"]').attr('content')),
-  wrap($ =>
-    $('[rel="author"]')
-      .first()
-      .text()
-  ),
-  wrap($ =>
-    $('[itemprop*="author"] [itemprop="name"]')
-      .first()
-      .text()
-  ),
-  wrap($ =>
-    $('[itemprop*="author"]')
-      .first()
-      .text()
-  ),
-  wrap($ => $('meta[property="book:author"]').attr('content')),
-  strict(
+module.exports = () => {
+  const rules = [
+    wrap($ => $('meta[property="author"]').attr('content')),
+    wrap($ => $('meta[property="article:author"]').attr('content')),
+    wrap($ => $('meta[name="author"]').attr('content')),
+    wrap($ => $('meta[name="sailthru.author"]').attr('content')),
     wrap($ =>
-      $('a[class*="author"]')
+      $('[rel="author"]')
         .first()
         .text()
-    )
-  ),
-  strict(
+    ),
     wrap($ =>
-      $('[class*="author"] a')
+      $('[itemprop*="author"] [itemprop="name"]')
         .first()
         .text()
-    )
-  ),
-  strict(wrap($ => getFirst($, $('a[href*="/author/"]')))),
-  wrap($ =>
-    $('a[class*="screenname"]')
-      .first()
-      .text()
-  ),
-  strict(
+    ),
     wrap($ =>
-      $('[class*="author"]')
+      $('[itemprop*="author"]')
         .first()
         .text()
-    )
-  ),
-  strict(
+    ),
+    wrap($ => $('meta[property="book:author"]').attr('content')),
+    strict(
+      wrap($ =>
+        $('a[class*="author"]')
+          .first()
+          .text()
+      )
+    ),
+    strict(
+      wrap($ =>
+        $('[class*="author"] a')
+          .first()
+          .text()
+      )
+    ),
+    strict(wrap($ => getFirst($, $('a[href*="/author/"]')))),
     wrap($ =>
-      $('[class*="byline"]')
+      $('a[class*="screenname"]')
         .first()
         .text()
-    )
-  ),
-  wrap($ => getFirst($, $('.fullname'))),
-  wrap($ => $('[class*="user-info"]').text())
-]
+    ),
+    strict(
+      wrap($ =>
+        $('[class*="author"]')
+          .first()
+          .text()
+      )
+    ),
+    strict(
+      wrap($ =>
+        $('[class*="byline"]')
+          .first()
+          .text()
+      )
+    ),
+    wrap($ => getFirst($, $('.fullname'))),
+    wrap($ => $('[class*="user-info"]').text())
+  ]
 
-module.exports.propName = 'author'
+  rules.propName = 'author'
+
+  return rules
+}
