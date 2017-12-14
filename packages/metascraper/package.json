@@ -57,6 +57,7 @@
   "dependencies": {
     "@metascraper/helpers": "~0.0.0",
     "cheerio": "~1.0.0-rc.2",
+    "cosmiconfig": "~3.1.0",
     "lodash": "~4.17.4",
     "sanitize-html": "~1.16.1"
   },
@@ -78,5 +79,10 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "TZ=UTC NODE_ENV=test nyc mocha test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
 }
