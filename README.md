@@ -38,7 +38,7 @@ $ npm install metascraper --save
 
 ## Usage
 
-Let's extract accurate information from the followgin article:
+Let's extract accurate information from the following article:
 
 [![](https://raw.githubusercontent.com/microlinkhq/metascraper/add-comparison/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
 
@@ -96,6 +96,138 @@ Here is a list of the metadata that **metascraper** collects by default:
 
 - **`url`** — eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`<br/>
   The URL of the article.
+  
+## Customization
+
+>? Configuration file follow the same approach than projects like Babel or Prettier.
+
+**metascraper** is built out of plugins.
+
+You can compose your own transformation pipeline using existing plugins or write your own. 
+
+When you load the library, implicitly it is loading [core plugins](#core-plugins).
+
+Use a configuration file for load custom pipelines. The configuration file can be defined via:
+
+- A `.metascraperrc` file, written in YAML or JSON, with optional extensions: `.yaml/.yml/.json/.js`.
+- A `prettier.config.js` file that exports an object.
+- A `"metascraper"` key in your `package.json` file.
+
+The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
+
+**Note:** Using a configuration file you need to explicitly add all the plugins that you want to use.
+
+#### Basic Configuration
+
+Declared an `array` of `rules`, specifying each rule as `string` name of the module to load.
+
+##### JSON
+
+```json
+// .metascraperrc
+{
+  "rules": [
+    "metascraper-author",
+    "metascraper-date",
+    "metascraper-description",
+    "metascraper-image",
+    "metascraper-logo",
+    "metascraper-publisher",
+    "metascraper-title",
+    "metascraper-url"
+  ]
+}
+```
+
+##### YAML
+
+```yaml
+#  .metascraperrc
+rules:
+  - metascraper-author
+  - metascraper-date
+  - metascraper-description
+  - metascraper-image
+  - metascraper-logo
+  - metascraper-publisher
+  - metascraper-title
+  - metascraper-url
+```
+
+#### Advanced Configuration
+
+Additionally, you can pass specific configuration per module using a `object` declaration:
+
+##### JSON
+
+```json
+// .metascraperrc
+{
+  "rules": [
+    "metascraper-author",
+    "metascraper-date",
+    "metascraper-description",
+    "metascraper-image",
+    "metascraper-logo",
+    {"metascraper-clearbit-logo": {
+    "format": "jpg"
+    }},
+    "metascraper-publisher",
+    "metascraper-title",
+    "metascraper-url"
+  ]
+}
+```
+
+##### YAML
+
+```yaml
+# .metascraperrc
+rules:
+  - metascraper-author
+  - metascraper-date
+  - metascraper-description
+  - metascraper-image
+  - metascraper-logo
+  - metascraper-clearbit-logo:
+      format: jpg
+  - metascraper-publisher
+  - metascraper-title
+  - metascraper-url
+```
+
+## Plugins
+
+?> Can't find a plugin that you want? Let's [open an issue](https://github.com/microlinkhq/metacraper/issues) to create it.
+
+## Core Plugins
+
+These plugins will be shipped with  **metascraper** and loaded by default.
+
+| Package | Version | Dependencies |
+|--------|-------|------------|
+| [`metascraper-author`](/packages/metascraper-author) | [![npm](https://img.shields.io/npm/v/metascraper-author.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-author) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-author&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-author) |
+| [`metascraper-date`](/packages/metascraper-date) | [![npm](https://img.shields.io/npm/v/metascraper-date.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-date) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-date&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-date) |
+| [`metascraper-description`](/packages/metascraper-description) | [![npm](https://img.shields.io/npm/v/metascraper-description.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-description) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-description&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-description) |
+| [`metascraper-image`](/packages/metascraper-image) | [![npm](https://img.shields.io/npm/v/metascraper-image.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-image) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-image&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-image) |
+| [`metascraper-logo`](/packages/metascraper-logo) | [![npm](https://img.shields.io/npm/v/metascraper-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo) |
+| [`metascraper-publisher`](/packages/metascraper-publisher) | [![npm](https://img.shields.io/npm/v/metascraper-publisher.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-publisher) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-publisher&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-publisher) |
+| [`metascraper-title`](/packages/metascraper-title) | [![npm](https://img.shields.io/npm/v/metascraper-title.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-title) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-title&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-title) |
+| [`metascraper-url`](/packages/metascraper-url) | [![npm](https://img.shields.io/npm/v/metascraper-url.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-url) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-url&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-url) |
+
+## Community Plugins
+
+These plugins will not be shipped with  **metascraper** by default and need to be specific using a configuration file.
+
+| Package | Version | Dependencies |
+|--------|-------|------------|
+| [`metascraper-clearbit-logo`](/packages/metascraper-clearbit-logo) | [![npm](https://img.shields.io/npm/v/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit-logo&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit-logo) |
+
+## Write your own plugin
+
+Write your own plugin is the way to easily extend **metascraper** functionality.
+
+*SOON*
 
 ## API
 
