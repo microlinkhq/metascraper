@@ -1,0 +1,6 @@
+--require should
+--reporter list
+--timeout 120000
+--slow 300
+--recursive
+--bail
