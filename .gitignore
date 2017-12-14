@@ -3,6 +3,7 @@
 ############################
 node_modules
 npm-debug.log
+lerna-debug.log
 
 ############################
 # tmp, editor & OS files
