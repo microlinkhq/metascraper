@@ -11,13 +11,20 @@
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Metadata](#metadata)
-- [API](#api)
-- [Comparison](#comparison)
-- [License](#license)
+* [Getting Started](#getting-started)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Metadata](#metadata)
+* [Customization](#customization)
+  + [Basic Configuration](#basic-configuration)
+  + [Advanced Configuration](#advanced-configuration)
+* [Plugins](#plugins)
+  + [Core Plugins](#core-plugins)
+  + [Community Plugins](#community-plugins)
+  + [Write your own plugin](#write-your-own-plugin)
+* [API](#api)
+* [Comparison](#comparison)
+* [License](#license)
 
 ## Getting Started
 
@@ -117,11 +124,11 @@ The configuration file will be resolved starting from the location of the file b
 
 **Note:** Using a configuration file you need to explicitly add all the plugins that you want to use.
 
-#### Basic Configuration
+### Basic Configuration
 
 Declared an `array` of `rules`, specifying each rule as `string` name of the module to load.
 
-##### JSON
+#### JSON
 
 ```json
 // .metascraperrc
@@ -139,7 +146,7 @@ Declared an `array` of `rules`, specifying each rule as `string` name of the mod
 }
 ```
 
-##### YAML
+#### YAML
 
 ```yaml
 #  .metascraperrc
@@ -154,11 +161,11 @@ rules:
   - metascraper-url
 ```
 
-#### Advanced Configuration
+### Advanced Configuration
 
 Additionally, you can pass specific configuration per module using a `object` declaration:
 
-##### JSON
+#### JSON
 
 ```json
 // .metascraperrc
@@ -179,7 +186,7 @@ Additionally, you can pass specific configuration per module using a `object` de
 }
 ```
 
-##### YAML
+#### YAML
 
 ```yaml
 # .metascraperrc
@@ -200,7 +207,7 @@ rules:
 
 ?> Can't find a plugin that you want? Let's [open an issue](https://github.com/microlinkhq/metacraper/issues) to create it.
 
-## Core Plugins
+### Core Plugins
 
 These plugins will be shipped with  **metascraper** and loaded by default.
 
@@ -215,7 +222,7 @@ These plugins will be shipped with  **metascraper** and loaded by default.
 | [`metascraper-title`](/packages/metascraper-title) | [![npm](https://img.shields.io/npm/v/metascraper-title.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-title) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-title&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-title) |
 | [`metascraper-url`](/packages/metascraper-url) | [![npm](https://img.shields.io/npm/v/metascraper-url.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-url) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-url&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-url) |
 
-## Community Plugins
+### Community Plugins
 
 These plugins will not be shipped with  **metascraper** by default and need to be specific using a configuration file.
 
@@ -223,7 +230,7 @@ These plugins will not be shipped with  **metascraper** by default and need to b
 |--------|-------|------------|
 | [`metascraper-clearbit-logo`](/packages/metascraper-clearbit-logo) | [![npm](https://img.shields.io/npm/v/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit-logo&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit-logo) |
 
-## Write your own plugin
+### Write your own plugin
 
 A plugin is the simplest way for extending **metascraper** functionality.
 
