@@ -1,4 +1,9 @@
-# metascraper
+<h1>
+  <br>
+  <img src="/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+</h1>
 
 ![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/microlinkhq/metascraper/master.svg?style=flat-square)](https://travis-ci.org/microlinkhq/metascraper)
@@ -92,7 +97,7 @@ Here is a list of the metadata that **metascraper** collects by default:
 - **`image`** — eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`<br/>
   An image URL that best represents the article.
  
- - **`logo`** — eg. `https://entrepreneur.com/favicon180x180.png`<br/>
+- **`logo`** — eg. `https://entrepreneur.com/favicon180x180.png`<br/>
   An image URL that best represents the publisher brand.
 
 - **`publisher`** — eg. `Fast Company`<br/>
@@ -106,7 +111,7 @@ Here is a list of the metadata that **metascraper** collects by default:
   
 ## Customization
 
->? Configuration file follow the same approach than projects like Babel or Prettier.
+?> Configuration file follow the same approach than projects like Babel or Prettier.
 
 **metascraper** is built out of plugins.
 

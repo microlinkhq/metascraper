@@ -2,6 +2,12 @@
   "name": "metascraper-core",
   "private": true,
   "devDependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssnano": "latest",
+    "gulp-strip-css-comments": "latest",
+    "gulp-uglify": "latest",
     "eachdir": "latest",
     "git-dirty": "latest",
     "got": "latest",
@@ -23,6 +29,7 @@
     "node": ">= 8"
   },
   "scripts": {
+    "dev": "gulp",
     "postinstall": "lerna bootstrap && lerna link --force-local",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
