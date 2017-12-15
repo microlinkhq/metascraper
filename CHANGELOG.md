@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/microlinkhq/metascraper/compare/2.0.0...3.0.0) (2017-12-15)
+
+
+
+
+**Note:** Version bump only for package metascraper-core
+
 <a name="2.0.0"></a>
 # 2.0.0 (2017-12-11)
 
@@ -91,6 +104,3 @@
 * Use mocha for testing ([07967ca](https://github.com/microlinkhq/metascraper/commit/07967ca))
 * WIP ([e3120a2](https://github.com/microlinkhq/metascraper/commit/e3120a2))
 * docs(readme): add Greenkeeper badge ([5e92ea7](https://github.com/microlinkhq/metascraper/commit/5e92ea7))
-
-
-
