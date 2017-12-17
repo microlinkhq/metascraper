@@ -234,6 +234,7 @@ These plugins will not be shipped with  **metascraper** by default and need to b
 | Package | Version | Dependencies |
 |--------|-------|------------|
 | [`metascraper-clearbit-logo`](/packages/metascraper-clearbit-logo) | [![npm](https://img.shields.io/npm/v/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit-logo&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit-logo) |
+| [`metascraper-soundcloud`](/packages/metascraper-soundcloud) | [![npm](https://img.shields.io/npm/v/metascraper-soundcloud.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-soundcloud) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-soundcloud&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-soundcloud) |
 
 ### Write your own plugin
 
@@ -244,29 +245,21 @@ The following schema represents the API compromise that a plugin need to follow:
 ```js
 'use strict'
 
-// `opts` can be loaded using `.metascraperrc`
-// confguration file
+// `opts` can be loaded using `.metascraperrc` config file
 module.exports = opts => {
-  // define as `rule` as you want.
-  // They receive as parameter:
-  // - htmlDom: the cheerio HTML instance.
-  // - url: The input URL used for extact the content.
-  // - meta: The current state of the information detected.
-  const rule = ({ htmlDom, meta, url: baseUrl }) => {
-    // the logic for determinate if apply or not the rule.
-    // just return the data that you want to be
-    // assigned to the final output
-    return !meta.name && 'hello world'
-  }
-
-  // Rules need to follow an `array` interface.
-  const rules = [rule]
-
-  // Need to assign a property name
-  rules.propName = 'logo'
-
-  // export the rules!
-  return rules
+  // You can define as props as you want.
+  // props are organized based on an object key.
+  return ({
+    logo: [
+      // You can setup more than one rules per prop (priority is important!).
+      // They receive as parameter:
+      // - `htmlDom`: the cheerio HTML instance.
+      // - `url`: The input URL used for extact the content.
+      // - `meta`: The current state of the information detected.
+      ({ htmlDom: $, meta, url: baseUrl }) => wrap($ => $('meta[property="og:logo"]').attr('content')),
+      ({ htmlDom: $, meta, url: baseUrl }) => $('meta[itemprop="logo"]').attr('content')),
+    ]
+  })
 }
 ```
 
