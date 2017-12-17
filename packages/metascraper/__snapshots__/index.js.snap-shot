@@ -10,7 +10,7 @@ exports['anandtech 1'] = {
 }
 
 exports['arstechnica 1'] = {
-  "author": "Chris Stokel-walker",
+  "author": "Chris Stokel-Walker",
   "date": "2017-06-11T14:00:33.000Z",
   "description": "For original YouTubers, their online haven became a media behemoth—but they keep vlogging.",
   "image": "https://cdn.arstechnica.net/wp-content/uploads/2017/06/Screen-Shot-2017-06-08-at-1.32.44-PM-760x380.png",
