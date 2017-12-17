@@ -15,8 +15,7 @@ module.exports = opts => {
 
   return {
     logo: ({ htmlDom, meta, url: baseUrl }) => {
-      const { origin, hostname } = new URL(baseUrl)
-      if (meta.logo !== `${origin}/favicon.ico`) return
+      const { hostname } = new URL(baseUrl)
       return `${ENDPOINT}/${hostname}?size=${size}&format=${format}`
     }
   }

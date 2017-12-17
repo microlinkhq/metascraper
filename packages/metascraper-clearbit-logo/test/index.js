@@ -1,23 +1,24 @@
 'use strict'
 
-const should = require('should')
-
-const clearbit = require('..')()
+const clearModule = require('clear-module')
+const snapshot = require('snap-shot')
 
 describe('metascraper clearbit logo', () => {
-  it('if logo is present, not do nothing', () => {
-    const url = 'https://facebook.com'
-    const meta = { logo: 'https://facebook.com/logo.png' }
-    const data = clearbit.logo({ url, meta })
-    should(data).be.undefined()
+  before(() => {
+    clearModule.all()
+    process.env.METASCRAPER_CONFIG_CWD = __dirname
   })
 
-  it('if logo is not present, fallback to clearbit logo API', () => {
+  after(() => {
+    clearModule.all()
+    delete process.env.METASCRAPER_CONFIG_CWD
+  })
+
+  it('if logo is not present, fallback to clearbit logo API', async () => {
+    const metascraper = require('metascraper')
     const url = 'https://facebook.com'
-    const meta = { logo: 'https://facebook.com/favicon.ico' }
-    const data = clearbit.logo({ url, meta })
-    should(data).be.equal(
-      'https://logo.clearbit.com/facebook.com?size=128&format=png'
-    )
+    const html = '<div></div>'
+    const meta = await metascraper({ html, url })
+    snapshot(meta)
   })
 })

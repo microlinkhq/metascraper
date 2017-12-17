@@ -25,7 +25,11 @@
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
-    "standard": "latest"
+    "snap-shot": "latest",
+    "standard": "latest",
+    "standard": "latest",
+    "metascraper": "latest",
+    "clear-module": "latest"
   },
   "engines": {
     "node": ">= 8"
