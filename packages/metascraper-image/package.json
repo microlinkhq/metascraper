@@ -16,7 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^3.0.0"
+    "@metascraper/helpers": "~3.0.0"
   },
   "devDependencies": {
     "standard": "latest"

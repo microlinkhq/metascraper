@@ -21,15 +21,14 @@
     "metascraper"
   ],
   "devDependencies": {
+    "clear-module": "latest",
     "coveralls": "latest",
+    "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "latest",
-    "standard": "latest",
-    "metascraper": "latest",
-    "clear-module": "latest"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"
