@@ -68,7 +68,6 @@ module.exports = () => ({
         .get('link')
         .value()
       return size
-    }),
-    wrap($ => '/favicon.ico')
+    })
   ]
 })
