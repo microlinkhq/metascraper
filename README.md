@@ -257,7 +257,7 @@ module.exports = opts => {
       // - `url`: The input URL used for extact the content.
       // - `meta`: The current state of the information detected.
       ({ htmlDom: $, meta, url: baseUrl }) => wrap($ => $('meta[property="og:logo"]').attr('content')),
-      ({ htmlDom: $, meta, url: baseUrl }) => $('meta[itemprop="logo"]').attr('content')),
+      ({ htmlDom: $, meta, url: baseUrl }) => wrap($ => $('meta[itemprop="logo"]').attr('content'))
     ]
   })
 }
