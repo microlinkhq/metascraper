@@ -54,7 +54,7 @@ exports['audiense 1'] = {
 }
 
 exports['bbc 1'] = {
-  "author": "Will Smale Business Reporter, Bbc News",
+  "author": "Will Smale Business reporter, BBC News",
   "date": "1711-07-20T12:00:00.000Z",
   "description": "How an IT worker quit his day job, and despite having no ideas to begin with, launched a firm from home that made him a multi-millionaire.",
   "image": "https://ichef-1.bbci.co.uk/news/1024/cpsprodpb/D20B/production/_96817735_carl4.jpg",
@@ -87,7 +87,7 @@ exports['business-today 1'] = {
 }
 
 exports['cbr 1'] = {
-  "author": "Aas James Nunns",
+  "author": "AAS James Nunns",
   "date": null,
   "description": "C-level interview: Rodney Rogers, CEO of Virtustream talked to CBR at EMC World in Las Vegas.",
   "image": "http://www.cbronline.com/Uploads/NewsArticle/4884858/main.jpg",
@@ -124,7 +124,7 @@ exports['cnet 1'] = {
   "date": "2016-05-24T14:00:00.000Z",
   "description": "Smartwatches with heart rate support, plus a stand-alone puck called Core that acts as a 3G-connected smart button: Pebble is trying for a two-device approach in fitness wearables.",
   "image": "https://cnet3.cbsistatic.com/hub/i/r/2016/05/23/ee9a228a-d1d9-40b3-b401-4ba0e07e2fce/thumbnail/670x503/90dc7a2315faa0f311e2e8f43e578847/pebblecore3.jpg",
-  "logo": "http://www.cnet.com/favicon.ico",
+  "logo": null,
   "publisher": "CNET",
   "title": "Pebble 2, Pebble Time 2, Pebble Core: Pebble’s fitness hat trick adds heart rate, GPS, Spotify, and 3G",
   "url": "http://www.cnet.com/news/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017"
@@ -175,7 +175,7 @@ exports['entrepreneur 1'] = {
 }
 
 exports['et-tech 1'] = {
-  "author": "Tv Mahalingam",
+  "author": "TV Mahalingam",
   "date": "2016-05-25T00:00:00.000Z",
   "description": "Dell speaks about the complexities of engineering the biggest acquisition in tech history, Dell’s future bets and why he continues to remain bullish..",
   "image": "http://economictimes.indiatimes.com/photo/michael-dell-on-complexities-involved-in-pulling-off-the-biggest-tech-acquisition-dell-s-future-bets-more/52424992.cms",
@@ -274,7 +274,7 @@ exports['geek-time 1'] = {
 }
 
 exports['github 1'] = {
-  "author": "Microlinkhq",
+  "author": "microlinkhq",
   "date": null,
   "description": "Contribute to microlink-core development by creating an account on GitHub.",
   "image": "https://avatars1.githubusercontent.com/u/29799436?s=400&v=3",
@@ -472,7 +472,7 @@ exports['pikabu 1'] = {
 }
 
 exports['pr-newswire 1'] = {
-  "author": "Hacker Rank",
+  "author": "HackerRank",
   "date": "2016-04-25T15:39:00.000Z",
   "description": "PALO ALTO, Calif., April 25, 2016 /PRNewswire/ -- HackerRank, a platform that ranks engineers based on their...",
   "image": "http://content.prnewswire.com/images/prn_facebook_sharing_logo.jpg",
@@ -516,11 +516,11 @@ exports['san-francisco-chronicle 1'] = {
 }
 
 exports['segment 1'] = {
-  "author": "Calvin French-owen",
+  "author": "Calvin French-Owen",
   "date": "2016-05-16T00:00:00.000Z",
   "description": "Segment is the analytics API you’ve always wanted. It’s the easiest way to install all of your favorite analytics tools at once!",
   "image": "https://c19f7be2e84987e7904e-bf41efcb49679c193a4ec0f3210da86f.ssl.cf1.rackcdn.com/photos/40528-1-1.jpg",
-  "logo": "https://segment.com/favicon.ico",
+  "logo": null,
   "publisher": "Segment Blog",
   "title": "Scaling NSQ to 750 Billion Messages",
   "url": "https://segment.com/blog/scaling-nsq"
@@ -531,7 +531,7 @@ exports['segment-academy 1'] = {
   "date": null,
   "description": "When deciding whether to track users on the server or on the client, there are many gotchas and factors to consider. Here is a short guide with pros and cons of each.",
   "image": "https://www.segment.com/academy",
-  "logo": "https://www.segment.com/favicon.ico",
+  "logo": null,
   "publisher": "Segment",
   "title": "When to Track on the Client vs. Server",
   "url": "https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server"
@@ -553,7 +553,7 @@ exports['silicon-beat 1'] = {
   "date": "2016-04-20T01:52:32.000Z",
   "description": "It’s no secret that few women hold positions of power at venture capital firms. A new study quantifies what many in the industry have reported anecdotally. According to CrunchBase data released Tuesday on …",
   "image": "http://www.siliconbeat.com/wp-content/uploads/2016/04/Panel.jpg",
-  "logo": "http://www.siliconbeat.com/favicon.ico",
+  "logo": null,
   "publisher": "SiliconBeat",
   "title": "VC: Time to ‘come out as a woman’",
   "url": "http://www.siliconbeat.com/2016/04/19/time-come-woman"
@@ -564,7 +564,7 @@ exports['silicon-tap 1'] = {
   "date": "2016-05-18T00:00:00.000Z",
   "description": "San Francisco-based continuous integration software developer CircleCI says it has raised $18M in a Series B funding round, the company said this week. The funding was led by Scale Venture Partners, and al",
   "image": "http://www.silicontap.com/images/logos/circleci.png",
-  "logo": "https://www.silicontap.com/favicon.ico",
+  "logo": null,
   "publisher": "silicontap.com",
   "title": "CircleCI Scores $18M | silicontap.com",
   "url": "https://www.silicontap.com/story/0053475.html"
@@ -670,7 +670,7 @@ exports['twitter (tweet with gif) 1'] = {
 }
 
 exports['twitter (tweet with image) 1'] = {
-  "author": "K4rliky",
+  "author": "k4rliky",
   "date": "2017-11-25T19:04:00.000Z",
   "description": "“Lo mejor de @codemotion_es #codemotionMadrid es estar con la gente que quieres 😍@ladyCircus”",
   "image": "https://pbs.twimg.com/media/DPfzNMGXUAESoL3.jpg:large",
@@ -681,7 +681,7 @@ exports['twitter (tweet with image) 1'] = {
 }
 
 exports['usa-today 1'] = {
-  "author": "Editors, Usa Today",
+  "author": "Editors, USA TODAY",
   "date": "2016-05-24T16:29:19.230Z",
   "description": "Out of the loop today? We’ve got what you missed.",
   "image": "http://www.gannett-cdn.com/-mm-/b4fe31162dae4fb60b80c760486d2384a93fb163/c=0-95-1024-674&r=x633&c=1200x630/local/-/media/2016/05/24/USATODAY/USATODAY/635997039647041990-ShortList.jpg",
@@ -718,7 +718,7 @@ exports['washington-post 1'] = {
   "date": "2016-05-24T02:20:00.000Z",
   "description": "Twitter announced a series of changes that will make the site easier to use.",
   "image": "https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Images/2016-05-09/Getty/AFP_AD4OR.jpg",
-  "logo": "https://www.washingtonpost.com/favicon.ico",
+  "logo": null,
   "publisher": "Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all"
@@ -740,7 +740,7 @@ exports['wired 1'] = {
   "date": "1707-07-13T12:00:00.000Z",
   "description": "Even if climate change didn’t send Larsen C packing, the air and oceans on Earth are incontrovertibly warmer than they used to be. Could an event like this move a policy needle?",
   "image": "https://media.wired.com/photos/5966648eb07d437d51477a87/191:100/pass/LarsenC-FeatureArt.jpg",
-  "logo": "https://www.wired.com/favicon.ico",
+  "logo": null,
   "publisher": "WIRED",
   "title": "Giant Antarctic Icebergs and Crushing Existential Dread",
   "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread"
@@ -780,7 +780,7 @@ exports['yahoo-news 1'] = {
 }
 
 exports['youtube 1'] = {
-  "author": "Andrew Jrt",
+  "author": "Andrew JRT",
   "date": "2017-07-07T00:00:00.000Z",
   "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
   "image": "https://i.ytimg.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
@@ -811,3 +811,4 @@ exports['soundcloud 1'] = {
   "title": "Swag Bandicoot [FREE DOWNLOAD]",
   "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot"
 }
+
