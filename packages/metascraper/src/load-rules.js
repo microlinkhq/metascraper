@@ -51,7 +51,11 @@ module.exports = () =>
       .reduce((acc, rules) => {
         forEach(rules, function (rule, propName) {
           const index = findIndex(acc, item => item[propName])
-          if (index !== -1) { acc[index][propName] = acc[index][propName].concat(rule) } else acc.push({ [propName]: rule })
+          if (index !== -1) {
+            acc[index][propName] = rule.concat(acc[index][propName])
+          } else {
+            acc.push({ [propName]: rule })
+          }
         })
         return acc
       }, [])
