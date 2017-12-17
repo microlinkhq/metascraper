@@ -1,16 +1,13 @@
 'use strict'
 
-const condenseWhitespace = require('condense-whitespace')
-const { isString, flow } = require('lodash')
-const smartquotes = require('smartquotes')
-
-const sanetize = flow([condenseWhitespace, smartquotes])
+const { titleize } = require('@metascraper/helpers')
+const { isString } = require('lodash')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
 
   if (!isString(value)) return
-  return sanetize(value)
+  return titleize(value)
 }
 
 module.exports = () => ({

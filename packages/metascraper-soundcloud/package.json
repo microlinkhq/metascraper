@@ -20,6 +20,11 @@
     "clearbit",
     "metascraper"
   ],
+  "dependencies": {
+    "condense-whitespace": "~1.0.0",
+    "lodash": "~4.17.4",
+    "to-title-case": "~1.0.0"
+  },
   "devDependencies": {
     "standard": "latest"
   },
@@ -43,10 +48,5 @@
     "env": [
       "mocha"
     ]
-  },
-  "dependencies": {
-    "condense-whitespace": "~1.0.0",
-    "lodash": "~4.17.4",
-    "to-title-case": "~1.0.0"
   }
 }

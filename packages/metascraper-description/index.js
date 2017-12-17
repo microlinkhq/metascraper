@@ -1,21 +1,11 @@
 'use strict'
 
-const condenseWhitespace = require('condense-whitespace')
-const smartquotes = require('smartquotes')
-const { isString, flow } = require('lodash')
+const { titleize } = require('@metascraper/helpers')
+const { isString } = require('lodash')
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const removeLocation = value => value.replace(REGEX_LOCATION, '')
-
-const sanetize = flow([
-  // trim extra whitespace
-  condenseWhitespace,
-  // if it starts with a location, like articles sometimes do in the opening
-  // paragraph, try to remove it
-  removeLocation,
-  smartquotes
-])
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -28,7 +18,7 @@ const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
 
   if (!isString(value)) return
-  return sanetize(value)
+  return titleize(removeLocation(value), { capitalize: false })
 }
 
 /**

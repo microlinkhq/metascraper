@@ -9,13 +9,18 @@ const fs = require('fs')
 const readFile = promisify(fs.readFile)
 
 describe('custom rules', () => {
-  before(clearModule.all)
-  after(clearModule.all)
+  before(() => {
+    clearModule.all()
+    process.env.METASCRAPER_CONFIG_CWD = __dirname
+  })
+
+  after(() => {
+    clearModule.all()
+    delete process.env.METASCRAPER_CONFIG_CWD
+  })
 
   it('metascraper-soundcloud', async () => {
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
     const metascraper = require('../../..')
-
     const url =
       'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
     const html = await readFile(
@@ -27,9 +32,7 @@ describe('custom rules', () => {
   })
 
   it('metascraper-facebook', async () => {
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
     const metascraper = require('../../..')
-
     const url = 'https://facebook.com'
     const html = '<div></div>'
 

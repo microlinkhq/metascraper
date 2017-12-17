@@ -1,15 +1,11 @@
 'use strict'
 
-const condenseWhitespace = require('condense-whitespace')
-const toTitle = require('to-title-case')
-const { flow } = require('lodash')
-
-const sanetize = flow([condenseWhitespace, toTitle])
+const { titleize } = require('@metascraper/helpers')
 
 module.exports = () => ({
   author: [
     ({ htmlDom: $, meta, url: baseUrl }) =>
-      sanetize(
+      titleize(
         $('.soundTitle__username')
           .first()
           .text()
@@ -17,10 +13,8 @@ module.exports = () => ({
   ],
   description: [
     ({ htmlDom: $, meta, url: baseUrl }) =>
-      sanetize(
-        $('.soundTitle__description')
-          .first()
-          .text()
-      )
+      $('.soundTitle__description')
+        .first()
+        .text()
   ]
 })

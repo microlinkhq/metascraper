@@ -1,23 +1,12 @@
 'use strict'
 
-const condenseWhitespace = require('condense-whitespace')
-const { isUrl } = require('@metascraper/helpers')
-const { isString, flow } = require('lodash')
-const toTitle = require('to-title-case')
+const { isUrl, titleize } = require('@metascraper/helpers')
+const { isString } = require('lodash')
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/im
 const REGEX_STRICT = /^\S+\s+\S+/
 
 const removeBy = value => value.replace(REGEX_BY, '')
-
-const sanetize = flow([
-  // trim extra whitespace
-  condenseWhitespace,
-  // remove any extra "by" in the start of the string
-  removeBy,
-  // make it title case, since some sites have it in weird casing
-  toTitle
-])
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -31,7 +20,7 @@ const wrap = rule => ({ htmlDom }) => {
 
   if (!isString(value)) return
   if (isUrl(value)) return
-  return sanetize(value)
+  return titleize(removeBy(value))
 }
 
 /**
