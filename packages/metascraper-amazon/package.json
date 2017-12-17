@@ -40,7 +40,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "TZ=UTC NODE_ENV=test nyc mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "lint-staged": {
