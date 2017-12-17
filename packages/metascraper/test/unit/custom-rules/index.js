@@ -31,12 +31,14 @@ describe('custom rules', () => {
     should(meta.author).be.equal('Beauty Brain')
   })
 
-  it('metascraper-facebook', async () => {
+  it('metascraper-clearbit-logo', async () => {
     const metascraper = require('../../..')
     const url = 'https://facebook.com'
     const html = '<div></div>'
 
     const meta = await metascraper({ url, html })
-    should(meta.logo).be.equal('https://facebook.com/favicon.ico')
+    should(meta.logo).be.equal(
+      'https://logo.clearbit.com/facebook.com?size=128&format=jpg'
+    )
   })
 })
