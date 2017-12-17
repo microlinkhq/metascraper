@@ -13,8 +13,11 @@ module.exports = () => ({
   ],
   description: [
     ({ htmlDom: $, meta, url: baseUrl }) =>
-      $('.soundTitle__description')
-        .first()
-        .text()
+      titleize(
+        $('.soundTitle__description')
+          .first()
+          .text(),
+        { capitalize: false }
+      )
   ]
 })
