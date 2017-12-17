@@ -24,8 +24,8 @@ const wrap = rule => ({ htmlDom }) => {
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  publisher: [
     wrap($ => $('meta[property="og:site_name"]').attr('content')),
     wrap($ => $('meta[name="application-name"]').attr('content')),
     wrap($ => $('meta[property="al:android:app_name"]').attr('content')),
@@ -61,8 +61,4 @@ module.exports = () => {
       return matches[1]
     })
   ]
-
-  rules.propName = 'publisher'
-
-  return rules
-}
+})

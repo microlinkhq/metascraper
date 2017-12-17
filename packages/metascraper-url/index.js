@@ -19,16 +19,12 @@ const wrap = rule => ({ htmlDom, url }) => {
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  url: [
     wrap($ => $('meta[property="og:url"]').attr('content')),
     wrap($ => $('meta[name="twitter:url"]').attr('content')),
     wrap($ => $('link[rel="canonical"]').attr('href')),
     wrap($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
     ($, url) => (isString(url) ? url : null)
   ]
-
-  rules.propName = 'url'
-
-  return rules
-}
+})

@@ -16,17 +16,6 @@
 $ npm install metascraper-clearbit-logo --save
 ```
 
-## Usage
-
-```js
-const clearbitLogo = require('metascraper-clearbit-logo')({
-  format: 'png',
-  size: '128'
-})
-
-const metascraper = require('metascraper')({plugins: [clearbitLogo]})
-```
-
 ## API
 
 ### clearbitLogo([options])

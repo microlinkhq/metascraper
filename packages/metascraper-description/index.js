@@ -35,8 +35,8 @@ const wrap = rule => ({ htmlDom }) => {
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  description: [
     wrap($ => $('meta[property="og:description"]').attr('content')),
     wrap($ => $('meta[name="twitter:description"]').attr('content')),
     wrap($ => $('meta[name="description"]').attr('content')),
@@ -53,8 +53,4 @@ module.exports = () => {
         .text()
     )
   ]
-
-  rules.propName = 'description'
-
-  return rules
-}
+})

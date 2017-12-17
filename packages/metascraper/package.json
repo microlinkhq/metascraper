@@ -73,6 +73,7 @@
     "clear-module": "latest",
     "coveralls": "latest",
     "metascraper-clearbit-logo": "latest",
+    "metascraper-soundcloud": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",

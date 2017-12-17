@@ -56,8 +56,8 @@ const wrap = rule => ({ htmlDom, url: baseUrl }) => {
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  logo: [
     wrap($ => $('meta[property="og:logo"]').attr('content')),
     wrap($ => $('meta[itemprop="logo"]').attr('content')),
     wrap($ => $('img[itemprop="logo"]').attr('src')),
@@ -71,8 +71,4 @@ module.exports = () => {
     }),
     wrap($ => '/favicon.ico')
   ]
-
-  rules.propName = 'logo'
-
-  return rules
-}
+})

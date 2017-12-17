@@ -17,8 +17,7 @@ const getValue = ({ htmlDom, url, conditions, meta }) => {
 const getData = ({ rules, htmlDom, url }) =>
   reduce(
     rules,
-    (acc, conditions) => {
-      const { propName } = conditions
+    (acc, [propName, conditions]) => {
       const value = getValue({ htmlDom, url, conditions, meta: acc })
       acc[propName] = !isEmpty(value) ? value : null
       return acc

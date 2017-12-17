@@ -2,7 +2,15 @@
 
 const cwd = process.env.METASCRAPER_CONFIG_CWD || process.cwd()
 const config = require('cosmiconfig')('metascraper').load(cwd)
-const { isObject, isArray, isString, get } = require('lodash')
+const {
+  findIndex,
+  forEach,
+  chain,
+  isObject,
+  isArray,
+  isString,
+  get
+} = require('lodash')
 
 const DEFAULT_RULES = [
   'metascraper-author',
@@ -22,22 +30,38 @@ module.exports = () =>
   Promise.resolve(config).then(configFile => {
     const rules = get(configFile, 'config.rules', DEFAULT_RULES)
 
-    singletonConfig = rules.map(rule => {
-      let moduleName
-      let moduleConfig
+    singletonConfig = chain(rules)
+      .map(rule => {
+        let moduleName
+        let moduleConfig
 
-      if (isString(rule)) {
-        moduleName = rule
-      } else if (isArray(rule)) {
-        moduleName = rule[0]
-        moduleConfig = rule[1]
-      } else if (isObject(rule)) {
-        moduleName = Object.keys(rule)[0]
-        moduleConfig = rule[moduleName]
-      }
+        if (isString(rule)) {
+          moduleName = rule
+        } else if (isArray(rule)) {
+          moduleName = rule[0]
+          moduleConfig = rule[1]
+        } else if (isObject(rule)) {
+          moduleName = Object.keys(rule)[0]
+          moduleConfig = rule[moduleName]
+        }
 
-      return require(moduleName)(moduleConfig)
-    })
+        return require(moduleName)(moduleConfig)
+      })
+      // merge rules with same props
+      .reduce((acc, rules) => {
+        forEach(rules, function (rule, propName) {
+          const index = findIndex(acc, item => item[propName])
+          if (index !== -1) { acc[index][propName] = acc[index][propName].concat(rule) } else acc.push({ [propName]: rule })
+        })
+        return acc
+      }, [])
+      // export an array interface, it's easier to iterate
+      .map(obj => {
+        const key = Object.keys(obj)[0]
+        const value = obj[key]
+        return [key, value]
+      })
+      .value()
 
     return singletonConfig
   })

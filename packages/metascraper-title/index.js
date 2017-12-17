@@ -13,8 +13,8 @@ const wrap = rule => ({ htmlDom }) => {
   return sanetize(value)
 }
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  title: [
     wrap($ => $('meta[property="og:title"]').attr('content')),
     wrap($ => $('meta[name="twitter:title"]').attr('content')),
     wrap($ => $('meta[name="sailthru.title"]').attr('content')),
@@ -27,8 +27,4 @@ module.exports = () => {
     wrap($ => $('h1[class*="title"]').text()),
     wrap($ => $('title').text())
   ]
-
-  rules.propName = 'title'
-
-  return rules
-}
+})

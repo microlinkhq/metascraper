@@ -19,8 +19,8 @@ const wrap = rule => ({ htmlDom, url: baseUrl }) => {
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  image: [
     wrap($ => $('meta[property="og:image:secure_url"]').attr('content')),
     wrap($ => $('meta[property="og:image:url"]').attr('content')),
     wrap($ => $('meta[property="og:image"]').attr('content')),
@@ -44,8 +44,4 @@ module.exports = () => {
     wrap($ => $('img[alt*="author"]').attr('src')),
     wrap($ => $('img[src]').attr('src'))
   ]
-
-  rules.propName = 'image'
-
-  return rules
-}
+})

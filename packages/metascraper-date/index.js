@@ -33,8 +33,8 @@ const wrap = rule => ({ htmlDom }) => {
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  date: [
     wrap($ => $('meta[property="article:published_time"]').attr('content')),
     wrap($ => $('meta[name="dc.date"]').attr('content')),
     wrap($ => $('meta[name="dc.date.issued"]').attr('content')),
@@ -64,8 +64,4 @@ module.exports = () => {
     wrap($ => $('[id*="time"]').text()),
     wrap($ => $('[class*="time"]').text())
   ]
-
-  rules.propName = 'date'
-
-  return rules
-}
+})

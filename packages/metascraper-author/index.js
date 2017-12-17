@@ -61,8 +61,8 @@ const getFirst = ($, collection) =>
  * Rules.
  */
 
-module.exports = () => {
-  const rules = [
+module.exports = () => ({
+  author: [
     wrap($ => $('meta[property="author"]').attr('content')),
     wrap($ => $('meta[property="article:author"]').attr('content')),
     wrap($ => $('meta[name="author"]').attr('content')),
@@ -120,8 +120,4 @@ module.exports = () => {
     wrap($ => getFirst($, $('.fullname'))),
     wrap($ => $('[class*="user-info"]').text())
   ]
-
-  rules.propName = 'author'
-
-  return rules
-}
+})

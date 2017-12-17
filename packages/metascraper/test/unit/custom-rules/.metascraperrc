@@ -1,6 +1,7 @@
 {
   "rules": [
     "metascraper-author",
+    "metascraper-soundcloud",
     "metascraper-date",
     "metascraper-description",
     "metascraper-image",
