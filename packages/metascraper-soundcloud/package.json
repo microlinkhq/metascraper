@@ -21,10 +21,6 @@
     "metascraper"
   ],
   "devDependencies": {
-    "coveralls": "latest",
-    "mocha": "latest",
-    "nyc": "latest",
-    "should": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -34,8 +30,7 @@
     "index.js"
   ],
   "scripts": {
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": "TZ=UTC NODE_ENV=test nyc mocha test"
+    "test": "exit 0"
   },
   "license": "MIT",
   "lint-staged": {
