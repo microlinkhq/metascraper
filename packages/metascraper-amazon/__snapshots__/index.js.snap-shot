@@ -1,0 +1,11 @@
+exports['works with product url 1'] = {
+  "author": "SainSmart",
+  "date": "2017-12-20T12:00:00.000Z",
+  "description": "Buy SainSmart 4-Channel Relay Module: Everything Else - Amazon.com ✓ FREE DELIVERY possible on eligible purchases",
+  "image": "https://images-na.ssl-images-amazon.com/images/I/51M0KK9HuHL._SY300_QL70_.jpg",
+  "logo": "https://www.amazon.com/favicon.ico",
+  "publisher": "Amazon",
+  "title": "Sainsmart 4-channel Relay Module",
+  "url": "https://www.amazon.com/gp/product/B0057OC5O8/"
+}
+
