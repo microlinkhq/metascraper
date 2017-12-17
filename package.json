@@ -30,6 +30,7 @@
   },
   "scripts": {
     "dev": "gulp",
+    "publish": "lerna publish --sort --conventional-commits --cd-version",
     "postinstall": "lerna bootstrap && lerna link --force-local",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
