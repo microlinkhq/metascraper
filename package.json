@@ -16,6 +16,7 @@
     "json-future": "latest",
     "lerna": "latest",
     "lint-staged": "latest",
+    "conventional-changelog-cli": "latest",
     "mkdirp": "latest",
     "node-metainspector": "latest",
     "open-graph-scraper": "latest",
@@ -34,6 +35,7 @@
     "postinstall": "lerna bootstrap && lerna link --force-local",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "changelog": "conventional-changelog -s -i CHANGELOG.md",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
@@ -51,5 +53,6 @@
     "env": [
       "mocha"
     ]
-  }
+  },
+  "version": ""
 }
