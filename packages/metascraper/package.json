@@ -74,6 +74,7 @@
     "coveralls": "latest",
     "metascraper-clearbit-logo": "latest",
     "metascraper-soundcloud": "latest",
+    "metascraper-amazon": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
