@@ -1,23 +1,47 @@
-# Change Log
+<a name=""></a>
+#  (2017-12-17)
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+
 
 <a name="3.1.0"></a>
-# [3.1.0](https://github.com/microlinkhq/metascraper/compare/v3.0.0...v3.1.0) (2017-12-17)
+# 3.1.0 (2017-12-17)
+
+* Add metasraper-soundcloud ([9814253](https://github.com/microlinkhq/metascraper/commit/9814253))
+* Add publish script ([b96eb09](https://github.com/microlinkhq/metascraper/commit/b96eb09))
+* Add soundcloud example ([1b3aa93](https://github.com/microlinkhq/metascraper/commit/1b3aa93))
+* Fix linter ([d1ce9ea](https://github.com/microlinkhq/metascraper/commit/d1ce9ea))
+* Improve plugins interface ([563c583](https://github.com/microlinkhq/metascraper/commit/563c583))
+* Remove unnecessary test ([7b7d249](https://github.com/microlinkhq/metascraper/commit/7b7d249))
+* Remove version from pkg ([9acc123](https://github.com/microlinkhq/metascraper/commit/9acc123))
+* Update docs ([03d29e0](https://github.com/microlinkhq/metascraper/commit/03d29e0))
+* v3.1.0 ([578ef2a](https://github.com/microlinkhq/metascraper/commit/578ef2a))
 
 
-
-
-**Note:** Version bump only for package metascraper-core
 
 <a name="3.0.0"></a>
-# [3.0.0](https://github.com/microlinkhq/metascraper/compare/2.0.0...3.0.0) (2017-12-15)
+# 3.0.0 (2017-12-15)
+
+* Add CNAME ([a5a1b59](https://github.com/microlinkhq/metascraper/commit/a5a1b59))
+* Add custom travis install ([5768cbf](https://github.com/microlinkhq/metascraper/commit/5768cbf))
+* Add design assets ([2f1a19b](https://github.com/microlinkhq/metascraper/commit/2f1a19b))
+* Add documentation site ([2bb6933](https://github.com/microlinkhq/metascraper/commit/2bb6933))
+* Add lerna debug into gitignore ([bbf5ea9](https://github.com/microlinkhq/metascraper/commit/bbf5ea9))
+* Add metascraper clearbit logo package ([4ab612b](https://github.com/microlinkhq/metascraper/commit/4ab612b))
+* Add plugins documentation ([e37a4ee](https://github.com/microlinkhq/metascraper/commit/e37a4ee))
+* Add plugins documentation ([6af5082](https://github.com/microlinkhq/metascraper/commit/6af5082))
+* Add possibility to load rules from config file ([71b83b3](https://github.com/microlinkhq/metascraper/commit/71b83b3))
+* Add support for plugins ([f065096](https://github.com/microlinkhq/metascraper/commit/f065096))
+* Be possible specify config cwd ([8b34f50](https://github.com/microlinkhq/metascraper/commit/8b34f50))
+* Migrate into monorepo ([1bf8ee6](https://github.com/microlinkhq/metascraper/commit/1bf8ee6))
+* Optimize assets ([3ac8a88](https://github.com/microlinkhq/metascraper/commit/3ac8a88))
+* Refactor to be more readable ([c85c9b8](https://github.com/microlinkhq/metascraper/commit/c85c9b8))
+* Setup travis ([b87bd58](https://github.com/microlinkhq/metascraper/commit/b87bd58))
+* Support load config ([329452b](https://github.com/microlinkhq/metascraper/commit/329452b))
+* Update TOC ([2edb17c](https://github.com/microlinkhq/metascraper/commit/2edb17c))
+* v3.0.0 ([6df48b3](https://github.com/microlinkhq/metascraper/commit/6df48b3))
 
 
-
-
-**Note:** Version bump only for package metascraper-core
 
 <a name="2.0.0"></a>
 # 2.0.0 (2017-12-11)
@@ -61,23 +85,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Fix author ([65de0ce](https://github.com/microlinkhq/metascraper/commit/65de0ce))
 * Fix output date ([6c572f9](https://github.com/microlinkhq/metascraper/commit/6c572f9))
 * Fix output dates ([5bf8d93](https://github.com/microlinkhq/metascraper/commit/5bf8d93))
-* Fix test ([7039590](https://github.com/microlinkhq/metascraper/commit/7039590))
-* Fix test ([f58cccd](https://github.com/microlinkhq/metascraper/commit/f58cccd))
-* Fix test ([3b04f96](https://github.com/microlinkhq/metascraper/commit/3b04f96))
 * Fix test ([6149cde](https://github.com/microlinkhq/metascraper/commit/6149cde))
+* Fix test ([7039590](https://github.com/microlinkhq/metascraper/commit/7039590))
+* Fix test ([3b04f96](https://github.com/microlinkhq/metascraper/commit/3b04f96))
+* Fix test ([f58cccd](https://github.com/microlinkhq/metascraper/commit/f58cccd))
 * Fix typo ([e2138bd](https://github.com/microlinkhq/metascraper/commit/e2138bd))
 * Improve author connector ([a8ae1aa](https://github.com/microlinkhq/metascraper/commit/a8ae1aa))
 * Improve docs ([9676b93](https://github.com/microlinkhq/metascraper/commit/9676b93))
 * Improve get url value ([5020eb5](https://github.com/microlinkhq/metascraper/commit/5020eb5))
-* Improve logo detection ([3040379](https://github.com/microlinkhq/metascraper/commit/3040379))
 * Improve logo detection ([64d439a](https://github.com/microlinkhq/metascraper/commit/64d439a))
+* Improve logo detection ([3040379](https://github.com/microlinkhq/metascraper/commit/3040379))
 * Merge favicon into logo ([d2d66fb](https://github.com/microlinkhq/metascraper/commit/d2d66fb))
 * Merge props correctly ([32b9610](https://github.com/microlinkhq/metascraper/commit/32b9610))
 * Migrate from gitlab to travis ([6e6f70a](https://github.com/microlinkhq/metascraper/commit/6e6f70a))
 * Pretty ([1892ea5](https://github.com/microlinkhq/metascraper/commit/1892ea5))
 * Publisher refactor ([76bb282](https://github.com/microlinkhq/metascraper/commit/76bb282))
-* Refactor ([e9df18f](https://github.com/microlinkhq/metascraper/commit/e9df18f))
 * Refactor ([cef0f1e](https://github.com/microlinkhq/metascraper/commit/cef0f1e))
+* Refactor ([e9df18f](https://github.com/microlinkhq/metascraper/commit/e9df18f))
 * Refactor ([20eee39](https://github.com/microlinkhq/metascraper/commit/20eee39))
 * Refactor author ([760b503](https://github.com/microlinkhq/metascraper/commit/760b503))
 * Refactor date ([ae355f3](https://github.com/microlinkhq/metascraper/commit/ae355f3))
@@ -86,6 +110,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Refactor testing ([e120498](https://github.com/microlinkhq/metascraper/commit/e120498))
 * Refactor testing scaffold ([31e5d02](https://github.com/microlinkhq/metascraper/commit/31e5d02))
 * Refactor url ([2337f70](https://github.com/microlinkhq/metascraper/commit/2337f70))
+* Release 2.0.0 ([3a81306](https://github.com/microlinkhq/metascraper/commit/3a81306))
 * Remove callback interface ([7a1ef68](https://github.com/microlinkhq/metascraper/commit/7a1ef68))
 * Remove debug ([fab5432](https://github.com/microlinkhq/metascraper/commit/fab5432))
 * Remove duplicate field ([e3566ff](https://github.com/microlinkhq/metascraper/commit/e3566ff))
@@ -112,3 +137,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Use mocha for testing ([07967ca](https://github.com/microlinkhq/metascraper/commit/07967ca))
 * WIP ([e3120a2](https://github.com/microlinkhq/metascraper/commit/e3120a2))
 * docs(readme): add Greenkeeper badge ([5e92ea7](https://github.com/microlinkhq/metascraper/commit/5e92ea7))
+
+
+
