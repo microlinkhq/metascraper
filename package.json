@@ -25,6 +25,7 @@
     "prettier-standard": "latest",
     "rimraf": "latest",
     "standard": "latest",
+    "finepack": "latest",
     "standard-markdown": "latest",
     "unfluff": "latest"
   },
@@ -47,8 +48,12 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "*.js": [
+    "src/**/*.{js,css}": [
       "prettier-standard",
+      "git add"
+    ],
+    "package.json": [
+      "finepack",
       "git add"
     ]
   },
