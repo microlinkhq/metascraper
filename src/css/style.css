@@ -150,6 +150,14 @@
   --codebox-token-string-color: #6f42c1;
 }
 
+::selection {
+  background: #f9e4ac; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #f9e4ac; /* Gecko Browsers */
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
@@ -948,7 +956,7 @@ body {
 .markdown-section h3,
 .markdown-section h4,
 .markdown-section h5,
-.markdown-section h6, {
+.markdown-section h6 {
   font-family: var(--serif-font);
 }
 
