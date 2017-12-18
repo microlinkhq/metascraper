@@ -16,20 +16,22 @@
 
 ## Table of Contents
 
-* [Getting Started](#getting-started)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Metadata](#metadata)
-* [Customization](#customization)
-  + [Basic Configuration](#basic-configuration)
-  + [Advanced Configuration](#advanced-configuration)
-* [Plugins](#plugins)
-  + [Core Plugins](#core-plugins)
-  + [Community Plugins](#community-plugins)
-  + [Write your own plugin](#write-your-own-plugin)
-* [API](#api)
-* [Comparison](#comparison)
-* [License](#license)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Metadata](#metadata)
+- [How it works](#how-it-works)
+- [Customization](#customization)
+  * [Basic Configuration](#basic-configuration)
+  * [Advanced Configuration](#advanced-configuration)
+- [Rules](#rules)
+  * [Core rules](#core-rules)
+  * [Community rules](#community-rules)
+  * [Write your own rules](#write-your-own-rules)
+- [API](#api)
+  * [metascraper(options)](#metascraperoptions)
+- [Comparison](#comparison)
+- [License](#license)
 
 ## Getting Started
 
@@ -109,17 +111,31 @@ Here is a list of the metadata that **metascraper** collects by default:
 - **`url`** — eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`<br/>
   The URL of the article.
   
-## Customization
+## How it works
 
 ?> Configuration file follow the same approach than projects like Babel or Prettier.
 
-**metascraper** is built out of plugins.
+**metascraper** is built out of rules.
 
-You can compose your own transformation pipeline using existing plugins or write your own. 
+It was designed to be easy to adapt. You can compose your own transformation pipeline using existing rules or write your own. 
 
-When you load the library, implicitly it is loading [core plugins](#core-plugins).
+Rules are a collection of HTML selectors around a determinate property. When you load the library, implicitly it is loading [core rules](#core-rules).
 
-Use a configuration file for load custom pipelines. The configuration file can be defined via:
+Each set of rules load a set of selectors in order to get a determinate value. 
+
+These rules are sorted with priority: The first rule that resolve the value successfully, stop the rest of rules for get the property. Rules are sorted intentionally from specific to more generic.
+
+Rules work as fallback between them:
+
+- If the first rule fails, then it fallback in the second rule.
+- If the second rule fails, time to third rule.
+- etc
+
+**metascraper** do that until finish all the rule or find the first rule that resolves the value.
+
+## Customization
+
+If you want to load more rules set that the provided by default, you need to define a configuration file via:
 
 - A `.metascraperrc` file, written in YAML or JSON, with optional extensions: `.yaml/.yml/.json/.js`.
 - A `prettier.config.js` file that exports an object.
@@ -127,7 +143,7 @@ Use a configuration file for load custom pipelines. The configuration file can b
 
 The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
 
-**Note:** Using a configuration file you need to explicitly add all the plugins that you want to use.
+The order of rules are loaded are important: Just the first rule that resolve the value will be applied.
 
 ### Basic Configuration
 
@@ -208,13 +224,13 @@ rules:
   - metascraper-url
 ```
 
-## Plugins
+## Rules
 
-?> Can't find a plugin that you want? Let's [open an issue](https://github.com/microlinkhq/metacraper/issues) to create it.
+?> Can't find a rules set that you want? Let's [open an issue](https://github.com/microlinkhq/metacraper/issues) to create it.
 
-### Core Plugins
+### Core rules
 
-These plugins will be shipped with  **metascraper** and loaded by default.
+These rules set will be shipped with  **metascraper** and loaded by default.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
@@ -227,9 +243,9 @@ These plugins will be shipped with  **metascraper** and loaded by default.
 | [`metascraper-title`](/packages/metascraper-title) | [![npm](https://img.shields.io/npm/v/metascraper-title.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-title) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-title&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-title) |
 | [`metascraper-url`](/packages/metascraper-url) | [![npm](https://img.shields.io/npm/v/metascraper-url.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-url) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-url&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-url) |
 
-### Community Plugins
+### Community rules
 
-These plugins will not be shipped with  **metascraper** by default and need to be specific using a configuration file.
+These rule set will not be shipped with  **metascraper** by default and need to be specific using a configuration file.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
@@ -238,11 +254,13 @@ These plugins will not be shipped with  **metascraper** by default and need to b
 | [`metascraper-logo-favicon`](/packages/metascraper-logo-favicon) | [![npm](https://img.shields.io/npm/v/metascraper-logo-favicon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo-favicon) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo-favicon&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo-favicon) |
 | [`metascraper-soundcloud`](/packages/metascraper-soundcloud) | [![npm](https://img.shields.io/npm/v/metascraper-soundcloud.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-soundcloud) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-soundcloud&?style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-soundcloud) |
 
-### Write your own plugin
+### Write your own rules
 
-A plugin is the simplest way for extending **metascraper** functionality.
+A rule set is the simplest way for extending **metascraper** functionality.
 
-The following schema represents the API compromise that a plugin need to follow:
+A rule set can add one or more properties support. 
+
+The following schema represents the API compromise that a rule set need to follow:
 
 ```js
 'use strict'
@@ -265,7 +283,7 @@ module.exports = opts => {
 }
 ```
 
-We recommend check [core plugins packages](/packages) as examples to understand better how to connect your code with **metascraper** plugins.
+We recommend check [core rules packages](/packages) as examples.
 
 ## API
 
