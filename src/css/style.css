@@ -132,20 +132,21 @@
   --blue7: #5081c8;
   --blue8: #426ba6;
   --blue9: #2f4d77;
+
   /* theme */
   --primary-color: var(--indigo5);
   --secondary-color: var(--indigo9);
   --text-color: hsl(53, 81%, 4%);
   --text-bold-color: var(--indigo5);
-  --sidebar-color: var(--indigo5);
-  --sidebar-active-color: var(--secondary-color);
+  --sidebar-color: #887992;
+  --sidebar-active-color: var(--indigo5);
   --bg-color: var(--gray0);
   --serif-font: 'Bitter', serif;
   --sans-serif-font: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif;
   --code-font: Nitti, 'Microsoft YaHei', 微软雅黑, monospace;
   --codebox-border-color: var(--indigo4);
-  --codebox-color: var(--gray8);
-  --codebox-token-var-color: #d73a49;
+  --codebox-color: #887992;
+  --codebox-token-var-color: #736ef6;
   --codebox-token-string-color: #6f42c1;
 }
 
