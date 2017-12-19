@@ -1,19 +1,31 @@
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 <a name="3.2.0"></a>
-# [3.2.0](https://github.com/microlinkhq/metascraper/compare/v3.1.0...v3.2.0) (2017-12-19)
+# 3.2.0 (2017-12-19)
 
-
-
-
-**Note:** Version bump only for package metascraper-core
-
-<a name=""></a>
-#  (2017-12-17)
-
+* Add build command ([8a23e81](https://github.com/microlinkhq/metascraper/commit/8a23e81))
+* Add clearbit-logo tests ([3e87ec4](https://github.com/microlinkhq/metascraper/commit/3e87ec4))
+* Add metascraper amazon ([daa7c11](https://github.com/microlinkhq/metascraper/commit/daa7c11))
+* Add missing dep ([03c970a](https://github.com/microlinkhq/metascraper/commit/03c970a))
+* Add missing dependency ([eae7d9a](https://github.com/microlinkhq/metascraper/commit/eae7d9a))
+* Add npmrc ([6e72266](https://github.com/microlinkhq/metascraper/commit/6e72266))
+* Concat specific rules first ([9ecc857](https://github.com/microlinkhq/metascraper/commit/9ecc857))
+* Customize selection color ([a336d9a](https://github.com/microlinkhq/metascraper/commit/a336d9a))
+* Extract fixed favicon value into separate package ([7a5619f](https://github.com/microlinkhq/metascraper/commit/7a5619f))
+* Extract titleize into helpers ([ae3a515](https://github.com/microlinkhq/metascraper/commit/ae3a515))
+* Fix badge style ([c17b46d](https://github.com/microlinkhq/metascraper/commit/c17b46d))
+* Fix test ([1757ff1](https://github.com/microlinkhq/metascraper/commit/1757ff1))
+* Improve docs ([9b00438](https://github.com/microlinkhq/metascraper/commit/9b00438))
+* Remove unnecessary badges ([7ab34eb](https://github.com/microlinkhq/metascraper/commit/7ab34eb))
+* Resolve package properly ([e61d33f](https://github.com/microlinkhq/metascraper/commit/e61d33f))
+* Setup better DX ([2c47bfa](https://github.com/microlinkhq/metascraper/commit/2c47bfa))
+* Titleize description without capitalization ([048d398](https://github.com/microlinkhq/metascraper/commit/048d398))
+* Tweak doc style ([ffd57f1](https://github.com/microlinkhq/metascraper/commit/ffd57f1))
+* Unify changelog ([8f0c23e](https://github.com/microlinkhq/metascraper/commit/8f0c23e))
+* Update changelog ([bc9d757](https://github.com/microlinkhq/metascraper/commit/bc9d757))
+* Update lint staged hooks ([9ed1812](https://github.com/microlinkhq/metascraper/commit/9ed1812))
+* Update plugins directory ([d989c14](https://github.com/microlinkhq/metascraper/commit/d989c14))
+* Update test ([2f327d9](https://github.com/microlinkhq/metascraper/commit/2f327d9))
+* Update tests snapshot ([93bb754](https://github.com/microlinkhq/metascraper/commit/93bb754))
+* v3.2.0 ([7cead99](https://github.com/microlinkhq/metascraper/commit/7cead99))
 
 
 
@@ -150,3 +162,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Use mocha for testing ([07967ca](https://github.com/microlinkhq/metascraper/commit/07967ca))
 * WIP ([e3120a2](https://github.com/microlinkhq/metascraper/commit/e3120a2))
 * docs(readme): add Greenkeeper badge ([5e92ea7](https://github.com/microlinkhq/metascraper/commit/5e92ea7))
+
+
+
