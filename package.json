@@ -34,6 +34,7 @@
   },
   "scripts": {
     "dev": "concurrently \"gulp\" \"npm run server:dev\"",
+    "build": "gulp build",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "publish": "lerna publish --sort --conventional-commits --cd-version",
     "postinstall": "lerna bootstrap && lerna link --force-local",
