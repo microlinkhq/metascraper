@@ -1,11 +1,7 @@
 # metascraper-logo-favicon
 
-![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper-logo-favicon.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/microlinkhq/metascraper-logo-favicon/master.svg?style=flat-square)](https://travis-ci.org/microlinkhq/metascraper-logo-favicon)
-[![Coverage Status](https://img.shields.io/coveralls/microlinkhq/metascraper-logo-favicon.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/metascraper-logo-favicon)
-[![Dependency status](https://img.shields.io/david/microlinkhq/metascraper-logo-favicon.svg?style=flat-square)](https://david-dm.org/microlinkhq/metascraper-logo-favicon)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/microlinkhq/metascraper-logo-favicon.svg?style=flat-square)](https://david-dm.org/microlinkhq/metascraper-logo-favicon#info=devDependencies)
-[![NPM Status](https://img.shields.io/npm/dm/metascraper-logo-favicon.svg?style=flat-square)](https://www.npmjs.org/package/metascraper-logo-favicon)
+[![npm](https://img.shields.io/npm/v/metascraper-logo-favicon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo-favicon)
+[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo-favicon&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo-favicon)
 
 > metascraper logo favicon fallback.
 

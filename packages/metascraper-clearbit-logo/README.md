@@ -1,12 +1,7 @@
 # metascraper-clearbit-logo
 
-![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper-clearbit-logo.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/microlinkhq/metascraper-clearbit-logo/master.svg?style=flat-square)](https://travis-ci.org/microlinkhq/metascraper-clearbit-logo)
-[![Coverage Status](https://img.shields.io/coveralls/microlinkhq/metascraper-clearbit-logo.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/metascraper-clearbit-logo)
-[![Dependency status](https://img.shields.io/david/microlinkhq/metascraper-clearbit-logo.svg?style=flat-square)](https://david-dm.org/microlinkhq/metascraper-clearbit-logo)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/microlinkhq/metascraper-clearbit-logo.svg?style=flat-square)](https://david-dm.org/microlinkhq/metascraper-clearbit-logo#info=devDependencies)
-[![NPM Status](https://img.shields.io/npm/dm/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.org/package/metascraper-clearbit-logo)
-
+[![npm](https://img.shields.io/npm/v/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit-logo)
+[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit-logo&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit-logo)
 
 > metascraper integration with Clearbit Logo API.
 

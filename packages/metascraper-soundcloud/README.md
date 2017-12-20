@@ -1,12 +1,7 @@
 # metascraper-soundcloud
 
-![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper-soundcloud.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/microlinkhq/metascraper-soundcloud/master.svg?style=flat-square)](https://travis-ci.org/microlinkhq/metascraper-soundcloud)
-[![Coverage Status](https://img.shields.io/coveralls/microlinkhq/metascraper-soundcloud.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/metascraper-soundcloud)
-[![Dependency status](https://img.shields.io/david/microlinkhq/metascraper-soundcloud.svg?style=flat-square)](https://david-dm.org/microlinkhq/metascraper-soundcloud)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/microlinkhq/metascraper-soundcloud.svg?style=flat-square)](https://david-dm.org/microlinkhq/metascraper-soundcloud#info=devDependencies)
-[![NPM Status](https://img.shields.io/npm/dm/metascraper-soundcloud.svg?style=flat-square)](https://www.npmjs.org/package/metascraper-soundcloud)
-
+[![npm](https://img.shields.io/npm/v/metascraper-soundcloud.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-soundcloud)
+[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-soundcloud&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-soundcloud)
 
 > metascraper integration with SoundCloud.
 
