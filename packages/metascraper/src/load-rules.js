@@ -1,9 +1,8 @@
 'use strict'
 
-const path = require('path')
-
 const cwd = process.env.METASCRAPER_CONFIG_CWD || process.cwd()
 const config = require('cosmiconfig')('metascraper').load(cwd)
+const resolveFrom = require('resolve-from')
 
 const {
   findIndex,
@@ -48,7 +47,7 @@ module.exports = () =>
           moduleConfig = rule[moduleName]
         }
 
-        const modulePath = path.resolve(cwd, 'node_modules', moduleName)
+        const modulePath = resolveFrom(cwd, moduleName)
         return require(modulePath)(moduleConfig)
       })
       // merge rules with same props
