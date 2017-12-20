@@ -1,7 +1,7 @@
 'use strict'
 
-const { isString } = require('lodash')
 const { getUrl, isUrl } = require('@metascraper/helpers')
+const { isString } = require('lodash')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -12,7 +12,7 @@ const { getUrl, isUrl } = require('@metascraper/helpers')
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return isUrl(value) ? getUrl(value) : url
+  return isUrl(value) ? getUrl(value, url) : url
 }
 
 /**

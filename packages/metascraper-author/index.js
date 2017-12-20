@@ -17,10 +17,7 @@ const removeBy = value => value.replace(REGEX_BY, '')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-
-  if (!isString(value)) return
-  if (isUrl(value)) return
-  return titleize(removeBy(value))
+  return isString(value) && !isUrl(value, {relative: false}) && titleize(removeBy(value))
 }
 
 /**

@@ -1,15 +1,7 @@
 'use strict'
 
-const {
-  flow,
-  chain,
-  first,
-  isString,
-  concat,
-  toNumber,
-  split
-} = require('lodash')
-const { getUrl } = require('@metascraper/helpers')
+const { flow, chain, first, concat, toNumber, split } = require('lodash')
+const { getUrl, isUrl } = require('@metascraper/helpers')
 
 const getSize = flow([str => split(str, 'x'), first, toNumber])
 
@@ -46,10 +38,9 @@ const sizeSelectors = [
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom, url: baseUrl }) => {
-  const url = rule(htmlDom)
-  if (!isString(url)) return
-  return getUrl(url, baseUrl)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom)
+  return isUrl(value) && getUrl(url, value)
 }
 
 /**

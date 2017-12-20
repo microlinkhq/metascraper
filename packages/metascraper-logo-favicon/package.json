@@ -20,6 +20,9 @@
     "clearbit",
     "metascraper"
   ],
+  "dependencies": {
+    "@metascraper/helpers": "~3.2.0"
+  },
   "devDependencies": {
     "standard": "latest"
   },
