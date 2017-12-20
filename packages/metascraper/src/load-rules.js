@@ -1,7 +1,10 @@
 'use strict'
 
+const path = require('path')
+
 const cwd = process.env.METASCRAPER_CONFIG_CWD || process.cwd()
 const config = require('cosmiconfig')('metascraper').load(cwd)
+
 const {
   findIndex,
   forEach,
@@ -45,7 +48,8 @@ module.exports = () =>
           moduleConfig = rule[moduleName]
         }
 
-        return require(moduleName)(moduleConfig)
+        const modulePath = path.resolve(cwd, 'node_modules', moduleName)
+        return require(modulePath)(moduleConfig)
       })
       // merge rules with same props
       .reduce((acc, rules) => {
