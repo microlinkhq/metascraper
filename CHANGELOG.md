@@ -1,3 +1,24 @@
+<a name=""></a>
+#  (2017-12-20)
+
+
+
+
+<a name="3.3.0"></a>
+# 3.3.0 (2017-12-20)
+
+* Add indidivual package doc ([253ca09](https://github.com/microlinkhq/metascraper/commit/253ca09))
+* Add more tests ([e7143f6](https://github.com/microlinkhq/metascraper/commit/e7143f6))
+* Ensure to resolve absolute path ([70b03bb](https://github.com/microlinkhq/metascraper/commit/70b03bb))
+* Refactor url helpers ([9da1325](https://github.com/microlinkhq/metascraper/commit/9da1325))
+* Regenerate changelog ([9c314e5](https://github.com/microlinkhq/metascraper/commit/9c314e5))
+* Resolve closest node_modules folder ([13a5498](https://github.com/microlinkhq/metascraper/commit/13a5498))
+* Update package urls ([5ed88e5](https://github.com/microlinkhq/metascraper/commit/5ed88e5))
+* Use ~ version ([895a0bd](https://github.com/microlinkhq/metascraper/commit/895a0bd))
+* v3.3.0 ([4eabdec](https://github.com/microlinkhq/metascraper/commit/4eabdec))
+
+
+
 <a name="3.2.0"></a>
 # 3.2.0 (2017-12-19)
 
