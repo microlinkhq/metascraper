@@ -5,9 +5,7 @@ const { isString } = require('lodash')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-
-  if (!isString(value)) return
-  return titleize(value)
+  return isString(value) && titleize(value)
 }
 
 module.exports = () => ({

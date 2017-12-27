@@ -6,7 +6,8 @@ exports['anandtech 1'] = {
   "logo": "http://www.anandtech.com/content/images/podcast_a_huge.png",
   "publisher": "AnandTech",
   "title": "AMD Launches Ryzen PRO CPUs: Enhanced Security, Longer Warranty, Better Quality",
-  "url": "http://www.anandtech.com/show/11591/amd-launches-ryzen-pro-cpus-enhanced-security-longer-warranty-better-quality"
+  "url": "http://www.anandtech.com/show/11591/amd-launches-ryzen-pro-cpus-enhanced-security-longer-warranty-better-quality",
+  "lang": null
 }
 
 exports['arstechnica 1'] = {
@@ -17,7 +18,8 @@ exports['arstechnica 1'] = {
   "logo": "https://cdn.arstechnica.net/wp-content/themes/ars/assets/img/material-ars-db41652381.png",
   "publisher": "Ars Technica",
   "title": "More than a decade later, how do original YouTube stars feel about the site?",
-  "url": "https://arstechnica.com/features/2017/06/youtube-changed-my-life-a-pair-of-original-videostars-ponder-a-life-lived-online"
+  "url": "https://arstechnica.com/features/2017/06/youtube-changed-my-life-a-pair-of-original-videostars-ponder-a-life-lived-online",
+  "lang": "en"
 }
 
 exports['astier 1'] = {
@@ -28,7 +30,8 @@ exports['astier 1'] = {
   "logo": "https://anisse.astier.eu/theme/img/favicon.png",
   "publisher": null,
   "title": "Linux Engineer’s random thoughts - awk driven IoT",
-  "url": "https://anisse.astier.eu/awk-driven-iot.html"
+  "url": "https://anisse.astier.eu/awk-driven-iot.html",
+  "lang": "en"
 }
 
 exports['atlasobscura 1'] = {
@@ -39,7 +42,8 @@ exports['atlasobscura 1'] = {
   "logo": "http://assets.atlasobscura.com/assets/favicon-cc5216a130077092525c8c0c8564549de1817d1a1885e1d69369fd98aaff504a.ico",
   "publisher": "Atlas Obscura",
   "title": "This Ikea Bowl Has Been Setting Things on Fire",
-  "url": "http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire"
+  "url": "http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire",
+  "lang": "en"
 }
 
 exports['audiense 1'] = {
@@ -50,7 +54,8 @@ exports['audiense 1'] = {
   "logo": "https://audiense.com/wp-content/uploads/2016/03/favicon.png",
   "publisher": "Audiense",
   "title": "Twin Peaks 2017: Using the data to create the next big TV sensation | Audiense",
-  "url": "https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation"
+  "url": "https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation",
+  "lang": "en"
 }
 
 exports['bbc 1'] = {
@@ -61,7 +66,8 @@ exports['bbc 1'] = {
   "logo": "http://static.bbci.co.uk/news/1.201.01763/apple-touch-icon.png",
   "publisher": "BBC News",
   "title": "The man who built a $1bn firm in his basement - BBC News",
-  "url": "http://www.bbc.com/news/business-40504764"
+  "url": "http://www.bbc.com/news/business-40504764",
+  "lang": "en"
 }
 
 exports['bloomberg 1'] = {
@@ -72,7 +78,8 @@ exports['bloomberg 1'] = {
   "logo": "https://assets.bwbx.io/business/public/images/favicons/favicon-192x192-3621dae772.png",
   "publisher": "Bloomberg.com",
   "title": "As Zenefits Stumbles, Gusto Goes Head-On by Selling Insurance",
-  "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
+  "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance",
+  "lang": null
 }
 
 exports['business-today 1'] = {
@@ -83,7 +90,8 @@ exports['business-today 1'] = {
   "logo": "http://www.businesstoday.in/images/favicon.ico",
   "publisher": "Business Today",
   "title": "Cracking the Code",
-  "url": "http://www.businesstoday.in/magazine/features/hackerrank-helping-cos-hire-coding-champions-via-online-tests/story/232567.html"
+  "url": "http://www.businesstoday.in/magazine/features/hackerrank-helping-cos-hire-coding-champions-via-online-tests/story/232567.html",
+  "lang": null
 }
 
 exports['cbr 1'] = {
@@ -94,7 +102,8 @@ exports['cbr 1'] = {
   "logo": "http://www.cbronline.com/Content/images/favicon.ico",
   "publisher": "CBR Online",
   "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market",
-  "url": "http://www.cbronline.com/news/cloud/aas/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858"
+  "url": "http://www.cbronline.com/news/cloud/aas/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858",
+  "lang": null
 }
 
 exports['cio 1'] = {
@@ -105,7 +114,8 @@ exports['cio 1'] = {
   "logo": "http://idge.staticworld.net/cio/CIO_logo_144x144.png",
   "publisher": "CIO",
   "title": "20 Ways to Measure the Success of Your Growing Cloud Investment",
-  "url": "http://www.cio.com/article/2929788/cloud-computing/20-ways-to-measure-the-success-of-your-growing-cloud-investment.html"
+  "url": "http://www.cio.com/article/2929788/cloud-computing/20-ways-to-measure-the-success-of-your-growing-cloud-investment.html",
+  "lang": "en"
 }
 
 exports['cloud-pro 1'] = {
@@ -116,7 +126,8 @@ exports['cloud-pro 1'] = {
   "logo": "http://cdn1.cloudpro.co.uk/sites/cloudprod7/themes/cloudpro/favicon.ico",
   "publisher": "Cloud Pro",
   "title": "Sabre selects Virtustream’s IaaS and managed services",
-  "url": "http://www.cloudpro.co.uk/go/6024"
+  "url": "http://www.cloudpro.co.uk/go/6024",
+  "lang": "en"
 }
 
 exports['cnet 1'] = {
@@ -127,7 +138,8 @@ exports['cnet 1'] = {
   "logo": null,
   "publisher": "CNET",
   "title": "Pebble 2, Pebble Time 2, Pebble Core: Pebble’s fitness hat trick adds heart rate, GPS, Spotify, and 3G",
-  "url": "http://www.cnet.com/news/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017"
+  "url": "http://www.cnet.com/news/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017",
+  "lang": "en"
 }
 
 exports['computerworld 1'] = {
@@ -138,7 +150,8 @@ exports['computerworld 1'] = {
   "logo": "http://idge.staticworld.net/ctw/computerworld-logo144x144.png",
   "publisher": "Computerworld",
   "title": "Healthcare Data Protection and Privacy Prognosis—Still Critical but New Treatment is Available",
-  "url": "http://www.computerworld.com/article/3057179/data-analytics/healthcare-data-protection-and-privacy-prognosis-still-critical-but-new-treatment-is-available.html"
+  "url": "http://www.computerworld.com/article/3057179/data-analytics/healthcare-data-protection-and-privacy-prognosis-still-critical-but-new-treatment-is-available.html",
+  "lang": "en"
 }
 
 exports['crn 1'] = {
@@ -149,7 +162,8 @@ exports['crn 1'] = {
   "logo": "http://www.crn.com/favicon.ico",
   "publisher": "CRN",
   "title": "EMC World: Sources Say EMC Will Target AWS S3 With New Easy Storage Connectivity To Virtustream",
-  "url": "http://www.crn.com/news/cloud/300080531/emc-world-sources-say-emc-will-target-aws-s3-with-new-easy-storage-connectivity-to-virtustream.htm"
+  "url": "http://www.crn.com/news/cloud/300080531/emc-world-sources-say-emc-will-target-aws-s3-with-new-easy-storage-connectivity-to-virtustream.htm",
+  "lang": "en"
 }
 
 exports['economic-times 1'] = {
@@ -160,7 +174,8 @@ exports['economic-times 1'] = {
   "logo": "http://economictimes.indiatimes.com/icons/etfavicon.ico",
   "publisher": "The Economic Times",
   "title": "HackerRank launches job search platform HackerRank Jobs - The Economic Times",
-  "url": "http://economictimes.indiatimes.com/jobs/hackerrank-launches-job-search-platform-hackerrank-jobs/articleshow/50551900.cms"
+  "url": "http://economictimes.indiatimes.com/jobs/hackerrank-launches-job-search-platform-hackerrank-jobs/articleshow/50551900.cms",
+  "lang": null
 }
 
 exports['entrepreneur 1'] = {
@@ -171,7 +186,8 @@ exports['entrepreneur 1'] = {
   "logo": "https://www.entrepreneur.com/assets/img/ent-apple-touch-icon.jpg",
   "publisher": "Entrepreneur",
   "title": "The Rich and Powerful Warn That Robots Are Coming for Our Jobs",
-  "url": "https://www.entrepreneur.com/article/275188"
+  "url": "https://www.entrepreneur.com/article/275188",
+  "lang": "en"
 }
 
 exports['et-tech 1'] = {
@@ -182,7 +198,8 @@ exports['et-tech 1'] = {
   "logo": "http://b2bstatic.iimg.in/Themes/Release/images/responsive/tech-logo-square.jpg",
   "publisher": "ETtech.com",
   "title": "Michael Dell on complexities involved in pulling off the biggest tech acquisition, Dell’s future bets & more | ETtech",
-  "url": "http://tech.economictimes.indiatimes.com/news/corporate/michael-dell-biggest-tech-acquisition-future-bets/52424992"
+  "url": "http://tech.economictimes.indiatimes.com/news/corporate/michael-dell-biggest-tech-acquisition-future-bets/52424992",
+  "lang": null
 }
 
 exports['eweek 1'] = {
@@ -193,7 +210,8 @@ exports['eweek 1'] = {
   "logo": "http://www.eweek.com/images/favicon.ico",
   "publisher": null,
   "title": "Microsoft, HackerRank Launch Bing Search Tool for Programmers",
-  "url": "http://www.eweek.com/developer/microsoft-hackerrank-launch-bing-search-tool-for-programmers.html"
+  "url": "http://www.eweek.com/developer/microsoft-hackerrank-launch-bing-search-tool-for-programmers.html",
+  "lang": null
 }
 
 exports['fast-company 1'] = {
@@ -204,7 +222,8 @@ exports['fast-company 1'] = {
   "logo": "http://www.fastcompany.com/favicon.ico",
   "publisher": "Fast Company",
   "title": "One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business",
-  "url": "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business"
+  "url": "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business",
+  "lang": "en"
 }
 
 exports['fastersite 1'] = {
@@ -215,7 +234,8 @@ exports['fastersite 1'] = {
   "logo": "http://gent.ilcore.com/favicon.ico",
   "publisher": "Fastersite",
   "title": "A better timer for JavaScript",
-  "url": "http://gent.ilcore.com/2012/06/better-timer-for-javascript.html"
+  "url": "http://gent.ilcore.com/2012/06/better-timer-for-javascript.html",
+  "lang": null
 }
 
 exports['fierce-devops 1'] = {
@@ -226,7 +246,8 @@ exports['fierce-devops 1'] = {
   "logo": "http://www.fiercedevops.com/favicon.ico",
   "publisher": "FierceDevOps",
   "title": "CircleCI brings in another $18M in funding in Series B round",
-  "url": "http://www.fiercedevops.com/story/circleci-brings-another-18m-funding-series-b-round/2016-05-17"
+  "url": "http://www.fiercedevops.com/story/circleci-brings-another-18m-funding-series-b-round/2016-05-17",
+  "lang": "en"
 }
 
 exports['financial-times 1'] = {
@@ -237,7 +258,8 @@ exports['financial-times 1'] = {
   "logo": "http://im.ft-static.com/m/icons/apple-touch-icon.png",
   "publisher": "Financial Times",
   "title": "How confidence can help attract funding for women - FT.com",
-  "url": "http://www.ft.com/cms/s/2/796d1220-475e-11e5-af2f-4d6e0e5eda22.html"
+  "url": "http://www.ft.com/cms/s/2/796d1220-475e-11e5-af2f-4d6e0e5eda22.html",
+  "lang": "en"
 }
 
 exports['forbes 1'] = {
@@ -248,7 +270,8 @@ exports['forbes 1'] = {
   "logo": "http://i.forbesimg.com/media/assets/appicons/forbes-app-icon_144x144.png",
   "publisher": "Forbes",
   "title": "Facebook Veteran Grady Burnett Joins HackerRank As COO",
-  "url": "http://www.forbes.com/sites/georgeanders/2015/09/30/facebook-veteran-grady-burnett-joins-hackerrank-as-coo"
+  "url": "http://www.forbes.com/sites/georgeanders/2015/09/30/facebook-veteran-grady-burnett-joins-hackerrank-as-coo",
+  "lang": null
 }
 
 exports['fortune 1'] = {
@@ -259,7 +282,8 @@ exports['fortune 1'] = {
   "logo": "http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=16",
   "publisher": "Fortune",
   "title": "Why your next job search may involve solving online puzzles",
-  "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool"
+  "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool",
+  "lang": "en"
 }
 
 exports['geek-time 1'] = {
@@ -270,7 +294,8 @@ exports['geek-time 1'] = {
   "logo": "http://www.geektime.com/wp-content/themes/geektimeV2/css/images/favicon.ico",
   "publisher": "Geektime",
   "title": "Fraud solutions Forter secures payment of $32M in Series C",
-  "url": "http://www.geektime.com/2016/04/21/fraud-solutions-forter-secures-payment-of-32m-in-series-c"
+  "url": "http://www.geektime.com/2016/04/21/fraud-solutions-forter-secures-payment-of-32m-in-series-c",
+  "lang": "en"
 }
 
 exports['github 1'] = {
@@ -281,7 +306,8 @@ exports['github 1'] = {
   "logo": "https://assets-cdn.github.com/favicon.ico",
   "publisher": "GitHub",
   "title": "microlinkhq/microlink-core",
-  "url": "https://github.com/microlinkhq/microlink-core"
+  "url": "https://github.com/microlinkhq/microlink-core",
+  "lang": "en"
 }
 
 exports['googleblog 1'] = {
@@ -292,7 +318,8 @@ exports['googleblog 1'] = {
   "logo": "https://cloudplatform.googleblog.com/favicon.ico",
   "publisher": "Google Cloud Platform Blog",
   "title": "Google Cloud Platform sets a course for new horizons",
-  "url": "https://cloudplatform.googleblog.com/2016/09/Google-Cloud-Platform-sets-a-course-for-new-horizons.html"
+  "url": "https://cloudplatform.googleblog.com/2016/09/Google-Cloud-Platform-sets-a-course-for-new-horizons.html",
+  "lang": "en"
 }
 
 exports['inc 1'] = {
@@ -303,7 +330,8 @@ exports['inc 1'] = {
   "logo": "http://www.inc.com/favicon.ico",
   "publisher": "Inc.com",
   "title": "Meet Wall Street’s New A.I. Sheriffs",
-  "url": "http://www.inc.com/jeremy-quittner/2016-30-under-30-neurensic.html"
+  "url": "http://www.inc.com/jeremy-quittner/2016-30-under-30-neurensic.html",
+  "lang": "en"
 }
 
 exports['information-week 1'] = {
@@ -314,7 +342,8 @@ exports['information-week 1'] = {
   "logo": "http://img.deusm.com/informationweek/favicon.ico",
   "publisher": "InformationWeek",
   "title": "Microsoft Expands Global Connectivity With Local Startups - InformationWeek",
-  "url": "http://www.informationweek.com/cloud/microsoft-expands-global-connectivity-with-local-startups/d/d-id/1325645"
+  "url": "http://www.informationweek.com/cloud/microsoft-expands-global-connectivity-with-local-startups/d/d-id/1325645",
+  "lang": "en"
 }
 
 exports['instagram 1'] = {
@@ -325,7 +354,8 @@ exports['instagram 1'] = {
   "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/b407fa101800.png",
   "publisher": "Instagram",
   "title": "Instagram post by Tesla • Jul 9, 2017 at 4:58am UTC",
-  "url": "https://www.instagram.com/p/BWUDBntl3_Z"
+  "url": "https://www.instagram.com/p/BWUDBntl3_Z",
+  "lang": "en"
 }
 
 exports['jewish-business-news 1'] = {
@@ -336,7 +366,8 @@ exports['jewish-business-news 1'] = {
   "logo": "http://2xkcvt35vyxycuy7x23e0em1a5g.wpengine.netdna-cdn.com/favicon-196x196.png",
   "publisher": "Jewish Business News",
   "title": "Israeli startup JFrog raises $50 million in C round",
-  "url": "http://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round"
+  "url": "http://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round",
+  "lang": "en"
 }
 
 exports['lean-data 1'] = {
@@ -347,7 +378,8 @@ exports['lean-data 1'] = {
   "logo": "http://www.leandatainc.com/wp-content/uploads/2015/11/favicon.ico",
   "publisher": "LeanData",
   "title": "The Winds of Change",
-  "url": "http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change"
+  "url": "http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change",
+  "lang": "en"
 }
 
 exports['linkedin (company) 1'] = {
@@ -358,7 +390,8 @@ exports['linkedin (company) 1'] = {
   "logo": "https://static.licdn.com/sc/h/eahiplrwoq61f4uan012ia17i",
   "publisher": "LinkedIn领英",
   "title": "LinkedIn",
-  "url": "https://www.linkedin.com/company/10529043/"
+  "url": "https://www.linkedin.com/company/10529043/",
+  "lang": "en"
 }
 
 exports['linkedin (pulse) 1'] = {
@@ -369,7 +402,8 @@ exports['linkedin (pulse) 1'] = {
   "logo": "https://static.licdn.com/scds/common/u/img/icon/apple-touch-icon.png",
   "publisher": "LinkedIn Pulse",
   "title": "How Can AI Change Financial Services? Consolidation of the #FinAI tweetstorm",
-  "url": "https://www.linkedin.com/pulse/how-can-ai-change-financial-services-consolidation-finai-ramya-joseph"
+  "url": "https://www.linkedin.com/pulse/how-can-ai-change-financial-services-consolidation-finai-ramya-joseph",
+  "lang": "en"
 }
 
 exports['los-angeles-times 1'] = {
@@ -380,7 +414,8 @@ exports['los-angeles-times 1'] = {
   "logo": "http://www.trbas.com/jive/prod/common/images/lanews-apple-touch-icon.1q2w3_9ffdb679907f116af126c65ff1edb27a.png",
   "publisher": "latimes.com",
   "title": "As venture capital dries up, tech start-ups discover frugality",
-  "url": "http://www.latimes.com/business/technology/la-fi-tn-tech-downturn-20160429-story.html"
+  "url": "http://www.latimes.com/business/technology/la-fi-tn-tech-downturn-20160429-story.html",
+  "lang": "en"
 }
 
 exports['mac-rumors 1'] = {
@@ -391,7 +426,8 @@ exports['mac-rumors 1'] = {
   "logo": "http://cdn.macrumors.com/images-new/apple-touch-icon.png",
   "publisher": "MacRumors",
   "title": "Apple Working on Amazon Echo Competitor, Opening Siri Up to Developers",
-  "url": "http://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor"
+  "url": "http://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor",
+  "lang": "en"
 }
 
 exports['market-wired 1'] = {
@@ -402,7 +438,8 @@ exports['market-wired 1'] = {
   "logo": "http://www.marketwired.com/favicon.ico",
   "publisher": "Marketwire",
   "title": "Segment Launches Sources to Unify Siloed Customer Data in Minutes",
-  "url": "http://www.marketwired.com/press-release/segment-launches-sources-to-unify-siloed-customer-data-in-minutes-2112571.htm"
+  "url": "http://www.marketwired.com/press-release/segment-launches-sources-to-unify-siloed-customer-data-in-minutes-2112571.htm",
+  "lang": "en"
 }
 
 exports['marketing-land 1'] = {
@@ -413,7 +450,8 @@ exports['marketing-land 1'] = {
   "logo": "http://marketingland.com/wp-content/themes/marketingland/img/logo/ML-block-white.svg",
   "publisher": "Marketing Land",
   "title": "An Inside Look At The Upcoming MarTech Conference",
-  "url": "http://marketingland.com/an-inside-look-at-the-upcoming-martech-conference-165927"
+  "url": "http://marketingland.com/an-inside-look-at-the-upcoming-martech-conference-165927",
+  "lang": "en"
 }
 
 exports['mashable 1'] = {
@@ -424,7 +462,8 @@ exports['mashable 1'] = {
   "logo": "http://mashable.com/android-chrome-192x192.png?v=m2Pmw8zNwl",
   "publisher": "Mashable",
   "title": "The sales cycle on steroids: 3 ways analytics power up revenue",
-  "url": "http://mashable.com/2015/05/13/analytics-power-up-revenue"
+  "url": "http://mashable.com/2015/05/13/analytics-power-up-revenue",
+  "lang": "en"
 }
 
 exports['medium 1'] = {
@@ -435,7 +474,8 @@ exports['medium 1'] = {
   "logo": "https://cdn-images-1.medium.com/fit/c/304/304/1*Wx82vEGrMfW4AdSLodZXgQ.png",
   "publisher": "Medium",
   "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾",
-  "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b"
+  "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b",
+  "lang": null
 }
 
 exports['motherboard 1'] = {
@@ -446,7 +486,8 @@ exports['motherboard 1'] = {
   "logo": "http://motherboard.vice.com/assets/favicons/motherboard/favicon-196x196.png?v",
   "publisher": "Motherboard",
   "title": "Google Wins Trial Against Oracle, Saves $9 Billion",
-  "url": "http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion"
+  "url": "http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion",
+  "lang": "en"
 }
 
 exports['nytimes 1'] = {
@@ -457,7 +498,8 @@ exports['nytimes 1'] = {
   "logo": "https://static01.nyt.com/images/icons/ios-ipad-144x144.png",
   "publisher": "NYTimes",
   "title": "How to See What the Internet Knows About You (And How to Stop It)",
-  "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
+  "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html",
+  "lang": "en"
 }
 
 exports['pikabu 1'] = {
@@ -468,7 +510,8 @@ exports['pikabu 1'] = {
   "logo": "https://cs.pikabu.ru/images/icon_ios144.png",
   "publisher": "Комментарий дня ТОП 50 Вот так камеры в Москве фиксируют штрафы. +1314 figurist; 14 часов назад # Годный интерфейс, как в каком-нибудь фильме про хацкеров (:",
   "title": "Горячее",
-  "url": "https://pikabu.ru"
+  "url": "https://pikabu.ru",
+  "lang": null
 }
 
 exports['pr-newswire 1'] = {
@@ -479,7 +522,8 @@ exports['pr-newswire 1'] = {
   "logo": "http://content.prnewswire.com/designimages/favicon_PRN.ico",
   "publisher": "PR Newswire",
   "title": "HackerRank & Cybermedia Technologies Partner to Help Close the STEM Skills Gap in Federal Government",
-  "url": "http://www.prnewswire.com/news-releases/hackerrank--cybermedia-technologies-partner-to-help-close-the-stem-skills-gap-in-federal-government-300256929.html"
+  "url": "http://www.prnewswire.com/news-releases/hackerrank--cybermedia-technologies-partner-to-help-close-the-stem-skills-gap-in-federal-government-300256929.html",
+  "lang": "en"
 }
 
 exports['recode 1'] = {
@@ -490,7 +534,8 @@ exports['recode 1'] = {
   "logo": "https://cdn3.vox-cdn.com/uploads/chorus_asset/file/6397051/recode_favicon-192.0.png",
   "publisher": "Recode",
   "title": "Capital Gains: Medium, an Uber rival, a drone hunter and other companies raised cash",
-  "url": "http://www.recode.net/2016/4/24/11586366/capital-gains-medium-an-uber-rival-a-drone-hunter-and-other-companies"
+  "url": "http://www.recode.net/2016/4/24/11586366/capital-gains-medium-an-uber-rival-a-drone-hunter-and-other-companies",
+  "lang": null
 }
 
 exports['reuters 1'] = {
@@ -501,7 +546,8 @@ exports['reuters 1'] = {
   "logo": "http://s3.reutersmedia.net/resources_v2/images/favicon/favicon-96x96.png",
   "publisher": "Reuters",
   "title": "Silicon Valley venture capitalists raise more money, give less away",
-  "url": "http://www.reuters.com/article/us-venture-fundraising-idUSKCN0Y41DQ"
+  "url": "http://www.reuters.com/article/us-venture-fundraising-idUSKCN0Y41DQ",
+  "lang": "en"
 }
 
 exports['san-francisco-chronicle 1'] = {
@@ -512,7 +558,8 @@ exports['san-francisco-chronicle 1'] = {
   "logo": "http://www.sfchronicle.com/apple-touch-icon-144x144-precomposed.png",
   "publisher": "San Francisco Chronicle",
   "title": "Nasdaq center in SF offers free classes for entrepreneurs",
-  "url": "http://www.sfchronicle.com/business/article/Nasdaq-center-in-SF-offers-free-classes-for-7338290.php"
+  "url": "http://www.sfchronicle.com/business/article/Nasdaq-center-in-SF-offers-free-classes-for-7338290.php",
+  "lang": null
 }
 
 exports['segment 1'] = {
@@ -523,7 +570,8 @@ exports['segment 1'] = {
   "logo": null,
   "publisher": "Segment Blog",
   "title": "Scaling NSQ to 750 Billion Messages",
-  "url": "https://segment.com/blog/scaling-nsq"
+  "url": "https://segment.com/blog/scaling-nsq",
+  "lang": null
 }
 
 exports['segment-academy 1'] = {
@@ -534,7 +582,8 @@ exports['segment-academy 1'] = {
   "logo": null,
   "publisher": "Segment",
   "title": "When to Track on the Client vs. Server",
-  "url": "https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server"
+  "url": "https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server",
+  "lang": null
 }
 
 exports['silicon-angle 1'] = {
@@ -545,7 +594,8 @@ exports['silicon-angle 1'] = {
   "logo": "http://siliconangle.com/files/2015/04/favicon-SA.png",
   "publisher": "SiliconANGLE",
   "title": "CircleCI receives $18 million in Series B funding round with Scale Venture Partners",
-  "url": "http://siliconangle.com/blog/2016/05/16/circleci-receives-18-million-in-series-b-funding-round-with-scale-venture-partners"
+  "url": "http://siliconangle.com/blog/2016/05/16/circleci-receives-18-million-in-series-b-funding-round-with-scale-venture-partners",
+  "lang": "en"
 }
 
 exports['silicon-beat 1'] = {
@@ -556,7 +606,8 @@ exports['silicon-beat 1'] = {
   "logo": null,
   "publisher": "SiliconBeat",
   "title": "VC: Time to ‘come out as a woman’",
-  "url": "http://www.siliconbeat.com/2016/04/19/time-come-woman"
+  "url": "http://www.siliconbeat.com/2016/04/19/time-come-woman",
+  "lang": "en"
 }
 
 exports['silicon-tap 1'] = {
@@ -567,7 +618,8 @@ exports['silicon-tap 1'] = {
   "logo": null,
   "publisher": "silicontap.com",
   "title": "CircleCI Scores $18M | silicontap.com",
-  "url": "https://www.silicontap.com/story/0053475.html"
+  "url": "https://www.silicontap.com/story/0053475.html",
+  "lang": null
 }
 
 exports['silicon-valley-business-journal 1'] = {
@@ -578,7 +630,8 @@ exports['silicon-valley-business-journal 1'] = {
   "logo": "http://assets.bizjournals.com/lib/img/sanjose/apple_touch_icon.png",
   "publisher": "Silicon Valley Business Journal",
   "title": "San Mateo email security startup Agari raises $22 million - Silicon Valley Business Journal",
-  "url": "http://www.bizjournals.com/sanjose/blog/techflash/2016/05/security-startup-agari-raises-22m-to-protect.html"
+  "url": "http://www.bizjournals.com/sanjose/blog/techflash/2016/05/security-startup-agari-raises-22m-to-protect.html",
+  "lang": null
 }
 
 exports['smitten-kitchen 1'] = {
@@ -589,7 +642,8 @@ exports['smitten-kitchen 1'] = {
   "logo": "http://smittenkitchen.com/uploads/favicon.ico",
   "publisher": "smitten kitchen",
   "title": "cucumber yogurt raita salad",
-  "url": "http://smittenkitchen.com/blog/2016/05/cucumber-yogurt-raita-salad"
+  "url": "http://smittenkitchen.com/blog/2016/05/cucumber-yogurt-raita-salad",
+  "lang": null
 }
 
 exports['startup-grind 1'] = {
@@ -600,7 +654,8 @@ exports['startup-grind 1'] = {
   "logo": "https://www.startupgrind.com/static/images/favicon.ico",
   "publisher": "Startup Grind",
   "title": "Tech Funding is Officially Slowing Down: 3 Ways to Survive the Cooling",
-  "url": "https://www.startupgrind.com/blog/tech-funding-is-officialy-slowing-down-3-ways-to-survive-the-cooling"
+  "url": "https://www.startupgrind.com/blog/tech-funding-is-officialy-slowing-down-3-ways-to-survive-the-cooling",
+  "lang": "en"
 }
 
 exports['techcrunch 1'] = {
@@ -611,7 +666,8 @@ exports['techcrunch 1'] = {
   "logo": "https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/homescreen_TCIcon_ipad_2x.png",
   "publisher": "TechCrunch",
   "title": "HackerRank Makes Technical Recruiting More Transparent",
-  "url": "http://social.techcrunch.com/2016/01/12/hackerrank-jobs-takes-the-mystery-out-of-technical-recruiting"
+  "url": "http://social.techcrunch.com/2016/01/12/hackerrank-jobs-takes-the-mystery-out-of-technical-recruiting",
+  "lang": "en"
 }
 
 exports['the-boston-globe 1'] = {
@@ -622,7 +678,8 @@ exports['the-boston-globe 1'] = {
   "logo": "https://c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png",
   "publisher": "BostonGlobe.com",
   "title": "Women in Tech Band Together to Track Diversity, After Hours - The Boston Globe",
-  "url": "https://www.bostonglobe.com/business/2016/05/03/women-tech-band-together-track-diversity-after-hours/mWL9Pte1lx34HXMqXhEY4H/story.html"
+  "url": "https://www.bostonglobe.com/business/2016/05/03/women-tech-band-together-track-diversity-after-hours/mWL9Pte1lx34HXMqXhEY4H/story.html",
+  "lang": null
 }
 
 exports['the-guardian 1'] = {
@@ -633,7 +690,8 @@ exports['the-guardian 1'] = {
   "logo": "https://assets.guim.co.uk/images/favicons/451963ac2e23633472bf48e2856d3f04/152x152.png",
   "publisher": "The Guardian",
   "title": "Facebook can track your browsing even after you’ve logged out, judge says",
-  "url": "http://www.theguardian.com/technology/2017/jul/03/facebook-track-browsing-history-california-lawsuit"
+  "url": "http://www.theguardian.com/technology/2017/jul/03/facebook-track-browsing-history-california-lawsuit",
+  "lang": null
 }
 
 exports['the-register 1'] = {
@@ -644,7 +702,8 @@ exports['the-register 1'] = {
   "logo": "http://www.theregister.co.uk/Design/graphics/icons/vulture_black_60_trans.png",
   "publisher": null,
   "title": "EMC makes a LEAP forward with Virtustream and more",
-  "url": "http://www.theregister.co.uk/2016/05/03/emc_world_virtustream_announcement"
+  "url": "http://www.theregister.co.uk/2016/05/03/emc_world_virtustream_announcement",
+  "lang": "en"
 }
 
 exports['the-verge 1'] = {
@@ -655,7 +714,8 @@ exports['the-verge 1'] = {
   "logo": "https://cdn0.vox-cdn.com/images/verge/2.0/verge-icon-196x196.v503bbf1.png",
   "publisher": "The Verge",
   "title": "Apple is reportedly building a Siri speaker to rival Amazon’s Echo",
-  "url": "http://www.theverge.com/2016/5/24/11763836/apple-siri-speaker-amazon-echo-alexa-google-home-ai"
+  "url": "http://www.theverge.com/2016/5/24/11763836/apple-siri-speaker-amazon-echo-alexa-google-home-ai",
+  "lang": "en"
 }
 
 exports['twitter (tweet with gif) 1'] = {
@@ -666,7 +726,8 @@ exports['twitter (tweet with gif) 1'] = {
   "logo": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
   "publisher": "Twitter",
   "title": "K I K O B E A T S ⚡️ on Twitter",
-  "url": "https://twitter.com/Kikobeats/status/880139124791029763"
+  "url": "https://twitter.com/Kikobeats/status/880139124791029763",
+  "lang": "en"
 }
 
 exports['twitter (tweet with image) 1'] = {
@@ -677,7 +738,8 @@ exports['twitter (tweet with image) 1'] = {
   "logo": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
   "publisher": "Twitter",
   "title": "Asume la realidad: no hay cuchara. on Twitter",
-  "url": "https://twitter.com/k4rliky/status/934482867480121345"
+  "url": "https://twitter.com/k4rliky/status/934482867480121345",
+  "lang": "en"
 }
 
 exports['usa-today 1'] = {
@@ -688,7 +750,8 @@ exports['usa-today 1'] = {
   "logo": "http://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
   "publisher": "USA TODAY",
   "title": "The TSA is trying not to ruin your summer vacation",
-  "url": "http://www.usatoday.com/story/news/2016/05/24/evening-news-roundup-tuesday/84846520"
+  "url": "http://www.usatoday.com/story/news/2016/05/24/evening-news-roundup-tuesday/84846520",
+  "lang": "en"
 }
 
 exports['venture-beat 1'] = {
@@ -699,7 +762,8 @@ exports['venture-beat 1'] = {
   "logo": "http://1u88jj3r4db2x4txp44yqfj1.wpengine.netdna-cdn.com/wp-content/themes/vbnews/img/favicon.ico",
   "publisher": "VentureBeat",
   "title": "Forter raises $32 million to automate retailers’ battle against online fraud",
-  "url": "http://venturebeat.com/2016/04/21/forter-raises-32-million-to-automate-retailers-battle-against-online-fraud"
+  "url": "http://venturebeat.com/2016/04/21/forter-raises-32-million-to-automate-retailers-battle-against-online-fraud",
+  "lang": "en"
 }
 
 exports['vimeo 1'] = {
@@ -710,7 +774,8 @@ exports['vimeo 1'] = {
   "logo": "https://i.vimeocdn.com/favicon/main-touch_180",
   "publisher": "Vimeo",
   "title": "Overwatch APEX Season2 Title",
-  "url": "https://vimeo.com/200104989"
+  "url": "https://vimeo.com/200104989",
+  "lang": "es"
 }
 
 exports['washington-post 1'] = {
@@ -721,7 +786,8 @@ exports['washington-post 1'] = {
   "logo": null,
   "publisher": "Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
-  "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all"
+  "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all",
+  "lang": "en"
 }
 
 exports['wikipedia 1'] = {
@@ -732,7 +798,8 @@ exports['wikipedia 1'] = {
   "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
   "publisher": null,
   "title": "Bored of the Rings - Wikipedia",
-  "url": "https://en.wikipedia.org/wiki/Bored_of_the_Rings"
+  "url": "https://en.wikipedia.org/wiki/Bored_of_the_Rings",
+  "lang": "en"
 }
 
 exports['wired 1'] = {
@@ -743,7 +810,8 @@ exports['wired 1'] = {
   "logo": null,
   "publisher": "WIRED",
   "title": "Giant Antarctic Icebergs and Crushing Existential Dread",
-  "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread"
+  "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread",
+  "lang": "en"
 }
 
 exports['wsj 1'] = {
@@ -754,7 +822,8 @@ exports['wsj 1'] = {
   "logo": "http://s.wsj.net/pro/apple-touch-icon.png",
   "publisher": "WSJ",
   "title": "Funding Snapshot: Software Development Platform CircleCI Raises $18M",
-  "url": "http://www.wsj.com/articles/funding-snapshot-software-development-platform-circleci-raises-18m-1463398202"
+  "url": "http://www.wsj.com/articles/funding-snapshot-software-development-platform-circleci-raises-18m-1463398202",
+  "lang": "en"
 }
 
 exports['xconomy 1'] = {
@@ -765,7 +834,8 @@ exports['xconomy 1'] = {
   "logo": "http://www.xconomy.com/wordpress/wp-content/themes/xconomy/images/favicon.ico",
   "publisher": "Xconomy",
   "title": "Cybersecurity Company Agari Raises $22M For E-Mail Shield | Xconomy",
-  "url": "http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield"
+  "url": "http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield",
+  "lang": "en"
 }
 
 exports['yahoo-news 1'] = {
@@ -776,7 +846,8 @@ exports['yahoo-news 1'] = {
   "logo": "https://www.yahoo.com/favicon.ico",
   "publisher": "Yahoo News - Latest News & Headlines",
   "title": "Justin Bieber Coldly Throws Fan’s Gift Out Car Window, Belieber Hearts Break",
-  "url": "https://www.yahoo.com/news/justin-bieber-coldly-throws-fans-133800208.html"
+  "url": "https://www.yahoo.com/news/justin-bieber-coldly-throws-fans-133800208.html",
+  "lang": "en"
 }
 
 exports['youtube 1'] = {
@@ -787,7 +858,8 @@ exports['youtube 1'] = {
   "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
   "publisher": "YouTube",
   "title": "Overwatch - Huge Massive Fist Punch Man",
-  "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg"
+  "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg",
+  "lang": "en"
 }
 
 exports['zdnet 1'] = {
@@ -798,7 +870,8 @@ exports['zdnet 1'] = {
   "logo": "http://zdnet1.cbsistatic.com/fly/bundles/zdnetcss/images/logos/logo-192x192.png",
   "publisher": "ZDNet",
   "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
-  "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks"
+  "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks",
+  "lang": "en"
 }
 
 exports['soundcloud 1'] = {
@@ -809,6 +882,7 @@ exports['soundcloud 1'] = {
   "logo": "https://a-v2.sndcdn.com/assets/images/sc-icons/ios-a62dfc8f.png",
   "publisher": "SoundCloud",
   "title": "Swag Bandicoot [FREE DOWNLOAD]",
-  "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot"
+  "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot",
+  "lang": "en"
 }
 
