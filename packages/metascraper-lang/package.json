@@ -1,0 +1,34 @@
+{
+  "name": "metascraper-lang",
+  "description": "Get lang property from HTML markup",
+  "homepage": "https://metascraper.js.org",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": {
+    "email": "ian@ianstormtaylor.com",
+    "name": "Ian Storm Taylor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-lang"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "dependencies": {
+    "lodash": "~4.17.4"
+  },
+  "devDependencies": {
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "exit 0"
+  },
+  "license": "MIT"
+}

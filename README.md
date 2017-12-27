@@ -96,6 +96,9 @@ Here is a list of the metadata that **metascraper** collects by default:
 
 - **`image`** — eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`<br/>
   An image URL that best represents the article.
+
+- **`lang`** — eg. `en`<br/>
+  An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) representation of the url content language.
  
 - **`logo`** — eg. `https://entrepreneur.com/favicon180x180.png`<br/>
   An image URL that best represents the publisher brand.

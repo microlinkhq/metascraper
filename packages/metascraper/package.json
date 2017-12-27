@@ -64,6 +64,7 @@
     "metascraper-date": "^3.3.0",
     "metascraper-description": "^3.3.0",
     "metascraper-image": "^3.3.0",
+    "metascraper-lang": "^0.0.0",
     "metascraper-logo": "^3.3.0",
     "metascraper-publisher": "^3.3.0",
     "metascraper-title": "^3.3.0",
