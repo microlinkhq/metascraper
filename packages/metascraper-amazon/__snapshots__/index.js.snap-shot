@@ -3,7 +3,6 @@ exports['product url 1'] = {
   "title": "Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems",
   "publisher": "Amazon",
   "image": "https://images-eu.ssl-images-amazon.com/images/I/61Q2c36lYeL._SX218_BO1,204,203,200_QL40_.jpg",
-  "date": "0178-10-02T12:00:00.000Z",
   "description": "Buy Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems by Mat Follas (ISBN: 9781849757096) from Amazon’s Book Store. Everyday low prices and free delivery on eligible orders.",
   "logo": null,
   "url": "https://www.amazon.co.uk/Vegetable-Perfection-tasty-recipes-shoots/dp/1849757097/ref=asap_bc?ie=UTF8"
@@ -14,7 +13,6 @@ exports['ansi url 1'] = {
   "title": "SainSmart 4-Channel Relay Module",
   "publisher": "Amazon",
   "image": "https://images-na.ssl-images-amazon.com/images/I/51M0KK9HuHL._SY300_QL70_.jpg",
-  "date": "2017-12-20T12:00:00.000Z",
   "description": "Buy SainSmart 4-Channel Relay Module: Everything Else - Amazon.com ✓ FREE DELIVERY possible on eligible purchases",
   "logo": null,
   "url": "https://www.amazon.com/gp/product/B0057OC5O8/"
@@ -25,7 +23,6 @@ exports['product url 2'] = {
   "title": "The Whole Truth (A. Shaw Book 1) Kindle Edition",
   "publisher": "Amazon",
   "image": "https://images-na.ssl-images-amazon.com/images/I/519trKzgiKL._SY346_.jpg",
-  "date": "2018-04-30T12:00:00.000Z",
   "description": "The Whole Truth (A. Shaw Book 1) - Kindle edition by David Baldacci. Download it once and read it on your Kindle device, PC, phones or tablets. Use features like bookmarks, note taking and highlighting while reading The Whole Truth (A. Shaw Book 1).",
   "logo": null,
   "url": "https://www.amazon.com/The-Whole-Truth-Shaw-Book-ebook/dp/B0011UCPM4/ref=pd_zg_rss_ts_b_17_6?ie=UTF8&tag=recomshop-22"
@@ -36,8 +33,8 @@ exports['product url 3'] = {
   "title": "Robot aspirador Conga Excellence 990 de Cecotec. Friega el suelo, Barre, aspira y pasa la mopa. Programable 24h. 5 modos de limpieza. Base de carga. Silencioso. Potente. Filtro HEPA.",
   "publisher": "Amazon",
   "image": "https://images-na.ssl-images-amazon.com/images/I/81lde%2B541vL._SL1500_.jpg",
-  "date": "2017-12-20T01:00:00.000Z",
   "description": "Compra Robot aspirador Conga Excellence 990 de Cecotec. Friega el suelo, Barre, aspira y pasa la mopa. Programable 24h. 5 modos de limpieza. Base de carga. Silencioso. Potente. Filtro HEPA.. Precios bajos todos los días en Amazon.",
   "logo": null,
   "url": "https://www.amazon.es/aspirador-Excellence-Programable-limpieza-Silencioso/dp/B01MUGXRT9"
 }
+
