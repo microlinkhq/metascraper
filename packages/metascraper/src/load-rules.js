@@ -19,11 +19,11 @@ const DEFAULT_RULES = [
   'metascraper-date',
   'metascraper-description',
   'metascraper-image',
+  'metascraper-lang',
   'metascraper-logo',
   'metascraper-publisher',
   'metascraper-title',
-  'metascraper-url',
-  'metascraper-lang'
+  'metascraper-url'
 ]
 
 let singletonConfig

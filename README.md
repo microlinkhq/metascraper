@@ -160,6 +160,7 @@ Declared an `array` of `rules`, specifying each rule as `string` name of the mod
     "metascraper-date",
     "metascraper-description",
     "metascraper-image",
+    "metascraper-lang",
     "metascraper-logo",
     "metascraper-publisher",
     "metascraper-title",
@@ -172,11 +173,12 @@ Declared an `array` of `rules`, specifying each rule as `string` name of the mod
 
 ```yaml
 #  .metascraperrc
-rules:
+rules:  
   - metascraper-author
   - metascraper-date
   - metascraper-description
   - metascraper-image
+  - metascraper-lang
   - metascraper-logo
   - metascraper-publisher
   - metascraper-title
@@ -197,6 +199,7 @@ Additionally, you can pass specific configuration per module using a `object` de
     "metascraper-date",
     "metascraper-description",
     "metascraper-image",
+    "metascraper-lang",
     "metascraper-logo",
     {"metascraper-clearbit-logo": {
     "format": "jpg"
@@ -217,7 +220,7 @@ rules:
   - metascraper-date
   - metascraper-description
   - metascraper-image
-  - metascraper-logo
+  - metascraper-lang
   - metascraper-clearbit-logo:
       format: jpg
   - metascraper-publisher
