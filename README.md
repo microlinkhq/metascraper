@@ -227,7 +227,7 @@ rules:
 
 ## Rules
 
-?> Can't find a rules set that you want? Let's [open an issue](https://github.com/microlinkhq/metacraper/issues) to create it.
+?> Can't find a rules set that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
 ### Core rules
 
