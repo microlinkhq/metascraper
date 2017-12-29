@@ -20,10 +20,13 @@
     "clearbit",
     "metascraper"
   ],
-  "dependencies": {
-    "@metascraper/helpers": "^3.3.0"
-  },
   "devDependencies": {
+    "clear-module": "latest",
+    "lodash": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -33,7 +36,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "lint-staged": {
