@@ -2,7 +2,7 @@
 
 const { titleize, isUrl } = require('@metascraper/helpers')
 
-const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\.com\/.*)/i
+const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 const isAmazonUrl = url => REGEX_AMAZON_URL.test(url)
 
 const wrap = rule => ({ htmlDom, url }) => {
