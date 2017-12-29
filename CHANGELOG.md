@@ -4,6 +4,16 @@
 
 
 
+<a name="3.4.1"></a>
+## 3.4.1 (2017-12-29)
+
+* Ensure url is string ([4402622](https://github.com/microlinkhq/metascraper/commit/4402622))
+* Update changelog ([ad5efe8](https://github.com/microlinkhq/metascraper/commit/ad5efe8))
+* Update README.md ([f875152](https://github.com/microlinkhq/metascraper/commit/f875152))
+* v3.4.1 ([d13dfb8](https://github.com/microlinkhq/metascraper/commit/d13dfb8))
+
+
+
 <a name="3.4.0"></a>
 # 3.4.0 (2017-12-29)
 

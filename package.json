@@ -40,6 +40,7 @@
     "postinstall": "lerna bootstrap && lerna link --force-local",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
+    "changelog:commit": "npm run changelog && git add CHANGELOG.md && git commit -m 'Update Changelog'",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
