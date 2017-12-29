@@ -22,7 +22,6 @@
   ],
   "devDependencies": {
     "clear-module": "latest",
-    "coveralls": "latest",
     "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
@@ -37,7 +36,6 @@
     "index.js"
   ],
   "scripts": {
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",

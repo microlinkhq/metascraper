@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "clear-module": "latest",
-    "coveralls": "latest",
     "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",
