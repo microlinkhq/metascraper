@@ -29,8 +29,7 @@ const wrap = rule => ({ htmlDom }) => {
 
 const strict = rule => $ => {
   const value = rule($)
-  if (!REGEX_STRICT.test(value)) return
-  return value
+  return REGEX_STRICT.test(value) && value
 }
 
 const getFirst = ($, collection) =>

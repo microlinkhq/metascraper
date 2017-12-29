@@ -16,9 +16,7 @@ const removeLocation = value => value.replace(REGEX_LOCATION, '')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-
-  if (!isString(value)) return
-  return titleize(removeLocation(value), { capitalize: false })
+  return isString(value) && titleize(removeLocation(value), { capitalize: false })
 }
 
 /**

@@ -5,16 +5,11 @@ const { titleize, isUrl } = require('@metascraper/helpers')
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 const isAmazonUrl = url => REGEX_AMAZON_URL.test(url)
 
-const wrap = rule => ({ htmlDom, url }) => {
-  if (!isAmazonUrl(url)) return
-  const value = rule(htmlDom)
-  return value
-}
+const wrap = rule => ({ htmlDom, url }) => isAmazonUrl(url) && rule(htmlDom)
 
 const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = wrap(rule)({htmlDom, url})
-  if (!isUrl(value)) return
-  return value
+  return isUrl(value) && value
 }
 
 module.exports = () => ({
