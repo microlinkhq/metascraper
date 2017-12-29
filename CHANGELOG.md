@@ -1,6 +1,22 @@
 <a name=""></a>
-#  (2017-12-20)
+#  (2017-12-29)
 
+
+
+
+<a name="3.4.0"></a>
+# 3.4.0 (2017-12-29)
+
+* Add a.co amazon urls ([eb75363](https://github.com/microlinkhq/metascraper/commit/eb75363))
+* Add language property ([656bb97](https://github.com/microlinkhq/metascraper/commit/656bb97)), closes [#45](https://github.com/microlinkhq/metascraper/issues/45)
+* Add missing readme ([76201b0](https://github.com/microlinkhq/metascraper/commit/76201b0))
+* Avoid non deterministic tests ([d63d5aa](https://github.com/microlinkhq/metascraper/commit/d63d5aa))
+* Ensure favicon path is absolute ([266b404](https://github.com/microlinkhq/metascraper/commit/266b404))
+* Refactor ([3a412be](https://github.com/microlinkhq/metascraper/commit/3a412be))
+* Remove coveralls as dev dependency ([2aab9e7](https://github.com/microlinkhq/metascraper/commit/2aab9e7))
+* Tweaks ([2ea632f](https://github.com/microlinkhq/metascraper/commit/2ea632f))
+* Update Changelog ([f2bee3d](https://github.com/microlinkhq/metascraper/commit/f2bee3d))
+* v3.4.0 ([3f73396](https://github.com/microlinkhq/metascraper/commit/3f73396))
 
 
 

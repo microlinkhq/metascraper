@@ -39,7 +39,7 @@
     "publish": "lerna publish --sort --cd-version",
     "postinstall": "lerna bootstrap && lerna link --force-local",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
-    "changelog": "conventional-changelog -s -i CHANGELOG.md",
+    "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
