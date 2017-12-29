@@ -4,13 +4,13 @@ const condenseWhitespace = require('condense-whitespace')
 const isRelativeUrl = require('is-relative-url')
 const { resolve: resolveUrl } = require('url')
 const sanetizeUrl = require('normalize-url')
+const { flow, isString } = require('lodash')
 const smartquotes = require('smartquotes')
-const { flow, isNil } = require('lodash')
 const toTitle = require('to-title-case')
 const urlRegex = require('url-regex')
 
 const isUrl = (url, {relative = true} = {}) => {
-  if (isNil(url)) return false
+  if (!isString(url)) return false
   if (!relative) return urlRegex().test(url)
   return isRelativeUrl(url) || urlRegex().test(url)
 }
