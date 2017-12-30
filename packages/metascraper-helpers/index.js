@@ -34,10 +34,18 @@ const titleize = (src, { capitalize = false } = {}) => {
   return capitalize ? toTitle(title) : title
 }
 
+const defaultFn = el => el.text().trim()
+
+const getValue = ($, collection, fn = defaultFn) => {
+  const el = collection.filter((i, el) => fn($(el))).first()
+  return defaultFn(el)
+}
+
 module.exports = {
   titleize,
   getUrl,
   isUrl,
   normalizeUrl,
-  getAbsoluteUrl
+  getAbsoluteUrl,
+  getValue
 }
