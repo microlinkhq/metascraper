@@ -1,4 +1,5 @@
 exports['create an absolute faivcon url if the logo is not present 1'] = {
+  "lang": "en",
   "author": "Mat Follas",
   "title": "Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems",
   "publisher": "Amazon",
