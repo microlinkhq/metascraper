@@ -51,8 +51,9 @@ module.exports = () => ({
     strict(wrap($ => getValue($, $('a[href*="/author/"]')))),
     wrap($ => getValue($, $('a[class*="screenname"]'))),
     strict(wrap($ => getValue($, $('[class*="author"]')))),
-    strict(wrap($ => getValue($, $('[class*="byline"]')))),
-    wrap($ => getValue($, $('.fullname'))),
-    wrap($ => $('[class*="user-info"]').text())
+    wrap($ => $('#owner-name').text()),
+    wrap($ => $('#channel-title').text()),
+    wrap($ => getValue($, $('[class*="user-info"]'))),
+    strict(wrap($ => getValue($, $('[class*="byline"]'))))
   ]
 })

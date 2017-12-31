@@ -505,7 +505,7 @@ exports['nytimes 1'] = {
 exports['pikabu 1'] = {
   "author": null,
   "date": null,
-  "description": null,
+  "description": "Вчера к нам приезжали друзья. К вечеру все засобирались домой, потопали каждый к своей машине. Через 5 минут позвонил один из товарищей и сказал, что его авто заперли. В общем, позвали его обратно домой, чай пить, а сами пока стали думать, что же тут делать. Вот, собственно, как выглядел паркинг",
   "image": "https://ads.adfox.ru/211055/getCode?p1=bvoqq&p2=v&pe=b&pfb=eyxrx&pfc=bpndz&pr=[RANDOM]",
   "logo": "https://cs.pikabu.ru/images/icon_ios144.png",
   "publisher": "Комментарий дня ТОП 50 Вот так камеры в Москве фиксируют штрафы. +1314 figurist; 14 часов назад # Годный интерфейс, как в каком-нибудь фильме про хацкеров (:",
@@ -850,18 +850,6 @@ exports['yahoo-news 1'] = {
   "lang": "en"
 }
 
-exports['youtube 1'] = {
-  "author": "Andrew JRT",
-  "date": "2017-07-07T00:00:00.000Z",
-  "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
-  "image": "https://i.ytimg.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
-  "publisher": "YouTube",
-  "title": "Overwatch - Huge Massive Fist Punch Man",
-  "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg",
-  "lang": "en"
-}
-
 exports['zdnet 1'] = {
   "author": "Natalie Gagliordi",
   "date": "2016-05-24T13:30:03.000Z",
@@ -884,5 +872,41 @@ exports['soundcloud 1'] = {
   "title": "Swag Bandicoot [FREE DOWNLOAD]",
   "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot",
   "lang": "en"
+}
+
+exports['youtube classic 1'] = {
+  "author": "Andrew JRT",
+  "date": "2017-07-07T00:00:00.000Z",
+  "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
+  "image": "https://i.ytimg.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
+  "lang": "en",
+  "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
+  "publisher": "YouTube",
+  "title": "Overwatch - Huge Massive Fist Punch Man",
+  "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg"
+}
+
+exports['youtube video 1'] = {
+  "author": "ONE Media",
+  "date": "2017-04-14T12:00:00.000Z",
+  "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
+  "image": "https://i.ytimg.com/vi/hwMkbaS_M_c/mqdefault.jpg",
+  "lang": null,
+  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
+  "publisher": "ES",
+  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017",
+  "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
+}
+
+exports['youtube channel 1'] = {
+  "author": "ONE Media",
+  "date": "2017-12-31T01:00:00.000Z",
+  "description": "Thor 3, Star Wars, Valerian, Transformers 5, Baywatch, Despicable Me 3, Fast and Furious 8, Wonder Woman, Justice League... ALL The Must See Movie Trailer, F...",
+  "image": "https://yt3.ggpht.com/-q3yclmvjVzk/AAAAAAAAAAI/AAAAAAAAAAA/jVaGJKJjUps/s200-c-k-no-mo-rj-c0xffffff/photo.jpg",
+  "lang": null,
+  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
+  "publisher": "YouTube",
+  "title": "ONE Media - YouTube",
+  "url": "https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA"
 }
 
