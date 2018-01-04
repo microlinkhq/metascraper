@@ -139,7 +139,7 @@ Rules work as fallback between them:
 If you want to load more rules set that the provided by default, you need to define a configuration file via:
 
 - A `.metascraperrc` file, written in YAML or JSON, with optional extensions: `.yaml/.yml/.json/.js`.
-- A `prettier.config.js` file that exports an object.
+- A `metascraper.config.js` file that exports an object.
 - A `"metascraper"` key in your `package.json` file.
 
 The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
