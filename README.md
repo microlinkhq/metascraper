@@ -85,31 +85,31 @@ Where the output will be something like:
 
 Here is a list of the metadata that **metascraper** collects by default:
 
-- **`author`** — eg. `Noah Kulwin`<br/>
+- `author` — eg. **Noah Kulwin**<br/>
   A human-readable representation of the author's name.
 
-- **`date`** — eg. `2016-05-27T00:00:00.000Z`<br/>
+- `date` — eg. **2016-05-27T00:00:00.000Z**<br/>
   An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
 
-- **`description`** — eg. `Venture capitalists are raising money at the fastest rate...`<br/>
+- `description` — eg. **Venture capitalists are raising money at the fastest rate...**<br/>
   The publisher's chosen description of the article.
 
-- **`image`** — eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`<br/>
+- `image` — eg. **https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg**<br/>
   An image URL that best represents the article.
 
-- **`lang`** — eg. `en`<br/>
+- `lang` — eg. **en**<br/>
   An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) representation of the url content language.
  
-- **`logo`** — eg. `https://entrepreneur.com/favicon180x180.png`<br/>
+- `logo` — eg. **https://entrepreneur.com/favicon180x180.png**<br/>
   An image URL that best represents the publisher brand.
 
-- **`publisher`** — eg. `Fast Company`<br/>
+- `publisher` — eg. **Fast Company**<br/>
   A human-readable representation of the publisher's name.
 
-- **`title`** — eg. `Meet Wall Street's New A.I. Sheriffs`<br/>
+- `title` — eg. **Meet Wall Street's New A.I. Sheriffs**<br/>
   The publisher's chosen title of the article.
 
-- **`url`** — eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`<br/>
+- `url` — eg. **http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion**<br/>
   The URL of the article.
   
 ## How it works
@@ -138,9 +138,9 @@ Rules work as fallback between them:
 
 If you want to load more rules set that the provided by default, you need to define a configuration file via:
 
-- A `.metascraperrc` file, written in YAML or JSON, with optional extensions: `.yaml/.yml/.json/.js`.
+- A `.metascraperrc` file, written in YAML or JSON, with optional extensions: **.yaml**, **.yml**, **.json** and **.js**.
 - A `metascraper.config.js` file that exports an object.
-- A `"metascraper"` key in your `package.json` file.
+- A **metascraper** key in your `package.json` file.
 
 The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
 
@@ -148,7 +148,7 @@ The order of rules are loaded are important: Just the first rule that resolve th
 
 ### Basic Configuration
 
-Declared an `array` of `rules`, specifying each rule as `string` name of the module to load.
+Declared an **array** of **rules**, specifying each rule as **string** name of the module to load.
 
 #### JSON
 
@@ -187,7 +187,7 @@ rules:
 
 ### Advanced Configuration
 
-Additionally, you can pass specific configuration per module using a `object` declaration:
+Additionally, you can pass specific configuration per module using a **object** declaration:
 
 #### JSON
 

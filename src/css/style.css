@@ -613,7 +613,8 @@ body.sticky .sidebar-toggle {
 }
 
 .markdown-section p.warn {
-  background: var(--green2);
+  background: var(--green3);
+  color: var(--green9);
   border-radius: 2px;
   padding: 16px;
   padding: 1rem;
@@ -1040,6 +1041,17 @@ body {
 
 .markdown-section em {
   color: #7f8c8d;
+}
+
+.markdown-section p code,
+.markdown-section li code {
+  color: var(--codebox-token-var-color);
+  border: 1px solid var(--codebox-border-color);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .markdown-section code {
