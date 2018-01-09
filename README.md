@@ -38,7 +38,6 @@
 It follows a few principles:
 
 - Have a high accuracy for online articles by default.
-- Be usable on the server and in the browser.
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors. 
 
