@@ -38,7 +38,7 @@ const defaultFn = el => el.text().trim()
 
 const getValue = ($, collection, fn = defaultFn) => {
   const el = collection.filter((i, el) => fn($(el))).first()
-  return defaultFn(el)
+  return fn(el)
 }
 
 module.exports = {

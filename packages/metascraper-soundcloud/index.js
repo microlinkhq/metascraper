@@ -1,15 +1,11 @@
 'use strict'
 
-const { titleize } = require('@metascraper/helpers')
+const { getValue, titleize } = require('@metascraper/helpers')
 
 module.exports = () => ({
   author: [
     ({ htmlDom: $, meta, url: baseUrl }) =>
-      titleize(
-        $('.soundTitle__username')
-          .first()
-          .text()
-      )
+    titleize(getValue($, $('.soundTitle__username')))
   ],
   description: [
     ({ htmlDom: $, meta, url: baseUrl }) =>

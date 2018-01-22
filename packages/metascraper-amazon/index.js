@@ -1,6 +1,6 @@
 'use strict'
 
-const { titleize, isUrl } = require('@metascraper/helpers')
+const { getValue, titleize, isUrl } = require('@metascraper/helpers')
 const { URL } = require('url')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
@@ -44,7 +44,7 @@ module.exports = () => ({
   title: [
     wrap($ => titleize($('#productTitle').text())),
     wrap($ => titleize($('#btAsinTitle').text())),
-    wrap($ => titleize($('h1.a-size-large').first().text())),
+    wrap($ => titleize(getValue($, $('h1.a-size-large')))),
     wrap($ => titleize($('#item_name').text()))
   ],
   publisher: [wrap($ => 'Amazon')],
