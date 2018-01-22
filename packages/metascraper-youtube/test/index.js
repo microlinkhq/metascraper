@@ -13,13 +13,13 @@ let metascraper
 describe('metascraper-youtube', () => {
   before(() => {
     clearModule('metascraper')
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
+    process.env.METASCRAPER_CWD = __dirname
     metascraper = require('metascraper')
   })
 
   after(() => {
     clearModule('metascraper')
-    delete process.env.METASCRAPER_CONFIG_CWD
+    delete process.env.METASCRAPER_CWD
   })
 
   it('youtube video', async () => {

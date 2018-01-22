@@ -12,12 +12,12 @@ const readFile = promisify(fs.readFile)
 describe('metascraper amazon integration', () => {
   before(() => {
     clearModule.all()
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
+    process.env.METASCRAPER_CWD = __dirname
   })
 
   after(() => {
     clearModule.all()
-    delete process.env.METASCRAPER_CONFIG_CWD
+    delete process.env.METASCRAPER_CWD
   })
 
   describe('metascraper logo favicon', () => {

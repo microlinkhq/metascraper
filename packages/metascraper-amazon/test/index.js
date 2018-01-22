@@ -15,13 +15,13 @@ let metascraper
 describe('metascraper-amazon', () => {
   before(() => {
     clearModule('metascraper')
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
+    process.env.METASCRAPER_CWD = __dirname
     metascraper = require('metascraper')
   })
 
   after(() => {
     clearModule('metascraper')
-    delete process.env.METASCRAPER_CONFIG_CWD
+    delete process.env.METASCRAPER_CWD
   })
 
   describe('amazon.co.uk', () => {

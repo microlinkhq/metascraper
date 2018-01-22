@@ -312,6 +312,15 @@ It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
 
+## Environment Variables
+
+### METASCRAPER_CWD
+
+Type: `String` <br/>
+Default: `process.cwd()`
+
+This variable is used to determine where starting search for a configuration object.
+
 ## Comparison
 
 To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:

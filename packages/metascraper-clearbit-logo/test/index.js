@@ -6,12 +6,12 @@ const snapshot = require('snap-shot')
 describe('metascraper clearbit logo', () => {
   before(() => {
     clearModule.all()
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
+    process.env.METASCRAPER_CWD = __dirname
   })
 
   after(() => {
     clearModule.all()
-    delete process.env.METASCRAPER_CONFIG_CWD
+    delete process.env.METASCRAPER_CWD
   })
 
   it('if logo is not present, fallback to clearbit logo API', async () => {

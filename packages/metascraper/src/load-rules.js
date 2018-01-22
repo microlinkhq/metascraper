@@ -1,6 +1,6 @@
 'use strict'
 
-const cwd = process.env.METASCRAPER_CONFIG_CWD || process.cwd()
+const cwd = process.env.METASCRAPER_CWD || process.cwd()
 const config = require('cosmiconfig')('metascraper').load(cwd)
 const resolveFrom = require('resolve-from')
 
