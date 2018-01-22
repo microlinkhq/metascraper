@@ -10,20 +10,22 @@ const fs = require('fs')
 
 const readFile = promisify(fs.readFile)
 
-describe('metascraper amazon integration', () => {
+let metascraper
+
+describe('metascraper-amazon', () => {
   before(() => {
-    clearModule.all()
+    clearModule('metascraper')
     process.env.METASCRAPER_CONFIG_CWD = __dirname
+    metascraper = require('metascraper')
   })
 
   after(() => {
-    clearModule.all()
+    clearModule('metascraper')
     delete process.env.METASCRAPER_CONFIG_CWD
   })
 
   describe('amazon.co.uk', () => {
     it('product url', async () => {
-      const metascraper = require('metascraper')
       const html = await readFile(resolve(__dirname, 'fixtures/amazon-co-uk/product-url.html'))
       const url = 'https://www.amazon.co.uk/Vegetable-Perfection-tasty-recipes-shoots/dp/1849757097/ref=asap_bc?ie=UTF8'
       const meta = omit(await metascraper({ html, url }), ['date'])
@@ -33,7 +35,6 @@ describe('metascraper amazon integration', () => {
 
   describe('amazon.com', () => {
     it('ansi url', async () => {
-      const metascraper = require('metascraper')
       const html = await readFile(resolve(__dirname, 'fixtures/amazon-com/ansi-url.html'))
       const url = 'https://www.amazon.com/gp/product/B0057OC5O8/'
       const metadata = await metascraper({ html, url })
