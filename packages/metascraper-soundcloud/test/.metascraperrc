@@ -1,0 +1,14 @@
+{
+  "rules": [
+    "metascraper-soundcloud",
+    "metascraper-author",
+    "metascraper-date",
+    "metascraper-description",
+    "metascraper-image",
+    "metascraper-lang",
+    "metascraper-logo",
+    "metascraper-publisher",
+    "metascraper-title",
+    "metascraper-url"
+  ]
+}

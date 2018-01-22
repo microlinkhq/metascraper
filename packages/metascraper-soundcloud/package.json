@@ -24,6 +24,13 @@
     "@metascraper/helpers": "^3.4.3"
   },
   "devDependencies": {
+    "clear-module": "latest",
+    "lodash": "latest",
+    "metascraper": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -33,7 +40,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "lint-staged": {
