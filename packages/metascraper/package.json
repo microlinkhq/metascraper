@@ -58,7 +58,6 @@
     "@metascraper/helpers": "^3.4.3",
     "cheerio": "~1.0.0-rc.2",
     "cosmiconfig": "~3.1.0",
-    "find-up": "~2.1.0",
     "lodash": "~4.17.4",
     "metascraper-author": "^3.4.3",
     "metascraper-date": "^3.3.0",
