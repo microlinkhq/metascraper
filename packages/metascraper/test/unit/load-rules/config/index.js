@@ -7,13 +7,13 @@ let metascraper
 
 describe('load rules', () => {
   before(() => {
-    clearModule('metascraper')
+    clearModule.all()
     process.env.METASCRAPER_CWD = __dirname
     metascraper = require('../../../..')
   })
 
   after(() => {
-    clearModule('metascraper')
+    clearModule.all()
     delete process.env.METASCRAPER_CWD
   })
 
