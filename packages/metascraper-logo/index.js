@@ -54,10 +54,7 @@ module.exports = () => ({
     wrap($ => $('img[itemprop="logo"]').attr('src')),
     wrap($ => {
       const sizes = getSizes($, sizeSelectors)
-      const size = chain(sizes)
-        .first()
-        .get('link')
-        .value()
+      const size = chain(sizes).first().get('link').value()
       return size
     })
   ]
