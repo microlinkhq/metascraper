@@ -4,6 +4,21 @@
 
 
 
+<a name="3.6.0"></a>
+# 3.6.0 (2018-01-23)
+
+* Add metascraper-video first approach ([79e98c9](https://github.com/microlinkhq/metascraper/commit/79e98c9))
+* Check upgrade package dependencies before publish ([5c70cdb](https://github.com/microlinkhq/metascraper/commit/5c70cdb))
+* Ensure output is an object ([dbfac33](https://github.com/microlinkhq/metascraper/commit/dbfac33))
+* Extract removeBy into titleize helper ([627abfc](https://github.com/microlinkhq/metascraper/commit/627abfc))
+* Normalize meta property tag ([df96522](https://github.com/microlinkhq/metascraper/commit/df96522))
+* Remove date from snapshot ([818fa90](https://github.com/microlinkhq/metascraper/commit/818fa90))
+* Update Changelog ([b5749c3](https://github.com/microlinkhq/metascraper/commit/b5749c3))
+* Update deps ([281088f](https://github.com/microlinkhq/metascraper/commit/281088f))
+* v3.6.0 ([c28a942](https://github.com/microlinkhq/metascraper/commit/c28a942))
+
+
+
 <a name="3.5.0"></a>
 # 3.5.0 (2018-01-23)
 
