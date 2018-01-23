@@ -1,0 +1,47 @@
+{
+  "name": "metascraper-video",
+  "description": "Get video property from HTML markup",
+  "homepage": "https://metascraper.js.org",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": {
+    "email": "ian@ianstormtaylor.com",
+    "name": "Ian Storm Taylor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "dependencies": {
+    "@metascraper/helpers": "^3.4.3",
+    "video-extensions": "~1.1.0"
+  },
+  "devDependencies": {
+    "clear-module": "latest",
+    "lodash": "latest",
+    "metascraper": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+  },
+  "license": "MIT",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}

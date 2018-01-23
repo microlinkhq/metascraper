@@ -3,10 +3,7 @@
 const { getValue, isUrl, titleize } = require('@metascraper/helpers')
 const { isString } = require('lodash')
 
-const REGEX_BY = /^[\s\n]*by|@[\s\n]*/im
 const REGEX_STRICT = /^\S+\s+\S+/
-
-const removeBy = value => value.replace(REGEX_BY, '')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -17,7 +14,10 @@ const removeBy = value => value.replace(REGEX_BY, '')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return isString(value) && !isUrl(value, {relative: false}) && titleize(removeBy(value))
+
+  return isString(value) && !isUrl(value, {relative: false}) && titleize(
+    value, {removeBy: true}
+  )
 }
 
 /**
@@ -51,9 +51,6 @@ module.exports = () => ({
     strict(wrap($ => getValue($, $('a[href*="/author/"]')))),
     wrap($ => getValue($, $('a[class*="screenname"]'))),
     strict(wrap($ => getValue($, $('[class*="author"]')))),
-    wrap($ => $('#owner-name').text()),
-    wrap($ => $('#channel-title').text()),
-    wrap($ => getValue($, $('[class*="user-info"]'))),
     strict(wrap($ => getValue($, $('[class*="byline"]'))))
   ]
 })
