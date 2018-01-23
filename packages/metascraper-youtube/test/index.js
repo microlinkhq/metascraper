@@ -4,6 +4,7 @@ const clearModule = require('clear-module')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
+const { omit } = require('lodash')
 const fs = require('fs')
 
 const readFile = promisify(fs.readFile)
@@ -42,7 +43,7 @@ describe('metascraper-youtube', () => {
     const html = await readFile(resolve(__dirname, 'fixtures/youtube-channel.html'))
     const url = 'https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA'
 
-    const metadata = await metascraper({ html, url })
+    const metadata = omit(await metascraper({ html, url }), ['date'])
     snapshot(metadata)
   })
 })
