@@ -2,7 +2,7 @@
   "name": "metascraper-url",
   "description": "Get url property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "main": "index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -16,7 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^3.5.0",
+    "@metascraper/helpers": "^3.6.0",
     "lodash": "~4.17.4"
   },
   "devDependencies": {
