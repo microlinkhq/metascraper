@@ -2,7 +2,7 @@
   "name": "metascraper",
   "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
   "homepage": "https://metascraper.js.org",
-  "version": "3.4.3",
+  "version": "3.5.0",
   "main": "src/index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -55,21 +55,21 @@
     "website"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^3.4.3",
+    "@metascraper/helpers": "^3.5.0",
     "cheerio": "~1.0.0-rc.2",
-    "cosmiconfig": "~3.1.0",
+    "cosmiconfig": "~4.0.0",
     "lodash": "~4.17.4",
-    "metascraper-author": "^3.4.3",
+    "metascraper-author": "^3.5.0",
     "metascraper-date": "^3.3.0",
-    "metascraper-description": "^3.4.3",
-    "metascraper-image": "^3.4.3",
+    "metascraper-description": "^3.5.0",
+    "metascraper-image": "^3.5.0",
     "metascraper-lang": "^3.4.0",
-    "metascraper-logo": "^3.4.3",
+    "metascraper-logo": "^3.5.0",
     "metascraper-publisher": "^3.4.0",
-    "metascraper-title": "^3.4.3",
-    "metascraper-url": "^3.4.3",
+    "metascraper-title": "^3.5.0",
+    "metascraper-url": "^3.5.0",
     "resolve-from": "~4.0.0",
-    "sanitize-html": "~1.16.1"
+    "sanitize-html": "~1.17.0"
   },
   "devDependencies": {
     "clear-module": "latest",

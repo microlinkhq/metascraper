@@ -1,6 +1,50 @@
 <a name=""></a>
-#  (2017-12-29)
+#  (2018-01-23)
 
+
+
+
+<a name="3.5.0"></a>
+# 3.5.0 (2018-01-23)
+
+* Add METASCRAPER_CWD tests and documentation ([73be24f](https://github.com/microlinkhq/metascraper/commit/73be24f)), closes [#52](https://github.com/microlinkhq/metascraper/issues/52)
+* Add metascraper-youtube ([a043f93](https://github.com/microlinkhq/metascraper/commit/a043f93))
+* Add missing dep ([31122be](https://github.com/microlinkhq/metascraper/commit/31122be))
+* Add YouTube rules package ([4749216](https://github.com/microlinkhq/metascraper/commit/4749216))
+* Adjust style ([272c2a3](https://github.com/microlinkhq/metascraper/commit/272c2a3))
+* Avoid get first directly, use .getValue helper ([12dd21e](https://github.com/microlinkhq/metascraper/commit/12dd21e))
+* Avoid non deterministic date ([3fc6130](https://github.com/microlinkhq/metascraper/commit/3fc6130))
+* Docs tweaks ([9dac9f6](https://github.com/microlinkhq/metascraper/commit/9dac9f6))
+* Move soundcloud test ([ab03d97](https://github.com/microlinkhq/metascraper/commit/ab03d97))
+* Refactor ([a7dea20](https://github.com/microlinkhq/metascraper/commit/a7dea20))
+* Remove browser mention ([6cb0d73](https://github.com/microlinkhq/metascraper/commit/6cb0d73))
+* Remove unnecessary deps ([ddf4384](https://github.com/microlinkhq/metascraper/commit/ddf4384))
+* Update ([d246295](https://github.com/microlinkhq/metascraper/commit/d246295))
+* Update README.md ([c8609cd](https://github.com/microlinkhq/metascraper/commit/c8609cd))
+* Update scripts ([8b158e0](https://github.com/microlinkhq/metascraper/commit/8b158e0))
+* Update testing setup ([d75c74f](https://github.com/microlinkhq/metascraper/commit/d75c74f))
+* Update testing setup ([ba6253c](https://github.com/microlinkhq/metascraper/commit/ba6253c))
+* Update toc ([853f8d3](https://github.com/microlinkhq/metascraper/commit/853f8d3))
+* v3.5.0 ([88a1e6f](https://github.com/microlinkhq/metascraper/commit/88a1e6f))
+
+
+
+<a name="3.4.3"></a>
+## 3.4.3 (2017-12-31)
+
+* Improve author & description accuracy ([7e14b48](https://github.com/microlinkhq/metascraper/commit/7e14b48))
+* Refactor ([447280c](https://github.com/microlinkhq/metascraper/commit/447280c))
+* v3.4.3 ([9ca8926](https://github.com/microlinkhq/metascraper/commit/9ca8926))
+
+
+
+<a name="3.4.2"></a>
+## 3.4.2 (2017-12-30)
+
+* Add `metascraper-lang` as part of defaults rule sets ([5ec9472](https://github.com/microlinkhq/metascraper/commit/5ec9472))
+* Add get language from amazon urls ([f6de069](https://github.com/microlinkhq/metascraper/commit/f6de069))
+* Update Changelog ([38ce74c](https://github.com/microlinkhq/metascraper/commit/38ce74c))
+* v3.4.2 ([df4f572](https://github.com/microlinkhq/metascraper/commit/df4f572))
 
 
 
