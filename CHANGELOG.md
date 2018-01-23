@@ -4,6 +4,15 @@
 
 
 
+<a name="3.6.1"></a>
+## 3.6.1 (2018-01-23)
+
+* Add og:video test ([1ced9f9](https://github.com/microlinkhq/metascraper/commit/1ced9f9))
+* Update Changelog ([011fae2](https://github.com/microlinkhq/metascraper/commit/011fae2))
+* v3.6.1 ([d80789e](https://github.com/microlinkhq/metascraper/commit/d80789e))
+
+
+
 <a name="3.6.0"></a>
 # 3.6.0 (2018-01-23)
 
