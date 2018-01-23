@@ -24,3 +24,16 @@ exports['source src 1'] = {
   "url": "https://9gag.com/gag/aGjVLDK"
 }
 
+exports['og:video 1'] = {
+  "video": "https://twitter.com/i/videos/955905369242513414?embed_source=facebook",
+  "author": "_developit",
+  "date": "2018-02-18T12:00:00.000Z",
+  "description": "“📣 Announcing... Karmatic!\n🦑 Easy automatic (headless) browser testing\n🛠 No config needed, auto-detects webpack settings\n🤹‍♀️ Only one dependency to juggle\n🏎 Powered by Karma, Webpack, Jasmine &amp; Puppeteer\nhttps://t.co/nguAcGaWQP https://t.co/OgxikFBdQ8”",
+  "image": "https://pbs.twimg.com/tweet_video_thumb/DUQODu8VMAASlkj.jpg",
+  "lang": "es",
+  "logo": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
+  "publisher": "Twitter",
+  "title": "Jason Miller 🦊⚛ on Twitter",
+  "url": "https://twitter.com/_developit/status/955905369242513414"
+}
+

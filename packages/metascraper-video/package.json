@@ -16,8 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^3.6.0",
-    "video-extensions": "~1.1.0"
+    "@metascraper/helpers": "^3.6.0"
   },
   "devDependencies": {
     "clear-module": "latest",

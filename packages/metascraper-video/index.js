@@ -1,10 +1,6 @@
 'use strict'
 
 const { getUrl, isUrl } = require('@metascraper/helpers')
-const videoExtensions = ['gif'].concat(require('video-extensions'))
-const path = require('path')
-
-const isVideoUrl = url => videoExtensions.includes(path.extname(url).substring(1))
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -15,7 +11,7 @@ const isVideoUrl = url => videoExtensions.includes(path.extname(url).substring(1
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return isUrl(value) && isVideoUrl(value) && getUrl(url, value)
+  return isUrl(value) && getUrl(url, value)
 }
 
 /**

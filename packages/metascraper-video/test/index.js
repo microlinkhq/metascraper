@@ -37,4 +37,12 @@ describe('metascraper-video', () => {
     const metadata = await metascraper({ html, url })
     snapshot(metadata)
   })
+
+  it('og:video', async () => {
+    const html = await readFile(resolve(__dirname, 'fixtures/tweet.html'))
+    const url = 'https://twitter.com/_developit/status/955905369242513414'
+
+    const metadata = await metascraper({ html, url })
+    snapshot(metadata)
+  })
 })
