@@ -1,24 +1,24 @@
 'use strict'
 
+const { forEach, flow, isEmpty, toLower } = require('lodash')
 const sanitizeHtml = require('sanitize-html')
-const { flow, isNil } = require('lodash')
 const cheerio = require('cheerio')
 
-const normalizeAttributes = propName => (tagName, attribs) => {
-  if (!isNil(attribs[propName])) {
-    attribs[propName] = attribs[propName].toLowerCase()
-  }
+const normalizeAttributes = props => (tagName, attribs) => {
+  forEach(props, propName => {
+    if (!isEmpty(attribs[propName])) attribs[propName] = toLower(attribs[propName])
+  })
   return { tagName, attribs }
 }
 
 const sanitize = html =>
   sanitizeHtml(html, {
-    allowedTags: false,
-    allowedAttributes: false,
+    allowedTags: false, // allow all tags
+    allowedAttributes: false, // allow all attributes
     transformTags: {
-      meta: normalizeAttributes('name'),
-      a: normalizeAttributes('href'),
-      link: normalizeAttributes('rel')
+      meta: normalizeAttributes(['name', 'property']),
+      a: normalizeAttributes(['href']),
+      link: normalizeAttributes(['rel'])
     }
   })
 
