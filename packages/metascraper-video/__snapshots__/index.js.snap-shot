@@ -1,0 +1,26 @@
+exports['video src 1'] = {
+  "video": "https://cdn.vox-cdn.com/thumbor/4l0C-7uGFtTfc6lWibo1ITiE2YU=/0x0:1280x720/320x213/filters:focal(538x258:742x462):gifv():no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/58416873/2018_01_22_14_19_55.0.gif",
+  "author": "Rachel Becker",
+  "date": "2018-01-22T23:38:17.000Z",
+  "description": "The zombies are only released on the weekends, the developers promise",
+  "image": "https://cdn.vox-cdn.com/thumbor/AtQQMyWrexi6-Xyk73jv6nqTO7s=/0x5:1247x658/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/10079811/Screen_Shot_2018_01_22_at_3.27.50_PM.png",
+  "lang": null,
+  "logo": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/7395351/android-chrome-192x192.0.png",
+  "publisher": "The Verge",
+  "title": "You can visit the Pentagon’s secret nuclear bunker inside Minecraft",
+  "url": "https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model"
+}
+
+exports['source src 1'] = {
+  "video": "https://img-9gag-fun.9cache.com/photo/aGjVLDK_460sv.mp4",
+  "author": null,
+  "date": null,
+  "description": "Watch the video and the fun convo of the 9GAG community",
+  "image": "https://images-cdn.9gag.com/photo/aGjVLDK_700b.jpg",
+  "lang": "en",
+  "logo": "https://assets-9gag-fun.9cache.com/s/fab0aa49/174d0b1ec891e220e79a7cb3af66a1fbb1eed154/static/dist/core/img/favicon.ico",
+  "publisher": "9GAG",
+  "title": "Newspaperboy in Germany",
+  "url": "https://9gag.com/gag/aGjVLDK"
+}
+
