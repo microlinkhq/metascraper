@@ -1,13 +1,15 @@
 'use strict'
 
 const condenseWhitespace = require('condense-whitespace')
+const { trim, flow, isString } = require('lodash')
 const isRelativeUrl = require('is-relative-url')
 const { resolve: resolveUrl } = require('url')
 const sanetizeUrl = require('normalize-url')
-const { flow, isString } = require('lodash')
 const smartquotes = require('smartquotes')
 const toTitle = require('to-title-case')
 const urlRegex = require('url-regex')
+
+const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
 
 const isUrl = (url, {relative = true} = {}) => {
   if (!isString(url)) return false
@@ -27,11 +29,18 @@ const getUrl = (baseUrl, relativePath) => (
   normalizeUrl(getAbsoluteUrl(baseUrl, relativePath))
 )
 
+const removeByPrefix = flow([
+  value => value.replace(REGEX_BY, ''),
+  trim
+])
+
 const createTitle = flow([condenseWhitespace, smartquotes])
 
-const titleize = (src, { capitalize = false } = {}) => {
-  const title = createTitle(src)
-  return capitalize ? toTitle(title) : title
+const titleize = (src, { capitalize = false, removeBy = false } = {}) => {
+  let title = createTitle(src)
+  if (removeBy) title = removeByPrefix(title).trim()
+  if (capitalize) title = toTitle(title)
+  return title
 }
 
 const defaultFn = el => el.text().trim()
