@@ -14,8 +14,6 @@
 
 ## Table of Contents
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/microlinkhq/metascraper.svg)](https://greenkeeper.io/)
-
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Usage](#usage)
