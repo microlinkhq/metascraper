@@ -1,5 +1,4 @@
 'use strict'
-
 const { forEach, flow, isEmpty, toLower } = require('lodash')
 const sanitizeHtml = require('sanitize-html')
 const cheerio = require('cheerio')
@@ -19,9 +18,18 @@ const sanitize = html =>
       meta: normalizeAttributes(['name', 'property']),
       a: normalizeAttributes(['href']),
       link: normalizeAttributes(['rel'])
+    },
+    parser: {
+      lowerCaseTags: true,
+      decodeEntities: true,
+      lowerCaseAttributeNames: true
     }
   })
 
-const load = cheerio.load.bind(cheerio)
+const load = html => cheerio.load(html, {
+  lowerCaseTags: false,
+  decodeEntities: false,
+  lowerCaseAttributeNames: false
+})
 
 module.exports = flow([sanitize, load])
