@@ -1,6 +1,17 @@
 <a name=""></a>
-#  (2018-01-23)
+#  (2018-01-28)
 
+
+
+
+<a name="3.6.2"></a>
+## 3.6.2 (2018-01-28)
+
+* Avoid repeat parsing steps ([566f9d1](https://github.com/microlinkhq/metascraper/commit/566f9d1))
+* Update Changelog ([2d1cb53](https://github.com/microlinkhq/metascraper/commit/2d1cb53))
+* Update README.md ([56409d1](https://github.com/microlinkhq/metascraper/commit/56409d1))
+* v3.6.2 ([2653c7d](https://github.com/microlinkhq/metascraper/commit/2653c7d))
+* docs(readme): add Greenkeeper badge ([777f511](https://github.com/microlinkhq/metascraper/commit/777f511))
 
 
 
