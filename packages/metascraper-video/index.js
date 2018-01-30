@@ -19,6 +19,9 @@ const wrap = rule => ({ htmlDom, url }) => {
  */
 
 module.exports = () => ({
+  image: [
+    wrap($ => $('video').attr('poster'))
+  ],
   video: [
     wrap($ => $('meta[property="og:video:secure_url"]').attr('content')),
     wrap($ => $('meta[property="og:video:url"]').attr('content')),
