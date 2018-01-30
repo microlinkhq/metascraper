@@ -1,6 +1,15 @@
 <a name=""></a>
-#  (2018-01-28)
+#  (2018-01-30)
 
+
+
+
+<a name="3.6.3"></a>
+## 3.6.3 (2018-01-30)
+
+* Update Changelog ([09efd46](https://github.com/microlinkhq/metascraper/commit/09efd46))
+* Use src poster value as image ([d2e16c3](https://github.com/microlinkhq/metascraper/commit/d2e16c3))
+* v3.6.3 ([53e1461](https://github.com/microlinkhq/metascraper/commit/53e1461))
 
 
 
