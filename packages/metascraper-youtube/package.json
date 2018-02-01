@@ -21,7 +21,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "get-video-id": "~2.1.7"
+    "get-video-id": "~3.0.0"
   },
   "devDependencies": {
     "clear-module": "latest",
