@@ -1,11 +1,20 @@
 <a name=""></a>
-#  (2018-01-30)
+##  (2018-02-01)
 
+
+
+
+<a name="3.6.4"></a>
+## <small>3.6.4 (2018-02-01)</small>
+
+* Update Changelog ([caa6855](https://github.com/microlinkhq/metascraper/commit/caa6855))
+* Update get-video-id dependency ([fc0bf94](https://github.com/microlinkhq/metascraper/commit/fc0bf94))
+* v3.6.4 ([eed68e0](https://github.com/microlinkhq/metascraper/commit/eed68e0))
 
 
 
 <a name="3.6.3"></a>
-## 3.6.3 (2018-01-30)
+## <small>3.6.3 (2018-01-30)</small>
 
 * Update Changelog ([09efd46](https://github.com/microlinkhq/metascraper/commit/09efd46))
 * Use src poster value as image ([d2e16c3](https://github.com/microlinkhq/metascraper/commit/d2e16c3))
@@ -14,7 +23,7 @@
 
 
 <a name="3.6.2"></a>
-## 3.6.2 (2018-01-28)
+## <small>3.6.2 (2018-01-28)</small>
 
 * Avoid repeat parsing steps ([566f9d1](https://github.com/microlinkhq/metascraper/commit/566f9d1))
 * Update Changelog ([2d1cb53](https://github.com/microlinkhq/metascraper/commit/2d1cb53))
@@ -25,7 +34,7 @@
 
 
 <a name="3.6.1"></a>
-## 3.6.1 (2018-01-23)
+## <small>3.6.1 (2018-01-23)</small>
 
 * Add og:video test ([1ced9f9](https://github.com/microlinkhq/metascraper/commit/1ced9f9))
 * Update Changelog ([011fae2](https://github.com/microlinkhq/metascraper/commit/011fae2))
@@ -34,7 +43,7 @@
 
 
 <a name="3.6.0"></a>
-# 3.6.0 (2018-01-23)
+## 3.6.0 (2018-01-23)
 
 * Add metascraper-video first approach ([79e98c9](https://github.com/microlinkhq/metascraper/commit/79e98c9))
 * Check upgrade package dependencies before publish ([5c70cdb](https://github.com/microlinkhq/metascraper/commit/5c70cdb))
@@ -49,7 +58,7 @@
 
 
 <a name="3.5.0"></a>
-# 3.5.0 (2018-01-23)
+## 3.5.0 (2018-01-23)
 
 * Add METASCRAPER_CWD tests and documentation ([73be24f](https://github.com/microlinkhq/metascraper/commit/73be24f)), closes [#52](https://github.com/microlinkhq/metascraper/issues/52)
 * Add metascraper-youtube ([a043f93](https://github.com/microlinkhq/metascraper/commit/a043f93))
@@ -74,7 +83,7 @@
 
 
 <a name="3.4.3"></a>
-## 3.4.3 (2017-12-31)
+## <small>3.4.3 (2017-12-31)</small>
 
 * Improve author & description accuracy ([7e14b48](https://github.com/microlinkhq/metascraper/commit/7e14b48))
 * Refactor ([447280c](https://github.com/microlinkhq/metascraper/commit/447280c))
@@ -83,7 +92,7 @@
 
 
 <a name="3.4.2"></a>
-## 3.4.2 (2017-12-30)
+## <small>3.4.2 (2017-12-30)</small>
 
 * Add `metascraper-lang` as part of defaults rule sets ([5ec9472](https://github.com/microlinkhq/metascraper/commit/5ec9472))
 * Add get language from amazon urls ([f6de069](https://github.com/microlinkhq/metascraper/commit/f6de069))
@@ -93,7 +102,7 @@
 
 
 <a name="3.4.1"></a>
-## 3.4.1 (2017-12-29)
+## <small>3.4.1 (2017-12-29)</small>
 
 * Ensure url is string ([4402622](https://github.com/microlinkhq/metascraper/commit/4402622))
 * Update changelog ([ad5efe8](https://github.com/microlinkhq/metascraper/commit/ad5efe8))
@@ -103,7 +112,7 @@
 
 
 <a name="3.4.0"></a>
-# 3.4.0 (2017-12-29)
+## 3.4.0 (2017-12-29)
 
 * Add a.co amazon urls ([eb75363](https://github.com/microlinkhq/metascraper/commit/eb75363))
 * Add language property ([656bb97](https://github.com/microlinkhq/metascraper/commit/656bb97)), closes [#45](https://github.com/microlinkhq/metascraper/issues/45)
@@ -119,7 +128,7 @@
 
 
 <a name="3.3.0"></a>
-# 3.3.0 (2017-12-20)
+## 3.3.0 (2017-12-20)
 
 * Add indidivual package doc ([253ca09](https://github.com/microlinkhq/metascraper/commit/253ca09))
 * Add more tests ([e7143f6](https://github.com/microlinkhq/metascraper/commit/e7143f6))
@@ -134,7 +143,7 @@
 
 
 <a name="3.2.0"></a>
-# 3.2.0 (2017-12-19)
+## 3.2.0 (2017-12-19)
 
 * Add build command ([8a23e81](https://github.com/microlinkhq/metascraper/commit/8a23e81))
 * Add clearbit-logo tests ([3e87ec4](https://github.com/microlinkhq/metascraper/commit/3e87ec4))
@@ -165,7 +174,7 @@
 
 
 <a name="3.1.0"></a>
-# 3.1.0 (2017-12-17)
+## 3.1.0 (2017-12-17)
 
 * Add metasraper-soundcloud ([9814253](https://github.com/microlinkhq/metascraper/commit/9814253))
 * Add publish script ([b96eb09](https://github.com/microlinkhq/metascraper/commit/b96eb09))
@@ -180,7 +189,7 @@
 
 
 <a name="3.0.0"></a>
-# 3.0.0 (2017-12-15)
+## 3.0.0 (2017-12-15)
 
 * Add CNAME ([a5a1b59](https://github.com/microlinkhq/metascraper/commit/a5a1b59))
 * Add custom travis install ([5768cbf](https://github.com/microlinkhq/metascraper/commit/5768cbf))
@@ -204,7 +213,7 @@
 
 
 <a name="2.0.0"></a>
-# 2.0.0 (2017-12-11)
+## 2.0.0 (2017-12-11)
 
 * Add anandtech case ([da392f6](https://github.com/microlinkhq/metascraper/commit/da392f6))
 * Add arstechnica case ([0c27159](https://github.com/microlinkhq/metascraper/commit/0c27159))
