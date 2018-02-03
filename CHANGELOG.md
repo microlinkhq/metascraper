@@ -1,6 +1,17 @@
 <a name=""></a>
-##  (2018-02-01)
+##  (2018-02-03)
 
+
+
+
+<a name="3.7.0"></a>
+## 3.7.0 (2018-02-03)
+
+* Expose load and autoload methods ([327fae4](https://github.com/microlinkhq/metascraper/commit/327fae4))
+* Update Changelog ([3951637](https://github.com/microlinkhq/metascraper/commit/3951637))
+* Update docs ([b75dc59](https://github.com/microlinkhq/metascraper/commit/b75dc59))
+* Update tests ([274cb27](https://github.com/microlinkhq/metascraper/commit/274cb27))
+* v3.7.0 ([4c62dce](https://github.com/microlinkhq/metascraper/commit/4c62dce))
 
 
 
