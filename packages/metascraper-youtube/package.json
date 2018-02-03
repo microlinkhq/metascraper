@@ -24,7 +24,6 @@
     "get-video-id": "~3.0.0"
   },
   "devDependencies": {
-    "clear-module": "latest",
     "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",

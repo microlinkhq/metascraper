@@ -1,6 +1,5 @@
 'use strict'
 
-const clearModule = require('clear-module')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
@@ -10,20 +9,20 @@ const fs = require('fs')
 
 const readFile = promisify(fs.readFile)
 
-let metascraper
+const metascraper = require('metascraper').load([
+  require('metascraper-amazon')(),
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-lang')(),
+  require('metascraper-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
 
 describe('metascraper-amazon', () => {
-  before(() => {
-    clearModule.all()
-    process.env.METASCRAPER_CWD = __dirname
-    metascraper = require('metascraper')
-  })
-
-  after(() => {
-    clearModule.all()
-    delete process.env.METASCRAPER_CWD
-  })
-
   describe('amazon.co.uk', () => {
     it('product url', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/amazon-co-uk/product-url.html'))
@@ -45,7 +44,6 @@ describe('metascraper-amazon', () => {
     })
 
     it('product url', async () => {
-      const metascraper = require('metascraper')
       const html = await readFile(resolve(__dirname, 'fixtures/amazon-com/product-url.html'))
       const url = 'https://www.amazon.com/The-Whole-Truth-Shaw-Book-ebook/dp/B0011UCPM4/ref=pd_zg_rss_ts_b_17_6?ie=UTF8&tag=recomshop-22'
       const metadata = await metascraper({ html, url })
@@ -58,7 +56,6 @@ describe('metascraper-amazon', () => {
 
   describe('amazon.es', () => {
     it('product url', async () => {
-      const metascraper = require('metascraper')
       const html = await readFile(resolve(__dirname, 'fixtures/amazon-es/product-url.html'))
       const url = 'https://www.amazon.es/aspirador-Excellence-Programable-limpieza-Silencioso/dp/B01MUGXRT9'
       const metadata = await metascraper({ html, url })

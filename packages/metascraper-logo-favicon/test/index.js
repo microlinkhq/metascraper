@@ -1,28 +1,27 @@
 'use strict'
 
-const clearModule = require('clear-module')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
 const { omit } = require('lodash')
 const fs = require('fs')
 
+const metascraper = require('metascraper').load([
+  require('metascraper-amazon')(),
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-logo')(),
+  require('metascraper-logo-favicon')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+
 const readFile = promisify(fs.readFile)
 
-let metascraper
-
 describe('metascraper-logo-favicon', () => {
-  before(() => {
-    clearModule.all()
-    process.env.METASCRAPER_CWD = __dirname
-    metascraper = require('metascraper')
-  })
-
-  after(() => {
-    clearModule.all()
-    delete process.env.METASCRAPER_CWD
-  })
-
   describe('metascraper logo favicon', () => {
     it('create an absolute faivcon url if the logo is not present', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/input.html'))
