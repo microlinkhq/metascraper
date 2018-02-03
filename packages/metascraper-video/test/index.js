@@ -1,27 +1,26 @@
 'use strict'
 
-const clearModule = require('clear-module')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
 const fs = require('fs')
 
+const metascraper = require('metascraper').load([
+  require('metascraper-video')(),
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-lang')(),
+  require('metascraper-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+
 const readFile = promisify(fs.readFile)
 
-let metascraper
-
 describe('metascraper-video', () => {
-  before(() => {
-    clearModule.all()
-    process.env.METASCRAPER_CWD = __dirname
-    metascraper = require('metascraper')
-  })
-
-  after(() => {
-    clearModule.all()
-    delete process.env.METASCRAPER_CWD
-  })
-
   describe('video', () => {
     it('video src', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/video-src.html'))

@@ -5,7 +5,7 @@ const should = require('should')
 
 let metascraper
 
-describe('load rules', () => {
+describe('automagically load rules', () => {
   before(() => {
     clearModule.all()
     process.env.METASCRAPER_CWD = __dirname

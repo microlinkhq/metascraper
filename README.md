@@ -128,9 +128,19 @@ Rules work as fallback between them:
 
 **metascraper** do that until finish all the rule or find the first rule that resolves the value.
 
-## Customization
+## Loading rules
 
-If you want to load more rules set that the provided by default, you need to define a configuration file via:
+When you call **metascraper** in your code, a set of [core rules](#core-rules) are loaded by default.
+
+Although these rules are sufficient for most cases, **metascraper** was designed to be easy to adapt and load more or custom rules set.
+
+We provide two approach for do that.
+
+### Configuration file
+
+This consists in declaring a configuration file that contains the names of the rule sets corresponding to npm packages that **metascraper** will be load automagically.
+
+The configuration file could be declared via:
 
 - A `.metascraperrc` file, written in YAML or JSON, with optional extensions: **.yaml**, **.yml**, **.json** and **.js**.
 - A `metascraper.config.js` file that exports an object.
@@ -140,11 +150,11 @@ The configuration file will be resolved starting from the location of the file b
 
 The order of rules are loaded are important: Just the first rule that resolve the value will be applied.
 
-### Basic Configuration
+#### Basic Configuration
 
 Declared an **array** of **rules**, specifying each rule as **string** name of the module to load.
 
-#### JSON
+##### JSON
 
 ```json
 // .metascraperrc
@@ -163,7 +173,7 @@ Declared an **array** of **rules**, specifying each rule as **string** name of t
 }
 ```
 
-#### YAML
+##### YAML
 
 ```yaml
 #  .metascraperrc
@@ -179,11 +189,11 @@ rules:
   - metascraper-url
 ```
 
-### Advanced Configuration
+#### Advanced Configuration
 
 Additionally, you can pass specific configuration per module using a **object** declaration:
 
-#### JSON
+##### JSON
 
 ```json
 // .metascraperrc
@@ -205,7 +215,7 @@ Additionally, you can pass specific configuration per module using a **object** 
 }
 ```
 
-#### YAML
+##### YAML
 
 ```yaml
 # .metascraperrc
@@ -220,6 +230,45 @@ rules:
   - metascraper-publisher
   - metascraper-title
   - metascraper-url
+```
+
+### Constructor 
+
+If you need more control, you can load the rules set calling directly the metascraper constructor [`.load`](#metascraperloadrules):
+
+```js
+const metascraper = require('metascraper').load([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-logo')(),
+  require('metascraper-clearbit-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+```
+
+Again, the order of rules are loaded are important: Just the first rule that resolve the value will be applied.
+
+Use the first parameter to pass custom options if you need it:
+
+```js
+const metascraper = require('metascraper').load([
+  require('metascraper-clearbit-logo')({
+    size: 256,
+    format: 'jpg'
+  })
+])
+```
+
+Using this way you are not limited to load just npm modules as rules set. For example, you can load a custom file of rules:
+
+```js
+const metascraper = require('metascraper').load([
+  require('./my-custom-rules-file')()
+])
 ```
 
 ## Rules
@@ -307,6 +356,16 @@ The URL associated with the HTML markup.
 It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
+
+### metascraper.load(rules)
+
+Create a new **metascraper** instance declaring the rules set to be used explicitly.
+
+#### rules
+
+Type: `Array`
+
+The collection fo rules set to be loaded.
 
 ## Environment Variables
 

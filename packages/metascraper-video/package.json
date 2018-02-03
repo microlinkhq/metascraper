@@ -19,7 +19,6 @@
     "@metascraper/helpers": "^3.6.0"
   },
   "devDependencies": {
-    "clear-module": "latest",
     "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",
