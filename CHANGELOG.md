@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-02-03)
+##  (2018-02-04)
 
+
+
+
+<a name="3.7.1"></a>
+## <small>3.7.1 (2018-02-04)</small>
+
+* Ensure video is an absolute video url ([b193dcd](https://github.com/microlinkhq/metascraper/commit/b193dcd))
+* Update Changelog ([b3cac2a](https://github.com/microlinkhq/metascraper/commit/b3cac2a))
+* v3.7.1 ([c839265](https://github.com/microlinkhq/metascraper/commit/c839265))
 
 
 
