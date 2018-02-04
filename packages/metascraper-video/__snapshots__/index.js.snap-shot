@@ -50,3 +50,29 @@ exports['src:poster 1'] = {
   "url": "https://gfycat.com/gifs/detail/timelyhealthyarmadillo"
 }
 
+exports['clips.twitch.tv 1'] = {
+  "image": "https://clips-media-assets.twitch.tv/27434665136-offset-2366-preview.jpg",
+  "video": "https://clips-media-assets.twitch.tv/AT-27434665136-offset-2366-1280x720.mp4",
+  "author": null,
+  "date": null,
+  "description": "Shroud with the casual coffee sip to kill combo - Clipped by jpan11",
+  "lang": "en",
+  "logo": "https://www.twitch.tv/favicon.ico",
+  "publisher": "Twitch",
+  "title": "shroud Playing PLAYERUNKNOWN’S BATTLEGROUNDS - Twitch Clips",
+  "url": "https://clips.twitch.tv/AwkwardBoredWaffleItsBoshyTime"
+}
+
+exports['play.tv 1'] = {
+  "image": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/720.jpg",
+  "video": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/480.mp4",
+  "author": "chineseouchie",
+  "date": "2018-02-04T00:00:00.000Z",
+  "description": "Publicado por chineseouchie",
+  "lang": "en",
+  "logo": "https://plays.tv/images/chrome/touch_icon_152x152.png",
+  "publisher": "Plays.tv",
+  "title": "Holy Shit",
+  "url": "https://plays.tv/video/5a6f64b1bef69a7fa9/holy-shit"
+}
+

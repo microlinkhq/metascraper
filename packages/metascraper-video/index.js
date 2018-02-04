@@ -2,9 +2,14 @@
 
 const { getUrl, isUrl } = require('@metascraper/helpers')
 const videoExtensions = require('video-extensions')
+const { URL } = require('url')
 const path = require('path')
 
-const isVideoUrl = url => videoExtensions.includes(path.extname(url).substring(1))
+const isVideoUrl = url => {
+  const { pathname } = new URL(url)
+  const ext = path.extname(pathname).substring(1)
+  return videoExtensions.includes(ext)
+}
 
 /**
  * Wrap a rule with validation and formatting logic.

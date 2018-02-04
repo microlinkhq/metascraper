@@ -45,6 +45,22 @@ describe('metascraper-video', () => {
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
+
+    describe('specific providers', () => {
+      it('clips.twitch.tv', async () => {
+        const html = await readFile(resolve(__dirname, 'fixtures/providers/clip.twitch.tv.html'))
+        const url = 'https://clips.twitch.tv/AwkwardBoredWaffleItsBoshyTime'
+        const metadata = await metascraper({ html, url })
+        snapshot(metadata)
+      })
+
+      it('play.tv', async () => {
+        const html = await readFile(resolve(__dirname, 'fixtures/providers/play.tv.html'))
+        const url = 'https://plays.tv/video/5a6f64b1bef69a7fa9/holy-shit'
+        const metadata = await metascraper({ html, url })
+        snapshot(metadata)
+      })
+    })
   })
 
   describe('image', () => {
