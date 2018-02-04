@@ -4,6 +4,15 @@
 
 
 
+<a name="3.7.2"></a>
+## <small>3.7.2 (2018-02-04)</small>
+
+* Fix get video extension from url ([b98d2db](https://github.com/microlinkhq/metascraper/commit/b98d2db))
+* Update Changelog ([fa47e32](https://github.com/microlinkhq/metascraper/commit/fa47e32))
+* v3.7.2 ([498a0d5](https://github.com/microlinkhq/metascraper/commit/498a0d5))
+
+
+
 <a name="3.7.1"></a>
 ## <small>3.7.1 (2018-02-04)</small>
 
