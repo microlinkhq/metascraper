@@ -1,6 +1,6 @@
 exports['video src 1'] = {
   "image": "https://cdn.vox-cdn.com/thumbor/AtQQMyWrexi6-Xyk73jv6nqTO7s=/0x5:1247x658/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/10079811/Screen_Shot_2018_01_22_at_3.27.50_PM.png",
-  "video": "https://cdn.vox-cdn.com/thumbor/4l0C-7uGFtTfc6lWibo1ITiE2YU=/0x0:1280x720/320x213/filters:focal(538x258:742x462):gifv():no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/58416873/2018_01_22_14_19_55.0.gif",
+  "video": null,
   "author": "Rachel Becker",
   "date": "2018-01-22T23:38:17.000Z",
   "description": "The zombies are only released on the weekends, the developers promise",
@@ -26,7 +26,7 @@ exports['source src 1'] = {
 
 exports['og:video 1'] = {
   "image": "https://pbs.twimg.com/tweet_video_thumb/DUQODu8VMAASlkj.jpg",
-  "video": "https://twitter.com/i/videos/955905369242513414?embed_source=facebook",
+  "video": null,
   "author": "_developit",
   "date": "2018-02-18T12:00:00.000Z",
   "description": "“📣 Announcing... Karmatic!\n🦑 Easy automatic (headless) browser testing\n🛠 No config needed, auto-detects webpack settings\n🤹‍♀️ Only one dependency to juggle\n🏎 Powered by Karma, Webpack, Jasmine &amp; Puppeteer\nhttps://t.co/nguAcGaWQP https://t.co/OgxikFBdQ8”",
