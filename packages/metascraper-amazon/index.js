@@ -20,13 +20,6 @@ const SUFFIX_LANGUAGES = {
   'it': 'it'
 }
 
-const wrap = rule => ({ htmlDom, url }) => isAmazonUrl(url) && rule(htmlDom)
-
-const wrapUrl = rule => ({ htmlDom, url }) => {
-  const value = wrap(rule)({htmlDom, url})
-  return isUrl(value) && value
-}
-
 const getDomainLanguage = url => {
   const {host} = new URL(url)
   const suffix = host.replace('www.', '').split('.')
@@ -34,8 +27,16 @@ const getDomainLanguage = url => {
   return SUFFIX_LANGUAGES[suffix.join('.')]
 }
 
+const createWrap = fn => rule => ({ htmlDom, url }) => {
+  const value = isAmazonUrl(url) && rule(htmlDom)
+  return !fn ? value : fn(value) && value
+}
+
+const wrap = createWrap()
+const wrapUrl = createWrap(value => isUrl(value))
+
 module.exports = () => ({
-  lang: [({ htmlDom: $, meta, url }) => getDomainLanguage(url)],
+  lang: [({ htmlDom: $, meta, url }) => isAmazonUrl(url) && getDomainLanguage(url)],
   author: [
     wrap($ => titleize($('.contributorNameID').text())),
     wrap($ => titleize($('#bylineInfo').text())),
