@@ -1,6 +1,18 @@
 <a name=""></a>
-##  (2018-02-04)
+##  (2018-02-08)
 
+
+
+
+<a name="3.7.3"></a>
+## <small>3.7.3 (2018-02-08)</small>
+
+* Add metascraper-lang tests ([c5f73bb](https://github.com/microlinkhq/metascraper/commit/c5f73bb))
+* Ensure get lang only for amazon urls ([24d5a19](https://github.com/microlinkhq/metascraper/commit/24d5a19))
+* Remove unnecessary file ([c2e90ce](https://github.com/microlinkhq/metascraper/commit/c2e90ce))
+* Update Changelog ([66a7424](https://github.com/microlinkhq/metascraper/commit/66a7424))
+* Update timestamp ([979c538](https://github.com/microlinkhq/metascraper/commit/979c538))
+* v3.7.3 ([fe11521](https://github.com/microlinkhq/metascraper/commit/fe11521))
 
 
 
