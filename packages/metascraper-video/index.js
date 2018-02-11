@@ -21,9 +21,9 @@ const isVideoUrl = url => {
 const wrapUrl = (url, value) => isUrl(value)
 const wrapVideoUrl = (url, value) => wrapUrl(url, value) && isVideoUrl(value)
 
-const createWrapper = validator => rule => ({ htmlDom, url }) => {
+const createWrapper = fn => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return validator(url, value) && getUrl(url, value)
+  return fn(url, value) && getUrl(url, value)
 }
 
 const wrap = createWrapper(wrapUrl)

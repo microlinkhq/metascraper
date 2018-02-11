@@ -15,9 +15,9 @@ const REGEX_STRICT = /^\S+\s+\S+/
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
 
-  return isString(value) && !isUrl(value, {relative: false}) && titleize(
-    value, {removeBy: true}
-  )
+  return isString(value) &&
+  !isUrl(value, {relative: false}) &&
+  titleize(value, {removeBy: true})
 }
 
 /**

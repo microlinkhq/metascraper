@@ -1,6 +1,6 @@
 'use strict'
 
-const { getValue, titleize, isUrl } = require('@metascraper/helpers')
+const { getUrl, getValue, titleize, isUrl } = require('@metascraper/helpers')
 const { URL } = require('url')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
@@ -29,11 +29,11 @@ const getDomainLanguage = url => {
 
 const createWrap = fn => rule => ({ htmlDom, url }) => {
   const value = isAmazonUrl(url) && rule(htmlDom)
-  return !fn ? value : fn(value) && value
+  return fn(url, value)
 }
 
-const wrap = createWrap()
-const wrapUrl = createWrap(value => isUrl(value))
+const wrap = createWrap((url, value) => value)
+const wrapUrl = createWrap((url, value) => isUrl(value) && getUrl(url, value))
 
 module.exports = () => ({
   lang: [({ htmlDom: $, meta, url }) => isAmazonUrl(url) && getDomainLanguage(url)],

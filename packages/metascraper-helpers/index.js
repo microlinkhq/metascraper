@@ -1,7 +1,7 @@
 'use strict'
 
+const { trim, flow, isEmpty } = require('lodash')
 const condenseWhitespace = require('condense-whitespace')
-const { trim, flow, isString } = require('lodash')
 const isRelativeUrl = require('is-relative-url')
 const { resolve: resolveUrl } = require('url')
 const sanetizeUrl = require('normalize-url')
@@ -11,11 +11,11 @@ const urlRegex = require('url-regex')
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
 
-const isUrl = (url, {relative = true} = {}) => {
-  if (!isString(url)) return false
-  if (!relative) return urlRegex().test(url)
-  return isRelativeUrl(url) || urlRegex().test(url)
-}
+const urlTest = (url, {relative = true}) => relative
+  ? isRelativeUrl(url) || urlRegex().test(url)
+  : urlRegex().test(url)
+
+const isUrl = (url, opts = {}) => !isEmpty(url) && urlTest(url, opts)
 
 const normalizeUrl = url => sanetizeUrl(url, { stripWWW: false })
 

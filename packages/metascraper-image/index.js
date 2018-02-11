@@ -29,8 +29,8 @@ module.exports = () => ({
     wrap($ => $('meta[name="sailthru.image.thumb"]').attr('content')),
     wrap($ => $('meta[name="sailthru.image.full"]').attr('content')),
     wrap($ => $('meta[name="sailthru.image"]').attr('content')),
-    wrap($ => getValue($, $('article img[src]'), getSrc)), // use getValue helper
-    wrap($ => getValue($, $('#content img[src]'), getSrc)), // use getValue helper
+    wrap($ => getValue($, $('article img[src]'), getSrc)),
+    wrap($ => getValue($, $('#content img[src]'), getSrc)),
     wrap($ => $('img[alt*="author"]').attr('src')),
     wrap($ => $('img[src]').attr('src'))
   ]
