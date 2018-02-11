@@ -1,6 +1,18 @@
 <a name=""></a>
-##  (2018-02-08)
+##  (2018-02-11)
 
+
+
+
+<a name="3.8.0"></a>
+## 3.8.0 (2018-02-11)
+
+* Add metascraper video as default rules set ([d14e1e1](https://github.com/microlinkhq/metascraper/commit/d14e1e1))
+* Avoid mutation ([f1d380c](https://github.com/microlinkhq/metascraper/commit/f1d380c))
+* Extract .getSuffix method ([34f8565](https://github.com/microlinkhq/metascraper/commit/34f8565))
+* Refactor URL helpers ([4869eaf](https://github.com/microlinkhq/metascraper/commit/4869eaf))
+* Update Changelog ([3161f79](https://github.com/microlinkhq/metascraper/commit/3161f79))
+* v3.8.0 ([dfb6d4a](https://github.com/microlinkhq/metascraper/commit/dfb6d4a))
 
 
 
