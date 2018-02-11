@@ -19,6 +19,7 @@ const DEFAULT_RULES = [
   'metascraper-author',
   'metascraper-date',
   'metascraper-description',
+  'metascraper-video',
   'metascraper-image',
   'metascraper-lang',
   'metascraper-logo',

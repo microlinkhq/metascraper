@@ -68,6 +68,7 @@
     "metascraper-publisher": "^3.4.0",
     "metascraper-title": "^3.6.0",
     "metascraper-url": "^3.6.0",
+    "metascraper-video": "^3.7.3",
     "resolve-from": "~4.0.0",
     "sanitize-html": "~1.17.0"
   },
