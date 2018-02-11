@@ -2,6 +2,7 @@
 
 const { getUrl, getValue, titleize, isUrl } = require('@metascraper/helpers')
 const { URL } = require('url')
+const { tail } = require('lodash')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 const isAmazonUrl = url => REGEX_AMAZON_URL.test(url)
@@ -22,8 +23,7 @@ const SUFFIX_LANGUAGES = {
 
 const getDomainLanguage = url => {
   const {host} = new URL(url)
-  const suffix = host.replace('www.', '').split('.')
-  suffix.shift()
+  const suffix = tail(host.replace('www.', '').split('.'))
   return SUFFIX_LANGUAGES[suffix.join('.')]
 }
 
