@@ -3,6 +3,7 @@
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
+const { omit } = require('lodash')
 const fs = require('fs')
 
 const metascraper = require('metascraper').load([
@@ -58,7 +59,7 @@ describe('metascraper-video', () => {
         const html = await readFile(resolve(__dirname, 'fixtures/providers/play.tv.html'))
         const url = 'https://plays.tv/video/5a6f64b1bef69a7fa9/holy-shit'
         const metadata = await metascraper({ html, url })
-        snapshot(metadata)
+        snapshot(omit(metadata, ['date']))
       })
     })
   })

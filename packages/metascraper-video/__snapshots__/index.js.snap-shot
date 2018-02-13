@@ -67,7 +67,6 @@ exports['play.tv 1'] = {
   "image": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/720.jpg",
   "video": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/480.mp4",
   "author": "chineseouchie",
-  "date": "2018-02-11T00:00:00.000Z",
   "description": "Publicado por chineseouchie",
   "lang": "en",
   "logo": "https://plays.tv/images/chrome/touch_icon_152x152.png",
@@ -75,4 +74,3 @@ exports['play.tv 1'] = {
   "title": "Holy Shit",
   "url": "https://plays.tv/video/5a6f64b1bef69a7fa9/holy-shit"
 }
-
