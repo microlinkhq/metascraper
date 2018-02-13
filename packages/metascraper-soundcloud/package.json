@@ -24,7 +24,6 @@
     "@metascraper/helpers": "^3.8.0"
   },
   "devDependencies": {
-    "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",

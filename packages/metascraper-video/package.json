@@ -20,7 +20,6 @@
     "video-extensions": "~1.1.0"
   },
   "devDependencies": {
-    "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
