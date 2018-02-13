@@ -1,6 +1,6 @@
 exports['youtube video 1'] = {
   "publisher": "YouTube",
-  "image": "https://i.ytimg.com/vi/hwMkbaS_M_c/maxresdefault.jpg",
+  "image": "https://img.youtube.com/vi/hwMkbaS_M_c/maxresdefault.jpg",
   "author": "ONE Media",
   "date": "2017-04-14T12:00:00.000Z",
   "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
@@ -12,7 +12,7 @@ exports['youtube video 1'] = {
 
 exports['youtube video old 1'] = {
   "publisher": "YouTube",
-  "image": "https://i.ytimg.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
+  "image": "https://img.youtube.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
   "author": "Andrew JRT",
   "date": "2017-07-07T00:00:00.000Z",
   "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
@@ -31,5 +31,16 @@ exports['youtube channel 1'] = {
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
   "title": "ONE Media - YouTube",
   "url": "https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA"
+}
+
+exports['get the high image size 1'] = {
+  "author": "Elon Musk Viral Videos",
+  "publisher": "YouTube",
+  "image": "https://img.youtube.com/vi/rXyKq7izYCQ/sddefault.jpg",
+  "description": "Subscribe for daily Elon Musk videos.",
+  "lang": "es",
+  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
+  "title": "Neil DeGrasse Tyson Comments on SpaceXs Falcon Heavy Launch",
+  "url": "https://www.youtube.com/watch?v=rXyKq7izYCQ"
 }
 

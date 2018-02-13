@@ -21,10 +21,13 @@
     "metascraper"
   ],
   "dependencies": {
-    "get-video-id": "~3.0.0"
+    "@metascraper/helpers": "~3.8.0",
+    "get-video-id": "~3.0.0",
+    "is-reachable": "~2.4.0",
+    "lodash": "~4.17.5",
+    "p-locate": "~2.0.0"
   },
   "devDependencies": {
-    "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
