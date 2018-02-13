@@ -1,6 +1,20 @@
 <a name=""></a>
-##  (2018-02-11)
+##  (2018-02-13)
 
+
+
+
+<a name="3.9.0"></a>
+## 3.9.0 (2018-02-13)
+
+* Add missing test script ([c594242](https://github.com/microlinkhq/metascraper/commit/c594242))
+* Get the highest image size ([63ce77d](https://github.com/microlinkhq/metascraper/commit/63ce77d))
+* Omit date from tests ([7511145](https://github.com/microlinkhq/metascraper/commit/7511145))
+* Remove unnecessary dependencies ([21f2a1f](https://github.com/microlinkhq/metascraper/commit/21f2a1f))
+* Support async logic into rules set ([06fa950](https://github.com/microlinkhq/metascraper/commit/06fa950))
+* Update Changelog ([759b538](https://github.com/microlinkhq/metascraper/commit/759b538))
+* Update test mock ([a4c6c54](https://github.com/microlinkhq/metascraper/commit/a4c6c54))
+* v3.9.0 ([41aa1bc](https://github.com/microlinkhq/metascraper/commit/41aa1bc))
 
 
 
