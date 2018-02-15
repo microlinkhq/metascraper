@@ -4,5 +4,6 @@ window.$docsify = {
   maxLevel: 3,
   executeScript: true,
   auto2top: true,
-  ga: 'UA-108549225-3'
+  ga: 'UA-108549225-3',
+  noEmoji: true
 }

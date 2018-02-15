@@ -1,21 +1,21 @@
 'use strict'
 
-const clearModule = require('clear-module')
 const snapshot = require('snap-shot')
 
-describe('metascraper clearbit logo', () => {
-  before(() => {
-    clearModule.all()
-    process.env.METASCRAPER_CONFIG_CWD = __dirname
-  })
+const metascraper = require('metascraper').load([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-logo')(),
+  require('metascraper-clearbit-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
 
-  after(() => {
-    clearModule.all()
-    delete process.env.METASCRAPER_CONFIG_CWD
-  })
-
+describe('metascraper-clearbit-logo', () => {
   it('if logo is not present, fallback to clearbit logo API', async () => {
-    const metascraper = require('metascraper')
     const url = 'https://facebook.com'
     const html = '<div></div>'
     const meta = await metascraper({ html, url })

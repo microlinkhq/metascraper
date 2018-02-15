@@ -1,6 +1,6 @@
 'use strict'
 
-const { titleize } = require('@metascraper/helpers')
+const { getValue, titleize } = require('@metascraper/helpers')
 const { isString } = require('lodash')
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
@@ -16,9 +16,7 @@ const removeLocation = value => value.replace(REGEX_LOCATION, '')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-
-  if (!isString(value)) return
-  return titleize(removeLocation(value), { capitalize: false })
+  return isString(value) && titleize(removeLocation(value), { capitalize: false })
 }
 
 /**
@@ -32,15 +30,8 @@ module.exports = () => ({
     wrap($ => $('meta[name="description"]').attr('content')),
     wrap($ => $('meta[name="sailthru.description"]').attr('content')),
     wrap($ => $('meta[itemprop="description"]').attr('content')),
-    wrap($ =>
-      $('[class*="content"] > p')
-        .first()
-        .text()
-    ),
-    wrap($ =>
-      $('[class*="content"] p')
-        .first()
-        .text()
-    )
+    wrap($ => $('#description').text()),
+    wrap($ => getValue($, $('[class*="content"] > p'))),
+    wrap($ => getValue($, $('[class*="content"] p')))
   ]
 })

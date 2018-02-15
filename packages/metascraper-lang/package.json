@@ -2,7 +2,7 @@
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "0.0.0",
+  "version": "3.9.0",
   "main": "index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -19,6 +19,11 @@
     "lodash": "~4.17.4"
   },
   "devDependencies": {
+    "metascraper": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -28,7 +33,12 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
 }

@@ -15,9 +15,7 @@ const REGEX_TITLE = /^.*?\|\s+(.*)$/
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-
-  if (!isString(value)) return
-  return condenseWhitespace(value)
+  return isString(value) && condenseWhitespace(value)
 }
 
 /**

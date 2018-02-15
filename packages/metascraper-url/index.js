@@ -1,7 +1,6 @@
 'use strict'
 
 const { getUrl, isUrl } = require('@metascraper/helpers')
-const { isString } = require('lodash')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -12,7 +11,7 @@ const { isString } = require('lodash')
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return isUrl(value) ? getUrl(value, url) : url
+  return isUrl(value) && getUrl(value, url)
 }
 
 /**
@@ -25,6 +24,6 @@ module.exports = () => ({
     wrap($ => $('meta[name="twitter:url"]').attr('content')),
     wrap($ => $('link[rel="canonical"]').attr('href')),
     wrap($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
-    ($, url) => (isString(url) ? url : null)
+    ({ url }) => url
   ]
 })

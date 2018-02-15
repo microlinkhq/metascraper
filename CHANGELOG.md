@@ -1,11 +1,201 @@
 <a name=""></a>
-#  (2017-12-20)
+##  (2018-02-13)
 
+
+
+
+<a name="3.9.0"></a>
+## 3.9.0 (2018-02-13)
+
+* Add missing test script ([c594242](https://github.com/microlinkhq/metascraper/commit/c594242))
+* Get the highest image size ([63ce77d](https://github.com/microlinkhq/metascraper/commit/63ce77d))
+* Omit date from tests ([7511145](https://github.com/microlinkhq/metascraper/commit/7511145))
+* Remove unnecessary dependencies ([21f2a1f](https://github.com/microlinkhq/metascraper/commit/21f2a1f))
+* Support async logic into rules set ([06fa950](https://github.com/microlinkhq/metascraper/commit/06fa950))
+* Update Changelog ([759b538](https://github.com/microlinkhq/metascraper/commit/759b538))
+* Update test mock ([a4c6c54](https://github.com/microlinkhq/metascraper/commit/a4c6c54))
+* v3.9.0 ([41aa1bc](https://github.com/microlinkhq/metascraper/commit/41aa1bc))
+
+
+
+<a name="3.8.0"></a>
+## 3.8.0 (2018-02-11)
+
+* Add metascraper video as default rules set ([d14e1e1](https://github.com/microlinkhq/metascraper/commit/d14e1e1))
+* Avoid mutation ([f1d380c](https://github.com/microlinkhq/metascraper/commit/f1d380c))
+* Extract .getSuffix method ([34f8565](https://github.com/microlinkhq/metascraper/commit/34f8565))
+* Refactor URL helpers ([4869eaf](https://github.com/microlinkhq/metascraper/commit/4869eaf))
+* Update Changelog ([3161f79](https://github.com/microlinkhq/metascraper/commit/3161f79))
+* v3.8.0 ([dfb6d4a](https://github.com/microlinkhq/metascraper/commit/dfb6d4a))
+
+
+
+<a name="3.7.3"></a>
+## <small>3.7.3 (2018-02-08)</small>
+
+* Add metascraper-lang tests ([c5f73bb](https://github.com/microlinkhq/metascraper/commit/c5f73bb))
+* Ensure get lang only for amazon urls ([24d5a19](https://github.com/microlinkhq/metascraper/commit/24d5a19))
+* Remove unnecessary file ([c2e90ce](https://github.com/microlinkhq/metascraper/commit/c2e90ce))
+* Update Changelog ([66a7424](https://github.com/microlinkhq/metascraper/commit/66a7424))
+* Update timestamp ([979c538](https://github.com/microlinkhq/metascraper/commit/979c538))
+* v3.7.3 ([fe11521](https://github.com/microlinkhq/metascraper/commit/fe11521))
+
+
+
+<a name="3.7.2"></a>
+## <small>3.7.2 (2018-02-04)</small>
+
+* Fix get video extension from url ([b98d2db](https://github.com/microlinkhq/metascraper/commit/b98d2db))
+* Update Changelog ([fa47e32](https://github.com/microlinkhq/metascraper/commit/fa47e32))
+* v3.7.2 ([498a0d5](https://github.com/microlinkhq/metascraper/commit/498a0d5))
+
+
+
+<a name="3.7.1"></a>
+## <small>3.7.1 (2018-02-04)</small>
+
+* Ensure video is an absolute video url ([b193dcd](https://github.com/microlinkhq/metascraper/commit/b193dcd))
+* Update Changelog ([b3cac2a](https://github.com/microlinkhq/metascraper/commit/b3cac2a))
+* v3.7.1 ([c839265](https://github.com/microlinkhq/metascraper/commit/c839265))
+
+
+
+<a name="3.7.0"></a>
+## 3.7.0 (2018-02-03)
+
+* Expose load and autoload methods ([327fae4](https://github.com/microlinkhq/metascraper/commit/327fae4))
+* Update Changelog ([3951637](https://github.com/microlinkhq/metascraper/commit/3951637))
+* Update docs ([b75dc59](https://github.com/microlinkhq/metascraper/commit/b75dc59))
+* Update tests ([274cb27](https://github.com/microlinkhq/metascraper/commit/274cb27))
+* v3.7.0 ([4c62dce](https://github.com/microlinkhq/metascraper/commit/4c62dce))
+
+
+
+<a name="3.6.4"></a>
+## <small>3.6.4 (2018-02-01)</small>
+
+* Update Changelog ([caa6855](https://github.com/microlinkhq/metascraper/commit/caa6855))
+* Update get-video-id dependency ([fc0bf94](https://github.com/microlinkhq/metascraper/commit/fc0bf94))
+* v3.6.4 ([eed68e0](https://github.com/microlinkhq/metascraper/commit/eed68e0))
+
+
+
+<a name="3.6.3"></a>
+## <small>3.6.3 (2018-01-30)</small>
+
+* Update Changelog ([09efd46](https://github.com/microlinkhq/metascraper/commit/09efd46))
+* Use src poster value as image ([d2e16c3](https://github.com/microlinkhq/metascraper/commit/d2e16c3))
+* v3.6.3 ([53e1461](https://github.com/microlinkhq/metascraper/commit/53e1461))
+
+
+
+<a name="3.6.2"></a>
+## <small>3.6.2 (2018-01-28)</small>
+
+* Avoid repeat parsing steps ([566f9d1](https://github.com/microlinkhq/metascraper/commit/566f9d1))
+* Update Changelog ([2d1cb53](https://github.com/microlinkhq/metascraper/commit/2d1cb53))
+* Update README.md ([56409d1](https://github.com/microlinkhq/metascraper/commit/56409d1))
+* v3.6.2 ([2653c7d](https://github.com/microlinkhq/metascraper/commit/2653c7d))
+* docs(readme): add Greenkeeper badge ([777f511](https://github.com/microlinkhq/metascraper/commit/777f511))
+
+
+
+<a name="3.6.1"></a>
+## <small>3.6.1 (2018-01-23)</small>
+
+* Add og:video test ([1ced9f9](https://github.com/microlinkhq/metascraper/commit/1ced9f9))
+* Update Changelog ([011fae2](https://github.com/microlinkhq/metascraper/commit/011fae2))
+* v3.6.1 ([d80789e](https://github.com/microlinkhq/metascraper/commit/d80789e))
+
+
+
+<a name="3.6.0"></a>
+## 3.6.0 (2018-01-23)
+
+* Add metascraper-video first approach ([79e98c9](https://github.com/microlinkhq/metascraper/commit/79e98c9))
+* Check upgrade package dependencies before publish ([5c70cdb](https://github.com/microlinkhq/metascraper/commit/5c70cdb))
+* Ensure output is an object ([dbfac33](https://github.com/microlinkhq/metascraper/commit/dbfac33))
+* Extract removeBy into titleize helper ([627abfc](https://github.com/microlinkhq/metascraper/commit/627abfc))
+* Normalize meta property tag ([df96522](https://github.com/microlinkhq/metascraper/commit/df96522))
+* Remove date from snapshot ([818fa90](https://github.com/microlinkhq/metascraper/commit/818fa90))
+* Update Changelog ([b5749c3](https://github.com/microlinkhq/metascraper/commit/b5749c3))
+* Update deps ([281088f](https://github.com/microlinkhq/metascraper/commit/281088f))
+* v3.6.0 ([c28a942](https://github.com/microlinkhq/metascraper/commit/c28a942))
+
+
+
+<a name="3.5.0"></a>
+## 3.5.0 (2018-01-23)
+
+* Add METASCRAPER_CWD tests and documentation ([73be24f](https://github.com/microlinkhq/metascraper/commit/73be24f)), closes [#52](https://github.com/microlinkhq/metascraper/issues/52)
+* Add metascraper-youtube ([a043f93](https://github.com/microlinkhq/metascraper/commit/a043f93))
+* Add missing dep ([31122be](https://github.com/microlinkhq/metascraper/commit/31122be))
+* Add YouTube rules package ([4749216](https://github.com/microlinkhq/metascraper/commit/4749216))
+* Adjust style ([272c2a3](https://github.com/microlinkhq/metascraper/commit/272c2a3))
+* Avoid get first directly, use .getValue helper ([12dd21e](https://github.com/microlinkhq/metascraper/commit/12dd21e))
+* Avoid non deterministic date ([3fc6130](https://github.com/microlinkhq/metascraper/commit/3fc6130))
+* Docs tweaks ([9dac9f6](https://github.com/microlinkhq/metascraper/commit/9dac9f6))
+* Move soundcloud test ([ab03d97](https://github.com/microlinkhq/metascraper/commit/ab03d97))
+* Refactor ([a7dea20](https://github.com/microlinkhq/metascraper/commit/a7dea20))
+* Remove browser mention ([6cb0d73](https://github.com/microlinkhq/metascraper/commit/6cb0d73))
+* Remove unnecessary deps ([ddf4384](https://github.com/microlinkhq/metascraper/commit/ddf4384))
+* Update ([d246295](https://github.com/microlinkhq/metascraper/commit/d246295))
+* Update README.md ([c8609cd](https://github.com/microlinkhq/metascraper/commit/c8609cd))
+* Update scripts ([8b158e0](https://github.com/microlinkhq/metascraper/commit/8b158e0))
+* Update testing setup ([d75c74f](https://github.com/microlinkhq/metascraper/commit/d75c74f))
+* Update testing setup ([ba6253c](https://github.com/microlinkhq/metascraper/commit/ba6253c))
+* Update toc ([853f8d3](https://github.com/microlinkhq/metascraper/commit/853f8d3))
+* v3.5.0 ([88a1e6f](https://github.com/microlinkhq/metascraper/commit/88a1e6f))
+
+
+
+<a name="3.4.3"></a>
+## <small>3.4.3 (2017-12-31)</small>
+
+* Improve author & description accuracy ([7e14b48](https://github.com/microlinkhq/metascraper/commit/7e14b48))
+* Refactor ([447280c](https://github.com/microlinkhq/metascraper/commit/447280c))
+* v3.4.3 ([9ca8926](https://github.com/microlinkhq/metascraper/commit/9ca8926))
+
+
+
+<a name="3.4.2"></a>
+## <small>3.4.2 (2017-12-30)</small>
+
+* Add `metascraper-lang` as part of defaults rule sets ([5ec9472](https://github.com/microlinkhq/metascraper/commit/5ec9472))
+* Add get language from amazon urls ([f6de069](https://github.com/microlinkhq/metascraper/commit/f6de069))
+* Update Changelog ([38ce74c](https://github.com/microlinkhq/metascraper/commit/38ce74c))
+* v3.4.2 ([df4f572](https://github.com/microlinkhq/metascraper/commit/df4f572))
+
+
+
+<a name="3.4.1"></a>
+## <small>3.4.1 (2017-12-29)</small>
+
+* Ensure url is string ([4402622](https://github.com/microlinkhq/metascraper/commit/4402622))
+* Update changelog ([ad5efe8](https://github.com/microlinkhq/metascraper/commit/ad5efe8))
+* Update README.md ([f875152](https://github.com/microlinkhq/metascraper/commit/f875152))
+* v3.4.1 ([d13dfb8](https://github.com/microlinkhq/metascraper/commit/d13dfb8))
+
+
+
+<a name="3.4.0"></a>
+## 3.4.0 (2017-12-29)
+
+* Add a.co amazon urls ([eb75363](https://github.com/microlinkhq/metascraper/commit/eb75363))
+* Add language property ([656bb97](https://github.com/microlinkhq/metascraper/commit/656bb97)), closes [#45](https://github.com/microlinkhq/metascraper/issues/45)
+* Add missing readme ([76201b0](https://github.com/microlinkhq/metascraper/commit/76201b0))
+* Avoid non deterministic tests ([d63d5aa](https://github.com/microlinkhq/metascraper/commit/d63d5aa))
+* Ensure favicon path is absolute ([266b404](https://github.com/microlinkhq/metascraper/commit/266b404))
+* Refactor ([3a412be](https://github.com/microlinkhq/metascraper/commit/3a412be))
+* Remove coveralls as dev dependency ([2aab9e7](https://github.com/microlinkhq/metascraper/commit/2aab9e7))
+* Tweaks ([2ea632f](https://github.com/microlinkhq/metascraper/commit/2ea632f))
+* Update Changelog ([f2bee3d](https://github.com/microlinkhq/metascraper/commit/f2bee3d))
+* v3.4.0 ([3f73396](https://github.com/microlinkhq/metascraper/commit/3f73396))
 
 
 
 <a name="3.3.0"></a>
-# 3.3.0 (2017-12-20)
+## 3.3.0 (2017-12-20)
 
 * Add indidivual package doc ([253ca09](https://github.com/microlinkhq/metascraper/commit/253ca09))
 * Add more tests ([e7143f6](https://github.com/microlinkhq/metascraper/commit/e7143f6))
@@ -20,7 +210,7 @@
 
 
 <a name="3.2.0"></a>
-# 3.2.0 (2017-12-19)
+## 3.2.0 (2017-12-19)
 
 * Add build command ([8a23e81](https://github.com/microlinkhq/metascraper/commit/8a23e81))
 * Add clearbit-logo tests ([3e87ec4](https://github.com/microlinkhq/metascraper/commit/3e87ec4))
@@ -51,7 +241,7 @@
 
 
 <a name="3.1.0"></a>
-# 3.1.0 (2017-12-17)
+## 3.1.0 (2017-12-17)
 
 * Add metasraper-soundcloud ([9814253](https://github.com/microlinkhq/metascraper/commit/9814253))
 * Add publish script ([b96eb09](https://github.com/microlinkhq/metascraper/commit/b96eb09))
@@ -66,7 +256,7 @@
 
 
 <a name="3.0.0"></a>
-# 3.0.0 (2017-12-15)
+## 3.0.0 (2017-12-15)
 
 * Add CNAME ([a5a1b59](https://github.com/microlinkhq/metascraper/commit/a5a1b59))
 * Add custom travis install ([5768cbf](https://github.com/microlinkhq/metascraper/commit/5768cbf))
@@ -90,7 +280,7 @@
 
 
 <a name="2.0.0"></a>
-# 2.0.0 (2017-12-11)
+## 2.0.0 (2017-12-11)
 
 * Add anandtech case ([da392f6](https://github.com/microlinkhq/metascraper/commit/da392f6))
 * Add arstechnica case ([0c27159](https://github.com/microlinkhq/metascraper/commit/0c27159))

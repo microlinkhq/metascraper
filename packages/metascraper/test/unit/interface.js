@@ -3,7 +3,6 @@
 const should = require('should')
 
 const metascraper = require('../..')
-// const clearbitLogo = require('metascraper-clearbit-logo')()
 
 it('url is required', async () => {
   try {

@@ -20,14 +20,9 @@
 - [Metadata](#metadata)
 - [How it works](#how-it-works)
 - [Customization](#customization)
-  * [Basic Configuration](#basic-configuration)
-  * [Advanced Configuration](#advanced-configuration)
 - [Rules](#rules)
-  * [Core rules](#core-rules)
-  * [Community rules](#community-rules)
-  * [Write your own rules](#write-your-own-rules)
 - [API](#api)
-  * [metascraper(options)](#metascraperoptions)
+- [Environment Variables](#environment-variables)
 - [Comparison](#comparison)
 - [License](#license)
 
@@ -38,7 +33,6 @@
 It follows a few principles:
 
 - Have a high accuracy for online articles by default.
-- Be usable on the server and in the browser.
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors. 
 
@@ -85,31 +79,34 @@ Where the output will be something like:
 
 Here is a list of the metadata that **metascraper** collects by default:
 
-- **`author`** — eg. `Noah Kulwin`<br/>
+- `author` — eg. *Noah Kulwin*<br/>
   A human-readable representation of the author's name.
 
-- **`date`** — eg. `2016-05-27T00:00:00.000Z`<br/>
+- `date` — eg. *2016-05-27T00:00:00.000Z*<br/>
   An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
 
-- **`description`** — eg. `Venture capitalists are raising money at the fastest rate...`<br/>
+- `description` — eg. *Venture capitalists are raising money at the fastest rate...*<br/>
   The publisher's chosen description of the article.
+  
+- `video` — eg. *https://assets.entrepreneur.com/content/preview.mp4*<br/>
+  A video URL that best represents the article.
 
-- **`image`** — eg. `https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg`<br/>
+- `image` — eg. *https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg*<br/>
   An image URL that best represents the article.
 
-- **`lang`** — eg. `en`<br/>
+- `lang` — eg. *en*<br/>
   An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) representation of the url content language.
  
-- **`logo`** — eg. `https://entrepreneur.com/favicon180x180.png`<br/>
+- `logo` — eg. *https://entrepreneur.com/favicon180x180.png*<br/>
   An image URL that best represents the publisher brand.
 
-- **`publisher`** — eg. `Fast Company`<br/>
+- `publisher` — eg. *Fast Company*<br/>
   A human-readable representation of the publisher's name.
 
-- **`title`** — eg. `Meet Wall Street's New A.I. Sheriffs`<br/>
+- `title` — eg. *Meet Wall Street's New A.I. Sheriffs*<br/>
   The publisher's chosen title of the article.
 
-- **`url`** — eg. `http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion`<br/>
+- `url` — eg. *http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*<br/>
   The URL of the article.
   
 ## How it works
@@ -134,23 +131,33 @@ Rules work as fallback between them:
 
 **metascraper** do that until finish all the rule or find the first rule that resolves the value.
 
-## Customization
+## Loading rules
 
-If you want to load more rules set that the provided by default, you need to define a configuration file via:
+When you call **metascraper** in your code, a set of [core rules](#core-rules) are loaded by default.
 
-- A `.metascraperrc` file, written in YAML or JSON, with optional extensions: `.yaml/.yml/.json/.js`.
-- A `prettier.config.js` file that exports an object.
-- A `"metascraper"` key in your `package.json` file.
+Although these rules are sufficient for most cases, **metascraper** was designed to be easy to adapt and load more or custom rules set.
+
+We provide two approach for do that.
+
+### Configuration file
+
+This consists in declaring a configuration file that contains the names of the rule sets corresponding to npm packages that **metascraper** will be load automagically.
+
+The configuration file could be declared via:
+
+- A `.metascraperrc` file, written in YAML or JSON, with optional extensions: **.yaml**, **.yml**, **.json** and **.js**.
+- A `metascraper.config.js` file that exports an object.
+- A **metascraper** key in your `package.json` file.
 
 The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
 
 The order of rules are loaded are important: Just the first rule that resolve the value will be applied.
 
-### Basic Configuration
+#### Basic Configuration
 
-Declared an `array` of `rules`, specifying each rule as `string` name of the module to load.
+Declared an **array** of **rules**, specifying each rule as **string** name of the module to load.
 
-#### JSON
+##### JSON
 
 ```json
 // .metascraperrc
@@ -160,6 +167,7 @@ Declared an `array` of `rules`, specifying each rule as `string` name of the mod
     "metascraper-date",
     "metascraper-description",
     "metascraper-image",
+    "metascraper-lang",
     "metascraper-logo",
     "metascraper-publisher",
     "metascraper-title",
@@ -168,26 +176,27 @@ Declared an `array` of `rules`, specifying each rule as `string` name of the mod
 }
 ```
 
-#### YAML
+##### YAML
 
 ```yaml
 #  .metascraperrc
-rules:
+rules:  
   - metascraper-author
   - metascraper-date
   - metascraper-description
   - metascraper-image
+  - metascraper-lang
   - metascraper-logo
   - metascraper-publisher
   - metascraper-title
   - metascraper-url
 ```
 
-### Advanced Configuration
+#### Advanced Configuration
 
-Additionally, you can pass specific configuration per module using a `object` declaration:
+Additionally, you can pass specific configuration per module using a **object** declaration:
 
-#### JSON
+##### JSON
 
 ```json
 // .metascraperrc
@@ -197,6 +206,7 @@ Additionally, you can pass specific configuration per module using a `object` de
     "metascraper-date",
     "metascraper-description",
     "metascraper-image",
+    "metascraper-lang",
     "metascraper-logo",
     {"metascraper-clearbit-logo": {
     "format": "jpg"
@@ -208,7 +218,7 @@ Additionally, you can pass specific configuration per module using a `object` de
 }
 ```
 
-#### YAML
+##### YAML
 
 ```yaml
 # .metascraperrc
@@ -217,7 +227,7 @@ rules:
   - metascraper-date
   - metascraper-description
   - metascraper-image
-  - metascraper-logo
+  - metascraper-lang
   - metascraper-clearbit-logo:
       format: jpg
   - metascraper-publisher
@@ -225,9 +235,48 @@ rules:
   - metascraper-url
 ```
 
+### Constructor 
+
+If you need more control, you can load the rules set calling directly the metascraper constructor [`.load`](#metascraperloadrules):
+
+```js
+const metascraper = require('metascraper').load([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-logo')(),
+  require('metascraper-clearbit-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+```
+
+Again, the order of rules are loaded are important: Just the first rule that resolve the value will be applied.
+
+Use the first parameter to pass custom options if you need it:
+
+```js
+const metascraper = require('metascraper').load([
+  require('metascraper-clearbit-logo')({
+    size: 256,
+    format: 'jpg'
+  })
+])
+```
+
+Using this way you are not limited to load just npm modules as rules set. For example, you can load a custom file of rules:
+
+```js
+const metascraper = require('metascraper').load([
+  require('./my-custom-rules-file')()
+])
+```
+
 ## Rules
 
-?> Can't find a rules set that you want? Let's [open an issue](https://github.com/microlinkhq/metacraper/issues) to create it.
+?> Can't find a rules set that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
 ### Core rules
 
@@ -238,6 +287,7 @@ These rules set will be shipped with  **metascraper** and loaded by default.
 | [`metascraper-author`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-author) | [![npm](https://img.shields.io/npm/v/metascraper-author.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-author) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-author&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-author) |
 | [`metascraper-date`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-date) | [![npm](https://img.shields.io/npm/v/metascraper-date.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-date) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-date&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-date) |
 | [`metascraper-description`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description) | [![npm](https://img.shields.io/npm/v/metascraper-description.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-description) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-description&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-description) |
+| [`metascraper-video`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video) | [![npm](https://img.shields.io/npm/v/metascraper-video.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-video) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-video&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-video) |
 | [`metascraper-image`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-image) | [![npm](https://img.shields.io/npm/v/metascraper-image.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-image) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-image&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-image) |
 | [`metascraper-logo`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo) | [![npm](https://img.shields.io/npm/v/metascraper-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo) |
 | [`metascraper-publisher`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-publisher) | [![npm](https://img.shields.io/npm/v/metascraper-publisher.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-publisher) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-publisher&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-publisher) |
@@ -254,6 +304,7 @@ These rule set will not be shipped with  **metascraper** by default and need to 
 | [`metascraper-clearbit-logo`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-clearbit-logo) | [![npm](https://img.shields.io/npm/v/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit-logo&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit-logo) |
 | [`metascraper-logo-favicon`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo-favicon) | [![npm](https://img.shields.io/npm/v/metascraper-logo-favicon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo-favicon) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo-favicon&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo-favicon) |
 | [`metascraper-soundcloud`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) | [![npm](https://img.shields.io/npm/v/metascraper-soundcloud.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-soundcloud) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-soundcloud&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-soundcloud) |
+| [`metascraper-youtube`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) | [![npm](https://img.shields.io/npm/v/metascraper-youtube.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-youtube) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-youtube&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-youtube) |
 
 ### Write your own rules
 
@@ -309,6 +360,25 @@ The URL associated with the HTML markup.
 It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
+
+### metascraper.load(rules)
+
+Create a new **metascraper** instance declaring the rules set to be used explicitly.
+
+#### rules
+
+Type: `Array`
+
+The collection fo rules set to be loaded.
+
+## Environment Variables
+
+### METASCRAPER_CWD
+
+Type: `String` <br/>
+Default: `process.cwd()`
+
+This variable is used to determine where starting search for a configuration object.
 
 ## Comparison
 

@@ -1,23 +1,47 @@
 'use strict'
 
-const { titleize, isUrl } = require('@metascraper/helpers')
+const { getUrl, getValue, titleize, isUrl } = require('@metascraper/helpers')
+const { URL } = require('url')
+const { chain } = require('lodash')
 
-const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\.com\/.*)/i
+const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 const isAmazonUrl = url => REGEX_AMAZON_URL.test(url)
 
-const wrap = rule => ({ htmlDom, url }) => {
-  if (!isAmazonUrl(url)) return
-  const value = rule(htmlDom)
-  return value
+const SUFFIX_LANGUAGES = {
+  'ca': 'en',
+  'cn': 'zh',
+  'co.jp': 'ja',
+  'co.uk': 'en',
+  'com.mx': 'es',
+  'com': 'en',
+  'de': 'de',
+  'es': 'es',
+  'fr': 'fr',
+  'in': 'en',
+  'it': 'it'
 }
 
-const wrapUrl = rule => ({ htmlDom, url }) => {
-  const value = wrap(rule)({htmlDom, url})
-  if (!isUrl(value)) return
-  return value
+const getSuffix = host => chain(host)
+  .replace('www.', '')
+  .split('.')
+  .tail()
+  .join('.')
+  .value()
+
+const getDomainLanguage = url => (
+  SUFFIX_LANGUAGES[getSuffix(new URL(url).host)]
+)
+
+const createWrap = fn => rule => ({ htmlDom, url }) => {
+  const value = isAmazonUrl(url) && rule(htmlDom)
+  return fn(url, value)
 }
+
+const wrap = createWrap((url, value) => value)
+const wrapUrl = createWrap((url, value) => isUrl(value) && getUrl(url, value))
 
 module.exports = () => ({
+  lang: [({ htmlDom: $, meta, url }) => isAmazonUrl(url) && getDomainLanguage(url)],
   author: [
     wrap($ => titleize($('.contributorNameID').text())),
     wrap($ => titleize($('#bylineInfo').text())),
@@ -26,7 +50,7 @@ module.exports = () => ({
   title: [
     wrap($ => titleize($('#productTitle').text())),
     wrap($ => titleize($('#btAsinTitle').text())),
-    wrap($ => titleize($('h1.a-size-large').first().text())),
+    wrap($ => titleize(getValue($, $('h1.a-size-large')))),
     wrap($ => titleize($('#item_name').text()))
   ],
   publisher: [wrap($ => 'Amazon')],

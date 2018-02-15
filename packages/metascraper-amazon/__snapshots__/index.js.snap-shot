@@ -1,4 +1,5 @@
 exports['product url 1'] = {
+  "lang": "en",
   "author": "Mat Follas",
   "title": "Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems",
   "publisher": "Amazon",
@@ -9,16 +10,18 @@ exports['product url 1'] = {
 }
 
 exports['ansi url 1'] = {
+  "lang": "en",
   "author": "SainSmart",
   "title": "SainSmart 4-Channel Relay Module",
   "publisher": "Amazon",
   "image": "https://images-na.ssl-images-amazon.com/images/I/51M0KK9HuHL._SY300_QL70_.jpg",
   "description": "Buy SainSmart 4-Channel Relay Module: Everything Else - Amazon.com ✓ FREE DELIVERY possible on eligible purchases",
   "logo": null,
-  "url": "https://www.amazon.com/gp/product/B0057OC5O8/"
+  "url": "https://www.amazon.com/gp/product/B0057OC5O8"
 }
 
 exports['product url 2'] = {
+  "lang": "en",
   "author": "David Baldacci",
   "title": "The Whole Truth (A. Shaw Book 1) Kindle Edition",
   "publisher": "Amazon",
@@ -29,6 +32,7 @@ exports['product url 2'] = {
 }
 
 exports['product url 3'] = {
+  "lang": "es",
   "author": "Cecotec",
   "title": "Robot aspirador Conga Excellence 990 de Cecotec. Friega el suelo, Barre, aspira y pasa la mopa. Programable 24h. 5 modos de limpieza. Base de carga. Silencioso. Potente. Filtro HEPA.",
   "publisher": "Amazon",

@@ -27,7 +27,8 @@
     "standard": "latest",
     "finepack": "latest",
     "standard-markdown": "latest",
-    "unfluff": "latest"
+    "unfluff": "latest",
+    "npm-check-updates": "latest"
   },
   "engines": {
     "node": ">= 8"
@@ -36,16 +37,17 @@
     "dev": "concurrently \"gulp\" \"npm run server:dev\"",
     "build": "gulp build",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
-    "publish": "lerna publish --sort --cd-version",
+    "publish": "npm run upgrade && lerna publish --sort && npm run changelog:commit",
     "postinstall": "lerna bootstrap && lerna link --force-local",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "changelog": "conventional-changelog -s -i CHANGELOG.md",
+    "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
+    "changelog:commit": "npm run changelog && git add CHANGELOG.md && git commit -m 'Update Changelog' && git push origin master",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "pretty": "prettier-standard index.js {test,src}/**/*.js --single-quote",
-    "test": "lerna exec npm run test"
+    "test": "lerna exec npm run test",
+    "upgrade": "lerna exec ncu --  --error-level 2"
   },
   "license": "MIT",
   "lint-staged": {

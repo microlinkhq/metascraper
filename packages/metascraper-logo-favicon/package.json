@@ -2,7 +2,7 @@
   "name": "metascraper-logo-favicon",
   "description": "metascraper logo favicon fallback",
   "homepage": "https://documentup.com/microlinkhq/metascraper-logo-favicon",
-  "version": "3.3.0",
+  "version": "3.7.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -20,10 +20,13 @@
     "clearbit",
     "metascraper"
   ],
-  "dependencies": {
-    "@metascraper/helpers": "^3.3.0"
-  },
   "devDependencies": {
+    "lodash": "latest",
+    "metascraper": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -33,7 +36,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "lint-staged": {
