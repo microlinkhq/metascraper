@@ -18,16 +18,18 @@ const isVideoUrl = url => {
  * @return {Function} wrapped
  */
 
-const wrapUrl = (url, value) => isUrl(value)
-const wrapVideoUrl = (url, value) => wrapUrl(url, value) && isVideoUrl(value)
-
 const createWrapper = fn => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return fn(url, value) && getUrl(url, value)
+  return fn(url, value)
 }
 
-const wrap = createWrapper(wrapUrl)
-const wrapVideo = createWrapper(wrapVideoUrl)
+const wrap = createWrapper((url, value) => isUrl(value) && getUrl(url, value))
+
+const wrapVideo = createWrapper((url, value) => {
+  if (!isUrl(value)) return false
+  const urlValue = getUrl(url, value)
+  return isVideoUrl(urlValue) && urlValue
+})
 
 /**
  * Rules.

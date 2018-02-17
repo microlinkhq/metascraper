@@ -9,7 +9,7 @@ const fs = require('fs')
 const metascraper = require('../../..')
 const readFile = promisify(fs.readFile)
 
-const url = 'https://en.wikipedia.org/wiki/Bored_of_the_Rings'
+const url = 'https://en.wikipedia.org/wiki/Bob_Dylan'
 
 it('wikipedia', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
