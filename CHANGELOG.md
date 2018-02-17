@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-02-13)
+##  (2018-02-17)
 
+
+
+
+<a name="3.9.1"></a>
+## <small>3.9.1 (2018-02-17)</small>
+
+* Fix resolve absolute video URL ([97a8026](https://github.com/microlinkhq/metascraper/commit/97a8026))
+* Update Changelog ([96b5d84](https://github.com/microlinkhq/metascraper/commit/96b5d84))
+* v3.9.1 ([44a2d29](https://github.com/microlinkhq/metascraper/commit/44a2d29))
 
 
 
