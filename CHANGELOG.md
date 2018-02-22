@@ -1,6 +1,19 @@
 <a name=""></a>
-##  (2018-02-17)
+##  (2018-02-22)
 
+
+
+
+<a name="3.9.2"></a>
+## <small>3.9.2 (2018-02-22)</small>
+
+* Call getValue() correctly ([afe0915](https://github.com/microlinkhq/metascraper/commit/afe0915))
+* Fix badge ([fd6d2b0](https://github.com/microlinkhq/metascraper/commit/fd6d2b0))
+* Fix lint ([c1eb1ef](https://github.com/microlinkhq/metascraper/commit/c1eb1ef))
+* Only return first title element value ([da30009](https://github.com/microlinkhq/metascraper/commit/da30009))
+* Update Changelog ([672ebef](https://github.com/microlinkhq/metascraper/commit/672ebef))
+* Update deps ([327eea8](https://github.com/microlinkhq/metascraper/commit/327eea8))
+* v3.9.2 ([a9c94bc](https://github.com/microlinkhq/metascraper/commit/a9c94bc))
 
 
 
