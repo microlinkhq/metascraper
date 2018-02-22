@@ -1,6 +1,6 @@
 # metascraper-helpers
 
-[![npm](https://img.shields.io/npm/v/metascraper-helpers.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-helpers)
+[![npm](https://img.shields.io/npm/v/@metascraper/helpers.svg?style=flat-square)](https://www.npmjs.com/package/@metascraper/helpers)
 [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-helpers&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-helpers)
 
 > Collection of helper functions used by metascraper.
