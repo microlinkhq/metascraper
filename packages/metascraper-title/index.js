@@ -20,6 +20,6 @@ module.exports = () => ({
     ),
     wrap($ => $('h1[class*="title"] a').text()),
     wrap($ => $('h1[class*="title"]').text()),
-    wrap($ => $('title').getValue())
+    wrap($ => getValue($, $('title')))
   ]
 })
