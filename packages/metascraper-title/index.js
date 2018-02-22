@@ -1,6 +1,6 @@
 'use strict'
 
-const { titleize } = require('@metascraper/helpers')
+const { getValue, titleize } = require('@metascraper/helpers')
 const { isString } = require('lodash')
 
 const wrap = rule => ({ htmlDom }) => {
@@ -20,6 +20,6 @@ module.exports = () => ({
     ),
     wrap($ => $('h1[class*="title"] a').text()),
     wrap($ => $('h1[class*="title"]').text()),
-    wrap($ => $('title').text())
+    wrap($ => getValue($, $('title')))
   ]
 })
