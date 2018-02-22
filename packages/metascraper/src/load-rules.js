@@ -4,16 +4,7 @@ const cwd = process.env.METASCRAPER_CWD || process.cwd()
 const config = require('cosmiconfig')('metascraper').load(cwd)
 const resolveFrom = require('resolve-from')
 
-const {
-  map,
-  findIndex,
-  forEach,
-  chain,
-  isObject,
-  isArray,
-  isString,
-  get
-} = require('lodash')
+const {map, findIndex, forEach, chain, isObject, isArray, isString, get} = require('lodash')
 
 const DEFAULT_RULES = [
   'metascraper-author',
@@ -30,25 +21,22 @@ const DEFAULT_RULES = [
 
 const load = rules =>
   chain(rules)
-  // merge rules with same props
-  .reduce((acc, rules) => {
-    forEach(rules, function (rule, propName) {
-      const index = findIndex(acc, item => item[propName])
-      if (index !== -1) {
-        acc[index][propName] = acc[index][propName].concat(rule)
-      } else {
-        acc.push({ [propName]: rule })
-      }
+    // merge rules with same props
+    .reduce((acc, rules) => {
+      forEach(rules, function (rule, propName) {
+        const index = findIndex(acc, item => item[propName])
+        if (index !== -1) acc[index][propName] = acc[index][propName].concat(rule)
+        else acc.push({[propName]: rule})
+      })
+      return acc
+    }, [])
+    // export an array interface, it's easier to iterate
+    .map(obj => {
+      const key = Object.keys(obj)[0]
+      const value = obj[key]
+      return [key, value]
     })
-    return acc
-  }, [])
-  // export an array interface, it's easier to iterate
-  .map(obj => {
-    const key = Object.keys(obj)[0]
-    const value = obj[key]
-    return [key, value]
-  })
-  .value()
+    .value()
 
 const autoload = async () => {
   const configFile = await config
