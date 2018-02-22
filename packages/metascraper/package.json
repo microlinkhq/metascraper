@@ -71,7 +71,7 @@
     "metascraper-video": "^3.9.1",
     "p-reduce": "~1.0.0",
     "resolve-from": "~4.0.0",
-    "sanitize-html": "~1.17.0"
+    "sanitize-html": "~1.18.2"
   },
   "devDependencies": {
     "clear-module": "latest",
