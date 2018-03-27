@@ -301,7 +301,7 @@ exports['fortune 1'] = {
   "author": "Kia Kokalitcheva",
   "date": "2015-10-05T20:52:17.000Z",
   "description": "HackerRank, a four-year-old startup, is changing the way companies find and evaluate programmers.",
-  "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?crop=1&h=570&w=820",
+  "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=820&h=570&crop=1",
   "video": null,
   "lang": "en",
   "logo": "http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=16",
