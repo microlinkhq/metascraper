@@ -1,6 +1,18 @@
 <a name=""></a>
-##  (2018-02-22)
+##  (2018-03-29)
 
+
+
+
+<a name="3.9.3"></a>
+## <small>3.9.3 (2018-03-29)</small>
+
+* Add copy clipboard button ([8ad33bb](https://github.com/microlinkhq/metascraper/commit/8ad33bb))
+* Avoid sort url query params ([4fb8095](https://github.com/microlinkhq/metascraper/commit/4fb8095))
+* Remove unnecessary code ([bd6e970](https://github.com/microlinkhq/metascraper/commit/bd6e970))
+* Update Changelog ([cb89351](https://github.com/microlinkhq/metascraper/commit/cb89351))
+* Update index.html ([e392c60](https://github.com/microlinkhq/metascraper/commit/e392c60))
+* v3.9.3 ([b3e562d](https://github.com/microlinkhq/metascraper/commit/b3e562d))
 
 
 
