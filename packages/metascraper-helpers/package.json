@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://metascraper.js.org",
-  "version": "3.9.2",
+  "version": "3.9.3",
   "main": "src/index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
