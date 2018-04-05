@@ -4,7 +4,7 @@ const cwd = process.env.METASCRAPER_CWD || process.cwd()
 const config = require('cosmiconfig')('metascraper').load(cwd)
 const resolveFrom = require('resolve-from')
 
-const {map, findIndex, forEach, chain, isObject, isArray, isString, get} = require('lodash')
+const {concat, map, findIndex, forEach, chain, isObject, isArray, isString, get} = require('lodash')
 
 const DEFAULT_RULES = [
   'metascraper-author',
@@ -25,8 +25,8 @@ const load = rules =>
     .reduce((acc, rules) => {
       forEach(rules, function (rule, propName) {
         const index = findIndex(acc, item => item[propName])
-        if (index !== -1) acc[index][propName] = acc[index][propName].concat(rule)
-        else acc.push({[propName]: rule})
+        if (index !== -1) acc[index][propName] = concat(acc[index][propName], rule)
+        else acc.push({[propName]: concat(rule)})
       })
       return acc
     }, [])
