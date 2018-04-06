@@ -28,13 +28,13 @@
 
 ## Getting Started
 
-**metascraper** is library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks. 
+**metascraper** is library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
 
 It follows a few principles:
 
 - Have a high accuracy for online articles by default.
 - Make it simple to add new rules or override existing ones.
-- Don't restrict rules to CSS selectors or text accessors. 
+- Don't restrict rules to CSS selectors or text accessors.
 
 ## Installation
 
@@ -87,7 +87,7 @@ Here is a list of the metadata that **metascraper** collects by default:
 
 - `description` — eg. *Venture capitalists are raising money at the fastest rate...*<br/>
   The publisher's chosen description of the article.
-  
+
 - `video` — eg. *https://assets.entrepreneur.com/content/preview.mp4*<br/>
   A video URL that best represents the article.
 
@@ -96,7 +96,7 @@ Here is a list of the metadata that **metascraper** collects by default:
 
 - `lang` — eg. *en*<br/>
   An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) representation of the url content language.
- 
+
 - `logo` — eg. *https://entrepreneur.com/favicon180x180.png*<br/>
   An image URL that best represents the publisher brand.
 
@@ -108,18 +108,18 @@ Here is a list of the metadata that **metascraper** collects by default:
 
 - `url` — eg. *http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*<br/>
   The URL of the article.
-  
+
 ## How it works
 
 ?> Configuration file follow the same approach than projects like Babel or Prettier.
 
 **metascraper** is built out of rules.
 
-It was designed to be easy to adapt. You can compose your own transformation pipeline using existing rules or write your own. 
+It was designed to be easy to adapt. You can compose your own transformation pipeline using existing rules or write your own.
 
 Rules are a collection of HTML selectors around a determinate property. When you load the library, implicitly it is loading [core rules](#core-rules).
 
-Each set of rules load a set of selectors in order to get a determinate value. 
+Each set of rules load a set of selectors in order to get a determinate value.
 
 These rules are sorted with priority: The first rule that resolve the value successfully, stop the rest of rules for get the property. Rules are sorted intentionally from specific to more generic.
 
@@ -235,7 +235,7 @@ rules:
   - metascraper-url
 ```
 
-### Constructor 
+### Constructor
 
 If you need more control, you can load the rules set calling directly the metascraper constructor [`.load`](#metascraperloadrules):
 
@@ -305,12 +305,13 @@ These rule set will not be shipped with  **metascraper** by default and need to 
 | [`metascraper-logo-favicon`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo-favicon) | [![npm](https://img.shields.io/npm/v/metascraper-logo-favicon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo-favicon) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo-favicon&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo-favicon) |
 | [`metascraper-soundcloud`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) | [![npm](https://img.shields.io/npm/v/metascraper-soundcloud.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-soundcloud) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-soundcloud&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-soundcloud) |
 | [`metascraper-youtube`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) | [![npm](https://img.shields.io/npm/v/metascraper-youtube.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-youtube) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-youtube&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-youtube) |
+| [`metascraper-video-provider`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video-provider) | [![npm](https://img.shields.io/npm/v/metascraper-video-provider.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-video-provider) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-video-provider&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-video-provider) |
 
 ### Write your own rules
 
 A rule set is the simplest way for extending **metascraper** functionality.
 
-A rule set can add one or more properties support. 
+A rule set can add one or more properties support.
 
 The following schema represents the API compromise that a rule set need to follow:
 
