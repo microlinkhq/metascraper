@@ -35,12 +35,13 @@ describe('metascraper-video-provider', () => {
     const html = await readFile(resolve(__dirname, 'fixtures/twitter.html'))
     const url = 'https://twitter.com/verge/status/957383241714970624'
     const metadata = await metascraper({ html, url })
-    // should(isUrl(metadata.video)).be.true()
+    should(isUrl(metadata.video)).be.true()
   })
-  // it('facebook', async () => {
-  //   const html = await readFile(resolve(__dirname, 'fixtures/facebook.html'))
-  //   const url = 'https://www.facebook.com/afcajax/videos/1686831701364171'
-  //   const metadata = await metascraper({ html, url })
-  //   should(isUrl(metadata.video)).be.true()
-  // })
+
+  it('facebook', async () => {
+    const html = await readFile(resolve(__dirname, 'fixtures/facebook.html'))
+    const url = 'https://www.facebook.com/afcajax/videos/1686831701364171'
+    const metadata = await metascraper({ html, url })
+    should(isUrl(metadata.video)).be.true()
+  })
 })
