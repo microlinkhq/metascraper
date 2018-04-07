@@ -2,7 +2,7 @@
   "name": "metascraper-clearbit-logo",
   "description": "metascraper integration with Clearbit Logo API",
   "homepage": "https://documentup.com/microlinkhq/metascraper-clearbit-logo",
-  "version": "3.7.0",
+  "version": "3.10.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
