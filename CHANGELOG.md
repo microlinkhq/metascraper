@@ -1,6 +1,17 @@
 <a name=""></a>
-##  (2018-03-29)
+##  (2018-04-07)
 
+
+
+
+<a name="3.10.0"></a>
+## 3.10.0 (2018-04-07)
+
+* Add metascraper-social-video (#79) ([51959cf](https://github.com/microlinkhq/metascraper/commit/51959cf)), closes [#79](https://github.com/microlinkhq/metascraper/issues/79)
+* Ensure to concat rules as array ([dff7a6d](https://github.com/microlinkhq/metascraper/commit/dff7a6d))
+* Refactor and expose internal method ([ab0a1ac](https://github.com/microlinkhq/metascraper/commit/ab0a1ac))
+* Update Changelog ([1a88468](https://github.com/microlinkhq/metascraper/commit/1a88468))
+* v3.10.0 ([f8e5ed5](https://github.com/microlinkhq/metascraper/commit/f8e5ed5))
 
 
 
