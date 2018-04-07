@@ -10,21 +10,28 @@ const PREFERRED_VIDEO_QUALITY = [
   'mobile'
 ]
 
+const getVideoUrl = async ({
+  browserless,
+  url,
+  preferredVideoQuality = PREFERRED_VIDEO_QUALITY
+}) => {
+  const videoQualities = await getSocialVideoUrl({ url, browserless })
+  const videoQuality = preferredVideoQuality.find(videoQuality => isUrl(videoQualities[videoQuality]))
+  return videoQualities[videoQuality]
+}
+
 module.exports = (opts = {}) => {
-  const { launchOpts = {}, preferredVideoQuality = PREFERRED_VIDEO_QUALITY } = opts
+  const { launchOpts = {}, preferredVideoQuality } = opts
 
-  const getVideoUrl = async ({ url }) => {
+  const fn = async ({url}) => {
     const browserless = await createBrowserless(launchOpts)
-
-    const videoQualities = await getSocialVideoUrl({ url, browserless })
-    const videoQuality = preferredVideoQuality.find(videoQuality => isUrl(videoQualities[videoQuality]))
-    const result = videoQualities[videoQuality]
-
+    const result = await getVideoUrl({url, browserless, preferredVideoQuality})
     const browserInstance = await browserless.browser
     await browserInstance.close()
-
     return result
   }
 
-  return { video: getVideoUrl }
+  return { video: fn }
 }
+
+module.exports.getVideoUrl = getVideoUrl
