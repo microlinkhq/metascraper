@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-04-07)
+##  (2018-04-08)
 
+
+
+
+<a name="3.10.1"></a>
+## <small>3.10.1 (2018-04-08)</small>
+
+* Change implementation ([b14e3a0](https://github.com/microlinkhq/metascraper/commit/b14e3a0))
+* Update Changelog ([bd7dc2d](https://github.com/microlinkhq/metascraper/commit/bd7dc2d))
+* v3.10.1 ([fe3320c](https://github.com/microlinkhq/metascraper/commit/fe3320c))
 
 
 
