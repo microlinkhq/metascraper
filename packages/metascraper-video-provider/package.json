@@ -17,9 +17,7 @@
   },
   "dependencies": {
     "@metascraper/helpers": "^3.9.3",
-    "browserless": "~3.5.0",
-    "get-social-video-url": "~1.0.1",
-    "puppeteer": "~1.2.0"
+    "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
     "lodash": "latest",

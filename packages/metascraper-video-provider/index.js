@@ -1,37 +1,38 @@
 'use strict'
 
-const getSocialVideoUrl = require('get-social-video-url')
 const { isUrl } = require('@metascraper/helpers')
-const createBrowserless = require('browserless')
+const youtubedl = require('youtube-dl')
+const { promisify } = require('util')
+const path = require('path')
 
-const PREFERRED_VIDEO_QUALITY = [
-  'sd',
-  'hd',
-  'mobile'
-]
+const getVideoInfo = promisify(youtubedl.getInfo)
 
-const getVideoUrl = async ({
-  browserless,
-  url,
-  preferredVideoQuality = PREFERRED_VIDEO_QUALITY
-}) => {
-  const videoQualities = await getSocialVideoUrl({ url, browserless })
-  const videoQuality = preferredVideoQuality.find(videoQuality => isUrl(videoQualities[videoQuality]))
-  return videoQualities[videoQuality]
+/**
+ * Get a Video source quality not too high
+ */
+const getVideoUrl = ({formats}) => {
+  const urls = formats
+    .map(item => item.url)
+    .filter(url => path.extname(url).startsWith('.mp4'))
+
+  const index = Math.round(urls.length / 2) - 1
+  return urls[index]
 }
 
-module.exports = (opts = {}) => {
-  const { launchOpts = {}, preferredVideoQuality } = opts
-
-  const fn = async ({url}) => {
-    const browserless = await createBrowserless(launchOpts)
-    const result = await getVideoUrl({url, browserless, preferredVideoQuality})
-    const browserInstance = await browserless.browser
-    await browserInstance.close()
-    return result
+const getVideoProvider = async url => {
+  try {
+    const info = await getVideoInfo(url)
+    const videoUrl = getVideoUrl(info)
+    return isUrl(videoUrl) && videoUrl
+  } catch (err) {
+    return false
   }
+}
 
-  return { video: fn }
+module.exports = () => {
+  return {
+    video: ({url}) => getVideoProvider(url)
+  }
 }
 
 module.exports.getVideoUrl = getVideoUrl
