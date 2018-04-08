@@ -4,6 +4,15 @@
 
 
 
+<a name="3.10.3"></a>
+## <small>3.10.3 (2018-04-08)</small>
+
+* Ensure to return a http protocol url ([f1595f1](https://github.com/microlinkhq/metascraper/commit/f1595f1))
+* Update Changelog ([ded6cc4](https://github.com/microlinkhq/metascraper/commit/ded6cc4))
+* v3.10.3 ([f5cc2b1](https://github.com/microlinkhq/metascraper/commit/f5cc2b1))
+
+
+
 <a name="3.10.2"></a>
 ## <small>3.10.2 (2018-04-08)</small>
 
