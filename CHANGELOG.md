@@ -4,6 +4,16 @@
 
 
 
+<a name="3.10.2"></a>
+## <small>3.10.2 (2018-04-08)</small>
+
+* Improve mp4 detection ([4f7f26b](https://github.com/microlinkhq/metascraper/commit/4f7f26b))
+* Update Changelog ([0f66a1b](https://github.com/microlinkhq/metascraper/commit/0f66a1b))
+* Update README.md ([3fedeaa](https://github.com/microlinkhq/metascraper/commit/3fedeaa))
+* v3.10.2 ([c4aa6b6](https://github.com/microlinkhq/metascraper/commit/c4aa6b6))
+
+
+
 <a name="3.10.1"></a>
 ## <small>3.10.1 (2018-04-08)</small>
 
