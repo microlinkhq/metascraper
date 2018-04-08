@@ -12,8 +12,8 @@ const getVideoInfo = promisify(youtubedl.getInfo)
  */
 const getVideoUrl = ({formats}) => {
   const urls = formats
+    .filter(item => item.ext === 'mp4' || path.extname(item.url).startsWith('.mp4'))
     .map(item => item.url)
-    .filter(url => path.extname(url).startsWith('.mp4'))
 
   const index = Math.round(urls.length / 2) - 1
   return urls[index]

@@ -44,4 +44,11 @@ describe('metascraper-video-provider', () => {
     const metadata = await metascraper({ html, url })
     should(isUrl(metadata.video)).be.true()
   })
+
+  it('youtube', async () => {
+    const html = await readFile(resolve(__dirname, 'fixtures/youtube.html'))
+    const url = 'https://www.youtube.com/watch?v=hwMkbaS_M_c'
+    const metadata = await metascraper({ html, url })
+    should(isUrl(metadata.video)).be.true()
+  })
 })
