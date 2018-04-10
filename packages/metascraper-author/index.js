@@ -16,8 +16,8 @@ const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
 
   return isString(value) &&
-  !isUrl(value, {relative: false}) &&
-  titleize(value, {removeBy: true})
+    !isUrl(value, {relative: false}) &&
+    titleize(value, {removeBy: true})
 }
 
 /**

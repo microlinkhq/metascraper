@@ -16,15 +16,16 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
+    "lodash": "~4.17.5",
     "@metascraper/helpers": "^3.9.3",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
-    "lodash": "latest",
     "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {

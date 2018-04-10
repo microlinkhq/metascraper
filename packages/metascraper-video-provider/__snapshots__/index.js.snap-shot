@@ -1,0 +1,44 @@
+exports['twitter 1'] = {
+  "author": "The Verge",
+  "publisher": "TwitterCard",
+  "date": "2018-02-11T12:00:00.000Z",
+  "description": "“Is it bad to blow into game cartridges? https://t.co/Y3yAimrUnP”",
+  "image": "https://pbs.twimg.com/media/DRg1OMRVwAEuwTK.jpg",
+  "lang": "es",
+  "logo": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
+  "url": "https://twitter.com/verge/status/957383241714970624"
+}
+
+exports['facebook 1'] = {
+  "author": "AFC Ajax",
+  "publisher": "Facebook",
+  "date": "2018-04-02T18:57:00.000Z",
+  "description": null,
+  "image": null,
+  "lang": "es",
+  "logo": "https://static.xx.fbcdn.net/rsrc.php/yp/r/1Dxu6XIjaTc.ico",
+  "url": "https://www.facebook.com/afcajax/videos/1686831701364171"
+}
+
+exports['youtube 1'] = {
+  "author": "ONE Media",
+  "publisher": "Youtube",
+  "date": "2017-04-14T12:00:00.000Z",
+  "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017\n© 2017 - Disney",
+  "image": "https://i.ytimg.com/vi/hwMkbaS_M_c/mqdefault.jpg",
+  "lang": null,
+  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
+  "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
+}
+
+exports['vimeo 1'] = {
+  "author": "pleid",
+  "publisher": "Vimeo",
+  "date": "2016-10-20T13:06:52.000Z",
+  "description": "Converse has spent a good part of this year updating some of their classics. Our past is constantly catching up to us, but we rarely get to see the relationship…",
+  "image": "https://i.vimeocdn.com/filter/overlay?src0=https://i.vimeocdn.com/video/598160082_1280x720.jpg&src1=https://f.vimeocdn.com/images_v6/share/play_icon_overlay.png",
+  "lang": "en",
+  "logo": "https://i.vimeocdn.com/favicon/main-touch_180",
+  "url": "https://vimeo.com/188175573"
+}
+
