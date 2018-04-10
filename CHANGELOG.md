@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-04-08)
+##  (2018-04-10)
 
+
+
+
+<a name="3.10.4"></a>
+## <small>3.10.4 (2018-04-10)</small>
+
+* Extract more video fields ([69f40c5](https://github.com/microlinkhq/metascraper/commit/69f40c5))
+* Update Changelog ([a67e147](https://github.com/microlinkhq/metascraper/commit/a67e147))
+* v3.10.4 ([754fc1c](https://github.com/microlinkhq/metascraper/commit/754fc1c))
 
 
 
