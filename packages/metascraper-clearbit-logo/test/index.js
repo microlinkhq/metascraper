@@ -1,6 +1,6 @@
 'use strict'
 
-const snapshot = require('snap-shot')
+const should = require('should')
 
 const metascraper = require('metascraper').load([
   require('metascraper-author')(),
@@ -15,10 +15,17 @@ const metascraper = require('metascraper').load([
 ])
 
 describe('metascraper-clearbit-logo', () => {
-  it('if logo is not present, fallback to clearbit logo API', async () => {
+  it('returns when is possible resolve logo', async () => {
     const url = 'https://facebook.com'
     const html = '<div></div>'
     const meta = await metascraper({ html, url })
-    snapshot(meta)
+    should(meta.logo.indexOf('clearbit') !== -1).be.true()
+  })
+
+  it('otherwise returns null', async () => {
+    const url = 'https://lolwerhere.com'
+    const html = '<div></div>'
+    const meta = await metascraper({ html, url })
+    should(meta.logo).be.null()
   })
 })

@@ -1,6 +1,7 @@
 'use strict'
 
 const { URL } = require('url')
+const got = require('got')
 
 const DEFAULTS = {
   size: '128',
@@ -13,9 +14,16 @@ module.exports = opts => {
   opts = Object.assign({}, DEFAULTS, opts)
   const { size, format } = opts
 
-  const clearbitLogo = ({ htmlDom, meta, url: baseUrl }) => {
-    const { hostname } = new URL(baseUrl)
-    return `${ENDPOINT}/${hostname}?size=${size}&format=${format}`
+  const clearbitLogo = async ({ url }) => {
+    const { hostname } = new URL(url)
+    const logoUrl = `${ENDPOINT}/${hostname}?size=${size}&format=${format}`
+
+    try {
+      await got.head(logoUrl)
+      return logoUrl
+    } catch (err) {
+      return null
+    }
   }
 
   return {

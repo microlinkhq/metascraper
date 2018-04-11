@@ -25,7 +25,6 @@
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
-    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -48,5 +47,8 @@
     "env": [
       "mocha"
     ]
+  },
+  "dependencies": {
+    "got": "~8.3.0"
   }
 }
