@@ -13,7 +13,7 @@ $ npm install metascraper-video-provider --save
 
 ## License
 
-**** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq//blob/master/LICENSE.md) License.<br>
+**metascraper-video-provider** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq//blob/master/LICENSE.md) License.<br>
 Authored and maintained by microlink.io with help from [contributors](https://github.com/microlinkhq//contributors).
 
 > [microlink.io](https://microlink.io) · GitHub [@microlink.io](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)
