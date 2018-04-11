@@ -1,6 +1,16 @@
 <a name=""></a>
-##  (2018-04-10)
+##  (2018-04-11)
 
+
+
+
+<a name="3.10.5"></a>
+## <small>3.10.5 (2018-04-11)</small>
+
+* Ensure to resolve a valid logo url ([e004596](https://github.com/microlinkhq/metascraper/commit/e004596))
+* Update Changelog ([5727dde](https://github.com/microlinkhq/metascraper/commit/5727dde))
+* Update README.md ([7ad710d](https://github.com/microlinkhq/metascraper/commit/7ad710d))
+* v3.10.5 ([71ff1f9](https://github.com/microlinkhq/metascraper/commit/71ff1f9))
 
 
 
