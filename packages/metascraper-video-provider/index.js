@@ -2,20 +2,26 @@
 
 const { round, size, get, chain, find, isString } = require('lodash')
 const { isUrl, titleize } = require('@metascraper/helpers')
+const parseDomain = require('parse-domain')
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
 const path = require('path')
+
+const providers = require('./providers')
 
 const getInfo = promisify(youtubedl.getInfo)
 
 let cachedVideoInfoUrl
 let cachedVideoInfo
 
+const isSupportedProvided = url => providers.includes(parseDomain(url).domain)
+
 /**
  * Get the video info.
  * Avoid do more one request for the same URL.
  */
 const getVideoInfo = async url => {
+  if (!isSupportedProvided(url)) return {}
   if (url === cachedVideoInfoUrl) return cachedVideoInfo
   try {
     const info = await getInfo(url)

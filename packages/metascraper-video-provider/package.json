@@ -18,6 +18,7 @@
   "dependencies": {
     "@metascraper/helpers": "^3.9.3",
     "lodash": "~4.17.5",
+    "parse-domain": "~2.0.0",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
@@ -26,13 +27,15 @@
     "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "latest"
+    "standard": "latest",
+    "time-span": "latest"
   },
   "engines": {
     "node": ">= 8"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "providers.js"
   ],
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
