@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-04-11)
+##  (2018-04-12)
 
+
+
+
+<a name="3.10.6"></a>
+## <small>3.10.6 (2018-04-12)</small>
+
+* Avoid extract video for non supported domains ([19792e6](https://github.com/microlinkhq/metascraper/commit/19792e6))
+* Update Changelog ([ab464ac](https://github.com/microlinkhq/metascraper/commit/ab464ac))
+* v3.10.6 ([4a80b36](https://github.com/microlinkhq/metascraper/commit/4a80b36))
 
 
 
