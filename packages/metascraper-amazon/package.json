@@ -2,7 +2,7 @@
   "name": "metascraper-amazon",
   "description": "metascraper integration with Amazon",
   "homepage": "https://documentup.com/microlinkhq/metascraper-amazon",
-  "version": "3.9.3",
+  "version": "3.10.7",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -21,7 +21,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^3.9.3"
+    "@metascraper/helpers": "^3.10.7"
   },
   "devDependencies": {
     "lodash": "latest",
