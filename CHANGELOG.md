@@ -1,6 +1,16 @@
 <a name=""></a>
-##  (2018-04-12)
+##  (2018-04-29)
 
+
+
+
+<a name="3.10.7"></a>
+## <small>3.10.7 (2018-04-29)</small>
+
+* Be possible pass opts ([d675cc9](https://github.com/microlinkhq/metascraper/commit/d675cc9))
+* Update Changelog ([3a1e5da](https://github.com/microlinkhq/metascraper/commit/3a1e5da))
+* Update meta ([7a16eba](https://github.com/microlinkhq/metascraper/commit/7a16eba))
+* v3.10.7 ([47eac4c](https://github.com/microlinkhq/metascraper/commit/47eac4c))
 
 
 
