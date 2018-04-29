@@ -28,8 +28,8 @@ const getAbsoluteUrl = (baseUrl, relativePath = '') => (
     : relativePath
 )
 
-const getUrl = (baseUrl, relativePath) => (
-  normalizeUrl(getAbsoluteUrl(baseUrl, relativePath))
+const getUrl = (baseUrl, relativePath, opts) => (
+  normalizeUrl(getAbsoluteUrl(baseUrl, relativePath), opts)
 )
 
 const removeByPrefix = flow([
