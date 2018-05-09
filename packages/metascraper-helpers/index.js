@@ -1,7 +1,7 @@
 'use strict'
 
-const { trim, flow, isEmpty } = require('lodash')
 const condenseWhitespace = require('condense-whitespace')
+const { trim, flow, isEmpty } = require('lodash')
 const isRelativeUrl = require('is-relative-url')
 const { resolve: resolveUrl } = require('url')
 const sanetizeUrl = require('normalize-url')
@@ -22,11 +22,7 @@ const normalizeUrl = url => sanetizeUrl(url, {
   sortQueryParameters: false
 })
 
-const getAbsoluteUrl = (baseUrl, relativePath = '') => (
-  isRelativeUrl(relativePath)
-    ? resolveUrl(baseUrl, relativePath)
-    : relativePath
-)
+const getAbsoluteUrl = (baseUrl, relativePath = '') => resolveUrl(baseUrl, relativePath)
 
 const getUrl = (baseUrl, relativePath, opts) => (
   normalizeUrl(getAbsoluteUrl(baseUrl, relativePath), opts)
