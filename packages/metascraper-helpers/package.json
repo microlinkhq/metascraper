@@ -19,7 +19,7 @@
     "condense-whitespace": "~1.0.0",
     "is-relative-url": "~2.0.0",
     "lodash": "~4.17.4",
-    "normalize-url": "~2.0.0",
+    "prepend-http": "~2.0.0",
     "smartquotes": "~2.3.1",
     "to-title-case": "~1.0.0",
     "url-regex": "~4.1.1"
