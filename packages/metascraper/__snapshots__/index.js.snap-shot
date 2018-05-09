@@ -973,7 +973,7 @@ exports['wikipedia 1'] = {
   "date": "2016-10-13T12:00:00.000Z",
   "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice of a generation”[2] with songs such as “Blowin’ in the Wind” and “The Times They Are a-Changin’” that became anthems for the Civil Rights Movement and anti-war movement. In 1965, he controversially abandoned his early fan-base in the American folk music revival, recording a six-minute single, “Like a Rolling Stone”, which enlarged the scope of popular music.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
-  "video": "https://upload.wikimedia.org/wikipedia/en/e/e7/Bob_Dylan_-_Blowin%27_in_the_Wind.ogg",
+  "video": "https://upload.wikimedia.org/wikipedia/en/e/e7/Bob_Dylan_-_Blowin'_in_the_Wind.ogg",
   "lang": "en",
   "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
   "publisher": null,
