@@ -1,6 +1,16 @@
 <a name=""></a>
-##  (2018-04-29)
+##  (2018-05-10)
 
+
+
+
+<a name="3.10.8"></a>
+## <small>3.10.8 (2018-05-10)</small>
+
+* Update Changelog ([2dc8f84](https://github.com/microlinkhq/metascraper/commit/2dc8f84))
+* Update dependencies (#85) ([672facc](https://github.com/microlinkhq/metascraper/commit/672facc)), closes [#85](https://github.com/microlinkhq/metascraper/issues/85)
+* Use microlinkhq/normalize-url (#83) ([817fce6](https://github.com/microlinkhq/metascraper/commit/817fce6)), closes [#83](https://github.com/microlinkhq/metascraper/issues/83)
+* v3.10.8 ([8ce6ecc](https://github.com/microlinkhq/metascraper/commit/8ce6ecc))
 
 
 
