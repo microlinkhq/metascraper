@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "condense-whitespace": "~1.0.0",
-    "lodash": "~4.17.4"
+    "lodash": "~4.17.10"
   },
   "devDependencies": {
     "standard": "latest"

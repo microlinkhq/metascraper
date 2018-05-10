@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@metascraper/helpers": "^3.10.7",
-    "lodash": "~4.17.5",
+    "lodash": "~4.17.10",
     "parse-domain": "~2.0.0",
     "youtube-dl": "~1.12.2"
   },
