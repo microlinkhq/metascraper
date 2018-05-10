@@ -36,7 +36,7 @@ exports['vimeo 1'] = {
   "publisher": "Vimeo",
   "date": "2016-10-20T13:06:52.000Z",
   "description": "Converse has spent a good part of this year updating some of their classics. Our past is constantly catching up to us, but we rarely get to see the relationship…",
-  "image": "https://i.vimeocdn.com/filter/overlay?src0=https://i.vimeocdn.com/video/598160082_1280x720.jpg&src1=https://f.vimeocdn.com/images_v6/share/play_icon_overlay.png",
+  "image": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F598160082_1280x720.jpg&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
   "lang": "en",
   "logo": "https://i.vimeocdn.com/favicon/main-touch_180",
   "url": "https://vimeo.com/188175573"
