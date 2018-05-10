@@ -2,7 +2,7 @@
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "3.9.3",
+  "version": "3.10.8",
   "main": "index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
