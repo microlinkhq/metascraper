@@ -1,7 +1,7 @@
 'use strict'
 
 const cwd = process.env.METASCRAPER_CWD || process.cwd()
-const config = require('cosmiconfig')('metascraper').load(cwd)
+const config = require('cosmiconfig')('metascraper').search(cwd)
 const resolveFrom = require('resolve-from')
 
 const {concat, map, findIndex, forEach, chain, isObject, isArray, isString, get} = require('lodash')

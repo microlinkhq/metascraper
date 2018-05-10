@@ -18,7 +18,7 @@
   "dependencies": {
     "condense-whitespace": "~1.0.0",
     "is-relative-url": "~2.0.0",
-    "lodash": "~4.17.4",
+    "lodash": "~4.17.10",
     "normalize-url": "github:microlinkhq/normalize-url",
     "smartquotes": "~2.3.1",
     "to-title-case": "~1.0.0",
