@@ -31,6 +31,8 @@ module.exports = () => ({
     wrap($ => $('meta[name="sailthru.image"]').attr('content')),
     wrap($ => getValue($, $('article img[src]'), getSrc)),
     wrap($ => getValue($, $('#content img[src]'), getSrc)),
+    wrap($ => getValue($, $('.post-image img[src]'), getSrc)),
+    wrap($ => getValue($, $('.img-responsive[src]'), getSrc)),
     wrap($ => $('img[alt*="author"]').attr('src')),
     wrap($ => $('img[src]').attr('src'))
   ]

@@ -102,6 +102,19 @@ exports['business-today 1'] = {
   "url": "http://www.businesstoday.in/magazine/features/hackerrank-helping-cos-hire-coding-champions-via-online-tests/story/232567.html"
 }
 
+exports['careersnz 1'] = {
+  "author": null,
+  "date": "2018-05-03T12:00:00.000Z",
+  "description": "In the second article of our series on information and communications technology (ICT), we’re going to look at the different kinds of jobs in the industry.",
+  "image": "https://www.careers.govt.nz/assets/Posts/_resampled/ScaleWidthWyI3OTUiXQ/game-women-it-design.jpg",
+  "video": null,
+  "lang": null,
+  "logo": "https://www.careers.govt.nz/themes/careers-2015/resources/images/favicons/apple-touch-icon-152x152.png",
+  "publisher": "Careersnz.govt.nz",
+  "title": "IT isn’t only for the super-technical",
+  "url": "https://www.careers.govt.nz/articles/it-isnt-only-for-the-super-technical/"
+}
+
 exports['cbr 1'] = {
   "author": "AAS James Nunns",
   "date": null,
@@ -804,6 +817,19 @@ exports['twitter (tweet with image) 1'] = {
   "url": "https://twitter.com/k4rliky/status/934482867480121345"
 }
 
+exports['twoa 1'] = {
+  "author": null,
+  "date": null,
+  "description": "Te Wānanga o Aotearoa is pleased to be teaming up with School of Hard Knocks (SOHK) once again, to film its third season in Te Tai Tokerau.",
+  "image": "https://www.twoa.ac.nz/-/media/SOHK(1).ashx?h=626&la=en&w=939&hash=8C414BC621CD4218355659AEAAAF52F9C27298CB",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.twoa.ac.nz/apple-touch-icon.png?v=636604413516957204",
+  "publisher": "Kāinga Home Kāinga Home",
+  "title": "School of Hard Knocks returns",
+  "url": "https://www.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns"
+}
+
 exports['usa-today 1'] = {
   "author": "Editors, USA TODAY",
   "date": "2016-05-24T16:29:19.230Z",
@@ -854,6 +880,19 @@ exports['washington-post 1'] = {
   "publisher": "Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all"
+}
+
+exports['wikipedia 1'] = {
+  "author": null,
+  "date": "2016-10-13T12:00:00.000Z",
+  "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice of a generation”[2] with songs such as “Blowin’ in the Wind” and “The Times They Are a-Changin’” that became anthems for the Civil Rights Movement and anti-war movement. In 1965, he controversially abandoned his early fan-base in the American folk music revival, recording a six-minute single, “Like a Rolling Stone”, which enlarged the scope of popular music.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
+  "video": "https://upload.wikimedia.org/wikipedia/en/e/e7/Bob_Dylan_-_Blowin'_in_the_Wind.ogg",
+  "lang": "en",
+  "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
+  "publisher": null,
+  "title": "Bob Dylan - Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
 }
 
 exports['wired 1'] = {
@@ -919,65 +958,5 @@ exports['zdnet 1'] = {
   "publisher": "ZDNet",
   "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
   "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks"
-}
-
-exports['soundcloud 1'] = {
-  "author": null,
-  "date": "2014-01-27T16:19:55.000Z",
-  "description": "Thanks for 5.000 likes on https://www.facebook.com/BeautyBrainMusic :D <3 <3 <3",
-  "image": "https://i1.sndcdn.com/artworks-000069142357-nwttc6-t500x500.jpg",
-  "lang": "en",
-  "logo": "https://a-v2.sndcdn.com/assets/images/sc-icons/ios-a62dfc8f.png",
-  "publisher": "SoundCloud",
-  "title": "Swag Bandicoot [FREE DOWNLOAD]",
-  "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot"
-}
-
-exports['youtube classic 1'] = {
-  "author": "Andrew JRT",
-  "date": "2017-07-07T00:00:00.000Z",
-  "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
-  "image": "https://i.ytimg.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
-  "lang": "en",
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
-  "publisher": "YouTube",
-  "title": "Overwatch - Huge Massive Fist Punch Man",
-  "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg"
-}
-
-exports['youtube video 1'] = {
-  "author": "ONE Media",
-  "date": "2017-04-14T12:00:00.000Z",
-  "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
-  "image": "https://i.ytimg.com/vi/hwMkbaS_M_c/mqdefault.jpg",
-  "lang": null,
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "publisher": "ES",
-  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017",
-  "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
-}
-
-exports['youtube channel 1'] = {
-  "author": "ONE Media",
-  "description": "Thor 3, Star Wars, Valerian, Transformers 5, Baywatch, Despicable Me 3, Fast and Furious 8, Wonder Woman, Justice League... ALL The Must See Movie Trailer, F...",
-  "image": "https://yt3.ggpht.com/-q3yclmvjVzk/AAAAAAAAAAI/AAAAAAAAAAA/jVaGJKJjUps/s200-c-k-no-mo-rj-c0xffffff/photo.jpg",
-  "lang": null,
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "publisher": "YouTube",
-  "title": "ONE Media - YouTube",
-  "url": "https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA"
-}
-
-exports['wikipedia 1'] = {
-  "author": null,
-  "date": "2016-10-13T12:00:00.000Z",
-  "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice of a generation”[2] with songs such as “Blowin’ in the Wind” and “The Times They Are a-Changin’” that became anthems for the Civil Rights Movement and anti-war movement. In 1965, he controversially abandoned his early fan-base in the American folk music revival, recording a six-minute single, “Like a Rolling Stone”, which enlarged the scope of popular music.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
-  "video": "https://upload.wikimedia.org/wikipedia/en/e/e7/Bob_Dylan_-_Blowin'_in_the_Wind.ogg",
-  "lang": "en",
-  "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
-  "publisher": null,
-  "title": "Bob Dylan - Wikipedia",
-  "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
 }
 
