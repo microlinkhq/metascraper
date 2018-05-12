@@ -18,6 +18,11 @@ const wrap = rule => ({ htmlDom }) => {
   return isString(value) && condenseWhitespace(value)
 }
 
+const getFromTitle = (text, regex) => {
+  const matches = regex.exec(text)
+  return matches ? matches[1] : false
+}
+
 /**
  * Rules.
  */
@@ -39,24 +44,7 @@ module.exports = () => ({
     wrap($ => $('[class*="brand"]').text()),
     wrap($ => $('[class*="logo"] a img[alt]').attr('alt')),
     wrap($ => $('[class*="logo"] img[alt]').attr('alt')),
-    wrap($ => {
-      const title = $('title')
-        .text()
-        .trim()
-      const matches = REGEX_TITLE.exec(title)
-      if (!matches) return
-      return matches[1]
-    }),
-    wrap($ =>
-      $('[itemtype="http://schema.org/Blog"] [itemprop="name"]').attr('content')
-    ),
-    wrap($ => {
-      const desc = $('link[rel="alternate"][type="application/atom+xml"]').attr(
-        'title'
-      )
-      const matches = REGEX_RSS.exec(desc)
-      if (!matches) return
-      return matches[1]
-    })
+    wrap($ => getFromTitle($('title').text(), REGEX_TITLE)),
+    wrap($ => getFromTitle($('link[type*="xml"]').attr('title'), REGEX_RSS))
   ]
 })
