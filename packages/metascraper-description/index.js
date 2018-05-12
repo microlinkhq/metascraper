@@ -31,6 +31,8 @@ module.exports = () => ({
     wrap($ => $('meta[name="sailthru.description"]').attr('content')),
     wrap($ => $('meta[itemprop="description"]').attr('content')),
     wrap($ => $('#description').text()),
+    wrap($ => getValue($, $('article > p'))),
+    wrap($ => getValue($, $('[class="content"] > p'))),
     wrap($ => getValue($, $('[class*="content"] > p'))),
     wrap($ => getValue($, $('[class*="content"] p')))
   ]

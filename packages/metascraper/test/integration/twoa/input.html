@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"5184f66878","applicationID":"12515838,56445365","transactionName":"M1QGZkoEXRYCVRANVwoeKWR7SmAMF1MHC0oBcgtcTBdcCQ9TFktxClUBSg==","queueTime":0,"applicationTime":676,"agent":"","atts":""}</script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/Assets/fonts/icons/font-awesome-ie7.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ie8/0.4.1/ie8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+        <title></title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+    <link rel="icon" href="/favicon.ico?v=636328761819848464" />
+    <link rel="shortcut icon" href="/favicon.ico?v=636328761819848464" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=636604413516957204" />
+    <link rel="apple-touch-icon" type="image/png" sizes="57x57" href="/apple-touch-icon-57x57.png?v=636328761679038413" />
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/apple-touch-icon-60x60.png?v=636328761679231594" />
+    <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="/apple-touch-icon-72x72.png?v=636328761679231594" />
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/apple-touch-icon-76x76.png?v=636328761679231594" />
+    <link rel="apple-touch-icon" type="image/png" sizes="114x114" href="/apple-touch-icon-114x114.png?v=636328761678569495" />
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/apple-touch-icon-120x120.png?v=636328761679038413" />
+    <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="/apple-touch-icon-144x144.png?v=636328761679038413" />
+    <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="/apple-touch-icon-152x152.png?v=636328761679038413" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=636328761820629772" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=636328761819848464" />
+    <link rel="manifest" href="/manifest.json?v=636328761821261257" />
+    <link rel="mask-icon" color="#5bbad5" href="/safari-pinned-tab.svg?v=636328761821581919" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+
+        <link rel='stylesheet' href='/Assets/Css/main.css' />
+
+    <link href="/Assets/js/TeWananga/lib/mejs/mediaelementplayer.min.css" rel="stylesheet" />
+    <link href="/Assets/js/TeWananga/lib/chosen/chosen-quickenrol.css" type="text/css" rel="stylesheet" />
+
+
+
+        <script src="/Assets/js/TeWananga/lib/jquery/jquery.js"></script>
+        <script src="/Assets/js/TeWananga/lib/shortcut/shortcut.js"></script>
+        <script src="/Assets/js/TeWananga/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/foundation/foundation.min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/foundation/jquery.foundation.topbar.js"></script>
+        <script src="/Assets/js/TeWananga/lib/chosen/chosen.jquery.min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/hoverIntent.min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/lightbox.min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/jquery.flexslider-min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/mejs/mediaelement-and-player.min.js"></script>
+        <script src="/Assets/js/TeWananga/lib/stickit/stickit.js"></script>
+        <script src="/Assets/js/TeWananga/app.js"></script>
+
+
+</head>
+
+
+
+<body class="  ">
+
+    <!-- Google Tag Manager -->
+
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5S6SS9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5S6SS9' );
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Start Microsoft Application Insights-->
+<script type="text/javascript">
+    var appInsights = window.appInsights || function(config) {
+        function r(config) {
+            t[config] = function() {
+                var i = arguments;
+                t.queue.push(function() {
+                    t[config].apply(t, i)
+                })
+            }
+        }
+        var t = {
+                config: config
+            },
+            u = document,
+            e = window,
+            o = "script",
+            s = u.createElement(o),
+            i, f;
+        for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) r("track" + i.pop());
+        return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function(config, r, u, e, o) {
+            var s = f && f(config, r, u, e, o);
+            return s !== !0 && t["_" + i](config, r, u, e, o), s
+        }), t
+    }({
+
+        instrumentationKey: "8b4334a5-1050-45fa-8afd-2b1c0ba71f58"
+    });
+    window.appInsights = appInsights;
+    appInsights.trackPageView();
+</script>
+<!-- End Microsoft Application Insights-->
+
+    <a href="#SkipLink" class="TopSkipLink">Skip Content</a>
+
+
+<div class="main-header top-bar">
+    <div class="row">
+        <ul class="logo top-bar-btn clearfix">
+            <li class="name default-logo">
+                <span>
+                    <a href="/">
+                        <span class="logo-overlay">
+                            <span class="default state">
+                                <img src="/Assets/img/twoa-logo.png" alt="Twoa" />
+                            </span>
+                            <span class="hover state">
+                                <span class="text">
+                                    <span class="default-text">Kāinga</span>
+                                    <span class="small-text">Home</span>
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+                </span>
+            </li>
+            <li class="name fallback-logo hidden">
+                <span>
+                    <span class="logo-overlay">
+                        <span class="default state">
+                            <img src="/Assets/img/twoa-logo.png" alt="Twoa" />
+                        </span>
+                        <span class="hover state">
+                            <span class="text">
+                                <span class="default-text">Kāinga</span>
+                                <span class="small-text">Home</span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </li>
+            <li class="toggle-topbar mobile-visible"><a href="#"><span class="icon icon-chevron-down"></span></a></li>
+        </ul>
+
+        <div class="header-panel hidden-contrast">
+
+            <div class="btn-enrol-wrapper">
+                <a href="/Enrol" class="btn btn-inverse block">Apply to Enrol <i class="icon icon-main-arrow"></i></a>
+
+            </div>
+            <div class="btn-group">
+
+                <a href="/Search" class="btn btn-primary" title="Search Site"><span class="mobile-visible">Search this website</span> <i class="icon icon-search"></i></a>
+
+                <div class="StyleSelectorLinks">
+
+<form action="/api/sitecore/MainSite/FontIncreaseDecrease" method="post">                            <a title="Large Text" href="#" onclick="$(this).closest('form').submit()">
+                                <span class="btn btn-primary mobile-hidden accessibility-btn">
+                                    <span class="accessibility-icon">A</span>
+                                    <span class="accessibility">A</span>
+                                </span>
+                            </a>
+<input id="currentPage" name="currentPage" type="hidden" value="https://cd4.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns" /></form>
+                </div>
+
+                <div class="StyleSelectorLinks">
+
+<form action="/api/sitecore/MainSite/HighContrast" method="post">                            <a title="High Contrast View" href="#" onclick="$(this).closest('form').submit()">
+                                <span class="btn btn-primary mobile-hidden"><i class="icon-adjust"></i></span>
+                            </a>
+<input id="currentPage" name="currentPage" type="hidden" value="https://cd4.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns" /></form>
+                </div>
+
+                <a href="/Login" class="btn btn-primary student-login">Student Login <i class="icon mobile-visible icon-key"></i></a>
+
+            </div>
+        </div>
+
+        <div class="main-nav">
+            <ul id="menuElem">
+                <li class="nav-item big">
+
+                    <a href="/Nga-Akoranga-Our-Programmes" style="" class="CMSListMenuLink">
+                        <i class="icon icon-graduation"></i><span class="default-text">Ngā Ākoranga</span><span class="small-text">Our Programmes</span>
+
+                        <span class="bottom-border"></span>
+                    </a>
+
+                    <div class="dropdown dropdown-programmes">
+                        <div class="dropdown-container">
+                            <div class="dropdown-header col-inner">
+
+                                <span>Ngā Ākoranga - Our Programmes</span>
+
+                            </div>
+                            <div class="dropdown-body dropdown-medium">
+
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Tuapapa-Foundation" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Tūāpapa</span>
+                                                    <span class="small-text">Learning to Study</span>
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Papa-Kupu_2.jpg" alt="Tūāpapa" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Tikanga-me-nga-Ahuatanga-Maori" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Angitu</span>
+
+                                                    <span class="small-text">Māori and Indigenous Peoples' Development</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/He-Waka-Hiranga_jpg_200_120.JPG" alt="Angitu" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Te-Reo-Maori-Maori-Language" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Te Reo Rangatira</span>
+
+                                                    <span class="small-text">Māori Language</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Te-Reo-Rangatira.jpg" alt="Te Reo Rangatira" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Te-Arawhanui-Business-and-Computing" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Te Arawhānui</span>
+
+                                                    <span class="small-text">Business, Computing & Innovation</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Computing2_jpg_200_120.jpg" alt="Te Arawhānui" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Hauora-Health" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Hauora</span>
+
+                                                    <span class="small-text">Health & Fitness</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Kaupapa-Toimua-Takaro_jpg_200_120.JPG" alt="Hauora" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Toi-Maori-and-Indigenous-Arts" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Toi</span>
+
+                                                    <span class="small-text">Māori & Indigenous Art</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Toi.jpg" alt="Toi" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Tiaki-Tangata-Education" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Te Hiringa</span>
+
+                                                    <span class="small-text">Education</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Te-Tiwhikete-Nga-Poutoko_jpg_200_120.jpg" alt="Te Hiringa" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Social-Services" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Social Services</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Social-Services-main.jpg" alt="Social Services" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Taumata-Raukura-Trades-and-Career-Preparation" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Umanga</span>
+
+                                                    <span class="small-text">Professional Skills & Trade</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Carpentry-Infrastructure.jpg" alt="Umanga" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Matatahi-Mataora-Youth-Initiatives" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">Rangatahi</span>
+
+                                                    <span class="small-text">Youth (16 - 19 years)</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/Vocational-Pathway.jpg" alt="Mātātahi Mataora" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span2-5">
+                                    <div class="col-inner">
+                                        <a href="/Nga-Akoranga-Our-Programmes/Star" class="dropdown-item">
+                                            <span class="title-wrapper">
+                                                <span class="title">
+                                                    <span class="default-text">STAR</span>
+
+                                                    <span class="small-text">Courses for Secondary Students</span>
+
+                                                </span>
+                                            </span>
+                                            <span class="image-wrapper">
+                                                <img src="/Assets/img/menu/programmes/logo_banner_large.png" alt="STAR" />
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="nav-item nav-item-location big">
+
+                    <a href="/Nga-Rohe-Our-Location" style="" class="CMSListMenuLink">
+                        <i class="icon icon-map-marker"></i><span class="default-text">Ngā Rohe</span><span class="small-text">Our Locations</span>
+
+                        <span class="bottom-border"></span>
+                    </a>
+
+                    <div class="dropdown">
+                        <div class="dropdown-container">
+
+                            <div class="dropdown-header col-inner">
+                                <span>
+                                    Ngā Rohe - Our Locations : Main Service Centres
+                                </span>
+                            </div>
+
+                            <div class="dropdown-body col-inner">
+
+                                <div class="dropdown-section">
+
+                                    <div class="dropdown-section-header">
+
+                                        <div class="blue border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Tamaki-Makaurau-Auckland">
+
+                                                    <span class="default-text">Tāmaki Makaurau</span>
+                                                    <span class="small-text">Auckland</span>
+
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tamaki-Makaurau-Auckland/Glenn-Innes-Taniwha-St">
+                                            <span class="default-text">Auckland</span>
+                                            <span class="small-text text-italic">Glen Innes, Taniwha St</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tamaki-Makaurau-Auckland/Mangere-Canning-Cre">
+                                            <span class="default-text">Auckland</span>
+                                            <span class="small-text text-italic">Māngere, Canning Cre</span>
+                                        </a>
+
+
+
+                                    </div>
+
+                                    <div class="dropdown-section-header">
+
+                                        <div class="blue border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Te-Tai-Tokerau-Northland">
+
+                                                    <span class="default-text">Te Tai Tokerau</span>
+                                                    <span class="small-text">Northland</span>
+
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tokerau-Northland/Kaikohe-Rankin-Rd">
+                                            <span class="default-text">Kaikohe</span>
+                                            <span class="small-text text-italic">158 Broadway</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tokerau-Northland/Kaitaia">
+                                            <span class="default-text">Kaitāia</span>
+                                            <span class="small-text text-italic">24-26 Matthews Ave</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tokerau-Northland/Whangarei-Murdoch-Cre">
+                                            <span class="default-text">Whangārei</span>
+                                            <span class="small-text text-italic">12 Murdoch Cre</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-section">
+                                    <div class="dropdown-section-header">
+
+                                        <div class="brown border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Tainui-Waikato">
+
+                                                    <span class="default-text">Tainui</span>
+                                                    <span class="small-text">Waikato</span>
+
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tainui-Waikato/Mangakotukutuku-Ohaupo-Rd">
+                                            <span class="default-text">Hamilton</span>
+                                            <span class="small-text text-italic">Glenview (Mangakōtukutuku)</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tainui-Waikato/Raroera-Te-Rapa-Hamilton">
+                                            <span class="default-text">Hamilton</span>
+                                            <span class="small-text text-italic">Te Rapa (Raroera)</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tainui-Waikato/Huntly-77-Rotowaro-Rd">
+                                            <span class="default-text">Huntly</span>
+                                            <span class="small-text text-italic">77 Rotowaro Rd</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tainui-Waikato/Apakura-Te-Awamutu">
+                                            <span class="default-text">Te Awamutu</span>
+                                            <span class="small-text text-italic">Apakura</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tainui-Waikato/Te-Kuiti-Taupiri-St">
+                                            <span class="default-text">Te Kuiti</span>
+                                            <span class="small-text text-italic">37 Taupiri St</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Tainui-Waikato/Tokoroa">
+                                            <span class="default-text">Tokoroa</span>
+                                            <span class="small-text text-italic">71 Ashworth St</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-section">
+                                    <div class="dropdown-section-header">
+
+                                        <div class="green border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty">
+                                                    <span class="default-text">Waiariki</span>
+                                                    <span class="small-text">Bay of Plenty</span>
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty/Kawerau">
+                                            <span class="default-text">Kawerau</span>
+                                            <span class="small-text text-italic">16-18 Islington St</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty/Turipuku-Rotorua">
+                                            <span class="default-text">Rotorua</span>
+                                            <span class="small-text text-italic">1 Dinsdale Rd (Turipuku)</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty/Waiwhero-Depot-St-Rotorua">
+                                            <span class="default-text">Rotorua</span>
+                                            <span class="small-text text-italic">2-20 Depot St (Waiwhero)</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty/Tauranga-Moana">
+                                            <span class="default-text">Tauranga</span>
+                                            <span class="small-text text-italic">180 17th Avenue</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty/Whakatane">
+                                            <span class="default-text">Whakatane</span>
+                                            <span class="small-text text-italic">6-8 Te Tahi St</span>
+                                        </a>
+
+                                    </div>
+
+
+                                    <div class="dropdown-section-header">
+
+                                        <div class="orange border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Whirikoka-Gisborne">
+                                                    <span class="default-text">Whirikoka</span>
+                                                    <span class="small-text">East Coast / Poverty Bay</span>
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Whirikoka-Gisborne/Opotiki-Elliot-St">
+                                            <span class="default-text">Ōpōtiki</span>
+                                            <span class="small-text text-italic">28 Elliott St</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Whirikoka-Gisborne/Whirikoka-Gisborne">
+                                            <span class="default-text">Gisborne</span>
+                                            <span class="small-text text-italic">630 Childers Rd</span>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="dropdown-section dropdown-locations-map desktop-visible">
+                                    <img src="/Assets/img/dropdown-map.jpg" alt="New Zealand" />
+                                </div>
+
+                                <div class="dropdown-section">
+                                    <div class="dropdown-section-header">
+
+                                        <div class="purple border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay">
+                                                    <span class="default-text">Papaiōea</span>
+                                                    <span class="small-text">Central North Island</span>
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay/Heretaunga-Hastings-705-Heretaunga-St">
+                                            <span class="default-text">Hastings</span>
+                                            <span class="small-text text-italic">705 Heretaunga St</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay/Levin-Hokio-Rd">
+                                            <span class="default-text">Levin</span>
+                                            <span class="small-text text-italic">18 Hokio Beach Rd</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay/Levin-State-Highway-1">
+                                            <span class="default-text">Levin</span>
+                                            <span class="small-text text-italic">615 State Highway 1</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay/New-Plymouth-South-Rd">
+                                            <span class="default-text">New Plymouth</span>
+                                            <span class="small-text text-italic">131 South Rd</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay/Papaioea-Palmerston-North">
+                                            <span class="default-text">Palmerston North</span>
+                                            <span class="small-text text-italic">Centennial Drive</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay/Whanganui">
+                                            <span class="default-text">Whanganui</span>
+                                            <span class="small-text text-italic">68 Victoria Ave</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-section">
+
+                                    <div class="dropdown-section-header">
+
+                                        <div class="halka-haraa border">
+                                            <span>
+                                                <a href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua">
+
+                                                    <span class="default-text">Te Tai Tonga</span>
+                                                    <span class="small-text">Wellington and South Island District</span>
+
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dropdown-section-body">
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua/Blenheim-Koru-Institute">
+                                            <span class="default-text">Blenheim</span>
+                                            <span class="small-text text-italic">Koru Institute</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua/Otautahi">
+                                            <span class="default-text">Christchurch</span>
+                                            <span class="small-text text-italic">Otautahi</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua/Dunedin-Otepoti">
+                                            <span class="default-text">Dunedin</span>
+                                            <span class="small-text text-italic">Otepoti, Kokiri Training Centre</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua/Porirua">
+                                            <span class="default-text">Porirua</span>
+                                            <span class="small-text text-italic">Te Ao Rangi</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua/Lower-Hutt-Public-Trust-House-Level-2">
+                                            <span class="default-text">Wellington</span>
+                                            <span class="small-text text-italic">Lower Hutt</span>
+                                        </a>
+
+                                        <a class="submenu-item" href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua/Upper-Hutt">
+                                            <span class="default-text">Wellington</span>
+                                            <span class="small-text text-italic">Upper Hutt</span>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+
+                    <a href="/Tauira-Students" style="" class="CMSListMenuLink">
+                        <i class="icon icon-key"></i><span class="default-text">Ngā Tauira</span><span class="small-text">Students</span>
+
+                        <span class="bottom-border"></span>
+                    </a>
+
+                    <div class="dropdown dropdown-students">
+                        <div class="dropdown-container">
+                            <div class="dropdown-header col-inner">
+                                <span>
+                                    Ngā Tauira - Students
+                                </span>
+                            </div>
+                            <div class="dropdown-body">
+                                <div class="span4 tablet3 mobile4 support-links">
+                                    <div class="col-inner">
+
+                                        <a href="/Tauira-Students/Te-Manu-Tauira-Handbook" class="support-link student-helpdesk">
+                                            <div class="pull-left">
+                                                <span class="default-text">Te Manu</span>
+                                                <span class="small-text">Tauira Handbook</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span>0800 44 89 62</span>
+                                            </div>
+                                        </a>
+
+                                        <a href="/Tauira-Students/Te-Puna-Manaaki-Student-Support" class="support-link student-support">
+                                            <div class="pull-left">
+                                                <span class="default-text">Te Puna Manaaki</span>
+                                                <span class="small-text">Student Support</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span>0800 355 553</span>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="span2 tablet3 mobile4">
+                                    <div class="col-inner">
+                                        <a href="http://www.outlook.com/akonga.twoa.ac.nz" class="student-link student-email" target="_blank">
+                                            <span class="default-text">Student Email</span>
+                                            <span class="small-text">Login here</span>
+                                        </a>
+                                        <a href="http://moodle.twoa.ac.nz/" class="student-link student-moodle" target="_blank">
+                                            <span class="default-text">Moodle</span>
+                                            <span class="small-text">Login here</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="span6 tablet6 mobile4">
+
+                                    <div class="span4 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Tauira-Students/Putea-Student-Finances" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner">
+
+                                                        <span class="default-text">Tauira Pūtea</span>
+
+                                                        <span class="small-text">Student Finances</span>
+
+
+                                                    </span>
+                                                </span>
+
+                                                <img src="/Assets/img/menu/students/generic24.jpg" alt="Tauira Pūtea / Student Finances" />
+
+                                            </a>
+                                        </div>
+                                    </div><div class="span4 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Tauira-Students/Te-Pataka-Maramatanga-Library" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner">
+
+                                                        <span class="default-text">Te Pātaka Māramatanga</span>
+
+                                                        <span class="small-text">Library</span>
+
+
+                                                    </span>
+                                                </span>
+
+                                                <img src="/Assets/img/menu/students/generic21.jpg" alt="Te Pātaka Māramatanga / Library" />
+
+                                            </a>
+                                        </div>
+                                    </div><div class="span4 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Tauira-Students/Whakapotaetanga-Graduation" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner">
+
+                                                        <span class="default-text">Te Puāwaitanga</span>
+
+                                                        <span class="small-text">Graduation</span>
+
+
+                                                    </span>
+                                                </span>
+
+
+                                                <img src="/Assets/img/menu/students/generic2.jpg" alt="Te Puāwaitanga / Graduation" />
+
+                                            </a>
+                                        </div>
+                                    </div><div class="span4 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Tauira-Students/Aotearoa-Scholarships-Trust" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner">
+
+                                                        <span class="default-text">Aotearoa Scholarhip Trust</span>
+
+
+                                                    </span>
+                                                </span>
+
+
+                                                <img src="/Assets/img/menu/students/web_banner_2015.jpeg" alt="Aotearoa Scholarhip Trust" />
+
+                                            </a>
+                                        </div>
+                                    </div><div class="span4 mobile4">
+                                        <div class="col-inner">
+                                            <a href="https://101.twoa.ac.nz/" class="dropdown-section-header" target="_blank">
+                                                <span class="grey border">
+                                                    <span class="border-inner">
+
+                                                        <span class="default-text">101 SISS</span>
+
+                                                        <span class="small-text">Student Information Service</span>
+
+
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/students/genericmenuitemsm.jpg" alt="Student Information Service" />
+
+
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span4 mobile4">
+                                        <div class="col-inner">
+                                            <a href="https://assess.literacyandnumeracyforadults.com/" class="dropdown-section-header" target="_blank">
+                                                <span class="grey border">
+                                                    <span class="border-inner">
+
+                                                        <span class="default-text">Online Assessment Tool</span>
+
+                                                        <span class="small-text">Literacy and Numeracy</span>
+
+
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/students/educatorlogin_header_banner.jpg" alt="Student Information Service" />
+
+
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+
+                    <a href="/Hononga-Stay-Connected" style="" class="CMSListMenuLink">
+                        <i class="icon icon-users"></i><span class="default-text">Hononga</span><span class="small-text">Stay Connected</span>
+
+                        <span class="bottom-border"></span>
+                    </a>
+
+                    <div class="dropdown">
+                        <div class="dropdown-container">
+
+                            <div class="dropdown-header col-inner">
+                                <span>													 </span>
+                            </div>
+
+                            <div class="dropdown-body">
+
+                                <div class="span2 mobile4">
+                                    <div class="col-inner">
+                                        <div class="dropdown-section-header">
+                                            <a href="/Hononga-Stay-Connected/News-Events" class="dropdown-section-header">
+                                                <span class="grey border border-medium">
+                                                    <span class="border-inner col-inner">
+
+                                                        <span class="default-text">Latest News</span>
+
+                                                        <span class="small-text">News & Events</span>
+
+
+                                                    </span>
+                                                </span>
+
+                                                <img src="/Assets/img/menu/stay-connected/generic6.jpg" alt="Latest News / News & Events" />
+
+
+
+                                            </a>
+                                        </div>
+                                        <div class="dropdown-section-body">
+
+                                        </div>
+                                    </div>
+
+                                </div><div class="span2 mobile4">
+                                    <div class="col-inner">
+                                        <div class="dropdown-section-header">
+                                            <a href="https://www.facebook.com/TeWanangaoAotearoa" target="_blank" class="dropdown-section-header">
+                                                <span class="grey border border-medium">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Like Us</span>
+                                                        <span class="small-text">On Facebook</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/stay-connected/FindUsOnFacebook.png" alt="Like Us / On Facebook" />
+                                            </a>
+                                        </div>
+                                        <div class="dropdown-section-body">
+
+                                        </div>
+                                    </div>
+
+                                </div><div class="span2 mobile4">
+                                    <div class="col-inner">
+                                        <div class="dropdown-section-header">
+                                            <a href="https://www.youtube.com/user/Tewananga" target="_blank" class="dropdown-section-header">
+                                                <span class="grey border border-medium">
+                                                    <span class="border-inner col-inner">
+
+                                                        <span class="default-text">WānangaTV</span>
+
+                                                        <span class="small-text">On YouTube</span>
+
+
+                                                    </span>
+                                                </span>
+
+                                                <img src="/Assets/img/menu/stay-connected/Wananga_TV_on_YouTube.png" alt="WānangaTV / On YouTube" />
+
+
+
+                                            </a>
+                                        </div>
+                                        <div class="dropdown-section-body">
+
+                                        </div>
+                                    </div>
+
+                                </div><div class="span2 mobile4">
+                                    <div class="col-inner">
+                                        <div class="dropdown-section-header">
+                                            <a href="/Hononga-Stay-Connected/Contact-us" class="dropdown-section-header">
+                                                <span class="grey border border-medium">
+                                                    <span class="border-inner col-inner">
+
+                                                        <span class="default-text">Whakapā mai</span>
+
+                                                        <span class="small-text">Contact us</span>
+
+
+                                                    </span>
+                                                </span>
+
+                                                <img src="/Assets/img/menu/stay-connected/generic5.jpg" alt="Whakapā mai / Contact us" />
+
+
+
+                                            </a>
+                                        </div>
+                                        <div class="dropdown-section-body">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item last">
+
+                    <a href="/Te-Whare" style="" class="CMSListMenuLink">
+                        <i class="icon icon-info"></i><span class="default-text">Te Whare</span><span class="small-text">About Us</span>
+
+                        <span class="bottom-border"></span>
+                    </a>
+
+                    <div class="dropdown">
+                        <div class="dropdown-container">
+                            <div class="dropdown-header col-inner">
+                                <span>		</span>
+                            </div>
+                            <div class="dropdown-body col-inner">
+                                <div class="dropdown-row">
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Nga-Tumu" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Ngā Tumu  </span>
+                                                        <span class="small-text">Executive Team</span>
+                                                    </span>
+                                                </span>
+
+                                                <img src="/Assets/img/TWoA-image.png" alt="Ngā Tumu   / Executive Team" />
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Panuitanga-Okawa" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+
+                                                        <span class="default-text">Pānuitanga Ōkawa</span>
+
+                                                        <span class="small-text">Publications and Reports</span>
+
+
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/TWoA-image.png" alt="Pānuitanga Ōkawa / Publications and Reports" />
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Te-Mana-Whakahaere-Council" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+
+                                                        <span class="default-text">Te Mana Whakahaere </span>
+
+                                                        <span class="small-text">Council</span>
+
+
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/generic17.jpg" alt="Te Mana Whakahaere  / Council" />
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Nga-Uara" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Ko te Kaupapa</span>
+                                                        <span class="small-text">Philosophy</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/generic11.jpg" alt="Ko te Kaupapa / Philosophy" />
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Kaimahi-staff" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Kaimahi</span>
+                                                        <span class="small-text">Our Staff</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/generic7.jpg" alt="Kaimahi / Our Staff" />
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="https://twoa.careercentre.net.nz/" target="_blank" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Ngā Tūranga Wātea</span>
+                                                        <span class="small-text">Job Opportunities</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/generic10.jpg" alt="Ngā Tūranga Wātea / Job Opportunities" />
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Innovation-Development" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Wairua Auaha</span>
+                                                        <span class="small-text">IDG</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/IDG.jpg" alt="Wairua Auaha / IDG" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="http://www.dynaspeak.ac.nz/" target="_blank" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">DynaSpeak</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/dynaspeak-english-logo.jpg" alt="DynaSpeak" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Hononga-Stay-Connected/Contact-Us" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Whakapā mai</span>
+                                                        <span class="small-text">Contact us</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/generic5.jpg" alt="Whakapā mai / Contact us" />
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="span2 mobile4">
+                                        <div class="col-inner">
+                                            <a href="/Te-Whare/Nga-Whare-Whariki-Kohungahunga-Early-Learning-Centres" class="dropdown-section-header">
+                                                <span class="grey border">
+                                                    <span class="border-inner col-inner">
+                                                        <span class="default-text">Ngā Whare Whāriki Kōhungahunga</span>
+                                                        <span class="small-text">Early Learning Centres</span>
+                                                    </span>
+                                                </span>
+                                                <img src="/Assets/img/menu/about-us/generic26.jpg" alt="Ngā Whare Whāriki Kōhungahunga / Early Learning Centres" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+    <div id="SkipLink">
+        <a class="HideSkipLink" href="#">Skip Navigation Link Anchor tag</a>
+    </div>
+
+
+<div class="row generic-content-page page-header">
+
+<div class="col span12 span12 column">
+    <div class="col-inner">
+        <div class="page-title"><h1 class="default-text">School of Hard Knocks returns</h1></div><div><hr class="col-inner" /></div>
+    </div>
+</div>
+
+
+</div>
+<div class="row ">
+
+<div class="col mobile4 tablet6 span8 column">
+    <div class="col-inner">
+        <img src="/-/media/SOHK(1).ashx?h=626&amp;la=en&amp;w=939&amp;hash=8C414BC621CD4218355659AEAAAF52F9C27298CB" class="img-responsive" alt="School of Hard Knocks returns" width="939" height="626" DisableWebEdit="False" /><article><p><span>Te W</span><span>ānanga o Aotearoa is pleased to be teaming up with School of Hard Knocks (SOHK)</span><span> once again, to film its third season in Te Tai Tokerau.</span></p>
+<p><span>Last year</span><span>&rsquo;</span><span>s inaugural sponsorship of the 12-week programme saw 16 tauira enrolled at M</span><span>ā</span><span>ngere Campus as they worked towards their NCEA Level 2 fitness qualifications alongside coach mentoring from sporting heroes</span><span>&rsquo;</span><span> Sir John Kirwan, Filipo Levi and Joe Harawira.</span></p>
+<p><span>Season two</span><span>&rsquo;</span><span>s 17-year-old Tamati Te Whaiti, found the opportunity to be so transformative he is now enrolled into the Level 4 Certificate in Health and Fitness programme along with four more of his team mates. He is also going to apply to join the Navy.&nbsp; Another graduate returned to high school while the rest have found employment.</span></p>
+<p><span>"This was the best educational experience of my life,&rdquo; says Tamati. </span></p>
+<p><span>&ldquo;If I hadn&rsquo;t done School of Hard Knocks, I would not be going to recruit for the navy.</span></p>
+<p><span>Sports and Youth education manager for Te Ihu Takiw</span><span>ā </span><span>Desiree Wallace says despite the reality show angle, the partnership is effective because both SOHK and TWoA share the same objective </span><span>&ndash; helping </span><span>youth to face difficult challenges in life.</span></p>
+<p><span>&ldquo;Last year we saw </span><span>opportunities for young men to build their self-worth and learn life skills through sport. This year we continue with this objective and extend a warm welcome to the females as well.</span><span>&rdquo;</span></p>
+<p><span>Season three&rsquo;s filming began with a p</span><span>ō</span><span>whiri in Whangarei yesterday to welcome an intake of 17 rangatahi consisting of 8 females and 9 males.</span></p>
+<p><span>SOHK Executive Producer Hugo Fitzsimmons says he is pleased to be in Northland with Te W</span><span>ānanga o Aotearoa</span><span> and looks forward to giving young women and men the chance to transform themselves.</span></p>
+<p><span>&ldquo;We are </span><span>excited to partner with the W</span><span>ānanga</span><span> again as they provide a great educational platform and holistic learning environment. We</span><span>&rsquo;re also stoked to have the support of ACC again and </span><span>welcome NZRU RugbySmart to the whānau.</span><span>&rdquo;</span></p>
+<p><span>SOHK began in 2007 when founder Ken Cowen approached the UK borough of Knowsley about using rugby to transform the lives of men. Since then the charity has grown to provide more than 50 courses a year throughout the UK.</span>&nbsp;</p>
+<p><span>More than a dozen UK secondary schools have also introduced SOHK into their curriculum with encouraging results.</span></p>
+<p><span>As a pioneering programme Ken says he is thrilled something he thought of 11 years ago has reached these shores.</span></p>
+<p><span>For more information, follow </span><span><a href="https://www.facebook.com/SOHKNZ/"><span style="color: #005e8f;">School of Hard Knocks on Facebook</span></a></span><span style="color: black;">.</span></p></article>
+    </div>
+</div>
+
+
+<div class="col mobile4 tablet6 span4 js-sticky column">
+    <div class="col-inner">
+        <a href="/Hononga-Stay-Connected/News-Events" class="event-listing__back-btn"><i class="icon icon-angle-left">&nbsp;</i>Back to news &amp; events </a>
+<hr class="col-inner" /><p>Published On: </p><p>Article By:  </p>
+
+
+
+<hr class="col-inner" />
+
+<div class="share-buttons clearfix">
+    <p>Share</p>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://cd4.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns" target="_blank" class="addthis_button_facebook share-button share-button-facebook">
+        <span class="icon icon-facebook-sign"></span>
+    </a>
+    <a href="https://twitter.com/home?status=https://cd4.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns" target="_blank" class="addthis_button_twitter share-button share-button-twitter">
+        <span class="icon icon-twitter-sign"></span>
+    </a>
+    <a href="https://plus.google.com/share?url=https://cd4.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns" target="_blank" class="addthis_button_google_plusone_share share-button share-button-googleplus">
+        <span class="icon icon-google-plus-sign"></span>
+    </a>
+    <a href="https://pinterest.com/pin/create/button/?url=https://cd4.twoa.ac.nz/Hononga-Stay-Connected/News-Events/2018/04/19/School-of-Hard-Knocks-returns&media=&description=#matawananga15 aggregate and non aggregate winners" target="_blank" class="addthis_button_pinterest_share share-button share-button-pinterest">
+        <span class="icon icon-pinterest-sign"></span>
+    </a>
+</div>
+
+<hr />
+    </div>
+</div>
+
+
+</div>
+<div class="row ">
+
+<div class="col span12 column">
+    <div class="col-inner">
+        <h2 class="newsevent-other-title">Other Articles</h2>
+
+<ul class="events-listing">
+
+        <li class="events-listing__list">
+            <div class="events-listing__list-header">
+                <p class="events-listing__list-header__date"></p>
+                <h1 class="events-listing__list-header__title">Wāhine take up the tools</h1>
+                <p class="events-listing__list-header__description">Construction stereotypes are taking a hammering at Te Wānanga o Aotearoa, as three tauira wāhine pick up the tools for all the right reasons.</p>
+            </div>
+            <div class="events-listing__list-img">
+
+                    <img src="/-/media/wahineintrade.ashx" />
+
+                <a href="/Hononga-Stay-Connected/News-Events/2018/05/02/Wahine-take-up-the-tools" class="events-listing__list-link">read more</a>
+            </div>
+        </li>
+        <li class="events-listing__list">
+            <div class="events-listing__list-header">
+                <p class="events-listing__list-header__date"></p>
+                <h1 class="events-listing__list-header__title">Nepia steps up to new role</h1>
+                <p class="events-listing__list-header__description">Tumuaramātauranga Nepia Winiata has been appointed Deputy Chief Executive of Te Wānanga o Aotearoa.</p>
+            </div>
+            <div class="events-listing__list-img">
+
+                    <img src="/-/media/_WOA8404-Edit.ashx" />
+
+                <a href="/Hononga-Stay-Connected/News-Events/2018/05/02/Nepia-steps-up-to-new-role" class="events-listing__list-link">read more</a>
+            </div>
+        </li>
+        <li class="events-listing__list">
+            <div class="events-listing__list-header">
+                <p class="events-listing__list-header__date"></p>
+                <h1 class="events-listing__list-header__title">Who the cap fit</h1>
+                <p class="events-listing__list-header__description">Adrienne Spratt may have just made a whole lot more work for herself.</p>
+            </div>
+            <div class="events-listing__list-img">
+
+                    <img src="/-/media/potae.ashx" />
+
+                <a href="/Hononga-Stay-Connected/News-Events/2018/05/02/Who-the-cap-fit" class="events-listing__list-link">read more</a>
+            </div>
+        </li>
+        <li class="events-listing__list">
+            <div class="events-listing__list-header">
+                <p class="events-listing__list-header__date"></p>
+                <h1 class="events-listing__list-header__title">Young leaders learn together</h1>
+                <p class="events-listing__list-header__description">Te Wānanga o Aotearoa has played a significant role in the first Te Matatini Youth Leadership Programme, held at Apumoana Marae in Rotorua last week.   More than 40 rangatahi from around the country – identified as leaders within their kapa haka roopu, kura and communities - were selected to take part in the week-long pilot project.   Led by SME Youth Development Jade Chase and Marketing Coordinator Hera Te Kurapa, Te Wānanga o Aotearoa hosted the participants for one day of the programme, facilitating workshops on personality types, leadership, innovation, technology and entrepreneurship.   The rangatahi enjoyed the Innovation Hub led by Kane Milne and were inspired by local Māori entrepreneurs such as clothing designer Adrienne Whitewood and Pipi Mā founder Kristin Ross.  A Shark Tank design thinking session followed, where the rangatahi were able to develop and present their innovative business ideas to a panel of Māori entrepreneurs.  Business ideas included edible cutlery, recycled plastic kitset homes, translation headphones and fragrant clothing.  Jade says it was an excellent opportunity to showcase what else Te Wānanga o Aotearoa has to offer young people, particularly those who aspire to be leaders, business owners and entrepreneurs. “They were an awesome bunch of rangatahi with a massive amount of potential both in leadership and business.  They left with a greater understanding of themselves and their inherent capabilities, business and leadership skills as well as knowing what Te Wānanga o Aotearoa could potentially offer them.  I think they really enjoyed their time with us.” Later that day, our very own TV star – Hera Te Kurapa – who appeared on the My Kitchen Rules television show last year, facilitated an MKR-style event. “Having the opportunity to teach our rangatahi how to cook was an experience I will never forget,” Hera says. “It allowed me to share my passion for food through cooking tasty, but cheap and easy gourmet kai. The room was full of laughter, noise and the sweet smell of Coconut Thai Kutae. The rangatahi couldn’t believe that they could create such magic in the kitchen.”  Throughout the week, the rangatahi also had workshops with Air New Zealand, Te Matatini, the Health Promotion Agency and the Drug Foundation. A highlight for the rangatahi was hearing from, and connecting with, kapa haka celebrities such as Wetini Mitai-Ngatai, Piata Waitai, Dayne Hollis, Tiria Waitai, Dan Waitai, Tomika Whiu, Eraia Kiel and Hera Te Kupara.  The rangatahi also visited various places in Te Arawa including Mitai Māori Village, Te Puia, Mokoia Island and the Polynesian Spas.  Tumukahuroa Hone Paul says it was a busy week of events and he looks forward to following the progress of the participants in the years ahead.  “We loved hosting the rangatahi and look forward to being involved in the next event.” The programme was a collaboration between Te Matatini, Te Wānanga o Aotearoa, the Health Promotion Agency, the New Zealand Māori Arts &amp; Crafts Institute, Air New Zealand and iDream, which works with young people&#160;to recognise, develop, and support&#160;their career dreams and aspirations.</p>
+            </div>
+            <div class="events-listing__list-img">
+
+                    <img src="/-/media/Te-Matatini-youth.ashx" />
+
+                <a href="/Hononga-Stay-Connected/News-Events/2018/05/02/Young-leaders-learn-together" class="events-listing__list-link">read more</a>
+            </div>
+        </li>
+
+</ul>
+    </div>
+</div>
+
+
+</div>
+    <div class="main-footer" id="footer">
+    <div class="row footer-top">
+        <div class="span9 tablet6">
+
+            <div class="footer-nav">
+
+                <div class="span2 mobile4 footer-nav-section">
+                    <div class="col-inner">
+                        <div class="footer-nav-header">
+
+                            <a href="/">
+                                <i class="mobile-visible icon icon-home"></i>
+                                <span class="default-text">Kāinga</span>
+                                <span class="small-text">Home</span>
+                            </a>
+                        </div>
+                        <div class="footer-nav-body">
+
+                            <a href="/Enrol">Enrol Now</a>
+                            <a href="/Student-Success-Stories/He-Waka-Hiringa">Success Stories</a>
+                            <a href="/Te-Whare/News-Events">Events &amp; Updates</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2 mobile4 footer-nav-section">
+                    <div class="col-inner">
+                        <div class="footer-nav-header">
+
+                            <a href="/Nga-Akoranga-Our-Programmes">
+                                <i class="icon icon-graduation"></i><span class="default-text">Ngā Ākoranga</span><span class="small-text">Our Programmes</span>
+                            </a>
+                        </div>
+                        <div class="footer-nav-body">
+
+                            <a href="/Nga-Akoranga-Our-Programmes/Youth">
+                                <span class="default-text">Te Waharoa</span>
+                                <span class="small-text">Pathways</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Tuapapa-Foundation">
+                                <span class="default-text">Tūāpapa</span>
+                                <span class="small-text">Learning to Study</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Tikanga-me-nga-Ahuatanga-Maori">
+                                <span class="default-text">Angitu</span>
+                                <span class="small-text">Māori and Indigenous Peoples' Development</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Te-Reo-Maori-Maori-Language">
+                                <span class="default-text">Te Reo Rangatira</span>
+                                <span class="small-text">Māori Language</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Te-Arawhanui-Business-and-Computing">
+                                <span class="default-text">Te Arawhānui</span>
+                                <span class="small-text">Business, Computing & Innovation</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Hauora-Health">
+                                <span class="default-text">Hauora</span>
+                                <span class="small-text">Health & Fitness</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Toi-Maori-and-Indigenous-Arts">
+                                <span class="default-text">Toi</span>
+                                <span class="small-text">Māori & Indigenous Art</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Raranga-Weaving">
+                                <span class="default-text">Raranga</span>
+                                <span class="small-text">Weaving</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Whakairo-Carving">
+                                <span class="default-text">Whakairo</span>
+                                <span class="small-text">Carving</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Rauangi-Mixed-Arts">
+                                <span class="default-text">Rauangi</span>
+                                <span class="small-text">Mixed Arts</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Tiaki-Tangata-Education">
+                                <span class="default-text">Te Hiringa</span>
+                                <span class="small-text">Education & Social Services</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Social-Services">
+                                <span class="default-text">Social Services</span>
+                                <span class="small-text"></span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Taumata-Raukura-Trades-and-Career-Preparation">
+                                <span class="default-text">Umanga</span>
+                                <span class="small-text">Professional Skills & Trade</span>
+                            </a>
+                            <a href="/Nga-Akoranga-Our-Programmes/Matatahi-Mataora-Youth-Initiatives">
+                                <span class="default-text">Mātātahi Mataora</span>
+                                <span class="small-text">Youth Guarantee</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2 mobile4 footer-nav-section">
+                    <div class="col-inner">
+                        <div class="footer-nav-header">
+
+                            <a href="/Nga-Rohe-Our-Location">
+                                <i class="icon icon-map-marker"></i><span class="default-text">Ngā Rohe</span><span class="small-text">Our Locations</span>
+                            </a>
+                        </div>
+                        <div class="footer-nav-body">
+
+                            <a href="/Nga-Rohe-Our-Location/Te-Tai-Tokerau-Northland">
+                                <span class="default-text">Te Tai Tokerau</span>
+                                <span class="small-text">Northland</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Tamaki-Makaurau-Auckland">
+                                <span class="default-text">Tāmaki Makaurau</span>
+                                <span class="small-text">Auckland</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Tainui-Waikato">
+                                <span class="default-text">Tainui</span>
+                                <span class="small-text">Waikato</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Waiariki-Bay-of-Plenty">
+                                <span class="default-text">Waiariki</span>
+                                <span class="small-text">Bay of Plenty</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Whirikoka-Gisborne">
+                                <span class="default-text">Whirikoka</span>
+                                <span class="small-text">East Coast / Poverty Bay</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Papaioea-Palmerston-North-Hawkes-Bay">
+                                <span class="default-text">Papaiōea</span>
+                                <span class="small-text">Central North Island</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Te-Tai-Tonga-Porirua">
+                                <span class="default-text">Te Tai Tonga</span>
+                                <span class="small-text">Wellington and South Island District</span>
+                            </a>
+                            <a href="/Nga-Rohe-Our-Location/Home-Based">
+                                <span class="default-text">Home-based learning</span>
+                                <span class="small-text">Study from home</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2 mobile4 footer-nav-section">
+                    <div class="col-inner">
+                        <div class="footer-nav-header">
+
+                            <a href="/Tauira-Students">
+                                <i class="icon icon-key"></i><span class="default-text">Ngā Tauira</span><span class="small-text">Students</span>
+                            </a>
+                        </div>
+                        <div class="footer-nav-body">
+
+                            <a href="/Tauira-Students/Te-Manu-Tauira-Handbook">
+                                <span class="default-text">Te Manu</span>
+                                <span class="small-text">Tauira Handbook</span>
+                            </a>
+
+                            <a href="/Tauira-Students/Te-Puna-Manaaki-Student-Support">
+                                <span class="default-text">Te Puna Manaaki</span>
+                                <span class="small-text">Student Support</span>
+                            </a>
+
+                            <a href="/Tauira-Students/Putea-Student-Finances">
+                                <span class="default-text">Tauira Pūtea</span>
+                                <span class="small-text">Student Finances</span>
+                            </a>
+
+                            <a href="/Tauira-Students/Te-Pataka-Maramatanga-Library">
+                                <span class="default-text">Te Pātaka Māramatanga</span>
+                                <span class="small-text">Library</span>
+                            </a>
+
+                            <a href="/Tauira-Students/Whakapotaetanga-Graduation">
+                                <span class="default-text">Te Puāwaitanga</span>
+                                <span class="small-text">Graduation</span>
+                            </a>
+
+                            <a href="http://www.outlook.com/akonga.twoa.ac.nz" target="_blank">
+                                <span class="default-text">Tauira Email</span>
+                                <span class="small-text">Email login</span>
+                            </a>
+
+                            <a href="http://moodle.twoa.ac.nz/" target="_blank">
+                                <span class="default-text">Online learning</span>
+                                <span class="small-text">Moodle</span>
+                            </a>
+
+                            <a href="/Tauira-Students/Aotearoa-Scholarships-Trust">
+                                <span class="default-text">Aotearoa Scholarhip Trust</span>
+                                <span class="small-text"></span>
+                            </a>
+
+                            <a href="https://101.twoa.ac.nz/" target="_blank">
+                                <span class="default-text">101 SISS</span>
+                                <span class="small-text">Student Information Service</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2 mobile4 footer-nav-section">
+                    <div class="col-inner">
+                        <div class="footer-nav-header">
+
+                            <a href="/Hononga-Stay-Connected">
+                                <i class="icon icon-users"></i><span class="default-text">Hononga</span><span class="small-text">Stay Connected</span>
+                            </a>
+                        </div>
+                        <div class="footer-nav-body">
+
+                            <a href="/Hononga-Stay-Connected/News-Events">
+                                <span class="default-text">Latest News</span>
+                                <span class="small-text">News & Events</span>
+                            </a>
+
+                            <a href="https://www.facebook.com/TeWanangaoAotearoa" target="_blank">
+                                <span class="default-text">Like Us</span>
+                                <span class="small-text">On Facebook</span>
+                            </a>
+
+                            <a href="https://www.youtube.com/user/Tewananga" target="_blank">
+                                <span class="default-text">WānangaTV</span>
+                                <span class="small-text">On YouTube</span>
+                            </a>
+
+                            <a href="/Hononga-Stay-Connected/Contact-us">
+                                <span class="default-text">Whakapā mai</span>
+                                <span class="small-text">Contact us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2 mobile4 footer-nav-section">
+                    <div class="col-inner">
+                        <div class="footer-nav-header">
+
+                            <a href="/Te-Whare">
+                                <i class="icon icon-info"></i><span class="default-text">Te Whare</span><span class="small-text">About Us</span>
+                            </a>
+                        </div>
+                        <div class="footer-nav-body">
+
+                            <a href="/Te-Whare/Te-Mana-Whakahaere-Council">
+                                <span class="default-text">Te Mana Whakahaere </span>
+                                <span class="small-text">Council</span>
+                            </a>
+
+                            <a href="/Te-Whare/Nga-Uara">
+                                <span class="default-text">Ko te Kaupapa</span>
+                                <span class="small-text">Philosophy</span>
+                            </a>
+
+                            <a href="/Te-Whare/Kaimahi-staff">
+                                <span class="default-text">Kaimahi</span>
+                                <span class="small-text">Our Staff</span>
+                            </a>
+
+                            <a href="https://twoa.careercentre.net.nz/" target="_blank">
+                                <span class="default-text">Ngā Tūranga Wātea</span>
+                                <span class="small-text">Job Opportunities</span>
+                            </a>
+
+                            <a href="http://www.dynaspeak.ac.nz/" target="_blank">
+                                <span class="default-text">DynaSpeak</span>
+                            </a>
+
+                            <a href="/Hononga-Stay-Connected/Contact-Us">
+                                <span class="default-text">Whakapā mai</span>
+                                <span class="small-text">Contact us</span>
+                            </a>
+
+                            <a href="/Te-Whare/Nga-Whare-Whariki-Kohungahunga-Early-Learning-Centres">
+                                <span class="default-text">Ngā Whare Whāriki Kōhungahunga</span>
+                                <span class="small-text">Early Learning Centres</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 tablet6">
+            <div class="col-inner">
+                <div class="footer-contact text-center tablet-text-right mobile-text-center">
+                    <h1><a href="tel:0800 355 553">0800 355 553</a></h1>
+
+                    <div class="social">
+                        <div class="row">
+                            <div class="span5 tablet2">
+                                <div class="col-inner">
+                                    <p class="social-title">Connect<br>With Us!</p>
+                                </div>
+                            </div>
+                            <div class="span7 tablet4">
+                                <div class="col-inner">
+                                    <p class="social-icons">
+                                        <a href="http://www.youtube.com/user/Tewananga" class="btn btn-link has-tip tip-top noradius" target="_blank" title="Subscribe to us on YouTube"><i class="icon-youtube"></i></a>
+                                        <a href="https://twitter.com/twoa" class="btn btn-link has-tip tip-top noradius" target="_blank" title="Follow us on Twitter"><i class="icon-twitter"></i></a>
+                                        <a href="https://www.facebook.com/TeWanangaoAotearoa" class="btn btn-link has-tip tip-top noradius" target="_blank" title="Follow us on Facebook"><i class="icon-facebook"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-inner text-left">
+                            <div class="footer-login">
+                                <a href="/Login" class="btn btn-primary btn-login">Student Login</a>
+                                <a href="/Enrol" class="btn btn-primary btn-enroll">
+                                    <span class="btn-left">Enrol Now</span>
+                                    <span class="btn-right"><i class="icon-main-arrow"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom text-right mobile-text-center" id="footer-bottom">
+        <div class="row">
+            <div class="pull-right footer-links span8 mobile4">
+                <div class="col-inner">
+                    <a href="/Pages/Terms-of-Use">Terms of Use</a> |
+                    <a href="/Pages/Privacy">Privacy</a> |
+                    <a href="/Pages/Sitemap">Sitemap</a> |
+                    <a href="/Hononga-Stay-Connected/Contact-Us">Contact Us</a>
+                </div>
+                <div class="col-inner">
+                    <p class="copyright">&copy; 2018 - Te Wānanga o Aotearoa.</p>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="col-inner">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

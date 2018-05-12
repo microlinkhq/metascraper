@@ -18,6 +18,7 @@ module.exports = () => ({
     wrap($ =>
       $('[itemtype="http://schema.org/BlogPosting"] [itemprop="name"]').text()
     ),
+    wrap($ => $('.page-title').text()),
     wrap($ => $('h1[class*="title"] a').text()),
     wrap($ => $('h1[class*="title"]').text()),
     wrap($ => getValue($, $('title')))
