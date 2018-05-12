@@ -299,12 +299,12 @@ exports['forbes 1'] = {
 
 exports['fortune 1'] = {
   "author": "Kia Kokalitcheva",
-  "date": "2015-10-05T20:52:17.000Z",
+  "date": "2015-10-05T00:00:00.000Z",
   "description": "HackerRank, a four-year-old startup, is changing the way companies find and evaluate programmers.",
-  "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=820&h=570&crop=1",
+  "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://1.gravatar.com/blavatar/dab01945b542bffb69b4f700d7a35f8f?s=16",
+  "logo": "http://fortune.com/img/favicons/favicon-192.png",
   "publisher": "Fortune",
   "title": "Why your next job search may involve solving online puzzles",
   "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool"
@@ -585,7 +585,7 @@ exports['recode 1'] = {
 
 exports['reuters 1'] = {
   "author": "Heather Somerville",
-  "date": "2016-05-13T16:43:53.000Z",
+  "date": "2016-05-13T16:43:00.000Z",
   "description": "Venture capitalists are raising money at the fastest rate in a decade, raking in about $13 billion in the first quarter of 2016.",
   "image": "http://s4.reutersmedia.net/resources/r/?m=02&d=20160513&t=2&i=1137169522&w=&fh=545px&fw=&ll=&pl=&sq=&r=LYNXNPEC4C0SU",
   "video": null,
@@ -598,7 +598,7 @@ exports['reuters 1'] = {
 
 exports['san-francisco-chronicle 1'] = {
   "author": "Carolyn Said",
-  "date": "2016-04-25T23:37:00.000Z",
+  "date": "2016-04-25T12:00:00.000Z",
   "description": "[...] it’s natural to think that San Francisco’s new Nasdaq Entrepreneurial Center, which sprawls over 13,000 square feet in a prime SoMa location, would cater exclusively to up-and-coming tech startups. [...] all kind of entrepreneurs, whether they’re launching a taco truck or the next Google, can plug into the center for free classes, mentorship, media coaching, meeting space and other support. The nonprofit center, located near the future Transbay Transit Center, is backed by $10 million from the Nasdaq Educational Foundation, the stock exchange’s 22-year-old philanthropy arm. Outside 505 Howard St., a Times-Square-style electronic ticker scrolls promotions for events and logos of corporate sponsors. Inside, the expansive ground-floor space is divided into various functional areas: a state-of-the-art broadcast studio where budding Jack Dorseys or Marissa Mayers can learn how to handle on-camera interviews; classrooms that can accommodate dozens of people for hands-on trainings; a cafe and meeting space for collaborations; and a big lobby that serves double duty as space for pop-up shops to test products and ideas. The recent college grad knocked on the door, showed off his fledgling product-design studio’s first product, a wristwatch, and was invited to have a three-week pop-up store on site. “It was the absolute best way I could have launched my brand,” said Umaña, whose company, Classic Engineering, is now working on a sculpture-like lamp that turns on and off in response to whistling. There are deep dives into topics like company formation, business mechanics, understanding intellectual property and data security, among others. “Building buzz and excitement around your brand is really an art,” said Alexa Fleischman, CEO and co-founder of Savvy Society, which lets girls design and purchase custom 3-D-printed fashion accessories. [...] that venture funding is tighter, it will offer tips on how to weather this period with alternative financing strategies, for instance. The center hosted a two-day regional workshop for 1776’s Challenge Cup startup contest and helped it identify interesting entrepreneurs, mentors, coaches and local experts.",
   "image": "http://ww3.hdnux.com/photos/45/53/13/9876166/5/rawImage.jpg",
   "video": null,
@@ -715,7 +715,7 @@ exports['startup-grind 1'] = {
 
 exports['techcrunch 1'] = {
   "author": "Frederic Lardinois",
-  "date": "2016-01-12T09:00:44.000Z",
+  "date": "2016-05-24T09:30:26.000Z",
   "description": "Recruiting software engineers is a massive headache for both startups and established companies. For a while now, HackerRank has tried to make both applying..",
   "image": "https://tctechcrunch2011.files.wordpress.com/2015/08/10-interviewed.png?w=720&h=388&crop=1",
   "video": null,

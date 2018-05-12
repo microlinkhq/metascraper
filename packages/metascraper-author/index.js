@@ -41,7 +41,6 @@ module.exports = () => ({
     wrap($ => $('meta[property="author"]').attr('content')),
     wrap($ => $('meta[property="article:author"]').attr('content')),
     wrap($ => $('meta[name="author"]').attr('content')),
-    wrap($ => $('meta[name="sailthru.author"]').attr('content')),
     wrap($ => getValue($, $('[rel="author"]'))),
     wrap($ => getValue($, $('[itemprop*="author"] [itemprop="name"]'))),
     wrap($ => getValue($, $('[itemprop*="author"]'))),

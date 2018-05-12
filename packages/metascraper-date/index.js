@@ -46,7 +46,6 @@ module.exports = () => ({
     wrap($ => $('[property*="dc:date"]').attr('content')),
     wrap($ => $('[property*="dc:created"]').attr('content')),
     wrap($ => $('time[datetime][pubdate]').attr('datetime')),
-    wrap($ => $('meta[name="sailthru.date"]').attr('content')),
     wrap($ => $('meta[property="book:release_date"]').attr('content')),
     wrap($ => $('time[datetime]').attr('datetime')),
     wrap($ => $('[class*="byline"]').text()),
