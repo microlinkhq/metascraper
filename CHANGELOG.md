@@ -1,6 +1,18 @@
 <a name=""></a>
-##  (2018-05-10)
+##  (2018-05-12)
 
+
+
+
+<a name="3.10.9"></a>
+## <small>3.10.9 (2018-05-12)</small>
+
+* Add itemprop image ([8e81660](https://github.com/microlinkhq/metascraper/commit/8e81660))
+* Remove sailthru rules ([a36e240](https://github.com/microlinkhq/metascraper/commit/a36e240))
+* Remove unnecessary author rules ([296fda7](https://github.com/microlinkhq/metascraper/commit/296fda7))
+* Simplify publisher rules ([47ec0e5](https://github.com/microlinkhq/metascraper/commit/47ec0e5))
+* Update Changelog ([9d49f87](https://github.com/microlinkhq/metascraper/commit/9d49f87))
+* v3.10.9 ([810a1e5](https://github.com/microlinkhq/metascraper/commit/810a1e5))
 
 
 
