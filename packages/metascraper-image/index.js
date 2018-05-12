@@ -26,6 +26,7 @@ module.exports = () => ({
     wrap($ => $('meta[property="og:image"]').attr('content')),
     wrap($ => $('meta[name="twitter:image:src"]').attr('content')),
     wrap($ => $('meta[name="twitter:image"]').attr('content')),
+    wrap($ => $('meta[itemprop="image"]').attr('content')),
     wrap($ => getValue($, $('article img[src]'), getSrc)),
     wrap($ => getValue($, $('#content img[src]'), getSrc)),
     wrap($ => $('img[alt*="author"]').attr('src')),
