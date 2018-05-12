@@ -38,13 +38,11 @@ const strict = rule => $ => {
 
 module.exports = () => ({
   author: [
-    wrap($ => $('meta[property="author"]').attr('content')),
-    wrap($ => $('meta[property="article:author"]').attr('content')),
     wrap($ => $('meta[name="author"]').attr('content')),
-    wrap($ => getValue($, $('[rel="author"]'))),
+    wrap($ => $('meta[property="article:author"]').attr('content')),
     wrap($ => getValue($, $('[itemprop*="author"] [itemprop="name"]'))),
     wrap($ => getValue($, $('[itemprop*="author"]'))),
-    wrap($ => $('meta[property="book:author"]').attr('content')),
+    wrap($ => getValue($, $('[rel="author"]'))),
     strict(wrap($ => getValue($, $('a[class*="author"]')))),
     strict(wrap($ => getValue($, $('[class*="author"] a')))),
     strict(wrap($ => getValue($, $('a[href*="/author/"]')))),
