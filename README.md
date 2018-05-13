@@ -362,6 +362,12 @@ It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
 
+#### rules
+
+Type: `Array`
+
+You can pass additional rules on execution time. These rules will be merged with your loaded rules.
+
 ### metascraper.load(rules)
 
 Create a new **metascraper** instance declaring the rules set to be used explicitly.
