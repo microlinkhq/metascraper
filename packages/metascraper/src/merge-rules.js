@@ -1,6 +1,6 @@
 'use strict'
 
-const { concat, first, findIndex, forEach, chain } = require('lodash')
+const { cloneDeep, concat, first, findIndex, forEach, chain } = require('lodash')
 
 module.exports = (rules, baseRules) => chain(rules)
   .reduce((acc, rules) => {
@@ -10,5 +10,5 @@ module.exports = (rules, baseRules) => chain(rules)
       else acc.push([propName, rule])
     })
     return acc
-  }, baseRules)
+  }, cloneDeep(baseRules))
   .value()
