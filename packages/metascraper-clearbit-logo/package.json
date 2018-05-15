@@ -21,7 +21,6 @@
     "metascraper"
   ],
   "devDependencies": {
-    "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
