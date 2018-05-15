@@ -1,6 +1,18 @@
 <a name=""></a>
-##  (2018-05-12)
+##  (2018-05-15)
 
+
+
+
+<a name="3.11.0"></a>
+## 3.11.0 (2018-05-15)
+
+* Avoid mutate state ([9a56e7d](https://github.com/microlinkhq/metascraper/commit/9a56e7d))
+* Ensure to auto load rules just once ([cb18d36](https://github.com/microlinkhq/metascraper/commit/cb18d36))
+* Pass rules as argument (#87) ([7c5e236](https://github.com/microlinkhq/metascraper/commit/7c5e236)), closes [#87](https://github.com/microlinkhq/metascraper/issues/87)
+* Pass rules support ([766bff3](https://github.com/microlinkhq/metascraper/commit/766bff3))
+* Update Changelog ([0bcc5ce](https://github.com/microlinkhq/metascraper/commit/0bcc5ce))
+* v3.11.0 ([1558856](https://github.com/microlinkhq/metascraper/commit/1558856))
 
 
 
