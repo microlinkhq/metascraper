@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "lodash": "latest",
-    "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
