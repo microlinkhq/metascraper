@@ -2,7 +2,7 @@
   "name": "metascraper",
   "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
   "homepage": "https://metascraper.js.org",
-  "version": "3.10.9",
+  "version": "3.11.0",
   "main": "src/index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -59,7 +59,7 @@
     "cheerio": "~1.0.0-rc.2",
     "cosmiconfig": "~5.0.2",
     "lodash": "~4.17.10",
-    "metascraper-author": "^3.10.9",
+    "metascraper-author": "^3.11.0",
     "metascraper-date": "^3.10.9",
     "metascraper-description": "^3.10.9",
     "metascraper-image": "^3.10.9",
@@ -68,7 +68,7 @@
     "metascraper-publisher": "^3.10.9",
     "metascraper-title": "^3.10.9",
     "metascraper-url": "^3.10.8",
-    "metascraper-video": "^3.10.8",
+    "metascraper-video": "^3.11.0",
     "p-reduce": "~1.0.0",
     "resolve-from": "~4.0.0",
     "sanitize-html": "~1.18.2"
