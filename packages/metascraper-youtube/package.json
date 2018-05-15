@@ -28,7 +28,6 @@
     "p-locate": "~2.0.0"
   },
   "devDependencies": {
-    "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",

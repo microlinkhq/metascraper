@@ -38,7 +38,7 @@
     "build": "gulp build",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "publish": "npm run upgrade && lerna publish --sort && npm run changelog:commit",
-    "postinstall": "lerna bootstrap && lerna link --force-local",
+    "postinstall": "lerna bootstrap",
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
     "changelog:commit": "npm run changelog && git add CHANGELOG.md && git commit -m 'Update Changelog' && git push origin master",

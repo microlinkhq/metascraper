@@ -22,7 +22,6 @@
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
-    "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
