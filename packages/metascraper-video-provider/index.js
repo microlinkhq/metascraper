@@ -1,20 +1,26 @@
 'use strict'
 
 const { round, size, get, chain, find, isString } = require('lodash')
+const {path: youtubeDlPath} = require('youtube-dl-installer')
 const { isUrl, titleize } = require('@metascraper/helpers')
 const parseDomain = require('parse-domain')
-const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
 const path = require('path')
 
+const execFile = promisify(require('child_process').execFile)
+
 const providers = require('./providers')
 
-const getInfo = promisify(youtubedl.getInfo)
+const getInfo = async url => {
+  const args = [ '--dump-json', '-f', 'best', url ]
+  const {stdout, stderr} = await execFile(youtubeDlPath, args)
+  return stderr === '' ? JSON.parse(stdout) : {}
+}
+
+const isSupportedProvided = url => providers.includes(parseDomain(url).domain)
 
 let cachedVideoInfoUrl
 let cachedVideoInfo
-
-const isSupportedProvided = url => providers.includes(parseDomain(url).domain)
 
 /**
  * Get the video info.
@@ -23,14 +29,10 @@ const isSupportedProvided = url => providers.includes(parseDomain(url).domain)
 const getVideoInfo = async url => {
   if (!isSupportedProvided(url)) return {}
   if (url === cachedVideoInfoUrl) return cachedVideoInfo
-  try {
-    const info = await getInfo(url)
-    cachedVideoInfoUrl = url
-    cachedVideoInfo = info
-    return info
-  } catch (err) {
-    return {}
-  }
+  const info = await getInfo(url)
+  cachedVideoInfoUrl = url
+  cachedVideoInfo = info
+  return info
 }
 
 const isMp4 = format => format.ext === 'mp4' || path.extname(format.url).startsWith('.mp4')
