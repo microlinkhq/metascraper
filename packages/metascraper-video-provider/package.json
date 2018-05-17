@@ -19,7 +19,7 @@
     "@metascraper/helpers": "^3.10.8",
     "lodash": "~4.17.10",
     "parse-domain": "~2.0.0",
-    "youtube-dl-installer": "~1.0.1"
+    "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
     "mocha": "latest",
