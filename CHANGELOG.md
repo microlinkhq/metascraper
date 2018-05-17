@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-05-15)
+##  (2018-05-17)
 
+
+
+
+<a name="3.11.1"></a>
+## <small>3.11.1 (2018-05-17)</small>
+
+* Update Changelog ([d8a629f](https://github.com/microlinkhq/metascraper/commit/d8a629f))
+* Use youtube-dl binary directly (#88) ([2409771](https://github.com/microlinkhq/metascraper/commit/2409771)), closes [#88](https://github.com/microlinkhq/metascraper/issues/88)
+* v3.11.1 ([6b80d23](https://github.com/microlinkhq/metascraper/commit/6b80d23))
 
 
 
