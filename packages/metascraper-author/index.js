@@ -5,6 +5,12 @@ const { isString } = require('lodash')
 
 const REGEX_STRICT = /^\S+\s+\S+/
 
+const validator = value => (
+  isString(value) &&
+  !isUrl(value, {relative: false}) &&
+  titleize(value, {removeBy: true})
+)
+
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -14,10 +20,7 @@ const REGEX_STRICT = /^\S+\s+\S+/
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-
-  return isString(value) &&
-    !isUrl(value, {relative: false}) &&
-    titleize(value, {removeBy: true})
+  return validator(value)
 }
 
 /**
@@ -52,3 +55,5 @@ module.exports = () => ({
     strict(wrap($ => getValue($, $('[class*="byline"]'))))
   ]
 })
+
+module.exports.validator = validator

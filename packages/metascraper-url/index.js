@@ -2,6 +2,8 @@
 
 const { getUrl, isUrl } = require('@metascraper/helpers')
 
+const validator = (value, url) => isUrl(value) && getUrl(value, url)
+
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -10,8 +12,8 @@ const { getUrl, isUrl } = require('@metascraper/helpers')
  */
 
 const wrap = rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return isUrl(value) && getUrl(value, url)
+  const value = rule(htmlDom)
+  return validator(value)
 }
 
 /**
@@ -27,3 +29,5 @@ module.exports = () => ({
     ({ url }) => url
   ]
 })
+
+module.exports.validator = validator

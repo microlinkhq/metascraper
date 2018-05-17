@@ -3,16 +3,8 @@
 const chrono = require('chrono-node')
 const isIso = require('isostring')
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
-
-const wrap = rule => ({ htmlDom }) => {
-  let value = rule(htmlDom)
-  if (!value) return
+const validator = value => {
+  if (!value) return false
 
   // remove whitespace for easier parsing
   value = value.trim()
@@ -27,6 +19,18 @@ const wrap = rule => ({ htmlDom }) => {
   // try to parse a complex date string
   const parsed = chrono.parseDate(value)
   if (parsed) return parsed.toISOString()
+}
+
+/**
+ * Wrap a rule with validation and formatting logic.
+ *
+ * @param {Function} rule
+ * @return {Function} wrapped
+ */
+
+const wrap = rule => ({ htmlDom }) => {
+  const value = rule(htmlDom)
+  return validator(value)
 }
 
 /**
@@ -64,3 +68,5 @@ module.exports = () => ({
     wrap($ => $('[class*="time"]').text())
   ]
 })
+
+module.exports.validator = validator

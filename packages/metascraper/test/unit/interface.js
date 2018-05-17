@@ -58,3 +58,22 @@ it('load extra rules', async () => {
   const meta = await metascraper({ url, html, rules })
   should(meta.foo).equal('bar')
 })
+
+it('core bundle rules expose validator', () => {
+  const rules = [
+    require('metascraper-author'),
+    require('metascraper-date'),
+    require('metascraper-description'),
+    require('metascraper-image'),
+    require('metascraper-title'),
+    require('metascraper-url'),
+    require('metascraper-lang'),
+    require('metascraper-logo'),
+    require('metascraper-video'),
+    require('metascraper-publisher')
+  ]
+
+  rules.forEach(rule => {
+    should(rule.validator).be.type('function')
+  })
+})

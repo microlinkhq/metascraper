@@ -20,16 +20,18 @@ const isVideoUrl = url => {
 
 const createWrapper = fn => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return fn(url, value)
+  return fn(value, url)
 }
 
-const wrap = createWrapper((url, value) => isUrl(value) && getUrl(url, value))
+const wrap = createWrapper((value, url) => isUrl(value) && getUrl(url, value))
 
-const wrapVideo = createWrapper((url, value) => {
+const validator = (value, url) => {
   if (!isUrl(value)) return false
   const urlValue = getUrl(url, value)
   return isVideoUrl(urlValue) && urlValue
-})
+}
+
+const wrapVideo = createWrapper(validator)
 
 /**
  * Rules.
@@ -48,3 +50,5 @@ module.exports = () => ({
     wrapVideo($ => $('source').attr('src'))
   ]
 })
+
+module.exports.validator = validator
