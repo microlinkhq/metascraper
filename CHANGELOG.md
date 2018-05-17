@@ -4,6 +4,15 @@
 
 
 
+<a name="3.11.3"></a>
+## <small>3.11.3 (2018-05-17)</small>
+
+* Revert youtube-dl-installer ([33989b9](https://github.com/microlinkhq/metascraper/commit/33989b9))
+* Update Changelog ([7e3e1fb](https://github.com/microlinkhq/metascraper/commit/7e3e1fb))
+* v3.11.3 ([49af94c](https://github.com/microlinkhq/metascraper/commit/49af94c))
+
+
+
 <a name="3.11.2"></a>
 ## <small>3.11.2 (2018-05-17)</small>
 
