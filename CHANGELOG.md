@@ -4,6 +4,15 @@
 
 
 
+<a name="3.11.2"></a>
+## <small>3.11.2 (2018-05-17)</small>
+
+* Update Changelog ([1e7bf0f](https://github.com/microlinkhq/metascraper/commit/1e7bf0f))
+* Update deps ([56ec5e6](https://github.com/microlinkhq/metascraper/commit/56ec5e6))
+* v3.11.2 ([ffe6811](https://github.com/microlinkhq/metascraper/commit/ffe6811))
+
+
+
 <a name="3.11.1"></a>
 ## <small>3.11.1 (2018-05-17)</small>
 
