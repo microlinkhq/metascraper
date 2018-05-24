@@ -42,7 +42,7 @@ const validator = (value, url) => isUrl(value) && getUrl(url, value)
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return validator(value)
+  return validator(value, url)
 }
 
 /**

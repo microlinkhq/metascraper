@@ -2,7 +2,7 @@
 
 const { getUrl, isUrl } = require('@metascraper/helpers')
 
-const validator = (value, url) => isUrl(value) && getUrl(value, url)
+const validator = (value, url) => isUrl(value) && getUrl(url, value)
 
 /**
  * Wrap a rule with validation and formatting logic.

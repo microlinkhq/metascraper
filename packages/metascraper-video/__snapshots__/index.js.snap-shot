@@ -21,7 +21,7 @@ exports['source src 1'] = {
   "logo": "https://assets-9gag-fun.9cache.com/s/fab0aa49/174d0b1ec891e220e79a7cb3af66a1fbb1eed154/static/dist/core/img/favicon.ico",
   "publisher": "9GAG",
   "title": "Newspaperboy in Germany",
-  "url": "https://9gag.com/gag/aGjVLDK"
+  "url": "http://9gag.com/gag/aGjVLDK"
 }
 
 exports['og:video 1'] = {
@@ -47,7 +47,7 @@ exports['src:poster 1'] = {
   "logo": "https://gfycat.com/static/apple-touch-icon/apple-touch-icon-180x180.png",
   "publisher": "Gfycat",
   "title": "Backflip - Create, Discover and Share Awesome GIFs on Gfycat",
-  "url": "https://gfycat.com/gifs/detail/timelyhealthyarmadillo"
+  "url": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-size_restricted.gif"
 }
 
 exports['clips.twitch.tv 1'] = {
