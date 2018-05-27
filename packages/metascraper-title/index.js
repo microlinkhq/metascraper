@@ -3,9 +3,11 @@
 const { getValue, titleize } = require('@metascraper/helpers')
 const { isString } = require('lodash')
 
+const validator = value => isString(value) && titleize(value)
+
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return isString(value) && titleize(value)
+  return validator(value)
 }
 
 module.exports = () => ({
@@ -19,3 +21,5 @@ module.exports = () => ({
     wrap($ => getValue($, $('title')))
   ]
 })
+
+module.exports.validator = wrap

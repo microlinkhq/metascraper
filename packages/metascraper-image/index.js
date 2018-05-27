@@ -2,6 +2,8 @@
 
 const { getValue, getUrl, isUrl } = require('@metascraper/helpers')
 
+const validator = (value, url) => isUrl(value) && getUrl(url, value)
+
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -11,7 +13,7 @@ const { getValue, getUrl, isUrl } = require('@metascraper/helpers')
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return isUrl(value) && getUrl(url, value)
+  return validator(value, url)
 }
 
 const getSrc = el => el.attr('src')
@@ -33,3 +35,5 @@ module.exports = () => ({
     wrap($ => $('img[src]').attr('src'))
   ]
 })
+
+module.exports.validator = validator

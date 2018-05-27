@@ -2,9 +2,11 @@
 
 const { isString, toLower } = require('lodash')
 
+const validator = value => isString(value) && toLower(value.substring(0, 2))
+
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return isString(value) && toLower(value.substring(0, 2))
+  return validator(value)
 }
 
 module.exports = () => ({
@@ -13,3 +15,5 @@ module.exports = () => ({
     wrap($ => $('html').attr('lang'))
   ]
 })
+
+module.exports.validator = validator

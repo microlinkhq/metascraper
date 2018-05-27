@@ -6,7 +6,7 @@ exports['product url 1'] = {
   "image": "https://images-eu.ssl-images-amazon.com/images/I/61Q2c36lYeL._SX218_BO1,204,203,200_QL40_.jpg",
   "description": "Buy Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems by Mat Follas (ISBN: 9781849757096) from Amazon’s Book Store. Everyday low prices and free delivery on eligible orders.",
   "logo": null,
-  "url": "https://www.amazon.co.uk/Vegetable-Perfection-tasty-recipes-shoots/dp/1849757097/ref=asap_bc?ie=UTF8"
+  "url": "https://www.amazon.co.uk/Vegetable-Perfection-delicious-recipes-shoots/dp/1849757097"
 }
 
 exports['ansi url 1'] = {
@@ -17,7 +17,7 @@ exports['ansi url 1'] = {
   "image": "https://images-na.ssl-images-amazon.com/images/I/51M0KK9HuHL._SY300_QL70_.jpg",
   "description": "Buy SainSmart 4-Channel Relay Module: Everything Else - Amazon.com ✓ FREE DELIVERY possible on eligible purchases",
   "logo": null,
-  "url": "https://www.amazon.com/gp/product/B0057OC5O8"
+  "url": "https://www.amazon.com/SainSmart-101-70-101-4-Channel-Relay-Module/dp/B0057OC5O8"
 }
 
 exports['product url 2'] = {
@@ -28,7 +28,7 @@ exports['product url 2'] = {
   "image": "https://images-na.ssl-images-amazon.com/images/I/519trKzgiKL._SY346_.jpg",
   "description": "The Whole Truth (A. Shaw Book 1) - Kindle edition by David Baldacci. Download it once and read it on your Kindle device, PC, phones or tablets. Use features like bookmarks, note taking and highlighting while reading The Whole Truth (A. Shaw Book 1).",
   "logo": null,
-  "url": "https://www.amazon.com/The-Whole-Truth-Shaw-Book-ebook/dp/B0011UCPM4/ref=pd_zg_rss_ts_b_17_6?ie=UTF8&tag=recomshop-22"
+  "url": "https://www.amazon.com/Whole-Truth-Shaw-Book-ebook/dp/B0011UCPM4"
 }
 
 exports['product url 3'] = {

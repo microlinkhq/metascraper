@@ -6,6 +6,8 @@ const condenseWhitespace = require('condense-whitespace')
 const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
 const REGEX_TITLE = /^.*?\|\s+(.*)$/
 
+const validator = value => isString(value) && condenseWhitespace(value)
+
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -15,7 +17,7 @@ const REGEX_TITLE = /^.*?\|\s+(.*)$/
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return isString(value) && condenseWhitespace(value)
+  return validator(value)
 }
 
 const getFromTitle = (text, regex) => {
@@ -48,3 +50,5 @@ module.exports = () => ({
     wrap($ => getFromTitle($('link[type*="xml"]').attr('title'), REGEX_RSS))
   ]
 })
+
+module.exports.validator = validator

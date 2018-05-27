@@ -7,6 +7,11 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const removeLocation = value => value.replace(REGEX_LOCATION, '')
 
+const validator = value => (
+  isString(value) &&
+  titleize(removeLocation(value), { capitalize: false })
+)
+
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -16,7 +21,7 @@ const removeLocation = value => value.replace(REGEX_LOCATION, '')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return isString(value) && titleize(removeLocation(value), { capitalize: false })
+  return validator(value)
 }
 
 /**
@@ -34,3 +39,5 @@ module.exports = () => ({
     wrap($ => getValue($, $('[class*="content"] p')))
   ]
 })
+
+module.exports.validator = validator
