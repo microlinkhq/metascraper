@@ -1,6 +1,16 @@
 <a name=""></a>
-##  (2018-05-17)
+##  (2018-05-27)
 
+
+
+
+<a name="3.11.4"></a>
+## <small>3.11.4 (2018-05-27)</small>
+
+* Expose validators for core rules (#89) ([feb2a4b](https://github.com/microlinkhq/metascraper/commit/feb2a4b)), closes [#89](https://github.com/microlinkhq/metascraper/issues/89)
+* Update Changelog ([aba7526](https://github.com/microlinkhq/metascraper/commit/aba7526))
+* Update dependency (#90) ([a7b1457](https://github.com/microlinkhq/metascraper/commit/a7b1457)), closes [#90](https://github.com/microlinkhq/metascraper/issues/90)
+* v3.11.4 ([ca4b7d8](https://github.com/microlinkhq/metascraper/commit/ca4b7d8))
 
 
 
