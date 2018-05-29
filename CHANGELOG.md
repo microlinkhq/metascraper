@@ -1,6 +1,15 @@
 <a name=""></a>
-##  (2018-05-27)
+##  (2018-05-29)
 
+
+
+
+<a name="3.11.5"></a>
+## <small>3.11.5 (2018-05-29)</small>
+
+* Don't remove trailing slash (#91) ([79f3330](https://github.com/microlinkhq/metascraper/commit/79f3330)), closes [#91](https://github.com/microlinkhq/metascraper/issues/91)
+* Update Changelog ([d016735](https://github.com/microlinkhq/metascraper/commit/d016735))
+* v3.11.5 ([bf8fd25](https://github.com/microlinkhq/metascraper/commit/bf8fd25))
 
 
 
