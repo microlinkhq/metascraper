@@ -17,9 +17,11 @@ const urlTest = (url, {relative = true}) => relative
 
 const isUrl = (url, opts = {}) => !isEmpty(url) && urlTest(url, opts)
 
-const normalizeUrl = url => sanetizeUrl(url, {
+const normalizeUrl = (url, opts) => sanetizeUrl(url, {
   stripWWW: false,
-  sortQueryParameters: false
+  sortQueryParameters: false,
+  removeTrailingSlash: false,
+  ...opts
 })
 
 const getAbsoluteUrl = (baseUrl, relativePath = '') => resolveUrl(baseUrl, relativePath)

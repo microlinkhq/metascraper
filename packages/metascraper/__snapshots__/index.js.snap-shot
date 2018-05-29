@@ -21,7 +21,7 @@ exports['arstechnica 1'] = {
   "logo": "https://cdn.arstechnica.net/wp-content/themes/ars/assets/img/material-ars-db41652381.png",
   "publisher": "Ars Technica",
   "title": "More than a decade later, how do original YouTube stars feel about the site?",
-  "url": "https://arstechnica.com/features/2017/06/youtube-changed-my-life-a-pair-of-original-videostars-ponder-a-life-lived-online"
+  "url": "https://arstechnica.com/features/2017/06/youtube-changed-my-life-a-pair-of-original-videostars-ponder-a-life-lived-online/"
 }
 
 exports['astier 1'] = {
@@ -60,7 +60,7 @@ exports['audiense 1'] = {
   "logo": "https://audiense.com/wp-content/uploads/2016/03/favicon.png",
   "publisher": "Audiense",
   "title": "Twin Peaks 2017: Using the data to create the next big TV sensation | Audiense",
-  "url": "https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation"
+  "url": "https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation/"
 }
 
 exports['bbc 1'] = {
@@ -151,7 +151,7 @@ exports['cnet 1'] = {
   "logo": null,
   "publisher": "CNET",
   "title": "Pebble 2, Pebble Time 2, Pebble Core: Pebble’s fitness hat trick adds heart rate, GPS, Spotify, and 3G",
-  "url": "http://www.cnet.com/news/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017"
+  "url": "http://www.cnet.com/news/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017/"
 }
 
 exports['computerworld 1'] = {
@@ -294,7 +294,7 @@ exports['forbes 1'] = {
   "logo": "http://i.forbesimg.com/media/assets/appicons/forbes-app-icon_144x144.png",
   "publisher": "Forbes",
   "title": "Facebook Veteran Grady Burnett Joins HackerRank As COO",
-  "url": "http://www.forbes.com/sites/georgeanders/2015/09/30/facebook-veteran-grady-burnett-joins-hackerrank-as-coo"
+  "url": "http://www.forbes.com/sites/georgeanders/2015/09/30/facebook-veteran-grady-burnett-joins-hackerrank-as-coo/"
 }
 
 exports['fortune 1'] = {
@@ -307,7 +307,7 @@ exports['fortune 1'] = {
   "logo": "http://fortune.com/img/favicons/favicon-192.png",
   "publisher": "Fortune",
   "title": "Why your next job search may involve solving online puzzles",
-  "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool"
+  "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool/"
 }
 
 exports['geek-time 1'] = {
@@ -320,7 +320,7 @@ exports['geek-time 1'] = {
   "logo": "http://www.geektime.com/wp-content/themes/geektimeV2/css/images/favicon.ico",
   "publisher": "Geektime",
   "title": "Fraud solutions Forter secures payment of $32M in Series C",
-  "url": "http://www.geektime.com/2016/04/21/fraud-solutions-forter-secures-payment-of-32m-in-series-c"
+  "url": "http://www.geektime.com/2016/04/21/fraud-solutions-forter-secures-payment-of-32m-in-series-c/"
 }
 
 exports['github 1'] = {
@@ -385,7 +385,7 @@ exports['instagram 1'] = {
   "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/b407fa101800.png",
   "publisher": "Instagram",
   "title": "Instagram post by Tesla • Jul 9, 2017 at 4:58am UTC",
-  "url": "https://www.instagram.com/p/BWUDBntl3_Z"
+  "url": "https://www.instagram.com/p/BWUDBntl3_Z/"
 }
 
 exports['jewish-business-news 1'] = {
@@ -398,7 +398,7 @@ exports['jewish-business-news 1'] = {
   "logo": "http://2xkcvt35vyxycuy7x23e0em1a5g.wpengine.netdna-cdn.com/favicon-196x196.png",
   "publisher": "Jewish Business News",
   "title": "Israeli startup JFrog raises $50 million in C round",
-  "url": "http://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round"
+  "url": "http://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round/"
 }
 
 exports['lean-data 1'] = {
@@ -463,7 +463,7 @@ exports['mac-rumors 1'] = {
   "logo": "http://cdn.macrumors.com/images-new/apple-touch-icon.png",
   "publisher": "MacRumors",
   "title": "Apple Working on Amazon Echo Competitor, Opening Siri Up to Developers",
-  "url": "http://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor"
+  "url": "http://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor/"
 }
 
 exports['market-wired 1'] = {
@@ -502,7 +502,7 @@ exports['mashable 1'] = {
   "logo": "http://mashable.com/android-chrome-192x192.png?v=m2Pmw8zNwl",
   "publisher": "Mashable",
   "title": "The sales cycle on steroids: 3 ways analytics power up revenue",
-  "url": "http://mashable.com/2015/05/13/analytics-power-up-revenue"
+  "url": "http://mashable.com/2015/05/13/analytics-power-up-revenue/"
 }
 
 exports['medium 1'] = {
@@ -632,7 +632,7 @@ exports['segment-academy 1'] = {
   "logo": null,
   "publisher": "Segment",
   "title": "When to Track on the Client vs. Server",
-  "url": "https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server"
+  "url": "https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server/"
 }
 
 exports['silicon-angle 1'] = {
@@ -645,7 +645,7 @@ exports['silicon-angle 1'] = {
   "logo": "http://siliconangle.com/files/2015/04/favicon-SA.png",
   "publisher": "SiliconANGLE",
   "title": "CircleCI receives $18 million in Series B funding round with Scale Venture Partners",
-  "url": "http://siliconangle.com/blog/2016/05/16/circleci-receives-18-million-in-series-b-funding-round-with-scale-venture-partners"
+  "url": "http://siliconangle.com/blog/2016/05/16/circleci-receives-18-million-in-series-b-funding-round-with-scale-venture-partners/"
 }
 
 exports['silicon-beat 1'] = {
@@ -658,7 +658,7 @@ exports['silicon-beat 1'] = {
   "logo": null,
   "publisher": "SiliconBeat",
   "title": "VC: Time to ‘come out as a woman’",
-  "url": "http://www.siliconbeat.com/2016/04/19/time-come-woman"
+  "url": "http://www.siliconbeat.com/2016/04/19/time-come-woman/"
 }
 
 exports['silicon-tap 1'] = {
@@ -697,7 +697,7 @@ exports['smitten-kitchen 1'] = {
   "logo": "http://smittenkitchen.com/uploads/favicon.ico",
   "publisher": "smitten kitchen",
   "title": "cucumber yogurt raita salad",
-  "url": "http://smittenkitchen.com/blog/2016/05/cucumber-yogurt-raita-salad"
+  "url": "http://smittenkitchen.com/blog/2016/05/cucumber-yogurt-raita-salad/"
 }
 
 exports['startup-grind 1'] = {
@@ -723,7 +723,7 @@ exports['techcrunch 1'] = {
   "logo": "https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/homescreen_TCIcon_ipad_2x.png",
   "publisher": "TechCrunch",
   "title": "HackerRank Makes Technical Recruiting More Transparent",
-  "url": "http://social.techcrunch.com/2016/01/12/hackerrank-jobs-takes-the-mystery-out-of-technical-recruiting"
+  "url": "http://social.techcrunch.com/2016/01/12/hackerrank-jobs-takes-the-mystery-out-of-technical-recruiting/"
 }
 
 exports['the-boston-globe 1'] = {
@@ -762,7 +762,7 @@ exports['the-register 1'] = {
   "logo": "http://www.theregister.co.uk/Design/graphics/icons/vulture_black_60_trans.png",
   "publisher": null,
   "title": "EMC makes a LEAP forward with Virtustream and more",
-  "url": "http://www.theregister.co.uk/2016/05/03/emc_world_virtustream_announcement"
+  "url": "http://www.theregister.co.uk/2016/05/03/emc_world_virtustream_announcement/"
 }
 
 exports['the-verge 1'] = {
@@ -814,7 +814,7 @@ exports['usa-today 1'] = {
   "logo": "http://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
   "publisher": "USA TODAY",
   "title": "The TSA is trying not to ruin your summer vacation",
-  "url": "http://www.usatoday.com/story/news/2016/05/24/evening-news-roundup-tuesday/84846520"
+  "url": "http://www.usatoday.com/story/news/2016/05/24/evening-news-roundup-tuesday/84846520/"
 }
 
 exports['venture-beat 1'] = {
@@ -827,7 +827,7 @@ exports['venture-beat 1'] = {
   "logo": "http://1u88jj3r4db2x4txp44yqfj1.wpengine.netdna-cdn.com/wp-content/themes/vbnews/img/favicon.ico",
   "publisher": "VentureBeat",
   "title": "Forter raises $32 million to automate retailers’ battle against online fraud",
-  "url": "http://venturebeat.com/2016/04/21/forter-raises-32-million-to-automate-retailers-battle-against-online-fraud"
+  "url": "http://venturebeat.com/2016/04/21/forter-raises-32-million-to-automate-retailers-battle-against-online-fraud/"
 }
 
 exports['vimeo 1'] = {
@@ -853,7 +853,7 @@ exports['washington-post 1'] = {
   "logo": null,
   "publisher": "Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
-  "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all"
+  "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all/"
 }
 
 exports['wired 1'] = {
@@ -866,7 +866,7 @@ exports['wired 1'] = {
   "logo": null,
   "publisher": "WIRED",
   "title": "Giant Antarctic Icebergs and Crushing Existential Dread",
-  "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread"
+  "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread/"
 }
 
 exports['wsj 1'] = {
@@ -892,7 +892,7 @@ exports['xconomy 1'] = {
   "logo": "http://www.xconomy.com/wordpress/wp-content/themes/xconomy/images/favicon.ico",
   "publisher": "Xconomy",
   "title": "Cybersecurity Company Agari Raises $22M For E-Mail Shield | Xconomy",
-  "url": "http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield"
+  "url": "http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield/"
 }
 
 exports['yahoo-news 1'] = {
@@ -918,7 +918,7 @@ exports['zdnet 1'] = {
   "logo": "http://zdnet1.cbsistatic.com/fly/bundles/zdnetcss/images/logos/logo-192x192.png",
   "publisher": "ZDNet",
   "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
-  "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks"
+  "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks/"
 }
 
 exports['soundcloud 1'] = {
