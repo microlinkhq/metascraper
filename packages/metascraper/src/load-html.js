@@ -1,7 +1,7 @@
 'use strict'
 const { forEach, flow, isEmpty, toLower } = require('lodash')
 const sanitizeHtml = require('sanitize-html')
-const cheerio = require('cheerio')
+const cheerio = require('cheerio-advanced-selectors').wrap(require('cheerio'))
 
 const normalizeAttributes = props => (tagName, attribs) => {
   forEach(props, propName => {

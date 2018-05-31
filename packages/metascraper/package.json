@@ -57,6 +57,7 @@
   "dependencies": {
     "@metascraper/helpers": "^3.11.5",
     "cheerio": "~1.0.0-rc.2",
+    "cheerio-advanced-selectors": "~2.0.1",
     "cosmiconfig": "~5.0.2",
     "lodash": "~4.17.10",
     "metascraper-author": "^3.11.5",
