@@ -1,10 +1,17 @@
-<a name=""></a>
-##  (2018-05-29)
+##  (2018-06-02)
 
 
 
 
-<a name="3.11.5"></a>
+## <small>3.11.6 (2018-06-02)</small>
+
+* Add abbility to use dom pseudo selectors ([8677a0d](https://github.com/microlinkhq/metascraper/commit/8677a0d))
+* Update Changelog ([5f3d1da](https://github.com/microlinkhq/metascraper/commit/5f3d1da))
+* Update dependencies ([4a74f0b](https://github.com/microlinkhq/metascraper/commit/4a74f0b))
+* v3.11.6 ([43ce89f](https://github.com/microlinkhq/metascraper/commit/43ce89f))
+
+
+
 ## <small>3.11.5 (2018-05-29)</small>
 
 * Don't remove trailing slash (#91) ([79f3330](https://github.com/microlinkhq/metascraper/commit/79f3330)), closes [#91](https://github.com/microlinkhq/metascraper/issues/91)
@@ -13,7 +20,6 @@
 
 
 
-<a name="3.11.4"></a>
 ## <small>3.11.4 (2018-05-27)</small>
 
 * Expose validators for core rules (#89) ([feb2a4b](https://github.com/microlinkhq/metascraper/commit/feb2a4b)), closes [#89](https://github.com/microlinkhq/metascraper/issues/89)
@@ -23,7 +29,6 @@
 
 
 
-<a name="3.11.3"></a>
 ## <small>3.11.3 (2018-05-17)</small>
 
 * Revert youtube-dl-installer ([33989b9](https://github.com/microlinkhq/metascraper/commit/33989b9))
@@ -32,7 +37,6 @@
 
 
 
-<a name="3.11.2"></a>
 ## <small>3.11.2 (2018-05-17)</small>
 
 * Update Changelog ([1e7bf0f](https://github.com/microlinkhq/metascraper/commit/1e7bf0f))
@@ -41,7 +45,6 @@
 
 
 
-<a name="3.11.1"></a>
 ## <small>3.11.1 (2018-05-17)</small>
 
 * Update Changelog ([d8a629f](https://github.com/microlinkhq/metascraper/commit/d8a629f))
@@ -50,7 +53,6 @@
 
 
 
-<a name="3.11.0"></a>
 ## 3.11.0 (2018-05-15)
 
 * Avoid mutate state ([9a56e7d](https://github.com/microlinkhq/metascraper/commit/9a56e7d))
@@ -62,7 +64,6 @@
 
 
 
-<a name="3.10.9"></a>
 ## <small>3.10.9 (2018-05-12)</small>
 
 * Add itemprop image ([8e81660](https://github.com/microlinkhq/metascraper/commit/8e81660))
@@ -74,7 +75,6 @@
 
 
 
-<a name="3.10.8"></a>
 ## <small>3.10.8 (2018-05-10)</small>
 
 * Update Changelog ([2dc8f84](https://github.com/microlinkhq/metascraper/commit/2dc8f84))
@@ -84,7 +84,6 @@
 
 
 
-<a name="3.10.7"></a>
 ## <small>3.10.7 (2018-04-29)</small>
 
 * Be possible pass opts ([d675cc9](https://github.com/microlinkhq/metascraper/commit/d675cc9))
@@ -94,7 +93,6 @@
 
 
 
-<a name="3.10.6"></a>
 ## <small>3.10.6 (2018-04-12)</small>
 
 * Avoid extract video for non supported domains ([19792e6](https://github.com/microlinkhq/metascraper/commit/19792e6))
@@ -103,7 +101,6 @@
 
 
 
-<a name="3.10.5"></a>
 ## <small>3.10.5 (2018-04-11)</small>
 
 * Ensure to resolve a valid logo url ([e004596](https://github.com/microlinkhq/metascraper/commit/e004596))
@@ -113,7 +110,6 @@
 
 
 
-<a name="3.10.4"></a>
 ## <small>3.10.4 (2018-04-10)</small>
 
 * Extract more video fields ([69f40c5](https://github.com/microlinkhq/metascraper/commit/69f40c5))
@@ -122,7 +118,6 @@
 
 
 
-<a name="3.10.3"></a>
 ## <small>3.10.3 (2018-04-08)</small>
 
 * Ensure to return a http protocol url ([f1595f1](https://github.com/microlinkhq/metascraper/commit/f1595f1))
@@ -131,7 +126,6 @@
 
 
 
-<a name="3.10.2"></a>
 ## <small>3.10.2 (2018-04-08)</small>
 
 * Improve mp4 detection ([4f7f26b](https://github.com/microlinkhq/metascraper/commit/4f7f26b))
@@ -141,7 +135,6 @@
 
 
 
-<a name="3.10.1"></a>
 ## <small>3.10.1 (2018-04-08)</small>
 
 * Change implementation ([b14e3a0](https://github.com/microlinkhq/metascraper/commit/b14e3a0))
@@ -150,7 +143,6 @@
 
 
 
-<a name="3.10.0"></a>
 ## 3.10.0 (2018-04-07)
 
 * Add metascraper-social-video (#79) ([51959cf](https://github.com/microlinkhq/metascraper/commit/51959cf)), closes [#79](https://github.com/microlinkhq/metascraper/issues/79)
@@ -161,7 +153,6 @@
 
 
 
-<a name="3.9.3"></a>
 ## <small>3.9.3 (2018-03-29)</small>
 
 * Add copy clipboard button ([8ad33bb](https://github.com/microlinkhq/metascraper/commit/8ad33bb))
@@ -173,7 +164,6 @@
 
 
 
-<a name="3.9.2"></a>
 ## <small>3.9.2 (2018-02-22)</small>
 
 * Call getValue() correctly ([afe0915](https://github.com/microlinkhq/metascraper/commit/afe0915))
@@ -186,7 +176,6 @@
 
 
 
-<a name="3.9.1"></a>
 ## <small>3.9.1 (2018-02-17)</small>
 
 * Fix resolve absolute video URL ([97a8026](https://github.com/microlinkhq/metascraper/commit/97a8026))
@@ -195,7 +184,6 @@
 
 
 
-<a name="3.9.0"></a>
 ## 3.9.0 (2018-02-13)
 
 * Add missing test script ([c594242](https://github.com/microlinkhq/metascraper/commit/c594242))
@@ -209,7 +197,6 @@
 
 
 
-<a name="3.8.0"></a>
 ## 3.8.0 (2018-02-11)
 
 * Add metascraper video as default rules set ([d14e1e1](https://github.com/microlinkhq/metascraper/commit/d14e1e1))
@@ -221,7 +208,6 @@
 
 
 
-<a name="3.7.3"></a>
 ## <small>3.7.3 (2018-02-08)</small>
 
 * Add metascraper-lang tests ([c5f73bb](https://github.com/microlinkhq/metascraper/commit/c5f73bb))
@@ -233,7 +219,6 @@
 
 
 
-<a name="3.7.2"></a>
 ## <small>3.7.2 (2018-02-04)</small>
 
 * Fix get video extension from url ([b98d2db](https://github.com/microlinkhq/metascraper/commit/b98d2db))
@@ -242,7 +227,6 @@
 
 
 
-<a name="3.7.1"></a>
 ## <small>3.7.1 (2018-02-04)</small>
 
 * Ensure video is an absolute video url ([b193dcd](https://github.com/microlinkhq/metascraper/commit/b193dcd))
@@ -251,7 +235,6 @@
 
 
 
-<a name="3.7.0"></a>
 ## 3.7.0 (2018-02-03)
 
 * Expose load and autoload methods ([327fae4](https://github.com/microlinkhq/metascraper/commit/327fae4))
@@ -262,7 +245,6 @@
 
 
 
-<a name="3.6.4"></a>
 ## <small>3.6.4 (2018-02-01)</small>
 
 * Update Changelog ([caa6855](https://github.com/microlinkhq/metascraper/commit/caa6855))
@@ -271,7 +253,6 @@
 
 
 
-<a name="3.6.3"></a>
 ## <small>3.6.3 (2018-01-30)</small>
 
 * Update Changelog ([09efd46](https://github.com/microlinkhq/metascraper/commit/09efd46))
@@ -280,7 +261,6 @@
 
 
 
-<a name="3.6.2"></a>
 ## <small>3.6.2 (2018-01-28)</small>
 
 * Avoid repeat parsing steps ([566f9d1](https://github.com/microlinkhq/metascraper/commit/566f9d1))
@@ -291,7 +271,6 @@
 
 
 
-<a name="3.6.1"></a>
 ## <small>3.6.1 (2018-01-23)</small>
 
 * Add og:video test ([1ced9f9](https://github.com/microlinkhq/metascraper/commit/1ced9f9))
@@ -300,7 +279,6 @@
 
 
 
-<a name="3.6.0"></a>
 ## 3.6.0 (2018-01-23)
 
 * Add metascraper-video first approach ([79e98c9](https://github.com/microlinkhq/metascraper/commit/79e98c9))
@@ -315,7 +293,6 @@
 
 
 
-<a name="3.5.0"></a>
 ## 3.5.0 (2018-01-23)
 
 * Add METASCRAPER_CWD tests and documentation ([73be24f](https://github.com/microlinkhq/metascraper/commit/73be24f)), closes [#52](https://github.com/microlinkhq/metascraper/issues/52)
@@ -340,7 +317,6 @@
 
 
 
-<a name="3.4.3"></a>
 ## <small>3.4.3 (2017-12-31)</small>
 
 * Improve author & description accuracy ([7e14b48](https://github.com/microlinkhq/metascraper/commit/7e14b48))
@@ -349,7 +325,6 @@
 
 
 
-<a name="3.4.2"></a>
 ## <small>3.4.2 (2017-12-30)</small>
 
 * Add `metascraper-lang` as part of defaults rule sets ([5ec9472](https://github.com/microlinkhq/metascraper/commit/5ec9472))
@@ -359,7 +334,6 @@
 
 
 
-<a name="3.4.1"></a>
 ## <small>3.4.1 (2017-12-29)</small>
 
 * Ensure url is string ([4402622](https://github.com/microlinkhq/metascraper/commit/4402622))
@@ -369,7 +343,6 @@
 
 
 
-<a name="3.4.0"></a>
 ## 3.4.0 (2017-12-29)
 
 * Add a.co amazon urls ([eb75363](https://github.com/microlinkhq/metascraper/commit/eb75363))
@@ -385,7 +358,6 @@
 
 
 
-<a name="3.3.0"></a>
 ## 3.3.0 (2017-12-20)
 
 * Add indidivual package doc ([253ca09](https://github.com/microlinkhq/metascraper/commit/253ca09))
@@ -400,7 +372,6 @@
 
 
 
-<a name="3.2.0"></a>
 ## 3.2.0 (2017-12-19)
 
 * Add build command ([8a23e81](https://github.com/microlinkhq/metascraper/commit/8a23e81))
@@ -431,7 +402,6 @@
 
 
 
-<a name="3.1.0"></a>
 ## 3.1.0 (2017-12-17)
 
 * Add metasraper-soundcloud ([9814253](https://github.com/microlinkhq/metascraper/commit/9814253))
@@ -446,7 +416,6 @@
 
 
 
-<a name="3.0.0"></a>
 ## 3.0.0 (2017-12-15)
 
 * Add CNAME ([a5a1b59](https://github.com/microlinkhq/metascraper/commit/a5a1b59))
@@ -470,7 +439,6 @@
 
 
 
-<a name="2.0.0"></a>
 ## 2.0.0 (2017-12-11)
 
 * Add anandtech case ([da392f6](https://github.com/microlinkhq/metascraper/commit/da392f6))
