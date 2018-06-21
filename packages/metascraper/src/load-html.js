@@ -1,6 +1,7 @@
 'use strict'
 const { forEach, flow, isEmpty, toLower } = require('lodash')
 const sanitizeHtml = require('sanitize-html')
+const { sanitize: sanitizeXSS } = require('dompurify')
 const cheerio = require('cheerio-advanced-selectors').wrap(require('cheerio'))
 
 const normalizeAttributes = props => (tagName, attribs) => {
@@ -10,7 +11,7 @@ const normalizeAttributes = props => (tagName, attribs) => {
   return { tagName, attribs }
 }
 
-const sanitize = html =>
+const clean = html =>
   sanitizeHtml(html, {
     allowedTags: false, // allow all tags
     allowedAttributes: false, // allow all attributes
@@ -26,10 +27,14 @@ const sanitize = html =>
     }
   })
 
+const sanitize = html => sanitizeXSS(html, {
+  SAFE_FOR_JQUERY: true
+})
+
 const load = html => cheerio.load(html, {
   lowerCaseTags: false,
   decodeEntities: false,
   lowerCaseAttributeNames: false
 })
 
-module.exports = flow([sanitize, load])
+module.exports = flow([clean, sanitize, load])
