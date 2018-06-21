@@ -59,6 +59,7 @@
     "cheerio": "~1.0.0-rc.2",
     "cheerio-advanced-selectors": "~2.0.1",
     "cosmiconfig": "~5.0.2",
+    "dompurify": "~1.0.5",
     "lodash": "~4.17.10",
     "metascraper-author": "^3.11.5",
     "metascraper-date": "^3.11.4",
