@@ -47,7 +47,7 @@ describe('metascraper-video-provider', () => {
       snapshot(meta)
     })
 
-    it('twitter', async () => {
+    xit('twitter', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/twitter.html'))
       const url = 'https://twitter.com/verge/status/957383241714970624'
 
