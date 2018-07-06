@@ -25,7 +25,7 @@
     "get-video-id": "~3.1.0",
     "is-reachable": "~2.4.0",
     "lodash": "~4.17.10",
-    "p-locate": "~2.0.0"
+    "p-locate": "~3.0.0"
   },
   "devDependencies": {
     "mocha": "latest",
