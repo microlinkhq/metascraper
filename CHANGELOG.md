@@ -1,5 +1,13 @@
-##  (2018-07-06)
+##  (2018-07-10)
 
+
+
+
+## <small>3.11.8 (2018-07-10)</small>
+
+* Update Changelog ([1b7685f](https://github.com/microlinkhq/metascraper/commit/1b7685f))
+* Update dependencies (#100) ([630baec](https://github.com/microlinkhq/metascraper/commit/630baec)), closes [#100](https://github.com/microlinkhq/metascraper/issues/100)
+* v3.11.8 ([841f367](https://github.com/microlinkhq/metascraper/commit/841f367))
 
 
 
