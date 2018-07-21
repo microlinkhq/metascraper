@@ -18,6 +18,7 @@ const urlTest = (url, {relative = true}) => relative
 const isUrl = (url, opts = {}) => !isEmpty(url) && urlTest(url, opts)
 
 const normalizeUrl = (url, opts) => sanetizeUrl(url, {
+  normalizeHttp: false,
   stripWWW: false,
   sortQueryParameters: false,
   removeTrailingSlash: false,
