@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@metascraper/helpers": "^3.11.8",
+    "cheerio": "~1.0.0-rc.2",
+    "json-future": "~2.1.2",
     "lodash": "~4.17.10",
     "parse-domain": "~2.1.2",
     "youtube-dl": "~1.12.2"
@@ -34,9 +36,10 @@
   },
   "files": [
     "index.js",
-    "providers.js"
+    "scripts"
   ],
   "scripts": {
+    "postinstall": "node scripts/postinstall",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
