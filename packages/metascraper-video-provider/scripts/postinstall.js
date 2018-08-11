@@ -7,7 +7,7 @@ const { promisify } = require('util')
 
 const getExtractors = promisify(youtubedl.getExtractors)
 
-;(async () => {
+const main = async () => {
   const extractors = await getExtractors()
 
   const providers = extractors.reduce((set, extractor) => {
@@ -18,4 +18,9 @@ const getExtractors = promisify(youtubedl.getExtractors)
   }, new Set())
 
   await jsonFuture.saveAsync('providers.json', Array.from(providers))
-})()
+}
+
+main().catch(err => {
+  console.error(err)
+  process.exit(1)
+})
