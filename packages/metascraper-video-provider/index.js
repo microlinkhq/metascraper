@@ -21,10 +21,14 @@ const isSupportedProvided = url => providers.includes(parseDomain(url).domain)
  * Avoid do more one request for the same URL.
  */
 const getVideoInfo = async url => {
-  if (!isSupportedProvided(url)) return {}
   if (url === cachedVideoInfoUrl) return cachedVideoInfo
 
   cachedVideoInfoUrl = url
+
+  if (!isSupportedProvided(url)) {
+    cachedVideoInfo = {}
+    return cachedVideoInfo
+  }
 
   try {
     cachedVideoInfo = await getInfo(url)
