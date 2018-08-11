@@ -38,7 +38,7 @@
     "scripts"
   ],
   "scripts": {
-    "postinstall": "node scripts/postinstall",
+    "postinstall": "node scripts/postinstall.js",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
