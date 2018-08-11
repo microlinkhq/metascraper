@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://metascraper.js.org",
-  "version": "3.11.9",
+  "version": "3.11.10",
   "main": "src/index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -36,5 +36,6 @@
   "scripts": {
     "test": "exit 0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "c8e22e27579e1000e6f3421dabde2bf71504c8cc"
 }

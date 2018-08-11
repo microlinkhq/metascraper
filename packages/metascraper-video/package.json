@@ -2,7 +2,7 @@
   "name": "metascraper-video",
   "description": "Get video property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "3.11.9",
+  "version": "3.11.10",
   "main": "index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -16,7 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^3.11.9",
+    "@metascraper/helpers": "^3.11.10",
     "video-extensions": "~1.1.0"
   },
   "devDependencies": {
@@ -41,5 +41,6 @@
     "env": [
       "mocha"
     ]
-  }
+  },
+  "gitHead": "c8e22e27579e1000e6f3421dabde2bf71504c8cc"
 }
