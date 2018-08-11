@@ -2,7 +2,6 @@
 
 const { isUrl } = require('@metascraper/helpers')
 const { isString } = require('lodash')
-const timeSpan = require('time-span')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
@@ -78,18 +77,6 @@ describe('metascraper-video-provider', () => {
       should(isString(metadata.title)).be.true()
       const meta = omit(metadata, ['video', 'title'])
       snapshot(meta)
-    })
-  })
-
-  describe('non supported', () => {
-    it('exit early', async () => {
-      const url = 'https://kikobeats.com'
-      const html = '<html></html>'
-      const time = timeSpan()
-      const metadata = await metascraper({ html, url })
-
-      should(metadata.video).be.null()
-      should(time() < 1000).be.true()
     })
   })
 })
