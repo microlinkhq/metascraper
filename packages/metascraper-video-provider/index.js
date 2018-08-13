@@ -1,6 +1,6 @@
 'use strict'
 
-const { round, size, get, chain, find, isString } = require('lodash')
+const { overEvery, isEmpty, eq, has, round, size, get, chain, find, isString } = require('lodash')
 const { isUrl, titleize } = require('@metascraper/helpers')
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
@@ -28,19 +28,22 @@ const getVideoInfo = async url => {
   return cachedVideoInfo
 }
 
-const isMp4 = format => format.ext === 'mp4' || path.extname(format.url).startsWith('.mp4')
-const isHttp = format => format.protocol === 'https' || format.protocol === 'http'
+const isMp4 = format => eq(get(format, 'ext', 'mp4')) || path.extname(get(format, 'url')).startsWith('.mp4')
+const isHttp = format => eq(get(format, 'protocol'), 'http')
+const isHttps = format => eq(get(format, 'protocol'), 'http')
+const hasAudio = format => has(format, 'abr')
 
 /**
  * Get a Video source quality enough good
  * compatible to be consumed for the browser.
  */
-const getVideoUrl = formats => {
+const getVideoUrl = (formats, filters = []) => {
   const urls = chain(formats)
-    .filter(format => isHttp(format) && isMp4(format))
+    .filter(overEvery(filters))
     .map('url')
     .value()
 
+  if (isEmpty(urls)) return false
   const index = round(size(urls) / 2) - 1
   return get(urls, index)
 }
@@ -50,7 +53,12 @@ const getVideoUrl = formats => {
  */
 const getVideoProvider = async ({ url }) => {
   const { formats } = await getVideoInfo(url)
-  const videoUrl = getVideoUrl(formats)
+  const videoUrl = getVideoUrl(formats, [isMp4, isHttps, hasAudio]) ||
+    getVideoUrl(formats, [isMp4, isHttp, hasAudio]) ||
+    getVideoUrl(formats, [isMp4, isHttps]) ||
+    getVideoUrl(formats, [isMp4]) ||
+    getVideoUrl(formats)
+
   return isUrl(videoUrl) && videoUrl
 }
 
