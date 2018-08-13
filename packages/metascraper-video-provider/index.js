@@ -28,9 +28,9 @@ const getVideoInfo = async url => {
   return cachedVideoInfo
 }
 
-const isMp4 = format => eq(get(format, 'ext', 'mp4')) || path.extname(get(format, 'url')).startsWith('.mp4')
+const isMp4 = format => eq(get(format, 'ext'), 'mp4') || path.extname(get(format, 'url')).startsWith('.mp4')
 const isHttp = format => eq(get(format, 'protocol'), 'http')
-const isHttps = format => eq(get(format, 'protocol'), 'http')
+const isHttps = format => eq(get(format, 'protocol'), 'https')
 const hasAudio = format => has(format, 'abr')
 
 /**
@@ -101,3 +101,7 @@ module.exports = () => {
 }
 
 module.exports.getVideoUrl = getVideoUrl
+module.exports.isMp4 = isMp4
+module.exports.isHttp = isHttp
+module.exports.isHttps = isHttps
+module.exports.hasAudio = hasAudio

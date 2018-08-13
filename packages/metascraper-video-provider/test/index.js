@@ -33,47 +33,59 @@ const metascraper = require('metascraper').load([
 
 const readFile = promisify(fs.readFile)
 
+const { getVideoUrl, isMp4 } = require('metascraper-video-provider')
+
+const output = require('./fixtures/output.json')
+
 describe('metascraper-video-provider', () => {
-  it('vimeo', async () => {
-    const html = await readFile(resolve(__dirname, 'fixtures/vimeo.html'))
-    const url = 'https://vimeo.com/188175573'
-    const metadata = await metascraper({ html, url })
-    should(isUrl(metadata.video)).be.true()
-    should(isString(metadata.title)).be.true()
-    const meta = omit(metadata, ['video', 'title'])
-    snapshot(meta)
+  describe('.getVideoUrl', () => {
+    it('isMp4', () => {
+      const videoUrl = getVideoUrl(output.formats, [isMp4])
+      should(videoUrl).be.an.String()
+    })
   })
+  describe('providers', () => {
+    it('vimeo', async () => {
+      const html = await readFile(resolve(__dirname, 'fixtures/vimeo.html'))
+      const url = 'https://vimeo.com/188175573'
+      const metadata = await metascraper({ html, url })
+      should(isUrl(metadata.video)).be.true()
+      should(isString(metadata.title)).be.true()
+      const meta = omit(metadata, ['video', 'title'])
+      snapshot(meta)
+    })
 
-  xit('twitter', async () => {
-    const html = await readFile(resolve(__dirname, 'fixtures/twitter.html'))
-    const url = 'https://twitter.com/verge/status/957383241714970624'
+    xit('twitter', async () => {
+      const html = await readFile(resolve(__dirname, 'fixtures/twitter.html'))
+      const url = 'https://twitter.com/verge/status/957383241714970624'
 
-    const metadata = await metascraper({ html, url })
-    should(isUrl(metadata.video)).be.true()
-    should(isString(metadata.title)).be.true()
-    const meta = omit(metadata, ['video', 'title'])
-    snapshot(meta)
-  })
+      const metadata = await metascraper({ html, url })
+      should(isUrl(metadata.video)).be.true()
+      should(isString(metadata.title)).be.true()
+      const meta = omit(metadata, ['video', 'title'])
+      snapshot(meta)
+    })
 
-  it('facebook', async () => {
-    const html = await readFile(resolve(__dirname, 'fixtures/facebook.html'))
-    const url = 'https://www.facebook.com/afcajax/videos/1686831701364171'
+    it('facebook', async () => {
+      const html = await readFile(resolve(__dirname, 'fixtures/facebook.html'))
+      const url = 'https://www.facebook.com/afcajax/videos/1686831701364171'
 
-    const metadata = await metascraper({ html, url })
-    should(isUrl(metadata.video)).be.true()
-    should(isString(metadata.title)).be.true()
-    const meta = omit(metadata, ['video', 'title'])
-    snapshot(meta)
-  })
+      const metadata = await metascraper({ html, url })
+      should(isUrl(metadata.video)).be.true()
+      should(isString(metadata.title)).be.true()
+      const meta = omit(metadata, ['video', 'title'])
+      snapshot(meta)
+    })
 
-  it('youtube', async () => {
-    const html = await readFile(resolve(__dirname, 'fixtures/youtube.html'))
-    const url = 'https://www.youtube.com/watch?v=hwMkbaS_M_c'
+    it('youtube', async () => {
+      const html = await readFile(resolve(__dirname, 'fixtures/youtube.html'))
+      const url = 'https://www.youtube.com/watch?v=hwMkbaS_M_c'
 
-    const metadata = await metascraper({ html, url })
-    should(isUrl(metadata.video)).be.true()
-    should(isString(metadata.title)).be.true()
-    const meta = omit(metadata, ['video', 'title'])
-    snapshot(meta)
+      const metadata = await metascraper({ html, url })
+      should(isUrl(metadata.video)).be.true()
+      should(isString(metadata.title)).be.true()
+      const meta = omit(metadata, ['video', 'title'])
+      snapshot(meta)
+    })
   })
 })
