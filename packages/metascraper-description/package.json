@@ -31,6 +31,5 @@
   "scripts": {
     "test": "exit 0"
   },
-  "license": "MIT",
-  "gitHead": "c8e22e27579e1000e6f3421dabde2bf71504c8cc"
+  "license": "MIT"
 }
