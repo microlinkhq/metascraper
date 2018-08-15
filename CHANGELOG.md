@@ -1,5 +1,51 @@
-##  (2018-07-10)
+##  (2018-08-15)
 
+
+
+
+## 3.12.0 (2018-08-15)
+
+* Use twdown for twitter videos ([0a74da4](https://github.com/microlinkhq/metascraper/commit/0a74da4))
+* v3.12.0 ([355b404](https://github.com/microlinkhq/metascraper/commit/355b404))
+
+
+
+## <small>3.11.12 (2018-08-13)</small>
+
+* Fix typo ([35b0ca6](https://github.com/microlinkhq/metascraper/commit/35b0ca6))
+* Remove residual data ([b66a28c](https://github.com/microlinkhq/metascraper/commit/b66a28c))
+* v3.11.12 ([815ba2b](https://github.com/microlinkhq/metascraper/commit/815ba2b))
+
+
+
+## <small>3.11.11 (2018-08-13)</small>
+
+* Improve video detection ([3a326ab](https://github.com/microlinkhq/metascraper/commit/3a326ab))
+* v3.11.11 ([0d5ee77](https://github.com/microlinkhq/metascraper/commit/0d5ee77))
+
+
+
+## <small>3.11.10 (2018-08-11)</small>
+
+* v3.11.10 ([63b10e1](https://github.com/microlinkhq/metascraper/commit/63b10e1))
+
+
+
+## <small>3.11.9 (2018-08-11)</small>
+
+* Add file extension ([3236005](https://github.com/microlinkhq/metascraper/commit/3236005))
+* Add providers script ([68ece2b](https://github.com/microlinkhq/metascraper/commit/68ece2b))
+* Cache non supported urls as well ([837c76c](https://github.com/microlinkhq/metascraper/commit/837c76c))
+* Detect extractors without HTTP request ([1a64a14](https://github.com/microlinkhq/metascraper/commit/1a64a14))
+* Ensure `normalizeHttp` is false by default (#101) ([339d473](https://github.com/microlinkhq/metascraper/commit/339d473)), closes [#101](https://github.com/microlinkhq/metascraper/issues/101)
+* Fix linter ([569a6bd](https://github.com/microlinkhq/metascraper/commit/569a6bd))
+* Remove postinstall script ([f8734db](https://github.com/microlinkhq/metascraper/commit/f8734db)), closes [/github.com/rg3/youtube-dl/issues/17208#issuecomment-412262556](https://github.com//github.com/rg3/youtube-dl/issues/17208/issues/issuecomment-412262556)
+* Tweaks ([c3bd078](https://github.com/microlinkhq/metascraper/commit/c3bd078))
+* Update Changelog ([3c06b83](https://github.com/microlinkhq/metascraper/commit/3c06b83))
+* Update dependencies ([234bd91](https://github.com/microlinkhq/metascraper/commit/234bd91))
+* Update index.html ([5587ade](https://github.com/microlinkhq/metascraper/commit/5587ade))
+* Update index.html ([3f16409](https://github.com/microlinkhq/metascraper/commit/3f16409))
+* v3.11.9 ([c8e22e2](https://github.com/microlinkhq/metascraper/commit/c8e22e2))
 
 
 
