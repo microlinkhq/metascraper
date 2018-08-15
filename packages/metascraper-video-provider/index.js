@@ -4,17 +4,20 @@ const { overEvery, isEmpty, eq, has, round, size, get, chain, find, isString } =
 const { isUrl, titleize } = require('@metascraper/helpers')
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
+const twdown = require('twdown')
+const { URL } = require('url')
 const path = require('path')
 
 const getInfo = promisify(youtubedl.getInfo)
 
+const TWITTER_HOSTNAMES = ['twitter.com', 'mobile.twitter.com']
+
+const isTwitterUrl = url => TWITTER_HOSTNAMES.includes(new URL(url).hostname)
+
+// Local cache for successive calls
 let cachedVideoInfoUrl
 let cachedVideoInfo
 
-/**
- * Get the video info.
- * Avoid do more one request for the same URL.
- */
 const getVideoInfo = async url => {
   if (url === cachedVideoInfoUrl) return cachedVideoInfo
   cachedVideoInfoUrl = url
@@ -24,21 +27,21 @@ const getVideoInfo = async url => {
   } catch (err) {
     cachedVideoInfo = {}
   }
-
   return cachedVideoInfo
 }
 
-const isMp4 = format => eq(get(format, 'ext'), 'mp4') || path.extname(get(format, 'url')).startsWith('.mp4')
-const isHttp = format => eq(get(format, 'protocol'), 'http')
-const isHttps = format => eq(get(format, 'protocol'), 'https')
-const hasAudio = format => has(format, 'abr')
+const isMp4 = video =>
+  eq(get(video, 'ext'), 'mp4') || path.extname(get(video, 'url')).startsWith('.mp4')
+const isHttp = video => eq(get(video, 'protocol'), 'http')
+const isHttps = video => eq(get(video, 'protocol'), 'https')
+const hasAudio = video => has(video, 'abr')
 
 /**
  * Get a Video source quality enough good
  * compatible to be consumed for the browser.
  */
-const getVideoUrl = (formats, filters = []) => {
-  const urls = chain(formats)
+const getVideoUrl = (videos, filters = []) => {
+  const urls = chain(videos)
     .filter(overEvery(filters))
     .map('url')
     .value()
@@ -51,9 +54,13 @@ const getVideoUrl = (formats, filters = []) => {
 /**
  * Get a URL-like video source.
  */
-const getVideoProvider = async ({ url }) => {
-  const { formats } = await getVideoInfo(url)
-  const videoUrl = getVideoUrl(formats, [isMp4, isHttps, hasAudio]) ||
+const getVideoProvider = getBrowserless => async ({ url }) => {
+  const formats = !isTwitterUrl(url)
+    ? (await getVideoInfo(url)).formats
+    : await twdown({ url, browserless: await getBrowserless() })
+
+  const videoUrl =
+    getVideoUrl(formats, [isMp4, isHttps, hasAudio]) ||
     getVideoUrl(formats, [isMp4, isHttp, hasAudio]) ||
     getVideoUrl(formats, [isMp4, isHttps]) ||
     getVideoUrl(formats, [isMp4]) ||
@@ -90,9 +97,9 @@ const getVideoDate = async ({ url }) => {
   return timestamp && new Date(timestamp * 1000).toISOString()
 }
 
-module.exports = () => {
+module.exports = ({ getBrowserless }) => {
   return {
-    video: getVideoProvider,
+    video: getVideoProvider(getBrowserless),
     author: getVideoAuthor,
     publisher: getVideoPublisher,
     title: getVideoTitle,

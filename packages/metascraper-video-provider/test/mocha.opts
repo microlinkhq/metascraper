@@ -4,3 +4,4 @@
 --slow 300
 --bail
 --recursive
+--exit

@@ -19,11 +19,14 @@
     "@metascraper/helpers": "^3.11.12",
     "json-future": "~2.1.2",
     "lodash": "~4.17.10",
+    "twdown": "~1.0.1",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
+    "browserless": "latest",
     "mocha": "latest",
     "nyc": "latest",
+    "puppeteer": "latest",
     "should": "latest",
     "snap-shot": "latest",
     "standard": "latest"

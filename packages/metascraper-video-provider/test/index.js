@@ -1,6 +1,7 @@
 'use strict'
 
 const { isUrl } = require('@metascraper/helpers')
+const browserless = require('browserless')()
 const { isString } = require('lodash')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
@@ -10,16 +11,7 @@ const should = require('should')
 const fs = require('fs')
 
 const metascraper = require('metascraper').load([
-  require('metascraper-video-provider')({
-    launchOpts: {
-      args: [
-        '--disable-gpu',
-        '--single-process',
-        '--no-zygote',
-        '--no-sandbox'
-      ]
-    }
-  }),
+  require('metascraper-video-provider')({ getBrowserless: () => browserless }),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -44,7 +36,7 @@ describe('metascraper-video-provider', () => {
       should(videoUrl).be.an.String()
     })
   })
-  describe('providers', () => {
+  describe('provider', () => {
     it('vimeo', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/vimeo.html'))
       const url = 'https://vimeo.com/188175573'
@@ -55,7 +47,7 @@ describe('metascraper-video-provider', () => {
       snapshot(meta)
     })
 
-    xit('twitter', async () => {
+    it('twitter', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/twitter.html'))
       const url = 'https://twitter.com/verge/status/957383241714970624'
 
