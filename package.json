@@ -52,13 +52,18 @@
   "private": true,
   "license": "MIT",
   "lint-staged": {
-    "src/**/*.{js,css}": [
-      "prettier-standard",
-      "git add"
-    ],
-    "package.json": [
-      "finepack",
-      "git add"
+    "linters": {
+      "*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "package.json": [
+        "finepack",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "static/*.{js, css}"
     ]
   },
   "standard": {

@@ -36,12 +36,6 @@
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
-  "lint-staged": {
-    "*.js": [
-      "prettier-standard",
-      "git add"
-    ]
-  },
   "standard": {
     "env": [
       "mocha"
