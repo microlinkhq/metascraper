@@ -2,33 +2,9 @@
 
 const { overEvery, isEmpty, eq, has, round, size, get, chain, find, isString } = require('lodash')
 const { isUrl, titleize } = require('@metascraper/helpers')
-const youtubedl = require('youtube-dl')
-const { promisify } = require('util')
-const twdown = require('twdown')
-const { URL } = require('url')
 const path = require('path')
 
-const getInfo = promisify(youtubedl.getInfo)
-
-const TWITTER_HOSTNAMES = ['twitter.com', 'mobile.twitter.com']
-
-const isTwitterUrl = url => TWITTER_HOSTNAMES.includes(new URL(url).hostname)
-
-// Local cache for successive calls
-let cachedVideoInfoUrl
-let cachedVideoInfo
-
-const getVideoInfo = async url => {
-  if (url === cachedVideoInfoUrl) return cachedVideoInfo
-  cachedVideoInfoUrl = url
-
-  try {
-    cachedVideoInfo = await getInfo(url)
-  } catch (err) {
-    cachedVideoInfo = {}
-  }
-  return cachedVideoInfo
-}
+const getVideoInfo = require('./get-video-info')
 
 const isMp4 = video =>
   eq(get(video, 'ext'), 'mp4') || path.extname(get(video, 'url')).startsWith('.mp4')
@@ -52,12 +28,10 @@ const getVideoUrl = (videos, filters = []) => {
 }
 
 /**
- * Get a URL-like video source.
+ * Get a URL-like video source
  */
-const getVideoProvider = getBrowserless => async ({ url }) => {
-  const formats = !isTwitterUrl(url)
-    ? (await getVideoInfo(url)).formats
-    : await twdown({ url, browserless: await getBrowserless() })
+const getVideoProvider = async ({ url }) => {
+  const { formats } = await getVideoInfo(url)
 
   const videoUrl =
     getVideoUrl(formats, [isMp4, isHttps, hasAudio]) ||
@@ -97,9 +71,9 @@ const getVideoDate = async ({ url }) => {
   return timestamp && new Date(timestamp * 1000).toISOString()
 }
 
-module.exports = ({ getBrowserless }) => {
+module.exports = () => {
   return {
-    video: getVideoProvider(getBrowserless),
+    video: getVideoProvider,
     author: getVideoAuthor,
     publisher: getVideoPublisher,
     title: getVideoTitle,

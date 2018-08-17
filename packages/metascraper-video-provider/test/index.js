@@ -1,7 +1,6 @@
 'use strict'
 
 const { isUrl } = require('@metascraper/helpers')
-const browserless = require('browserless')()
 const { isString } = require('lodash')
 const snapshot = require('snap-shot')
 const { promisify } = require('util')
@@ -11,7 +10,7 @@ const should = require('should')
 const fs = require('fs')
 
 const metascraper = require('metascraper').load([
-  require('metascraper-video-provider')({ getBrowserless: () => browserless }),
+  require('metascraper-video-provider')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
