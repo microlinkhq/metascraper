@@ -6,7 +6,7 @@ const isRelativeUrl = require('is-relative-url')
 const { resolve: resolveUrl } = require('url')
 const sanetizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
-const toTitle = require('to-title-case')
+const toTitle = require('title')
 const urlRegex = require('url-regex')
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
