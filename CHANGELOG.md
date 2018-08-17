@@ -3,6 +3,15 @@
 
 
 
+## 3.13.0 (2018-08-17)
+
+* Better twitter video extraction (#104) ([eb8778c](https://github.com/microlinkhq/metascraper/commit/eb8778c)), closes [#104](https://github.com/microlinkhq/metascraper/issues/104)
+* Unify lint-staged ([4e2ae4d](https://github.com/microlinkhq/metascraper/commit/4e2ae4d))
+* Update Changelog ([840ff6f](https://github.com/microlinkhq/metascraper/commit/840ff6f))
+* v3.13.0 ([3327bab](https://github.com/microlinkhq/metascraper/commit/3327bab))
+
+
+
 ## <small>3.12.1 (2018-08-17)</small>
 
 * Update Changelog ([718b0c8](https://github.com/microlinkhq/metascraper/commit/718b0c8))
