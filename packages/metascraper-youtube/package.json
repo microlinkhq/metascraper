@@ -2,7 +2,7 @@
   "name": "metascraper-youtube",
   "description": "metascraper integration with YouTube",
   "homepage": "https://documentup.com/microlinkhq/metascraper-youtube",
-  "version": "3.12.1",
+  "version": "3.13.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
