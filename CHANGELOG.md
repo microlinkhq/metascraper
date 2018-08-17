@@ -1,5 +1,14 @@
-##  (2018-08-15)
+##  (2018-08-17)
 
+
+
+
+## <small>3.12.1 (2018-08-17)</small>
+
+* Update Changelog ([718b0c8](https://github.com/microlinkhq/metascraper/commit/718b0c8))
+* Update dependencies ([51c7c52](https://github.com/microlinkhq/metascraper/commit/51c7c52))
+* Use title instead of to-title-case (#103) ([5d25245](https://github.com/microlinkhq/metascraper/commit/5d25245)), closes [#103](https://github.com/microlinkhq/metascraper/issues/103)
+* v3.12.1 ([9baa717](https://github.com/microlinkhq/metascraper/commit/9baa717))
 
 
 
