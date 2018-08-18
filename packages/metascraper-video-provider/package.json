@@ -2,7 +2,7 @@
   "name": "metascraper-video-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "3.13.1",
+  "version": "3.13.2",
   "main": "src/index",
   "author": {
     "email": "ian@ianstormtaylor.com",
