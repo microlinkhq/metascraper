@@ -1,5 +1,13 @@
-##  (2018-08-17)
+##  (2018-08-18)
 
+
+
+
+## <small>3.13.1 (2018-08-18)</small>
+
+* At least video need to be mp4 format ([f6fd92a](https://github.com/microlinkhq/metascraper/commit/f6fd92a))
+* Update Changelog ([b012514](https://github.com/microlinkhq/metascraper/commit/b012514))
+* v3.13.1 ([8928e95](https://github.com/microlinkhq/metascraper/commit/8928e95))
 
 
 
