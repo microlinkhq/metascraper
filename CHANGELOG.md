@@ -3,6 +3,14 @@
 
 
 
+## <small>3.13.2 (2018-08-18)</small>
+
+* Oh twitter ([23f641d](https://github.com/microlinkhq/metascraper/commit/23f641d))
+* Update Changelog ([9c5463b](https://github.com/microlinkhq/metascraper/commit/9c5463b))
+* v3.13.2 ([f4a0b21](https://github.com/microlinkhq/metascraper/commit/f4a0b21))
+
+
+
 ## <small>3.13.1 (2018-08-18)</small>
 
 * At least video need to be mp4 format ([f6fd92a](https://github.com/microlinkhq/metascraper/commit/f6fd92a))
