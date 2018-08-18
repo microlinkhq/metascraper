@@ -1,13 +1,25 @@
 'use strict'
 
-const { overEvery, isEmpty, eq, has, round, size, get, chain, find, isString } = require('lodash')
+const {
+  overEvery,
+  isEmpty,
+  eq,
+  has,
+  round,
+  size,
+  get,
+  chain,
+  find,
+  isString
+} = require('lodash')
 const { isUrl, titleize } = require('@metascraper/helpers')
 const path = require('path')
 
 const getVideoInfo = require('./get-video-info')
 
 const isMp4 = video =>
-  eq(get(video, 'ext'), 'mp4') || path.extname(get(video, 'url')).startsWith('.mp4')
+  eq(get(video, 'ext'), 'mp4') ||
+  path.extname(get(video, 'url')).startsWith('.mp4')
 const isHttp = video => eq(get(video, 'protocol'), 'http')
 const isHttps = video => eq(get(video, 'protocol'), 'https')
 const hasAudio = video => has(video, 'abr')
@@ -37,8 +49,7 @@ const getVideoProvider = async ({ url }) => {
     getVideoUrl(formats, [isMp4, isHttps, hasAudio]) ||
     getVideoUrl(formats, [isMp4, isHttp, hasAudio]) ||
     getVideoUrl(formats, [isMp4, isHttps]) ||
-    getVideoUrl(formats, [isMp4]) ||
-    getVideoUrl(formats)
+    getVideoUrl(formats, [isMp4])
 
   return isUrl(videoUrl) && videoUrl
 }
@@ -61,7 +72,9 @@ const getVideoPublisher = async ({ url }) => {
 }
 
 const getVideoTitle = async ({ url }) => {
-  const { title: mainTitle, alt_title: secondaryTitle } = await getVideoInfo(url)
+  const { title: mainTitle, alt_title: secondaryTitle } = await getVideoInfo(
+    url
+  )
   const title = find([mainTitle, secondaryTitle], isString)
   return title && titleize(title)
 }
