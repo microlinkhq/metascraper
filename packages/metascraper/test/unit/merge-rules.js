@@ -2,7 +2,7 @@
 
 const should = require('should')
 
-it('add a new rule from a prop that doesn\'t exist', async () => {
+it("add a new rule from a prop that doesn't exist", async () => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -30,14 +30,12 @@ it('add a new rule from a prop that doesn\'t exist', async () => {
 
   const rules = [
     {
-      foo: [
-        () => 'bar'
-      ]
+      foo: [() => 'bar']
     }
   ]
 
-  const metascraper = require('../..').load([])
-  const meta = await metascraper({url, html, rules})
+  const metascraper = require('../..')([])
+  const meta = await metascraper({ url, html, rules })
   should(meta.foo).be.equal('bar')
 })
 
@@ -69,21 +67,17 @@ it('add a new rule for a prop that exists', async () => {
 
   const rules = [
     {
-      foo: [
-        () => 'bar'
-      ]
+      foo: [() => 'bar']
     }
   ]
 
-  const metascraper = require('../..').load([{
-    foo: [
-      () => false,
-      () => false,
-      () => false
-    ]
-  }])
+  const metascraper = require('../..')([
+    {
+      foo: [() => false, () => false, () => false]
+    }
+  ])
 
-  const meta = await metascraper({url, html, rules})
+  const meta = await metascraper({ url, html, rules })
   should(meta.foo).be.equal('bar')
 })
 
@@ -115,20 +109,16 @@ it('rules are added from the end', async () => {
 
   const rules = [
     {
-      foo: [
-        () => 'bar'
-      ]
+      foo: [() => 'bar']
     }
   ]
 
-  const metascraper = require('../..').load([{
-    foo: [
-      () => false,
-      () => false,
-      () => 'baz'
-    ]
-  }])
+  const metascraper = require('../..')([
+    {
+      foo: [() => false, () => false, () => 'baz']
+    }
+  ])
 
-  const meta = await metascraper({url, html, rules})
+  const meta = await metascraper({ url, html, rules })
   should(meta.foo).be.equal('baz')
 })

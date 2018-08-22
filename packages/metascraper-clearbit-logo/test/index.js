@@ -2,7 +2,7 @@
 
 const should = require('should')
 
-const metascraper = require('metascraper').load([
+const metascraper = require('metascraper')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),

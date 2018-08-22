@@ -131,116 +131,12 @@ Rules work as fallback between them:
 
 **metascraper** do that until finish all the rule or find the first rule that resolves the value.
 
-## Loading rules
+## Usage
 
-When you call **metascraper** in your code, a set of [core rules](#core-rules) are loaded by default.
-
-Although these rules are sufficient for most cases, **metascraper** was designed to be easy to adapt and load more or custom rules set.
-
-We provide two approach for do that.
-
-### Configuration file
-
-This consists in declaring a configuration file that contains the names of the rule sets corresponding to npm packages that **metascraper** will be load automagically.
-
-The configuration file could be declared via:
-
-- A `.metascraperrc` file, written in YAML or JSON, with optional extensions: **.yaml**, **.yml**, **.json** and **.js**.
-- A `metascraper.config.js` file that exports an object.
-- A **metascraper** key in your `package.json` file.
-
-The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
-
-The order of rules are loaded are important: Just the first rule that resolve the value will be applied.
-
-#### Basic Configuration
-
-Declared an **array** of **rules**, specifying each rule as **string** name of the module to load.
-
-##### JSON
-
-```json
-// .metascraperrc
-{
-  "rules": [
-    "metascraper-author",
-    "metascraper-date",
-    "metascraper-description",
-    "metascraper-image",
-    "metascraper-lang",
-    "metascraper-logo",
-    "metascraper-publisher",
-    "metascraper-title",
-    "metascraper-url"
-  ]
-}
-```
-
-##### YAML
-
-```yaml
-#  .metascraperrc
-rules:  
-  - metascraper-author
-  - metascraper-date
-  - metascraper-description
-  - metascraper-image
-  - metascraper-lang
-  - metascraper-logo
-  - metascraper-publisher
-  - metascraper-title
-  - metascraper-url
-```
-
-#### Advanced Configuration
-
-Additionally, you can pass specific configuration per module using a **object** declaration:
-
-##### JSON
-
-```json
-// .metascraperrc
-{
-  "rules": [
-    "metascraper-author",
-    "metascraper-date",
-    "metascraper-description",
-    "metascraper-image",
-    "metascraper-lang",
-    "metascraper-logo",
-    {"metascraper-clearbit-logo": {
-    "format": "jpg"
-    }},
-    "metascraper-publisher",
-    "metascraper-title",
-    "metascraper-url"
-  ]
-}
-```
-
-##### YAML
-
-```yaml
-# .metascraperrc
-rules:
-  - metascraper-author
-  - metascraper-date
-  - metascraper-description
-  - metascraper-image
-  - metascraper-lang
-  - metascraper-clearbit-logo:
-      format: jpg
-  - metascraper-publisher
-  - metascraper-title
-  - metascraper-url
-```
-
-### Constructor
-
-If you need more control, you can load the rules set calling directly the metascraper constructor [`.load`](#metascraperloadrules):
+**metascraper** exports a constructors that need to be initalized providing a collection of rules set to load:
 
 ```js
-const metascraper = require('metascraper').load([
+const metascraper = require('metascraper')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -255,22 +151,14 @@ const metascraper = require('metascraper').load([
 
 Again, the order of rules are loaded are important: Just the first rule that resolve the value will be applied.
 
-Use the first parameter to pass custom options if you need it:
+Use the first parameter to pass custom options specific per each rules set:
 
 ```js
-const metascraper = require('metascraper').load([
+const metascraper = require('metascraper')([
   require('metascraper-clearbit-logo')({
     size: 256,
     format: 'jpg'
   })
-])
-```
-
-Using this way you are not limited to load just npm modules as rules set. For example, you can load a custom file of rules:
-
-```js
-const metascraper = require('metascraper').load([
-  require('./my-custom-rules-file')()
 ])
 ```
 
@@ -368,7 +256,7 @@ Type: `Array`
 
 You can pass additional rules on execution time. These rules will be merged with your loaded rules.
 
-### metascraper.load(rules)
+### metascraper([rules])
 
 Create a new **metascraper** instance declaring the rules set to be used explicitly.
 
