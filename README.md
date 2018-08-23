@@ -14,16 +14,16 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Metadata](#metadata)
 - [How it works](#how-it-works)
-- [Customization](#customization)
-- [Rules](#rules)
+- [Importing Rules](#importing-rules)
+- [Rules bundles](#rules-bundles)
 - [API](#api)
-- [Environment Variables](#environment-variables)
-- [Comparison](#comparison)
+- [Benchmark](#benchmark)
 - [License](#license)
 
 ## Getting Started
@@ -48,8 +48,21 @@ Let's extract accurate information from the following article:
 
 [![](https://raw.githubusercontent.com/microlinkhq/metascraper/add-comparison/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
 
+Then call **metascraper** with the rules bundle you want to apply for extracting content:
+
 ```js
-const metascraper = require('metascraper')
+const metascraper = require('metascraper')([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-logo')(),
+  require('metascraper-clearbit-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+
 const got = require('got')
 
 const targetUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
@@ -61,7 +74,8 @@ const targetUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits
 })()
 ```
 
-Where the output will be something like:
+
+The output will be something like:
 
 ```json
 {
@@ -77,7 +91,9 @@ Where the output will be something like:
 
 ## Metadata
 
-Here is a list of the metadata that **metascraper** collects by default:
+?> Other metadata can be defined using a custom [rule bundle](#rule-bundles).
+
+Here is an example of the metadata that **metascraper** can collect:
 
 - `author` — eg. *Noah Kulwin*<br/>
   A human-readable representation of the author's name.
@@ -111,13 +127,11 @@ Here is a list of the metadata that **metascraper** collects by default:
 
 ## How it works
 
-?> Configuration file follow the same approach than projects like Babel or Prettier.
-
-**metascraper** is built out of rules.
+**metascraper** is built out of rules bundles.
 
 It was designed to be easy to adapt. You can compose your own transformation pipeline using existing rules or write your own.
 
-Rules are a collection of HTML selectors around a determinate property. When you load the library, implicitly it is loading [core rules](#core-rules).
+Rules bundles are a collection of HTML selectors around a determinate property. When you load the library, implicitly it is loading [core rules](#core-rules).
 
 Each set of rules load a set of selectors in order to get a determinate value.
 
@@ -131,9 +145,9 @@ Rules work as fallback between them:
 
 **metascraper** do that until finish all the rule or find the first rule that resolves the value.
 
-## Usage
+## Importing Rules
 
-**metascraper** exports a constructors that need to be initalized providing a collection of rules set to load:
+**metascraper** exports a constructor that need to be initialized providing a collection of rules to load:
 
 ```js
 const metascraper = require('metascraper')([
@@ -151,7 +165,7 @@ const metascraper = require('metascraper')([
 
 Again, the order of rules are loaded are important: Just the first rule that resolve the value will be applied.
 
-Use the first parameter to pass custom options specific per each rules set:
+Use the first parameter to pass custom options specific per each rules bundle:
 
 ```js
 const metascraper = require('metascraper')([
@@ -162,13 +176,9 @@ const metascraper = require('metascraper')([
 ])
 ```
 
-## Rules
+## Rules bundles
 
-?> Can't find a rules set that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
-
-### Core rules
-
-These rules set will be shipped with  **metascraper** and loaded by default.
+?> Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
@@ -181,13 +191,6 @@ These rules set will be shipped with  **metascraper** and loaded by default.
 | [`metascraper-publisher`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-publisher) | [![npm](https://img.shields.io/npm/v/metascraper-publisher.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-publisher) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-publisher&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-publisher) |
 | [`metascraper-title`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-title) | [![npm](https://img.shields.io/npm/v/metascraper-title.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-title) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-title&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-title) |
 | [`metascraper-url`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-url) | [![npm](https://img.shields.io/npm/v/metascraper-url.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-url) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-url&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-url) |
-
-### Community rules
-
-These rule set will not be shipped with  **metascraper** by default and need to be specific using a configuration file.
-
-| Package | Version | Dependencies |
-|--------|-------|------------|
 | [`metascraper-amazon`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) | [![npm](https://img.shields.io/npm/v/metascraper-amazon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-amazon) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-amazon&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-amazon) |
 | [`metascraper-clearbit-logo`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-clearbit-logo) | [![npm](https://img.shields.io/npm/v/metascraper-clearbit-logo.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit-logo) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit-logo&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit-logo) |
 | [`metascraper-logo-favicon`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo-favicon) | [![npm](https://img.shields.io/npm/v/metascraper-logo-favicon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-logo-favicon) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-logo-favicon&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-logo-favicon) |
@@ -197,11 +200,11 @@ These rule set will not be shipped with  **metascraper** by default and need to 
 
 ### Write your own rules
 
-A rule set is the simplest way for extending **metascraper** functionality.
+A rule bundle is the simplest way for extending **metascraper** functionality.
 
-A rule set can add one or more properties support.
+A rule bundle can add one or more properties support.
 
-The following schema represents the API compromise that a rule set need to follow:
+The following schema represents the API compromise that a rule bundle need to follow:
 
 ```js
 'use strict'
@@ -224,11 +227,23 @@ module.exports = opts => {
 }
 ```
 
-We recommend check [core rules packages](/packages) as examples.
+We recommend check one of the [rule bundles](#rules-bundles) already implemented to have a better perspective.
 
 ## API
 
+### constructor(rules)
+
+Create a new **metascraper** instance declaring the rules bundle to be used explicitly.
+
+#### rules
+
+Type: `Array`
+
+The collection of rules bundle to be loaded.
+
 ### metascraper(options)
+
+Call the instance for extracting content based on rules bundle provided at the constructor.
 
 #### options
 
@@ -256,26 +271,7 @@ Type: `Array`
 
 You can pass additional rules on execution time. These rules will be merged with your loaded rules.
 
-### metascraper([rules])
-
-Create a new **metascraper** instance declaring the rules set to be used explicitly.
-
-#### rules
-
-Type: `Array`
-
-The collection fo rules set to be loaded.
-
-## Environment Variables
-
-### METASCRAPER_CWD
-
-Type: `String` <br/>
-Default: `process.cwd()`
-
-This variable is used to determine where starting search for a configuration object.
-
-## Comparison
+## Benchmark
 
 To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:
 
