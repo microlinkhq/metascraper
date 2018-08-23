@@ -9,11 +9,12 @@ const loadHTML = require('./load-html')
 const getData = require('./get-data')
 
 module.exports = rules => {
-  const lazyloader = loadRules(rules)
+  const loadedRules = loadRules(rules)
   return async ({ url, html, rules: inlineRules } = {}) => {
-    const loadedRules = await lazyloader
     if (!isUrl(url)) throw new TypeError('You need to provide a valid url.')
-    if (isEmpty(html)) { throw new TypeError('You need to provide a valid HTML markup.') }
+    if (isEmpty(html)) {
+      throw new TypeError('You need to provide a valid HTML markup.')
+    }
     return getData({
       url,
       htmlDom: loadHTML(html),
