@@ -6,7 +6,19 @@ const { resolve } = require('path')
 
 const fs = require('fs')
 
-const metascraper = require('../../..')
+const metascraper = require('../../..')([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-video')(),
+  require('metascraper-image')(),
+  require('metascraper-lang')(),
+  require('metascraper-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+
 const readFile = promisify(fs.readFile)
 
 const url = 'https://www.silicontap.com/story/0053475.html'

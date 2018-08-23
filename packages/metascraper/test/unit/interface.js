@@ -1,9 +1,19 @@
-
 'use strict'
 
 const should = require('should')
 
-const metascraper = require('../..')
+const metascraper = require('../..')([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-video')(),
+  require('metascraper-image')(),
+  require('metascraper-lang')(),
+  require('metascraper-logo')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
 
 it('url is required', async () => {
   try {
@@ -49,9 +59,7 @@ it('load extra rules', async () => {
 
   const rules = [
     {
-      foo: [
-        () => 'bar'
-      ]
+      foo: [() => 'bar']
     }
   ]
 

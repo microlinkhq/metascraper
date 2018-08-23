@@ -29,7 +29,6 @@ const getGuestToken = async url => {
 
 const getTwitterVideoInfo = async url => {
   const tweetId = getTweetId(url)
-  console.log('tweetId', tweetId)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const { body } = await got(apiUrl, {
     json: true,

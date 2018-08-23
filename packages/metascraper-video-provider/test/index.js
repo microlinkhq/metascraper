@@ -9,7 +9,7 @@ const { omit } = require('lodash')
 const should = require('should')
 const fs = require('fs')
 
-const metascraper = require('metascraper').load([
+const metascraper = require('metascraper')([
   require('metascraper-video-provider')(),
   require('metascraper-author')(),
   require('metascraper-date')(),

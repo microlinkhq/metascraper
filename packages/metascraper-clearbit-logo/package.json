@@ -20,6 +20,9 @@
     "clearbit",
     "metascraper"
   ],
+  "dependencies": {
+    "got": "~9.0.0"
+  },
   "devDependencies": {
     "mocha": "latest",
     "nyc": "latest",
@@ -36,12 +39,12 @@
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
+  "peerDependencies": {
+    "metascraper": "^3"
+  },
   "standard": {
     "env": [
       "mocha"
     ]
-  },
-  "dependencies": {
-    "got": "~9.0.0"
   }
 }

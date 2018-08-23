@@ -5,7 +5,7 @@ const { promisify } = require('util')
 const { resolve } = require('path')
 const fs = require('fs')
 
-const metascraper = require('metascraper').load([
+const metascraper = require('metascraper')([
   require('metascraper-soundcloud')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
@@ -23,7 +23,8 @@ const readFile = promisify(fs.readFile)
 describe('metascraper-soundcloud', () => {
   it('song', async () => {
     const html = await readFile(resolve(__dirname, 'fixtures/song.html'))
-    const url = 'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
+    const url =
+      'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
 
     const metadata = await metascraper({ html, url })
     snapshot(metadata)
