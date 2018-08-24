@@ -1,5 +1,17 @@
-##  (2018-08-18)
+##  (2018-08-24)
 
+
+
+
+## 4.0.0 (2018-08-24)
+
+* Remove autoload ([9d3745b](https://github.com/microlinkhq/metascraper/commit/9d3745b))
+* Remove autoload (#106) ([60b0adb](https://github.com/microlinkhq/metascraper/commit/60b0adb)), closes [#106](https://github.com/microlinkhq/metascraper/issues/106)
+* Remove lazy intializer ([d63fcc8](https://github.com/microlinkhq/metascraper/commit/d63fcc8))
+* Update Changelog ([76d5329](https://github.com/microlinkhq/metascraper/commit/76d5329))
+* Update dependencies ([19aca42](https://github.com/microlinkhq/metascraper/commit/19aca42))
+* Update Docs ([7fd6b15](https://github.com/microlinkhq/metascraper/commit/7fd6b15))
+* v4.0.0 ([7901fb6](https://github.com/microlinkhq/metascraper/commit/7901fb6))
 
 
 
