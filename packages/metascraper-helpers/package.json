@@ -25,6 +25,9 @@
     "url-regex": "~4.1.1"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -34,7 +37,12 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
   },
   "license": "MIT"
 }
