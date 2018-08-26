@@ -32,7 +32,7 @@ exports['astier 1'] = {
   "video": null,
   "lang": "en",
   "logo": "https://anisse.astier.eu/theme/img/favicon.png",
-  "publisher": null,
+  "publisher": "awk driven IoT",
   "title": "Linux Engineer’s random thoughts - awk driven IoT",
   "url": "https://anisse.astier.eu/awk-driven-iot.html"
 }
@@ -976,7 +976,7 @@ exports['wikipedia 1'] = {
   "video": "https://upload.wikimedia.org/wikipedia/en/e/e7/Bob_Dylan_-_Blowin'_in_the_Wind.ogg",
   "lang": "en",
   "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
-  "publisher": null,
+  "publisher": "Wikipedia",
   "title": "Bob Dylan - Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
 }

@@ -4,7 +4,7 @@ const { isString } = require('lodash')
 const condenseWhitespace = require('condense-whitespace')
 
 const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
-const REGEX_TITLE = /^.*?\|\s+(.*)$/
+const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
 
 const validator = value => isString(value) && condenseWhitespace(value)
 
