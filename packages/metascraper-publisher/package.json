@@ -20,6 +20,9 @@
     "lodash": "~4.17.10"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -29,10 +32,15 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "peerDependencies": {
     "metascraper": "^3"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
   }
 }
