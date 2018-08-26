@@ -1,5 +1,15 @@
-##  (2018-08-24)
+##  (2018-08-26)
 
+
+
+
+## <small>4.0.1 (2018-08-26)</small>
+
+* Add tests ([58c26f0](https://github.com/microlinkhq/metascraper/commit/58c26f0))
+* Improve publisher detection based on title (#109) ([840ac8b](https://github.com/microlinkhq/metascraper/commit/840ac8b)), closes [#109](https://github.com/microlinkhq/metascraper/issues/109)
+* Update Changelog ([2a3dc73](https://github.com/microlinkhq/metascraper/commit/2a3dc73))
+* Update ISSUE_TEMPLATE.md ([f35ca69](https://github.com/microlinkhq/metascraper/commit/f35ca69))
+* v4.0.1 ([94c0281](https://github.com/microlinkhq/metascraper/commit/94c0281))
 
 
 
