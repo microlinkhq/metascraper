@@ -33,6 +33,6 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^3"
+    "metascraper": "^4"
   }
 }
