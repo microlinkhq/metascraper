@@ -1,5 +1,13 @@
-##  (2018-08-26)
+##  (2018-08-27)
 
+
+
+
+## <small>4.0.2 (2018-08-27)</small>
+
+* Update Changelog ([321a2ab](https://github.com/microlinkhq/metascraper/commit/321a2ab))
+* Update peer dependency to metascraper 4 ([a837299](https://github.com/microlinkhq/metascraper/commit/a837299))
+* v4.0.2 ([a287d23](https://github.com/microlinkhq/metascraper/commit/a287d23))
 
 
 
