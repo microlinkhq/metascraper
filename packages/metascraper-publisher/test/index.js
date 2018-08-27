@@ -1,7 +1,6 @@
 'use strict'
 
 const should = require('should')
-
 const metascraper = require('metascraper')([require('..')()])
 
 const getHtml = title => `
@@ -20,13 +19,18 @@ const getHtml = title => `
 
 describe('metascraper-publisher', () => {
   describe('from title', async () => {
-    ;['Murcia | Wikipedia', 'Murcia - Wikipedia', '| Wikipedia'].forEach(
-      title =>
-        it(`${title} → Wikipedia`, async () => {
-          const url = 'https://en.wikipedia.org/wiki/Murcia'
-          const { publisher } = await metascraper({ html: getHtml(title), url })
-          should(publisher).be.equal('Wikipedia')
-        })
+    ;[
+      'Murcia | Wikipedia',
+      'Murcia - Wikipedia',
+      '| Wikipedia',
+      'San Antonio Spurs guard Manu Ginobili... - San Antonio Spurs | Wikipedia',
+      'San Antonio Spurs guard Manu Ginobili... | San Antonio Spurs - Wikipedia'
+    ].forEach(title =>
+      it(`${title} → Wikipedia`, async () => {
+        const url = 'https://en.wikipedia.org/wiki/Murcia'
+        const { publisher } = await metascraper({ html: getHtml(title), url })
+        should(publisher).be.equal('Wikipedia')
+      })
     )
   })
 })

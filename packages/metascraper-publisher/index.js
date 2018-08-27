@@ -22,7 +22,10 @@ const wrap = rule => ({ htmlDom }) => {
 
 const getFromTitle = (text, regex) => {
   const matches = regex.exec(text)
-  return matches ? matches[1] : false
+  if (!matches) return false
+  let result = matches[1]
+  while (regex.test(result)) result = regex.exec(result)[1]
+  return result
 }
 
 /**
