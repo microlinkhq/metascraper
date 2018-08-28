@@ -1,5 +1,13 @@
-##  (2018-08-27)
+##  (2018-08-28)
 
+
+
+
+## <small>4.0.3 (2018-08-28)</small>
+
+* Add condition to stop ([e49a85c](https://github.com/microlinkhq/metascraper/commit/e49a85c))
+* Update Changelog ([8766f13](https://github.com/microlinkhq/metascraper/commit/8766f13))
+* v4.0.3 ([a2027c9](https://github.com/microlinkhq/metascraper/commit/a2027c9))
 
 
 
