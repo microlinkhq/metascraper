@@ -1,6 +1,6 @@
 'use strict'
 
-const {isTwitterUrl, getTwitterVideoInfo} = require('./twitter-video-info')
+const { isTwitterUrl, getTwitterVideoInfo } = require('./twitter-video-info')
 const getVideoInfo = require('./video-info')
 const { chain } = require('lodash')
 
@@ -15,12 +15,12 @@ const getInfo = async url => {
   const formats = chain(videoInfo.formats)
     .reduce((acc, format, index) => {
       const { url } = twitterVideos[index]
-      const item = {...format, url}
+      const item = { ...format, url }
       return [...acc, item]
     }, [])
     .value()
 
-  return {...videoInfo, formats}
+  return { ...videoInfo, formats }
 }
 
 // Local cache for successive calls

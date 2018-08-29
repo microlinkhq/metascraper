@@ -10,7 +10,7 @@ const should = require('should')
 const fs = require('fs')
 
 const metascraper = require('metascraper')([
-  require('metascraper-video-provider')(),
+  require('metascraper-media-provider')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -24,11 +24,11 @@ const metascraper = require('metascraper')([
 
 const readFile = promisify(fs.readFile)
 
-const { getVideoUrl, isMp4 } = require('metascraper-video-provider')
+const { getVideoUrl, isMp4 } = require('metascraper-media-provider')
 
 const output = require('./fixtures/output.json')
 
-describe('metascraper-video-provider', () => {
+describe('metascraper-media-provider', () => {
   describe('.getVideoUrl', () => {
     it('isMp4', () => {
       const videoUrl = getVideoUrl(output.formats, [isMp4])
