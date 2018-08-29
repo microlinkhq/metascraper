@@ -5,8 +5,6 @@ const {
   isEmpty,
   eq,
   has,
-  round,
-  size,
   get,
   chain,
   find,
@@ -24,32 +22,24 @@ const isHttp = video => eq(get(video, 'protocol'), 'http')
 const isHttps = video => eq(get(video, 'protocol'), 'https')
 const hasAudio = video => has(video, 'abr')
 
-/**
- * Get a Video source quality enough good
- * compatible to be consumed for the browser.
- */
-const getVideoUrl = (videos, filters = []) => {
+const getVideoUrls = (videos, filters = []) => {
   const urls = chain(videos)
     .filter(overEvery(filters))
+    .orderBy('tbr', 'asc')
     .map('url')
     .value()
 
-  if (isEmpty(urls)) return false
-  const index = round(size(urls) / 2) - 1
-  return get(urls, index)
+  return isEmpty(urls) ? false : urls
 }
 
-/**
- * Get a URL-like video source
- */
 const getVideoProvider = async ({ url }) => {
   const { formats } = await getVideoInfo(url)
 
   const videoUrl =
-    getVideoUrl(formats, [isMp4, isHttps, hasAudio]) ||
-    getVideoUrl(formats, [isMp4, isHttp, hasAudio]) ||
-    getVideoUrl(formats, [isMp4, isHttps]) ||
-    getVideoUrl(formats, [isMp4])
+    getVideoUrls(formats, [isMp4, isHttps, hasAudio]) ||
+    getVideoUrls(formats, [isMp4, isHttp, hasAudio]) ||
+    getVideoUrls(formats, [isMp4, isHttps]) ||
+    getVideoUrls(formats, [isMp4])
 
   return isUrl(videoUrl) && videoUrl
 }
@@ -94,7 +84,7 @@ module.exports = () => {
   }
 }
 
-module.exports.getVideoUrl = getVideoUrl
+module.exports.getVideoUrls = getVideoUrls
 module.exports.isMp4 = isMp4
 module.exports.isHttp = isHttp
 module.exports.isHttps = isHttps
