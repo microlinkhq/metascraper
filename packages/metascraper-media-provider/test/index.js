@@ -24,15 +24,15 @@ const metascraper = require('metascraper')([
 
 const readFile = promisify(fs.readFile)
 
-const { getVideoUrl, isMp4 } = require('metascraper-media-provider')
+const { getVideoUrls, isMp4 } = require('metascraper-media-provider')
 
-const output = require('./fixtures/output.json')
+const output = require('./fixtures/youtube-dl.json')
 
 describe('metascraper-media-provider', () => {
-  describe('.getVideoUrl', () => {
-    it('isMp4', () => {
-      const videoUrl = getVideoUrl(output.formats, [isMp4])
-      should(videoUrl).be.an.String()
+  describe('.getVideoUrls', () => {
+    it('filter by mp4', () => {
+      const videoUrls = getVideoUrls(output.formats, [isMp4])
+      snapshot(videoUrls)
     })
   })
   describe('provider', () => {
