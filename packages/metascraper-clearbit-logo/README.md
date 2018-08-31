@@ -31,6 +31,13 @@ Default: `png`
 
 Image format, either "png" or "jpg".
 
+##### greyscale
+
+Type: `boolean`<br>
+Default: `false`
+
+Desaturates image if set to `true`.
+
 ## License
 
 **metascraper-clearbit-logo** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper-clearbit-logo/blob/master/LICENSE.md) License.<br>
