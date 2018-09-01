@@ -1,6 +1,8 @@
 'use strict'
 
 const {
+  difference,
+  union,
   toLower,
   replace,
   includes,
@@ -10,8 +12,9 @@ const {
   isEmpty
 } = require('lodash')
 
+const imageExtensions = difference(require('image-extensions'), ['gif'])
+const videoExtensions = union(require('video-extensions'), ['gif'])
 const condenseWhitespace = require('condense-whitespace')
-const videoExtensions = require('video-extensions').concat(['gif'])
 const audioExtensions = require('audio-extensions')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
@@ -84,6 +87,8 @@ const isVideoUrl = createUrlExtensionValidator(videoExtensions)
 
 const isAudioUrl = createUrlExtensionValidator(audioExtensions)
 
+const isImageUrl = createUrlExtensionValidator(imageExtensions)
+
 const extension = url => fileExtension(url).split('?')[0]
 
 const description = value => isString(value) && getDescription(value)
@@ -136,5 +141,6 @@ module.exports = {
   normalizeUrl,
   isUrl,
   isVideoUrl,
-  isAudioUrl
+  isAudioUrl,
+  isImageUrl
 }
