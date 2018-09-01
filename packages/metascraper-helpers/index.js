@@ -9,6 +9,7 @@ const {
   flow,
   isEmpty
 } = require('lodash')
+
 const condenseWhitespace = require('condense-whitespace')
 const videoExtensions = require('video-extensions').concat(['gif'])
 const audioExtensions = require('audio-extensions')
@@ -18,7 +19,7 @@ const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const chrono = require('chrono-node')
-const urlRegex = require('url-regex')
+const urlRegex = require('url-regex')({ exact: true })
 const isIso = require('isostring')
 const toTitle = require('title')
 const { URL } = require('url')
@@ -30,7 +31,7 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
 const urlTest = (url, { relative = true }) =>
-  relative ? isRelativeUrl(url) || urlRegex().test(url) : urlRegex().test(url)
+  relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
 
 const isUrl = (url, opts = {}) => !isEmpty(url) && urlTest(url, opts)
 
