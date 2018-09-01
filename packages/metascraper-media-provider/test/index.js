@@ -25,13 +25,13 @@ const { getVideo } = require('..')
 describe('metascraper-media-provider', () => {
   describe('.getVideo', () => {
     it('twitter', () => {
-      snapshot(getVideo(require('./fixtures/twitter.json')))
+      snapshot(getVideo(require('./fixtures/video/twitter.json')))
     })
     it('vimeo', () => {
-      snapshot(getVideo(require('./fixtures/vimeo.json')))
+      snapshot(getVideo(require('./fixtures/video/vimeo.json')))
     })
     it('youtube', () => {
-      snapshot(getVideo(require('./fixtures/youtube.json')))
+      snapshot(getVideo(require('./fixtures/video/youtube.json')))
     })
   })
   describe('provider', () => {

@@ -16,8 +16,8 @@ const getDomNodeSizes = (domNodes, attr) =>
 const getSizes = ($, collection) =>
   chain(collection)
     .reduce((acc, { tag, attr }) => {
-      const domNode = $(tag).get()
-      const selectors = getDomNodeSizes(domNode, attr)
+      const domNodes = $(tag).get()
+      const selectors = getDomNodeSizes(domNodes, attr)
       return concat(acc, selectors)
     }, [])
     .sortBy(({ size }) => -size)

@@ -18,7 +18,7 @@ const wrap = createWrapper((value, url) => urlFn(value, { url }))
 
 const wrapVideo = createWrapper((value, url) => {
   const urlValue = urlFn(value, { url })
-  return isVideoUrl(urlValue) && urlValue
+  return isVideoUrl(urlValue) && [urlValue]
 })
 
 /**
@@ -33,6 +33,6 @@ module.exports = () => ({
     wrapVideo($ => $('meta[property="og:video"]').attr('content')),
     wrapVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
     wrapVideo($ => $('video').attr('src')),
-    wrapVideo($ => $('source').attr('src'))
+    wrapVideo($ => $('video > source').attr('src'))
   ]
 })
