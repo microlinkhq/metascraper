@@ -20,7 +20,7 @@
     "lodash": "~4.17.10"
   },
   "devDependencies": {
-    "standard": "latest"
+    "standard": "11"
   },
   "engines": {
     "node": ">= 8"

@@ -31,7 +31,7 @@
     "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "latest"
+    "standard": "11"
   },
   "engines": {
     "node": ">= 8"
