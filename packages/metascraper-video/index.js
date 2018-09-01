@@ -18,7 +18,7 @@ const wrap = createWrapper((value, url) => urlFn(value, { url }))
 
 const wrapVideo = createWrapper((value, url) => {
   const urlValue = urlFn(value, { url })
-  return isVideoUrl(urlValue) && [urlValue]
+  return isVideoUrl(urlValue) && urlValue
 })
 
 /**
