@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "main": "src/index",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -16,7 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^4.0.1",
+    "@metascraper/helpers": "^4.1.0",
     "got": "~9.2.0",
     "lodash": "~4.17.10",
     "youtube-dl": "~1.12.2"

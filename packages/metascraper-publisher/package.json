@@ -2,7 +2,7 @@
   "name": "metascraper-publisher",
   "description": "Get publisher property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "main": "index.js",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -16,7 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^4.0.1"
+    "@metascraper/helpers": "^4.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
