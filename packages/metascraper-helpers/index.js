@@ -40,7 +40,6 @@ const absoluteUrl = (baseUrl, relativePath = '') =>
 
 const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
-    normalizeHttp: false,
     stripWWW: false,
     sortQueryParameters: false,
     removeTrailingSlash: false,

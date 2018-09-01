@@ -21,7 +21,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "got": "~9.1.0"
+    "got": "~9.2.0"
   },
   "devDependencies": {
     "mocha": "latest",
