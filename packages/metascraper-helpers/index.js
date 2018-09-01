@@ -15,17 +15,24 @@ const {
 const imageExtensions = difference(require('image-extensions'), ['gif'])
 const videoExtensions = union(require('video-extensions'), ['gif'])
 const condenseWhitespace = require('condense-whitespace')
+const urlRegex = require('url-regex')({ exact: true })
 const audioExtensions = require('audio-extensions')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
+const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
-const urlRegex = require('url-regex')({ exact: true })
 const isIso = require('isostring')
 const toTitle = require('title')
 const { URL } = require('url')
+
+const MIMES_EXTENSIONS = {
+  audio: audioExtensions,
+  video: videoExtensions,
+  image: imageExtensions
+}
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
 
@@ -124,6 +131,12 @@ const lang = value => isString(value) && toLower(value.substring(0, 2))
 
 const title = value => isString(value) && titleize(value)
 
+const isMime = (type, mime) => {
+  const extension = mimeTypes.extension(type)
+  const collection = MIMES_EXTENSIONS[extension]
+  return includes(collection, mime)
+}
+
 module.exports = {
   author,
   title,
@@ -139,6 +152,7 @@ module.exports = {
   protocol,
   publisher,
   normalizeUrl,
+  isMime,
   isUrl,
   isVideoUrl,
   isAudioUrl,

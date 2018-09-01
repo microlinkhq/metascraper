@@ -24,6 +24,7 @@
     "is-relative-url": "~2.0.0",
     "isostring": "0.0.1",
     "lodash": "~4.17.10",
+    "mime-types": "~2.1.20",
     "normalize-url": "~3.3.0",
     "smartquotes": "~2.3.1",
     "title": "~3.3.2",

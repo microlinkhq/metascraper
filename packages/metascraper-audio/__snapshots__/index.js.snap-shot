@@ -1,0 +1,20 @@
+exports['og:audio 1'] = {
+  "audio": "https://browserless.js.org/static/demo.mp3"
+}
+
+exports['og:audio:secure_url 1'] = {
+  "audio": "https://browserless.js.org/static/demo.mp3"
+}
+
+exports['twitter:player:stream 1'] = {
+  "audio": "https://browserless.js.org/static/demo.mp3"
+}
+
+exports['audio:src 1'] = {
+  "audio": "https://browserless.js.org/static/demo.mp3"
+}
+
+exports['audio:source:src 1'] = {
+  "audio": "https://browserless.js.org/static/demo.mp3"
+}
+
