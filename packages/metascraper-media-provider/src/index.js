@@ -7,7 +7,6 @@ const {
   has,
   isEmpty,
   isNil,
-  isString,
   negate,
   overEvery
 } = require('lodash')
@@ -18,7 +17,8 @@ const {
   author: authorFn,
   description: descriptionFn,
   title: titleFn,
-  url: urlFn
+  url: urlFn,
+  publisher
 } = require('@metascraper/helpers')
 
 const createGetVideoInfo = require('./get-video-info')
@@ -85,7 +85,7 @@ const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
 
 const getPublisher = ({ extractor_key: extractorKey }) =>
-  isString(extractorKey) && extractorKey
+  publisher(extractorKey)
 
 const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
   find([mainTitle, secondaryTitle], titleFn)
@@ -101,11 +101,7 @@ module.exports = opts => {
   const getVideoInfo = createGetVideoInfo(opts)
 
   return {
-    video: async ({ url }) => {
-      const payload = await getVideoInfo(url)
-      // console.log(JSON.stringify(payload))
-      return getVideo(payload)
-    },
+    video: async ({ url }) => getVideo(await getVideoInfo(url)),
     audio: async ({ url }) => getAudio(await getVideoInfo(url)),
     author: async ({ url }) => getAuthor(await getVideoInfo(url)),
     publisher: async ({ url }) => getPublisher(await getVideoInfo(url)),
