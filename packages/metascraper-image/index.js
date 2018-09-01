@@ -1,8 +1,6 @@
 'use strict'
 
-const { getValue, getUrl, isUrl } = require('@metascraper/helpers')
-
-const validator = (value, url) => isUrl(value) && getUrl(url, value)
+const { $filter, url: urlFn } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -13,7 +11,7 @@ const validator = (value, url) => isUrl(value) && getUrl(url, value)
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return validator(value, url)
+  return urlFn(value, { url })
 }
 
 const getSrc = el => el.attr('src')
@@ -29,11 +27,9 @@ module.exports = () => ({
     wrap($ => $('meta[name="twitter:image:src"]').attr('content')),
     wrap($ => $('meta[name="twitter:image"]').attr('content')),
     wrap($ => $('meta[itemprop="image"]').attr('content')),
-    wrap($ => getValue($, $('article img[src]'), getSrc)),
-    wrap($ => getValue($, $('#content img[src]'), getSrc)),
+    wrap($ => $filter($, $('article img[src]'), getSrc)),
+    wrap($ => $filter($, $('#content img[src]'), getSrc)),
     wrap($ => $('img[alt*="author"]').attr('src')),
     wrap($ => $('img[src]').attr('src'))
   ]
 })
-
-module.exports.validator = validator

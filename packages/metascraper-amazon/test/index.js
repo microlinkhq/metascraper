@@ -10,7 +10,7 @@ const fs = require('fs')
 const readFile = promisify(fs.readFile)
 
 const metascraper = require('metascraper')([
-  require('metascraper-amazon')(),
+  require('..')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -30,8 +30,8 @@ describe('metascraper-amazon', () => {
       )
       const url =
         'https://www.amazon.co.uk/Vegetable-Perfection-tasty-recipes-shoots/dp/1849757097/ref=asap_bc?ie=UTF8'
-      const meta = omit(await metascraper({ html, url }), ['date'])
-      snapshot(meta)
+      const metadata = omit(await metascraper({ html, url }), ['date'])
+      snapshot(metadata)
     })
   })
 

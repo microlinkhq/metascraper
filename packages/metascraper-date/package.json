@@ -16,8 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "chrono-node": "~1.3.5",
-    "isostring": "0.0.1"
+    "@metascraper/helpers": "^4.0.1"
   },
   "devDependencies": {
     "standard": "latest"

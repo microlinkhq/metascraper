@@ -1,13 +1,10 @@
 'use strict'
 
-const { getValue, titleize } = require('@metascraper/helpers')
-const { isString } = require('lodash')
-
-const validator = value => isString(value) && titleize(value)
+const { $filter, title } = require('@metascraper/helpers')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return validator(value)
+  return title(value)
 }
 
 module.exports = () => ({
@@ -18,8 +15,6 @@ module.exports = () => ({
     wrap($ => $('.entry-title').text()),
     wrap($ => $('h1[class*="title"] a').text()),
     wrap($ => $('h1[class*="title"]').text()),
-    wrap($ => getValue($, $('title')))
+    wrap($ => $filter($, $('title')))
   ]
 })
-
-module.exports.validator = wrap

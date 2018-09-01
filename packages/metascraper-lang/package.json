@@ -16,7 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "lodash": "~4.17.10"
+    "@metascraper/helpers": "^4.0.1"
   },
   "devDependencies": {
     "mocha": "latest",

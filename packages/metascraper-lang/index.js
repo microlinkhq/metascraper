@@ -1,12 +1,10 @@
 'use strict'
 
-const { isString, toLower } = require('lodash')
-
-const validator = value => isString(value) && toLower(value.substring(0, 2))
+const { lang } = require('@metascraper/helpers')
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return validator(value)
+  return lang(value)
 }
 
 module.exports = () => ({
@@ -15,5 +13,3 @@ module.exports = () => ({
     wrap($ => $('html').attr('lang'))
   ]
 })
-
-module.exports.validator = validator

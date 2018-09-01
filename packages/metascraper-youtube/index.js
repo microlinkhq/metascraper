@@ -1,10 +1,8 @@
 'use strict'
 
-const getVideoId = require('get-video-id')
-
-const { getValue, isUrl, titleize } = require('@metascraper/helpers')
+const { $filter, author } = require('@metascraper/helpers')
 const isReachable = require('is-reachable')
-const { isString } = require('lodash')
+const getVideoId = require('get-video-id')
 const pLocate = require('p-locate')
 
 const THUMBAILS_RESOLUTIONS = [
@@ -16,29 +14,27 @@ const THUMBAILS_RESOLUTIONS = [
 ]
 
 const getThumbnailUrl = id => {
-  const urls = THUMBAILS_RESOLUTIONS.map(res => `https://img.youtube.com/vi/${id}/${res}`)
+  const urls = THUMBAILS_RESOLUTIONS.map(
+    res => `https://img.youtube.com/vi/${id}/${res}`
+  )
   return pLocate(urls, isReachable)
 }
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return isString(value) && !isUrl(value, {relative: false}) && titleize(
-    value, {removeBy: true}
-  )
+  return author(value)
 }
 
 module.exports = () => ({
   author: [
     wrap($ => $('#owner-name').text()),
     wrap($ => $('#channel-title').text()),
-    wrap($ => getValue($, $('[class*="user-info"]')))
+    wrap($ => $filter($, $('[class*="user-info"]')))
   ],
-  publisher: [
-    ({url}) => getVideoId(url).service === 'youtube' && 'YouTube'
-  ],
+  publisher: [({ url }) => getVideoId(url).service === 'youtube' && 'YouTube'],
   image: [
     ({ htmlDom, url }) => {
-      const {id, service} = getVideoId(url)
+      const { id, service } = getVideoId(url)
       return service === 'youtube' && id && getThumbnailUrl(id)
     }
   ]

@@ -1,12 +1,9 @@
 'use strict'
 
-const { isString } = require('lodash')
-const condenseWhitespace = require('condense-whitespace')
+const { publisher } = require('@metascraper/helpers')
 
 const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
 const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
-
-const validator = value => isString(value) && condenseWhitespace(value)
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -17,7 +14,7 @@ const validator = value => isString(value) && condenseWhitespace(value)
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return validator(value)
+  return publisher(value)
 }
 
 const getFromTitle = (text, regex) => {
@@ -53,5 +50,3 @@ module.exports = () => ({
     wrap($ => getFromTitle($('link[type*="xml"]').attr('title'), REGEX_RSS))
   ]
 })
-
-module.exports.validator = validator

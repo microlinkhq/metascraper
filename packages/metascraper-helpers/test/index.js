@@ -2,20 +2,20 @@
 
 const should = require('should')
 
-const { getAbsoluteUrl } = require('../')
+const { absoluteUrl } = require('../')
 
 describe('metascraper-helpers', () => {
-  it('getAbsoluteUrl', () => {
-    should(getAbsoluteUrl('https://kikobeats.com/', 'blog')).be.equal(
+  it('absoluteUrl', () => {
+    should(absoluteUrl('https://kikobeats.com/', 'blog')).be.equal(
       'https://kikobeats.com/blog'
     )
-    should(getAbsoluteUrl('https://kikobeats.com', '/blog')).be.equal(
+    should(absoluteUrl('https://kikobeats.com', '/blog')).be.equal(
       'https://kikobeats.com/blog'
     )
-    should(getAbsoluteUrl('https://kikobeats.com/', '/blog')).be.equal(
+    should(absoluteUrl('https://kikobeats.com/', '/blog')).be.equal(
       'https://kikobeats.com/blog'
     )
-    should(getAbsoluteUrl('http://kikobeats.com/', '/blog')).be.equal(
+    should(absoluteUrl('http://kikobeats.com/', '/blog')).be.equal(
       'http://kikobeats.com/blog'
     )
   })

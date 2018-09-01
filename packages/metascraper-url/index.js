@@ -1,8 +1,6 @@
 'use strict'
 
-const { getUrl, isUrl } = require('@metascraper/helpers')
-
-const validator = (value, url) => isUrl(value) && getUrl(url, value)
+const { url: urlFn } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -13,7 +11,7 @@ const validator = (value, url) => isUrl(value) && getUrl(url, value)
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return validator(value, url)
+  return urlFn(value, { url })
 }
 
 /**
@@ -29,5 +27,3 @@ module.exports = () => ({
     ({ url }) => url
   ]
 })
-
-module.exports.validator = validator

@@ -1,7 +1,7 @@
 'use strict'
 
 const { flow, chain, first, concat, toNumber, split } = require('lodash')
-const { getUrl, isUrl } = require('@metascraper/helpers')
+const { url: urlFn } = require('@metascraper/helpers')
 
 const getSize = flow([str => split(str, 'x'), first, toNumber])
 
@@ -31,8 +31,6 @@ const sizeSelectors = [
   { tag: 'link[rel="shortcut icon"]', attr: 'href' }
 ]
 
-const validator = (value, url) => isUrl(value) && getUrl(url, value)
-
 /**
  * Wrap a rule with validation and formatting logic.
  *
@@ -42,7 +40,7 @@ const validator = (value, url) => isUrl(value) && getUrl(url, value)
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return validator(value, url)
+  return urlFn(value, { url })
 }
 
 /**
@@ -56,10 +54,11 @@ module.exports = () => ({
     wrap($ => $('img[itemprop="logo"]').attr('src')),
     wrap($ => {
       const sizes = getSizes($, sizeSelectors)
-      const size = chain(sizes).first().get('link').value()
+      const size = chain(sizes)
+        .first()
+        .get('link')
+        .value()
       return size
     })
   ]
 })
-
-module.exports.validator = validator

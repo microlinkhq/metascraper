@@ -11,7 +11,7 @@ const metascraper = require('metascraper')([
   require('metascraper-date')(),
   require('metascraper-description')(),
   require('metascraper-image')(),
-  require('metascraper-lang')(),
+  require('..')(),
   require('metascraper-logo')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
