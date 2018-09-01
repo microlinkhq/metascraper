@@ -3,6 +3,14 @@
 
 
 
+## 4.2.0 (2018-09-01)
+
+* Add image url helper ([b7e2987](https://github.com/microlinkhq/metascraper/commit/b7e2987))
+* Update Changelog ([c0b9ef5](https://github.com/microlinkhq/metascraper/commit/c0b9ef5))
+* v4.2.0 ([e035974](https://github.com/microlinkhq/metascraper/commit/e035974))
+
+
+
 ## 4.1.0 (2018-09-01)
 
 * Add `greyscale` option to Clearbit logo API (#110) ([137b2f4](https://github.com/microlinkhq/metascraper/commit/137b2f4)), closes [#110](https://github.com/microlinkhq/metascraper/issues/110)
