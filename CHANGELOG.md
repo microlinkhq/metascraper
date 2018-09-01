@@ -1,5 +1,44 @@
-##  (2018-08-28)
+##  (2018-09-01)
 
+
+
+
+## 4.2.0 (2018-09-01)
+
+* Add image url helper ([b7e2987](https://github.com/microlinkhq/metascraper/commit/b7e2987))
+* Update Changelog ([c0b9ef5](https://github.com/microlinkhq/metascraper/commit/c0b9ef5))
+* v4.2.0 ([e035974](https://github.com/microlinkhq/metascraper/commit/e035974))
+
+
+
+## 4.1.0 (2018-09-01)
+
+* Add `greyscale` option to Clearbit logo API (#110) ([137b2f4](https://github.com/microlinkhq/metascraper/commit/137b2f4)), closes [#110](https://github.com/microlinkhq/metascraper/issues/110)
+* Add audio support ([7d5ad34](https://github.com/microlinkhq/metascraper/commit/7d5ad34))
+* Add audio support ([9f09429](https://github.com/microlinkhq/metascraper/commit/9f09429))
+* Fix tests ([00584d3](https://github.com/microlinkhq/metascraper/commit/00584d3))
+* Fix tests ([6fd95b4](https://github.com/microlinkhq/metascraper/commit/6fd95b4))
+* Lock standard version ([b61e68d](https://github.com/microlinkhq/metascraper/commit/b61e68d))
+* Lock standard version ([82c6108](https://github.com/microlinkhq/metascraper/commit/82c6108))
+* Move helpers method into helpers package ([a807b70](https://github.com/microlinkhq/metascraper/commit/a807b70))
+* Move helpers method into helpers package ([b845f45](https://github.com/microlinkhq/metascraper/commit/b845f45))
+* Remove unnecesary test ([fe3efa6](https://github.com/microlinkhq/metascraper/commit/fe3efa6))
+* Remove unnecesary test ([153f5d1](https://github.com/microlinkhq/metascraper/commit/153f5d1))
+* Rename video-provider → media-provider ([2838e12](https://github.com/microlinkhq/metascraper/commit/2838e12))
+* Rename video-provider → media-provider ([77080db](https://github.com/microlinkhq/metascraper/commit/77080db))
+* Return a collection of urls ([7f54518](https://github.com/microlinkhq/metascraper/commit/7f54518))
+* Return a collection of urls ([9ffcd67](https://github.com/microlinkhq/metascraper/commit/9ffcd67))
+* Strict url validation ([edfb8a0](https://github.com/microlinkhq/metascraper/commit/edfb8a0))
+* Strict url validation ([b63564f](https://github.com/microlinkhq/metascraper/commit/b63564f))
+* Tweaks ([99a52ef](https://github.com/microlinkhq/metascraper/commit/99a52ef))
+* Tweaks ([10faffd](https://github.com/microlinkhq/metascraper/commit/10faffd))
+* Update Changelog ([4ddd209](https://github.com/microlinkhq/metascraper/commit/4ddd209))
+* Update dependencies (#112) ([4ecf92d](https://github.com/microlinkhq/metascraper/commit/4ecf92d)), closes [#112](https://github.com/microlinkhq/metascraper/issues/112)
+* v4.1.0 ([6b08dfa](https://github.com/microlinkhq/metascraper/commit/6b08dfa))
+* Video is a collection ([19405c2](https://github.com/microlinkhq/metascraper/commit/19405c2))
+* Video is a collection ([97fcfae](https://github.com/microlinkhq/metascraper/commit/97fcfae))
+* video is string ([41e5806](https://github.com/microlinkhq/metascraper/commit/41e5806))
+* video is string ([1e3227b](https://github.com/microlinkhq/metascraper/commit/1e3227b))
 
 
 

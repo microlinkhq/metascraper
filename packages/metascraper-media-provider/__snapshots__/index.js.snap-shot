@@ -22,11 +22,8 @@ exports['youtube 1'] = [
 
 exports['vimeo 2'] = {
   "publisher": "Vimeo",
-  "audio": null,
   "author": "pleid",
-  "title": "Converse - Past meets Present - Montage",
   "date": "2016-10-20T13:06:52.000Z",
-  "image": "https://i.vimeocdn.com/video/598160082_1280.jpg",
   "description": "Converse has spent a good part of this year updating some of their classics. Our past is constantly catching up to us, but we rarely get to see the relationship between past and present. The sneaker company gave us access to some of the original footwear to create a series of dynamic, thrilling and unexpected motion pieces wherein we watch the old versions turn into the updated models.\nCREDITS\nClient: Converse USA\nAgency: Anomaly NYC\nArt Direction: Serial Cut\nAnimation: Pleid\nSound Design: Heardcity",
   "lang": "en",
   "logo": "https://i.vimeocdn.com/favicon/main-touch_180",
@@ -35,11 +32,8 @@ exports['vimeo 2'] = {
 
 exports['twitter 2'] = {
   "publisher": "Twitter",
-  "audio": null,
   "author": "The Verge",
-  "title": "The Verge - Is it bad to blow into game cartridges?",
   "date": "2018-02-11T12:00:00.000Z",
-  "image": "https://pbs.twimg.com/media/DRg1OMRVwAEuwTK.jpg",
   "description": "The Verge on Twitter: “Is it bad to blow into game cartridges? https://t.co/Y3yAimrUnP”",
   "lang": "es",
   "logo": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
@@ -48,11 +42,8 @@ exports['twitter 2'] = {
 
 exports['facebook 1'] = {
   "publisher": "Facebook",
-  "audio": null,
   "author": "AFC Ajax",
-  "title": "̶A̶n̶d̶e̶r̶l̶e̶c̶h̶t̶ ✔️  ̶J̶u̶v̶e̶n̶t̶u̶s̶ ✔️  W I N N E R S  &#x1f449;  #Aj...",
   "date": "2018-04-02T18:57:00.000Z",
-  "image": "https://scontent.fmad3-8.fna.fbcdn.net/v/t15.0-10/p720x720/27603335_1686838558030152_6228738417937612800_n.jpg?_nc_cat=0&oh=48f6c7c84736eac9eeb2b9c086e5ec50&oe=5C2D7661",
   "description": null,
   "lang": "es",
   "logo": "https://static.xx.fbcdn.net/rsrc.php/yp/r/1Dxu6XIjaTc.ico",
@@ -61,19 +52,10 @@ exports['facebook 1'] = {
 
 exports['youtube 2'] = {
   "publisher": "ES",
-  "audio": [
-    "https://r3---sn-h5q7dnld.googlevideo.com/videoplayback?pcm2=yes&mime=video%2F3gpp&expire=1535832824&dur=141.548&pl=16&c=WEB&gir=yes&ei=mJ6KW__eKImNhAeqgLWABg&id=o-ALszeUN6STM_SWfv3PaTAD0-3rATdu6sXHr3aGY03hxE&initcwndbps=733750&fvip=3&lmt=1503811657072536&ip=88.31.163.175&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2%2Cpl%2Crequiressl%2Csource%2Cexpire&ms=au%2Conr&mv=m&mt=1535811133&source=youtube&requiressl=yes&clen=1187373&key=yt6&mn=sn-h5q7dnld%2Csn-25ge7nsk&mm=31%2C26&itag=17&ipbits=0&signature=DF0C5DB7312BA388F86C4C1D81FC9B687BD4CFFB.C90284513800E2A38A9BBB654F3BDB0D711C492A&ratebypass=yes",
-    "https://r3---sn-h5q7dnld.googlevideo.com/videoplayback?pcm2=yes&mime=video%2Fmp4&expire=1535832824&dur=141.502&pl=16&ratebypass=yes&c=WEB&gir=yes&ei=mJ6KW__eKImNhAeqgLWABg&id=o-ALszeUN6STM_SWfv3PaTAD0-3rATdu6sXHr3aGY03hxE&initcwndbps=733750&fvip=3&lmt=1503811655561063&ip=88.31.163.175&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cexpire&ms=au%2Conr&mv=m&mt=1535811133&source=youtube&requiressl=yes&clen=6322851&key=yt6&mn=sn-h5q7dnld%2Csn-25ge7nsk&mm=31%2C26&itag=18&ipbits=0&signature=220F793307E3580294AC0A8DD725D5D84A7830A4.2CB844A5FD70E262997748D722A7819ED05E5571",
-    "https://r3---sn-h5q7dnld.googlevideo.com/videoplayback?pcm2=yes&mime=video%2Fwebm&expire=1535832824&dur=0.000&pl=16&ratebypass=yes&c=WEB&gir=yes&ei=mJ6KW__eKImNhAeqgLWABg&id=o-ALszeUN6STM_SWfv3PaTAD0-3rATdu6sXHr3aGY03hxE&initcwndbps=733750&fvip=3&lmt=1503812251410108&ip=88.31.163.175&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cexpire&ms=au%2Conr&mv=m&mt=1535811133&source=youtube&requiressl=yes&clen=7126000&key=yt6&mn=sn-h5q7dnld%2Csn-25ge7nsk&mm=31%2C26&itag=43&ipbits=0&signature=BBB19BB20A1507DDBBFDCFB3B07E13C29C11F47F.55CEAD63F70F02484DF7C5243D91B942C988C86A",
-    "https://r3---sn-h5q7dnld.googlevideo.com/videoplayback?pcm2=yes&mime=video%2Fmp4&expire=1535832824&dur=141.502&pl=16&ratebypass=yes&c=WEB&ei=mJ6KW__eKImNhAeqgLWABg&id=o-ALszeUN6STM_SWfv3PaTAD0-3rATdu6sXHr3aGY03hxE&initcwndbps=733750&fvip=3&lmt=1507953047549769&ip=88.31.163.175&sparams=dur%2Cei%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cexpire&ms=au%2Conr&mv=m&mt=1535811133&source=youtube&requiressl=yes&key=yt6&mn=sn-h5q7dnld%2Csn-25ge7nsk&mm=31%2C26&itag=22&ipbits=0&signature=674F949B591ACABE4094E3443BAF58B1EACEAA8C.4A9A473FD16AAD86B83BD4009309BCC98864F9D3"
-  ],
   "author": "ONE Media",
-  "title": "Star Wars 8 THE LAST JEDI Official TRAILER (2017) Daisy Ridley, Disney Movie HD",
   "date": "2017-04-14T12:00:00.000Z",
-  "image": "https://i.ytimg.com/vi/hwMkbaS_M_c/maxresdefault.jpg",
   "description": "Star Wars 8 THE LAST JEDI Official TRAILER (2017) Daisy Ridley, Disney Movie HD\n© 2017 - Disney",
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
   "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
 }
-

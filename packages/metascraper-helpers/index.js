@@ -1,6 +1,8 @@
 'use strict'
 
 const {
+  difference,
+  union,
   toLower,
   replace,
   includes,
@@ -9,8 +11,10 @@ const {
   flow,
   isEmpty
 } = require('lodash')
+
+const imageExtensions = difference(require('image-extensions'), ['gif'])
+const videoExtensions = union(require('video-extensions'), ['gif'])
 const condenseWhitespace = require('condense-whitespace')
-const videoExtensions = require('video-extensions').concat(['gif'])
 const audioExtensions = require('audio-extensions')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
@@ -18,7 +22,7 @@ const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const chrono = require('chrono-node')
-const urlRegex = require('url-regex')
+const urlRegex = require('url-regex')({ exact: true })
 const isIso = require('isostring')
 const toTitle = require('title')
 const { URL } = require('url')
@@ -30,7 +34,7 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
 const urlTest = (url, { relative = true }) =>
-  relative ? isRelativeUrl(url) || urlRegex().test(url) : urlRegex().test(url)
+  relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
 
 const isUrl = (url, opts = {}) => !isEmpty(url) && urlTest(url, opts)
 
@@ -39,7 +43,6 @@ const absoluteUrl = (baseUrl, relativePath = '') =>
 
 const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
-    normalizeHttp: false,
     stripWWW: false,
     sortQueryParameters: false,
     removeTrailingSlash: false,
@@ -83,6 +86,8 @@ const createUrlExtensionValidator = collection => url =>
 const isVideoUrl = createUrlExtensionValidator(videoExtensions)
 
 const isAudioUrl = createUrlExtensionValidator(audioExtensions)
+
+const isImageUrl = createUrlExtensionValidator(imageExtensions)
 
 const extension = url => fileExtension(url).split('?')[0]
 
@@ -136,5 +141,6 @@ module.exports = {
   normalizeUrl,
   isUrl,
   isVideoUrl,
-  isAudioUrl
+  isAudioUrl,
+  isImageUrl
 }
