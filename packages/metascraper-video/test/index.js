@@ -23,16 +23,34 @@ const readFile = promisify(fs.readFile)
 
 describe('metascraper-video', () => {
   describe('video', () => {
-    it('video src', async () => {
-      const html = await readFile(resolve(__dirname, 'fixtures/video-src.html'))
-      const url =
-        'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
-
-      const metadata = await metascraper({ html, url })
-      snapshot(metadata)
+    describe('<video />', () => {
+      it('single src', async () => {
+        const html = await readFile(
+          resolve(__dirname, 'fixtures/video-src.html')
+        )
+        const url =
+          'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
+        const metadata = await metascraper({ html, url })
+        snapshot(metadata)
+      })
+      xit('multiple src', async () => {
+        const html = `
+        <video controls>
+          <source src="video-small.mp4" type="video/mp4" media="all and (max-width: 480px)">
+          <source src="video-small.webm" type="video/webm" media="all and (max-width: 480px)">
+          <source src="video.mp4" type="video/mp4">
+          <source src="video.webm" type="video/webm">
+        </video>
+        `
+        const url =
+          'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
+        const metadata = await metascraper({ html, url })
+        console.log(metadata)
+        // snapshot(metadata)
+      })
     })
 
-    it('source src', async () => {
+    it('<source src />', async () => {
       const html = await readFile(
         resolve(__dirname, 'fixtures/source-src.html')
       )
@@ -45,12 +63,11 @@ describe('metascraper-video', () => {
     it('og:video', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/tweet.html'))
       const url = 'https://twitter.com/_developit/status/955905369242513414'
-
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
 
-    describe('specific providers', () => {
+    describe('by providers', () => {
       it('clips.twitch.tv', async () => {
         const html = await readFile(
           resolve(__dirname, 'fixtures/providers/clip.twitch.tv.html')

@@ -1,19 +1,8 @@
-exports['video src 1'] = {
-  "image": "https://cdn.vox-cdn.com/thumbor/AtQQMyWrexi6-Xyk73jv6nqTO7s=/0x5:1247x658/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/10079811/Screen_Shot_2018_01_22_at_3.27.50_PM.png",
-  "video": null,
-  "author": "Rachel Becker",
-  "date": "2018-01-22T23:38:17.000Z",
-  "description": "The zombies are only released on the weekends, the developers promise",
-  "lang": null,
-  "logo": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/7395351/android-chrome-192x192.0.png",
-  "publisher": "The Verge",
-  "title": "You can visit the Pentagon’s secret nuclear bunker inside Minecraft",
-  "url": "https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model"
-}
-
-exports['source src 1'] = {
+exports['<source src /> 1'] = {
   "image": "https://img-9gag-fun.9cache.com/photo/aGjVLDK_460s.jpg",
-  "video": "https://img-9gag-fun.9cache.com/photo/aGjVLDK_460sv.mp4",
+  "video": [
+    "https://img-9gag-fun.9cache.com/photo/aGjVLDK_460sv.mp4"
+  ],
   "author": null,
   "date": null,
   "description": "Watch the video and the fun convo of the 9GAG community",
@@ -37,22 +26,26 @@ exports['og:video 1'] = {
   "url": "https://twitter.com/_developit/status/955905369242513414"
 }
 
-exports['src:poster 1'] = {
-  "image": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-mobile.jpg",
-  "video": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-mobile.mp4",
-  "author": "Gfycat",
-  "date": null,
-  "description": "Watch Backflip GIF on Gfycat. Discover more PUBG GIFs on Gfycat",
-  "lang": "en",
-  "logo": "https://gfycat.com/static/apple-touch-icon/apple-touch-icon-180x180.png",
-  "publisher": "Gfycat",
-  "title": "Backflip - Create, Discover and Share Awesome GIFs on Gfycat",
-  "url": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-size_restricted.gif"
+exports['single src 1'] = {
+  "image": "https://cdn.vox-cdn.com/thumbor/AtQQMyWrexi6-Xyk73jv6nqTO7s=/0x5:1247x658/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/10079811/Screen_Shot_2018_01_22_at_3.27.50_PM.png",
+  "video": [
+    "https://cdn.vox-cdn.com/thumbor/4l0C-7uGFtTfc6lWibo1ITiE2YU=/0x0:1280x720/320x213/filters:focal(538x258:742x462):gifv():no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/58416873/2018_01_22_14_19_55.0.gif"
+  ],
+  "author": "Rachel Becker",
+  "date": "2018-01-22T23:38:17.000Z",
+  "description": "The zombies are only released on the weekends, the developers promise",
+  "lang": null,
+  "logo": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/7395351/android-chrome-192x192.0.png",
+  "publisher": "The Verge",
+  "title": "You can visit the Pentagon’s secret nuclear bunker inside Minecraft",
+  "url": "https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model"
 }
 
 exports['clips.twitch.tv 1'] = {
   "image": "https://clips-media-assets.twitch.tv/27434665136-offset-2366-preview.jpg",
-  "video": "https://clips-media-assets.twitch.tv/AT-27434665136-offset-2366-1280x720.mp4",
+  "video": [
+    "https://clips-media-assets.twitch.tv/AT-27434665136-offset-2366-1280x720.mp4"
+  ],
   "author": null,
   "date": null,
   "description": "Shroud with the casual coffee sip to kill combo - Clipped by jpan11",
@@ -65,7 +58,9 @@ exports['clips.twitch.tv 1'] = {
 
 exports['play.tv 1'] = {
   "image": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/720.jpg",
-  "video": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/480.mp4",
+  "video": [
+    "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/480.mp4"
+  ],
   "author": "chineseouchie",
   "description": "Publicado por chineseouchie",
   "lang": "en",
@@ -73,5 +68,20 @@ exports['play.tv 1'] = {
   "publisher": "Plays.tv",
   "title": "Holy Shit",
   "url": "https://plays.tv/video/5a6f64b1bef69a7fa9/holy-shit"
+}
+
+exports['src:poster 1'] = {
+  "image": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-mobile.jpg",
+  "video": [
+    "https://thumbs.gfycat.com/TimelyHealthyArmadillo-mobile.mp4"
+  ],
+  "author": "Gfycat",
+  "date": null,
+  "description": "Watch Backflip GIF on Gfycat. Discover more PUBG GIFs on Gfycat",
+  "lang": "en",
+  "logo": "https://gfycat.com/static/apple-touch-icon/apple-touch-icon-180x180.png",
+  "publisher": "Gfycat",
+  "title": "Backflip - Create, Discover and Share Awesome GIFs on Gfycat",
+  "url": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-size_restricted.gif"
 }
 
