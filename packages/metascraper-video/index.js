@@ -1,15 +1,6 @@
 'use strict'
 
-const { getUrl, isUrl } = require('@metascraper/helpers')
-const videoExtensions = require('video-extensions')
-const { URL } = require('url')
-const path = require('path')
-
-const isVideoUrl = url => {
-  const { pathname } = new URL(url)
-  const ext = path.extname(pathname).substring(1)
-  return videoExtensions.includes(ext)
-}
+const { url: urlFn, isVideoUrl } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -23,24 +14,19 @@ const createWrapper = fn => rule => ({ htmlDom, url }) => {
   return fn(value, url)
 }
 
-const wrap = createWrapper((value, url) => isUrl(value) && getUrl(url, value))
+const wrap = createWrapper((value, url) => urlFn(value, { url }))
 
-const validator = (value, url) => {
-  if (!isUrl(value)) return false
-  const urlValue = getUrl(url, value)
+const wrapVideo = createWrapper((value, url) => {
+  const urlValue = urlFn(value, { url })
   return isVideoUrl(urlValue) && urlValue
-}
-
-const wrapVideo = createWrapper(validator)
+})
 
 /**
  * Rules.
  */
 
 module.exports = () => ({
-  image: [
-    wrap($ => $('video').attr('poster'))
-  ],
+  image: [wrap($ => $('video').attr('poster'))],
   video: [
     wrapVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
     wrapVideo($ => $('meta[property="og:video:url"]').attr('content')),
@@ -50,5 +36,3 @@ module.exports = () => ({
     wrapVideo($ => $('source').attr('src'))
   ]
 })
-
-module.exports.validator = validator

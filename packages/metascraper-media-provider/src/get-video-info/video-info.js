@@ -3,4 +3,9 @@
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
 
-module.exports = promisify(youtubedl.getInfo)
+const getInfo = promisify(youtubedl.getInfo)
+
+module.exports = ({ cacheDir } = {}) => {
+  const opts = cacheDir ? [`--cache-dir=${cacheDir}`] : []
+  return url => getInfo(url, opts)
+}

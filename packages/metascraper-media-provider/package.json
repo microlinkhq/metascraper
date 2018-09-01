@@ -18,7 +18,6 @@
   "dependencies": {
     "@metascraper/helpers": "^4.0.1",
     "got": "~9.1.0",
-    "json-future": "~2.1.2",
     "lodash": "~4.17.10",
     "youtube-dl": "~1.12.2"
   },
@@ -26,7 +25,6 @@
     "mocha": "latest",
     "nyc": "latest",
     "puppeteer": "latest",
-    "should": "latest",
     "snap-shot": "latest",
     "standard": "latest"
   },

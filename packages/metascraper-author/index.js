@@ -1,15 +1,8 @@
 'use strict'
 
-const { getValue, isUrl, titleize } = require('@metascraper/helpers')
-const { isString } = require('lodash')
+const { $filter, author } = require('@metascraper/helpers')
 
 const REGEX_STRICT = /^\S+\s+\S+/
-
-const validator = value => (
-  isString(value) &&
-  !isUrl(value, {relative: false}) &&
-  titleize(value, {removeBy: true})
-)
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -20,7 +13,7 @@ const validator = value => (
 
 const wrap = rule => ({ htmlDom }) => {
   const value = rule(htmlDom)
-  return validator(value)
+  return author(value)
 }
 
 /**
@@ -44,16 +37,14 @@ module.exports = () => ({
     wrap($ => $('meta[name="author"]').attr('content')),
     wrap($ => $('meta[property="author"]').attr('content')),
     wrap($ => $('meta[property="article:author"]').attr('content')),
-    wrap($ => getValue($, $('[itemprop*="author"] [itemprop="name"]'))),
-    wrap($ => getValue($, $('[itemprop*="author"]'))),
-    wrap($ => getValue($, $('[rel="author"]'))),
-    strict(wrap($ => getValue($, $('a[class*="author"]')))),
-    strict(wrap($ => getValue($, $('[class*="author"] a')))),
-    strict(wrap($ => getValue($, $('a[href*="/author/"]')))),
-    wrap($ => getValue($, $('a[class*="screenname"]'))),
-    strict(wrap($ => getValue($, $('[class*="author"]')))),
-    strict(wrap($ => getValue($, $('[class*="byline"]'))))
+    wrap($ => $filter($, $('[itemprop*="author"] [itemprop="name"]'))),
+    wrap($ => $filter($, $('[itemprop*="author"]'))),
+    wrap($ => $filter($, $('[rel="author"]'))),
+    strict(wrap($ => $filter($, $('a[class*="author"]')))),
+    strict(wrap($ => $filter($, $('[class*="author"] a')))),
+    strict(wrap($ => $filter($, $('a[href*="/author/"]')))),
+    wrap($ => $filter($, $('a[class*="screenname"]'))),
+    strict(wrap($ => $filter($, $('[class*="author"]')))),
+    strict(wrap($ => $filter($, $('[class*="byline"]'))))
   ]
 })
-
-module.exports.validator = validator

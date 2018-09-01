@@ -16,8 +16,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^4.0.1",
-    "video-extensions": "~1.1.0"
+    "@metascraper/helpers": "^4.0.1"
   },
   "devDependencies": {
     "lodash": "latest",

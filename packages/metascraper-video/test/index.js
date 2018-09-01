@@ -7,7 +7,7 @@ const { omit } = require('lodash')
 const fs = require('fs')
 
 const metascraper = require('metascraper')([
-  require('metascraper-video')(),
+  require('..')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),

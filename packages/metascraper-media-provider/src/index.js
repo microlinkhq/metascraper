@@ -1,101 +1,126 @@
 'use strict'
 
 const {
-  overEvery,
-  isEmpty,
-  eq,
-  has,
-  get,
   chain,
+  eq,
   find,
+  has,
+  isEmpty,
+  isNil,
+  isString,
   negate,
-  isString
+  overEvery
 } = require('lodash')
-const { isUrl, titleize } = require('@metascraper/helpers')
-const path = require('path')
 
-const getVideoInfo = require('./get-video-info')
+const {
+  protocol: protocolFn,
+  extension: extensionFn,
+  author: authorFn,
+  description: descriptionFn,
+  title: titleFn,
+  url: urlFn
+} = require('@metascraper/helpers')
 
-const isMIME = ext => item =>
-  eq(get(item, 'ext'), ext) ||
-  path.extname(get(item, 'url')).startsWith(`.${ext}`)
+const createGetVideoInfo = require('./get-video-info')
 
+const isMIME = extension => ({ ext, url }) =>
+  eq(ext, extension) || eq(extensionFn(url), extension)
+
+const isProtocol = value => ({ protocol, url }) =>
+  protocol ? eq(protocol, value) : protocolFn(url, value)
+
+/* Most used formats
+   Seet at https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility
+*/
 const isMp4 = isMIME('mp4')
 const isMp3 = isMIME('mp3')
 const isM4a = isMIME('m4a')
 const isAac = isMIME('aac')
+const isWav = isMIME('wav')
 
-const isHttp = item => eq(get(item, 'protocol'), 'http')
-const isHttps = item => eq(get(item, 'protocol'), 'https')
+const isHttp = isProtocol('http')
+const isHttps = isProtocol('https')
+
 const hasAudio = item => has(item, 'abr')
 const hasVideo = item => has(item, 'tbr')
+const hastNotVideo = negate(hasVideo)
 
-const getFormatUrls = orderBy => (videos, filters = []) => {
-  const urls = chain(videos)
+const getFormatUrls = ({ orderBy, filterBy }) => (formats, filters) => {
+  const urls = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
     .map('url')
-    .filter(isUrl)
+    .filter(url => !eq(extensionFn(url), 'm3u8'))
     .value()
 
   return isEmpty(urls) ? false : urls
 }
 
-const getVideoUrls = getFormatUrls('tbr')
-const getAudioUrls = getFormatUrls('abr')
+const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
+const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
 
 const getVideo = ({ formats }) =>
-  getVideoUrls(formats, [hasAudio, isMp4, isHttps]) ||
-  getVideoUrls(formats, [hasAudio, isMp4, isHttp]) ||
-  getVideoUrls(formats, [isMp4, isHttps]) ||
-  getVideoUrls(formats, [isMp4, isHttp]) ||
-  getVideoUrls(formats, [isMp4])
+  getVideoUrls(formats, [hasVideo, hasAudio, isMp4, isHttps]) ||
+  getVideoUrls(formats, [hasVideo, hasAudio, isMp4, isHttp]) ||
+  getVideoUrls(formats, [hasVideo, isMp4, isHttps]) ||
+  getVideoUrls(formats, [hasVideo, isMp4, isHttp]) ||
+  getVideoUrls(formats, [hasVideo, hasAudio, isHttps]) ||
+  getVideoUrls(formats, [hasVideo, hasAudio, isHttp]) ||
+  getVideoUrls(formats, [hasVideo, isHttps]) ||
+  getVideoUrls(formats, [hasVideo, isHttp])
 
 const getAudio = ({ formats }) =>
-  getAudioUrls(formats, [negate(hasVideo), isMp3, isHttps]) ||
-  getAudioUrls(formats, [negate(hasVideo), isAac, isHttps]) ||
-  getAudioUrls(formats, [negate(hasVideo), isM4a, isHttps]) ||
-  getAudioUrls(formats, [negate(hasVideo), isMp3, isHttp]) ||
-  getAudioUrls(formats, [negate(hasVideo), isAac, isHttp]) ||
-  getAudioUrls(formats, [negate(hasVideo), isM4a, isHttp]) ||
-  getAudioUrls(formats, [negate(hasVideo), isMp3]) ||
-  getAudioUrls(formats, [negate(hasVideo), isAac]) ||
-  getAudioUrls(formats, [negate(hasVideo), isM4a])
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isMp3, isHttps]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isAac, isHttps]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isM4a, isHttps]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isWav, isHttps]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isMp3, isHttp]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isAac, isHttp]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isM4a, isHttp]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isWav, isHttp]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isHttps]) ||
+  getAudioUrls(formats, [hastNotVideo, hasAudio, isHttp])
 
-const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) => {
-  const author = find(
-    [creator, uploader, uploaderId],
-    str => isString(str) && !isUrl(str, { relative: false })
-  )
-  return author && titleize(author, { removeBy: true })
-}
+const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
+  find([creator, uploader, uploaderId], str => authorFn(str))
 
 const getPublisher = ({ extractor_key: extractorKey }) =>
   isString(extractorKey) && extractorKey
 
-const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) => {
-  const title = find([mainTitle, secondaryTitle], isString)
-  return title && titleize(title)
-}
+const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
+  find([mainTitle, secondaryTitle], titleFn)
 
 const getDate = ({ timestamp }) =>
-  timestamp && new Date(timestamp * 1000).toISOString()
+  !isNil(timestamp) && new Date(timestamp * 1000).toISOString()
 
-module.exports = () => {
+const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
+
+const getDescription = (url, { description }) => descriptionFn(description)
+
+module.exports = opts => {
+  const getVideoInfo = createGetVideoInfo(opts)
+
   return {
-    video: async ({ url }) => getVideo(await getVideoInfo(url)),
+    video: async ({ url }) => {
+      const payload = await getVideoInfo(url)
+      // console.log(JSON.stringify(payload))
+      return getVideo(payload)
+    },
     audio: async ({ url }) => getAudio(await getVideoInfo(url)),
     author: async ({ url }) => getAuthor(await getVideoInfo(url)),
     publisher: async ({ url }) => getPublisher(await getVideoInfo(url)),
     title: async ({ url }) => getTitle(await getVideoInfo(url)),
-    date: async ({ url }) => getDate(await getVideoInfo(url))
+    date: async ({ url }) => getDate(await getVideoInfo(url)),
+    image: async ({ url }) => getImage(url, await getVideoInfo(url)),
+    description: async ({ url }) => getDescription(url, await getVideoInfo(url))
   }
 }
 
-module.exports.getFormatUrls = getFormatUrls
-module.exports.getVideo = getVideo
 module.exports.getAudio = getAudio
+module.exports.getImage = getImage
 module.exports.getAuthor = getAuthor
+module.exports.getDate = getDate
+module.exports.getFormatUrls = getFormatUrls
 module.exports.getPublisher = getPublisher
 module.exports.getTitle = getTitle
-module.exports.getDate = getDate
+module.exports.getVideo = getVideo
