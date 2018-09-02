@@ -24,8 +24,10 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
+const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const isIso = require('isostring')
 const toTitle = require('title')
+
 const { URL } = require('url')
 
 const MIMES_EXTENSIONS = {
@@ -127,7 +129,12 @@ const date = value => {
   if (parsed) return parsed.toISOString()
 }
 
-const lang = value => isString(value) && toLower(value.substring(0, 2))
+const lang = value => {
+  if (isEmpty(value)) return false
+  const lang = toLower(value.trim().substring(0, 2))
+  const isLang = includes(langs, lang)
+  return isLang ? lang : false
+}
 
 const title = value => isString(value) && titleize(value)
 

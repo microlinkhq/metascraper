@@ -18,6 +18,7 @@ const {
   description: descriptionFn,
   title: titleFn,
   url: urlFn,
+  lang,
   publisher
 } = require('@metascraper/helpers')
 
@@ -87,6 +88,11 @@ const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
 const getPublisher = ({ extractor_key: extractorKey }) =>
   publisher(extractorKey)
 
+const getLang = ({ http_headers: headers }) => {
+  const { 'Accept-Language': language } = headers
+  return lang(language)
+}
+
 const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
   find([mainTitle, secondaryTitle], titleFn)
 
@@ -95,20 +101,21 @@ const getDate = ({ timestamp }) =>
 
 const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
 
-const getDescription = (url, { description }) => descriptionFn(description)
+const getDescription = ({ description }) => descriptionFn(description)
 
 module.exports = opts => {
   const getVideoInfo = createGetVideoInfo(opts)
 
   return {
-    video: async ({ url }) => getVideo(await getVideoInfo(url)),
     audio: async ({ url }) => getAudio(await getVideoInfo(url)),
     author: async ({ url }) => getAuthor(await getVideoInfo(url)),
+    date: async ({ url }) => getDate(await getVideoInfo(url)),
+    description: async ({ url }) => getDescription(await getVideoInfo(url)),
+    image: async ({ url }) => getImage(url, await getVideoInfo(url)),
+    lang: async ({ url }) => getLang(await getVideoInfo(url)),
     publisher: async ({ url }) => getPublisher(await getVideoInfo(url)),
     title: async ({ url }) => getTitle(await getVideoInfo(url)),
-    date: async ({ url }) => getDate(await getVideoInfo(url)),
-    image: async ({ url }) => getImage(url, await getVideoInfo(url)),
-    description: async ({ url }) => getDescription(url, await getVideoInfo(url))
+    video: async ({ url }) => getVideo(await getVideoInfo(url))
   }
 }
 
@@ -120,3 +127,4 @@ module.exports.getFormatUrls = getFormatUrls
 module.exports.getPublisher = getPublisher
 module.exports.getTitle = getTitle
 module.exports.getVideo = getVideo
+module.exports.getLang = getLang
