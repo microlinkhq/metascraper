@@ -13,10 +13,11 @@ const {
 } = require('lodash')
 
 const imageExtensions = difference(require('image-extensions'), ['gif'])
+const audioExtensions = difference(require('audio-extensions'), ['mp4'])
 const videoExtensions = union(require('video-extensions'), ['gif'])
+const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
-const audioExtensions = require('audio-extensions')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
@@ -24,7 +25,6 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
-const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const isIso = require('isostring')
 const toTitle = require('title')
 
@@ -92,11 +92,20 @@ const protocol = url => {
 const createUrlExtensionValidator = collection => url =>
   isUrl(url) && includes(collection, extension(url))
 
+const createExtensionValidator = collection => url =>
+  includes(collection, extension(url))
+
 const isVideoUrl = createUrlExtensionValidator(videoExtensions)
 
 const isAudioUrl = createUrlExtensionValidator(audioExtensions)
 
 const isImageUrl = createUrlExtensionValidator(imageExtensions)
+
+const isVideoExtension = createExtensionValidator(videoExtensions)
+
+const isAudioExtension = createExtensionValidator(audioExtensions)
+
+const isImageExtension = createExtensionValidator(imageExtensions)
 
 const extension = url => fileExtension(url).split('?')[0]
 
@@ -163,5 +172,8 @@ module.exports = {
   isUrl,
   isVideoUrl,
   isAudioUrl,
-  isImageUrl
+  isImageUrl,
+  isVideoExtension,
+  isAudioExtension,
+  isImageExtension
 }

@@ -4,83 +4,66 @@ const {
   chain,
   eq,
   find,
-  has,
   isEmpty,
+  includes,
   isNil,
-  negate,
   overEvery
 } = require('lodash')
 
 const {
-  protocol: protocolFn,
   extension: extensionFn,
   author: authorFn,
   description: descriptionFn,
   title: titleFn,
   url: urlFn,
   lang,
-  publisher
+  publisher,
+  protocol: protocolFn
 } = require('@metascraper/helpers')
 
-const createGetVideoInfo = require('./get-video-info')
-
-const isMIME = extension => ({ ext, url }) =>
-  eq(ext, extension) || eq(extensionFn(url), extension)
+const createGetMedia = require('./get-media')
 
 const isProtocol = value => ({ protocol, url }) =>
   protocol ? eq(protocol, value) : protocolFn(url, value)
 
-/* Most used formats
-   Seet at https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility
-*/
+const isHttps = isProtocol('https')
+
+const isMIME = extension => ({ ext, url }) =>
+  ext ? eq(ext, extension) : eq(extensionFn(url), extension)
+
 const isMp4 = isMIME('mp4')
 const isMp3 = isMIME('mp3')
 const isM4a = isMIME('m4a')
 const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 
-const isHttp = isProtocol('http')
-const isHttps = isProtocol('https')
+const hasAudio = format =>
+  isMp3(format) || isM4a(format) || isAac(format) || isWav(format)
 
-const hasAudio = item => has(item, 'abr')
-const hasVideo = item => has(item, 'tbr')
-const hastNotVideo = negate(hasVideo)
+const hasVideo = format =>
+  isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
-const getFormatUrls = ({ orderBy, filterBy }) => (formats, filters) => {
-  const urls = chain(formats)
+const notDownloadable = format => !includes(format.url, 'download=1')
+
+const getFormatUrls = ({ orderBy, filterBy }) => ({ formats }, filters) => {
+  const url = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
     .map('url')
-    .filter(url => !eq(extensionFn(url), 'm3u8'))
+    .last()
     .value()
 
-  return isEmpty(urls) ? false : urls
+  return isEmpty(url) ? false : url
 }
 
 const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
+
 const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
 
-const getVideo = ({ formats }) =>
-  getVideoUrls(formats, [hasVideo, hasAudio, isMp4, isHttps]) ||
-  getVideoUrls(formats, [hasVideo, hasAudio, isMp4, isHttp]) ||
-  getVideoUrls(formats, [hasVideo, isMp4, isHttps]) ||
-  getVideoUrls(formats, [hasVideo, isMp4, isHttp]) ||
-  getVideoUrls(formats, [hasVideo, hasAudio, isHttps]) ||
-  getVideoUrls(formats, [hasVideo, hasAudio, isHttp]) ||
-  getVideoUrls(formats, [hasVideo, isHttps]) ||
-  getVideoUrls(formats, [hasVideo, isHttp])
+const getVideo = data =>
+  getVideoUrls(data, [hasVideo, isMp4, isHttps, notDownloadable])
 
-const getAudio = ({ formats }) =>
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isMp3, isHttps]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isAac, isHttps]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isM4a, isHttps]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isWav, isHttps]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isMp3, isHttp]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isAac, isHttp]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isM4a, isHttp]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isWav, isHttp]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isHttps]) ||
-  getAudioUrls(formats, [hastNotVideo, hasAudio, isHttp])
+const getAudio = data => getAudioUrls(data, [hasAudio, isHttps])
 
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
@@ -88,10 +71,8 @@ const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
 const getPublisher = ({ extractor_key: extractorKey }) =>
   publisher(extractorKey)
 
-const getLang = ({ http_headers: headers }) => {
-  const { 'Accept-Language': language } = headers
-  return lang(language)
-}
+const getLang = ({ language, http_headers: headers = {} }) =>
+  lang(language || headers['Accept-Language'])
 
 const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
   find([mainTitle, secondaryTitle], titleFn)
@@ -104,18 +85,18 @@ const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
 const getDescription = ({ description }) => descriptionFn(description)
 
 module.exports = opts => {
-  const getVideoInfo = createGetVideoInfo(opts)
+  const getMedia = createGetMedia(opts)
 
   return {
-    audio: async ({ url }) => getAudio(await getVideoInfo(url)),
-    author: async ({ url }) => getAuthor(await getVideoInfo(url)),
-    date: async ({ url }) => getDate(await getVideoInfo(url)),
-    description: async ({ url }) => getDescription(await getVideoInfo(url)),
-    image: async ({ url }) => getImage(url, await getVideoInfo(url)),
-    lang: async ({ url }) => getLang(await getVideoInfo(url)),
-    publisher: async ({ url }) => getPublisher(await getVideoInfo(url)),
-    title: async ({ url }) => getTitle(await getVideoInfo(url)),
-    video: async ({ url }) => getVideo(await getVideoInfo(url))
+    audio: async ({ url }) => getAudio(await getMedia(url)),
+    author: async ({ url }) => getAuthor(await getMedia(url)),
+    date: async ({ url }) => getDate(await getMedia(url)),
+    description: async ({ url }) => getDescription(await getMedia(url)),
+    image: async ({ url }) => getImage(url, await getMedia(url)),
+    lang: async ({ url }) => getLang(await getMedia(url)),
+    publisher: async ({ url }) => getPublisher(await getMedia(url)),
+    title: async ({ url }) => getTitle(await getMedia(url)),
+    video: async ({ url }) => getVideo(await getMedia(url))
   }
 }
 

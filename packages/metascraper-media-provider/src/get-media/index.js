@@ -1,7 +1,7 @@
 'use strict'
 
-const { isTwitterUrl, getTwitterVideoInfo } = require('./twitter-video-info')
-const createGetVideoInfo = require('./video-info')
+const { isTwitterUrl, getTwitterInfo } = require('./twitter-info')
+const createGetMedia = require('./get-media')
 
 const { protocol } = require('@metascraper/helpers')
 const { chain } = require('lodash')
@@ -11,20 +11,25 @@ let cachedVideoInfoUrl
 let cachedVideoInfo
 
 module.exports = opts => {
-  const getVideoInfo = createGetVideoInfo(opts)
+  const getMedia = createGetMedia(opts)
 
   const getInfo = async url => {
-    if (!isTwitterUrl(url)) return getVideoInfo(url)
+    if (!isTwitterUrl(url)) return getMedia(url)
 
     const [videoInfo, twitterVideos] = await Promise.all([
-      getVideoInfo(url),
-      getTwitterVideoInfo(url)
+      getMedia(url),
+      getTwitterInfo(url)
     ])
 
     const formats = chain(videoInfo.formats)
       .reduce((acc, format, index) => {
         const { url } = twitterVideos[index]
-        const item = { ...format, url, protocol: protocol(url) }
+        const item = {
+          ...format,
+          url,
+          protocol: protocol(url),
+          extractor_key: 'Twitter'
+        }
         return [...acc, item]
       }, [])
       .value()
@@ -41,6 +46,7 @@ module.exports = opts => {
     } catch (err) {
       cachedVideoInfo = {}
     }
+
     return cachedVideoInfo
   }
 }
