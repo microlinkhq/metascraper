@@ -1,5 +1,16 @@
-##  (2018-09-01)
+##  (2018-09-04)
 
+
+
+
+## 4.3.0 (2018-09-04)
+
+* Add metascraper lang detector package (#114) ([f379837](https://github.com/microlinkhq/metascraper/commit/f379837)), closes [#114](https://github.com/microlinkhq/metascraper/issues/114)
+* Add metascraper-audio (#113) ([face7e1](https://github.com/microlinkhq/metascraper/commit/face7e1)), closes [#113](https://github.com/microlinkhq/metascraper/issues/113)
+* Fix generate rule interface correctly ([b41007e](https://github.com/microlinkhq/metascraper/commit/b41007e))
+* Update Changelog ([531093b](https://github.com/microlinkhq/metascraper/commit/531093b))
+* Update rules bundles ([5131af0](https://github.com/microlinkhq/metascraper/commit/5131af0))
+* v4.3.0 ([1ab950c](https://github.com/microlinkhq/metascraper/commit/1ab950c))
 
 
 
