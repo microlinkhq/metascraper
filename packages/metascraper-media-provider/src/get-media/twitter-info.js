@@ -27,7 +27,7 @@ const getGuestToken = async url => {
   return body.guest_token
 }
 
-const getTwitterVideoInfo = async url => {
+const getTwitterInfo = async url => {
   const tweetId = getTweetId(url)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const { body } = await got(apiUrl, {
@@ -46,4 +46,4 @@ const getTwitterVideoInfo = async url => {
     .value()
 }
 
-module.exports = { getTwitterVideoInfo, isTwitterUrl }
+module.exports = { getTwitterInfo, isTwitterUrl }

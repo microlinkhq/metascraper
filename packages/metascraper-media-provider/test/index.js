@@ -1,15 +1,11 @@
 'use strict'
 
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
-const { resolve } = require('path')
-const { omit } = require('lodash')
 const should = require('should')
-const fs = require('fs')
 
 const metascraper = require('metascraper')([
-  require('metascraper-publisher')(),
   require('..')(),
+  require('metascraper-publisher')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -20,9 +16,8 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-const readFile = promisify(fs.readFile)
-
 const { getVideo } = require('..')
+const { extension, isUrl } = require('@metascraper/helpers')
 
 describe('metascraper-media-provider', () => {
   describe('.getVideo', () => {
@@ -33,52 +28,99 @@ describe('metascraper-media-provider', () => {
       snapshot(getVideo(require('./fixtures/video/vimeo.json')))
     })
     it('youtube', () => {
-      snapshot(getVideo(require('./fixtures/video/youtube.json')))
+      getVideo(getVideo(require('./fixtures/video/youtube.json')))
     })
   })
-  describe('provider', () => {
-    it('vimeo', async () => {
-      const html = await readFile(resolve(__dirname, 'fixtures/vimeo.html'))
-      const url = 'https://vimeo.com/188175573'
-      const metadata = await metascraper({ html, url })
-      if (metadata.image) should(metadata.image).be.an.String()
-      if (metadata.audio) should(metadata.audio).be.an.Array()
-      if (metadata.video) should(metadata.video).be.an.Array()
-      if (metadata.title) should(metadata.title).be.an.String()
-      snapshot(omit(metadata, ['video', 'audio', 'image', 'title']))
+
+  describe('video', () => {
+    describe('vimeo', () => {
+      ;[
+        'https://vimeo.com/channels/staffpicks/287117046',
+        'https://vimeo.com/186386161'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.video)
+          should(extension(metadata.video)).be.equal('mp4')
+        })
+      })
     })
 
-    it('twitter', async () => {
-      const html = await readFile(resolve(__dirname, 'fixtures/twitter.html'))
-      const url = 'https://twitter.com/verge/status/957383241714970624'
-      const metadata = await metascraper({ html, url })
-      if (metadata.image) should(metadata.image).be.an.String()
-      if (metadata.audio) should(metadata.audio).be.an.Array()
-      if (metadata.video) should(metadata.video).be.an.Array()
-      if (metadata.title) should(metadata.title).be.an.String()
-      snapshot(omit(metadata, ['video', 'audio', 'image', 'title']))
+    describe('youtube', () => {
+      ;[
+        'https://www.youtube.com/watch?v=gABW21GkFw8',
+        'https://www.youtube.com/watch?v=hwMkbaS_M_c'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.video)
+          should(isUrl(metadata.video)).be.true()
+        })
+      })
     })
 
-    it('facebook', async () => {
-      const html = await readFile(resolve(__dirname, 'fixtures/facebook.html'))
-      const url = 'https://www.facebook.com/afcajax/videos/1686831701364171'
-      const metadata = await metascraper({ html, url })
-      if (metadata.image) should(metadata.image).be.an.String()
-      if (metadata.audio) should(metadata.audio).be.an.Array()
-      if (metadata.video) should(metadata.video).be.an.Array()
-      if (metadata.title) should(metadata.title).be.an.String()
-      snapshot(omit(metadata, ['video', 'audio', 'image', 'title']))
+    describe('instagram', () => {
+      ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.video)
+          should(isUrl(metadata.video)).be.true()
+        })
+      })
     })
 
-    it('youtube', async () => {
-      const html = await readFile(resolve(__dirname, 'fixtures/youtube.html'))
-      const url = 'https://www.youtube.com/watch?v=hwMkbaS_M_c'
-      const metadata = await metascraper({ html, url })
-      if (metadata.image) should(metadata.image).be.an.String()
-      if (metadata.audio) should(metadata.audio).be.an.Array()
-      if (metadata.video) should(metadata.video).be.an.Array()
-      if (metadata.title) should(metadata.title).be.an.String()
-      snapshot(omit(metadata, ['video', 'audio', 'image', 'title']))
+    describe.only('twitter', () => {
+      ;[
+        'https://twitter.com/verge/status/957383241714970624',
+        'https://twitter.com/telediario_tve/status/1036860275859775488'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.video)
+          should(isUrl(metadata.video)).be.true()
+        })
+      })
+    })
+
+    describe('facebook', () => {
+      ;[
+        'https://www.facebook.com/afcajax/videos/1686831701364171',
+        'https://www.facebook.com/cnn/videos/10157803903591509/'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.video)
+          should(isUrl(metadata.video)).be.true()
+        })
+      })
+    })
+  })
+
+  describe('audio', () => {
+    describe('youtube', () => {
+      ;[
+        'https://www.youtube.com/watch?v=gABW21GkFw8',
+        'https://www.youtube.com/watch?v=hwMkbaS_M_c'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.audio)
+          should(isUrl(metadata.audio)).be.true()
+        })
+      })
+    })
+
+    describe('facebook', () => {
+      ;[
+        'https://www.facebook.com/afcajax/videos/1686831701364171',
+        'https://www.facebook.com/cnn/videos/10157803903591509/'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ html: '<title></title>', url })
+          console.log(metadata.audio)
+          should(isUrl(metadata.audio)).be.true()
+        })
+      })
     })
   })
 })
