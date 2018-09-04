@@ -20,14 +20,17 @@ const detectLang = (collection, field) => {
   return lang(toIso6391[iso6393])
 }
 
-module.exports = ({ fields = ['description'] }) =>
-  reduce(
+module.exports = ({ fields = ['description'] } = {}) => {
+  const rules = reduce(
     fields,
-    (acc, prop) => {
-      const fn = ({ meta }) => detectLang(meta, prop)
-      return acc.concat(fn)
+    (acc, key) => {
+      const fn = ({ meta }) => detectLang(meta, key)
+      return [...acc, fn]
     },
-    { lang: [] }
+    []
   )
+
+  return { lang: rules }
+}
 
 module.exports.detectLang = detectLang
