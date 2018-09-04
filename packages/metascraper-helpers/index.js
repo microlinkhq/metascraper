@@ -13,19 +13,28 @@ const {
 } = require('lodash')
 
 const imageExtensions = difference(require('image-extensions'), ['gif'])
+const audioExtensions = difference(require('audio-extensions'), ['mp4'])
 const videoExtensions = union(require('video-extensions'), ['gif'])
+const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
-const audioExtensions = require('audio-extensions')
+const urlRegex = require('url-regex')({ exact: true })
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
+const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
-const urlRegex = require('url-regex')({ exact: true })
 const isIso = require('isostring')
 const toTitle = require('title')
+
 const { URL } = require('url')
+
+const MIMES_EXTENSIONS = {
+  audio: audioExtensions,
+  video: videoExtensions,
+  image: imageExtensions
+}
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
 
@@ -83,11 +92,20 @@ const protocol = url => {
 const createUrlExtensionValidator = collection => url =>
   isUrl(url) && includes(collection, extension(url))
 
+const createExtensionValidator = collection => url =>
+  includes(collection, extension(url))
+
 const isVideoUrl = createUrlExtensionValidator(videoExtensions)
 
 const isAudioUrl = createUrlExtensionValidator(audioExtensions)
 
 const isImageUrl = createUrlExtensionValidator(imageExtensions)
+
+const isVideoExtension = createExtensionValidator(videoExtensions)
+
+const isAudioExtension = createExtensionValidator(audioExtensions)
+
+const isImageExtension = createExtensionValidator(imageExtensions)
 
 const extension = url => fileExtension(url).split('?')[0]
 
@@ -120,9 +138,20 @@ const date = value => {
   if (parsed) return parsed.toISOString()
 }
 
-const lang = value => isString(value) && toLower(value.substring(0, 2))
+const lang = value => {
+  if (isEmpty(value)) return false
+  const lang = toLower(value.trim().substring(0, 2))
+  const isLang = includes(langs, lang)
+  return isLang ? lang : false
+}
 
 const title = value => isString(value) && titleize(value)
+
+const isMime = (type, mime) => {
+  const extension = mimeTypes.extension(type)
+  const collection = MIMES_EXTENSIONS[extension]
+  return includes(collection, mime)
+}
 
 module.exports = {
   author,
@@ -139,8 +168,12 @@ module.exports = {
   protocol,
   publisher,
   normalizeUrl,
+  isMime,
   isUrl,
   isVideoUrl,
   isAudioUrl,
-  isImageUrl
+  isImageUrl,
+  isVideoExtension,
+  isAudioExtension,
+  isImageExtension
 }

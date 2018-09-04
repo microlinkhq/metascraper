@@ -1,6 +1,6 @@
 'use strict'
 
-const { isMime, url: urlFn, isVideoUrl } = require('@metascraper/helpers')
+const { isMime, url: urlFn, isAudioUrl } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -14,26 +14,22 @@ const createWrapper = fn => rule => ({ htmlDom, url }) => {
   return fn(value, url)
 }
 
-const wrap = createWrapper((value, url) => urlFn(value, { url }))
-
-const wrapVideo = createWrapper((value, url) => {
+const wrapAudio = createWrapper((value, url) => {
   const urlValue = urlFn(value, { url })
-  return isVideoUrl(urlValue) && urlValue
+  return isAudioUrl(urlValue) && urlValue
 })
 
 const withContentType = (url, contentType) =>
-  isMime(contentType, 'video') ? url : false
+  isMime(contentType, 'audio') ? url : false
 
 /**
  * Rules.
  */
-
 module.exports = () => ({
-  image: [wrap($ => $('video').attr('poster'))],
-  video: [
-    wrapVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
-    wrapVideo($ => $('meta[property="og:video"]').attr('content')),
-    wrapVideo($ => {
+  audio: [
+    wrapAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
+    wrapAudio($ => $('meta[property="og:audio"]').attr('content')),
+    wrapAudio($ => {
       const contentType = $(
         'meta[property="twitter:player:stream:content_type"]'
       ).attr('content')
@@ -42,7 +38,7 @@ module.exports = () => ({
       )
       return contentType ? withContentType(streamUrl, contentType) : streamUrl
     }),
-    wrapVideo($ => $('video').attr('src')),
-    wrapVideo($ => $('video > source').attr('src'))
+    wrapAudio($ => $('audio').attr('src')),
+    wrapAudio($ => $('audio > source').attr('src'))
   ]
 })
