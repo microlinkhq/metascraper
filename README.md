@@ -95,6 +95,9 @@ The output will be something like:
 
 Here is an example of the metadata that **metascraper** can collect:
 
+- `audio` — eg. *https://cf-media.sndcdn.com/U78RIfDPV6ok.128.mp3*<br/>
+A audio URL that best represents the article.
+
 - `author` — eg. *Noah Kulwin*<br/>
   A human-readable representation of the author's name.
 
@@ -103,7 +106,7 @@ Here is an example of the metadata that **metascraper** can collect:
 
 - `description` — eg. *Venture capitalists are raising money at the fastest rate...*<br/>
   The publisher's chosen description of the article.
-  
+
 - `audio` — eg. *https://cf-media.sndcdn.com/U78RIfDPV6ok.128.mp3*<br/>
 A audio URL that best represents the article.
 
