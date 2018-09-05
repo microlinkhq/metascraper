@@ -69,10 +69,11 @@ describe('metascraper-media-provider', () => {
       })
     })
 
-    describe.only('twitter', () => {
+    describe('twitter', () => {
       ;[
         'https://twitter.com/verge/status/957383241714970624',
-        'https://twitter.com/telediario_tve/status/1036860275859775488'
+        'https://twitter.com/telediario_tve/status/1036860275859775488',
+        'https://twitter.com/Mei_Gui8/status/1037374230785142785'
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ html: '<title></title>', url })

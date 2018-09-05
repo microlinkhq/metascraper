@@ -42,6 +42,7 @@ const getTwitterInfo = async url => {
     .get(
       `globalObjects.tweets.${tweetId}.extended_entities.media.0.video_info.variants`
     )
+    .filter('bitrate')
     .orderBy('bitrate', 'asc')
     .value()
 }

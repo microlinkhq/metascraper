@@ -1,10 +1,10 @@
 'use strict'
 
+const { protocol } = require('@metascraper/helpers')
+const { isEmpty, reduce } = require('lodash')
+
 const { isTwitterUrl, getTwitterInfo } = require('./twitter-info')
 const createGetMedia = require('./get-media')
-
-const { protocol } = require('@metascraper/helpers')
-const { chain } = require('lodash')
 
 // Local cache for successive calls
 let cachedVideoInfoUrl
@@ -21,8 +21,11 @@ module.exports = opts => {
       getTwitterInfo(url)
     ])
 
-    const formats = chain(videoInfo.formats)
-      .reduce((acc, format, index) => {
+    if (isEmpty(twitterVideos)) return videoInfo
+
+    const formats = reduce(
+      videoInfo.formats,
+      (acc, format, index) => {
         const { url } = twitterVideos[index]
         const item = {
           ...format,
@@ -31,8 +34,9 @@ module.exports = opts => {
           extractor_key: 'Twitter'
         }
         return [...acc, item]
-      }, [])
-      .value()
+      },
+      []
+    )
 
     return { ...videoInfo, formats }
   }
