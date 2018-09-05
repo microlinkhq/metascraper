@@ -1,5 +1,13 @@
-##  (2018-09-04)
+##  (2018-09-05)
 
+
+
+
+## <small>4.3.1 (2018-09-05)</small>
+
+* Exit early if no twitter videos detected (#115) ([a69979f](https://github.com/microlinkhq/metascraper/commit/a69979f)), closes [#115](https://github.com/microlinkhq/metascraper/issues/115)
+* Update Changelog ([25cec6f](https://github.com/microlinkhq/metascraper/commit/25cec6f))
+* v4.3.1 ([24c388e](https://github.com/microlinkhq/metascraper/commit/24c388e))
 
 
 
