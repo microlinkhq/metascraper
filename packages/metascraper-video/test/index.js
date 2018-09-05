@@ -6,18 +6,7 @@ const { resolve } = require('path')
 const { omit } = require('lodash')
 const fs = require('fs')
 
-const metascraper = require('metascraper')([
-  require('..')(),
-  require('metascraper-author')(),
-  require('metascraper-date')(),
-  require('metascraper-description')(),
-  require('metascraper-image')(),
-  require('metascraper-lang')(),
-  require('metascraper-logo')(),
-  require('metascraper-publisher')(),
-  require('metascraper-title')(),
-  require('metascraper-url')()
-])
+const metascraper = require('metascraper')([require('..')()])
 
 const readFile = promisify(fs.readFile)
 
@@ -45,8 +34,7 @@ describe('metascraper-video', () => {
         const url =
           'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
         const metadata = await metascraper({ html, url })
-        console.log(metadata)
-        // snapshot(metadata)
+        snapshot(metadata)
       })
     })
 
