@@ -4,10 +4,6 @@
   "homepage": "https://metascraper.js.org",
   "version": "4.3.0",
   "main": "index.js",
-  "author": {
-    "email": "ian@ianstormtaylor.com",
-    "name": "Ian Storm Taylor"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-url"

@@ -1,12 +1,31 @@
 {
-  "name": "metascraper-core",
+  "name": "metascraper",
   "version": "",
+  "author": {
+    "email": "ian@ianstormtaylor.com",
+    "name": "Ian Storm Taylor"
+  },
+  "contributors": [
+    {
+      "name": "Kiko Beats",
+      "email": "josefrancisco.verdu@gmail.com"
+    },
+    {
+      "name": "Shawn Dempsey",
+      "email": "shwanton@gmail.com"
+    },
+    {
+      "name": "Nikola Ristic",
+      "email": "risticn6@gmail.com"
+    }
+  ],
   "devDependencies": {
     "browser-sync": "latest",
     "concurrently": "latest",
     "conventional-changelog-cli": "latest",
     "eachdir": "latest",
     "finepack": "latest",
+    "git-authors-cli": "latest",
     "git-dirty": "latest",
     "got": "latest",
     "gulp": "latest",
@@ -34,6 +53,7 @@
     "node": ">= 8"
   },
   "scripts": {
+    "authors": "git-authors-cli",
     "build": "gulp build",
     "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
     "changelog:commit": "npm run changelog && git add CHANGELOG.md && git commit -m 'Update Changelog' && git push origin master",
@@ -44,7 +64,7 @@
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "pretty": "prettier-standard index.js {test,src}/**/*.js --single-quote",
-    "publish": "npm run upgrade && lerna publish --sort && npm run changelog:commit",
+    "publish": "npm run upgrade && lerna publish --sort && npm run authors && npm run changelog:commit",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
     "upgrade": "lerna exec ncu --  --error-level 2"
