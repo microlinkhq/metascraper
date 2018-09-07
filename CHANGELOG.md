@@ -1,5 +1,14 @@
-##  (2018-09-05)
+##  (2018-09-07)
 
+
+
+
+## <small>4.3.2 (2018-09-07)</small>
+
+* Fix publisher (#117) ([501940e](https://github.com/microlinkhq/metascraper/commit/501940e)), closes [#117](https://github.com/microlinkhq/metascraper/issues/117)
+* More authors to root project ([57638a7](https://github.com/microlinkhq/metascraper/commit/57638a7)), closes [#116](https://github.com/microlinkhq/metascraper/issues/116)
+* Update Changelog ([59f0216](https://github.com/microlinkhq/metascraper/commit/59f0216))
+* v4.3.2 ([0ece288](https://github.com/microlinkhq/metascraper/commit/0ece288))
 
 
 
