@@ -2,13 +2,10 @@
 
 const { protocol } = require('@metascraper/helpers')
 const { isEmpty, reduce } = require('lodash')
+const memoizeOne = require('memoize-one')
 
 const { isTwitterUrl, getTwitterInfo } = require('./twitter-info')
 const createGetMedia = require('./get-media')
-
-// Local cache for successive calls
-let cachedVideoInfoUrl
-let cachedVideoInfo
 
 module.exports = opts => {
   const getMedia = createGetMedia(opts)
@@ -21,36 +18,22 @@ module.exports = opts => {
       getTwitterInfo(url)
     ])
 
-    if (isEmpty(twitterVideos)) return videoInfo
+    const twitterVideo = { ...videoInfo, extractor_key: 'Twitter' }
+
+    if (isEmpty(twitterVideos)) return twitterVideo
 
     const formats = reduce(
       videoInfo.formats,
       (acc, format, index) => {
         const { url } = twitterVideos[index]
-        const item = {
-          ...format,
-          url,
-          protocol: protocol(url),
-          extractor_key: 'Twitter'
-        }
+        const item = { ...format, url, protocol: protocol(url) }
         return [...acc, item]
       },
       []
     )
 
-    return { ...videoInfo, formats }
+    return { ...twitterVideo, formats }
   }
 
-  return async url => {
-    if (url === cachedVideoInfoUrl) return cachedVideoInfo
-    cachedVideoInfoUrl = url
-
-    try {
-      cachedVideoInfo = await getInfo(url)
-    } catch (err) {
-      cachedVideoInfo = {}
-    }
-
-    return cachedVideoInfo
-  }
+  return memoizeOne(getInfo)
 }

@@ -15,6 +15,7 @@
     "@metascraper/helpers": "^4.3.0",
     "got": "~9.2.0",
     "lodash": "~4.17.10",
+    "memoize-one": "~4.0.2",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
