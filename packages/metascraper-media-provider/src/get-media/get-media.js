@@ -7,5 +7,13 @@ const getInfo = promisify(youtubedl.getInfo)
 
 module.exports = ({ cacheDir } = {}) => {
   const opts = cacheDir ? [`--cache-dir=${cacheDir}`] : []
-  return url => getInfo(url, opts)
+
+  return async url => {
+    let data = {}
+    try {
+      data = await getInfo(url, opts)
+    } catch (err) {}
+
+    return data
+  }
 }

@@ -33,6 +33,19 @@ describe('metascraper-media-provider', () => {
   })
 
   describe('video', () => {
+    it('unsupported urls', async () => {
+      const urls = [
+        'https://www.apple.com/homepod',
+        'https://www.imdb.com/title/tt5463162/',
+        'https://anchor.fm/sin-humo/episodes/Episodio-9-Los-mandamientos-e22pro'
+      ]
+
+      const promises = urls.map(url =>
+        metascraper({ html: '<title></title>', url })
+      )
+      const metadata = await Promise.all(promises)
+      metadata.forEach(({ video }) => should(video).be.null())
+    })
     describe('vimeo', () => {
       ;[
         'https://vimeo.com/channels/staffpicks/287117046',
