@@ -53,7 +53,8 @@
     "node": ">= 8"
   },
   "scripts": {
-    "authors": "git-authors-cli",
+    "authors": "git-authors-cli && finepack package.json",
+    "authors:commit": "npm run authors && git add package.sjon && git commit -m 'Update contributors' && git push origin master",
     "build": "gulp build",
     "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
     "changelog:commit": "npm run changelog && git add CHANGELOG.md && git commit -m 'Update Changelog' && git push origin master",
@@ -64,7 +65,7 @@
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "pretty": "prettier-standard index.js {test,src}/**/*.js --single-quote",
-    "publish": "npm run upgrade && lerna publish --sort && npm run authors && npm run changelog:commit",
+    "publish": "npm run upgrade && lerna publish --sort && npm run authors:commit && npm run changelog:commit",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
     "upgrade": "lerna exec ncu --  --error-level 2"
