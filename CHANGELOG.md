@@ -1,5 +1,14 @@
-##  (2018-09-07)
+##  (2018-09-09)
 
+
+
+
+## <small>4.3.3 (2018-09-09)</small>
+
+* Handle unsupported urls gracefully ([93d37a3](https://github.com/microlinkhq/metascraper/commit/93d37a3))
+* Update Changelog ([86b443f](https://github.com/microlinkhq/metascraper/commit/86b443f))
+* Update scripts ([3fa3fed](https://github.com/microlinkhq/metascraper/commit/3fa3fed))
+* v4.3.3 ([b7d0526](https://github.com/microlinkhq/metascraper/commit/b7d0526))
 
 
 
