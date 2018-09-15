@@ -37,7 +37,8 @@ describe('metascraper-media-provider', () => {
       const urls = [
         'https://www.apple.com/homepod',
         'https://www.imdb.com/title/tt5463162/',
-        'https://anchor.fm/sin-humo/episodes/Episodio-9-Los-mandamientos-e22pro'
+        'https://anchor.fm/sin-humo/episodes/Episodio-9-Los-mandamientos-e22pro',
+        'https://twitter.com/i/moments/1040691469118529536'
       ]
 
       const promises = urls.map(url =>

@@ -12,7 +12,11 @@ const TWITTER_BEARER_TOKEN =
 
 const TWITTER_HOSTNAMES = ['twitter.com', 'mobile.twitter.com']
 
-const isTwitterUrl = url => TWITTER_HOSTNAMES.includes(new URL(url).hostname)
+const isTweet = url => url.includes('/status/')
+
+const isTwitterHost = url => TWITTER_HOSTNAMES.includes(new URL(url).hostname)
+
+const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
