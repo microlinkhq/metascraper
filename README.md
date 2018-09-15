@@ -68,8 +68,8 @@ const got = require('got')
 const targetUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
 
 ;(async () => {
-  const {body: html, url} = await got(targetUrl)
-  const metadata = await metascraper({html, url})
+  const { body: html, url } = await got(targetUrl)
+  const metadata = await metascraper({ html, url })
   console.log(metadata)
 })()
 ```
