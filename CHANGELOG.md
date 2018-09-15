@@ -1,5 +1,14 @@
-##  (2018-09-09)
+##  (2018-09-15)
 
+
+
+
+## <small>4.3.4 (2018-09-15)</small>
+
+* Fix lint ([395c98c](https://github.com/microlinkhq/metascraper/commit/395c98c))
+* Only get video from tweets urls from Twitter ([1313fd7](https://github.com/microlinkhq/metascraper/commit/1313fd7))
+* Update Changelog ([0f84e19](https://github.com/microlinkhq/metascraper/commit/0f84e19))
+* v4.3.4 ([82a5abf](https://github.com/microlinkhq/metascraper/commit/82a5abf))
 
 
 
