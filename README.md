@@ -258,13 +258,6 @@ Call the instance for extracting content based on rules bundle provided at the c
 
 #### options
 
-##### html
-
-*Required*<br>
-Type: `String`
-
-The HTML markup for extracting the content.
-
 #### url
 
 *Required*<br>
@@ -275,6 +268,12 @@ The URL associated with the HTML markup.
 It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
+
+##### html
+
+Type: `String`
+
+The HTML markup for extracting the content.
 
 #### rules
 
