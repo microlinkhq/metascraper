@@ -12,7 +12,8 @@ const DEFAULTS = {
 const ENDPOINT = 'https://logo.clearbit.com'
 
 module.exports = opts => {
-  opts = Object.assign({}, DEFAULTS, opts)
+  opts = { ...DEFAULTS, ...opts }
+
   const { size, format, greyscale } = opts
 
   const clearbitLogo = async ({ url }) => {

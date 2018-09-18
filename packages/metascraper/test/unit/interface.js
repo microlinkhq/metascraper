@@ -2,32 +2,29 @@
 
 const should = require('should')
 
-const metascraper = require('../..')([
-  require('metascraper-author')(),
-  require('metascraper-date')(),
-  require('metascraper-description')(),
-  require('metascraper-video')(),
-  require('metascraper-image')(),
-  require('metascraper-lang')(),
-  require('metascraper-logo')(),
-  require('metascraper-publisher')(),
-  require('metascraper-title')(),
-  require('metascraper-url')()
-])
+const metascraper = require('../..')([])
 
 it('url is required', async () => {
   try {
     await metascraper()
   } catch (err) {
-    should(err).instanceof(TypeError)
+    should(err.name).be.equal('MetascraperError')
+    should(err.code).be.equal('INVALID_URL')
+    should(err.message).be.equal('INVALID_URL, Need to provide a valid URL.')
   }
-})
-
-it('html is required', async () => {
   try {
-    await metascraper({ url: 'https://foo.com' })
+    await metascraper({ url: '' })
   } catch (err) {
-    should(err).instanceof(TypeError)
+    should(err.name).be.equal('MetascraperError')
+    should(err.code).be.equal('INVALID_URL')
+    should(err.message).be.equal('INVALID_URL, Need to provide a valid URL.')
+  }
+  try {
+    await metascraper({ url: '/foo' })
+  } catch (err) {
+    should(err.name).be.equal('MetascraperError')
+    should(err.code).be.equal('INVALID_URL')
+    should(err.message).be.equal('INVALID_URL, Need to provide a valid URL.')
   }
 })
 

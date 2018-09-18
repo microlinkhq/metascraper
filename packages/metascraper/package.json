@@ -56,7 +56,8 @@
     "cheerio-advanced-selectors": "~2.0.1",
     "lodash": "~4.17.10",
     "p-reduce": "~1.0.0",
-    "sanitize-html": "~1.18.2"
+    "sanitize-html": "~1.18.2",
+    "whoops": "~4.0.1"
   },
   "devDependencies": {
     "clear-module": "latest",

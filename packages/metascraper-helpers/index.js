@@ -42,10 +42,8 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
-const urlTest = (url, { relative = true }) =>
+const isUrl = (url, { relative = false } = {}) =>
   relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
-
-const isUrl = (url, opts = {}) => !isEmpty(url) && urlTest(url, opts)
 
 const absoluteUrl = (baseUrl, relativePath = '') =>
   resolveUrl(baseUrl, relativePath)
@@ -118,7 +116,11 @@ const publisher = value => isString(value) && condenseWhitespace(value)
 
 const author = value => isAuthor(value) && getAuthor(value)
 
-const url = (value, { url }) => isUrl(value) && normalizeUrl(url, value)
+const url = (value, { url }) => {
+  if (isEmpty(value)) return false
+  const absoluteUrl = normalizeUrl(url, value)
+  return isUrl(absoluteUrl) && absoluteUrl
+}
 
 const date = value => {
   if (!value) return false

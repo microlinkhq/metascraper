@@ -1,11 +1,4 @@
 exports['create an absolute favicon url if the logo is not present 1'] = {
-  "lang": "en",
-  "author": "Mat Follas",
-  "title": "Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems",
-  "publisher": "Amazon",
-  "image": "https://images-eu.ssl-images-amazon.com/images/I/61Q2c36lYeL._SX218_BO1,204,203,200_QL40_.jpg",
-  "description": "Buy Vegetable Perfection: 100 delicious recipes for roots, bulbs, shoots and stems by Mat Follas (ISBN: 9781849757096) from Amazon’s Book Store. Everyday low prices and free delivery on eligible orders.",
-  "logo": "https://www.amazon.co.uk/favicon.ico",
-  "url": "https://www.amazon.co.uk/Vegetable-Perfection-delicious-recipes-shoots/dp/1849757097"
+  "logo": "https://www.amazon.co.uk/favicon.ico"
 }
 
