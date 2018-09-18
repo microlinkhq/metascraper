@@ -1,5 +1,15 @@
-##  (2018-09-15)
+##  (2018-09-18)
 
+* Update contributors ([ad4468c](https://github.com/microlinkhq/metascraper/commit/ad4468c))
+
+
+
+## <small>4.3.5 (2018-09-18)</small>
+
+* Throw qualified errors (#118) ([efe7710](https://github.com/microlinkhq/metascraper/commit/efe7710)), closes [#118](https://github.com/microlinkhq/metascraper/issues/118)
+* Update Changelog ([6639bdb](https://github.com/microlinkhq/metascraper/commit/6639bdb))
+* Update dependencies ([795aeb5](https://github.com/microlinkhq/metascraper/commit/795aeb5))
+* v4.3.5 ([049ef06](https://github.com/microlinkhq/metascraper/commit/049ef06))
 
 
 
