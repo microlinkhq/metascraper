@@ -65,10 +65,11 @@
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "pretty": "prettier-standard index.js {test,src}/**/*.js --single-quote",
-    "publish": "npm run upgrade && lerna publish --sort && npm run authors:commit && npm run changelog:commit",
+    "publish": "lerna publish --sort",
+    "release": "npm run publish && npm run authors:commit && npm run changelog:commit",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
-    "upgrade": "lerna exec ncu --  --error-level 2"
+    "upgrade": "lerna exec ncu -- --error-level 2"
   },
   "private": true,
   "license": "MIT",
