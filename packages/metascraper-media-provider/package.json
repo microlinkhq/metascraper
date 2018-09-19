@@ -16,6 +16,7 @@
     "got": "~9.2.0",
     "lodash": "~4.17.10",
     "memoize-one": "~4.0.2",
+    "memoize-token": "~1.0.0",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {

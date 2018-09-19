@@ -1,7 +1,7 @@
 'use strict'
 
-const { chain } = require('lodash')
-const assert = require('assert')
+const memoizeToken = require('memoize-token')
+const { get, chain } = require('lodash')
 const { URL } = require('url')
 const got = require('got')
 
@@ -23,40 +23,26 @@ const getTweetId = url => url.split('/').reverse()[0]
 
 const MAX_API_CALLS_GUEST_ACTIVATE = 180
 
-const memoize = (fn, { max } = {}) => {
-  assert(max, 'max required')
-  let count
-  let value
-  return async (...args) => {
-    if (++count < max) return value
-    value = await fn(...args)
-    count = 0
-    return value
-  }
+const getGuestToken = async url => {
+  const { body } = await got.post(
+    'https://api.twitter.com/1.1/guest/activate.json',
+    {
+      headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
+      json: true
+    }
+  )
+  return get(body, 'guest_token')
 }
 
-const getGuestToken = memoize(
-  async url => {
-    const { body } = await got.post(
-      'https://api.twitter.com/1.1/guest/activate.json',
-      {
-        headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
-        json: true
-      }
-    )
-    return body.guest_token
-  },
-  { max: MAX_API_CALLS_GUEST_ACTIVATE }
-)
-
-const getTwitterInfo = async url => {
+const getTwitterInfo = ({ getToken }) => async url => {
   const tweetId = getTweetId(url)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
+  const guestToken = await getToken(url)
   const { body } = await got(apiUrl, {
     json: true,
     headers: {
       authorization: TWITTER_BEARER_TOKEN,
-      'x-guest-token': await getGuestToken(url)
+      'x-guest-token': guestToken
     }
   })
 
@@ -69,4 +55,15 @@ const getTwitterInfo = async url => {
     .value()
 }
 
-module.exports = { getTwitterInfo, isTwitterUrl }
+module.exports = opts => {
+  const getToken = memoizeToken(getGuestToken, {
+    max: MAX_API_CALLS_GUEST_ACTIVATE,
+    key: 'twitter',
+    ...opts
+  })
+
+  return {
+    getTwitterInfo: getTwitterInfo({ getToken }),
+    isTwitterUrl
+  }
+}
