@@ -1,6 +1,7 @@
 'use strict'
 
 const { chain } = require('lodash')
+const assert = require('assert')
 const { URL } = require('url')
 const got = require('got')
 
@@ -20,16 +21,33 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getGuestToken = async url => {
-  const { body } = await got.post(
-    'https://api.twitter.com/1.1/guest/activate.json',
-    {
-      headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
-      json: true
-    }
-  )
-  return body.guest_token
+const MAX_API_CALLS_GUEST_ACTIVATE = 180
+
+const memoize = (fn, { max } = {}) => {
+  assert(max, 'max required')
+  let count
+  let value
+  return async (...args) => {
+    if (++count < max) return value
+    value = await fn(...args)
+    count = 0
+    return value
+  }
 }
+
+const getGuestToken = memoize(
+  async url => {
+    const { body } = await got.post(
+      'https://api.twitter.com/1.1/guest/activate.json',
+      {
+        headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
+        json: true
+      }
+    )
+    return body.guest_token
+  },
+  { max: MAX_API_CALLS_GUEST_ACTIVATE }
+)
 
 const getTwitterInfo = async url => {
   const tweetId = getTweetId(url)
