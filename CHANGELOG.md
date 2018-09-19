@@ -1,6 +1,15 @@
-##  (2018-09-18)
+##  (2018-09-19)
 
+
+
+
+## <small>4.3.6 (2018-09-19)</small>
+
+* Add memoize for successive API calls (#119) ([d615b36](https://github.com/microlinkhq/metascraper/commit/d615b36)), closes [#119](https://github.com/microlinkhq/metascraper/issues/119)
+* Update Changelog ([d4cf08b](https://github.com/microlinkhq/metascraper/commit/d4cf08b))
 * Update contributors ([ad4468c](https://github.com/microlinkhq/metascraper/commit/ad4468c))
+* Update scripts ([760657b](https://github.com/microlinkhq/metascraper/commit/760657b))
+* v4.3.6 ([4bc9178](https://github.com/microlinkhq/metascraper/commit/4bc9178))
 
 
 
