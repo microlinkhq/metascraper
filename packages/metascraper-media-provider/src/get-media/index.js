@@ -4,11 +4,12 @@ const { protocol } = require('@metascraper/helpers')
 const { isEmpty, reduce } = require('lodash')
 const memoizeOne = require('memoize-one')
 
-const { isTwitterUrl, getTwitterInfo } = require('./twitter-info')
+const createTwitterInfo = require('./twitter-info')
 const createGetMedia = require('./get-media')
 
 module.exports = opts => {
   const getMedia = createGetMedia(opts)
+  const { isTwitterUrl, getTwitterInfo } = createTwitterInfo(opts)
 
   const getInfo = async url => {
     if (!isTwitterUrl(url)) return getMedia(url)
