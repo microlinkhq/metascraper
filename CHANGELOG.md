@@ -1,5 +1,21 @@
-##  (2018-09-19)
+##  (2018-09-20)
 
+
+
+
+## <small>4.4.1 (2018-09-20)</small>
+
+* Refresh token after expiration ([c99b57b](https://github.com/microlinkhq/metascraper/commit/c99b57b))
+* v4.4.1 ([817663a](https://github.com/microlinkhq/metascraper/commit/817663a))
+
+
+
+## 4.4.0 (2018-09-19)
+
+* Move memoize token into an external dependency (#120) ([96b3bcc](https://github.com/microlinkhq/metascraper/commit/96b3bcc)), closes [#120](https://github.com/microlinkhq/metascraper/issues/120)
+* Update Changelog ([32fc3dd](https://github.com/microlinkhq/metascraper/commit/32fc3dd))
+* Update scripts ([c64a111](https://github.com/microlinkhq/metascraper/commit/c64a111))
+* v4.4.0 ([933b562](https://github.com/microlinkhq/metascraper/commit/933b562))
 
 
 
