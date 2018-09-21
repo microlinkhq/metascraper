@@ -1,5 +1,13 @@
-##  (2018-09-20)
+##  (2018-09-21)
 
+
+
+
+## <small>4.4.2 (2018-09-21)</small>
+
+* Update Changelog ([82e44fa](https://github.com/microlinkhq/metascraper/commit/82e44fa))
+* Update limit rates ([d7d0052](https://github.com/microlinkhq/metascraper/commit/d7d0052))
+* v4.4.2 ([f6df434](https://github.com/microlinkhq/metascraper/commit/f6df434))
 
 
 
