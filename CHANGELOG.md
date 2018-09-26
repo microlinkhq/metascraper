@@ -1,5 +1,14 @@
-##  (2018-09-21)
+##  (2018-09-26)
 
+
+
+
+## <small>4.4.3 (2018-09-26)</small>
+
+* Disable retry ([5dc9c54](https://github.com/microlinkhq/metascraper/commit/5dc9c54))
+* Update Changelog ([65de378](https://github.com/microlinkhq/metascraper/commit/65de378))
+* Update rate limit window ([82b1218](https://github.com/microlinkhq/metascraper/commit/82b1218))
+* v4.4.3 ([8ecb4f5](https://github.com/microlinkhq/metascraper/commit/8ecb4f5))
 
 
 
