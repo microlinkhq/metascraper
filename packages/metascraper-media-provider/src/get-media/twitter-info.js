@@ -22,7 +22,7 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 const getTweetId = url => url.split('/').reverse()[0]
 
 const API_GUEST_ACTIVATE_LIMIT = 180
-const API_GUEST_ACTIVATE_EXPIRE = 10 * 60 * 1000 // 10 min
+const API_GUEST_ACTIVATE_EXPIRE = 15 * 60 * 1000 // 15 min
 
 const getGuestToken = async url => {
   const { body } = await got.post(
