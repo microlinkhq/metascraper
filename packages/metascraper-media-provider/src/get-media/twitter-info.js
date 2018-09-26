@@ -28,6 +28,7 @@ const getGuestToken = async url => {
   const { body } = await got.post(
     'https://api.twitter.com/1.1/guest/activate.json',
     {
+      retry: false,
       headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
       json: true
     }
@@ -40,6 +41,7 @@ const getTwitterInfo = ({ getToken }) => async url => {
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const guestToken = await getToken(url)
   const { body } = await got(apiUrl, {
+    retry: false,
     json: true,
     headers: {
       authorization: TWITTER_BEARER_TOKEN,
