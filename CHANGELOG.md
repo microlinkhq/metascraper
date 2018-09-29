@@ -1,5 +1,13 @@
-##  (2018-09-26)
+##  (2018-09-29)
 
+
+
+
+## <small>4.4.4 (2018-09-29)</small>
+
+* Avoid use Twitter API (#122) ([71c7071](https://github.com/microlinkhq/metascraper/commit/71c7071)), closes [#122](https://github.com/microlinkhq/metascraper/issues/122) [/github.com/loklak/loklak_server/blob/7c513ae7949718399a7cf06bb19e80da362ef396/src/org/loklak/harvester/TwitterScraper.java#L486-L506](https://github.com//github.com/loklak/loklak_server/blob/7c513ae7949718399a7cf06bb19e80da362ef396/src/org/loklak/harvester/TwitterScraper.java/issues/L486-L506)
+* Update Changelog ([3b581b6](https://github.com/microlinkhq/metascraper/commit/3b581b6))
+* v4.4.4 ([fd0c0a9](https://github.com/microlinkhq/metascraper/commit/fd0c0a9))
 
 
 
