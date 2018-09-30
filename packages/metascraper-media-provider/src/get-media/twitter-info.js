@@ -1,9 +1,11 @@
 'use strict'
 
+const { find, get, chain } = require('lodash')
 const memoizeToken = require('memoize-token')
-const { get, chain } = require('lodash')
 const split = require('binary-split')
 const uaString = require('ua-string')
+const htmlUrls = require('html-urls')
+const getHTML = require('html-get')
 const { URL } = require('url')
 const got = require('got')
 const mem = require('mem')
@@ -13,8 +15,6 @@ const REGEX_COOKIE = /document\.cookie = decodeURIComponent\("gt=([0-9]+)/
 const REGEX_TWITTER_HOST = /^https?:\/\/twitter.com/i
 
 const REGEX_BEARER_TOKEN = /BEARER_TOKEN:"(.*?)"/
-
-const REGEX_HREF = /href="(.*?)"/
 
 const REGEX_AUTH_URL = /main.*.js/
 
@@ -63,29 +63,28 @@ const getAuthorization = async url =>
     }
   })
 
-const getAuthorizationFromLine = line => {
-  const href = get(REGEX_HREF.exec(line), 1)
-  return href && REGEX_AUTH_URL.test(href) && getAuthorization(href)
-}
+const createGetAuth = ({ getBrowserless, ...opts }) => {
+  const fn = async url => {
+    const mobileUrl = getMobileUrl(url)
+    const { html } = await getHTML(mobileUrl, {
+      prerender: true,
+      getBrowserless
+    })
 
-const guestAuthorization = async url => {
-  let guestToken
-  let authorization
+    const guestToken = get(REGEX_COOKIE.exec(html), 1)
+    const links = htmlUrls({ html, url: mobileUrl })
+    const { normalizedUrl: bearerUrl } = find(links, ({ normalizedUrl }) =>
+      REGEX_AUTH_URL.test(normalizedUrl)
+    )
+    const authorization = await getAuthorization(bearerUrl)
+    return { authorization: `Bearer ${authorization}`, guestToken }
+  }
 
-  return promiseStream(url, {
-    onData: async line => {
-      const results = await Promise.resolve([
-        authorization || (await getAuthorizationFromLine(line)),
-        guestToken || get(REGEX_COOKIE.exec(line), 1)
-      ])
-
-      authorization = authorization || results[0]
-      guestToken = guestToken || results[1]
-
-      return guestToken && authorization
-        ? { guestToken, authorization: `BEARER ${authorization}` }
-        : null
-    }
+  return memoizeToken(fn, {
+    max: API_GUEST_ACTIVATE_LIMIT,
+    expire: API_GUEST_ACTIVATE_EXPIRE,
+    key: 'media:twitter',
+    ...opts
   })
 }
 
@@ -113,13 +112,7 @@ const getTwitterInfo = ({ getAuth }) => async url => {
 }
 
 module.exports = opts => {
-  const getAuth = memoizeToken(guestAuthorization, {
-    max: API_GUEST_ACTIVATE_LIMIT,
-    expire: API_GUEST_ACTIVATE_EXPIRE,
-    key: 'media:twitter',
-    ...opts
-  })
-
+  const getAuth = createGetAuth(opts)
   return {
     getTwitterInfo: getTwitterInfo({ getAuth }),
     isTwitterUrl
