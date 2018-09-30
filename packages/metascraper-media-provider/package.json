@@ -25,6 +25,7 @@
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
+    "browserless": "~4.1.3",
     "mocha": "latest",
     "nyc": "latest",
     "puppeteer": "latest",

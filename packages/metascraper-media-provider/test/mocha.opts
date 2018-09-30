@@ -1,6 +1,7 @@
 --require should
 --reporter spec
---timeout 120000
---slow 300
+--timeout 300000
+--slow 3000
 --bail
 --recursive
+--exit

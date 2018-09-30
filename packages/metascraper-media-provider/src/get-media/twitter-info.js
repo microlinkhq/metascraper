@@ -1,6 +1,6 @@
 'use strict'
 
-const { find, get, chain } = require('lodash')
+const { replace, find, get, chain } = require('lodash')
 const memoizeToken = require('memoize-token')
 const split = require('binary-split')
 const uaString = require('ua-string')
@@ -32,9 +32,7 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getMobileUrl = mem(url =>
-  url.replace(REGEX_TWITTER_HOST, 'https://mobile.twitter.com')
-)
+const getMobileUrl = mem(url => replace(url, REGEX_TWITTER_HOST, 'https://mobile.twitter.com'))
 
 const promiseStream = async (url, { onData }) =>
   new Promise((resolve, reject) => {
@@ -73,10 +71,8 @@ const createGetAuth = ({ getBrowserless, ...opts }) => {
 
     const guestToken = get(REGEX_COOKIE.exec(html), 1)
     const links = htmlUrls({ html, url: mobileUrl })
-    const { normalizedUrl: bearerUrl } = find(links, ({ normalizedUrl }) =>
-      REGEX_AUTH_URL.test(normalizedUrl)
-    )
-    const authorization = await getAuthorization(bearerUrl)
+    const bearerUrl = find(links, ({ normalizedUrl }) => REGEX_AUTH_URL.test(normalizedUrl))
+    const authorization = await getAuthorization(get(bearerUrl, 'normalizedUrl'))
     return { authorization: `Bearer ${authorization}`, guestToken }
   }
 
@@ -103,15 +99,13 @@ const getTwitterInfo = ({ getAuth }) => async url => {
   })
 
   return chain(body)
-    .get(
-      `globalObjects.tweets.${tweetId}.extended_entities.media.0.video_info.variants`
-    )
+    .get(`globalObjects.tweets.${tweetId}.extended_entities.media.0.video_info.variants`)
     .filter('bitrate')
     .orderBy('bitrate', 'asc')
     .value()
 }
 
-module.exports = opts => {
+module.exports = (opts = {}) => {
   const getAuth = createGetAuth(opts)
   return {
     getTwitterInfo: getTwitterInfo({ getAuth }),
