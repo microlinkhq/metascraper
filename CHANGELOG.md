@@ -1,5 +1,14 @@
-##  (2018-09-29)
+##  (2018-09-30)
 
+
+
+
+## 4.5.0 (2018-09-30)
+
+* Refactor tests ([b9d4c5f](https://github.com/microlinkhq/metascraper/commit/b9d4c5f))
+* Update Changelog ([024d5f3](https://github.com/microlinkhq/metascraper/commit/024d5f3))
+* Use prerender for extracting HTML ([4b6c034](https://github.com/microlinkhq/metascraper/commit/4b6c034))
+* v4.5.0 ([3c6970b](https://github.com/microlinkhq/metascraper/commit/3c6970b))
 
 
 
