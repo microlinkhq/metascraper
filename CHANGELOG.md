@@ -1,5 +1,13 @@
-##  (2018-09-30)
+##  (2018-10-04)
 
+
+
+
+## <small>4.5.1 (2018-10-04)</small>
+
+* Revert "Avoid use Twitter API (#122)" ([66ca721](https://github.com/microlinkhq/metascraper/commit/66ca721)), closes [#122](https://github.com/microlinkhq/metascraper/issues/122)
+* Update Changelog ([6481681](https://github.com/microlinkhq/metascraper/commit/6481681))
+* v4.5.1 ([af004a4](https://github.com/microlinkhq/metascraper/commit/af004a4))
 
 
 
