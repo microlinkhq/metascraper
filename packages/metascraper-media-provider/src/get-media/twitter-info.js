@@ -2,6 +2,7 @@
 
 const memoizeToken = require('memoize-token')
 const { get, chain } = require('lodash')
+const tunnel = require('tunnel')
 const { URL } = require('url')
 const got = require('got')
 
@@ -24,13 +25,27 @@ const getTweetId = url => url.split('/').reverse()[0]
 const API_GUEST_ACTIVATE_LIMIT = 180
 const API_GUEST_ACTIVATE_EXPIRE = 15 * 60 * 1000 // 15 min
 
-const getGuestToken = async url => {
+const { PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS } = process.env
+
+let agent = PROXY_HOST
+  ? tunnel.httpsOverHttp({
+    proxy: {
+      host: PROXY_HOST,
+      port: PROXY_PORT,
+      proxyAuth:
+          PROXY_USER && PROXY_PASS ? `${PROXY_USER}:${PROXY_PASS}` : null
+    }
+  })
+  : null
+
+const getGuestToken = async (url = '', opts = {}) => {
   const { body } = await got.post(
     'https://api.twitter.com/1.1/guest/activate.json',
     {
-      retry: false,
       headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
-      json: true
+      json: true,
+      agent,
+      ...opts
     }
   )
   return get(body, 'guest_token')
@@ -41,7 +56,6 @@ const getTwitterInfo = ({ getToken }) => async url => {
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const guestToken = await getToken(url)
   const { body } = await got(apiUrl, {
-    retry: false,
     json: true,
     headers: {
       authorization: TWITTER_BEARER_TOKEN,
