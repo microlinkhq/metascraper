@@ -17,6 +17,7 @@
     "lodash": "~4.17.10",
     "memoize-one": "~4.0.2",
     "memoize-token": "~1.1.0",
+    "tunnel": "0.0.6",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
