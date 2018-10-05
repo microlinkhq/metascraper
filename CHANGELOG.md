@@ -1,5 +1,13 @@
-##  (2018-10-04)
+##  (2018-10-05)
 
+
+
+
+## <small>4.5.2 (2018-10-05)</small>
+
+* Add tunnel support (#124) ([084e9e6](https://github.com/microlinkhq/metascraper/commit/084e9e6)), closes [#124](https://github.com/microlinkhq/metascraper/issues/124)
+* Update Changelog ([1319563](https://github.com/microlinkhq/metascraper/commit/1319563))
+* v4.5.2 ([29bcc2c](https://github.com/microlinkhq/metascraper/commit/29bcc2c))
 
 
 
