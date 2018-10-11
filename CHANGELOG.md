@@ -1,5 +1,13 @@
-##  (2018-10-05)
+##  (2018-10-11)
 
+
+
+
+## <small>4.5.3 (2018-10-11)</small>
+
+* Get original tweet id ([ac7e5e9](https://github.com/microlinkhq/metascraper/commit/ac7e5e9))
+* Update Changelog ([f8167ed](https://github.com/microlinkhq/metascraper/commit/f8167ed))
+* v4.5.3 ([e01b4b2](https://github.com/microlinkhq/metascraper/commit/e01b4b2))
 
 
 
