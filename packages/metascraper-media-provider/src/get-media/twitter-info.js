@@ -63,9 +63,15 @@ const getTwitterInfo = ({ getToken }) => async url => {
     }
   })
 
+  const id = get(
+    body,
+    `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
+    tweetId
+  )
+
   return chain(body)
     .get(
-      `globalObjects.tweets.${tweetId}.extended_entities.media.0.video_info.variants`
+      `globalObjects.tweets.${id}.extended_entities.media.0.video_info.variants`
     )
     .filter('bitrate')
     .orderBy('bitrate', 'asc')
