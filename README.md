@@ -91,7 +91,7 @@ The output will be something like:
 
 ## Metadata
 
-?> Other metadata can be defined using a custom [rule bundle](#rule-bundles).
+Other metadata can be defined using a custom [rule bundle](#rule-bundles).
 
 Here is an example of the metadata that **metascraper** can collect:
 
@@ -184,7 +184,7 @@ const metascraper = require('metascraper')([
 
 ## Rules bundles
 
-?> Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
+Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
