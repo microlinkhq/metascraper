@@ -1,5 +1,13 @@
-##  (2018-10-11)
+##  (2018-10-17)
 
+
+
+
+## <small>4.5.4 (2018-10-17)</small>
+
+* Prefer mp4 video if it is available (#127) ([2d92376](https://github.com/microlinkhq/metascraper/commit/2d92376)), closes [#127](https://github.com/microlinkhq/metascraper/issues/127)
+* Update Changelog ([b8d5445](https://github.com/microlinkhq/metascraper/commit/b8d5445))
+* v4.5.4 ([5fc2f5c](https://github.com/microlinkhq/metascraper/commit/5fc2f5c))
 
 
 
