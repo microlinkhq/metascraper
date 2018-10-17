@@ -4,6 +4,7 @@ const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
 const { omit } = require('lodash')
+const should = require('should')
 const fs = require('fs')
 
 const metascraper = require('metascraper')([require('..')()])
@@ -22,7 +23,7 @@ describe('metascraper-video', () => {
         const metadata = await metascraper({ html, url })
         snapshot(metadata)
       })
-      xit('multiple src', async () => {
+      it('multiple src', async () => {
         const html = `
         <video controls>
           <source src="video-small.mp4" type="video/mp4" media="all and (max-width: 480px)">
@@ -72,6 +73,15 @@ describe('metascraper-video', () => {
         const url = 'https://plays.tv/video/5a6f64b1bef69a7fa9/holy-shit'
         const metadata = await metascraper({ html, url })
         snapshot(omit(metadata, ['date']))
+      })
+
+      it('9gag', async () => {
+        const html = await readFile(
+          resolve(__dirname, 'fixtures/providers/9gag.html')
+        )
+        const url = 'https://9gag.com/gag/abY5Mm9'
+        const metadata = await metascraper({ html, url })
+        should(metadata.video.endsWith('.mp4')).be.true()
       })
     })
   })

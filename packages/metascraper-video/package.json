@@ -12,10 +12,10 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "dependencies": {
-    "@metascraper/helpers": "^4.3.5"
+    "@metascraper/helpers": "^4.3.5",
+    "lodash": "~4.17.11"
   },
   "devDependencies": {
-    "lodash": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
