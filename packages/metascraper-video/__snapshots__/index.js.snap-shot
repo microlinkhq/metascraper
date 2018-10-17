@@ -20,11 +20,16 @@ exports['clips.twitch.tv 1'] = {
 
 exports['play.tv 1'] = {
   "image": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/720.jpg",
-  "video": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/480.mp4"
+  "video": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/720.mp4"
 }
 
 exports['src:poster 1'] = {
   "image": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-mobile.jpg",
-  "video": "https://thumbs.gfycat.com/TimelyHealthyArmadillo-mobile.mp4"
+  "video": "https://giant.gfycat.com/TimelyHealthyArmadillo.mp4"
+}
+
+exports['multiple src 1'] = {
+  "image": null,
+  "video": "https://www.theverge.com/2018/1/22/16921092/video-small.mp4"
 }
 

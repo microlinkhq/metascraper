@@ -1,6 +1,12 @@
 'use strict'
 
-const { isMime, url: urlFn, isVideoUrl } = require('@metascraper/helpers')
+const {
+  isMime,
+  url: urlFn,
+  isVideoUrl,
+  extension
+} = require('@metascraper/helpers')
+const { chain } = require('lodash')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -16,13 +22,20 @@ const createWrapper = fn => rule => ({ htmlDom, url }) => {
 
 const wrap = createWrapper((value, url) => urlFn(value, { url }))
 
-const wrapVideo = createWrapper((value, url) => {
-  const urlValue = urlFn(value, { url })
+const wrapVideo = createWrapper((domNodes, url) => {
+  const videoUrl = chain(domNodes)
+    .map('attribs.src')
+    .uniq()
+    .orderBy(videoUrl => extension(videoUrl) === 'mp4', ['desc'])
+    .first()
+    .value()
+
+  const urlValue = urlFn(videoUrl, { url })
   return isVideoUrl(urlValue) && urlValue
 })
 
 const withContentType = (url, contentType) =>
-  isMime(contentType, 'video') ? url : false
+  (isMime(contentType, 'video') ? url : false)
 
 /**
  * Rules.
@@ -42,7 +55,7 @@ module.exports = () => ({
       )
       return contentType ? withContentType(streamUrl, contentType) : streamUrl
     }),
-    wrapVideo($ => $('video').attr('src')),
-    wrapVideo($ => $('video > source').attr('src'))
+    wrapVideo($ => $('video').get()),
+    wrapVideo($ => $('video > source').get())
   ]
 })
