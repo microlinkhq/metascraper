@@ -1,5 +1,15 @@
-##  (2018-10-17)
+##  (2018-10-21)
 
+* build: setup conventional workflow ([0f2d275](https://github.com/microlinkhq/metascraper/commit/0f2d275))
+
+
+
+## <small>4.5.5-alpha.0 (2018-10-21)</small>
+
+* Update Changelog ([5107f87](https://github.com/microlinkhq/metascraper/commit/5107f87))
+* v4.5.5-alpha.0 ([a9acb05](https://github.com/microlinkhq/metascraper/commit/a9acb05))
+* build: add automate-release workflow ([a6b0493](https://github.com/microlinkhq/metascraper/commit/a6b0493))
+* build: update dependencies ([8597ea7](https://github.com/microlinkhq/metascraper/commit/8597ea7))
 
 
 

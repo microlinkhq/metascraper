@@ -1,5 +1,6 @@
 {
   "name": "metascraper",
+  "homepage": "https://github.com/microlinkhq/metascraper#readme",
   "version": "",
   "author": {
     "email": "ian@ianstormtaylor.com",
@@ -19,6 +20,13 @@
       "email": "risticn6@gmail.com"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/issues"
+  },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
@@ -41,6 +49,7 @@
     "husky": "latest",
     "json-future": "latest",
     "lerna": "latest",
+    "lerna-changelog": "latest",
     "lint-staged": "latest",
     "mkdirp": "latest",
     "node-metainspector": "latest",
@@ -67,7 +76,7 @@
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "preversion": "git-authors-cli",
-    "release": "lerna publish --sort",
+    "release": "lerna publish --sort --conventional-commits",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
     "update": "lerna exec ncu -- -a -x standard",
