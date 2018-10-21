@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.5.5](https://github.com/microlinkhq/metascraper/compare/v4.5.5-alpha.0...v4.5.5) (2018-10-21)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
 ##  (2018-10-21)
 
 * build: setup conventional workflow ([0f2d275](https://github.com/microlinkhq/metascraper/commit/0f2d275))
@@ -862,6 +875,3 @@
 * Use mocha for testing ([07967ca](https://github.com/microlinkhq/metascraper/commit/07967ca))
 * WIP ([e3120a2](https://github.com/microlinkhq/metascraper/commit/e3120a2))
 * docs(readme): add Greenkeeper badge ([5e92ea7](https://github.com/microlinkhq/metascraper/commit/5e92ea7))
-
-
-
