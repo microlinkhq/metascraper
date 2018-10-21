@@ -20,9 +20,12 @@
     }
   ],
   "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
     "browser-sync": "latest",
     "concurrently": "latest",
     "conventional-changelog-cli": "latest",
+    "conventional-github-releaser": "latest",
     "eachdir": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
@@ -47,14 +50,13 @@
     "rimraf": "latest",
     "standard": "11",
     "standard-markdown": "latest",
+    "standard-version": "latest",
     "unfluff": "latest"
   },
   "engines": {
     "node": ">= 8"
   },
   "scripts": {
-    "authors": "git-authors-cli && finepack package.json",
-    "authors:commit": "npm run authors && git add package.json && git commit -m 'Update contributors' && git push origin master",
     "build": "gulp build",
     "changelog": "conventional-changelog --release-count=0 > CHANGELOG.md",
     "changelog:commit": "npm run changelog && git add CHANGELOG.md && git commit -m 'Update Changelog' && git push origin master",
@@ -62,19 +64,25 @@
     "dev": "concurrently \"gulp\" \"npm run server:dev\"",
     "lint": "standard-markdown README.md && standard",
     "postinstall": "lerna bootstrap",
-    "postrelease": "npm run changelog:commit",
-    "prerelease": "npm run authors && git add package.json",
+    "prerelease": "npm run update:check",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard index.js {test,src}/**/*.js --single-quote",
+    "preversion": "git-authors-cli",
     "release": "lerna publish --sort",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
-    "upgrade": "lerna exec ncu -- --error-level 2"
+    "update": "lerna exec ncu --  --error-level 2",
+    "update:check": "lerna exec ncu --  --error-level 2"
   },
   "private": true,
   "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
