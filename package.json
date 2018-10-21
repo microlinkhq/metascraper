@@ -70,8 +70,8 @@
     "release": "lerna publish --sort",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
-    "update": "lerna exec ncu --  --error-level 2",
-    "update:check": "lerna exec ncu --  --error-level 2"
+    "update": "lerna exec ncu -- -a -x standard",
+    "update:check": "lerna exec ncu --  -x standard --error-level 2"
   },
   "private": true,
   "license": "MIT",
