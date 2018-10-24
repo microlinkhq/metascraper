@@ -69,13 +69,17 @@ const getTwitterInfo = ({ getToken }) => async url => {
     tweetId
   )
 
-  return chain(body)
-    .get(
-      `globalObjects.tweets.${id}.extended_entities.media.0.video_info.variants`
-    )
-    .filter('bitrate')
-    .orderBy('bitrate', 'asc')
-    .value()
+  const tweetObj = get(body, `globalObjects.tweets.${id}`)
+
+  return {
+    extractor_key: 'Twitter',
+    language: get(tweetObj, 'lang'),
+    formats: chain(tweetObj)
+      .get('extended_entities.media.0.video_info.variants')
+      .filter('bitrate')
+      .orderBy('bitrate', 'asc')
+      .value()
+  }
 }
 
 module.exports = opts => {

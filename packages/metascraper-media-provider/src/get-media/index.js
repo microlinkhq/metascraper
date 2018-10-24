@@ -1,7 +1,7 @@
 'use strict'
 
-const { isEmpty, reduce, set } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
+const { get, reduce, set } = require('lodash')
 const memoizeOne = require('memoize-one')
 
 const createTwitterInfo = require('./twitter-info')
@@ -19,20 +19,20 @@ module.exports = opts => {
       getTwitterInfo(url)
     ])
 
-    const twitterVideo = { ...videoInfo, extractor_key: 'Twitter' }
-
-    if (isEmpty(twitterVideos)) return twitterVideo
+    const { formats: twitterVideoFormats, ...twitterVideosData } = twitterVideos
 
     const formats = reduce(
-      twitterVideos,
+      twitterVideoFormats,
       (acc, twitterVideo, index) => {
         const { url } = twitterVideo
-        set(acc, index, { ...acc[index], url, protocol: protocol(url) })
+        const format = get(acc, index, {})
+        set(acc, index, { ...format, url, protocol: protocol(url) })
         return acc
       },
-      videoInfo.formats
+      get(videoInfo, 'formats')
     )
-    return { ...twitterVideo, formats }
+
+    return { ...videoInfo, ...twitterVideosData, formats }
   }
 
   return memoizeOne(getInfo)
