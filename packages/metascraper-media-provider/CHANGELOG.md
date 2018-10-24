@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v4.5.6...v4.6.0) (2018-10-24)
+
+
+### Features
+
+* get language from twitter payload ([#129](https://github.com/microlinkhq/metascraper/tree/master/packages/issues/129)) ([80d5ddf](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/80d5ddf))
+
+
+
+
+
 ## [4.5.6](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v4.5.5...v4.5.6) (2018-10-23)
 
 
