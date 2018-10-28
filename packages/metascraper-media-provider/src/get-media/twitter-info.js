@@ -82,7 +82,7 @@ const getTwitterInfo = ({ getToken }) => async url => {
   }
 }
 
-module.exports = opts => {
+const createTwitterInfo = opts => {
   const getToken = memoizeToken(getGuestToken, {
     max: API_GUEST_ACTIVATE_LIMIT,
     expire: API_GUEST_ACTIVATE_EXPIRE,
@@ -90,8 +90,7 @@ module.exports = opts => {
     ...opts
   })
 
-  return {
-    getTwitterInfo: getTwitterInfo({ getToken }),
-    isTwitterUrl
-  }
+  return getTwitterInfo({ getToken })
 }
+
+module.exports = { createTwitterInfo, isTwitterUrl }
