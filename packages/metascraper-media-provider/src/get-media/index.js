@@ -1,15 +1,15 @@
 'use strict'
 
-const { protocol } = require('@metascraper/helpers')
 const { get, reduce, set } = require('lodash')
 const memoizeOne = require('memoize-one')
 
-const createTwitterInfo = require('./twitter-info')
+const { createTwitterInfo, isTwitterUrl } = require('./twitter-info')
+const { protocol } = require('@metascraper/helpers')
 const createGetMedia = require('./get-media')
 
 module.exports = opts => {
   const getMedia = createGetMedia(opts)
-  const { isTwitterUrl, getTwitterInfo } = createTwitterInfo(opts)
+  const getTwitterInfo = createTwitterInfo(opts)
 
   const getInfo = async url => {
     if (!isTwitterUrl(url)) return getMedia(url)
