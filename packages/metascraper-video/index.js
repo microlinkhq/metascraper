@@ -29,13 +29,12 @@ const wrapVideo = createWrapper((domNodes, url) => {
     .orderBy(videoUrl => extension(videoUrl) === 'mp4', ['desc'])
     .first()
     .value()
-
   const urlValue = urlFn(videoUrl, { url })
   return isVideoUrl(urlValue) && urlValue
 })
 
 const withContentType = (url, contentType) =>
-  (isMime(contentType, 'video') ? url : false)
+  isMime(contentType, 'video') ? url : false
 
 /**
  * Rules.
