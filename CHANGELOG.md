@@ -1,53 +1,42 @@
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-## [4.6.1](https://github.com/microlinkhq/metascraper/compare/v4.6.0...v4.6.1) (2018-10-28)
-
-
-### Bug Fixes
-
-* use `onError` for capture error ([#130](https://github.com/microlinkhq/metascraper/issues/130)) ([dcf9e23](https://github.com/microlinkhq/metascraper/commit/dcf9e23))
+##  (2018-11-16)
 
 
 
 
+## 4.7.0 (2018-11-16)
 
-# [4.6.0](https://github.com/microlinkhq/metascraper/compare/v4.5.6...v4.6.0) (2018-10-24)
-
-
-### Features
-
-* get language from twitter payload ([#129](https://github.com/microlinkhq/metascraper/issues/129)) ([80d5ddf](https://github.com/microlinkhq/metascraper/commit/80d5ddf))
+* Update dependencies (#132) ([a256f0c](https://github.com/microlinkhq/metascraper/commit/a256f0c)), closes [#132](https://github.com/microlinkhq/metascraper/issues/132)
+* v4.7.0 ([a7d53da](https://github.com/microlinkhq/metascraper/commit/a7d53da))
+* fix: reset token every 10min ([cf8cd92](https://github.com/microlinkhq/metascraper/commit/cf8cd92))
 
 
 
+## <small>4.6.1 (2018-10-28)</small>
 
-
-## [4.5.6](https://github.com/microlinkhq/metascraper/compare/v4.5.5...v4.5.6) (2018-10-23)
-
-
-### Bug Fixes
-
-* add proxy support at youtube-dl ([c2c0fea](https://github.com/microlinkhq/metascraper/commit/c2c0fea))
-* iterate over new formats detected ([14db749](https://github.com/microlinkhq/metascraper/commit/14db749))
+* v4.6.1 ([dc664c3](https://github.com/microlinkhq/metascraper/commit/dc664c3))
+* fix: use `onError` for capture error (#130) ([dcf9e23](https://github.com/microlinkhq/metascraper/commit/dcf9e23)), closes [#130](https://github.com/microlinkhq/metascraper/issues/130)
 
 
 
+## 4.6.0 (2018-10-24)
 
-
-## [4.5.5](https://github.com/microlinkhq/metascraper/compare/v4.5.5-alpha.0...v4.5.5) (2018-10-21)
-
-**Note:** Version bump only for package metascraper
-
-
+* v4.6.0 ([0ef7ad5](https://github.com/microlinkhq/metascraper/commit/0ef7ad5))
+* feat: get language from twitter payload (#129) ([80d5ddf](https://github.com/microlinkhq/metascraper/commit/80d5ddf)), closes [#129](https://github.com/microlinkhq/metascraper/issues/129)
 
 
 
-##  (2018-10-21)
+## <small>4.5.6 (2018-10-23)</small>
 
-* build: setup conventional workflow ([0f2d275](https://github.com/microlinkhq/metascraper/commit/0f2d275))
+* v4.5.6 ([e90bb13](https://github.com/microlinkhq/metascraper/commit/e90bb13))
+* fix: add proxy support at youtube-dl ([c2c0fea](https://github.com/microlinkhq/metascraper/commit/c2c0fea))
+* fix: iterate over new formats detected ([14db749](https://github.com/microlinkhq/metascraper/commit/14db749))
+
+
+
+## <small>4.5.5 (2018-10-21)</small>
+
+* v4.5.5 ([679424c](https://github.com/microlinkhq/metascraper/commit/679424c))
+* build: setup conventional workflow ([b3e0a9e](https://github.com/microlinkhq/metascraper/commit/b3e0a9e))
 
 
 
@@ -222,10 +211,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Add audio support ([9f09429](https://github.com/microlinkhq/metascraper/commit/9f09429))
 * Fix tests ([00584d3](https://github.com/microlinkhq/metascraper/commit/00584d3))
 * Fix tests ([6fd95b4](https://github.com/microlinkhq/metascraper/commit/6fd95b4))
-* Lock standard version ([b61e68d](https://github.com/microlinkhq/metascraper/commit/b61e68d))
 * Lock standard version ([82c6108](https://github.com/microlinkhq/metascraper/commit/82c6108))
-* Move helpers method into helpers package ([a807b70](https://github.com/microlinkhq/metascraper/commit/a807b70))
+* Lock standard version ([b61e68d](https://github.com/microlinkhq/metascraper/commit/b61e68d))
 * Move helpers method into helpers package ([b845f45](https://github.com/microlinkhq/metascraper/commit/b845f45))
+* Move helpers method into helpers package ([a807b70](https://github.com/microlinkhq/metascraper/commit/a807b70))
 * Remove unnecesary test ([fe3efa6](https://github.com/microlinkhq/metascraper/commit/fe3efa6))
 * Remove unnecesary test ([153f5d1](https://github.com/microlinkhq/metascraper/commit/153f5d1))
 * Rename video-provider → media-provider ([2838e12](https://github.com/microlinkhq/metascraper/commit/2838e12))
@@ -234,15 +223,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Return a collection of urls ([9ffcd67](https://github.com/microlinkhq/metascraper/commit/9ffcd67))
 * Strict url validation ([edfb8a0](https://github.com/microlinkhq/metascraper/commit/edfb8a0))
 * Strict url validation ([b63564f](https://github.com/microlinkhq/metascraper/commit/b63564f))
-* Tweaks ([99a52ef](https://github.com/microlinkhq/metascraper/commit/99a52ef))
 * Tweaks ([10faffd](https://github.com/microlinkhq/metascraper/commit/10faffd))
+* Tweaks ([99a52ef](https://github.com/microlinkhq/metascraper/commit/99a52ef))
 * Update Changelog ([4ddd209](https://github.com/microlinkhq/metascraper/commit/4ddd209))
 * Update dependencies (#112) ([4ecf92d](https://github.com/microlinkhq/metascraper/commit/4ecf92d)), closes [#112](https://github.com/microlinkhq/metascraper/issues/112)
 * v4.1.0 ([6b08dfa](https://github.com/microlinkhq/metascraper/commit/6b08dfa))
-* Video is a collection ([19405c2](https://github.com/microlinkhq/metascraper/commit/19405c2))
 * Video is a collection ([97fcfae](https://github.com/microlinkhq/metascraper/commit/97fcfae))
-* video is string ([41e5806](https://github.com/microlinkhq/metascraper/commit/41e5806))
+* Video is a collection ([19405c2](https://github.com/microlinkhq/metascraper/commit/19405c2))
 * video is string ([1e3227b](https://github.com/microlinkhq/metascraper/commit/1e3227b))
+* video is string ([41e5806](https://github.com/microlinkhq/metascraper/commit/41e5806))
 
 
 
@@ -687,8 +676,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Update ([d246295](https://github.com/microlinkhq/metascraper/commit/d246295))
 * Update README.md ([c8609cd](https://github.com/microlinkhq/metascraper/commit/c8609cd))
 * Update scripts ([8b158e0](https://github.com/microlinkhq/metascraper/commit/8b158e0))
-* Update testing setup ([d75c74f](https://github.com/microlinkhq/metascraper/commit/d75c74f))
 * Update testing setup ([ba6253c](https://github.com/microlinkhq/metascraper/commit/ba6253c))
+* Update testing setup ([d75c74f](https://github.com/microlinkhq/metascraper/commit/d75c74f))
 * Update toc ([853f8d3](https://github.com/microlinkhq/metascraper/commit/853f8d3))
 * v3.5.0 ([88a1e6f](https://github.com/microlinkhq/metascraper/commit/88a1e6f))
 
@@ -857,23 +846,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Fix author ([65de0ce](https://github.com/microlinkhq/metascraper/commit/65de0ce))
 * Fix output date ([6c572f9](https://github.com/microlinkhq/metascraper/commit/6c572f9))
 * Fix output dates ([5bf8d93](https://github.com/microlinkhq/metascraper/commit/5bf8d93))
-* Fix test ([6149cde](https://github.com/microlinkhq/metascraper/commit/6149cde))
-* Fix test ([7039590](https://github.com/microlinkhq/metascraper/commit/7039590))
 * Fix test ([3b04f96](https://github.com/microlinkhq/metascraper/commit/3b04f96))
 * Fix test ([f58cccd](https://github.com/microlinkhq/metascraper/commit/f58cccd))
+* Fix test ([6149cde](https://github.com/microlinkhq/metascraper/commit/6149cde))
+* Fix test ([7039590](https://github.com/microlinkhq/metascraper/commit/7039590))
 * Fix typo ([e2138bd](https://github.com/microlinkhq/metascraper/commit/e2138bd))
 * Improve author connector ([a8ae1aa](https://github.com/microlinkhq/metascraper/commit/a8ae1aa))
 * Improve docs ([9676b93](https://github.com/microlinkhq/metascraper/commit/9676b93))
 * Improve get url value ([5020eb5](https://github.com/microlinkhq/metascraper/commit/5020eb5))
-* Improve logo detection ([64d439a](https://github.com/microlinkhq/metascraper/commit/64d439a))
 * Improve logo detection ([3040379](https://github.com/microlinkhq/metascraper/commit/3040379))
+* Improve logo detection ([64d439a](https://github.com/microlinkhq/metascraper/commit/64d439a))
 * Merge favicon into logo ([d2d66fb](https://github.com/microlinkhq/metascraper/commit/d2d66fb))
 * Merge props correctly ([32b9610](https://github.com/microlinkhq/metascraper/commit/32b9610))
 * Migrate from gitlab to travis ([6e6f70a](https://github.com/microlinkhq/metascraper/commit/6e6f70a))
 * Pretty ([1892ea5](https://github.com/microlinkhq/metascraper/commit/1892ea5))
 * Publisher refactor ([76bb282](https://github.com/microlinkhq/metascraper/commit/76bb282))
-* Refactor ([cef0f1e](https://github.com/microlinkhq/metascraper/commit/cef0f1e))
 * Refactor ([e9df18f](https://github.com/microlinkhq/metascraper/commit/e9df18f))
+* Refactor ([cef0f1e](https://github.com/microlinkhq/metascraper/commit/cef0f1e))
 * Refactor ([20eee39](https://github.com/microlinkhq/metascraper/commit/20eee39))
 * Refactor author ([760b503](https://github.com/microlinkhq/metascraper/commit/760b503))
 * Refactor date ([ae355f3](https://github.com/microlinkhq/metascraper/commit/ae355f3))
@@ -909,3 +898,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Use mocha for testing ([07967ca](https://github.com/microlinkhq/metascraper/commit/07967ca))
 * WIP ([e3120a2](https://github.com/microlinkhq/metascraper/commit/e3120a2))
 * docs(readme): add Greenkeeper badge ([5e92ea7](https://github.com/microlinkhq/metascraper/commit/5e92ea7))
+
+
+
