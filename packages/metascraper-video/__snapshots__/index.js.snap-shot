@@ -15,7 +15,7 @@ exports['single src 1'] = {
 
 exports['clips.twitch.tv 1'] = {
   "image": "https://clips-media-assets.twitch.tv/27434665136-offset-2366-preview.jpg",
-  "video": "https://clips-media-assets.twitch.tv/AT-27434665136-offset-2366-1280x720.mp4"
+  "video": "https://clips-media-assets.twitch.tv/AT-27434665136-offset-2366-1280x720.mp4#t=0"
 }
 
 exports['play.tv 1'] = {

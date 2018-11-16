@@ -29,6 +29,7 @@ const isIso = require('isostring')
 const toTitle = require('title')
 
 const { URL } = require('url')
+const urlLib = require('url')
 
 const MIMES_EXTENSIONS = {
   audio: audioExtensions,
@@ -105,7 +106,12 @@ const isAudioExtension = createExtensionValidator(audioExtensions)
 
 const isImageExtension = createExtensionValidator(imageExtensions)
 
-const extension = url => fileExtension(url).split('?')[0]
+const extension = (str = '') => {
+  const urlObj = urlLib.parse(str)
+  urlObj.hash = ''
+  urlObj.search = ''
+  return fileExtension(urlLib.format(urlObj))
+}
 
 const description = value => isString(value) && getDescription(value)
 
