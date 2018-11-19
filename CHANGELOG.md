@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.8.0](https://github.com/microlinkhq/metascraper/compare/v4.7.0...v4.8.0) (2018-11-19)
+
+
+### Features
+
+* fulfilled twitter promise ([#133](https://github.com/microlinkhq/metascraper/issues/133)) ([5e89fe5](https://github.com/microlinkhq/metascraper/commit/5e89fe5))
+
+
+
+
+
 ##  (2018-11-16)
 
 
@@ -898,6 +914,3 @@
 * Use mocha for testing ([07967ca](https://github.com/microlinkhq/metascraper/commit/07967ca))
 * WIP ([e3120a2](https://github.com/microlinkhq/metascraper/commit/e3120a2))
 * docs(readme): add Greenkeeper badge ([5e92ea7](https://github.com/microlinkhq/metascraper/commit/5e92ea7))
-
-
-

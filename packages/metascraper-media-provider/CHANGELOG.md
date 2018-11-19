@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.8.0](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v4.7.0...v4.8.0) (2018-11-19)
+
+
+### Features
+
+* fulfilled twitter promise ([#133](https://github.com/microlinkhq/metascraper/tree/master/packages/issues/133)) ([5e89fe5](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/5e89fe5))
+
+
+
+
+
 ## [4.6.1](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v4.6.0...v4.6.1) (2018-10-28)
 
 
