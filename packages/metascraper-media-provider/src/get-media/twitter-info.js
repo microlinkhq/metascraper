@@ -2,6 +2,7 @@
 
 const memoizeToken = require('memoize-token')
 const { get, chain } = require('lodash')
+const pReflect = require('p-reflect')
 const tunnel = require('tunnel')
 const { URL } = require('url')
 const got = require('got')
@@ -55,13 +56,17 @@ const getTwitterInfo = ({ getToken }) => async url => {
   const tweetId = getTweetId(url)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const guestToken = await getToken(url)
-  const { body } = await got(apiUrl, {
-    json: true,
-    headers: {
-      authorization: TWITTER_BEARER_TOKEN,
-      'x-guest-token': guestToken
-    }
-  })
+  const res = await pReflect(
+    got(apiUrl, {
+      json: true,
+      headers: {
+        authorization: TWITTER_BEARER_TOKEN,
+        'x-guest-token': guestToken
+      }
+    })
+  )
+
+  const body = get(res, 'value.body')
 
   const id = get(
     body,
