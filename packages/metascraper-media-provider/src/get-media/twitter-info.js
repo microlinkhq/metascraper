@@ -45,6 +45,7 @@ const getGuestToken = async (url = '', opts = {}) => {
     {
       headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
       json: true,
+      retry: 0,
       agent,
       ...opts
     }
@@ -52,17 +53,20 @@ const getGuestToken = async (url = '', opts = {}) => {
   return get(body, 'guest_token')
 }
 
-const getTwitterInfo = ({ getToken }) => async url => {
+const getTwitterInfo = ({ getToken, ...opts }) => async url => {
   const tweetId = getTweetId(url)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const guestToken = await getToken(url)
   const res = await pReflect(
     got(apiUrl, {
+      agent,
+      retry: 0,
       json: true,
       headers: {
         authorization: TWITTER_BEARER_TOKEN,
         'x-guest-token': guestToken
-      }
+      },
+      ...opts
     })
   )
 
@@ -95,7 +99,7 @@ const createTwitterInfo = opts => {
     ...opts
   })
 
-  return getTwitterInfo({ getToken })
+  return getTwitterInfo({ getToken, ...opts })
 }
 
 module.exports = { createTwitterInfo, isTwitterUrl }
