@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.1](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v4.8.0...v4.8.1) (2018-12-07)
+
+
+### Bug Fixes
+
+* use agent for Twitter request ([#135](https://github.com/microlinkhq/metascraper/tree/master/packages/issues/135)) ([ed3e1a2](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/ed3e1a2))
+
+
+
+
+
 # [4.8.0](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v4.7.0...v4.8.0) (2018-11-19)
 
 
