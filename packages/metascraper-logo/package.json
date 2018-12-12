@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@metascraper/helpers": "^4.7.0",
-    "got": "~9.3.2",
+    "got": "~9.4.0",
     "lodash": "~4.17.10"
   },
   "devDependencies": {

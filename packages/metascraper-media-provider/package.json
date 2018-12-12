@@ -13,16 +13,16 @@
   },
   "dependencies": {
     "@metascraper/helpers": "^4.7.0",
-    "got": "~9.3.2",
+    "got": "~9.4.0",
     "lodash": "~4.17.10",
-    "memoize-one": "~4.0.3",
+    "memoize-one": "~4.1.0",
     "memoize-token": "~1.1.0",
     "p-reflect": "~1.0.0",
     "tunnel": "0.0.6",
     "youtube-dl": "~1.12.2"
   },
   "devDependencies": {
-    "browserless": "~4.2.1",
+    "browserless": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "puppeteer": "latest",
