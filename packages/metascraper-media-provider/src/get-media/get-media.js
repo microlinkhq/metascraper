@@ -23,7 +23,8 @@ module.exports = ({ cacheDir, onError = noop } = {}) => {
         url,
         isTwitterUrl(url) && PROXY_URL
           ? [...opts, `--proxy=${PROXY_URL}`]
-          : opts
+          : opts,
+        { maxBuffer: Infinity }
       )
     } catch (err) {
       onError(err, url)
