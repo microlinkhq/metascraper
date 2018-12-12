@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.2](https://github.com/microlinkhq/metascraper/compare/v4.8.1...v4.8.2) (2018-12-12)
+
+
+### Bug Fixes
+
+* ensure buffer has enough space ([#136](https://github.com/microlinkhq/metascraper/issues/136)) ([8bd7be3](https://github.com/microlinkhq/metascraper/commit/8bd7be3)), closes [#issuecomment-253184229](https://github.com/microlinkhq/metascraper/issues/issuecomment-253184229)
+
+
+
+
+
 ## [4.8.1](https://github.com/microlinkhq/metascraper/compare/v4.8.0...v4.8.1) (2018-12-07)
 
 
