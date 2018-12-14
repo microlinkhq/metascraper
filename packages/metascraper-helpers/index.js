@@ -3,18 +3,18 @@
 const {
   difference,
   union,
+  get,
   toLower,
   replace,
   includes,
   isString,
   trim,
   flow,
-  isEmpty
+  chain,
+  isEmpty,
+  eq
 } = require('lodash')
 
-const imageExtensions = difference(require('image-extensions'), ['gif'])
-const audioExtensions = difference(require('audio-extensions'), ['mp4'])
-const videoExtensions = union(require('video-extensions'), ['gif'])
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
@@ -27,14 +27,32 @@ const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
 const isIso = require('isostring')
 const toTitle = require('title')
-
 const { URL } = require('url')
 const urlLib = require('url')
 
-const MIMES_EXTENSIONS = {
-  audio: audioExtensions,
-  video: videoExtensions,
-  image: imageExtensions
+const VIDEO = 'video'
+const AUDIO = 'audio'
+const IMAGE = 'image'
+
+const imageExtensions = chain(require('image-extensions'))
+  .difference(['gif'])
+  .reduce((acc, ext) => ({ ...acc, [ext]: IMAGE }), {})
+  .value()
+
+const audioExtensions = chain(require('audio-extensions'))
+  .difference(['mp4'])
+  .reduce((acc, ext) => ({ ...acc, [ext]: AUDIO }), {})
+  .value()
+
+const videoExtensions = chain(require('video-extensions'))
+  .union(['gif'])
+  .reduce((acc, ext) => ({ ...acc, [ext]: VIDEO }), {})
+  .value()
+
+const EXTENSIONS = {
+  ...imageExtensions,
+  ...audioExtensions,
+  ...videoExtensions
 }
 
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
@@ -88,23 +106,22 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const createUrlExtensionValidator = collection => url =>
-  isUrl(url) && includes(collection, extension(url))
+const isMediaUrl = (url, type) => isUrl(url) && isMediaExtension(url, type)
 
-const createExtensionValidator = collection => url =>
-  includes(collection, extension(url))
+const isMediaExtension = (url, type) =>
+  eq(type, get(EXTENSIONS, extension(url)))
 
-const isVideoUrl = createUrlExtensionValidator(videoExtensions)
+const isVideoUrl = url => isMediaUrl(url, VIDEO)
 
-const isAudioUrl = createUrlExtensionValidator(audioExtensions)
+const isAudioUrl = url => isMediaUrl(url, AUDIO)
 
-const isImageUrl = createUrlExtensionValidator(imageExtensions)
+const isImageUrl = url => isMediaUrl(url, IMAGE)
 
-const isVideoExtension = createExtensionValidator(videoExtensions)
+const isVideoExtension = url => isMediaExtension(url, VIDEO)
 
-const isAudioExtension = createExtensionValidator(audioExtensions)
+const isAudioExtension = url => isMediaExtension(url, AUDIO)
 
-const isImageExtension = createExtensionValidator(imageExtensions)
+const isImageExtension = url => isMediaExtension(url, IMAGE)
 
 const extension = (str = '') => {
   const urlObj = urlLib.parse(str)
@@ -155,10 +172,9 @@ const lang = value => {
 
 const title = value => isString(value) && titleize(value)
 
-const isMime = (type, mime) => {
-  const extension = mimeTypes.extension(type)
-  const collection = MIMES_EXTENSIONS[extension]
-  return includes(collection, mime)
+const isMime = (contentType, type) => {
+  const ext = mimeTypes.extension(contentType)
+  return eq(type, get(EXTENSIONS, ext))
 }
 
 module.exports = {
