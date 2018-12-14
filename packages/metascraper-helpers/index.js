@@ -1,8 +1,6 @@
 'use strict'
 
 const {
-  difference,
-  union,
   get,
   toLower,
   replace,
