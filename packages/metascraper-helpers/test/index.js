@@ -6,6 +6,9 @@ const {
   isImageUrl,
   isAudioUrl,
   isVideoUrl,
+  isVideoExtension,
+  isAudioExtension,
+  isImageExtension,
   isMime,
   extension,
   absoluteUrl
@@ -44,18 +47,24 @@ describe('metascraper-helpers', () => {
     should(isMime('audio/mp3', 'audio')).be.true()
   })
 
-  it('.isVideoUrl', async () => {
+  it('.isVideoUrl', () => {
+    should(isVideoUrl('demo.mp4')).be.false()
+    should(isVideoUrl('/demo.mp4')).be.false()
     should(isVideoUrl('https://microlink.io/demo.mp4')).be.true()
     should(isVideoUrl('https://microlink.io/demo.gif')).be.true()
   })
 
-  it('.isImageUrl', async () => {
+  it('.isImageUrl', () => {
+    should(isVideoUrl('demo.png')).be.false()
+    should(isVideoUrl('/demo.png')).be.false()
     should(isImageUrl('https://microlink.io/demo.png')).be.true()
     should(isImageUrl('https://microlink.io/demo.jpg')).be.true()
     should(isImageUrl('https://microlink.io/demo.jpeg')).be.true()
   })
 
-  it('.isAudioUrl', async () => {
+  it('.isAudioUrl', () => {
+    should(isAudioUrl('demo.mp3')).be.false()
+    should(isAudioUrl('/demo.mp3')).be.false()
     should(isAudioUrl('https://microlink.io/demo.mp3')).be.true()
     should(isAudioUrl('https://microlink.io/demo.wav')).be.true()
     should(isAudioUrl('https://microlink.io/demo.aac')).be.true()
@@ -63,7 +72,25 @@ describe('metascraper-helpers', () => {
     should(isAudioUrl('https://microlink.io/demo.m4a')).be.true()
   })
 
-  // it('isVideoExtension', async () => {})
-  // it('isAudioExtension', async () => {})
-  // it('isImageExtension', async () => {})
+  it('.isVideoExtension', () => {
+    should(isVideoExtension('https://microlink.io/demo.mp4')).be.true()
+    should(isVideoExtension('demo.mp4')).be.true()
+    should(isVideoExtension('demo.gif')).be.true()
+  })
+
+  it('.isAudioExtension', () => {
+    should(isAudioExtension('https://microlink.io/demo.mp3')).be.true()
+    should(isAudioExtension('demo.mp3')).be.true()
+    should(isAudioExtension('demo.wav')).be.true()
+    should(isAudioExtension('demo.aac')).be.true()
+    should(isAudioExtension('demo.wav')).be.true()
+    should(isAudioExtension('demo.m4a')).be.true()
+  })
+
+  it('.isImageExtension', () => {
+    should(isImageExtension('https://microlink.io/demo.png')).be.true()
+    should(isImageExtension('demo.png')).be.true()
+    should(isImageExtension('demo.jpg')).be.true()
+    should(isImageExtension('demo.jpeg')).be.true()
+  })
 })

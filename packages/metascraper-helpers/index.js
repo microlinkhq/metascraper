@@ -106,16 +106,17 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaUrl = (url, type) => isUrl(url) && isMediaExtension(url, type)
+const isMediaUrl = (url, type, opts) =>
+  isUrl(url, opts) && isMediaExtension(url, type)
 
 const isMediaExtension = (url, type) =>
   eq(type, get(EXTENSIONS, extension(url)))
 
-const isVideoUrl = url => isMediaUrl(url, VIDEO)
+const isVideoUrl = (url, opts) => isMediaUrl(url, VIDEO, opts)
 
-const isAudioUrl = url => isMediaUrl(url, AUDIO)
+const isAudioUrl = (url, opts) => isMediaUrl(url, AUDIO, opts)
 
-const isImageUrl = url => isMediaUrl(url, IMAGE)
+const isImageUrl = (url, opts) => isMediaUrl(url, IMAGE, opts)
 
 const isVideoExtension = url => isMediaExtension(url, VIDEO)
 
