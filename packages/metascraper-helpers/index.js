@@ -23,6 +23,7 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
+const truncate = require('truncate')
 const isIso = require('isostring')
 const toTitle = require('title')
 const { URL } = require('url')
@@ -56,6 +57,8 @@ const EXTENSIONS = {
 const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
+
+const TRUNCATE_MAX_LENGTH = 300
 
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
@@ -131,8 +134,10 @@ const extension = (str = '') => {
 
 const description = value => isString(value) && getDescription(value)
 
-const getDescription = value =>
-  titleize(removeLocation(value), { capitalize: false })
+const getDescription = (str, opts) => {
+  const description = removeLocation(truncate(str, TRUNCATE_MAX_LENGTH))
+  return titleize(description, opts)
+}
 
 const publisher = value => isString(value) && condenseWhitespace(value)
 

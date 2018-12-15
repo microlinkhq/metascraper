@@ -25,6 +25,7 @@
     "normalize-url": "~4.0.0",
     "smartquotes": "~2.3.1",
     "title": "~3.4.0",
+    "truncate": "~2.0.1",
     "url-regex": "~4.1.1",
     "video-extensions": "~1.1.0"
   },
