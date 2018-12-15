@@ -1,7 +1,7 @@
 exports['anandtech 1'] = {
   "author": "Anton Shilov",
   "date": null,
-  "description": "This morning AMD is introducing their Ryzen PRO processors for business and commercial desktop PCs. The new lineup of CPUs includes the Ryzen 3 PRO, Ryzen 5 PRO and Ryzen 7 PRO families with four, six, or eight cores running at various frequencies. A superset to the standard Ryzen chips, the PRO chips have the same feature set as other Ryzen devices, but also offer enhanced security, 24 months availability, a longer warranty and promise to feature better chip quality.",
+  "description": "This morning AMD is introducing their Ryzen PRO processors for business and commercial desktop PCs. The new lineup of CPUs includes the Ryzen 3 PRO, Ryzen 5 PRO and Ryzen 7 PRO families with four, six, or eight cores running at various frequencies. A superset to the standard Ryzen chips, the PRO chi…",
   "image": "http://images.anandtech.com/doci/11591/amd_ryzen_pro_678_678x452.jpg",
   "video": null,
   "lang": null,
@@ -469,7 +469,7 @@ exports['mac-rumors 1'] = {
 exports['market-wired 1'] = {
   "author": null,
   "date": "2016-04-06T17:00:00.000Z",
-  "description": "SAN FRANCISCO, CA--(Marketwired - April 06, 2016) - Segment, the customer data platform, today released Sources, giving companies access to new types of cloud services data for a more comprehensive view of their customers. With just a few clicks, businesses can combine crucial data from a variety of customer touch...",
+  "description": "SAN FRANCISCO, CA--(Marketwired - April 06, 2016) - Segment, the customer data platform, today released Sources, giving companies access to new types of cloud services data for a more comprehensive view of their customers. With just a few clicks, businesses can combine crucial data from a variety of…",
   "image": "http://www.marketwire.com/library/MwGo/2016/4/4/11G091766/mw1a0ss3mck1sv91saj19m310kr1t782-124371367694.jpg",
   "video": null,
   "lang": "en",
@@ -599,7 +599,7 @@ exports['reuters 1'] = {
 exports['san-francisco-chronicle 1'] = {
   "author": "Carolyn Said",
   "date": "2016-04-25T12:00:00.000Z",
-  "description": "[...] it’s natural to think that San Francisco’s new Nasdaq Entrepreneurial Center, which sprawls over 13,000 square feet in a prime SoMa location, would cater exclusively to up-and-coming tech startups. [...] all kind of entrepreneurs, whether they’re launching a taco truck or the next Google, can plug into the center for free classes, mentorship, media coaching, meeting space and other support. The nonprofit center, located near the future Transbay Transit Center, is backed by $10 million from the Nasdaq Educational Foundation, the stock exchange’s 22-year-old philanthropy arm. Outside 505 Howard St., a Times-Square-style electronic ticker scrolls promotions for events and logos of corporate sponsors. Inside, the expansive ground-floor space is divided into various functional areas: a state-of-the-art broadcast studio where budding Jack Dorseys or Marissa Mayers can learn how to handle on-camera interviews; classrooms that can accommodate dozens of people for hands-on trainings; a cafe and meeting space for collaborations; and a big lobby that serves double duty as space for pop-up shops to test products and ideas. The recent college grad knocked on the door, showed off his fledgling product-design studio’s first product, a wristwatch, and was invited to have a three-week pop-up store on site. “It was the absolute best way I could have launched my brand,” said Umaña, whose company, Classic Engineering, is now working on a sculpture-like lamp that turns on and off in response to whistling. There are deep dives into topics like company formation, business mechanics, understanding intellectual property and data security, among others. “Building buzz and excitement around your brand is really an art,” said Alexa Fleischman, CEO and co-founder of Savvy Society, which lets girls design and purchase custom 3-D-printed fashion accessories. [...] that venture funding is tighter, it will offer tips on how to weather this period with alternative financing strategies, for instance. The center hosted a two-day regional workshop for 1776’s Challenge Cup startup contest and helped it identify interesting entrepreneurs, mentors, coaches and local experts.",
+  "description": "[...] it’s natural to think that San Francisco’s new Nasdaq Entrepreneurial Center, which sprawls over 13,000 square feet in a prime SoMa location, would cater exclusively to up-and-coming tech startups. [...] all kind of entrepreneurs, whether they’re launching a taco truck or the next Google, can…",
   "image": "http://ww3.hdnux.com/photos/45/53/13/9876166/5/rawImage.jpg",
   "video": null,
   "lang": null,
@@ -690,7 +690,7 @@ exports['silicon-valley-business-journal 1'] = {
 exports['smitten-kitchen 1'] = {
   "author": null,
   "date": "2016-05-26T00:00:00.000Z",
-  "description": "Cucumber Yogurt Raita Salad Think of this as cucumber raita with the proportions inverted -- a lot of cucumber, a smaller amount of yogurt dressing -- but it’s not overly technical, as there are ingredients here not common in raita. Notes: Feel free to play around with this salad; each seed option will provide a…",
+  "description": "Cucumber Yogurt Raita Salad Think of this as cucumber raita with the proportions inverted -- a lot of cucumber, a smaller amount of yogurt dressing -- but it’s not overly technical, as there are ingredients here not common in raita. Notes: Feel free to play around with this salad; each seed option w…",
   "image": "http://smittenkitchen.com/wp-content/uploads/cucumber-yogurt-raita-salad-300x200.jpg",
   "video": null,
   "lang": null,
@@ -729,7 +729,7 @@ exports['techcrunch 1'] = {
 exports['the-boston-globe 1'] = {
   "author": "Mike Isaac",
   "date": "2016-05-03T18:58:00.000Z",
-  "description": "Ellen Pao spent the last few years spotlighting the technology industry’s lack of diversity, in court and beyond. Erica Baker caused a stir at Google when she started a spreadsheet last year for employees to share their salaries, highlighting the pay disparities between those of different genders doing the same job.",
+  "description": "Ellen Pao spent the last few years spotlighting the technology industry’s lack of diversity, in court and beyond. Erica Baker caused a stir at Google when she started a spreadsheet last year for employees to share their salaries, highlighting the pay disparities between those of diff…",
   "image": "http://c.o0bg.com/rf/image_585w/Boston/2011-2020/2016/05/04/BostonGlobe.com/Business/Images/TECH_WOMEN_INCLUSION-6183.JPG",
   "video": null,
   "lang": null,
@@ -971,7 +971,7 @@ exports['youtube channel 1'] = {
 exports['wikipedia 1'] = {
   "author": null,
   "date": "2016-10-13T12:00:00.000Z",
-  "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice of a generation”[2] with songs such as “Blowin’ in the Wind” and “The Times They Are a-Changin’” that became anthems for the Civil Rights Movement and anti-war movement. In 1965, he controversially abandoned his early fan-base in the American folk music revival, recording a six-minute single, “Like a Rolling Stone”, which enlarged the scope of popular music.",
+  "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice …",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
   "video": null,
   "lang": "en",
@@ -980,3 +980,4 @@ exports['wikipedia 1'] = {
   "title": "Bob Dylan - Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
 }
+
