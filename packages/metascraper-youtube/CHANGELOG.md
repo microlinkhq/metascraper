@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.3](https://github.com/microlinkhq/metascraper-youtube/compare/v4.8.2...v4.8.3) (2018-12-15)
+
+**Note:** Version bump only for package metascraper-youtube
+
+
+
+
+
 ## [4.8.1](https://github.com/microlinkhq/metascraper-youtube/compare/v4.8.0...v4.8.1) (2018-12-07)
 
 **Note:** Version bump only for package metascraper-youtube
