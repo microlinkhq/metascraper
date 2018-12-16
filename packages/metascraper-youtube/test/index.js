@@ -14,6 +14,7 @@ const metascraper = require('metascraper')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
+  require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')()
