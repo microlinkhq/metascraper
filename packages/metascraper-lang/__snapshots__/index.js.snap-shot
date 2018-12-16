@@ -1,12 +1,4 @@
 exports['html lang property 1'] = {
-  "lang": "pl",
-  "author": "Jakub Majmurek",
-  "title": "Churchill, bohater naszych czasów / Film / dwutygodnik.com",
-  "publisher": "Dwutygodnik",
-  "image": "http://www.dwutygodnik.com/public/media/article/image_full/7615.png",
-  "date": "2018-01-01T12:00:00.000Z",
-  "description": "Wysyp filmów o Churchillu w pobrexitowej Brytanii, wydaje się czymś zrozumiałym. Uosabia on ostatni moment prawdziwej wielkości Zjednoczonego Królestwa – wspomnienie tej historycznej chwili pozwala oswoić traumy i lęki",
-  "logo": "http://www.dwutygodnik.com/public/frontend/image_v4/favicon.ico",
-  "url": "http://www.dwutygodnik.com/artykul/7615-churchill-bohater-naszych-czasow.html"
+  "lang": "pl"
 }
 
