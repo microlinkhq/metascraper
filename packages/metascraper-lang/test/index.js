@@ -5,18 +5,7 @@ const { promisify } = require('util')
 const { resolve } = require('path')
 const fs = require('fs')
 
-const metascraper = require('metascraper')([
-  require('metascraper-amazon')(),
-  require('metascraper-author')(),
-  require('metascraper-date')(),
-  require('metascraper-description')(),
-  require('metascraper-image')(),
-  require('..')(),
-  require('metascraper-logo')(),
-  require('metascraper-publisher')(),
-  require('metascraper-title')(),
-  require('metascraper-url')()
-])
+const metascraper = require('metascraper')([require('..')()])
 
 const readFile = promisify(fs.readFile)
 

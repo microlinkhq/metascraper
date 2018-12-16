@@ -68,8 +68,8 @@ const getAudio = data => getAudioUrls(data, [hasAudio, isHttps])
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
 
-const getPublisher = ({ extractor_key: extractorKey }) =>
-  publisher(extractorKey)
+const getPublisher = ({ extractor, extractor_key: extractorKey }) =>
+  extractor !== 'generic' && publisher(extractorKey)
 
 const getLang = ({ language, http_headers: headers = {} }) =>
   lang(language || headers['Accept-Language'])

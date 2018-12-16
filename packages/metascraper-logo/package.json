@@ -11,10 +11,12 @@
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
+  "keywords": [
+    "logo",
+    "metascraper"
+  ],
   "dependencies": {
-    "@metascraper/helpers": "^4.8.3",
-    "got": "~9.4.0",
-    "lodash": "~4.17.10"
+    "@metascraper/helpers": "^4.8.3"
   },
   "devDependencies": {
     "standard": "11"

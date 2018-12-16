@@ -17,8 +17,9 @@
     "url": "https://github.com/microlinkhq/metascraper-soundcloud/issues"
   },
   "keywords": [
-    "clearbit",
-    "metascraper"
+    "audio",
+    "metascraper",
+    "soundcloud"
   ],
   "dependencies": {
     "@metascraper/helpers": "^4.8.3"

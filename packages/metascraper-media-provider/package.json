@@ -11,6 +11,11 @@
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
+  "keywords": [
+    "media",
+    "metascraper",
+    "youtube-dl"
+  ],
   "dependencies": {
     "@metascraper/helpers": "^4.8.3",
     "got": "~9.4.0",

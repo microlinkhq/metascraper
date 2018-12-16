@@ -17,11 +17,16 @@
     "url": "https://github.com/microlinkhq/metascraper-logo-favicon/issues"
   },
   "keywords": [
-    "clearbit",
+    "favicon",
+    "logo",
     "metascraper"
   ],
+  "dependencies": {
+    "@metascraper/helpers": "~4.8.3",
+    "got": "~9.4.0",
+    "lodash": "~4.17.11"
+  },
   "devDependencies": {
-    "lodash": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
