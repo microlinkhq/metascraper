@@ -17,8 +17,9 @@
     "url": "https://github.com/microlinkhq/metascraper-youtube/issues"
   },
   "keywords": [
-    "clearbit",
-    "metascraper"
+    "metascraper",
+    "video",
+    "youtube"
   ],
   "dependencies": {
     "@metascraper/helpers": "^4.8.3",

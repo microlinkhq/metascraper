@@ -11,6 +11,10 @@
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
+  "keywords": [
+    "lang",
+    "metascraper"
+  ],
   "dependencies": {
     "@metascraper/helpers": "^4.8.3",
     "franc": "~4.0.0",
