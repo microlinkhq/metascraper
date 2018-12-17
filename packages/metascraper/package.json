@@ -56,7 +56,8 @@
     "cheerio-advanced-selectors": "~2.0.1",
     "lodash": "~4.17.11",
     "p-reduce": "~1.0.0",
-    "whoops": "~4.0.1"
+    "whoops": "~4.0.1",
+    "xss": "~1.0.3"
   },
   "devDependencies": {
     "clear-module": "latest",

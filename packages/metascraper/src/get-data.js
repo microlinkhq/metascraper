@@ -2,6 +2,7 @@
 
 const { isEmpty } = require('lodash')
 const pReduce = require('p-reduce')
+const xss = require('xss')
 
 const getValue = async ({ htmlDom, url, conditions, meta }) => {
   const size = conditions.length
@@ -15,12 +16,12 @@ const getValue = async ({ htmlDom, url, conditions, meta }) => {
   return value
 }
 
-const getData = ({ rules, htmlDom, url }) =>
+const getData = ({ rules, htmlDom, url, escape }) =>
   pReduce(
     rules,
     async (acc, [propName, conditions]) => {
       const value = await getValue({ htmlDom, url, conditions, meta: acc })
-      acc[propName] = !isEmpty(value) ? value : null
+      acc[propName] = !isEmpty(value) ? (escape ? xss(value) : value) : null
       return acc
     },
     {}
