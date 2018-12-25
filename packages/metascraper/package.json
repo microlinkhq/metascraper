@@ -54,9 +54,9 @@
     "@metascraper/helpers": "^4.8.4",
     "cheerio": "~1.0.0-rc.2",
     "cheerio-advanced-selectors": "~2.0.1",
-    "lodash": "~4.17.10",
+    "lodash": "~4.17.11",
     "p-reduce": "~1.0.0",
-    "sanitize-html": "~1.19.1",
+    "sanitize-html": "~1.20.0",
     "whoops": "~4.0.1"
   },
   "devDependencies": {
@@ -66,7 +66,7 @@
     "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "11"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"

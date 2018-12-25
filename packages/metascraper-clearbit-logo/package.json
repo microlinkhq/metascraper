@@ -22,14 +22,14 @@
     "metascraper"
   ],
   "dependencies": {
-    "got": "~9.4.0",
+    "got": "~9.5.0",
     "qsm": "~2.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
-    "standard": "11"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"

@@ -32,7 +32,7 @@
     "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "11"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"

@@ -57,7 +57,7 @@
     "open-graph-scraper": "latest",
     "prettier-standard": "latest",
     "rimraf": "latest",
-    "standard": "11",
+    "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest",
     "unfluff": "latest"
@@ -80,7 +80,7 @@
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
     "update": "lerna exec ncu -- -a -x standard",
-    "update:check": "lerna exec ncu --  -x standard --error-level 2"
+    "update:check": "lerna exec ncu -- --error-level 2"
   },
   "private": true,
   "license": "MIT",

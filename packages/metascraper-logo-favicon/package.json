@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^4.8.4",
-    "got": "~9.4.0",
+    "got": "~9.5.0",
     "lodash": "~4.17.11"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "11"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"

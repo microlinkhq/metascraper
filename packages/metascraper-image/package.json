@@ -19,7 +19,7 @@
     "@metascraper/helpers": "^4.8.4"
   },
   "devDependencies": {
-    "standard": "11"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"

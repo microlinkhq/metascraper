@@ -22,7 +22,7 @@
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
-    "standard": "11"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 8"
