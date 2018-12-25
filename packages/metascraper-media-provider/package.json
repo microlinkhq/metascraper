@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.8.4",
+  "version": "4.8.5",
   "main": "src/index",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "youtube-dl"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.8.4",
+    "@metascraper/helpers": "^4.8.5",
     "got": "~9.5.0",
     "lodash": "~4.17.11",
     "memoize-one": "~5.0.0",

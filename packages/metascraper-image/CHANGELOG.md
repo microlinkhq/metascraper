@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.5](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-image/compare/v4.8.4...v4.8.5) (2018-12-25)
+
+**Note:** Version bump only for package metascraper-image
+
+
+
+
+
 ## [4.8.4](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-image/compare/v4.8.3...v4.8.4) (2018-12-16)
 
 

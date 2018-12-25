@@ -2,7 +2,7 @@
   "name": "metascraper-publisher",
   "description": "Get publisher property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.8.4",
+  "version": "4.8.5",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "publisher"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.8.4"
+    "@metascraper/helpers": "^4.8.5"
   },
   "devDependencies": {
     "mocha": "latest",
