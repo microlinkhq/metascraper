@@ -22,7 +22,8 @@
     "metascraper"
   ],
   "dependencies": {
-    "got": "~9.4.0"
+    "got": "~9.4.0",
+    "qsm": "~2.1.0"
   },
   "devDependencies": {
     "mocha": "latest",

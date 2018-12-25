@@ -1,26 +1,21 @@
 'use strict'
 
 const { URL } = require('url')
-const got = require('got')
+const qsm = require('qsm')
 
-const DEFAULTS = {
-  size: '128',
-  format: 'png',
-  greyscale: false
-}
+const got = require('got')
 
 const ENDPOINT = 'https://logo.clearbit.com'
 
+const apiUrl = (url, opts = {}) => {
+  const { hostname } = new URL(url)
+  const apiUrl = `${ENDPOINT}/${hostname}`
+  return qsm.add(apiUrl, opts)
+}
+
 module.exports = opts => {
-  opts = { ...DEFAULTS, ...opts }
-
-  const { size, format, greyscale } = opts
-
   const clearbitLogo = async ({ url }) => {
-    const { hostname } = new URL(url)
-    const logoUrl = `${ENDPOINT}/${hostname}?size=${size}&format=${format}${
-      greyscale ? '&greyscale=true' : ''
-    }`
+    const logoUrl = apiUrl(url, opts)
 
     try {
       await got.head(logoUrl)
@@ -34,3 +29,5 @@ module.exports = opts => {
     logo: clearbitLogo
   }
 }
+
+module.exports.apiUrl = apiUrl
