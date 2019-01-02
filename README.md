@@ -229,8 +229,8 @@ module.exports = opts => {
       // You can setup more than one rules per prop (priority is important!).
       // They receive as parameter:
       // - `htmlDom`: the cheerio HTML instance.
-      // - `url`: The input URL used for extact the content.
       // - `meta`: The current state of the information detected.
+      // - `url`: The input URL used for extact the content.
       ({ htmlDom: $, meta, url: baseUrl }) => wrap($ => $('meta[property="og:logo"]').attr('content')),
       ({ htmlDom: $, meta, url: baseUrl }) => wrap($ => $('meta[itemprop="logo"]').attr('content'))
     ]
