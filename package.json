@@ -59,7 +59,6 @@
     "rimraf": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
     "unfluff": "latest"
   },
   "engines": {
@@ -72,7 +71,7 @@
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "dev": "concurrently \"gulp\" \"npm run server:dev\"",
     "lint": "standard-markdown README.md && standard",
-    "postinstall": "lerna bootstrap",
+    "postinstall": "lerna bootstrap && lerna link --force-local",
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "preversion": "git-authors-cli",
