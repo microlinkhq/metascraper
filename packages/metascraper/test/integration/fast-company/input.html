@@ -1,70 +1,70 @@
-
 <!DOCTYPE html>
-<html class="no-js" lang="en" itemscope itemtype="http://schema.org/NewsArticle"
-      itemid="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business"><!--<![endif]-->
+<html class="no-js" lang="en" itemscope itemtype="http://schema.org/NewsArticle" itemid="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
+<!--<![endif]-->
+
 <head>
-    <script type="text/javascript">
-    window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:22,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:9,2:8,3:6,4:10,5:3,6:23,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=Event;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:9,2:8,3:7,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],6:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=t("ee").create(),i=t(1)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t,e){function n(){return s}if(t[1]){var r=t[1];if("function"==typeof r){var s=a(r,"nr@wrapped",function(){return i(r,"fn-",n,r.name||"anonymous")});this.wrapped=t[1]=s,o.emit("initEventContext",[t,e],this.wrapped)}else"function"==typeof r.handleEvent&&i.inPlace(r,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:24,ee:"QJf3ax",gos:"7eSDFh"}],7:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:24,ee:"QJf3ax"}],8:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:24,ee:"QJf3ax"}],9:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){function r(){return a}this.ctx={};var a={"nr@context":this.ctx};o.emit("initTimerContext",[t,n],a),t[0]=i(t[0],"fn-",r,n)}var o=t("ee").create(),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:24,ee:"QJf3ax"}],10:[function(t,e){function n(){f.inPlace(this,p,"fn-",o)}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),e.hasOwnProperty("addEventListener")&&u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:6,2:24,ee:"QJf3ax"}],11:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1),u=window.XMLHttpRequest;t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof u&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:12,3:10,4:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],12:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],13:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:22,2:23,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:22,2:13,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],22:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],23:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],24:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:23,ee:"QJf3ax"}]},{},["G9z0Bl",4,11,5]);
-    ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"9640f38c02",applicationID:"12079035",sa:1,agent:"js-agent.newrelic.com/nr-768.min.js"}
-    </script>
-        <script class="kxct" data-id="J53aqF_f" data-timing="async" data-version="1.9" type="text/javascript"> window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]); (function(){ var k=document.createElement('script');k.type='text/javascript';k.async=true; var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]); k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=J53aqF_f" ; var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s); }()); </script>
-    <script class="bootstrap_config" type="application/json">{"analytics":{"omniture":{"server":"fastcompany","tracking_pixel":"http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306","s_code":"//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js"},"redaril":{"rid":"1966:1965","RADFP":40046,"ca_id":1965},"nielsen":{"client_id":"us-805310h"},"google_analytics":{"web_property_id":"UA-4300461-2","rollup_property_id":"UA-4300461-33"},"comscore":{"c1":2,"c2":6916907,"publisher_id":6916907},"chartbeat":{"uid":2768,"domain":"fastcompany.com","sections":"your-most-productive-self","authors":"Gwen Moran","sponsorName":""},"pingdom":{"id":"518c1737abe53dc44c000000"},"buzzfeed":{"domain":"fastcompany.com"},"mezzobit":{"dev":"5327548de7d4f9a5585756fe","prod":"53207e84e7d4f9a55857560e"}},"comments":{"server":"/comment","forum":"fastcompany"},"disqus":{"forum":"fastcompany","developer":1},"embed":{"liverail_publisher_id":1562,"player_profile":"fastcompany_episode","colors":{"highlight":"#39a9ff"},"watermark":{"url":"/images/watermark.png","height":250,"width":250},"placeholder":{"url":"/embed/placeholder.png","height":480,"width":852}},"facebook":{"admins":100000062710915,"app_id":178479832213933,"locale":"en_US","publisher":"https://www.facebook.com/FastCompany","channel_path":"/channel.html"},"fastyou":{"server":"//www.fastyou.com"},"identity":{"name":"fastcompany.com","slug":"fastcompany","site_name":"Fast Company","site_url":"//www.fastcompany.com","front":"/","base_path":"/","files_dir":"multisite_files/fastcompany","poster_default":{"protocol":"http","host":"%s.fastcompany.net","path":"/asset_files/static/placeholders/fastcompany-%d.jpg","basepath":"/asset_files/static","height":720,"width":1280},"slogan":"Business + Innovation","description":"Fast Company inspires a new breed of innovative and creative thought leaders who are actively inventing the future of business.","copyright":"Copyright 2016, Mansueto Ventures","logo":"/asset_files/static/logos/fastcompany/fc-fb-icon_big.png","gnewslogo":"http://assets.fastcompany.com/asset_files/static/logos/fastcompany/gnewslogo.png","delimiter":"|","site_zone":"mansueto.fc","timezone":"America/New_York","editor":{"name":"Noah Robischon","email":"noah@fastcompany.com"},"magazine_subscription_link":"https://magazine.fastcompany.com/loc/FST/topnav","contact":{"name":"Fast Company","email":"faster@fastcompany.com"},"keywords":{"0":"business","1":"magazine","2":"news","3":"fastcompany","4":"innovation"},"social":{"facebook":{"networkName":"Facebook","userid":"FastCompany","url":"http://www.facebook.com/FastCompany"},"twitter":{"networkName":"Twitter","userid":"FastCompany","url":"https://twitter.com/FastCompany"}}},"pinterest":{"domain_verify":"4f13da17c1fa28e45e21ad33caacf1dd"},"twitter":{"site":"FastCompany","via":"FastCompany","related":"FastCompany"},"env":"production"}</script>
-<script class="bootstrap_obj" type="application/json">{"id":3060169,"kind":"article","type":"post","url":"http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","topic":{"plain":"Leadership","slug":"leadership"},"site":{"name":"fastcompany.com","title":"Fast Company","url":"http://www.fastcompany.com","slug":"fastcompany"},"author":{"display_name":"Lydia Dishman","name":"lydia-dishman","nid":2150195,"site":"fastcompany.com","mail":"lydia.dishman@gmail.com","url":"http://www.fastcompany.com/user/lydia-dishman","id":"fastcompany|node|2150195","uid":150195,"email":"lydia.dishman@gmail.com","site_id":"fastcompany","path":"/user/lydia-dishman","images":{"full":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false},"small":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false,"height":59,"width":59},"thumb":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false}},"social":{"linkedin":{"username":"LydiaDishman","uid":"LydiaDishman","url":"http://www.linkedin.com/in/LydiaDishman","site":{"title":"Linkedin","slug":"linkedin"}},"twitter":{"username":"lydiabreakfast","uid":"lydiabreakfast","url":"http://www.twitter.com/lydiabreakfast","site":{"title":"Twitter","slug":"twitter"}}},"teaser":{"html":"<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>","plain":"Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive."},"roles":{"staff":true},"items":[{"display_name":"Lydia Dishman","name":"lydia-dishman","nid":2150195,"site":"fastcompany.com","mail":"lydia.dishman@gmail.com","url":"http://www.fastcompany.com/user/lydia-dishman","id":"fastcompany|node|2150195","uid":150195,"email":"lydia.dishman@gmail.com","site_id":"fastcompany","path":"/user/lydia-dishman","images":{"full":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false},"small":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false,"height":59,"width":59},"thumb":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false}},"social":{"linkedin":{"username":"LydiaDishman","uid":"LydiaDishman","url":"http://www.linkedin.com/in/LydiaDishman","site":{"title":"Linkedin","slug":"linkedin"}},"twitter":{"username":"lydiabreakfast","uid":"lydiabreakfast","url":"http://www.twitter.com/lydiabreakfast","site":{"title":"Twitter","slug":"twitter"}}},"teaser":{"html":"<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>","plain":"Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive."},"roles":{"staff":true}}],"hideByline":false,"hideBy":false,"multiAuthor":false,"hideAuthorBox":false},"keywords":{"tags":[],"socialtags":[]},"ads":{"path":"/4160/mv.fc/leadership/leadership"}}</script>
-<script type="text/javascript">
+  <script type="text/javascript">
+    window.NREUM || (NREUM = {}), __nr_require = function (t, e, n) { function r(n) { if (!e[n]) { var o = e[n] = { exports: {} }; t[n][0].call(o.exports, function (e) { var o = t[n][1][e]; return r(o || e) }, o, o.exports) } return e[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var o = 0; o < n.length; o++)r(n[o]); return r }({ QJf3ax: [function (t, e) { function n(t) { function e(e, n, a) { t && t(e, n, a), a || (a = {}); for (var c = s(e), f = c.length, u = i(a, o, r), d = 0; f > d; d++)c[d].apply(u, n); return u } function a(t, e) { f[t] = s(t).concat(e) } function s(t) { return f[t] || [] } function c() { return n(e) } var f = {}; return { on: a, emit: e, create: c, listeners: s, _events: f } } function r() { return {} } var o = "nr@context", i = t("gos"); e.exports = n() }, { gos: "7eSDFh" }], ee: [function (t, e) { e.exports = t("QJf3ax") }, {}], 3: [function (t) { function e(t) { try { i.console && console.log(t) } catch (e) { } } var n, r = t("ee"), o = t(1), i = {}; try { n = localStorage.getItem("__nr_flags").split(","), console && "function" == typeof console.log && (i.console = !0, -1 !== n.indexOf("dev") && (i.dev = !0), -1 !== n.indexOf("nr_dev") && (i.nrDev = !0)) } catch (a) { } i.nrDev && r.on("internal-error", function (t) { e(t.stack) }), i.dev && r.on("fn-err", function (t, n, r) { e(r.stack) }), i.dev && (e("NR AGENT IN DEVELOPMENT MODE"), e("flags: " + o(i, function (t) { return t }).join(", "))) }, { 1: 22, ee: "QJf3ax" }], 4: [function (t) { function e(t, e, n, i, s) { try { c ? c -= 1 : r("err", [s || new UncaughtException(t, e, n)]) } catch (f) { try { r("ierr", [f, (new Date).getTime(), !0]) } catch (u) { } } return "function" == typeof a ? a.apply(this, o(arguments)) : !1 } function UncaughtException(t, e, n) { this.message = t || "Uncaught error with no additional information", this.sourceURL = e, this.line = n } function n(t) { r("err", [t, (new Date).getTime()]) } var r = t("handle"), o = t(6), i = t("ee"), a = window.onerror, s = !1, c = 0; t("loader").features.err = !0, t(5), window.onerror = e; try { throw new Error } catch (f) { "stack" in f && (t(1), t(2), "addEventListener" in window && t(3), window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && !/CriOS/.test(navigator.userAgent) && t(4), s = !0) } i.on("fn-start", function () { s && (c += 1) }), i.on("fn-err", function (t, e, r) { s && (this.thrown = !0, n(r)) }), i.on("fn-end", function () { s && !this.thrown && c > 0 && (c -= 1) }), i.on("internal-error", function (t) { r("ierr", [t, (new Date).getTime(), !0]) }) }, { 1: 9, 2: 8, 3: 6, 4: 10, 5: 3, 6: 23, ee: "QJf3ax", handle: "D5DuLP", loader: "G9z0Bl" }], 5: [function (t) { function e() { } if (window.performance && window.performance.timing && window.performance.getEntriesByType) { var n = t("ee"), r = t("handle"), o = t(1), i = t(2); t("loader").features.stn = !0, t(3); var a = Event; n.on("fn-start", function (t) { var e = t[0]; e instanceof a && (this.bstStart = Date.now()) }), n.on("fn-end", function (t, e) { var n = t[0]; n instanceof a && r("bst", [n, e, this.bstStart, Date.now()]) }), o.on("fn-start", function (t, e, n) { this.bstStart = Date.now(), this.bstType = n }), o.on("fn-end", function (t, e) { r("bstTimer", [e, this.bstStart, Date.now(), this.bstType]) }), i.on("fn-start", function () { this.bstStart = Date.now() }), i.on("fn-end", function (t, e) { r("bstTimer", [e, this.bstStart, Date.now(), "requestAnimationFrame"]) }), n.on("pushState-start", function () { this.time = Date.now(), this.startPath = location.pathname + location.hash }), n.on("pushState-end", function () { r("bstHist", [location.pathname + location.hash, this.startPath, this.time]) }), "addEventListener" in window.performance && (window.performance.addEventListener("webkitresourcetimingbufferfull", function () { r("bstResource", [window.performance.getEntriesByType("resource")]), window.performance.webkitClearResourceTimings() }, !1), window.performance.addEventListener("resourcetimingbufferfull", function () { r("bstResource", [window.performance.getEntriesByType("resource")]), window.performance.clearResourceTimings() }, !1)), document.addEventListener("scroll", e, !1), document.addEventListener("keypress", e, !1), document.addEventListener("click", e, !1) } }, { 1: 9, 2: 8, 3: 7, ee: "QJf3ax", handle: "D5DuLP", loader: "G9z0Bl" }], 6: [function (t, e) { function n(t) { i.inPlace(t, ["addEventListener", "removeEventListener"], "-", r) } function r(t) { return t[1] } var o = t("ee").create(), i = t(1)(o), a = t("gos"); if (e.exports = o, n(window), "getPrototypeOf" in Object) { for (var s = document; s && !s.hasOwnProperty("addEventListener");)s = Object.getPrototypeOf(s); s && n(s); for (var c = XMLHttpRequest.prototype; c && !c.hasOwnProperty("addEventListener");)c = Object.getPrototypeOf(c); c && n(c) } else XMLHttpRequest.prototype.hasOwnProperty("addEventListener") && n(XMLHttpRequest.prototype); o.on("addEventListener-start", function (t, e) { function n() { return s } if (t[1]) { var r = t[1]; if ("function" == typeof r) { var s = a(r, "nr@wrapped", function () { return i(r, "fn-", n, r.name || "anonymous") }); this.wrapped = t[1] = s, o.emit("initEventContext", [t, e], this.wrapped) } else "function" == typeof r.handleEvent && i.inPlace(r, ["handleEvent"], "fn-") } }), o.on("removeEventListener-start", function (t) { var e = this.wrapped; e && (t[1] = e) }) }, { 1: 24, ee: "QJf3ax", gos: "7eSDFh" }], 7: [function (t, e) { var n = t("ee").create(), r = t(1)(n); e.exports = n, r.inPlace(window.history, ["pushState", "replaceState"], "-") }, { 1: 24, ee: "QJf3ax" }], 8: [function (t, e) { var n = t("ee").create(), r = t(1)(n); e.exports = n, r.inPlace(window, ["requestAnimationFrame", "mozRequestAnimationFrame", "webkitRequestAnimationFrame", "msRequestAnimationFrame"], "raf-"), n.on("raf-start", function (t) { t[0] = r(t[0], "fn-") }) }, { 1: 24, ee: "QJf3ax" }], 9: [function (t, e) { function n(t, e, n) { t[0] = i(t[0], "fn-", null, n) } function r(t, e, n) { function r() { return a } this.ctx = {}; var a = { "nr@context": this.ctx }; o.emit("initTimerContext", [t, n], a), t[0] = i(t[0], "fn-", r, n) } var o = t("ee").create(), i = t(1)(o); e.exports = o, i.inPlace(window, ["setTimeout", "setImmediate"], "setTimer-"), i.inPlace(window, ["setInterval"], "setInterval-"), i.inPlace(window, ["clearTimeout", "clearImmediate"], "clearTimeout-"), o.on("setInterval-start", n), o.on("setTimer-start", r) }, { 1: 24, ee: "QJf3ax" }], 10: [function (t, e) { function n() { f.inPlace(this, p, "fn-", o) } function r(t, e) { f.inPlace(e, ["onreadystatechange"], "fn-") } function o(t, e) { return e } function i(t, e) { for (var n in t) e[n] = t[n]; return e } var a = t("ee").create(), s = t(1), c = t(2), f = c(a), u = c(s), d = window.XMLHttpRequest, p = ["onload", "onerror", "onabort", "onloadstart", "onloadend", "onprogress", "ontimeout"]; e.exports = a, window.XMLHttpRequest = function (t) { var e = new d(t); try { a.emit("new-xhr", [], e), e.hasOwnProperty("addEventListener") && u.inPlace(e, ["addEventListener", "removeEventListener"], "-", o), e.addEventListener("readystatechange", n, !1) } catch (r) { try { a.emit("internal-error", [r]) } catch (i) { } } return e }, i(d, XMLHttpRequest), XMLHttpRequest.prototype = d.prototype, f.inPlace(XMLHttpRequest.prototype, ["open", "send"], "-xhr-", o), a.on("send-xhr-start", r), a.on("open-xhr-start", r) }, { 1: 6, 2: 24, ee: "QJf3ax" }], 11: [function (t) { function e(t) { var e = this.params, r = this.metrics; if (!this.ended) { this.ended = !0; for (var i = 0; c > i; i++)t.removeEventListener(s[i], this.listener, !1); if (!e.aborted) { if (r.duration = (new Date).getTime() - this.startTime, 4 === t.readyState) { e.status = t.status; var a = t.responseType, f = "arraybuffer" === a || "blob" === a || "json" === a ? t.response : t.responseText, u = n(f); if (u && (r.rxSize = u), this.sameOrigin) { var d = t.getResponseHeader("X-NewRelic-App-Data"); d && (e.cat = d.split(", ").pop()) } } else e.status = 0; r.cbTime = this.cbTime, o("xhr", [e, r, this.startTime]) } } } function n(t) { if ("string" == typeof t && t.length) return t.length; if ("object" != typeof t) return void 0; if ("undefined" != typeof ArrayBuffer && t instanceof ArrayBuffer && t.byteLength) return t.byteLength; if ("undefined" != typeof Blob && t instanceof Blob && t.size) return t.size; if ("undefined" != typeof FormData && t instanceof FormData) return void 0; try { return JSON.stringify(t).length } catch (e) { return void 0 } } function r(t, e) { var n = i(e), r = t.params; r.host = n.hostname + ":" + n.port, r.pathname = n.pathname, t.sameOrigin = n.sameOrigin } if (window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && !/CriOS/.test(navigator.userAgent)) { t("loader").features.xhr = !0; var o = t("handle"), i = t(2), a = t("ee"), s = ["load", "error", "abort", "timeout"], c = s.length, f = t(1), u = window.XMLHttpRequest; t(4), t(3), a.on("new-xhr", function () { this.totalCbs = 0, this.called = 0, this.cbTime = 0, this.end = e, this.ended = !1, this.xhrGuids = {} }), a.on("open-xhr-start", function (t) { this.params = { method: t[0] }, r(this, t[1]), this.metrics = {} }), a.on("open-xhr-end", function (t, e) { "loader_config" in NREUM && "xpid" in NREUM.loader_config && this.sameOrigin && e.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid) }), a.on("send-xhr-start", function (t, e) { var r = this.metrics, o = t[0], i = this; if (r && o) { var f = n(o); f && (r.txSize = f) } this.startTime = (new Date).getTime(), this.listener = function (t) { try { "abort" === t.type && (i.params.aborted = !0), ("load" !== t.type || i.called === i.totalCbs && (i.onloadCalled || "function" != typeof e.onload)) && i.end(e) } catch (n) { try { a.emit("internal-error", [n]) } catch (r) { } } }; for (var u = 0; c > u; u++)e.addEventListener(s[u], this.listener, !1) }), a.on("xhr-cb-time", function (t, e, n) { this.cbTime += t, e ? this.onloadCalled = !0 : this.called += 1, this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof n.onload || this.end(n) }), a.on("xhr-load-added", function (t, e) { var n = "" + f(t) + !!e; this.xhrGuids && !this.xhrGuids[n] && (this.xhrGuids[n] = !0, this.totalCbs += 1) }), a.on("xhr-load-removed", function (t, e) { var n = "" + f(t) + !!e; this.xhrGuids && this.xhrGuids[n] && (delete this.xhrGuids[n], this.totalCbs -= 1) }), a.on("addEventListener-end", function (t, e) { e instanceof u && "load" === t[0] && a.emit("xhr-load-added", [t[1], t[2]], e) }), a.on("removeEventListener-end", function (t, e) { e instanceof u && "load" === t[0] && a.emit("xhr-load-removed", [t[1], t[2]], e) }), a.on("fn-start", function (t, e, n) { e instanceof u && ("onload" === n && (this.onload = !0), ("load" === (t[0] && t[0].type) || this.onload) && (this.xhrCbStart = (new Date).getTime())) }), a.on("fn-end", function (t, e) { this.xhrCbStart && a.emit("xhr-cb-time", [(new Date).getTime() - this.xhrCbStart, this.onload, e], e) }) } }, { 1: "XL7HBI", 2: 12, 3: 10, 4: 6, ee: "QJf3ax", handle: "D5DuLP", loader: "G9z0Bl" }], 12: [function (t, e) { e.exports = function (t) { var e = document.createElement("a"), n = window.location, r = {}; e.href = t, r.port = e.port; var o = e.href.split("://"); return !r.port && o[1] && (r.port = o[1].split("/")[0].split("@").pop().split(":")[1]), r.port && "0" !== r.port || (r.port = "https" === o[0] ? "443" : "80"), r.hostname = e.hostname || n.hostname, r.pathname = e.pathname, r.protocol = o[0], "/" !== r.pathname.charAt(0) && (r.pathname = "/" + r.pathname), r.sameOrigin = !e.hostname || e.hostname === document.domain && e.port === n.port && e.protocol === n.protocol, r } }, {}], 13: [function (t, e) { function n(t) { return function () { r(t, [(new Date).getTime()].concat(i(arguments))) } } var r = t("handle"), o = t(1), i = t(2); "undefined" == typeof window.newrelic && (newrelic = window.NREUM); var a = ["setPageViewName", "addPageAction", "setCustomAttribute", "finished", "addToTrace", "inlineHit", "noticeError"]; o(a, function (t, e) { window.NREUM[e] = n("api-" + e) }), e.exports = window.NREUM }, { 1: 22, 2: 23, handle: "D5DuLP" }], gos: [function (t, e) { e.exports = t("7eSDFh") }, {}], "7eSDFh": [function (t, e) { function n(t, e, n) { if (r.call(t, e)) return t[e]; var o = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(t, e, { value: o, writable: !0, enumerable: !1 }), o } catch (i) { } return t[e] = o, o } var r = Object.prototype.hasOwnProperty; e.exports = n }, {}], D5DuLP: [function (t, e) { function n(t, e, n) { return r.listeners(t).length ? r.emit(t, e, n) : void (r.q && (r.q[t] || (r.q[t] = []), r.q[t].push(e))) } var r = t("ee").create(); e.exports = n, n.ee = r, r.q = {} }, { ee: "QJf3ax" }], handle: [function (t, e) { e.exports = t("D5DuLP") }, {}], XL7HBI: [function (t, e) { function n(t) { var e = typeof t; return !t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : i(t, o, function () { return r++ }) } var r = 1, o = "nr@id", i = t("gos"); e.exports = n }, { gos: "7eSDFh" }], id: [function (t, e) { e.exports = t("XL7HBI") }, {}], G9z0Bl: [function (t, e) { function n() { var t = p.info = NREUM.info, e = f.getElementsByTagName("script")[0]; if (t && t.licenseKey && t.applicationID && e) { s(d, function (e, n) { e in t || (t[e] = n) }); var n = "https" === u.split(":")[0] || t.sslForHttp; p.proto = n ? "https://" : "http://", a("mark", ["onload", i()]); var r = f.createElement("script"); r.src = p.proto + t.agent, e.parentNode.insertBefore(r, e) } } function r() { "complete" === f.readyState && o() } function o() { a("mark", ["domContent", i()]) } function i() { return (new Date).getTime() } var a = t("handle"), s = t(1), c = window, f = c.document; t(2); var u = ("" + location).split("?")[0], d = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-768.min.js" }, p = e.exports = { offset: i(), origin: u, features: {} }; f.addEventListener ? (f.addEventListener("DOMContentLoaded", o, !1), c.addEventListener("load", n, !1)) : (f.attachEvent("onreadystatechange", r), c.attachEvent("onload", n)), a("mark", ["firstbyte", i()]) }, { 1: 22, 2: 13, handle: "D5DuLP" }], loader: [function (t, e) { e.exports = t("G9z0Bl") }, {}], 22: [function (t, e) { function n(t, e) { var n = [], o = "", i = 0; for (o in t) r.call(t, o) && (n[i] = e(o, t[o]), i += 1); return n } var r = Object.prototype.hasOwnProperty; e.exports = n }, {}], 23: [function (t, e) { function n(t, e, n) { e || (e = 0), "undefined" == typeof n && (n = t ? t.length : 0); for (var r = -1, o = n - e || 0, i = Array(0 > o ? 0 : o); ++r < o;)i[r] = t[e + r]; return i } e.exports = n }, {}], 24: [function (t, e) { function n(t) { return !(t && "function" == typeof t && t.apply && !t[i]) } var r = t("ee"), o = t(1), i = "nr@original", a = Object.prototype.hasOwnProperty; e.exports = function (t) { function e(t, e, r, a) { function nrWrapper() { var n, i, s, f; try { i = this, n = o(arguments), s = r && r(n, i) || {} } catch (d) { u([d, "", [n, i, a], s]) } c(e + "start", [n, i, a], s); try { return f = t.apply(i, n) } catch (p) { throw c(e + "err", [n, i, p], s), p } finally { c(e + "end", [n, i, f], s) } } return n(t) ? t : (e || (e = ""), nrWrapper[i] = t, f(t, nrWrapper), nrWrapper) } function s(t, r, o, i) { o || (o = ""); var a, s, c, f = "-" === o.charAt(0); for (c = 0; c < r.length; c++)s = r[c], a = t[s], n(a) || (t[s] = e(a, f ? s + o : o, i, s)) } function c(e, n, r) { try { t.emit(e, n, r) } catch (o) { u([o, e, n, r]) } } function f(t, e) { if (Object.defineProperty && Object.keys) try { var n = Object.keys(t); return n.forEach(function (n) { Object.defineProperty(e, n, { get: function () { return t[n] }, set: function (e) { return t[n] = e, e } }) }), e } catch (r) { u([r]) } for (var o in t) a.call(t, o) && (e[o] = t[o]); return e } function u(e) { try { t.emit("internal-error", e) } catch (n) { } } return t || (t = r), e.inPlace = s, e.flag = i, e } }, { 1: 23, ee: "QJf3ax" }] }, {}, ["G9z0Bl", 4, 11, 5]);
+    ; NREUM.info = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", licenseKey: "9640f38c02", applicationID: "12079035", sa: 1, agent: "js-agent.newrelic.com/nr-768.min.js" }
+  </script>
+  <script class="kxct" data-id="J53aqF_f" data-timing="async" data-version="1.9" type="text/javascript"> window.Krux || ((Krux = function () { Krux.q.push(arguments) }).q = []); (function () { var k = document.createElement('script'); k.type = 'text/javascript'; k.async = true; var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && decodeURIComponent(m[1]); k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=J53aqF_f"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(k, s); }()); </script>
+  <script class="bootstrap_config" type="application/json">{"analytics":{"omniture":{"server":"fastcompany","tracking_pixel":"http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306","s_code":"//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js"},"redaril":{"rid":"1966:1965","RADFP":40046,"ca_id":1965},"nielsen":{"client_id":"us-805310h"},"google_analytics":{"web_property_id":"UA-4300461-2","rollup_property_id":"UA-4300461-33"},"comscore":{"c1":2,"c2":6916907,"publisher_id":6916907},"chartbeat":{"uid":2768,"domain":"fastcompany.com","sections":"your-most-productive-self","authors":"Gwen Moran","sponsorName":""},"pingdom":{"id":"518c1737abe53dc44c000000"},"buzzfeed":{"domain":"fastcompany.com"},"mezzobit":{"dev":"5327548de7d4f9a5585756fe","prod":"53207e84e7d4f9a55857560e"}},"comments":{"server":"/comment","forum":"fastcompany"},"disqus":{"forum":"fastcompany","developer":1},"embed":{"liverail_publisher_id":1562,"player_profile":"fastcompany_episode","colors":{"highlight":"#39a9ff"},"watermark":{"url":"/images/watermark.png","height":250,"width":250},"placeholder":{"url":"/embed/placeholder.png","height":480,"width":852}},"facebook":{"admins":100000062710915,"app_id":178479832213933,"locale":"en_US","publisher":"https://www.facebook.com/FastCompany","channel_path":"/channel.html"},"fastyou":{"server":"//www.fastyou.com"},"identity":{"name":"fastcompany.com","slug":"fastcompany","site_name":"Fast Company","site_url":"//www.fastcompany.com","front":"/","base_path":"/","files_dir":"multisite_files/fastcompany","poster_default":{"protocol":"http","host":"%s.fastcompany.net","path":"/asset_files/static/placeholders/fastcompany-%d.jpg","basepath":"/asset_files/static","height":720,"width":1280},"slogan":"Business + Innovation","description":"Fast Company inspires a new breed of innovative and creative thought leaders who are actively inventing the future of business.","copyright":"Copyright 2016, Mansueto Ventures","logo":"/asset_files/static/logos/fastcompany/fc-fb-icon_big.png","gnewslogo":"http://assets.fastcompany.com/asset_files/static/logos/fastcompany/gnewslogo.png","delimiter":"|","site_zone":"mansueto.fc","timezone":"America/New_York","editor":{"name":"Noah Robischon","email":"noah@fastcompany.com"},"magazine_subscription_link":"https://magazine.fastcompany.com/loc/FST/topnav","contact":{"name":"Fast Company","email":"faster@fastcompany.com"},"keywords":{"0":"business","1":"magazine","2":"news","3":"fastcompany","4":"innovation"},"social":{"facebook":{"networkName":"Facebook","userid":"FastCompany","url":"http://www.facebook.com/FastCompany"},"twitter":{"networkName":"Twitter","userid":"FastCompany","url":"https://twitter.com/FastCompany"}}},"pinterest":{"domain_verify":"4f13da17c1fa28e45e21ad33caacf1dd"},"twitter":{"site":"FastCompany","via":"FastCompany","related":"FastCompany"},"env":"production"}</script>
+  <script class="bootstrap_obj" type="application/json">{"id":3060169,"kind":"article","type":"post","url":"http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","topic":{"plain":"Leadership","slug":"leadership"},"site":{"name":"fastcompany.com","title":"Fast Company","url":"http://www.fastcompany.com","slug":"fastcompany"},"author":{"display_name":"Lydia Dishman","name":"lydia-dishman","nid":2150195,"site":"fastcompany.com","mail":"lydia.dishman@gmail.com","url":"http://www.fastcompany.com/user/lydia-dishman","id":"fastcompany|node|2150195","uid":150195,"email":"lydia.dishman@gmail.com","site_id":"fastcompany","path":"/user/lydia-dishman","images":{"full":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false},"small":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false,"height":59,"width":59},"thumb":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false}},"social":{"linkedin":{"username":"LydiaDishman","uid":"LydiaDishman","url":"http://www.linkedin.com/in/LydiaDishman","site":{"title":"Linkedin","slug":"linkedin"}},"twitter":{"username":"lydiabreakfast","uid":"lydiabreakfast","url":"http://www.twitter.com/lydiabreakfast","site":{"title":"Twitter","slug":"twitter"}}},"teaser":{"html":"<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>","plain":"Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive."},"roles":{"staff":true},"items":[{"display_name":"Lydia Dishman","name":"lydia-dishman","nid":2150195,"site":"fastcompany.com","mail":"lydia.dishman@gmail.com","url":"http://www.fastcompany.com/user/lydia-dishman","id":"fastcompany|node|2150195","uid":150195,"email":"lydia.dishman@gmail.com","site_id":"fastcompany","path":"/user/lydia-dishman","images":{"full":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false},"small":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false,"height":59,"width":59},"thumb":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false}},"social":{"linkedin":{"username":"LydiaDishman","uid":"LydiaDishman","url":"http://www.linkedin.com/in/LydiaDishman","site":{"title":"Linkedin","slug":"linkedin"}},"twitter":{"username":"lydiabreakfast","uid":"lydiabreakfast","url":"http://www.twitter.com/lydiabreakfast","site":{"title":"Twitter","slug":"twitter"}}},"teaser":{"html":"<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>","plain":"Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive."},"roles":{"staff":true}}],"hideByline":false,"hideBy":false,"multiAuthor":false,"hideAuthorBox":false},"keywords":{"tags":[],"socialtags":[]},"ads":{"path":"/4160/mv.fc/leadership/leadership"}}</script>
+  <script type="text/javascript">
     window.bootstrap_type = 'post';
     window.bootstrap_kind = 'article';
     window.bootstrap_id = '3060169';
-    window.bootstrap_obj = {"id":3060169,"kind":"article","type":"post","url":"http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","topic":{"plain":"Leadership","slug":"leadership"},"site":{"name":"fastcompany.com","title":"Fast Company","url":"http://www.fastcompany.com","slug":"fastcompany"},"author":{"display_name":"Lydia Dishman","name":"lydia-dishman","nid":2150195,"site":"fastcompany.com","mail":"lydia.dishman@gmail.com","url":"http://www.fastcompany.com/user/lydia-dishman","id":"fastcompany|node|2150195","uid":150195,"email":"lydia.dishman@gmail.com","site_id":"fastcompany","path":"/user/lydia-dishman","images":{"full":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false},"small":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false,"height":59,"width":59},"thumb":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false}},"social":{"linkedin":{"username":"LydiaDishman","uid":"LydiaDishman","url":"http://www.linkedin.com/in/LydiaDishman","site":{"title":"Linkedin","slug":"linkedin"}},"twitter":{"username":"lydiabreakfast","uid":"lydiabreakfast","url":"http://www.twitter.com/lydiabreakfast","site":{"title":"Twitter","slug":"twitter"}}},"teaser":{"html":"<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>","plain":"Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive."},"roles":{"staff":true},"items":[{"display_name":"Lydia Dishman","name":"lydia-dishman","nid":2150195,"site":"fastcompany.com","mail":"lydia.dishman@gmail.com","url":"http://www.fastcompany.com/user/lydia-dishman","id":"fastcompany|node|2150195","uid":150195,"email":"lydia.dishman@gmail.com","site_id":"fastcompany","path":"/user/lydia-dishman","images":{"full":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false},"small":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false,"height":59,"width":59},"thumb":{"host":"//www.fastcompany.com","path":"/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","url":"//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg","mimetype":"image/jpeg","is_placeholder":false}},"social":{"linkedin":{"username":"LydiaDishman","uid":"LydiaDishman","url":"http://www.linkedin.com/in/LydiaDishman","site":{"title":"Linkedin","slug":"linkedin"}},"twitter":{"username":"lydiabreakfast","uid":"lydiabreakfast","url":"http://www.twitter.com/lydiabreakfast","site":{"title":"Twitter","slug":"twitter"}}},"teaser":{"html":"<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>","plain":"Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive."},"roles":{"staff":true}}],"hideByline":false,"hideBy":false,"multiAuthor":false,"hideAuthorBox":false},"keywords":{"tags":[],"socialtags":[]},"ads":{"path":"/4160/mv.fc/leadership/leadership"}};
-    window.bootstrap_config = {"analytics":{"omniture":{"server":"fastcompany","tracking_pixel":"http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306","s_code":"//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js"},"redaril":{"rid":"1966:1965","RADFP":40046,"ca_id":1965},"nielsen":{"client_id":"us-805310h"},"google_analytics":{"web_property_id":"UA-4300461-2","rollup_property_id":"UA-4300461-33"},"comscore":{"c1":2,"c2":6916907,"publisher_id":6916907},"chartbeat":{"uid":2768,"domain":"fastcompany.com","sections":"your-most-productive-self","authors":"Gwen Moran","sponsorName":""},"pingdom":{"id":"518c1737abe53dc44c000000"},"buzzfeed":{"domain":"fastcompany.com"},"mezzobit":{"dev":"5327548de7d4f9a5585756fe","prod":"53207e84e7d4f9a55857560e"}},"comments":{"server":"/comment","forum":"fastcompany"},"disqus":{"forum":"fastcompany","developer":1},"embed":{"liverail_publisher_id":1562,"player_profile":"fastcompany_episode","colors":{"highlight":"#39a9ff"},"watermark":{"url":"/images/watermark.png","height":250,"width":250},"placeholder":{"url":"/embed/placeholder.png","height":480,"width":852}},"facebook":{"admins":100000062710915,"app_id":178479832213933,"locale":"en_US","publisher":"https://www.facebook.com/FastCompany","channel_path":"/channel.html"},"fastyou":{"server":"//www.fastyou.com"},"identity":{"name":"fastcompany.com","slug":"fastcompany","site_name":"Fast Company","site_url":"//www.fastcompany.com","front":"/","base_path":"/","files_dir":"multisite_files/fastcompany","poster_default":{"protocol":"http","host":"%s.fastcompany.net","path":"/asset_files/static/placeholders/fastcompany-%d.jpg","basepath":"/asset_files/static","height":720,"width":1280},"slogan":"Business + Innovation","description":"Fast Company inspires a new breed of innovative and creative thought leaders who are actively inventing the future of business.","copyright":"Copyright 2016, Mansueto Ventures","logo":"/asset_files/static/logos/fastcompany/fc-fb-icon_big.png","gnewslogo":"http://assets.fastcompany.com/asset_files/static/logos/fastcompany/gnewslogo.png","delimiter":"|","site_zone":"mansueto.fc","timezone":"America/New_York","editor":{"name":"Noah Robischon","email":"noah@fastcompany.com"},"magazine_subscription_link":"https://magazine.fastcompany.com/loc/FST/topnav","contact":{"name":"Fast Company","email":"faster@fastcompany.com"},"keywords":{"0":"business","1":"magazine","2":"news","3":"fastcompany","4":"innovation"},"social":{"facebook":{"networkName":"Facebook","userid":"FastCompany","url":"http://www.facebook.com/FastCompany"},"twitter":{"networkName":"Twitter","userid":"FastCompany","url":"https://twitter.com/FastCompany"}}},"pinterest":{"domain_verify":"4f13da17c1fa28e45e21ad33caacf1dd"},"twitter":{"site":"FastCompany","via":"FastCompany","related":"FastCompany"},"env":"production"};
+    window.bootstrap_obj = { "id": 3060169, "kind": "article", "type": "post", "url": "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business", "topic": { "plain": "Leadership", "slug": "leadership" }, "site": { "name": "fastcompany.com", "title": "Fast Company", "url": "http://www.fastcompany.com", "slug": "fastcompany" }, "author": { "display_name": "Lydia Dishman", "name": "lydia-dishman", "nid": 2150195, "site": "fastcompany.com", "mail": "lydia.dishman@gmail.com", "url": "http://www.fastcompany.com/user/lydia-dishman", "id": "fastcompany|node|2150195", "uid": 150195, "email": "lydia.dishman@gmail.com", "site_id": "fastcompany", "path": "/user/lydia-dishman", "images": { "full": { "host": "//www.fastcompany.com", "path": "/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg", "url": "//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg", "mimetype": "image/jpeg", "is_placeholder": false }, "small": { "host": "//www.fastcompany.com", "path": "/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg", "url": "//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg", "mimetype": "image/jpeg", "is_placeholder": false, "height": 59, "width": 59 }, "thumb": { "host": "//www.fastcompany.com", "path": "/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg", "url": "//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg", "mimetype": "image/jpeg", "is_placeholder": false } }, "social": { "linkedin": { "username": "LydiaDishman", "uid": "LydiaDishman", "url": "http://www.linkedin.com/in/LydiaDishman", "site": { "title": "Linkedin", "slug": "linkedin" } }, "twitter": { "username": "lydiabreakfast", "uid": "lydiabreakfast", "url": "http://www.twitter.com/lydiabreakfast", "site": { "title": "Twitter", "slug": "twitter" } } }, "teaser": { "html": "<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>", "plain": "Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive." }, "roles": { "staff": true }, "items": [{ "display_name": "Lydia Dishman", "name": "lydia-dishman", "nid": 2150195, "site": "fastcompany.com", "mail": "lydia.dishman@gmail.com", "url": "http://www.fastcompany.com/user/lydia-dishman", "id": "fastcompany|node|2150195", "uid": 150195, "email": "lydia.dishman@gmail.com", "site_id": "fastcompany", "path": "/user/lydia-dishman", "images": { "full": { "host": "//www.fastcompany.com", "path": "/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg", "url": "//b.fastcompany.net/multisite_files/fastcompany/profile/2150195-photo-lbd-head-shot-small.jpg", "mimetype": "image/jpeg", "is_placeholder": false }, "small": { "host": "//www.fastcompany.com", "path": "/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg", "url": "//a.fastcompany.net/multisite_files/fastcompany/imagecache/59x59/profile/2150195-photo-lbd-head-shot-small.jpg", "mimetype": "image/jpeg", "is_placeholder": false, "height": 59, "width": 59 }, "thumb": { "host": "//www.fastcompany.com", "path": "/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg", "url": "//d.fastcompany.net/multisite_files/fastcompany/imagecache/profile-s/profile/2150195-photo-lbd-head-shot-small.jpg", "mimetype": "image/jpeg", "is_placeholder": false } }, "social": { "linkedin": { "username": "LydiaDishman", "uid": "LydiaDishman", "url": "http://www.linkedin.com/in/LydiaDishman", "site": { "title": "Linkedin", "slug": "linkedin" } }, "twitter": { "username": "lydiabreakfast", "uid": "lydiabreakfast", "url": "http://www.twitter.com/lydiabreakfast", "site": { "title": "Twitter", "slug": "twitter" } } }, "teaser": { "html": "<p>Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive.</p>", "plain": "Lydia Dishman is a business journalist writing about the intersection of tech, leadership, commerce, and innovation. She is a regular contributor to Fast Company and has written for CBS Moneywatch, Fortune, The Guardian, Popular Science, and the New York Times, among others. She is coauthor of the book Survive to Thrive." }, "roles": { "staff": true } }], "hideByline": false, "hideBy": false, "multiAuthor": false, "hideAuthorBox": false }, "keywords": { "tags": [], "socialtags": [] }, "ads": { "path": "/4160/mv.fc/leadership/leadership" } };
+    window.bootstrap_config = { "analytics": { "omniture": { "server": "fastcompany", "tracking_pixel": "http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306", "s_code": "//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js" }, "redaril": { "rid": "1966:1965", "RADFP": 40046, "ca_id": 1965 }, "nielsen": { "client_id": "us-805310h" }, "google_analytics": { "web_property_id": "UA-4300461-2", "rollup_property_id": "UA-4300461-33" }, "comscore": { "c1": 2, "c2": 6916907, "publisher_id": 6916907 }, "chartbeat": { "uid": 2768, "domain": "fastcompany.com", "sections": "your-most-productive-self", "authors": "Gwen Moran", "sponsorName": "" }, "pingdom": { "id": "518c1737abe53dc44c000000" }, "buzzfeed": { "domain": "fastcompany.com" }, "mezzobit": { "dev": "5327548de7d4f9a5585756fe", "prod": "53207e84e7d4f9a55857560e" } }, "comments": { "server": "/comment", "forum": "fastcompany" }, "disqus": { "forum": "fastcompany", "developer": 1 }, "embed": { "liverail_publisher_id": 1562, "player_profile": "fastcompany_episode", "colors": { "highlight": "#39a9ff" }, "watermark": { "url": "/images/watermark.png", "height": 250, "width": 250 }, "placeholder": { "url": "/embed/placeholder.png", "height": 480, "width": 852 } }, "facebook": { "admins": 100000062710915, "app_id": 178479832213933, "locale": "en_US", "publisher": "https://www.facebook.com/FastCompany", "channel_path": "/channel.html" }, "fastyou": { "server": "//www.fastyou.com" }, "identity": { "name": "fastcompany.com", "slug": "fastcompany", "site_name": "Fast Company", "site_url": "//www.fastcompany.com", "front": "/", "base_path": "/", "files_dir": "multisite_files/fastcompany", "poster_default": { "protocol": "http", "host": "%s.fastcompany.net", "path": "/asset_files/static/placeholders/fastcompany-%d.jpg", "basepath": "/asset_files/static", "height": 720, "width": 1280 }, "slogan": "Business + Innovation", "description": "Fast Company inspires a new breed of innovative and creative thought leaders who are actively inventing the future of business.", "copyright": "Copyright 2016, Mansueto Ventures", "logo": "/asset_files/static/logos/fastcompany/fc-fb-icon_big.png", "gnewslogo": "http://assets.fastcompany.com/asset_files/static/logos/fastcompany/gnewslogo.png", "delimiter": "|", "site_zone": "mansueto.fc", "timezone": "America/New_York", "editor": { "name": "Noah Robischon", "email": "noah@fastcompany.com" }, "magazine_subscription_link": "https://magazine.fastcompany.com/loc/FST/topnav", "contact": { "name": "Fast Company", "email": "faster@fastcompany.com" }, "keywords": { "0": "business", "1": "magazine", "2": "news", "3": "fastcompany", "4": "innovation" }, "social": { "facebook": { "networkName": "Facebook", "userid": "FastCompany", "url": "http://www.facebook.com/FastCompany" }, "twitter": { "networkName": "Twitter", "userid": "FastCompany", "url": "https://twitter.com/FastCompany" } } }, "pinterest": { "domain_verify": "4f13da17c1fa28e45e21ad33caacf1dd" }, "twitter": { "site": "FastCompany", "via": "FastCompany", "related": "FastCompany" }, "env": "production" };
     FC_Krux_FPA = {
-        author: null,
-        channels: null,
-        subChannels: null,
-        contentType: null,
-        keywords: null,
-        socialTags: null,
-        siteName: null,
-        referrerUrl: null,
-        url: location.origin + location.pathname,
-        querystring: null
+      author: null,
+      channels: null,
+      subChannels: null,
+      contentType: null,
+      keywords: null,
+      socialTags: null,
+      siteName: null,
+      referrerUrl: null,
+      url: location.origin + location.pathname,
+      querystring: null
     };
 
-    if(location.search !== '') {
-        FC_Krux_FPA.querystring = location.search;
+    if (location.search !== '') {
+      FC_Krux_FPA.querystring = location.search;
     }
 
-    if(document.referrer) {
-        FC_Krux_FPA.referrerUrl = document.referrer;
+    if (document.referrer) {
+      FC_Krux_FPA.referrerUrl = document.referrer;
     }
     if (bootstrap_config && bootstrap_config.identity) {
-        if (bootstrap_config.identity.keywords) {
-            FC_Krux_FPA.channels = bootstrap_config.identity.keywords;
-        }
-        if (bootstrap_config.identity.site_name) {
-            FC_Krux_FPA.siteName = bootstrap_config.identity.site_name;
-        }
+      if (bootstrap_config.identity.keywords) {
+        FC_Krux_FPA.channels = bootstrap_config.identity.keywords;
+      }
+      if (bootstrap_config.identity.site_name) {
+        FC_Krux_FPA.siteName = bootstrap_config.identity.site_name;
+      }
     }
     if (bootstrap_obj) {
-        if (bootstrap_obj.author && bootstrap_obj.author.display_name) {
-            FC_Krux_FPA.author = bootstrap_obj.author.display_name;
+      if (bootstrap_obj.author && bootstrap_obj.author.display_name) {
+        FC_Krux_FPA.author = bootstrap_obj.author.display_name;
+      }
+      if (bootstrap_obj.labels && bootstrap_obj.labels.topics) {
+        FC_Krux_FPA.subChannels = bootstrap_obj.labels.topics;
+      }
+      if (bootstrap_obj.keywords) {
+        if (bootstrap_obj.keywords.tags) {
+          FC_Krux_FPA.keywords = bootstrap_obj.keywords.tags;
         }
-        if (bootstrap_obj.labels && bootstrap_obj.labels.topics) {
-            FC_Krux_FPA.subChannels = bootstrap_obj.labels.topics;
+        if (bootstrap_obj.keywords.socialtags) {
+          FC_Krux_FPA.socialTags = bootstrap_obj.keywords.socialtags;
         }
-        if (bootstrap_obj.keywords) {
-            if (bootstrap_obj.keywords.tags) {
-                FC_Krux_FPA.keywords = bootstrap_obj.keywords.tags;
-            }
-            if (bootstrap_obj.keywords.socialtags) {
-                FC_Krux_FPA.socialTags = bootstrap_obj.keywords.socialtags;
-            }
-        }
-        if (bootstrap_obj.kind) {
-            FC_Krux_FPA.contentType = bootstrap_obj.kind;
-        }
+      }
+      if (bootstrap_obj.kind) {
+        FC_Krux_FPA.contentType = bootstrap_obj.kind;
+      }
     }
-</script>
-<script type="application/ld+json">
+  </script>
+  <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
@@ -78,106 +78,109 @@
   }
 </script>
 
-    <script>function $() {}</script>
-    <link rel="stylesheet" href="//c.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/fc/css/main.css"/>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta property="fb:pages" content="5942134076" />
-    <title>One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business | Fast Company | Business + Innovation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <script>function $() { }</script>
+  <link rel="stylesheet" href="//c.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/fc/css/main.css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta property="fb:pages" content="5942134076" />
+  <title>One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business | Fast Company | Business +
+    Innovation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 
 
-    <meta name="description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors."/>
+  <meta name="description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors." />
 
 
-<link rel="canonical" href="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business"/>
+  <link rel="canonical" href="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business" />
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
-    <meta property="og:url" content="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
-    <meta property="og:image" content="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
-    <meta property="og:site_name" content="Fast Company">
-    <meta property="fb:app_id" content="178479832213933">
-    <meta property="fb:admins" content="100000062710915">
-    <meta property="article:published_time" content="2016-05-24T09:42:00.000Z">
-    <meta property="article:modified_time" content="2016-05-24T21:27:05.000Z">
-    <meta property="article:publisher" content="https://www.facebook.com/FastCompany">
-    <meta property="article:section" content="Fast Company">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
+  <meta property="og:url" content="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
+  <meta property="og:image" content="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
+  <meta property="og:site_name" content="Fast Company">
+  <meta property="fb:app_id" content="178479832213933">
+  <meta property="fb:admins" content="100000062710915">
+  <meta property="article:published_time" content="2016-05-24T09:42:00.000Z">
+  <meta property="article:modified_time" content="2016-05-24T21:27:05.000Z">
+  <meta property="article:publisher" content="https://www.facebook.com/FastCompany">
+  <meta property="article:section" content="Fast Company">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
-    <meta name="twitter:description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
-    <meta name="twitter:url" content="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
-    <meta name="twitter:site" content="@FastCompany">
-    <meta name="twitter:image" content="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
-    <meta name="twitter:domain" content="fastcompany.com">
-    <meta name="twitter:creator" content="@lydiabreakfast">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
+  <meta name="twitter:description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
+  <meta name="twitter:url" content="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
+  <meta name="twitter:site" content="@FastCompany">
+  <meta name="twitter:image" content="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
+  <meta name="twitter:domain" content="fastcompany.com">
+  <meta name="twitter:creator" content="@lydiabreakfast">
 
-                    <meta itemprop="name" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
-                    <meta itemprop="description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
-                <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                    <meta itemprop="url" content="http://a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
-                    <meta itemprop="width" content="1280">
-                    <meta itemprop="height" content="720">
-                </div>
-                    <meta itemprop="author" content="Lydia Dishman">
-                    <meta itemprop="datePublished" content="2016-05-24T09:42:00.000Z">
-                    <meta itemprop="headline" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
-                <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                      <meta itemprop="url" content="https://www.fastcompany.com/asset_files/static/logos/fastcompany/fc-fb-icon_big.png">
-                      <meta itemprop="width" content="200">
-                      <meta itemprop="height" content="200">
-                    </div>
-                    <meta itemprop="name" content="Fast Company">
-                </div>
-                    <meta itemprop="name" content="Fast Company">
-                    <meta itemprop="dateModified" content="2016-05-24T21:27:05.000Z">
-                    <meta itemprop="mainEntityOfPage" content="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
+  <meta itemprop="name" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
+  <meta itemprop="description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
+  <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <meta itemprop="url" content="http://a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
+    <meta itemprop="width" content="1280">
+    <meta itemprop="height" content="720">
+  </div>
+  <meta itemprop="author" content="Lydia Dishman">
+  <meta itemprop="datePublished" content="2016-05-24T09:42:00.000Z">
+  <meta itemprop="headline" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
+  <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="https://www.fastcompany.com/asset_files/static/logos/fastcompany/fc-fb-icon_big.png">
+      <meta itemprop="width" content="200">
+      <meta itemprop="height" content="200">
+    </div>
+    <meta itemprop="name" content="Fast Company">
+  </div>
+  <meta itemprop="name" content="Fast Company">
+  <meta itemprop="dateModified" content="2016-05-24T21:27:05.000Z">
+  <meta itemprop="mainEntityOfPage" content="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
 
-    <meta name="pubexchange:headline" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
-    <meta name="pubexchange:description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
-    <meta name="pubexchange:image" content="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
-
-
-
-<meta content="related_content_manifest" value="08ac38bb-8e25-46d0-9be3-569c2ffdd7b5"/>
+  <meta name="pubexchange:headline" content="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business">
+  <meta name="pubexchange:description" content="Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.">
+  <meta name="pubexchange:image" content="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg">
 
 
-    <!-- TODO: ios enhanced -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml">
 
-      <script async>
-  (function() {
-      __mtm = [ '53207e84e7d4f9a55857560e', 'd36wtdrdo22bqa.cloudfront.net/mngr', 'tdi.mezzobit.com' ];
-    var s = document.createElement('script');
-    s.async = 1;
-    s.src = '//' + __mtm[1] + '/mtm.js';
-    var e = document.getElementsByTagName('script')[0];
-    (e.parentNode || document.body).insertBefore(s, e);
-  })();
+  <meta content="related_content_manifest" value="08ac38bb-8e25-46d0-9be3-569c2ffdd7b5" />
+
+
+  <!-- TODO: ios enhanced -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml">
+
+  <script async>
+    (function () {
+      __mtm = ['53207e84e7d4f9a55857560e', 'd36wtdrdo22bqa.cloudfront.net/mngr', 'tdi.mezzobit.com'];
+      var s = document.createElement('script');
+      s.async = 1;
+      s.src = '//' + __mtm[1] + '/mtm.js';
+      var e = document.getElementsByTagName('script')[0];
+      (e.parentNode || document.body).insertBefore(s, e);
+    })();
   </script>
 
   <script type="text/javascript">
-    var _sf_startpt=(new Date()).getTime();
+    var _sf_startpt = (new Date()).getTime();
   </script>
 
 
 
 
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-4300461-2', 'auto');
-    ga('create', 'UA-4300461-33', 'auto', {'name': 'rollup'});
+    ga('create', 'UA-4300461-33', 'auto', { 'name': 'rollup' });
     ga('send', 'pageview');
     ga('rollup.send', 'pageview');
 
@@ -185,289 +188,305 @@
 
 
 
-<script type="text/javascript">
-  var googletag = googletag || {};
-  googletag.cmd = googletag.cmd || [];
-  (function() {
-    var gads = document.createElement("script");
-    gads.async = true;
-    gads.type = "text/javascript";
-    var useSSL = "https:" == document.location.protocol;
-    gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
-    var node =document.getElementsByTagName("script")[0];
-    node.parentNode.insertBefore(gads, node);
-   })();
-</script>
+  <script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+      var gads = document.createElement("script");
+      gads.async = true;
+      gads.type = "text/javascript";
+      var useSSL = "https:" == document.location.protocol;
+      gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+      var node = document.getElementsByTagName("script")[0];
+      node.parentNode.insertBefore(gads, node);
+    })();
+  </script>
 
-<script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-            document,'script','//connect.facebook.net/en_US/fbevents.js');
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window,
+      document, 'script', '//connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1389601884702365');
     fbq('track', "PageView");</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1389601884702365&ev=PageView&noscript=1" /></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1389601884702365&ev=PageView&noscript=1" /></noscript>
 
-<script> window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]); (function(){ function retrieve(n){ var m, k='kxmansueto_'+n; if(window.localStorage){ return window.localStorage[k] || ""; }else if(navigator.cookieEnabled){ m = document.cookie.match(k+'=([^;]*)'); return (m && unescape(m[1])) || ""; }else{ return ''; } } Krux.user = retrieve('user'); Krux.segments = retrieve('segs') && retrieve('segs').split(',') || []; })(); </script>
-<script class="omniture-infinite-scroll" type="application/json">{"tracking_pixel":"http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306","fastco_s":{"server":"fastcompany","props":[null,"leadership","leadership","One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business","http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","","",null,"Lydia Dishman","2016-05-24",3060169,"Lydia Dishman",null,1,null,null,null,null,null,null,null,"anonymous","anonymous:fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","anonymous",null,null,null,null,"article",null,"",null,null,"Leadership","5 minute"],"channel":"","pageName":"fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","events":"event9"},"s_code":"//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js"}</script>
+  <script> window.Krux || ((Krux = function () { Krux.q.push(arguments); }).q = []); (function () { function retrieve(n) { var m, k = 'kxmansueto_' + n; if (window.localStorage) { return window.localStorage[k] || ""; } else if (navigator.cookieEnabled) { m = document.cookie.match(k + '=([^;]*)'); return (m && unescape(m[1])) || ""; } else { return ''; } } Krux.user = retrieve('user'); Krux.segments = retrieve('segs') && retrieve('segs').split(',') || []; })(); </script>
+  <script class="omniture-infinite-scroll" type="application/json">{"tracking_pixel":"http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306","fastco_s":{"server":"fastcompany","props":[null,"leadership","leadership","One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business","http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","","",null,"Lydia Dishman","2016-05-24",3060169,"Lydia Dishman",null,1,null,null,null,null,null,null,null,"anonymous","anonymous:fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","anonymous",null,null,null,null,"article",null,"",null,null,"Leadership","5 minute"],"channel":"","pageName":"fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business","events":"event9"},"s_code":"//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js"}</script>
 
-    <script src="//a.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/modernizr-v2.7.1.min.js"></script>
+  <script src="//a.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/modernizr-v2.7.1.min.js"></script>
 </head>
 
 
 <body>
 
-<div class="main identity-fastcompany kind-article type-post slug-fastcompany nid-3060169 ">
+  <div class="main identity-fastcompany kind-article type-post slug-fastcompany nid-3060169 ">
     <div class="nav-bar-wrapper ">
-    <div class="overlay"></div>
-    <div class="no-ad-slug ad-wrapper ad-wrapper-large navbar-ad">
+      <div class="overlay"></div>
+      <div class="no-ad-slug ad-wrapper ad-wrapper-large navbar-ad">
         <div class="ad-unit leaderboard-ad large-ad " data-advertising="flexiblepushdown">
-            <div class="dart-ad"></div>
+          <div class="dart-ad"></div>
         </div>
-    </div>
-    <div class="no-ad-slug ad-wrapper ad-wrapper-medium navbar-ad">
+      </div>
+      <div class="no-ad-slug ad-wrapper ad-wrapper-medium navbar-ad">
         <div class="ad-unit leaderboard-ad medium-ad " data-advertising="flexibleleaderboard">
-            <div class="dart-ad"></div>
+          <div class="dart-ad"></div>
         </div>
-    </div>
-    <div class="navbar-brands-container">
+      </div>
+      <div class="navbar-brands-container">
         <nav class="nav-bar">
-            <div class="nav-container">
-                <div class="left brands">
-                    <div class="hamburger-click-area">
-                      <div class="hamburger-menu">
-                        <a class=""></a>
-                      </div>
-                    </div>
-                    <a href="/"><div class="brand-logo"></div></a>
-                    <div class="nav-search show-for-small">
-                        <form class="nav-search-form" method="GET" action="/search">
-                            <span class="search-icon" href="/search"></span>
-                            <input class="nav-search-input js-search-input" type="text" placeholder="SEARCH" name="q" autocomplete="off" value=""/>
-                            <i class="search-input-clear js-search-input-clear"></i>
-                        </form>
-                    </div>
+          <div class="nav-container">
+            <div class="left brands">
+              <div class="hamburger-click-area">
+                <div class="hamburger-menu">
+                  <a class=""></a>
                 </div>
-
-                <ul class="nav-right hide-for-small">
-                    <li class="nav-search">
-                        <form class="nav-search-form" method="GET" action="/search">
-                            <span class="search-icon" href="/search"></span>
-                            <input class="nav-search-input js-search-input" type="text" placeholder="SEARCH" name="q" autocomplete="off" value=""/>
-                            <i class="search-input-clear js-search-input-clear"></i>
-                        </form>
-                    </li>
-                    <li class="nav-subscribe">
-                        <a href="https://magazine.fastcompany.com/loc/FST/navcharger">Subscribe</a>
-                    </li>
-                </ul>
-
+              </div>
+              <a href="/">
+                <div class="brand-logo"></div>
+              </a>
+              <div class="nav-search show-for-small">
+                <form class="nav-search-form" method="GET" action="/search">
+                  <span class="search-icon" href="/search"></span>
+                  <input class="nav-search-input js-search-input" type="text" placeholder="SEARCH" name="q"
+                    autocomplete="off" value="" />
+                  <i class="search-input-clear js-search-input-clear"></i>
+                </form>
+              </div>
             </div>
-        </nav>
-    </div>
-</div>
 
-<div class="hamburger-menu-body">
-    <div class="brands">
+            <ul class="nav-right hide-for-small">
+              <li class="nav-search">
+                <form class="nav-search-form" method="GET" action="/search">
+                  <span class="search-icon" href="/search"></span>
+                  <input class="nav-search-input js-search-input" type="text" placeholder="SEARCH" name="q"
+                    autocomplete="off" value="" />
+                  <i class="search-input-clear js-search-input-clear"></i>
+                </form>
+              </li>
+              <li class="nav-subscribe">
+                <a href="https://magazine.fastcompany.com/loc/FST/navcharger">Subscribe</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="hamburger-menu-body">
+      <div class="brands">
         <div class="hamburger-click-area">
           <div class="hamburger-menu">
             <a class=""></a>
           </div>
         </div>
 
-      <div class="letter-logo">
+        <div class="letter-logo">
           <a href="//www.fastcompany.com/"><img class="letter-logo-img" src="//a.fastcompany.net/asset_files/-/2015/09/14/fastcompany-logo.svg" /></a>
+        </div>
       </div>
-    </div>
-    <div class="co-brands">
+      <div class="co-brands">
         <section class="cosites">
-            <a href="//www.fastcodesign.com" title="Fastco Design" class="column codesign"></a>
-            <a href="//www.fastcoexist.com" title="Fastco Exist" class="column coexist"></a>
+          <a href="//www.fastcodesign.com" title="Fastco Design" class="column codesign"></a>
+          <a href="//www.fastcoexist.com" title="Fastco Exist" class="column coexist"></a>
         </section>
         <section class="cosites">
-            <a href="//www.fastcocreate.com" title="Fastco Create" class="column cocreate"></a>
-            <a href="//www.fastcompany.com/videos" title="Fastco Studios" class="column costudios"></a>
+          <a href="//www.fastcocreate.com" title="Fastco Create" class="column cocreate"></a>
+          <a href="//www.fastcompany.com/videos" title="Fastco Studios" class="column costudios"></a>
         </section>
-    </div>
-    <section class="expandable" data-name="featured-series">
+      </div>
+      <section class="expandable" data-name="featured-series">
         Collections <div class="caret"></div>
-    </section>
-    <ul class="expansion" data-name="featured-series">
+      </section>
+      <ul class="expansion" data-name="featured-series">
         <li>
-            <a href="//www.fastcompany.com/most-innovative-companies" title="The Most Innovative Companies">
-                <h3>The Most Innovative Companies</h3>
-                <p>The top 50 companies in entertainment, media, sports, technology, and more.</p>
-            </a>
+          <a href="//www.fastcompany.com/most-innovative-companies" title="The Most Innovative Companies">
+            <h3>The Most Innovative Companies</h3>
+            <p>The top 50 companies in entertainment, media, sports, technology, and more.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/most-creative-people" title="Most Creative People">
-                <h3>Most Creative People</h3>
-                <p>Meet this year's inspiring leaders.</p>
-            </a>
+          <a href="//www.fastcompany.com/most-creative-people" title="Most Creative People">
+            <h3>Most Creative People</h3>
+            <p>Meet this year's inspiring leaders.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcodesign.com/section/innovation-by-design" title="Innovation By Design">
-                <h3>Innovation By Design</h3>
-                <p>A showcase for ingenious design solutions.</p>
-            </a>
+          <a href="//www.fastcodesign.com/section/innovation-by-design" title="Innovation By Design">
+            <h3>Innovation By Design</h3>
+            <p>A showcase for ingenious design solutions.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcoexist.com/section/world-changing-ideas" title="World Changing Ideas">
-                <h3>World Changing Ideas</h3>
-                <p>New workplaces, new food sources, new medicine—even an entirely new economic system.</p>
-            </a>
+          <a href="//www.fastcoexist.com/section/world-changing-ideas" title="World Changing Ideas">
+            <h3>World Changing Ideas</h3>
+            <p>New workplaces, new food sources, new medicine—even an entirely new economic system.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcocreate.com/section/master-class" title="Master Class">
-                <h3>Master Class</h3>
-                <p>How the top talent from creative fields get work done.</p>
-            </a>
+          <a href="//www.fastcocreate.com/section/master-class" title="Master Class">
+            <h3>Master Class</h3>
+            <p>How the top talent from creative fields get work done.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/section/lessons-learned" title="Lessons Learned">
-                <h3>Lessons Learned</h3>
-                <p>The path to innovation is rarely smooth.</p>
-            </a>
+          <a href="//www.fastcompany.com/section/lessons-learned" title="Lessons Learned">
+            <h3>Lessons Learned</h3>
+            <p>The path to innovation is rarely smooth.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/section/startup-report" title="Startup Report">
-                <h3>Startup Report</h3>
-                <p>The up-and-coming companies that are disrupting industries.</p>
-            </a>
+          <a href="//www.fastcompany.com/section/startup-report" title="Startup Report">
+            <h3>Startup Report</h3>
+            <p>The up-and-coming companies that are disrupting industries.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/section/conquering-the-cloud" title="Conquering The Cloud">
-                <h3>Conquering The Cloud</h3>
-                <p>Created for and commissioned by IBM.</p>
-            </a>
+          <a href="//www.fastcompany.com/section/conquering-the-cloud" title="Conquering The Cloud">
+            <h3>Conquering The Cloud</h3>
+            <p>Created for and commissioned by IBM.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/section/new-heights" title="New Heights">
-                <h3>New Heights</h3>
-                <p>Created for and commissioned by Adobe.</p>
-            </a>
+          <a href="//www.fastcompany.com/section/new-heights" title="New Heights">
+            <h3>New Heights</h3>
+            <p>Created for and commissioned by Adobe.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/section/closer-to-next" title="Closer To Next">
-                <h3>Closer To Next</h3>
-                <p>Created for and commissioned by HPE.</p>
-            </a>
+          <a href="//www.fastcompany.com/section/closer-to-next" title="Closer To Next">
+            <h3>Closer To Next</h3>
+            <p>Created for and commissioned by HPE.</p>
+          </a>
         </li>
 
         <li>
-            <a href="//www.fastcompany.com/section/masters-of-marketing" title="Masters Of Marketing">
-                <h3>Masters Of Marketing</h3>
-                <p>Created for and commissioned by SteelHouse.</p>
-            </a>
+          <a href="//www.fastcompany.com/section/masters-of-marketing" title="Masters Of Marketing">
+            <h3>Masters Of Marketing</h3>
+            <p>Created for and commissioned by SteelHouse.</p>
+          </a>
         </li>
-    </ul>
+      </ul>
 
 
-    <section class="not-expandable" data-name="events">
-    <a href="//www.fastcompany.com/magazine">
-        Current Issue <div class="caret"></div>
-    </a>
-    </section>
+      <section class="not-expandable" data-name="events">
+        <a href="//www.fastcompany.com/magazine">
+          Current Issue <div class="caret"></div>
+        </a>
+      </section>
 
-    <section class="magazine-subscribe">
-        <a href="//www.fastcompany.com/magazine/" title="This Month's Print Issue"><img src="//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/264/h/327/crop/poster/2016/05/3058964-poster-Cover-206-Most-Creative-People.jpg" alt="This Month's Print Issue" width="200"></a>
+      <section class="magazine-subscribe">
+        <a href="//www.fastcompany.com/magazine/" title="This Month's Print Issue"><img src="//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/264/h/327/crop/poster/2016/05/3058964-poster-Cover-206-Most-Creative-People.jpg"
+            alt="This Month's Print Issue" width="200"></a>
         <a class="subscribe-button" href="https://magazine.fastcompany.com/loc/FST/mobileopt">Subscribe</a>
-    </section>
-    <div class="hamburger-social-icons">
+      </section>
+      <div class="hamburger-social-icons">
         <h3>Follow Fast Company</h3>
         <p>We’ll come to you.</p>
         <ul class="hamburger-social-icons-list">
-            <li><a href="//www.facebook.com/fastcompany" title="Fastcompany Facebook" class="icon-facebook" target="_blank"></a></li>
-            <li><a href="//www.twitter.com/fastcompany" title="Fastcompany Twitter" class="icon-twitter" target="_blank"></a></li>
-            <li><a href="https://plus.google.com/+FastCompany/about" class="icon-google" title="Fastcompany Google+" target="_blank"></a></li>
-            <li><a href="https://www.linkedin.com/company/fast-company" class="icon-linkedin" title="Fastcompany LinkedIn" target="_blank"></a></li>
+          <li><a href="//www.facebook.com/fastcompany" title="Fastcompany Facebook" class="icon-facebook" target="_blank"></a></li>
+          <li><a href="//www.twitter.com/fastcompany" title="Fastcompany Twitter" class="icon-twitter" target="_blank"></a></li>
+          <li><a href="https://plus.google.com/+FastCompany/about" class="icon-google" title="Fastcompany Google+"
+              target="_blank"></a></li>
+          <li><a href="https://www.linkedin.com/company/fast-company" class="icon-linkedin" title="Fastcompany LinkedIn"
+              target="_blank"></a></li>
         </ul>
+      </div>
     </div>
-</div>
 
     <div class="nav-container reading-bar
 
 
 ">
-    <a href="/">
+      <a href="/">
         <img class='logo' src='//b.fastcompany.net/asset_files/-/2015/09/10/fc-b.svg'>
-    </a>
+      </a>
 
-    <span class='youre-reading'>
-        You're Reading: <span class="title"><a href="http://www.fastcompany.com">fastcompany</a> / One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business</span>
-    </span>
+      <span class='youre-reading'>
+        You're Reading: <span class="title"><a href="http://www.fastcompany.com">fastcompany</a> / One Of The Biggest
+          Challenges Of Getting Funding For Minority-Owned Business</span>
+      </span>
 
-    <ul class='share-icons'>
-        <li class='share-icon facebook'><a target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup" data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook"></i></a></li>
-        <li class='share-icon twitter'><a target="_blank" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany" data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter"></i></a></li>
-        <li class='share-icon linkedin'><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin"></i></a></li>
+      <ul class='share-icons'>
+        <li class='share-icon facebook'><a target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup"
+            data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook"></i></a></li>
+        <li class='share-icon twitter'><a target="_blank" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany"
+            data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter"></i></a></li>
+        <li class='share-icon linkedin'><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+            data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin"></i></a></li>
         <li class="share-icon email">
-            <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Email"><i class="icon-share-email icon-share"></i></a>
+          <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+            data-event-category="Social" data-event-action="Share:Email"><i class="icon-share-email icon-share"></i></a>
         </li>
 
-    </ul>
-    <div class="reading-bar-progress"></div>
-</div>
+      </ul>
+      <div class="reading-bar-progress"></div>
+    </div>
 
     <div class="admin-controls">
-    <div class="overlay-wrapper">
+      <div class="overlay-wrapper">
         <nav class="controls">
-            <ul>
-                <li class="menu">
-                    <ul class="controls-dropdown-wrapper">
-                        <li class="has-dropdown">
-                            <a href="#" class="toggle admin-hamburger"></a>
-                            <ul class="dropdown">
-                                <!-- EDIT CONTENT -->
-                                <li class="has-dropdown" data-name="edit-content">
-                                        <a href="http://www.fastcompany.com/node/3060169/edit" class=""><i class="icon icon-pencil"></i>Edit</a>
-                                        <ul class="dropdown hidden-burger">
-                                            <li><a href="http://www.fastcompany.com/node/3060169/edit">Edit Post</a></li>
-                                            <li><a href="http://www.fastcompany.com/node/3060169/revisions">See Revisions</a></li>
-                                        </ul>
-                                </li>
+          <ul>
+            <li class="menu">
+              <ul class="controls-dropdown-wrapper">
+                <li class="has-dropdown">
+                  <a href="#" class="toggle admin-hamburger"></a>
+                  <ul class="dropdown">
+                    <!-- EDIT CONTENT -->
+                    <li class="has-dropdown" data-name="edit-content">
+                      <a href="http://www.fastcompany.com/node/3060169/edit" class=""><i class="icon icon-pencil"></i>Edit</a>
+                      <ul class="dropdown hidden-burger">
+                        <li><a href="http://www.fastcompany.com/node/3060169/edit">Edit Post</a></li>
+                        <li><a href="http://www.fastcompany.com/node/3060169/revisions">See Revisions</a></li>
+                      </ul>
+                    </li>
 
-                                <!-- NEW CONTENT -->
-                                <li class="has-dropdown" data-name="new-content">
-                                    <a href="#"><i class="icon icon-plus"></i>New Content</a>
-                                    <ul class="dropdown hidden-burger">
-                                        <li><a href="http://www.fastcompany.com/node/add/post">Post</a></li>
-                                        <li><a href="http://www.fastcompany.com/node/add/promo">Promo Unit</a></li>
-                                        <li><a href="http://www.fastcompany.com/node/add/magazine-issue">Issue</a></li>
-                                        <li><a href="http://www.fastcompany.com/node/add/macro">Macro</a></li>
-                                        <li><a href="http://www.fastcompany.com/quizbuilder">Quiz</a></li>
-                                        <li><a href="http://www.fastcompany.com/bracket-creator">Bracket</a></li>
-                                    </ul>
-                                </li>
+                    <!-- NEW CONTENT -->
+                    <li class="has-dropdown" data-name="new-content">
+                      <a href="#"><i class="icon icon-plus"></i>New Content</a>
+                      <ul class="dropdown hidden-burger">
+                        <li><a href="http://www.fastcompany.com/node/add/post">Post</a></li>
+                        <li><a href="http://www.fastcompany.com/node/add/promo">Promo Unit</a></li>
+                        <li><a href="http://www.fastcompany.com/node/add/magazine-issue">Issue</a></li>
+                        <li><a href="http://www.fastcompany.com/node/add/macro">Macro</a></li>
+                        <li><a href="http://www.fastcompany.com/quizbuilder">Quiz</a></li>
+                        <li><a href="http://www.fastcompany.com/bracket-creator">Bracket</a></li>
+                      </ul>
+                    </li>
 
-                                <!-- SLATES -->
-                                <li data-name="slates">
-                                    <a class="admin-panel-menu-button" href="#">Admin Panel</a>
-                                </li>
+                    <!-- SLATES -->
+                    <li data-name="slates">
+                      <a class="admin-panel-menu-button" href="#">Admin Panel</a>
+                    </li>
 
-                                <!-- SEARCH -->
-                                <li data-name="search">
-                                    <a href="/search"><i class="icon icon-plus"></i>Search</a>
-                                </li>
+                    <!-- SEARCH -->
+                    <li data-name="search">
+                      <a href="/search"><i class="icon icon-plus"></i>Search</a>
+                    </li>
 
-                            </ul>
-                        </li>
-                    </ul>
+                  </ul>
                 </li>
-            </ul>
+              </ul>
+            </li>
+          </ul>
         </nav>
+      </div>
     </div>
-</div>
 
     <header>
 
@@ -478,515 +497,661 @@
 
 
 
-                    <section class="fc-header ">
+      <section class="fc-header ">
 
 
-    <div class="ad-wrapper ad-wrapper-small mlb article ">
-        <div class="small-ad ad-unit mobileleader-ad" data-advertising="mobileleaderboard">
+        <div class="ad-wrapper ad-wrapper-small mlb article ">
+          <div class="small-ad ad-unit mobileleader-ad" data-advertising="mobileleaderboard">
             <div class="dart-ad"></div>
+          </div>
         </div>
-    </div>
 
-    <div class="background-top ">
-            <svg x="0px" y="0px" viewBox="0 0 611.945 88.466" enable-background="new 0 0 611.945 88.466" xml:space="preserve">
-                <polygon fill="#FFFFFF" points="0,35 0,88.466 611.945,88.466 "/>
-            </svg>
-    </div>
+        <div class="background-top ">
+          <svg x="0px" y="0px" viewBox="0 0 611.945 88.466" enable-background="new 0 0 611.945 88.466" xml:space="preserve">
+            <polygon fill="#FFFFFF" points="0,35 0,88.466 611.945,88.466 " />
+          </svg>
+        </div>
 
 
-    <div class="content-body-row no-pad-row">
-        <div class="text-wrapper">
+        <div class="content-body-row no-pad-row">
+          <div class="text-wrapper">
             <div class="eyebrow">
-                <p class="eyebrow-text left">5 minute read</p>
+              <p class="eyebrow-text left">5 minute read</p>
 
 
-                            <div class="separator"></div>
-                            <p class="eyebrow-text"><a href="/leadership">Leadership</a></p>
+              <div class="separator"></div>
+              <p class="eyebrow-text"><a href="/leadership">Leadership</a></p>
             </div>
 
             <h1 class="title">One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business</h1>
-                <div class="fc-deck">
-                    <h2 class="sub-heading"><p>Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.</p></h2>
-                </div>
-        </div>
-    </div>
-
-    <div class="header-row">
-        <figure class="poster-wrapper">
-
-                <img data-srcset="//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1024w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 640w" alt="" class="poster lazy"><noscript><img src="//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w," alt="" class="poster"></noscript>
-
-                <figcaption class="poster-caption">[Photo: Flickr user <a href="https://www.flickr.com/photos/wocintechchat/25392501613/" target="_blank">WOCinTech Chat</a>]</figcaption>
-
-        </figure>
-
-        <div class="header-ad-column">
-            <div class="ad-wrapper ad-wrapper-large ad-wrapper-header">
-                <div id="header-imu" class="header-ad ad-unit large-ad" data-advertising="flexibleportrait">
-                    <div class="dart-ad"></div>
-                </div>
+            <div class="fc-deck">
+              <h2 class="sub-heading">
+                <p>Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.</p>
+              </h2>
             </div>
-        </div>
-    </div>
-
-</section>
-
-
-
-
-
-
-
-</header>
-
-
-
-
-        <div class="article-wrapper js-initial-article" >
-            <article class="post-article fc-post-full">
-                <div class="article-content post-body">
-                    <div class="text-wrapper">
-                        <div class="article-post-meta top">
-                            <div class="post-share-buttons">
-    <ul class="social">
-
-        <li class="share-icon facebook">
-            <a class="share-link-facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup" data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook icon-share"></i></a>
-        </li>
-
-        <li class="share-icon twitter">
-            <a class="share-link-twitter" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany" data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter icon-share"></i></a>
-        </li>
-
-        <li class="share-icon linkedin">
-            <a class="share-link-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin icon-share"></i></a>
-        </li>
-
-        <li class="share-icon email">
-            <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Email"><i class="icon-share-email icon-share"></i></a>
-        </li>
-
-    </ul>
-</div>
-
-                            <div class="byline">
-                                <span class="name"><a class="js-author"
-                                                      href="/user/lydia-dishman ">Lydia Dishman</a></span>
-
-                                    <span class="date">05.24.16</span>
-
-                                    <span class="time">5:42 AM</span>
-                            </div>
-                        </div>
-                        <p>When Natasia Malaihollo and her cofounder raised $1.5 million for their startup <a href="http://www.wyzerr.com/" target="_blank">Wyzerr</a>, she became part of a very small group. As an African-American woman, Malaihollo was one of only a dozen who&#x2019;ve raised over $100,000 in outside investments for their businesses, according to early data from <a href="//www.fastcompany.com/3044066/most-creative-people/inside-the-campaign-to-disrupt-techs-huge-diversity-problem" target="_self">Digital Undivided</a>&#x2019;s Project Diane.</p>
-
-<p>Statistics compiled from CB Insights <a href="https://medium.com/%40KathrynFinney/projectdiane-breaking-tech-s-diversity-catch-22-d06555ea2e52#.wn564kosr" target="_blank">reports by Project Diane</a> indicate that between 2012-2014, startups led by African-American women comprised less than 0.2% of all the venture deals in that time period.<div class="ad-wrapper ad-wrapper-small ad-wrapper-small-inline no-border"><div class="small-ad ad-unit" data-advertising="mobilerectangle"><div class="dart-ad"></div></div></div><div class="ad-wrapper ad-wrapper-medium ad-wrapper-medium-inline"><div class="medium-ad ad-unit" data-advertising="flexibleinterrupter"><div class="dart-ad"></div></div></div></p>
-
-<figure class="inline-small inline inline column-container">
-<div class="image-wrapper"><img src="//b.fastcompany.net/multisite_files/fastcompany/imagecache/inline-small/inline/2016/05/3060169-inline-natasia-320x320.png" alt=""></div><div class="caption-wrapper"><figcaption>Natasie Malaihollo</figcaption></div>
-</figure>
-
-<p>Wyzerr&#x2019;s funding was led by <a href="http://connetic.ventures/about-us" target="_blank">Connetic Ventures</a>, which Malaihollo points out has Meena Maddali, a woman of color as partner and chief operating officer. &quot;The reason a lot of us [women and minorities] don&#x2019;t get funded is because a lot of investors don&#x2019;t look like us,&quot; Malaihollo contends.</p>
-
-<p>Maddali tells <em>Fast Company</em> that although Connetic is barely a year old, &quot;As of today, we&apos;ve made investments into 20 companies, 55% of which have either a woman and/or minority cofounder, and 80% of which have a woman and/or minority in a leadership position.&quot; But Maddali is quick to point out Connetic didn&apos;t start investing in women- and minority- led companies consciously. &quot;It&apos;s more of a happy coincidence,&quot; she says.</p>
-
-<p>The same is true for <a href="http://www.thefan.fund/" target="_blank">FAN Fund</a>, which focuses on investing in early stage companies in the state of Florida. The organization, which took part in a funding round of $1.4 million in Fattmerchant (a fintech company founded by a woman named Suneera Madhani) was launched at the end of 2015. At that time, founding partner Kathy Chiu says they &quot;simply focused on picking the most promising investments with the most capable and passionate founding teams.&quot;</p>
-
-<p>Six months later, she reports that FAN Fund&#x2019;s first two investments were founded by women, and two of the founders in our first five deals were of minority background.&#xA0; &quot;With this experience, it&apos;s clear to us that companies led by women and minority entrepreneurs will be a substantial part of our investments, as both groups bring the ideas, passion, and capabilities to thrive in our local community as well as nationally,&quot; says Chiu.</p>
-
-<p>This accidental approach seems surprising given the growing business case for diversity. Recent <a href="http://www.mckinsey.com/business-functions/organization/our-insights/why-diversity-matters" target="_blank">research from McKinsey</a> indicates that companies that have racial and ethnic diversity are 35% more likely to have financial returns above their respective national industry medians. A <a href="http://www.mckinsey.com/business-functions/organization/our-insights/is-there-a-payoff-from-top-team-diversity" target="_blank">McKinsey study from 2012</a> found that ethnic and racially diverse executive boards delivered returns on equity that were 53% higher. In April, the <a href="//www.fastcompany.com/3059093/the-racial-gap-in-entrepreneurship-is-costing-the-us-economy-billions" target="_self">Center for Global Policy Solutions</a> found that the racial gap between white entrepreneurs and those of color is costing the U.S. economy an estimated $300 billion.<div class="ad-wrapper ad-wrapper-small ad-wrapper-small-inline no-border"><div class="small-ad ad-unit" data-advertising="mobilerectangle"><div class="dart-ad"></div></div></div><div class="ad-wrapper ad-wrapper-medium ad-wrapper-medium-inline"><div class="medium-ad ad-unit" data-advertising="flexibleinterrupter"><div class="dart-ad"></div></div></div></p>
-
-<p>But Chike Ukaegbu, the founder of <a href="http://www.startup52.com" target="_blank">Startup52</a> Accelerator, which he touts as the first and only diversity-focused accelerator in New York City, says &quot;Diversity is the one thing that will help disrupt the venture capital industry.&quot; And that disruption will help get more minority founders the capital they need to grow their businesses.</p>
-
-<figure class="inline-small inline inline column-container">
-<div class="image-wrapper"><img src="//d.fastcompany.net/multisite_files/fastcompany/imagecache/inline-small/inline/2016/05/3060169-inline-chike400x400.jpg" alt=""></div><div class="caption-wrapper"><figcaption>Chike Ukaegbu<span class="credit">Photo: via <a href="https://twitter.com/chikeukaegbu" target="_blank">Twitter</a></span></figcaption></div>
-</figure>
-
-<p>Ukaegbu is quick to point out that for its part, Startup52 isn&#x2019;t only looking for under-represented founders. He says the one year-old accelerator is looking for everything from functional teams to scalability, and passion in the startups who apply to become a part of a class. One of the four businesses that completed the inaugural program last year was founded by two white men. The others were started by people of color. Sixty percent of this year&#x2019;s group of 16 startups which will start on June 6, have a female cofounder and 65% have a person of color on the founding team.</p>
-
-<p>However, Ukaegbu says he champions diversity because it is both profitable and has social impact. He believes some investors hedge rather than declare a focus on funding under-represented minority entrepreneurs, partly due to a lack of understanding of potential markets as well as a conditioning to what (or who) has been successful in the past.</p>
-
-<p>To illustrate this, Ukaegbu recalls a demo day he went to recently that had two white men and one black woman as judges for a $25,000 capital infusion. One of the companies was pitching a platform that would connect hairstylists with women of color and the other was for a medical device. Although Ukaegbu is a biomedical engineer by training, he says the hairstylists platform founders &quot;killed it&quot; in their presentation. &quot;But they lost to the other group,&quot; he says, &quot;Part of the reason was that the two white men didn&#x2019;t understand that market. For them it is more of a small business.&quot;</p>
-
-<h4><a name="Why_The_Pipeline_Isnt_The_Problem">Why The Pipeline Isn&apos;t The Problem</a></h4>
-
-<p>The persistent problem, according to Project Diane&#x2019;s founder Kathryn Finney is this: The larger investment community cites the lack of investment in black and Latino-led startups on a pipeline that is more of a intermittent &quot;drip&quot; when it comes to diverse founders, versus the massive &quot;drop&quot; of the &quot;young-white-guy-from-insert-big-name-school&quot; founders,&quot; she <a href="https://medium.com/%40KathrynFinney/projectdiane-breaking-tech-s-diversity-catch-22-d06555ea2e52#.wn564kosr" target="_blank">wrote in a <em>Medium </em>post</a>. But Finney asserts that those founders are out there, they just don&#x2019;t have access to traditional networks.</p>
-
-<p>Even though Malaihollo is a UC Berkeley graduate who studied computer science, she points to the lack of access to certain funding networks as a challenge when she started the business that preceded Wyzerr. Moving around the country to pitch competitions, sometimes with less than $20 in her pocket, Malaihollo understands the importance of operating capital. However, she says, being funded gives a founder the confidence that they have a network of advisors and investors.</p>
-
-<p>&quot;It&#x2019;s a safety net of people who really believe in us,&quot; she says. Malaihollo says that having Maddali as a resource has been just as valuable as the actual funds. &quot;She is really great helping us understand how to keep them in constant conversation,&quot; Malaihollo explains, &quot;Because as founders, we have this mentality that we have to do everything ourselves.&quot;<div class="ad-wrapper ad-wrapper-small ad-wrapper-small-inline no-border"><div class="small-ad ad-unit" data-advertising="mobilerectangle"><div class="dart-ad"></div></div></div><div class="ad-wrapper ad-wrapper-medium ad-wrapper-medium-inline"><div class="medium-ad ad-unit" data-advertising="flexibleinterrupter"><div class="dart-ad"></div></div></div></p>
-
-<p>A growing coterie of diverse investors like Chiu and Maddali should help balance the inequity. A brand new investor network started by Jenny Q. Ta and Shinta Dhanuwardoyo could also help with access. Ta tells <em>Fast Company</em> that she and Dhanuwardoyo have been recruiting a number of VCs worldwide for the three month-old <a href="https://vcnetwork.co/" target="_blank">VCNetwork</a> who will create a vast virtual marketplace for entrepreneurs to tap for funding.</p>
-
-<p>Ta says lack of capital is a big barrier to startups, but not always the biggest. &quot;The biggest is actually lack of access to VCs who can give the capital needed and lack of education as to what these VCs are looking for,&quot; she explains.</p>
-
-<p>Founders aren&#x2019;t the only ones who need to do their homework. Maddali says that as managers of a fund, it&apos;s no secret that one of their main goals is to provide excellent returns for investors. However, she says, getting to know each business takes a lot of time, so Connectic&#x2019;s partners lean heavily on their own networks for their insights and industry experience to help vet companies.&#xA0;</p>
-
-<p>&quot;People only invest in things they know and people they trust,&quot; she says, &quot;so creating a strong, diverse network of good, smart people is a key to our potential success.&quot;</p>
-
-
-
-                        <div class="article-post-meta after-body">
-                            <div id="daily-events-newsletter" class="newsletter newsletter-signup" data-name="daily-eventsnewsletter">
-
-    <form class="js-newsletter-form" method="post" action="/api/v1/newsletters" _lpchecked="1">
-        <h4>Newsletter</h4>
-          <div class="messages -spacing"><span class="newsletter-signup__copy -spacing">Get the latest Leadership stories delivered to your inbox daily.</span></div>
-          <div class="inline-fields">
-            <input type="email" value="" name="email" class="newsletter-signup__email-input" id="email" placeholder="your@email.com">
-            <button class="button newsletter-signup__submit" type="submit">Send</button>
           </div>
-          <fieldset class="newsletter-signup__events -input-top-spacing">
-              <input checked="checked" type="checkbox" class="newsletter-signup__checkbox" id="events" name="Subscriptions:[Events and Exclusive Offers]">
-              <label class="newsletter-signup__copy newsletter-signup__copy--smaller" for="events">I'd also like to receive special Fast Company offers</label>
-          </fieldset>
-
-
-        <input class="js-mailchimp-groupname" type="hidden" name="Subscriptions:[Leadership Daily]" value="true">
-    </form>
-
-
-</div>
-
-                            <div class="post-share-buttons">
-    <ul class="social">
-
-        <li class="share-icon facebook">
-            <a class="share-link-facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup" data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook icon-share"></i></a>
-        </li>
-
-        <li class="share-icon twitter">
-            <a class="share-link-twitter" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany" data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter icon-share"></i></a>
-        </li>
-
-        <li class="share-icon linkedin">
-            <a class="share-link-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin icon-share"></i></a>
-        </li>
-
-        <li class="share-icon email">
-            <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Email"><i class="icon-share-email icon-share"></i></a>
-        </li>
-
-    </ul>
-</div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <aside class="article-sidebar hide-for-medium-down">
-                    <div class="right-rail-spacer"></div>
-                    <div class="sticky-right-rail-container">
-                            <div class="js-up-next reading-now">
-                                <div class="title-wrapper">
-                                    <span class="up-next-title">Must Reads</span>
-                                </div>
-                                <div class="results-wrapper">
-                                        <div class="result-container">
-
-                                            <div class="link-wrapper">
-                                                <a class="link-text" href="//www.fastcompany.com/3060206/these-are-the-changes-facebook-is-making-to-how-it-selects-trending-topics">These Are The Changes Facebook Is Making To How It Selects “Trending Topics”</a>
-                                            </div>
-                                        </div>
-                                        <div class="result-container">
-
-                                            <div class="link-wrapper">
-                                                <a class="link-text" href="//www.fastcocreate.com/3060159/why-gopro-just-signed-a-new-exclusive-content-partnership-with-red-bull"> Why GoPro Just Signed A New Exclusive Content Partnership With Red Bull</a>
-                                            </div>
-                                        </div>
-                                        <div class="result-container">
-
-                                            <div class="link-wrapper">
-                                                <a class="link-text" href="//www.fastcompany.com/3060164/twitters-new-tweaks-make-the-140-character-limit-less-limiting">Twitter&#x27;s New Tweaks Make The 140-Character Limit Less Limiting</a>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        <div class="ad-wrapper ad-wrapper-large">
-                            <div class='ad-unit sidebar-ad large-ad' data-advertising='fixedrectangle'>
-                                <div class='dart-ad'></div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-            </article>
         </div>
+
+        <div class="header-row">
+          <figure class="poster-wrapper">
+
+            <img data-srcset="//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1024w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 640w"
+              alt="" class="poster lazy"><noscript><img src="//a.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w,"
+                alt="" class="poster"></noscript>
+
+            <figcaption class="poster-caption">[Photo: Flickr user <a href="https://www.flickr.com/photos/wocintechchat/25392501613/"
+                target="_blank">WOCinTech Chat</a>]</figcaption>
+
+          </figure>
+
+          <div class="header-ad-column">
+            <div class="ad-wrapper ad-wrapper-large ad-wrapper-header">
+              <div id="header-imu" class="header-ad ad-unit large-ad" data-advertising="flexibleportrait">
+                <div class="dart-ad"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+
+
+
+
+
+    </header>
+
+
+
+
+    <div class="article-wrapper js-initial-article">
+      <article class="post-article fc-post-full">
+        <div class="article-content post-body">
+          <div class="text-wrapper">
+            <div class="article-post-meta top">
+              <div class="post-share-buttons">
+                <ul class="social">
+
+                  <li class="share-icon facebook">
+                    <a class="share-link-facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup"
+                      data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook icon-share"></i></a>
+                  </li>
+
+                  <li class="share-icon twitter">
+                    <a class="share-link-twitter" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany"
+                      data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter icon-share"></i></a>
+                  </li>
+
+                  <li class="share-icon linkedin">
+                    <a class="share-link-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+                      data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin icon-share"></i></a>
+                  </li>
+
+                  <li class="share-icon email">
+                    <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+                      data-event-category="Social" data-event-action="Share:Email"><i class="icon-share-email icon-share"></i></a>
+                  </li>
+
+                </ul>
+              </div>
+
+              <div class="byline">
+                <span class="name"><a class="js-author" href="/user/lydia-dishman ">Lydia Dishman</a></span>
+
+                <span class="date">05.24.16</span>
+
+                <span class="time">5:42 AM</span>
+              </div>
+            </div>
+            <p>When Natasia Malaihollo and her cofounder raised $1.5 million for their startup <a href="http://www.wyzerr.com/"
+                target="_blank">Wyzerr</a>, she became part of a very small group. As an African-American woman,
+              Malaihollo was one of only a dozen who&#x2019;ve raised over $100,000 in outside investments for their
+              businesses, according to early data from <a href="//www.fastcompany.com/3044066/most-creative-people/inside-the-campaign-to-disrupt-techs-huge-diversity-problem"
+                target="_self">Digital Undivided</a>&#x2019;s Project Diane.</p>
+
+            <p>Statistics compiled from CB Insights <a href="https://medium.com/%40KathrynFinney/projectdiane-breaking-tech-s-diversity-catch-22-d06555ea2e52#.wn564kosr"
+                target="_blank">reports by Project Diane</a> indicate that between 2012-2014, startups led by
+              African-American women comprised less than 0.2% of all the venture deals in that time period.<div class="ad-wrapper ad-wrapper-small ad-wrapper-small-inline no-border">
+                <div class="small-ad ad-unit" data-advertising="mobilerectangle">
+                  <div class="dart-ad"></div>
+                </div>
+              </div>
+              <div class="ad-wrapper ad-wrapper-medium ad-wrapper-medium-inline">
+                <div class="medium-ad ad-unit" data-advertising="flexibleinterrupter">
+                  <div class="dart-ad"></div>
+                </div>
+              </div>
+            </p>
+
+            <figure class="inline-small inline inline column-container">
+              <div class="image-wrapper"><img src="//b.fastcompany.net/multisite_files/fastcompany/imagecache/inline-small/inline/2016/05/3060169-inline-natasia-320x320.png"
+                  alt=""></div>
+              <div class="caption-wrapper">
+                <figcaption>Natasie Malaihollo</figcaption>
+              </div>
+            </figure>
+
+            <p>Wyzerr&#x2019;s funding was led by <a href="http://connetic.ventures/about-us" target="_blank">Connetic
+                Ventures</a>, which Malaihollo points out has Meena Maddali, a woman of color as partner and chief
+              operating officer. &quot;The reason a lot of us [women and minorities] don&#x2019;t get funded is because
+              a lot of investors don&#x2019;t look like us,&quot; Malaihollo contends.</p>
+
+            <p>Maddali tells <em>Fast Company</em> that although Connetic is barely a year old, &quot;As of today,
+              we&apos;ve made investments into 20 companies, 55% of which have either a woman and/or minority
+              cofounder, and 80% of which have a woman and/or minority in a leadership position.&quot; But Maddali is
+              quick to point out Connetic didn&apos;t start investing in women- and minority- led companies
+              consciously. &quot;It&apos;s more of a happy coincidence,&quot; she says.</p>
+
+            <p>The same is true for <a href="http://www.thefan.fund/" target="_blank">FAN Fund</a>, which focuses on
+              investing in early stage companies in the state of Florida. The organization, which took part in a
+              funding round of $1.4 million in Fattmerchant (a fintech company founded by a woman named Suneera
+              Madhani) was launched at the end of 2015. At that time, founding partner Kathy Chiu says they
+              &quot;simply focused on picking the most promising investments with the most capable and passionate
+              founding teams.&quot;</p>
+
+            <p>Six months later, she reports that FAN Fund&#x2019;s first two investments were founded by women, and
+              two of the founders in our first five deals were of minority background.&#xA0; &quot;With this
+              experience, it&apos;s clear to us that companies led by women and minority entrepreneurs will be a
+              substantial part of our investments, as both groups bring the ideas, passion, and capabilities to thrive
+              in our local community as well as nationally,&quot; says Chiu.</p>
+
+            <p>This accidental approach seems surprising given the growing business case for diversity. Recent <a href="http://www.mckinsey.com/business-functions/organization/our-insights/why-diversity-matters"
+                target="_blank">research from McKinsey</a> indicates that companies that have racial and ethnic
+              diversity are 35% more likely to have financial returns above their respective national industry medians.
+              A <a href="http://www.mckinsey.com/business-functions/organization/our-insights/is-there-a-payoff-from-top-team-diversity"
+                target="_blank">McKinsey study from 2012</a> found that ethnic and racially diverse executive boards
+              delivered returns on equity that were 53% higher. In April, the <a href="//www.fastcompany.com/3059093/the-racial-gap-in-entrepreneurship-is-costing-the-us-economy-billions"
+                target="_self">Center for Global Policy Solutions</a> found that the racial gap between white
+              entrepreneurs and those of color is costing the U.S. economy an estimated $300 billion.<div class="ad-wrapper ad-wrapper-small ad-wrapper-small-inline no-border">
+                <div class="small-ad ad-unit" data-advertising="mobilerectangle">
+                  <div class="dart-ad"></div>
+                </div>
+              </div>
+              <div class="ad-wrapper ad-wrapper-medium ad-wrapper-medium-inline">
+                <div class="medium-ad ad-unit" data-advertising="flexibleinterrupter">
+                  <div class="dart-ad"></div>
+                </div>
+              </div>
+            </p>
+
+            <p>But Chike Ukaegbu, the founder of <a href="http://www.startup52.com" target="_blank">Startup52</a>
+              Accelerator, which he touts as the first and only diversity-focused accelerator in New York City, says
+              &quot;Diversity is the one thing that will help disrupt the venture capital industry.&quot; And that
+              disruption will help get more minority founders the capital they need to grow their businesses.</p>
+
+            <figure class="inline-small inline inline column-container">
+              <div class="image-wrapper"><img src="//d.fastcompany.net/multisite_files/fastcompany/imagecache/inline-small/inline/2016/05/3060169-inline-chike400x400.jpg"
+                  alt=""></div>
+              <div class="caption-wrapper">
+                <figcaption>Chike Ukaegbu<span class="credit">Photo: via <a href="https://twitter.com/chikeukaegbu"
+                      target="_blank">Twitter</a></span></figcaption>
+              </div>
+            </figure>
+
+            <p>Ukaegbu is quick to point out that for its part, Startup52 isn&#x2019;t only looking for
+              under-represented founders. He says the one year-old accelerator is looking for everything from
+              functional teams to scalability, and passion in the startups who apply to become a part of a class. One
+              of the four businesses that completed the inaugural program last year was founded by two white men. The
+              others were started by people of color. Sixty percent of this year&#x2019;s group of 16 startups which
+              will start on June 6, have a female cofounder and 65% have a person of color on the founding team.</p>
+
+            <p>However, Ukaegbu says he champions diversity because it is both profitable and has social impact. He
+              believes some investors hedge rather than declare a focus on funding under-represented minority
+              entrepreneurs, partly due to a lack of understanding of potential markets as well as a conditioning to
+              what (or who) has been successful in the past.</p>
+
+            <p>To illustrate this, Ukaegbu recalls a demo day he went to recently that had two white men and one black
+              woman as judges for a $25,000 capital infusion. One of the companies was pitching a platform that would
+              connect hairstylists with women of color and the other was for a medical device. Although Ukaegbu is a
+              biomedical engineer by training, he says the hairstylists platform founders &quot;killed it&quot; in
+              their presentation. &quot;But they lost to the other group,&quot; he says, &quot;Part of the reason was
+              that the two white men didn&#x2019;t understand that market. For them it is more of a small
+              business.&quot;</p>
+
+            <h4><a name="Why_The_Pipeline_Isnt_The_Problem">Why The Pipeline Isn&apos;t The Problem</a></h4>
+
+            <p>The persistent problem, according to Project Diane&#x2019;s founder Kathryn Finney is this: The larger
+              investment community cites the lack of investment in black and Latino-led startups on a pipeline that is
+              more of a intermittent &quot;drip&quot; when it comes to diverse founders, versus the massive
+              &quot;drop&quot; of the &quot;young-white-guy-from-insert-big-name-school&quot; founders,&quot; she <a
+                href="https://medium.com/%40KathrynFinney/projectdiane-breaking-tech-s-diversity-catch-22-d06555ea2e52#.wn564kosr"
+                target="_blank">wrote in a <em>Medium </em>post</a>. But Finney asserts that those founders are out
+              there, they just don&#x2019;t have access to traditional networks.</p>
+
+            <p>Even though Malaihollo is a UC Berkeley graduate who studied computer science, she points to the lack of
+              access to certain funding networks as a challenge when she started the business that preceded Wyzerr.
+              Moving around the country to pitch competitions, sometimes with less than $20 in her pocket, Malaihollo
+              understands the importance of operating capital. However, she says, being funded gives a founder the
+              confidence that they have a network of advisors and investors.</p>
+
+            <p>&quot;It&#x2019;s a safety net of people who really believe in us,&quot; she says. Malaihollo says that
+              having Maddali as a resource has been just as valuable as the actual funds. &quot;She is really great
+              helping us understand how to keep them in constant conversation,&quot; Malaihollo explains, &quot;Because
+              as founders, we have this mentality that we have to do everything ourselves.&quot;<div class="ad-wrapper ad-wrapper-small ad-wrapper-small-inline no-border">
+                <div class="small-ad ad-unit" data-advertising="mobilerectangle">
+                  <div class="dart-ad"></div>
+                </div>
+              </div>
+              <div class="ad-wrapper ad-wrapper-medium ad-wrapper-medium-inline">
+                <div class="medium-ad ad-unit" data-advertising="flexibleinterrupter">
+                  <div class="dart-ad"></div>
+                </div>
+              </div>
+            </p>
+
+            <p>A growing coterie of diverse investors like Chiu and Maddali should help balance the inequity. A brand
+              new investor network started by Jenny Q. Ta and Shinta Dhanuwardoyo could also help with access. Ta tells
+              <em>Fast Company</em> that she and Dhanuwardoyo have been recruiting a number of VCs worldwide for the
+              three month-old <a href="https://vcnetwork.co/" target="_blank">VCNetwork</a> who will create a vast
+              virtual marketplace for entrepreneurs to tap for funding.</p>
+
+            <p>Ta says lack of capital is a big barrier to startups, but not always the biggest. &quot;The biggest is
+              actually lack of access to VCs who can give the capital needed and lack of education as to what these VCs
+              are looking for,&quot; she explains.</p>
+
+            <p>Founders aren&#x2019;t the only ones who need to do their homework. Maddali says that as managers of a
+              fund, it&apos;s no secret that one of their main goals is to provide excellent returns for investors.
+              However, she says, getting to know each business takes a lot of time, so Connectic&#x2019;s partners lean
+              heavily on their own networks for their insights and industry experience to help vet companies.&#xA0;</p>
+
+            <p>&quot;People only invest in things they know and people they trust,&quot; she says, &quot;so creating a
+              strong, diverse network of good, smart people is a key to our potential success.&quot;</p>
+
+
+
+            <div class="article-post-meta after-body">
+              <div id="daily-events-newsletter" class="newsletter newsletter-signup" data-name="daily-eventsnewsletter">
+
+                <form class="js-newsletter-form" method="post" action="/api/v1/newsletters" _lpchecked="1">
+                  <h4>Newsletter</h4>
+                  <div class="messages -spacing"><span class="newsletter-signup__copy -spacing">Get the latest
+                      Leadership stories delivered to your inbox daily.</span></div>
+                  <div class="inline-fields">
+                    <input type="email" value="" name="email" class="newsletter-signup__email-input" id="email"
+                      placeholder="your@email.com">
+                    <button class="button newsletter-signup__submit" type="submit">Send</button>
+                  </div>
+                  <fieldset class="newsletter-signup__events -input-top-spacing">
+                    <input checked="checked" type="checkbox" class="newsletter-signup__checkbox" id="events" name="Subscriptions:[Events and Exclusive Offers]">
+                    <label class="newsletter-signup__copy newsletter-signup__copy--smaller" for="events">I'd also like
+                      to receive special Fast Company offers</label>
+                  </fieldset>
+
+
+                  <input class="js-mailchimp-groupname" type="hidden" name="Subscriptions:[Leadership Daily]" value="true">
+                </form>
+
+
+              </div>
+
+              <div class="post-share-buttons">
+                <ul class="social">
+
+                  <li class="share-icon facebook">
+                    <a class="share-link-facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup"
+                      data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook icon-share"></i></a>
+                  </li>
+
+                  <li class="share-icon twitter">
+                    <a class="share-link-twitter" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany"
+                      data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter icon-share"></i></a>
+                  </li>
+
+                  <li class="share-icon linkedin">
+                    <a class="share-link-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+                      data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin icon-share"></i></a>
+                  </li>
+
+                  <li class="share-icon email">
+                    <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+                      data-event-category="Social" data-event-action="Share:Email"><i class="icon-share-email icon-share"></i></a>
+                  </li>
+
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <aside class="article-sidebar hide-for-medium-down">
+          <div class="right-rail-spacer"></div>
+          <div class="sticky-right-rail-container">
+            <div class="js-up-next reading-now">
+              <div class="title-wrapper">
+                <span class="up-next-title">Must Reads</span>
+              </div>
+              <div class="results-wrapper">
+                <div class="result-container">
+
+                  <div class="link-wrapper">
+                    <a class="link-text" href="//www.fastcompany.com/3060206/these-are-the-changes-facebook-is-making-to-how-it-selects-trending-topics">These
+                      Are The Changes Facebook Is Making To How It Selects “Trending Topics”</a>
+                  </div>
+                </div>
+                <div class="result-container">
+
+                  <div class="link-wrapper">
+                    <a class="link-text" href="//www.fastcocreate.com/3060159/why-gopro-just-signed-a-new-exclusive-content-partnership-with-red-bull">
+                      Why GoPro Just Signed A New Exclusive Content Partnership With Red Bull</a>
+                  </div>
+                </div>
+                <div class="result-container">
+
+                  <div class="link-wrapper">
+                    <a class="link-text" href="//www.fastcompany.com/3060164/twitters-new-tweaks-make-the-140-character-limit-less-limiting">Twitter&#x27;s
+                      New Tweaks Make The 140-Character Limit Less Limiting</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ad-wrapper ad-wrapper-large">
+              <div class='ad-unit sidebar-ad large-ad' data-advertising='fixedrectangle'>
+                <div class='dart-ad'></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </article>
+    </div>
 
     <div class="ad-wrapper ad-wrapper-small afterbody-ad">
-        <div class="small-ad ad-unit" data-advertising="mobilerectangle">
-            <div class="dart-ad"></div>
-        </div>
+      <div class="small-ad ad-unit" data-advertising="mobilerectangle">
+        <div class="dart-ad"></div>
+      </div>
     </div>
 
     <div class="fifteen-five-layout top-stories-module top-stories-afterbody">
-        <div class="fifteen-container top-stories-container">
-            <h2 class="homepage-module-title">Top Stories </h2>
-            <div class="layout-row layout-row-1">
-                <div class="left-top">
-                    <a class="" href="//www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
-                        <article class="story">
-                                <figure class="poster-wrapper sixteen-nine-ratio">
+      <div class="fifteen-container top-stories-container">
+        <h2 class="homepage-module-title">Top Stories </h2>
+        <div class="layout-row layout-row-1">
+          <div class="left-top">
+            <a class="" href="//www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business">
+              <article class="story">
+                <figure class="poster-wrapper sixteen-nine-ratio">
 
 
-                                    <img data-srcset="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/575/h/323/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1024w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 640w" alt="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business" class="card-bg lazy"><noscript><img src="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w," alt="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business" class="card-bg"></noscript>
+                  <img data-srcset="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/575/h/323/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1024w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 640w"
+                    alt="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business" class="card-bg lazy"><noscript><img
+                      src="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg 1440w,"
+                      alt="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business" class="card-bg"></noscript>
 
-                                </figure>
-                            <div class="vert-align-title">
-                                <h3 class="title"><span>One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business</span></h3>
-                            </div>
-                        </article>
-                </a>
+                </figure>
+                <div class="vert-align-title">
+                  <h3 class="title"><span>One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business</span></h3>
                 </div>
+              </article>
+            </a>
+          </div>
 
-                <div class="right-top">
-                        <a class="" href="//www.fastcompany.com/3060237/can-this-smartwatch-save-your-life">
-                            <article class="story">
-                                    <figure class="poster-wrapper sixteen-nine-ratio">
+          <div class="right-top">
+            <a class="" href="//www.fastcompany.com/3060237/can-this-smartwatch-save-your-life">
+              <article class="story">
+                <figure class="poster-wrapper sixteen-nine-ratio">
 
-                                        <img data-srcset="//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 1440w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/180/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 1024w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 640w" alt="Can This Smartwatch Save Your Life?" class="card-bg lazy"><noscript><img src="//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 1440w," alt="Can This Smartwatch Save Your Life?" class="card-bg"></noscript>
+                  <img data-srcset="//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 1440w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/180/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 1024w,//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 640w"
+                    alt="Can This Smartwatch Save Your Life?" class="card-bg lazy"><noscript><img src="//a.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060237-poster-aska9nck76usyhzfyxfd.jpg 1440w,"
+                      alt="Can This Smartwatch Save Your Life?" class="card-bg"></noscript>
 
-                                    </figure>
-                                <div class="vert-align-title">
-                                    <h3 class="title">Can This Smartwatch Save Your Life?</h3>
-                                </div>
-                            </article>
-                        </a>
+                </figure>
+                <div class="vert-align-title">
+                  <h3 class="title">Can This Smartwatch Save Your Life?</h3>
                 </div>
-
-            </div>
-            <div class="layout-row">
-                <div class="left-bottom">
-                        <a class="" href="//www.fastcompany.com/3060234/a-third-of-us-corporate-cash-is-held-by-5-tech-companies-nearly-90-of-it-overseas">
-                            <article class="story">
-                                    <figure class="poster-wrapper sixteen-nine-ratio">
-
-                                        <img data-srcset="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 1440w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/180/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 1024w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 640w" alt="A Third Of U.S. Corporate Cash Is Held By 5 Tech Companies–Nearly 90% Of It Overseas" class="card-bg lazy"><noscript><img src="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 1440w," alt="A Third Of U.S. Corporate Cash Is Held By 5 Tech Companies–Nearly 90% Of It Overseas" class="card-bg"></noscript>
-
-                                    </figure>
-                                <div class="vert-align-title">
-                                    <h3 class="title">A Third Of U.S. Corporate Cash Is Held By 5 Tech Companies–Nearly 90% Of It Overseas</h3>
-                                </div>
-                            </article>
-                        </a>
-                </div>
-
-                <div class="bottom-half right-bottom">
-                        <a href="//www.fastcompany.com/3060010/how-to-be-a-success-at-everything/how-to-give-your-boss-or-coworkers-feedback-that-doesnt-je">
-                            <article class="story">
-                                    <figure class="poster-wrapper sixteen-nine-ratio">
-
-                                        <img data-srcset="//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 1440w,//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/575/h/323/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 1024w,//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 640w" alt="How To Give Feedback At Work That Doesn’t Jeopardize Your Career" class="card-bg lazy"><noscript><img src="//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 1440w," alt="How To Give Feedback At Work That Doesn’t Jeopardize Your Career" class="card-bg"></noscript>
-
-                                    </figure>
-                                <div class="vert-align-title">
-                                    <h3 class="title">How To Give Feedback At Work That Doesn’t Jeopardize Your Career</h3>
-                                </div>
-                            </article>
-                        </a>
-                </div>
-            </div>
-
-        </div><!-- End top-stories -->
-
-        <div class="five-container the-latest-container">
-
-                <div class="fastco-wrapper">
-                    <a href="//news.fastcompany.com/">
-                        <img src="//a.fastcompany.net/asset_files/-/2016/03/24/News-Logo-20160318.svg">
-                    </a>
-                    <ul class="fastco-list">
-                            <li class="fastco-item">
-                                <article class="story latest-story">
-                                    <div class="fastco-eyebrow"><span>05.24.16</span>
-                                        | <span>25 minutes ago</span></div>
-                                    <h3 class="title"><a
-                                            href="https://news.fastcompany.com/bellgray-brings-the-department-store-work-clothes-shopping-experience-to-the-web-4008355">Bellgray brings the department store work-clothes shopping experienc...</a>
-                                    </h3>
-                                </article>
-                            </li>
-                            <li class="fastco-item">
-                                <article class="story latest-story">
-                                    <div class="fastco-eyebrow"><span>05.24.16</span>
-                                        | <span>2 hours ago</span></div>
-                                    <h3 class="title"><a
-                                            href="https://news.fastcompany.com/siri-ously-apple-to-join-amazon-and-google-in-ai-smart-speaker-battle-4008352">Siri-ously? Apple to join Amazon and Google in AI smart speaker battle</a>
-                                    </h3>
-                                </article>
-                            </li>
-                            <li class="fastco-item">
-                                <article class="story latest-story">
-                                    <div class="fastco-eyebrow"><span>05.24.16</span>
-                                        | <span>3 hours ago</span></div>
-                                    <h3 class="title"><a
-                                            href="https://news.fastcompany.com/zenefits-rival-gusto-sets-its-sights-on-being-the-kayak-for-benefits-4008342">Zenefits rival Gusto sets its sights on being the ‘Kayak for benefits’</a>
-                                    </h3>
-                                </article>
-                            </li>
-                    </ul>
-                    <div class="bottom-cta">
-                        <div class="fastco-cta">
-                            <a class="fastco-cta-link" href="#">The Latest</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ad-wrapper ad-wrapper-large">
-                    <div class='ad-unit afterbody-ad large-ad' data-advertising='fixedrectangle'>
-                        <div class='dart-ad'></div>
-                    </div>
-                </div>
+              </article>
+            </a>
+          </div>
 
         </div>
+        <div class="layout-row">
+          <div class="left-bottom">
+            <a class="" href="//www.fastcompany.com/3060234/a-third-of-us-corporate-cash-is-held-by-5-tech-companies-nearly-90-of-it-overseas">
+              <article class="story">
+                <figure class="poster-wrapper sixteen-nine-ratio">
+
+                  <img data-srcset="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 1440w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/180/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 1024w,//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 640w"
+                    alt="A Third Of U.S. Corporate Cash Is Held By 5 Tech Companies–Nearly 90% Of It Overseas" class="card-bg lazy"><noscript><img
+                      src="//c.fastcompany.net/multisite_files/fastcompany/imagecache/w/240/h/135/crop/poster/2016/05/3060234-poster-p-a-third-of-us-corporate-cash-is-held-by-5-tech-companiesnearly-90-of-it-overseas-4008315.jpg 1440w,"
+                      alt="A Third Of U.S. Corporate Cash Is Held By 5 Tech Companies–Nearly 90% Of It Overseas" class="card-bg"></noscript>
+
+                </figure>
+                <div class="vert-align-title">
+                  <h3 class="title">A Third Of U.S. Corporate Cash Is Held By 5 Tech Companies–Nearly 90% Of It
+                    Overseas</h3>
+                </div>
+              </article>
+            </a>
+          </div>
+
+          <div class="bottom-half right-bottom">
+            <a href="//www.fastcompany.com/3060010/how-to-be-a-success-at-everything/how-to-give-your-boss-or-coworkers-feedback-that-doesnt-je">
+              <article class="story">
+                <figure class="poster-wrapper sixteen-nine-ratio">
+
+                  <img data-srcset="//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 1440w,//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/575/h/323/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 1024w,//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/320/h/240/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 640w"
+                    alt="How To Give Feedback At Work That Doesn’t Jeopardize Your Career" class="card-bg lazy"><noscript><img
+                      src="//d.fastcompany.net/multisite_files/fastcompany/imagecache/w/431/h/242/crop/poster/2016/05/3060010-poster-p-1-how-to-give-your-boss-or-coworkers-feedback-that-doesnt-jeopardize-your-career.jpg 1440w,"
+                      alt="How To Give Feedback At Work That Doesn’t Jeopardize Your Career" class="card-bg"></noscript>
+
+                </figure>
+                <div class="vert-align-title">
+                  <h3 class="title">How To Give Feedback At Work That Doesn’t Jeopardize Your Career</h3>
+                </div>
+              </article>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- End top-stories -->
+
+      <div class="five-container the-latest-container">
+
+        <div class="fastco-wrapper">
+          <a href="//news.fastcompany.com/">
+            <img src="//a.fastcompany.net/asset_files/-/2016/03/24/News-Logo-20160318.svg">
+          </a>
+          <ul class="fastco-list">
+            <li class="fastco-item">
+              <article class="story latest-story">
+                <div class="fastco-eyebrow"><span>05.24.16</span>
+                  | <span>25 minutes ago</span></div>
+                <h3 class="title"><a href="https://news.fastcompany.com/bellgray-brings-the-department-store-work-clothes-shopping-experience-to-the-web-4008355">Bellgray
+                    brings the department store work-clothes shopping experienc...</a>
+                </h3>
+              </article>
+            </li>
+            <li class="fastco-item">
+              <article class="story latest-story">
+                <div class="fastco-eyebrow"><span>05.24.16</span>
+                  | <span>2 hours ago</span></div>
+                <h3 class="title"><a href="https://news.fastcompany.com/siri-ously-apple-to-join-amazon-and-google-in-ai-smart-speaker-battle-4008352">Siri-ously?
+                    Apple to join Amazon and Google in AI smart speaker battle</a>
+                </h3>
+              </article>
+            </li>
+            <li class="fastco-item">
+              <article class="story latest-story">
+                <div class="fastco-eyebrow"><span>05.24.16</span>
+                  | <span>3 hours ago</span></div>
+                <h3 class="title"><a href="https://news.fastcompany.com/zenefits-rival-gusto-sets-its-sights-on-being-the-kayak-for-benefits-4008342">Zenefits
+                    rival Gusto sets its sights on being the ‘Kayak for benefits’</a>
+                </h3>
+              </article>
+            </li>
+          </ul>
+          <div class="bottom-cta">
+            <div class="fastco-cta">
+              <a class="fastco-cta-link" href="#">The Latest</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-wrapper ad-wrapper-large">
+          <div class='ad-unit afterbody-ad large-ad' data-advertising='fixedrectangle'>
+            <div class='dart-ad'></div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <div class="row afterbody-ad-row">
-        <div class="afterbody-ad-column">
-            <div class="ad-wrapper ad-wrapper-large afterbody-bottom-ad">
-                <div class="ad-unit large-ad" data-advertising="flexibleinterrupter">
-                    <div class="dart-ad"></div>
-                </div>
-            </div>
+      <div class="afterbody-ad-column">
+        <div class="ad-wrapper ad-wrapper-large afterbody-bottom-ad">
+          <div class="ad-unit large-ad" data-advertising="flexibleinterrupter">
+            <div class="dart-ad"></div>
+          </div>
         </div>
+      </div>
     </div>
 
 
 
     <div class="mobile-bottom-social-bar">
-    <div class="social-icons-container">
-    <ul class="social">
-        <li class="share-icon facebook">
-            <a class="share-link-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup" data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook icon-share"></i></a>
-        </li>
-        <li class="share-icon twitter">
-            <a class="share-link-twitter" target="_blank" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany" data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter icon-share"></i></a>
-        </li>
-        <li class="share-icon linkedin">
-            <a class="share-link-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin icon-share"></i></a>
-        </li>
-        <li class="share-icon email">
-            <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business" data-event-category="Social" data-event-action="Share:Email">
-            <i class="icon-share-email icon-share"></i>
+      <div class="social-icons-container">
+        <ul class="social">
+          <li class="share-icon facebook">
+            <a class="share-link-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;app_id=178479832213933&amp;display=popup"
+              data-event-category="Social" data-event-action="Share:Facebook"><i class="icon-facebook icon-share"></i></a>
+          </li>
+          <li class="share-icon twitter">
+            <a class="share-link-twitter" target="_blank" href="http://twitter.com/share?url=%2F&amp;text=One%20of%20the%20biggest%20barriers%20to%20getting%20funding%20for%20minority-owned%20business%20http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fthe-challenges-of-funding-a-minority-owned-business%20by%20%40lydiabreakfast%20via%20%40FastCompany"
+              data-event-category="Social" data-event-action="Share:Twitter"><i class="icon-twitter icon-share"></i></a>
+          </li>
+          <li class="share-icon linkedin">
+            <a class="share-link-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&amp;media=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+              data-event-category="Social" data-event-action="Share:Linkedin"><i class="icon-linkedin icon-share"></i></a>
+          </li>
+          <li class="share-icon email">
+            <a class="share-link-email" target="_blank" href="mailto:?body=http%3A%2F%2Fwww.fastcompany.com%2F3060169%2Fone-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business&subject=One%20Of%20The%20Biggest%20Challenges%20Of%20Getting%20Funding%20For%20Minority-Owned%20Business"
+              data-event-category="Social" data-event-action="Share:Email">
+              <i class="icon-share-email icon-share"></i>
             </a>
-        </li>
-    </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
 
 
 
-<div class="ad-wrapper ad-wrapper-small footer-ad">
-    <div class="small-ad ad-unit footer-padding" data-advertising="mobilerectangle">
+    <div class="ad-wrapper ad-wrapper-small footer-ad">
+      <div class="small-ad ad-unit footer-padding" data-advertising="mobilerectangle">
         <div class="dart-ad"></div>
+      </div>
     </div>
-</div>
 
-<section class="footer-area">
-    <footer id="page-footer" class="page-footer">
+    <section class="footer-area">
+      <footer id="page-footer" class="page-footer">
         <section class="footer-container">
-            <nav class="footer-left">
-                <ul>
-                    <li><a href="//mediakit.fastcompany.com">Advertise</a></li>
-                    <li><a href="//www.fastcompany.com/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="//www.fastcompany.com/terms-and-conditions">Terms</a></li>
-                    <li><a href="//www.fastcompany.com/about-us">About Us</a></li>
-                </ul>
-            </nav>
+          <nav class="footer-left">
+            <ul>
+              <li><a href="//mediakit.fastcompany.com">Advertise</a></li>
+              <li><a href="//www.fastcompany.com/privacy-policy">Privacy Policy</a></li>
+              <li><a href="//www.fastcompany.com/terms-and-conditions">Terms</a></li>
+              <li><a href="//www.fastcompany.com/about-us">About Us</a></li>
+            </ul>
+          </nav>
 
-            <nav class="footer-right">
-                <p><span class="footer-copyright">Fast Company & Inc © 2016 Mansueto Ventures, LLC <a href="http://www.aboutads.info/" target="_new" class="icon_adoption" rel="nofollow">
-          <img style="margin-top: -3px; margin-left: 3px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAANCAAAAAC4QtCeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAJ0Uk5TAAB2k804AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAEgAAABIAEbJaz4AAACASURBVAjXYyir3PaDAQby09KL9/2FcjIWf1mbVX0Mwklfw8DwbF5awzkwZzXDjco/j/vTuq+COe93APXcLE5bCeKczvzOwPCoPG0xiHMq6/f9SWkdF4HK1jKcyepJazgFNnrBpwtpVUchRuempR17+htqaU/55l9w5xzf+RHOBgC94zlXyQTR6wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMy0wMy0wOFQxOToxMDo0NC0wNTowMNnS5vEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTMtMDMtMDhUMTk6MTA6NDQtMDU6MDCoj15NAAAAAElFTkSuQmCC" width="12" height="13" alt="">
-        </a></span></p>
-            </nav>
+          <nav class="footer-right">
+            <p><span class="footer-copyright">Fast Company & Inc © 2016 Mansueto Ventures, LLC <a href="http://www.aboutads.info/"
+                  target="_new" class="icon_adoption" rel="nofollow">
+                  <img style="margin-top: -3px; margin-left: 3px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAANCAAAAAC4QtCeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAJ0Uk5TAAB2k804AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAEgAAABIAEbJaz4AAACASURBVAjXYyir3PaDAQby09KL9/2FcjIWf1mbVX0Mwklfw8DwbF5awzkwZzXDjco/j/vTuq+COe93APXcLE5bCeKczvzOwPCoPG0xiHMq6/f9SWkdF4HK1jKcyepJazgFNnrBpwtpVUchRuempR17+htqaU/55l9w5xzf+RHOBgC94zlXyQTR6wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMy0wMy0wOFQxOToxMDo0NC0wNTowMNnS5vEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTMtMDMtMDhUMTk6MTA6NDQtMDU6MDCoj15NAAAAAElFTkSuQmCC"
+                    width="12" height="13" alt="">
+                </a></span></p>
+          </nav>
         </section>
-    </footer>
-</section>
+      </footer>
+    </section>
 
-</div>
+  </div>
 
 
   <script type="text/javascript" src="//b.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/omniture-scode-prod.js"></script>
-  <script type="text/javascript"><!--
+  <script type="text/javascript">< !--
 
 
-    fastco_s.server="fastcompany";
+      fastco_s.server="fastcompany";
 
-    fastco_s.pageName="fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business";
-    fastco_s.events="event9";
+    fastco_s.pageName = "fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business";
+    fastco_s.events = "event9";
 
-    fastco_s.prop1="leadership";
-    fastco_s.prop2="leadership";
-    fastco_s.prop3="One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business";
-    fastco_s.prop4="http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business";
-    fastco_s.prop8="Lydia Dishman";
-    fastco_s.prop9="2016-05-24";
-    fastco_s.prop10="3060169";
-    fastco_s.prop11="Lydia Dishman";
-    fastco_s.prop13="1";
-    fastco_s.prop21="anonymous";
-    fastco_s.prop22="anonymous:fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business";
-    fastco_s.prop23="anonymous";
-    fastco_s.prop28="article";
-    fastco_s.prop33="Leadership";
-    fastco_s.prop34="5 minute";
+    fastco_s.prop1 = "leadership";
+    fastco_s.prop2 = "leadership";
+    fastco_s.prop3 = "One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business";
+    fastco_s.prop4 = "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business";
+    fastco_s.prop8 = "Lydia Dishman";
+    fastco_s.prop9 = "2016-05-24";
+    fastco_s.prop10 = "3060169";
+    fastco_s.prop11 = "Lydia Dishman";
+    fastco_s.prop13 = "1";
+    fastco_s.prop21 = "anonymous";
+    fastco_s.prop22 = "anonymous:fastcompany:3060169:one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business";
+    fastco_s.prop23 = "anonymous";
+    fastco_s.prop28 = "article";
+    fastco_s.prop33 = "Leadership";
+    fastco_s.prop34 = "5 minute";
 
     fastco_s.eVar49 = "1";
 
 
-  var s_code=fastco_s.t();if(s_code)document.write(s_code)//--></script>
-  <script type="text/javascript"><!--
-  if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+    var s_code = fastco_s.t(); if (s_code) document.write(s_code)//--></script>
+  <script type="text/javascript">< !--
+  if (navigator.appVersion.indexOf('MSIE') >= 0) document.write(unescape('%3C') + '\!-' + '-')
   //--></script><noscript><img src="http://grunerandjahr.112.2o7.net/b/ss/gjincfastcoprod/1/H.24.4--NS/0/5658306"
-  height="1" width="1" alt="" style="border:0;" /></noscript><!--/DO NOT REMOVE/-->
+      height="1" width="1" alt="" style="border:0;" /></noscript>
+  <!--/DO NOT REMOVE/-->
 
   <script type="text/javascript">
-  var _sf_async_config={
-    useCanonical: true,
-    uid:2768,
-    domain:"fastcompany.com",
-    sections:"fastcompany.com",
-    authors:"Lydia Dishman" ,
-    playerdomain: 'api.twistage.com'
-  };
+    var _sf_async_config = {
+      useCanonical: true,
+      uid: 2768,
+      domain: "fastcompany.com",
+      sections: "fastcompany.com",
+      authors: "Lydia Dishman",
+      playerdomain: 'api.twistage.com'
+    };
 
-  (function(){
-    function loadChartbeat() {
-      window._sf_endpt=(new Date()).getTime();
-      var e = document.createElement('script');
-      e.setAttribute('language', 'javascript');
-      e.setAttribute('type', 'text/javascript');
-      e.setAttribute('src',
-         (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-         "js/chartbeat_pub.js");
-      document.body.appendChild(e);
-    }
-    var oldonload = window.onload;
-    window.onload = (typeof window.onload != 'function') ?
-       loadChartbeat : function() { oldonload(); loadChartbeat(); };
-  })();
+    (function () {
+      function loadChartbeat() {
+        window._sf_endpt = (new Date()).getTime();
+        var e = document.createElement('script');
+        e.setAttribute('language', 'javascript');
+        e.setAttribute('type', 'text/javascript');
+        e.setAttribute('src',
+          (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+          "js/chartbeat_pub.js");
+        document.body.appendChild(e);
+      }
+      var oldonload = window.onload;
+      window.onload = (typeof window.onload != 'function') ?
+        loadChartbeat : function () { oldonload(); loadChartbeat(); };
+    })();
   </script>
 
 
 
 
-<script src="//c.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/fastcompany.js"></script>
-<!-- START Parse.ly Include: Standard -->
-<div id="parsely-root" style="display: none">
+  <script src="//c.fastcompany.net/multisite_files/fastcompany/static/sites/201605/1829/js/fastcompany.js"></script>
+  <!-- START Parse.ly Include: Standard -->
+  <div id="parsely-root" style="display: none">
     <div id="parsely-cfg" data-parsely-site="fastcompany.com"></div>
-</div>
-<script>
-    (function(s, p, d) {
-        var h=d.location.protocol, i=p+"-"+s,
-                e=d.getElementById(i), r=d.getElementById(p+"-root"),
-                u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
-                        :"static."+p+".com";
-        if (e) return;
-        e = d.createElement(s); e.id = i; e.async = true;
-        e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+  </div>
+  <script>
+    (function (s, p, d) {
+      var h = d.location.protocol, i = p + "-" + s,
+        e = d.getElementById(i), r = d.getElementById(p + "-root"),
+        u = h === "https:" ? "d1z2jf7jlzjs58.cloudfront.net"
+          : "static." + p + ".com";
+      if (e) return;
+      e = d.createElement(s); e.id = i; e.async = true;
+      e.src = h + "//" + u + "/p.js"; r.appendChild(e);
     })("script", "parsely", document);
-</script>
-<!-- END Parse.ly Include -->
+  </script>
+  <!-- END Parse.ly Include -->
 </body>
+
 </html>
