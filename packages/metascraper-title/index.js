@@ -13,8 +13,8 @@ module.exports = () => ({
     wrap($ => $('meta[name="twitter:title"]').attr('content')),
     wrap($ => $('.post-title').text()),
     wrap($ => $('.entry-title').text()),
-    wrap($ => $('h1[class*="title"] a').text()),
-    wrap($ => $('h1[class*="title"]').text()),
+    wrap($ => $('h1[class*="title" i] a').text()),
+    wrap($ => $('h1[class*="title" i]').text()),
     wrap($ => $filter($, $('title')))
   ]
 })

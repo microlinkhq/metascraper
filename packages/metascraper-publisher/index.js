@@ -32,21 +32,21 @@ const getFromTitle = (text, regex) => {
 module.exports = () => ({
   publisher: [
     wrap($ => $('meta[property="og:site_name"]').attr('content')),
-    wrap($ => $('meta[name="application-name"]').attr('content')),
+    wrap($ => $('meta[name*="application-name" i]').attr('content')),
     wrap($ => $('meta[property="al:android:app_name"]').attr('content')),
     wrap($ => $('meta[property="al:iphone:app_name"]').attr('content')),
     wrap($ => $('meta[property="al:ipad:app_name"]').attr('content')),
-    wrap($ => $('meta[name="publisher"]').attr('content')),
+    wrap($ => $('meta[name="publisher" i]').attr('content')),
     wrap($ => $('meta[name="twitter:app:name:iphone"]').attr('content')),
     wrap($ => $('meta[name="twitter:app:name:ipad"]').attr('content')),
     wrap($ => $('meta[name="twitter:app:name:googleplay"]').attr('content')),
     wrap($ => $('#logo').text()),
     wrap($ => $('.logo').text()),
-    wrap($ => $('a[class*="brand"]').text()),
-    wrap($ => $('[class*="brand"]').text()),
-    wrap($ => $('[class*="logo"] a img[alt]').attr('alt')),
-    wrap($ => $('[class*="logo"] img[alt]').attr('alt')),
+    wrap($ => $('a[class*="brand" i]').text()),
+    wrap($ => $('[class*="brand" i]').text()),
+    wrap($ => $('[class*="logo" i] a img[alt]').attr('alt')),
+    wrap($ => $('[class*="logo" i] img[alt]').attr('alt')),
     wrap($ => getFromTitle($('title').text(), REGEX_TITLE)),
-    wrap($ => getFromTitle($('link[type*="xml"]').attr('title'), REGEX_RSS))
+    wrap($ => getFromTitle($('link[type*="xml" i]').attr('title'), REGEX_RSS))
   ]
 })

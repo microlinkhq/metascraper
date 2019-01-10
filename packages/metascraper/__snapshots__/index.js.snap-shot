@@ -39,7 +39,7 @@ exports['astier 1'] = {
 
 exports['atlasobscura 1'] = {
   "author": "Cara Giaimo",
-  "date": "2017-06-21T13:51:00.000Z",
+  "date": "2017-06-22T20:16:06.000Z",
   "description": "The innocent-looking “Blanda blank” is a pyromaniac.",
   "image": "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2Q3ZjA4OTZkYjgwNjI4OGZmN19TY3JlZW4gU2hvdCAyMDE3LTA2LTIxIGF0IDkuMzYuNDQgQU0ucG5nIl0sWyJwIiwidGh1bWIiLCIxMTQ4eDc2NSsxNysxOTkiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgOTEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCI2MDB4PiJdXQ/Screen%20Shot%202017-06-21%20at%209.36.44%20AM.png",
   "video": null,
@@ -52,7 +52,7 @@ exports['atlasobscura 1'] = {
 
 exports['audiense 1'] = {
   "author": "Paz Segura",
-  "date": "2017-09-06T13:41:26.000Z",
+  "date": "2017-09-07T09:25:26.000Z",
   "description": "Looking at the data & audience insights behind the crime drama channels will be able to create tailored tv shows with proven traction ensuring high ratings",
   "image": "https://audiense.com/wp-content/uploads/2017/09/Audiense-Blog-Banner-Twin-Peaks-2017-700x350.png",
   "video": null,
@@ -91,7 +91,7 @@ exports['bloomberg 1'] = {
 
 exports['business-today 1'] = {
   "author": null,
-  "date": "2016-05-14T16:34:00.000Z",
+  "date": "2016-05-18T10:09:00.000Z",
   "description": "HackerRank is helping companies recruit coding champions through online tests.",
   "image": "http://media2.intoday.in/btmt/images/stories/code505_051616043033.jpg",
   "video": null,
@@ -103,21 +103,21 @@ exports['business-today 1'] = {
 }
 
 exports['cbr 1'] = {
-  "author": "AAS James Nunns",
-  "date": null,
+  "author": "James Nunns",
+  "date": "2016-09-05T11:49:45.000Z",
   "description": "C-level interview: Rodney Rogers, CEO of Virtustream talked to CBR at EMC World in Las Vegas.",
-  "image": "http://www.cbronline.com/Uploads/NewsArticle/4884858/main.jpg",
+  "image": "https://www.cbronline.com/wp-content/uploads/2016/08/UploadsNewsArticle4884858main.jpg",
   "video": null,
-  "lang": null,
-  "logo": "http://www.cbronline.com/Content/images/favicon.ico",
-  "publisher": "CBR Online",
-  "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market",
-  "url": "http://www.cbronline.com/news/cloud/aas/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858"
+  "lang": "en",
+  "logo": "https://www.cbronline.com/wp-content/uploads/2016/09/cbr-icon.png",
+  "publisher": "Computer Business Review",
+  "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market - Computer Business Review",
+  "url": "https://www.cbronline.com/cloud/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858/"
 }
 
 exports['cio 1'] = {
   "author": "David Spark",
-  "date": "2015-06-03T12:06:00.000Z",
+  "date": "2015-06-03T00:00:00.000Z",
   "description": "If IT is going to better align themselves with business operations, they must be able to objectively quantify the value of the cloud.",
   "image": "http://images.techhive.com/images/article/2015/06/msftone_cloudperspective4-100588855-primary.idge.png",
   "video": null,
@@ -156,7 +156,7 @@ exports['cnet 1'] = {
 
 exports['computerworld 1'] = {
   "author": "Robert Shields",
-  "date": "2016-04-15T18:52:00.000Z",
+  "date": "2016-04-15T00:00:00.000Z",
   "description": "My healthcare data is what I want protected the most (intimate details about my family’s health, where we live, and financial information). Anything and everything a hacker could want! It is safe? As a data security professional and citizen, I know the answer is not good.",
   "image": "http://images.techhive.com/images/article/2016/04/blog-31_apr15_image-1-100656409-primary.idge.jpg",
   "video": null,
@@ -195,7 +195,7 @@ exports['economic-times 1'] = {
 
 exports['entrepreneur 1'] = {
   "author": "Reuters",
-  "date": "2016-05-04T15:40:00.000Z",
+  "date": "2016-05-04T15:56:14.000Z",
   "description": "‘One of the big causes for the stagnation of middle class wages is essentially because of clever computer programs,’ said David Siegel, co-chairman of Two Sigma.",
   "image": "https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg",
   "video": null,
@@ -221,20 +221,20 @@ exports['et-tech 1'] = {
 
 exports['eweek 1'] = {
   "author": "Darryl K. Taft",
-  "date": null,
+  "date": "2019-01-09T09:01:37.000Z",
   "description": "Microsoft and HackerRank have delivered a new Bing search feature that enables developers to quickly find solutions to coding queries.",
-  "image": "http://www.eweek.com/imagesvr_ce/232/290x195bingsearch1.jpg",
+  "image": "http://www.eweek.com/imagesvr_ez/b2bezp/2016/08/290x195bingsearch1_18.jpg?alias=social_image",
   "video": null,
-  "lang": null,
-  "logo": "http://www.eweek.com/images/favicon.ico",
-  "publisher": null,
+  "lang": "en",
+  "logo": "http://www.eweek.com/bundles/eweekbase/images/favicon.ico",
+  "publisher": "eWEEK",
   "title": "Microsoft, HackerRank Launch Bing Search Tool for Programmers",
-  "url": "http://www.eweek.com/developer/microsoft-hackerrank-launch-bing-search-tool-for-programmers.html"
+  "url": "https://www.eweek.com/development/microsoft-hackerrank-launch-bing-search-tool-for-programmers"
 }
 
 exports['fast-company 1'] = {
   "author": "Lydia Dishman",
-  "date": "2016-05-24T09:42:00.000Z",
+  "date": "2016-05-24T21:27:05.000Z",
   "description": "Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.",
   "image": "http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg",
   "video": null,
@@ -286,7 +286,7 @@ exports['financial-times 1'] = {
 
 exports['forbes 1'] = {
   "author": "George Anders",
-  "date": "2015-09-30T00:00:00.000Z",
+  "date": "2015-09-30T15:49:44.000Z",
   "description": "HackerRank, a fast-growing company that runs coding contests to identify top software engineers, has hired Facebook and Google veteran Grady Burnett to be its chief operating officer.",
   "image": "http://blogs-images.forbes.com/georgeanders/files/2015/09/HackerRank-1940x827.jpg",
   "video": null,
@@ -418,7 +418,7 @@ exports['linkedin (company) 1'] = {
   "author": null,
   "date": null,
   "description": null,
-  "image": null,
+  "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
   "video": null,
   "lang": "en",
   "logo": "https://static.licdn.com/sc/h/eahiplrwoq61f4uan012ia17i",
@@ -481,7 +481,7 @@ exports['market-wired 1'] = {
 
 exports['marketing-land 1'] = {
   "author": "Marketing Land",
-  "date": "2016-02-23T21:31:45.000Z",
+  "date": "2016-02-24T13:53:49.000Z",
   "description": "We’re four weeks away from the next MarTech conference in San Francisco. This will be the biggest and best one yet, and I wanted to give you a deeper previ",
   "image": "http://marketingland.com/wp-content/ml-loads/2016/02/MarTec-2016-US-1200x900-agenda.png",
   "video": null,
@@ -494,7 +494,7 @@ exports['marketing-land 1'] = {
 
 exports['mashable 1'] = {
   "author": "Stacey Bishop",
-  "date": "2015-05-13T16:37:41.000Z",
+  "date": "2015-05-13T16:37:58.000Z",
   "description": "Analytics open the door to predictive selling and ensure that your sales team is doing more than hoarding data that it doesn’t know how to act on.",
   "image": "http://i.amz.mshcdn.com/jw9czJj9h-4ClVBegbu982-Zmb8=/1200x627/2015%2F05%2F13%2Fc6%2Frevenue_ana.65b72.jpg",
   "video": null,
@@ -533,7 +533,7 @@ exports['motherboard 1'] = {
 
 exports['nytimes 1'] = {
   "author": "Tim Herrera",
-  "date": "2017-07-03T09:00:04.000Z",
+  "date": "2017-07-05T15:18:50.000Z",
   "description": "Welcome to the second edition of the Smarter Living newsletter.",
   "image": "https://static01.nyt.com/images/2017/06/23/smarter-living/Sl-newsletter-header/Sl-newsletter-header-facebookJumbo-v2.jpg",
   "video": null,
@@ -585,7 +585,7 @@ exports['recode 1'] = {
 
 exports['reuters 1'] = {
   "author": "Heather Somerville",
-  "date": "2016-05-13T16:43:00.000Z",
+  "date": "2016-05-13T16:43:53.000Z",
   "description": "Venture capitalists are raising money at the fastest rate in a decade, raking in about $13 billion in the first quarter of 2016.",
   "image": "http://s4.reutersmedia.net/resources/r/?m=02&d=20160513&t=2&i=1137169522&w=&fh=545px&fw=&ll=&pl=&sq=&r=LYNXNPEC4C0SU",
   "video": null,
@@ -650,7 +650,7 @@ exports['silicon-angle 1'] = {
 
 exports['silicon-beat 1'] = {
   "author": "Marisa Kendall",
-  "date": "2016-04-20T01:52:32.000Z",
+  "date": "2016-04-20T02:05:48.000Z",
   "description": "It’s no secret that few women hold positions of power at venture capital firms. A new study quantifies what many in the industry have reported anecdotally. According to CrunchBase data released Tuesday on …",
   "image": "http://www.siliconbeat.com/wp-content/uploads/2016/04/Panel.jpg",
   "video": null,
@@ -741,7 +741,7 @@ exports['the-boston-globe 1'] = {
 
 exports['the-guardian 1'] = {
   "author": "Olivia Solon",
-  "date": "2017-07-03T19:17:54.000Z",
+  "date": "2017-07-04T08:37:34.000Z",
   "description": "Judge dismisses lawsuit accusing Facebook of tracking users’ activity, saying responsibility was on plaintiffs to keep browsing history private",
   "image": "https://i.guim.co.uk/img/media/7a94153cfbe65bca1a3e7f6993b233d3c0983c36/0_533_3003_1801/master/3003.jpg?w=1200&h=630&q=55&auto=format&usm=12&fit=crop&crop=faces%2Centropy&bm=normal&ba=bottom%2Cleft&blend64=aHR0cHM6Ly91cGxvYWRzLmd1aW0uY28udWsvMjAxNi8wNS8yNS9vdmVybGF5LWxvZ28tMTIwMC05MF9vcHQucG5n&s=eaa757e2ef45d638beabf99b31e756ac",
   "video": null,
@@ -806,7 +806,7 @@ exports['twitter (tweet with image) 1'] = {
 
 exports['usa-today 1'] = {
   "author": "Editors, USA TODAY",
-  "date": "2016-05-24T16:29:19.230Z",
+  "date": "2016-05-24T16:52:12.240Z",
   "description": "Out of the loop today? We’ve got what you missed.",
   "image": "http://www.gannett-cdn.com/-mm-/b4fe31162dae4fb60b80c760486d2384a93fb163/c=0-95-1024-674&r=x633&c=1200x630/local/-/media/2016/05/24/USATODAY/USATODAY/635997039647041990-ShortList.jpg",
   "video": null,
@@ -832,7 +832,7 @@ exports['venture-beat 1'] = {
 
 exports['vimeo 1'] = {
   "author": null,
-  "date": null,
+  "date": "2017-12-10T07:52:19.000Z",
   "description": "- Client: OGN (CJ E&M) - Producer: Yeonjung Hong - Creative Director: Youngmin Kim - Motion Design: Youngmin Kim, Gyuhwan Yu, Dahee Ahn - Sound Design: Stone…",
   "image": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F613524460_1280x720.webp&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
   "video": null,
@@ -884,7 +884,7 @@ exports['wsj 1'] = {
 
 exports['xconomy 1'] = {
   "author": "Bernadette Tansey",
-  "date": "2016-05-24T12:09:41.000Z",
+  "date": "2016-05-24T13:53:41.000Z",
   "description": "Cybersecurity company Agari, which guards against hacker attacks initiated through fraudulent e-mails, announced today it has raised $22 million in a Serie",
   "image": "http://www.xconomy.com/wordpress/wp-content/images/2016/05/AgariPetersonRS.jpg",
   "video": null,
@@ -902,7 +902,7 @@ exports['yahoo-news 1'] = {
   "image": "https://s.yimg.com/ny/api/res/1.2/hnWTAtxjD0NGNLijeWWBGw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTYxNjtoPTQ2MDtzbT0xO2lsPXBsYW5l/http://media.zenfs.com/en-US/homerun/mic_26/8de763298d0eafd3534895283457892c.cf.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://www.yahoo.com/favicon.ico",
+  "logo": "https://s.yimg.com/os/mit/media/p/presentation/images/icons/win8-tile-1484740.png",
   "publisher": "Yahoo News - Latest News & Headlines",
   "title": "Justin Bieber Coldly Throws Fan’s Gift Out Car Window, Belieber Hearts Break",
   "url": "https://www.yahoo.com/news/justin-bieber-coldly-throws-fans-133800208.html"
@@ -979,5 +979,18 @@ exports['wikipedia 1'] = {
   "publisher": "Wikipedia",
   "title": "Bob Dylan - Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
+}
+
+exports['engadget 1'] = {
+  "author": null,
+  "date": null,
+  "description": "Previously, only paid subscribers had access to private repositories.",
+  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
+  "video": null,
+  "lang": "en",
+  "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",
+  "publisher": "Engadget",
+  "title": "All GitHub users can keep their code private",
+  "url": "https://www.engadget.com/2019/01/07/all-github-users-keep-code-private/"
 }
 
