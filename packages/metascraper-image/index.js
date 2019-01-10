@@ -29,7 +29,7 @@ module.exports = () => ({
     wrap($ => $('meta[itemprop="image"]').attr('content')),
     wrap($ => $filter($, $('article img[src]'), getSrc)),
     wrap($ => $filter($, $('#content img[src]'), getSrc)),
-    wrap($ => $('img[alt*="author"]').attr('src')),
+    wrap($ => $('img[alt*="author" i]').attr('src')),
     wrap($ => $('img[src]').attr('src'))
   ]
 })

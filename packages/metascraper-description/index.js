@@ -25,7 +25,7 @@ module.exports = () => ({
     wrap($ => $('meta[name="description"]').attr('content')),
     wrap($ => $('meta[itemprop="description"]').attr('content')),
     wrap($ => $('#description').text()),
-    wrap($ => $filter($, $('[class*="content"] > p'))),
-    wrap($ => $filter($, $('[class*="content"] p')))
+    wrap($ => $filter($, $('[class*="content" i] > p'))),
+    wrap($ => $filter($, $('[class*="content" i] p')))
   ]
 })

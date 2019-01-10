@@ -29,7 +29,7 @@ module.exports = () => ({
   author: [
     wrap($ => $('#owner-name').text()),
     wrap($ => $('#channel-title').text()),
-    wrap($ => $filter($, $('[class*="user-info"]')))
+    wrap($ => $filter($, $('[class*="user-info" i]')))
   ],
   publisher: [({ url }) => getVideoId(url).service === 'youtube' && 'YouTube'],
   image: [

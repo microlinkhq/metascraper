@@ -37,14 +37,14 @@ module.exports = () => ({
     wrap($ => $('meta[name="author"]').attr('content')),
     wrap($ => $('meta[property="author"]').attr('content')),
     wrap($ => $('meta[property="article:author"]').attr('content')),
-    wrap($ => $filter($, $('[itemprop*="author"] [itemprop="name"]'))),
-    wrap($ => $filter($, $('[itemprop*="author"]'))),
+    wrap($ => $filter($, $('[itemprop*="author" i] [itemprop="name"]'))),
+    wrap($ => $filter($, $('[itemprop*="author" i]'))),
     wrap($ => $filter($, $('[rel="author"]'))),
-    strict(wrap($ => $filter($, $('a[class*="author"]')))),
-    strict(wrap($ => $filter($, $('[class*="author"] a')))),
-    strict(wrap($ => $filter($, $('a[href*="/author/"]')))),
-    wrap($ => $filter($, $('a[class*="screenname"]'))),
-    strict(wrap($ => $filter($, $('[class*="author"]')))),
-    strict(wrap($ => $filter($, $('[class*="byline"]'))))
+    strict(wrap($ => $filter($, $('a[class*="author" i]')))),
+    strict(wrap($ => $filter($, $('[class*="author" i] a')))),
+    strict(wrap($ => $filter($, $('a[href*="/author/" i]')))),
+    wrap($ => $filter($, $('a[class*="screenname" i]'))),
+    strict(wrap($ => $filter($, $('[class*="author" i]')))),
+    strict(wrap($ => $filter($, $('[class*="byline" i]'))))
   ]
 })

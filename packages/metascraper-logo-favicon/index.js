@@ -26,9 +26,8 @@ const getSizes = ($, collection) =>
     .value()
 
 const sizeSelectors = [
-  { tag: 'link[rel="apple-touch-icon"]', attr: 'href' },
-  { tag: 'link[rel="apple-touch-icon-precomposed"]', attr: 'href' },
-  { tag: 'meta[name="msapplication-TileImage"]', attr: 'content' },
+  { tag: 'link[rel*="apple-touch-icon"]', attr: 'href' },
+  { tag: 'meta[name*="msapplication-tileimage" i]', attr: 'content' },
   { tag: 'link[rel="icon"]', attr: 'href' },
   { tag: 'link[rel="shortcut icon"]', attr: 'href' }
 ]
