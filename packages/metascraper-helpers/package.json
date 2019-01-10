@@ -23,7 +23,6 @@
     "image-extensions": "~1.1.0",
     "is-relative-url": "~2.0.0",
     "is-uri": "~1.2.0",
-    "is-url-http": "~1.0.1",
     "iso-639-3": "~1.1.0",
     "isostring": "0.0.1",
     "lodash": "~4.17.11",

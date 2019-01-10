@@ -10,8 +10,7 @@ const {
   flow,
   chain,
   isEmpty,
-  eq,
-  attempt
+  eq
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -22,7 +21,6 @@ const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
-const isHttpUrl = require('is-url-http')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
