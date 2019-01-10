@@ -12,11 +12,74 @@ const {
   isMime,
   extension,
   absoluteUrl,
-  description
+  description,
+  url
 } = require('..')
 
 describe('metascraper-helpers', () => {
+  it('.url', () => {
+    should(url()).be.null()
+    should(url(null)).be.null()
+    should(url('')).be.null()
+    should(url('', { url: 'https://kikobeats.com/' })).be.null()
+    should(url('paco')).be.null()
+    should(url(NaN, { url: 'https://kikobeats.com' })).be.null()
+    should(url('http://<foo>', { url: 'https://kikobeats.com' })).be.null()
+
+    should(url('blog', { url: 'https://kikobeats.com/' })).be.equal(
+      'https://kikobeats.com/blog'
+    )
+
+    should(
+      url(
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+      )
+    ).be.equal(
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )
+    should(
+      url(
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+        { url: 'https://kikobeats.com/' }
+      )
+    ).be.equal(
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )
+    should(
+      url('magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a', {
+        url: 'https://kikobeats.com/'
+      })
+    ).be.equal('magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a')
+    should(
+      url(
+        'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg',
+        {
+          url: 'http://www.cloudpro.co.uk/go/6024'
+        }
+      )
+    ).be.equal(
+      'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg'
+    )
+  })
+
   it('.absoluteUrl', () => {
+    should(
+      absoluteUrl(
+        'https://kikobeats.com/',
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+      )
+    ).be.equal(
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )
+    should(absoluteUrl('https://kikobeats.com/', '')).be.equal(
+      'https://kikobeats.com/'
+    )
+    should(absoluteUrl('https://kikobeats.com/', null)).be.equal(
+      'https://kikobeats.com/'
+    )
+    should(absoluteUrl('https://kikobeats.com/', undefined)).be.equal(
+      'https://kikobeats.com/'
+    )
     should(absoluteUrl('https://kikobeats.com/', 'blog')).be.equal(
       'https://kikobeats.com/blog'
     )

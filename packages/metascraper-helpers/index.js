@@ -10,7 +10,8 @@ const {
   flow,
   chain,
   isEmpty,
-  eq
+  eq,
+  attempt
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -21,11 +22,13 @@ const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
+const isHttpUrl = require('is-url-http')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
 const isIso = require('isostring')
 const toTitle = require('title')
+const isUri = require('is-uri')
 const { URL } = require('url')
 const urlLib = require('url')
 
@@ -65,8 +68,10 @@ const removeLocation = value => replace(value, REGEX_LOCATION, '')
 const isUrl = (url, { relative = false } = {}) =>
   relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
 
-const absoluteUrl = (baseUrl, relativePath = '') =>
-  resolveUrl(baseUrl, relativePath)
+const absoluteUrl = (baseUrl, relativePath) => {
+  if (isEmpty(relativePath)) return baseUrl
+  return resolveUrl(baseUrl, relativePath)
+}
 
 const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
@@ -76,8 +81,9 @@ const sanetizeUrl = (url, opts) =>
     ...opts
   })
 
-const normalizeUrl = (baseUrl, relativePath, opts) =>
-  sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
+const normalizeUrl = (baseUrl, relativePath, opts) => {
+  return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
+}
 
 const removeByPrefix = flow([value => value.replace(REGEX_BY, ''), trim])
 
@@ -143,10 +149,15 @@ const publisher = value => isString(value) && condenseWhitespace(value)
 
 const author = value => isAuthor(value) && getAuthor(value)
 
-const url = (value, { url }) => {
-  if (isEmpty(value)) return false
-  const absoluteUrl = normalizeUrl(url, value)
-  return isUrl(absoluteUrl) && absoluteUrl
+const url = (value, { url = '' } = {}) => {
+  if (isEmpty(value)) return null
+
+  try {
+    const absoluteUrl = normalizeUrl(url, value)
+    if (isUrl(absoluteUrl)) return absoluteUrl
+  } catch (err) {}
+
+  return isUri(value) ? value : null
 }
 
 const date = value => {
