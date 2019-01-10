@@ -2,7 +2,7 @@
   "name": "metascraper-youtube",
   "description": "metascraper integration with YouTube",
   "homepage": "https://documentup.com/microlinkhq/metascraper-youtube",
-  "version": "4.8.5",
+  "version": "4.9.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "youtube"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.8.5",
+    "@metascraper/helpers": "^4.9.0",
     "get-video-id": "~3.1.0",
     "is-reachable": "~3.0.0",
     "p-locate": "~3.0.0"

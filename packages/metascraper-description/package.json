@@ -2,7 +2,7 @@
   "name": "metascraper-description",
   "description": "Get description property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.8.5",
+  "version": "4.9.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.8.5"
+    "@metascraper/helpers": "^4.9.0"
   },
   "devDependencies": {
     "standard": "latest"

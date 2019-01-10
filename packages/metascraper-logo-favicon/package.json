@@ -2,7 +2,7 @@
   "name": "metascraper-logo-favicon",
   "description": "metascraper logo favicon fallback",
   "homepage": "https://documentup.com/microlinkhq/metascraper-logo-favicon",
-  "version": "4.8.5",
+  "version": "4.9.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.8.5",
+    "@metascraper/helpers": "^4.9.0",
     "got": "~9.5.0",
     "lodash": "~4.17.11"
   },
