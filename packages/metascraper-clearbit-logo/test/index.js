@@ -14,8 +14,7 @@ describe('metascraper-clearbit-logo', () => {
 
   it('otherwise returns null', async () => {
     const url = 'https://lolwerhere.com'
-    const html = '<div></div>'
-    const meta = await metascraper({ html, url })
+    const meta = await metascraper({ url })
     should(meta.logo).be.null()
   })
 

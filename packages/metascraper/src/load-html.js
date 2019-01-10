@@ -2,7 +2,7 @@
 
 const cheerio = require('cheerio-advanced-selectors').wrap(require('cheerio'))
 
-module.exports = html =>
+module.exports = (html = '') =>
   cheerio.load(html, {
     lowerCaseTags: true,
     decodeEntities: true,
