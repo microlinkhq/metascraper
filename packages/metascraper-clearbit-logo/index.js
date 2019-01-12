@@ -1,16 +1,15 @@
 'use strict'
 
+const { stringify } = require('querystring')
 const { URL } = require('url')
-const qsm = require('qsm')
-
 const got = require('got')
 
 const ENDPOINT = 'https://logo.clearbit.com'
 
-const apiUrl = (url, opts = {}) => {
+const apiUrl = (url, opts) => {
   const { hostname } = new URL(url)
   const apiUrl = `${ENDPOINT}/${hostname}`
-  return qsm.add(apiUrl, opts)
+  return opts ? `${apiUrl}?${stringify(opts)}` : apiUrl
 }
 
 module.exports = opts => {
