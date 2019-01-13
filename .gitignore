@@ -31,3 +31,4 @@ coverage
 # Other
 ############################
 .node_history
+.envrc
