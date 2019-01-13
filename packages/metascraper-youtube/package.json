@@ -23,6 +23,10 @@
     "p-locate": "~3.0.0"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {

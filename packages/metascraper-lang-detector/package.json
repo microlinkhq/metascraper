@@ -21,6 +21,9 @@
     "iso-639-3": "~1.1.0"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
     "standard": "latest"
   },
   "engines": {

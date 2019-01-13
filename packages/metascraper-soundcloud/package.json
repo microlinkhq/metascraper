@@ -20,6 +20,10 @@
     "@metascraper/helpers": "^4.9.0"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {

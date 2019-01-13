@@ -22,6 +22,10 @@
     "lodash": "~4.17.11"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
