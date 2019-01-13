@@ -28,11 +28,7 @@
   },
   "devDependencies": {
     "browserless": "latest",
-    "mocha": "latest",
-    "nyc": "latest",
     "puppeteer": "latest",
-    "should": "latest",
-    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {
