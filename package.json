@@ -32,8 +32,6 @@
     "@commitlint/config-conventional": "latest",
     "browser-sync": "latest",
     "concurrently": "latest",
-    "conventional-changelog-cli": "latest",
-    "conventional-github-releaser": "latest",
     "eachdir": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
