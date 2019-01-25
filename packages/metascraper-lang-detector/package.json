@@ -2,7 +2,7 @@
   "name": "metascraper-lang-detector",
   "description": "Get lang property from HTML markup based on natural language processor",
   "homepage": "https://metascraper.js.org",
-  "version": "4.9.0",
+  "version": "4.10.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0",
+    "@metascraper/helpers": "^4.10.1",
     "franc": "~4.0.0",
     "iso-639-3": "~1.1.0"
   },

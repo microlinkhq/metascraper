@@ -2,7 +2,7 @@
   "name": "metascraper-soundcloud",
   "description": "metascraper integration with SoundCloud",
   "homepage": "https://documentup.com/microlinkhq/metascraper-soundcloud",
-  "version": "4.9.0",
+  "version": "4.10.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "soundcloud"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0"
+    "@metascraper/helpers": "^4.10.1"
   },
   "devDependencies": {
     "mocha": "latest",

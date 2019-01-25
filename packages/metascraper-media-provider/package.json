@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.9.0",
+  "version": "4.10.1",
   "main": "src/index",
   "repository": {
     "type": "git",
@@ -17,14 +17,14 @@
     "youtube-dl"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0",
+    "@metascraper/helpers": "^4.10.1",
+    "@microlink/youtube-dl": "~1.13.0",
     "got": "~9.6.0",
     "lodash": "~4.17.11",
     "memoize-one": "~5.0.0",
     "memoize-token": "~1.1.3",
     "p-reflect": "~1.0.0",
-    "tunnel": "0.0.6",
-    "@microlink/youtube-dl": "~1.13.0"
+    "tunnel": "0.0.6"
   },
   "devDependencies": {
     "browserless": "latest",
