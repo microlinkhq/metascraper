@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^4.9.0",
-    "got": "~9.5.0",
+    "got": "~9.6.0",
     "lodash": "~4.17.11",
     "memoize-one": "~5.0.0",
     "memoize-token": "~1.1.3",

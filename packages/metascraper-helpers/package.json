@@ -29,7 +29,7 @@
     "mime-types": "~2.1.21",
     "normalize-url": "~4.1.0",
     "smartquotes": "~2.3.1",
-    "title": "~3.4.0",
+    "title": "~3.4.1",
     "truncate": "~2.0.1",
     "url-regex": "~4.1.1",
     "video-extensions": "~1.1.0"
