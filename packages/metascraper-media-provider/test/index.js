@@ -61,10 +61,7 @@ describe('metascraper-media-provider', () => {
     })
 
     describe('youtube', () => {
-      ;[
-        'https://www.youtube.com/watch?v=gABW21GkFw8',
-        'https://www.youtube.com/watch?v=hwMkbaS_M_c'
-      ].forEach(url => {
+      ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
           console.log(metadata.video)
@@ -113,10 +110,7 @@ describe('metascraper-media-provider', () => {
 
   describe('audio', () => {
     describe('youtube', () => {
-      ;[
-        'https://www.youtube.com/watch?v=gABW21GkFw8',
-        'https://www.youtube.com/watch?v=hwMkbaS_M_c'
-      ].forEach(url => {
+      ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
           console.log(metadata.audio)
