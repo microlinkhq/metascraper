@@ -1,6 +1,6 @@
 'use strict'
 
-const youtubedl = require('youtube-dl')
+const youtubedl = require('@microlink/youtube-dl')
 const { promisify } = require('util')
 const { noop } = require('lodash')
 
@@ -23,8 +23,7 @@ module.exports = ({ cacheDir, onError = noop } = {}) => {
         url,
         isTwitterUrl(url) && PROXY_URL
           ? [...opts, `--proxy=${PROXY_URL}`]
-          : opts,
-        { maxBuffer: Infinity }
+          : opts
       )
     } catch (err) {
       onError(err, url)
