@@ -1,0 +1,21 @@
+exports['learnnode.com 1'] = {
+  "description": "A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.",
+  "publisher": "Learn Node",
+  "author": null,
+  "title": "Learn Node"
+}
+
+exports['microlink.io 1'] = {
+  "description": "Extract structured data from any website. Enter an URL, receive information. Get relevant information from any link & easily create beautiful previews.",
+  "publisher": "Microlink",
+  "author": null,
+  "title": "Turns any website into data"
+}
+
+exports['kikobeats.com 1'] = {
+  "description": "A millennial doing stuff on internet that ships software every day and builds digital products.",
+  "publisher": "Kikobeats",
+  "author": "kikobeats",
+  "title": "Kikobeats"
+}
+

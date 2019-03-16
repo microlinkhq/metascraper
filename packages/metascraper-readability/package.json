@@ -1,0 +1,50 @@
+{
+  "name": "metascraper-readability",
+  "description": "A Readability connector for metascraper",
+  "homepage": "https://metascraper.js.org",
+  "version": "4.10.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "url"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^4.10.1",
+    "jsdom": "~14.0.0",
+    "lodash": "~4.17.11",
+    "memoize-one": "~5.0.0",
+    "readability": "github:mozilla/readability"
+  },
+  "devDependencies": {
+    "metascraper": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "snap-shot": "latest",
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "metascraper": "^4"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}

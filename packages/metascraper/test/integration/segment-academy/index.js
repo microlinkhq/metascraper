@@ -17,13 +17,13 @@ const metascraper = require('../../..')([
   require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
-  require('metascraper-url')()
+  require('metascraper-url')(),
+  require('metascraper-readability')()
 ])
 
 const readFile = promisify(fs.readFile)
 
-const url =
-  'https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server'
+const url = 'https://www.segment.com/academy/collecting-data/when-to-track-on-the-client-vs-server'
 
 it('segment-academy', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))

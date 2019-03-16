@@ -404,7 +404,7 @@ exports['lean-data 1'] = {
 exports['linkedin (company) 1'] = {
   "author": null,
   "date": null,
-  "description": null,
+  "description": "LinkedIn领英",
   "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
   "video": null,
   "lang": "en",
