@@ -71,7 +71,7 @@
     "release": "lerna publish --sort --conventional-commits -m \"chore(release): %s\"",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
-    "update": "lerna exec ncu -- -a",
+    "update": "lerna exec ncu -- -u",
     "update:check": "lerna exec ncu -- --error-level 2"
   },
   "private": true,
