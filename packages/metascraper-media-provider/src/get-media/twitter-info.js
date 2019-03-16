@@ -28,7 +28,7 @@ const API_GUEST_ACTIVATE_EXPIRE = 10 * 60 * 1000 // 10 min
 
 const { PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS } = process.env
 
-let agent = PROXY_HOST
+const agent = PROXY_HOST
   ? tunnel.httpsOverHttp({
     proxy: {
       host: PROXY_HOST,
@@ -43,7 +43,7 @@ const getGuestToken = async (url = '', opts = {}) => {
   const { body } = await got.post(
     'https://api.twitter.com/1.1/guest/activate.json',
     {
-      headers: { Authorization: TWITTER_BEARER_TOKEN, Referer: url },
+      headers: { Authorization: TWITTER_BEARER_TOKEN },
       json: true,
       retry: 0,
       agent,
