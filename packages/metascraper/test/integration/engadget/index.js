@@ -17,13 +17,13 @@ const metascraper = require('../../..')([
   require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
-  require('metascraper-url')()
+  require('metascraper-url')(),
+  require('metascraper-readability')()
 ])
 
 const readFile = promisify(fs.readFile)
 
-const url =
-  'https://www.engadget.com/2019/01/07/all-github-users-keep-code-private'
+const url = 'https://www.engadget.com/2019/01/07/all-github-users-keep-code-private'
 
 it('engadget', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
