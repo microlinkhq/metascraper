@@ -10,7 +10,9 @@ const {
   flow,
   chain,
   isEmpty,
-  eq
+  eq,
+  lte,
+  size
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -61,6 +63,8 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const TRUNCATE_MAX_LENGTH = 300
 
+const AUTHOR_MAX_LENGTH = 128
+
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
 const isUrl = (url, { relative = false } = {}) =>
@@ -102,7 +106,7 @@ const $filter = ($, domNodes, fn = defaultFn) => {
 }
 
 const isAuthor = (str, opts = { relative: false }) =>
-  isString(str) && !isUrl(str, opts)
+  !isUrl(str, opts) && isString(str) && lte(size(str), AUTHOR_MAX_LENGTH)
 
 const getAuthor = (str, opts = { removeBy: true }) => titleize(str, opts)
 
