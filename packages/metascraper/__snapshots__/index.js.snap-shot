@@ -206,19 +206,6 @@ exports['entrepreneur 1'] = {
   "url": "https://www.entrepreneur.com/article/275188"
 }
 
-exports['et-tech 1'] = {
-  "author": "TV Mahalingam",
-  "date": "2016-05-25T00:00:00.000Z",
-  "description": "Dell speaks about the complexities of engineering the biggest acquisition in tech history, Dell’s future bets and why he continues to remain bullish..",
-  "image": "http://economictimes.indiatimes.com/photo/michael-dell-on-complexities-involved-in-pulling-off-the-biggest-tech-acquisition-dell-s-future-bets-more/52424992.cms",
-  "video": null,
-  "lang": null,
-  "logo": "http://b2bstatic.iimg.in/Themes/Release/images/responsive/tech-logo-square.jpg",
-  "publisher": "ETtech.com",
-  "title": "Michael Dell on complexities involved in pulling off the biggest tech acquisition, Dell’s future bets & more | ETtech",
-  "url": "http://tech.economictimes.indiatimes.com/news/corporate/michael-dell-biggest-tech-acquisition-future-bets/52424992"
-}
-
 exports['eweek 1'] = {
   "author": "Darryl K. Taft",
   "date": "2019-01-09T09:01:37.000Z",
@@ -992,5 +979,18 @@ exports['engadget 1'] = {
   "publisher": "Engadget",
   "title": "All GitHub users can keep their code private",
   "url": "https://www.engadget.com/2019/01/07/all-github-users-keep-code-private/"
+}
+
+exports['learnnode 1'] = {
+  "author": null,
+  "date": null,
+  "description": "A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.",
+  "image": "https://learnnode.com/images/NODE/poster.jpg",
+  "video": "https://player.vimeo.com/external/216213305.sd.mp4?s=815e208b400abe120e9b860dad68762bcf4b828a&profile_id=164",
+  "lang": null,
+  "logo": "https://learnnode.com/images/NODE/favicon.png",
+  "publisher": "Learn Node",
+  "title": "Learn Node",
+  "url": "https://learnnode.com"
 }
 
