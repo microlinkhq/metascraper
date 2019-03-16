@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://metascraper.js.org",
-  "version": "4.10.1",
+  "version": "4.10.2",
   "main": "index.js",
   "repository": {
     "type": "git",
