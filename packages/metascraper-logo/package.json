@@ -2,7 +2,7 @@
   "name": "metascraper-logo",
   "description": "Get logo property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "index.js",
   "repository": {
     "type": "git",

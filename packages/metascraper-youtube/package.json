@@ -2,7 +2,7 @@
   "name": "metascraper-youtube",
   "description": "metascraper integration with YouTube",
   "homepage": "https://documentup.com/microlinkhq/metascraper-youtube",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "index.js",
   "repository": {
     "type": "git",
