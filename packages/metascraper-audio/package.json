@@ -2,7 +2,7 @@
   "name": "metascraper-audio",
   "description": "Get audio property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.10.2",
+  "version": "5.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.10.2"
+    "@metascraper/helpers": "^5.0.0"
   },
   "devDependencies": {
     "lodash": "latest",
