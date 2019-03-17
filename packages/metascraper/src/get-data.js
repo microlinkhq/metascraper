@@ -1,7 +1,6 @@
 'use strict'
 
-const { isEmpty } = require('lodash')
-const pReduce = require('p-reduce')
+const { map, fromPairs, isEmpty } = require('lodash')
 
 const getValue = async ({ htmlDom, url, conditions, meta }) => {
   const size = conditions.length
@@ -15,15 +14,15 @@ const getValue = async ({ htmlDom, url, conditions, meta }) => {
   return value
 }
 
-const getData = ({ rules, htmlDom, url }) =>
-  pReduce(
-    rules,
-    async (acc, [propName, conditions]) => {
-      const value = await getValue({ htmlDom, url, conditions, meta: acc })
-      acc[propName] = !isEmpty(value) ? value : null
-      return acc
-    },
-    {}
+const getData = async ({ rules, htmlDom, url }) => {
+  const data = await Promise.all(
+    map(rules, async ([propName, conditions]) => {
+      const value = await getValue({ htmlDom, url, conditions })
+      return [propName, !isEmpty(value) ? value : null]
+    })
   )
+
+  return fromPairs(data)
+}
 
 module.exports = getData
