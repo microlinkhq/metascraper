@@ -40,7 +40,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   },
   "standard": {
     "env": [
