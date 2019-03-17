@@ -1,0 +1,22 @@
+{
+  "name": "@metascraper/bench",
+  "version": "4.10.2",
+  "description": "To give you an idea of how accurate metascraper** compared with similar libraries",
+  "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "html-metadata": "latest",
+    "node-metainspector": "latest",
+    "open-graph-scraper": "latest",
+    "unfluff": "latest",
+    "metascraper": "latest",
+    "metascraper-author": "latest",
+    "metascraper-date": "latest",
+    "metascraper-description": "latest",
+    "metascraper-image": "latest",
+    "metascraper-logo": "latest",
+    "metascraper-title": "latest",
+    "metascraper-url": "latest"
+  }
+}

@@ -42,19 +42,15 @@
     "gulp-cssnano": "latest",
     "gulp-strip-css-comments": "latest",
     "gulp-uglify": "latest",
-    "html-metadata": "latest",
     "husky": "latest",
     "lerna": "latest",
     "lint-staged": "latest",
     "mkdirp": "latest",
-    "node-metainspector": "latest",
     "npm-check-updates": "latest",
-    "open-graph-scraper": "latest",
     "prettier-standard": "latest",
     "rimraf": "latest",
     "standard": "latest",
-    "standard-markdown": "latest",
-    "unfluff": "latest"
+    "standard-markdown": "latest"
   },
   "engines": {
     "node": ">= 8"

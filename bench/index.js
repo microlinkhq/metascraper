@@ -86,7 +86,7 @@ function getScraperResults (SCRAPER, urls, htmls) {
     urls.map((url, i) => {
       const html = htmls[i]
       const name = SCRAPER.name
-      const Module = name === 'metascraper' ? require('..') : require(name)
+      const Module = require(name)
       return SCRAPER.scrape(Module, url, html).then(metadata => {
         return SCRAPER.normalize(metadata)
       })
