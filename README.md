@@ -91,7 +91,7 @@ The output will be something like:
 
 ## Metadata
 
-?> Other metadata can be defined using a custom [rule bundle](#rule-bundles).
+?> Other metadata can be defined using a custom [rule bundle](#rules-bundles).
 
 Here is an example of the metadata that **metascraper** can collect:
 
