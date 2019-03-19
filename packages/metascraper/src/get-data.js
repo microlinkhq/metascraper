@@ -3,13 +3,13 @@
 const { map, fromPairs, isEmpty } = require('lodash')
 
 const getValue = async ({ htmlDom, url, conditions, meta }) => {
-  const size = conditions.length
-  let index = -1
+  const lastIndex = conditions.length
+  let index = 0
   let value
 
-  while (isEmpty(value) && index++ < size - 1) {
+  do {
     value = await conditions[index]({ htmlDom, url, meta })
-  }
+  } while (isEmpty(value) && ++index < lastIndex)
 
   return value
 }
