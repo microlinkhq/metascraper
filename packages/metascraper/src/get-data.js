@@ -7,9 +7,9 @@ const getValue = async ({ htmlDom, url, conditions, meta }) => {
   let index = 0
   let value
 
-  do {
-    value = await conditions[index]({ htmlDom, url, meta })
-  } while (isEmpty(value) && ++index < lastIndex)
+  while (isEmpty(value) && index < lastIndex) {
+    value = await conditions[index++]({ htmlDom, url, meta })
+  }
 
   return value
 }
