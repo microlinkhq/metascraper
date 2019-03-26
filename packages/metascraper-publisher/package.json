@@ -1,7 +1,7 @@
 {
   "name": "metascraper-publisher",
   "description": "Get publisher property from HTML markup",
-  "homepage": "https://metascraper.js.org",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-publisher",
   "version": "5.0.1",
   "main": "index.js",
   "repository": {
