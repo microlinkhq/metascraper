@@ -1,7 +1,7 @@
 {
   "name": "metascraper-clearbit-logo",
   "description": "metascraper integration with Clearbit Logo API",
-  "homepage": "https://documentup.com/microlinkhq/metascraper-clearbit-logo",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit-logo",
   "version": "5.0.1",
   "main": "index.js",
   "repository": {

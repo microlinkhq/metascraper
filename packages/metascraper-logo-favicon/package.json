@@ -1,7 +1,7 @@
 {
   "name": "metascraper-logo-favicon",
   "description": "metascraper logo favicon fallback",
-  "homepage": "https://documentup.com/microlinkhq/metascraper-logo-favicon",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-logo-favicon",
   "version": "5.0.1",
   "main": "index.js",
   "repository": {

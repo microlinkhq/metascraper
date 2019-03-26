@@ -1,7 +1,7 @@
 {
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
-  "homepage": "https://metascraper.js.org",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-helpers",
   "version": "5.0.0",
   "main": "index.js",
   "repository": {
