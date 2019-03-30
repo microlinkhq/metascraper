@@ -62,7 +62,7 @@ module.exports = () => ({
       const logoUrl = resolveUrl(origin, 'favicon.ico')
 
       try {
-        await got.head(logoUrl, { retry: 0, timeout: 500 })
+        await got.head(logoUrl, { retry: 0, timeout: 1000 })
         return logoUrl
       } catch (err) {
         return null
