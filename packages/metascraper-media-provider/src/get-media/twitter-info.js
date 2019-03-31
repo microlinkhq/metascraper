@@ -15,6 +15,8 @@ const TWITTER_BEARER_TOKEN =
 
 const TWITTER_HOSTNAMES = ['twitter.com', 'mobile.twitter.com']
 
+const TOKEN_TIMEOUT = 6000
+
 const isTweet = url => url.includes('/status/')
 
 const isTwitterHost = url => TWITTER_HOSTNAMES.includes(new URL(url).hostname)
@@ -33,23 +35,20 @@ const agent = PROXY_HOST
     proxy: {
       host: PROXY_HOST,
       port: PROXY_PORT,
-      proxyAuth:
-          PROXY_USER && PROXY_PASS ? `${PROXY_USER}:${PROXY_PASS}` : null
+      proxyAuth: PROXY_USER && PROXY_PASS ? `${PROXY_USER}:${PROXY_PASS}` : null
     }
   })
   : null
 
 const getGuestToken = async (url = '', opts = {}) => {
-  const { body } = await got.post(
-    'https://api.twitter.com/1.1/guest/activate.json',
-    {
-      headers: { Authorization: TWITTER_BEARER_TOKEN },
-      json: true,
-      retry: 0,
-      agent,
-      ...opts
-    }
-  )
+  const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
+    headers: { Authorization: TWITTER_BEARER_TOKEN },
+    json: true,
+    timeout: TOKEN_TIMEOUT / 2,
+    retry: 0,
+    agent,
+    ...opts
+  })
   return get(body, 'guest_token')
 }
 
@@ -61,6 +60,7 @@ const getTwitterInfo = ({ getToken, ...opts }) => async url => {
     got(apiUrl, {
       agent,
       retry: 0,
+      timeout: TOKEN_TIMEOUT,
       json: true,
       headers: {
         authorization: TWITTER_BEARER_TOKEN,
@@ -72,11 +72,7 @@ const getTwitterInfo = ({ getToken, ...opts }) => async url => {
 
   const body = get(res, 'value.body')
 
-  const id = get(
-    body,
-    `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
-    tweetId
-  )
+  const id = get(body, `globalObjects.tweets.${tweetId}.retweeted_status_id_str`, tweetId)
 
   const tweetObj = get(body, `globalObjects.tweets.${id}`)
 

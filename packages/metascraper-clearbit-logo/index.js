@@ -17,7 +17,7 @@ module.exports = opts => {
     const logoUrl = apiUrl(url, opts)
 
     try {
-      await got.head(logoUrl)
+      await got.head(logoUrl, { retry: 0, timeout: 1000 })
       return logoUrl
     } catch (err) {
       return null
