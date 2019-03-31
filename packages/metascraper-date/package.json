@@ -2,7 +2,7 @@
   "name": "metascraper-date",
   "description": "Get date property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-date",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.0.0"
+    "@metascraper/helpers": "^5.0.2"
   },
   "devDependencies": {
     "standard": "latest"

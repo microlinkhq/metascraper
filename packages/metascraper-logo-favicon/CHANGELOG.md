@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/microlinkhq/metascraper-logo-favicon/compare/v5.0.1...v5.0.2) (2019-03-31)
+
+
+### Bug Fixes
+
+* ensure external requests has early timeout ([#162](https://github.com/microlinkhq/metascraper-logo-favicon/issues/162)) ([f7a7816](https://github.com/microlinkhq/metascraper-logo-favicon/commit/f7a7816))
+
+
+
+
+
 ## [5.0.1](https://github.com/microlinkhq/metascraper-logo-favicon/compare/v5.0.0...v5.0.1) (2019-03-17)
 
 **Note:** Version bump only for package metascraper-logo-favicon
