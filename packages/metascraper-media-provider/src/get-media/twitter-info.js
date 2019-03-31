@@ -32,12 +32,12 @@ const { PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS } = process.env
 
 const agent = PROXY_HOST
   ? tunnel.httpsOverHttp({
-      proxy: {
-        host: PROXY_HOST,
-        port: PROXY_PORT,
-        proxyAuth: PROXY_USER && PROXY_PASS ? `${PROXY_USER}:${PROXY_PASS}` : null
-      }
-    })
+    proxy: {
+      host: PROXY_HOST,
+      port: PROXY_PORT,
+      proxyAuth: PROXY_USER && PROXY_PASS ? `${PROXY_USER}:${PROXY_PASS}` : null
+    }
+  })
   : null
 
 const getGuestToken = async (url = '', opts = {}) => {
