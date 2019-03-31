@@ -19,7 +19,7 @@
     "@metascraper/helpers": "^5.0.0",
     "jsdom": "~14.0.0",
     "lodash": "~4.17.11",
-    "memoize-one": "~5.0.0",
+    "memoize-one": "~5.0.2",
     "readability": "github:mozilla/readability"
   },
   "devDependencies": {

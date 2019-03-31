@@ -18,12 +18,12 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.0.0",
-    "@microlink/youtube-dl": "~1.13.1",
+    "@microlink/youtube-dl": "~1.13.2",
     "got": "~9.6.0",
     "lodash": "~4.17.11",
-    "memoize-one": "~5.0.0",
+    "memoize-one": "~5.0.2",
     "memoize-token": "~1.1.3",
-    "p-reflect": "~1.0.0",
+    "p-reflect": "~2.0.0",
     "tunnel": "0.0.6"
   },
   "devDependencies": {
