@@ -1,6 +1,6 @@
 'use strict'
 
-const { date } = require('@metascraper/helpers')
+const { date, $filter } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -15,19 +15,12 @@ const wrap = rule => ({ htmlDom }) => {
 }
 
 /**
- * Wrap a rule with validation and formatting logic when multiple elements may be matched by the
- * selector.
+ * extract the date for a given element
  *
- * @param {Function} rule
- * @return {Function} wrapped
+ * @param {CheerioElement} element
+ * @return {String | Boolean} false if no date, otherwise a string representing the date
  */
-
-const wrapMultiple = rule => ({ htmlDom }) => {
-  const elems = rule(htmlDom)
-  return elems.toArray().reduce((memo, elem) => (
-    memo || date(htmlDom(elem).text())
-  ), false)
-}
+const textDate = el => date(el.text())
 
 /**
  * Rules.
@@ -52,19 +45,19 @@ module.exports = () => ({
     wrap($ => $('meta[name*="dcterms.date" i]').attr('content')),
     wrap($ => $('[property*="dc:date" i]').attr('content')),
     wrap($ => $('[property*="dc:created" i]').attr('content')),
-    wrapMultiple($ => $('[class*="byline" i]')),
-    wrapMultiple($ => $('[class*="dateline" i]')),
-    wrapMultiple($ => $('[id*="metadata" i]')),
-    wrapMultiple($ => $('[class*="metadata" i]')), // twitter, move into a bundle of rules
-    wrapMultiple($ => $('[id*="date" i]')),
-    wrapMultiple($ => $('[class*="date" i]')),
-    wrapMultiple($ => $('[id*="publish" i]')),
-    wrapMultiple($ => $('[class*="publish" i]')),
-    wrapMultiple($ => $('[id*="post-timestamp" i]')),
-    wrapMultiple($ => $('[class*="post-timestamp" i]')),
-    wrapMultiple($ => $('[id*="post-meta" i]')),
-    wrapMultiple($ => $('[class*="post-meta" i]')),
-    wrapMultiple($ => $('[id*="time" i]')),
-    wrapMultiple($ => $('[class*="time" i]'))
+    wrap($ => $filter($, $('[class*="byline" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="dateline" i]'), textDate)),
+    wrap($ => $filter($, $('[id*="metadata" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="metadata" i]'), textDate)), // twitter, move into a bundle of rules
+    wrap($ => $filter($, $('[id*="date" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="date" i]'), textDate)),
+    wrap($ => $filter($, $('[id*="publish" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="publish" i]'), textDate)),
+    wrap($ => $filter($, $('[id*="post-timestamp" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="post-timestamp" i]'), textDate)),
+    wrap($ => $filter($, $('[id*="post-meta" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="post-meta" i]'), textDate)),
+    wrap($ => $filter($, $('[id*="time" i]'), textDate)),
+    wrap($ => $filter($, $('[class*="time" i]'), textDate))
   ]
 })
