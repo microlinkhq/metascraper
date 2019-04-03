@@ -27,7 +27,7 @@
     "isostring": "0.0.1",
     "lodash": "~4.17.11",
     "mime-types": "~2.1.22",
-    "normalize-url": "~4.2.0",
+    "normalize-url": "~4.3.0",
     "smartquotes": "~2.3.1",
     "title": "~3.4.1",
     "truncate": "~2.0.1",
