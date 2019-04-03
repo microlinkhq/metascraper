@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/microlinkhq/metascraper/compare/v5.0.2...v5.1.0) (2019-04-03)
+
+
+### Features
+
+* add inline rules at the end ([#163](https://github.com/microlinkhq/metascraper/issues/163)) ([936749a](https://github.com/microlinkhq/metascraper/commit/936749a))
+
+
+
+
+
 ## [5.0.2](https://github.com/microlinkhq/metascraper/compare/v5.0.1...v5.0.2) (2019-03-31)
 
 
