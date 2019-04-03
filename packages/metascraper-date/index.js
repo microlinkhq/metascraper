@@ -15,6 +15,21 @@ const wrap = rule => ({ htmlDom }) => {
 }
 
 /**
+ * Wrap a rule with validation and formatting logic when multiple elements may be matched by the
+ * selector.
+ *
+ * @param {Function} rule
+ * @return {Function} wrapped
+ */
+
+const wrapMultiple = rule => ({ htmlDom }) => {
+  const elems = rule(htmlDom)
+  return elems.toArray().reduce((memo, elem) => (
+    memo || date(htmlDom(elem).text())
+  ), false)
+}
+
+/**
  * Rules.
  */
 
@@ -37,19 +52,19 @@ module.exports = () => ({
     wrap($ => $('meta[name*="dcterms.date" i]').attr('content')),
     wrap($ => $('[property*="dc:date" i]').attr('content')),
     wrap($ => $('[property*="dc:created" i]').attr('content')),
-    wrap($ => $('[class*="byline" i]').text()),
-    wrap($ => $('[class*="dateline" i]').text()),
-    wrap($ => $('[id*="metadata" i]').text()),
-    wrap($ => $('[class*="metadata" i]').text()), // twitter, move into a bundle of rules
-    wrap($ => $('[id*="date" i]').text()),
-    wrap($ => $('[class*="date" i]').text()),
-    wrap($ => $('[id*="publish" i]').text()),
-    wrap($ => $('[class*="publish" i]').text()),
-    wrap($ => $('[id*="post-timestamp" i]').text()),
-    wrap($ => $('[class*="post-timestamp" i]').text()),
-    wrap($ => $('[id*="post-meta" i]').text()),
-    wrap($ => $('[class*="post-meta" i]').text()),
-    wrap($ => $('[id*="time" i]').text()),
-    wrap($ => $('[class*="time" i]').text())
+    wrapMultiple($ => $('[class*="byline" i]')),
+    wrapMultiple($ => $('[class*="dateline" i]')),
+    wrapMultiple($ => $('[id*="metadata" i]')),
+    wrapMultiple($ => $('[class*="metadata" i]')), // twitter, move into a bundle of rules
+    wrapMultiple($ => $('[id*="date" i]')),
+    wrapMultiple($ => $('[class*="date" i]')),
+    wrapMultiple($ => $('[id*="publish" i]')),
+    wrapMultiple($ => $('[class*="publish" i]')),
+    wrapMultiple($ => $('[id*="post-timestamp" i]')),
+    wrapMultiple($ => $('[class*="post-timestamp" i]')),
+    wrapMultiple($ => $('[id*="post-meta" i]')),
+    wrapMultiple($ => $('[class*="post-meta" i]')),
+    wrapMultiple($ => $('[id*="time" i]')),
+    wrapMultiple($ => $('[class*="time" i]'))
   ]
 })
