@@ -277,7 +277,9 @@ The HTML markup for extracting the content.
 
 Type: `Array`
 
-You can pass additional rules on execution time. These rules will be merged with your loaded rules.
+You can pass additional rules to add on execution time. 
+
+These rules will be merged with your loaded [`rules`](#rules) at the beginning.
 
 ## Benchmark
 
