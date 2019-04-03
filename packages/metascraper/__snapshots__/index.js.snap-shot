@@ -65,7 +65,7 @@ exports['audiense 1'] = {
 
 exports['bbc 1'] = {
   "author": "Will Smale Business reporter, BBC News",
-  "date": "1711-07-20T12:00:00.000Z",
+  "date": "2017-07-10T00:00:00.000Z",
   "description": "How an IT worker quit his day job, and despite having no ideas to begin with, launched a firm from home that made him a multi-millionaire.",
   "image": "https://ichef-1.bbci.co.uk/news/1024/cpsprodpb/D20B/production/_96817735_carl4.jpg",
   "video": null,
@@ -182,7 +182,7 @@ exports['crn 1'] = {
 
 exports['economic-times 1'] = {
   "author": "J Vignesh",
-  "date": "2016-01-12T22:34:00.000Z",
+  "date": "2016-01-12T17:04:00.000Z",
   "description": "HackerRank, a tech recruiting company, has launched HackerRank Jobs, to bridge the gap between the applicant and recruiter.",
   "image": "http://economictimes.indiatimes.com/thumb/msid-50551911,width-600,resizemode-4/hackerrank-launches-job-search-platform-hackerrank-jobs.jpg",
   "video": null,
@@ -845,7 +845,7 @@ exports['washington-post 1'] = {
 
 exports['wired 1'] = {
   "author": "Adam Rogers",
-  "date": "1707-07-13T12:00:00.000Z",
+  "date": "2017-07-13T00:00:00.000Z",
   "description": "Even if climate change didn’t send Larsen C packing, the air and oceans on Earth are incontrovertibly warmer than they used to be. Could an event like this move a policy needle?",
   "image": "https://media.wired.com/photos/5966648eb07d437d51477a87/191:100/pass/LarsenC-FeatureArt.jpg",
   "video": null,
@@ -957,7 +957,7 @@ exports['youtube channel 1'] = {
 
 exports['wikipedia 1'] = {
   "author": null,
-  "date": "2016-10-13T12:00:00.000Z",
+  "date": "2016-10-13T00:00:00.000Z",
   "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice …",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
   "video": null,
