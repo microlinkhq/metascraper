@@ -15,14 +15,6 @@ const wrap = rule => ({ htmlDom }) => {
 }
 
 /**
- * extract the date for a given element
- *
- * @param {CheerioElement} element
- * @return {String | Boolean} false if no date, otherwise a string representing the date
- */
-const textDate = el => date(el.text())
-
-/**
  * Rules.
  */
 
@@ -45,19 +37,19 @@ module.exports = () => ({
     wrap($ => $('meta[name*="dcterms.date" i]').attr('content')),
     wrap($ => $('[property*="dc:date" i]').attr('content')),
     wrap($ => $('[property*="dc:created" i]').attr('content')),
-    wrap($ => $filter($, $('[class*="byline" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="dateline" i]'), textDate)),
-    wrap($ => $filter($, $('[id*="metadata" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="metadata" i]'), textDate)), // twitter, move into a bundle of rules
-    wrap($ => $filter($, $('[id*="date" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="date" i]'), textDate)),
-    wrap($ => $filter($, $('[id*="publish" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="publish" i]'), textDate)),
-    wrap($ => $filter($, $('[id*="post-timestamp" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="post-timestamp" i]'), textDate)),
-    wrap($ => $filter($, $('[id*="post-meta" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="post-meta" i]'), textDate)),
-    wrap($ => $filter($, $('[id*="time" i]'), textDate)),
-    wrap($ => $filter($, $('[class*="time" i]'), textDate))
+    wrap($ => $filter($, $('[class*="byline" i]'))),
+    wrap($ => $filter($, $('[class*="dateline" i]'))),
+    wrap($ => $filter($, $('[id*="metadata" i]'))),
+    wrap($ => $filter($, $('[class*="metadata" i]'))), // twitter, move into a bundle of rules
+    wrap($ => $filter($, $('[id*="date" i]'))),
+    wrap($ => $filter($, $('[class*="date" i]'))),
+    wrap($ => $filter($, $('[id*="publish" i]'))),
+    wrap($ => $filter($, $('[class*="publish" i]'))),
+    wrap($ => $filter($, $('[id*="post-timestamp" i]'))),
+    wrap($ => $filter($, $('[class*="post-timestamp" i]'))),
+    wrap($ => $filter($, $('[id*="post-meta" i]'))),
+    wrap($ => $filter($, $('[class*="post-meta" i]'))),
+    wrap($ => $filter($, $('[id*="time" i]'))),
+    wrap($ => $filter($, $('[class*="time" i]')))
   ]
 })
