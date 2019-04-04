@@ -994,3 +994,16 @@ exports['learnnode 1'] = {
   "url": "https://learnnode.com"
 }
 
+exports['health.govt.nz 1'] = {
+  "author": null,
+  "date": "2011-04-07T00:00:00.000Z",
+  "description": "In December 2009 Cabinet agreed to strengthen the health sector’s focus on quality and safety by creating a Health Quality and Safety Commission. This regulatory impact statement considers what additional functions, powers, and funding mechanisms the Commission might need to achieve sustained qualit…",
+  "image": "https://html-microservice.herokuapp.com/sites/all/themes/mohpub_bootstrap/images/mohlogo.svg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.health.govt.nz/sites/all/themes/mohpub_bootstrap/favicon.ico",
+  "publisher": "Ministry of Health NZ",
+  "title": "Quality Improvement Agency: Health Quality and Safety Commission: Functions, Powers and Funding",
+  "url": "https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding"
+}
+
