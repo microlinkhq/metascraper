@@ -12,18 +12,18 @@ const MetascraperError = whoops('MetascraperError')
 
 module.exports = rules => {
   const loadedRules = loadRules(rules)
-  return async ({ url, html, rules: inlineRules } = {}) => {
+  return async ({ url, html, rules: inlineRules, escape = true } = {}) => {
     if (!isUrl(url)) {
       throw new MetascraperError({
         message: 'Need to provide a valid URL.',
         code: 'INVALID_URL'
       })
     }
-
     return getData({
       url,
       htmlDom: loadHTML(html),
-      rules: mergeRules(inlineRules, loadedRules)
+      rules: mergeRules(inlineRules, loadedRules),
+      escape: escape
     })
   }
 }
