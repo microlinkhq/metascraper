@@ -2,11 +2,11 @@
   "name": "metascraper-author",
   "description": "Get author property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.9.0",
+  "version": "5.1.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-author"
+    "url": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -16,8 +16,8 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0",
-    "lodash": "~4.17.10"
+    "@metascraper/helpers": "^5.1.0",
+    "lodash": "~4.17.11"
   },
   "devDependencies": {
     "standard": "latest"
@@ -33,6 +33,6 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   }
 }

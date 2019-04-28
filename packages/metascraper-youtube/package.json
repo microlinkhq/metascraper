@@ -1,8 +1,8 @@
 {
   "name": "metascraper-youtube",
   "description": "metascraper integration with YouTube",
-  "homepage": "https://documentup.com/microlinkhq/metascraper-youtube",
-  "version": "4.9.0",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-youtube",
+  "version": "5.1.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,10 +17,10 @@
     "youtube"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0",
-    "get-video-id": "~3.1.0",
+    "@metascraper/helpers": "^5.1.0",
+    "get-video-id": "~3.1.1",
     "is-reachable": "~3.0.0",
-    "p-locate": "~3.0.0"
+    "p-locate": "~4.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
@@ -40,7 +40,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   },
   "standard": {
     "env": [

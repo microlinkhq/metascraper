@@ -1,30 +1,29 @@
 'use strict'
 
-const { isEmpty } = require('lodash')
-const pReduce = require('p-reduce')
+const { map, fromPairs, isEmpty } = require('lodash')
 const xss = require('xss')
 
 const getValue = async ({ htmlDom, url, conditions, meta }) => {
-  const size = conditions.length
-  let index = -1
+  const lastIndex = conditions.length
+  let index = 0
   let value
 
-  while (isEmpty(value) && index++ < size - 1) {
-    value = await conditions[index]({ htmlDom, url, meta })
+  while (isEmpty(value) && index < lastIndex) {
+    value = await conditions[index++]({ htmlDom, url, meta })
   }
 
   return value
 }
 
-const getData = ({ rules, htmlDom, url, escape }) =>
-  pReduce(
-    rules,
-    async (acc, [propName, conditions]) => {
-      const value = await getValue({ htmlDom, url, conditions, meta: acc })
-      acc[propName] = !isEmpty(value) ? (escape ? xss(value) : value) : null
-      return acc
-    },
-    {}
+const getData = async ({ rules, htmlDom, url, escape }) => {
+  const data = await Promise.all(
+    map(rules, async ([propName, conditions]) => {
+      const value = await getValue({ htmlDom, url, conditions })
+      return [propName, !isEmpty(value) ? (escape ? xss(value) : value) : null]
+    })
   )
+
+  return fromPairs(data)
+}
 
 module.exports = getData

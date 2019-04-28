@@ -1,6 +1,6 @@
 'use strict'
 
-const youtubedl = require('youtube-dl')
+const youtubedl = require('@microlink/youtube-dl')
 const { promisify } = require('util')
 const { noop } = require('lodash')
 
@@ -8,8 +8,7 @@ const { isTwitterUrl } = require('./twitter-info')
 
 const { PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS } = process.env
 
-const PROXY_URL =
-  PROXY_HOST && `http://${PROXY_USER}:${PROXY_PASS}@${PROXY_HOST}:${PROXY_PORT}`
+const PROXY_URL = PROXY_HOST && `http://${PROXY_USER}:${PROXY_PASS}@${PROXY_HOST}:${PROXY_PORT}`
 
 const getInfo = promisify(youtubedl.getInfo)
 
@@ -21,10 +20,7 @@ module.exports = ({ cacheDir, onError = noop } = {}) => {
     try {
       data = await getInfo(
         url,
-        isTwitterUrl(url) && PROXY_URL
-          ? [...opts, `--proxy=${PROXY_URL}`]
-          : opts,
-        { maxBuffer: Infinity }
+        isTwitterUrl(url) && PROXY_URL ? [...opts, `--proxy=${PROXY_URL}`] : opts
       )
     } catch (err) {
       onError(err, url)

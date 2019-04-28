@@ -17,13 +17,13 @@ const metascraper = require('../../..')([
   require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
-  require('metascraper-url')()
+  require('metascraper-url')(),
+  require('metascraper-readability')()
 ])
 
 const readFile = promisify(fs.readFile)
 
-const url =
-  'http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change'
+const url = 'http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change'
 
 it('lean-data', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))

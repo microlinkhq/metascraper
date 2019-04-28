@@ -17,15 +17,15 @@ const metascraper = require('../../..')([
   require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
-  require('metascraper-url')()
+  require('metascraper-url')(),
+  require('metascraper-readability')()
 ])
 
 const readFile = promisify(fs.readFile)
 
-const url =
-  'http://tech.economictimes.indiatimes.com/news/corporate/michael-dell-biggest-tech-acquisition-future-bets/52424992'
+const url = 'https://learnnode.com'
 
-it('et-tech', async () => {
+it('learnnode', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   snapshot(metadata)

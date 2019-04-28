@@ -1,8 +1,8 @@
 {
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
-  "homepage": "https://metascraper.js.org",
-  "version": "4.9.0",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-lang",
+  "version": "5.1.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0"
+    "@metascraper/helpers": "^5.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
@@ -36,7 +36,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   },
   "standard": {
     "env": [

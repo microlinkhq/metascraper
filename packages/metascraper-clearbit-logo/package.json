@@ -1,8 +1,8 @@
 {
   "name": "metascraper-clearbit-logo",
   "description": "metascraper integration with Clearbit Logo API",
-  "homepage": "https://documentup.com/microlinkhq/metascraper-clearbit-logo",
-  "version": "4.10.0",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit-logo",
+  "version": "5.0.2",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "got": "~9.5.0"
+    "got": "~9.6.0"
   },
   "devDependencies": {
     "mocha": "latest",
@@ -36,7 +36,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   },
   "standard": {
     "env": [

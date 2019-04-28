@@ -2,11 +2,11 @@
   "name": "metascraper-url",
   "description": "Get url property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "4.9.0",
+  "version": "5.1.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-url"
+    "url": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-url"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -16,7 +16,7 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0"
+    "@metascraper/helpers": "^5.1.0"
   },
   "devDependencies": {
     "standard": "latest"
@@ -32,6 +32,6 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   }
 }

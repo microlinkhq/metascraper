@@ -1,8 +1,8 @@
 {
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
-  "homepage": "https://metascraper.js.org",
-  "version": "4.9.0",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-media-provider",
+  "version": "5.1.0",
   "main": "src/index",
   "repository": {
     "type": "git",
@@ -17,14 +17,14 @@
     "youtube-dl"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^4.9.0",
-    "got": "~9.5.0",
+    "@metascraper/helpers": "^5.1.0",
+    "@microlink/youtube-dl": "~1.13.2",
+    "got": "~9.6.0",
     "lodash": "~4.17.11",
-    "memoize-one": "~5.0.0",
+    "memoize-one": "~5.0.2",
     "memoize-token": "~1.1.3",
-    "p-reflect": "~1.0.0",
-    "tunnel": "0.0.6",
-    "youtube-dl": "~1.12.2"
+    "p-reflect": "~2.1.0",
+    "tunnel": "0.0.6"
   },
   "devDependencies": {
     "browserless": "latest",
@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "metascraper": "^4"
+    "metascraper": "^5"
   },
   "standard": {
     "env": [
