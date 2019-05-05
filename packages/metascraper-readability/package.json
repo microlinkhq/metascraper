@@ -17,9 +17,10 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.1.0",
-    "jsdom": "~14.0.0",
+    "canvas": "~2.4.1",
+    "jsdom": "~15.0.0",
     "lodash": "~4.17.11",
-    "memoize-one": "~5.0.2",
+    "memoize-one": "~5.0.4",
     "readability": "github:mozilla/readability"
   },
   "devDependencies": {
