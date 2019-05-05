@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/microlinkhq/metascraper/compare/v5.2.0...v5.2.1) (2019-05-05)
+
+
+### Bug Fixes
+
+* ensure to escape values in a collection ([e65ffec](https://github.com/microlinkhq/metascraper/commit/e65ffec))
+
+
+
+
+
 ## [5.1.1](https://github.com/microlinkhq/metascraper/compare/v5.1.0...v5.1.1) (2019-04-04)
 
 **Note:** Version bump only for package metascraper
