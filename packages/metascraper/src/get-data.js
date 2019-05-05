@@ -18,8 +18,9 @@ const getValue = async ({ htmlDom, url, conditions, meta }) => {
 const getData = async ({ rules, htmlDom, url, escape }) => {
   const data = await Promise.all(
     map(rules, async ([propName, conditions]) => {
-      const value = await getValue({ htmlDom, url, conditions })
-      return [propName, !isEmpty(value) ? (escape ? xss(value) : value) : null]
+      const rawValue = await getValue({ htmlDom, url, conditions })
+      const value = isEmpty(rawValue) ? null : escape ? xss(rawValue) : rawValue
+      return [propName, value]
     })
   )
 
