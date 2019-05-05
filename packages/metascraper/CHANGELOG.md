@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/microlinkhq/metascraper/compare/v5.2.1...v5.2.2) (2019-05-05)
+
+
+### Bug Fixes
+
+* resolve collection of objects ([d2b2b45](https://github.com/microlinkhq/metascraper/commit/d2b2b45))
+
+
+
+
+
 ## [5.2.1](https://github.com/microlinkhq/metascraper/compare/v5.2.0...v5.2.1) (2019-05-05)
 
 
