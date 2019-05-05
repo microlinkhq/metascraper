@@ -1,6 +1,6 @@
 'use strict'
 
-const { map, fromPairs, isEmpty, isArray } = require('lodash')
+const { map, fromPairs, isEmpty, isObject, isArray, mapValues, isPlainObject } = require('lodash')
 const xss = require('xss')
 
 const getValue = async ({ htmlDom, url, conditions, meta }) => {
@@ -15,10 +15,13 @@ const getValue = async ({ htmlDom, url, conditions, meta }) => {
   return value
 }
 
-const escapeValue = (value, { escape }) => {
-  if (!escape) return value
-  return isArray(value) ? map(value, xss) : xss(value)
+const mapValuesDeep = (object, fn) => {
+  if (isArray(object)) return map(object, innerObject => mapValuesDeep(innerObject, fn))
+  if (isObject(object)) return mapValues(object, value => mapValuesDeep(value, fn))
+  return fn(object)
 }
+
+const escapeValue = (value, { escape }) => (!escape ? value : mapValuesDeep(value, xss))
 
 const getData = async ({ rules, htmlDom, url, escape }) => {
   const data = await Promise.all(
