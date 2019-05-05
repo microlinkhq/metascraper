@@ -2,7 +2,7 @@
 
 const should = require('should')
 
-const metascraper = require('../..')([])
+const metascraper = require('../..')([require('metascraper-title')()])
 
 it('url is required', async () => {
   try {
@@ -49,11 +49,13 @@ it('escape is enabled by default', async () => {
   `
 
   const metadata = await metascraper({
-    html: html,
+    html,
     url: 'http://127.0.0.1:8080'
   })
 
-  should(metadata.title).be.equal('<script src=‘http://127.0.0.1:8080/malware.js’></script>')
+  should(metadata.title).be.equal(
+    '&lt;script src=‘http://127.0.0.1:8080/malware.js’&gt;&lt;/script&gt;'
+  )
 })
 
 it('load extra rules', async () => {
