@@ -21,9 +21,9 @@ module.exports = rules => {
     }
     return getData({
       url,
+      escape,
       htmlDom: loadHTML(html),
-      rules: mergeRules(inlineRules, loadedRules),
-      escape: escape
+      rules: mergeRules(inlineRules, loadedRules)
     })
   }
 }
