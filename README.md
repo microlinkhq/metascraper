@@ -131,7 +131,7 @@ A audio URL that best represents the article.
 - `url` — eg. *http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*<br/>
   The URL of the article.
 
-## How it works
+## How It Works
 
 **metascraper** is built out of rules bundles.
 
@@ -182,7 +182,7 @@ const metascraper = require('metascraper')([
 ])
 ```
 
-## Rules bundles
+## Rules Bundles
 
 ?> Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
@@ -208,35 +208,9 @@ const metascraper = require('metascraper')([
 | [`metascraper-video`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video) | [![npm](https://img.shields.io/npm/v/metascraper-video.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-video) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-video&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-video) |
 | [`metascraper-youtube`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) | [![npm](https://img.shields.io/npm/v/metascraper-youtube.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-youtube) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-youtube&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-youtube) |
 
-### Write your own rules
+### Write Your Own Rules
 
-A rule bundle is the simplest way for extending **metascraper** functionality.
-
-A rule bundle can add one or more properties support.
-
-The following schema represents the API compromise that a rule bundle need to follow:
-
-```js
-'use strict'
-
-// `opts` can be loaded using `.metascraperrc` config file
-module.exports = opts => {
-  // You can define as props as you want.
-  // props are organized based on an object key.
-  return ({
-    logo: [
-      // You can setup more than one rules per prop (priority is important!).
-      // They receive as parameter:
-      // - `htmlDom`: the cheerio HTML instance.
-      // - `url`: The input URL used for extact the content.
-      ({ htmlDom: $, url: baseUrl }) => wrap($ => $('meta[property="og:logo"]').attr('content')),
-      ({ htmlDom: $, url: baseUrl }) => wrap($ => $('meta[itemprop="logo"]').attr('content'))
-    ]
-  })
-}
-```
-
-We recommend check one of the [rule bundles](#rules-bundles) already implemented to have a better perspective.
+See [CONTRIBUTING](/CONTRIBUTING.md).
 
 ## API
 
