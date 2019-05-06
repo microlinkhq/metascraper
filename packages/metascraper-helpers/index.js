@@ -37,7 +37,6 @@ const AUDIO = 'audio'
 const IMAGE = 'image'
 
 const imageExtensions = chain(require('image-extensions'))
-  .difference(['gif'])
   .reduce((acc, ext) => ({ ...acc, [ext]: IMAGE }), {})
   .value()
 
@@ -47,7 +46,6 @@ const audioExtensions = chain(require('audio-extensions'))
   .value()
 
 const videoExtensions = chain(require('video-extensions'))
-  .union(['gif'])
   .reduce((acc, ext) => ({ ...acc, [ext]: VIDEO }), {})
   .value()
 
@@ -115,11 +113,9 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaUrl = (url, type, opts) =>
-  isUrl(url, opts) && isMediaExtension(url, type)
+const isMediaUrl = (url, type, opts) => isUrl(url, opts) && isMediaExtension(url, type)
 
-const isMediaExtension = (url, type) =>
-  eq(type, get(EXTENSIONS, extension(url)))
+const isMediaExtension = (url, type) => eq(type, get(EXTENSIONS, extension(url)))
 
 const isVideoUrl = (url, opts) => isMediaUrl(url, VIDEO, opts)
 
