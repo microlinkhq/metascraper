@@ -1,6 +1,6 @@
 'use strict'
 
-const { map, fromPairs, isEmpty, isObject, isArray, mapValues, isPlainObject } = require('lodash')
+const { map, fromPairs, isEmpty, isObject, isArray, mapValues } = require('lodash')
 const xss = require('xss')
 
 const getValue = async ({ htmlDom, url, conditions, meta }) => {
