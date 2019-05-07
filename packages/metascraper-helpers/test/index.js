@@ -26,40 +26,26 @@ describe('metascraper-helpers', () => {
     should(url(NaN, { url: 'https://kikobeats.com' })).be.null()
     should(url('http://<foo>', { url: 'https://kikobeats.com' })).be.null()
 
-    should(url('blog', { url: 'https://kikobeats.com/' })).be.equal(
-      'https://kikobeats.com/blog'
-    )
+    should(url('blog', { url: 'https://kikobeats.com/' })).be.equal('https://kikobeats.com/blog')
 
     should(
-      url(
-        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-      )
-    ).be.equal(
-      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-    )
+      url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+    ).be.equal('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
     should(
-      url(
-        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-        { url: 'https://kikobeats.com/' }
-      )
-    ).be.equal(
-      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-    )
+      url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', {
+        url: 'https://kikobeats.com/'
+      })
+    ).be.equal('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
     should(
       url('magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a', {
         url: 'https://kikobeats.com/'
       })
     ).be.equal('magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a')
     should(
-      url(
-        'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg',
-        {
-          url: 'http://www.cloudpro.co.uk/go/6024'
-        }
-      )
-    ).be.equal(
-      'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg'
-    )
+      url('http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg', {
+        url: 'http://www.cloudpro.co.uk/go/6024'
+      })
+    ).be.equal('http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg')
   })
 
   it('.absoluteUrl', () => {
@@ -68,30 +54,14 @@ describe('metascraper-helpers', () => {
         'https://kikobeats.com/',
         'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
       )
-    ).be.equal(
-      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-    )
-    should(absoluteUrl('https://kikobeats.com/', '')).be.equal(
-      'https://kikobeats.com/'
-    )
-    should(absoluteUrl('https://kikobeats.com/', null)).be.equal(
-      'https://kikobeats.com/'
-    )
-    should(absoluteUrl('https://kikobeats.com/', undefined)).be.equal(
-      'https://kikobeats.com/'
-    )
-    should(absoluteUrl('https://kikobeats.com/', 'blog')).be.equal(
-      'https://kikobeats.com/blog'
-    )
-    should(absoluteUrl('https://kikobeats.com', '/blog')).be.equal(
-      'https://kikobeats.com/blog'
-    )
-    should(absoluteUrl('https://kikobeats.com/', '/blog')).be.equal(
-      'https://kikobeats.com/blog'
-    )
-    should(absoluteUrl('http://kikobeats.com/', '/blog')).be.equal(
-      'http://kikobeats.com/blog'
-    )
+    ).be.equal('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+    should(absoluteUrl('https://kikobeats.com/', '')).be.equal('https://kikobeats.com/')
+    should(absoluteUrl('https://kikobeats.com/', null)).be.equal('https://kikobeats.com/')
+    should(absoluteUrl('https://kikobeats.com/', undefined)).be.equal('https://kikobeats.com/')
+    should(absoluteUrl('https://kikobeats.com/', 'blog')).be.equal('https://kikobeats.com/blog')
+    should(absoluteUrl('https://kikobeats.com', '/blog')).be.equal('https://kikobeats.com/blog')
+    should(absoluteUrl('https://kikobeats.com/', '/blog')).be.equal('https://kikobeats.com/blog')
+    should(absoluteUrl('http://kikobeats.com/', '/blog')).be.equal('http://kikobeats.com/blog')
   })
 
   it('.extension', () => {
@@ -104,7 +74,7 @@ describe('metascraper-helpers', () => {
   it('.isMime', () => {
     should(isMime('image/jpeg', 'image')).be.true()
     should(isMime('image/png', 'image')).be.true()
-    should(isMime('image/gif', 'video')).be.true()
+    should(isMime('image/gif', 'image')).be.true()
     should(isMime('video/mp4', 'video')).be.true()
     should(isMime('audio/x-aac', 'audio')).be.true()
     should(isMime('audio/x-wav', 'audio')).be.true()
@@ -115,7 +85,6 @@ describe('metascraper-helpers', () => {
     should(isVideoUrl('demo.mp4')).be.false()
     should(isVideoUrl('/demo.mp4')).be.false()
     should(isVideoUrl('https://microlink.io/demo.mp4')).be.true()
-    should(isVideoUrl('https://microlink.io/demo.gif')).be.true()
   })
 
   it('.isImageUrl', () => {
@@ -124,6 +93,7 @@ describe('metascraper-helpers', () => {
     should(isImageUrl('https://microlink.io/demo.png')).be.true()
     should(isImageUrl('https://microlink.io/demo.jpg')).be.true()
     should(isImageUrl('https://microlink.io/demo.jpeg')).be.true()
+    should(isImageUrl('https://microlink.io/demo.gif')).be.true()
   })
 
   it('.isAudioUrl', () => {
@@ -139,7 +109,6 @@ describe('metascraper-helpers', () => {
   it('.isVideoExtension', () => {
     should(isVideoExtension('https://microlink.io/demo.mp4')).be.true()
     should(isVideoExtension('demo.mp4')).be.true()
-    should(isVideoExtension('demo.gif')).be.true()
   })
 
   it('.isAudioExtension', () => {
@@ -156,6 +125,7 @@ describe('metascraper-helpers', () => {
     should(isImageExtension('demo.png')).be.true()
     should(isImageExtension('demo.jpg')).be.true()
     should(isImageExtension('demo.jpeg')).be.true()
+    should(isImageExtension('demo.gif')).be.true()
   })
 
   it('.description', async () => {
