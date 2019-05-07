@@ -10,7 +10,7 @@ exports['og:video 1'] = {
 
 exports['single src 1'] = {
   "image": null,
-  "video": "https://cdn.vox-cdn.com/thumbor/4l0C-7uGFtTfc6lWibo1ITiE2YU=/0x0:1280x720/320x213/filters:focal(538x258:742x462):gifv():no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/58416873/2018_01_22_14_19_55.0.gif"
+  "video": null
 }
 
 exports['clips.twitch.tv 1'] = {
