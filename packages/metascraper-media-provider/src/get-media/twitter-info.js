@@ -1,21 +1,18 @@
 'use strict'
 
+const { get, chain, isEmpty } = require('lodash')
+const luminatiTunnel = require('luminati-tunnel')
 const memoizeToken = require('memoize-token')
-const { get, chain } = require('lodash')
 const pReflect = require('p-reflect')
-const tunnel = require('tunnel')
 const { URL } = require('url')
 const got = require('got')
 
-// twitter guest web token
-// https://github.com/soimort/you-get/blob/da8c982608c9308765e0960e08fc28cccb74b215/src/you_get/extractors/twitter.py#L72
-// https://github.com/rg3/youtube-dl/blob/master/youtube_dl/extractor/twitter.py#L235
-const TWITTER_BEARER_TOKEN =
-  'Bearer AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%2F40K4moUkGsoc%3DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw'
-
-const TWITTER_HOSTNAMES = ['twitter.com', 'mobile.twitter.com']
-
-const TOKEN_TIMEOUT = 6000
+const {
+  TWITTER_TOKEN_TIMEOUT,
+  TWITTER_BEARER_TOKEN,
+  TWITTER_HOSTNAMES,
+  TWITTER_ACTIVATE_LIMIT
+} = require('./constant')
 
 const isTweet = url => url.includes('/status/')
 
@@ -25,48 +22,38 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const API_GUEST_ACTIVATE_LIMIT = 180
-const API_GUEST_ACTIVATE_EXPIRE = 10 * 60 * 1000 // 10 min
-
-const { PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS } = process.env
-
-const agent = PROXY_HOST
-  ? tunnel.httpsOverHttp({
-    proxy: {
-      host: PROXY_HOST,
-      port: PROXY_PORT,
-      proxyAuth: PROXY_USER && PROXY_PASS ? `${PROXY_USER}:${PROXY_PASS}` : null
-    }
-  })
-  : null
-
-const getGuestToken = async (url = '', opts = {}) => {
+const getGuestToken = ({ userAgent, tunnel }) => async () => {
   const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
-    headers: { Authorization: TWITTER_BEARER_TOKEN },
-    json: true,
-    timeout: TOKEN_TIMEOUT / 2,
     retry: 0,
-    agent,
-    ...opts
+    json: true,
+    agent: tunnel ? tunnel() : undefined,
+    timeout: TWITTER_TOKEN_TIMEOUT / 2,
+    headers: {
+      authorization: TWITTER_BEARER_TOKEN,
+      origin: 'https://twitter.com',
+      'user-agent': userAgent
+    }
   })
   return get(body, 'guest_token')
 }
 
-const getTwitterInfo = ({ getToken, ...opts }) => async url => {
+const getTwitterInfo = ({ userAgent, getToken }) => async url => {
   const tweetId = getTweetId(url)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
-  const guestToken = await getToken(url)
+  const guestToken = await getToken()
+
   const res = await pReflect(
     got(apiUrl, {
-      agent,
       retry: 0,
-      timeout: TOKEN_TIMEOUT,
       json: true,
+      timeout: TWITTER_TOKEN_TIMEOUT,
       headers: {
+        referer: url,
+        'x-guest-token': guestToken,
+        origin: 'https://twitter.com',
         authorization: TWITTER_BEARER_TOKEN,
-        'x-guest-token': guestToken
-      },
-      ...opts
+        'user-agent': userAgent
+      }
     })
   )
 
@@ -87,15 +74,17 @@ const getTwitterInfo = ({ getToken, ...opts }) => async url => {
   }
 }
 
-const createTwitterInfo = opts => {
-  const getToken = memoizeToken(getGuestToken, {
-    max: API_GUEST_ACTIVATE_LIMIT,
-    expire: API_GUEST_ACTIVATE_EXPIRE,
+const createTwitterInfo = ({ cache, userAgent, proxies }) => {
+  const tunnel = !isEmpty(proxies) ? luminatiTunnel(proxies) : undefined
+  const fn = getGuestToken({ userAgent, tunnel })
+
+  const getToken = memoizeToken(fn, {
+    max: TWITTER_ACTIVATE_LIMIT,
     key: 'media:twitter',
-    ...opts
+    cache
   })
 
-  return getTwitterInfo({ getToken, ...opts })
+  return getTwitterInfo({ getToken, userAgent })
 }
 
 module.exports = { createTwitterInfo, isTwitterUrl }

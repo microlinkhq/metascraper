@@ -7,17 +7,18 @@ const { createTwitterInfo, isTwitterUrl } = require('./twitter-info')
 const { protocol } = require('@metascraper/helpers')
 const createGetMedia = require('./get-media')
 
-module.exports = opts => {
-  const getMedia = createGetMedia(opts)
-  const getTwitterInfo = createTwitterInfo(opts)
+module.exports = ({ cache, cacheDir, userAgent, onError, proxies }) => {
+  const getMedia = createGetMedia({ cacheDir, userAgent, onError })
+  const getTwitterInfo = createTwitterInfo({
+    cache,
+    userAgent,
+    proxies
+  })
 
   const getInfo = async url => {
     if (!isTwitterUrl(url)) return getMedia(url)
 
-    const [videoInfo, twitterVideos] = await Promise.all([
-      getMedia(url),
-      getTwitterInfo(url)
-    ])
+    const [videoInfo, twitterVideos] = await Promise.all([getMedia(url), getTwitterInfo(url)])
 
     const { formats: twitterVideoFormats, ...twitterVideosData } = twitterVideos
 
