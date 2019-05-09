@@ -27,6 +27,7 @@
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {
+    "is-ci": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",

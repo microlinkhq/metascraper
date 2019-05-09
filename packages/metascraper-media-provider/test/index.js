@@ -2,6 +2,7 @@
 
 const snapshot = require('snap-shot')
 const should = require('should')
+const isCI = require('is-ci')
 
 const metascraper = require('metascraper')([
   require('..')(),
@@ -78,8 +79,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-
-    describe('twitter', () => {
+    ;(isCI ? describe.skip : describe)('twitter', () => {
       ;[
         'https://twitter.com/verge/status/957383241714970624',
         'https://twitter.com/telediario_tve/status/1036860275859775488',
