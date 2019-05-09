@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug')('metascraper-media-provider:get-media')
 const { get, chain, isEmpty } = require('lodash')
 const luminatiTunnel = require('luminati-tunnel')
 const memoizeToken = require('memoize-token')
@@ -23,6 +24,10 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 const getTweetId = url => url.split('/').reverse()[0]
 
 const getGuestToken = ({ userAgent, tunnel }) => async () => {
+  const agent = tunnel ? tunnel() : undefined
+  debug(
+    `getGuestToken agent=${agent ? agent.current().proxyAuth : undefined} userAgent=${userAgent}`
+  )
   const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
     retry: 0,
     json: true,
@@ -41,6 +46,8 @@ const getTwitterInfo = ({ userAgent, getToken }) => async url => {
   const tweetId = getTweetId(url)
   const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
   const guestToken = await getToken()
+
+  debug(`getTwitterInfo apiUrl=${apiUrl} guestToken=${guestToken} userAgent=${userAgent}`)
 
   const res = await pReflect(
     got(apiUrl, {
@@ -76,6 +83,7 @@ const getTwitterInfo = ({ userAgent, getToken }) => async url => {
 
 const createTwitterInfo = ({ cache, userAgent, proxies }) => {
   const tunnel = !isEmpty(proxies) ? luminatiTunnel(proxies) : undefined
+  tunnel && debug(`intialize size=${tunnel.size()}`)
   const fn = getGuestToken({ userAgent, tunnel })
 
   const getToken = memoizeToken(fn, {

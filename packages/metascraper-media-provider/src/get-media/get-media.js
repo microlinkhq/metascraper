@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug')('metascraper-media-provider:get-media')
 const youtubedl = require('@microlink/youtube-dl')
 const { promisify } = require('util')
 const { noop } = require('lodash')
@@ -18,6 +19,7 @@ module.exports = ({ onError = noop, ...opts } = {}) => {
 
   return async url => {
     const flags = baseFlags.concat([`--referer=${url}`])
+    debug(`getInfo ${url} ${flags.join(' ')}`)
 
     let data = {}
     try {
