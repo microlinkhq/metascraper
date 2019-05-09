@@ -12,7 +12,8 @@ const {
   TWITTER_TOKEN_TIMEOUT,
   TWITTER_BEARER_TOKEN,
   TWITTER_HOSTNAMES,
-  TWITTER_ACTIVATE_LIMIT
+  TWITTER_ACTIVATE_LIMIT,
+  CACHE_KEY_MEMOIZE
 } = require('./constant')
 
 const isTweet = url => url.includes('/status/')
@@ -89,7 +90,7 @@ const createTwitterInfo = ({ cache, userAgent, proxies }) => {
 
   const getToken = memoizeToken(fn, {
     max: TWITTER_ACTIVATE_LIMIT,
-    key: 'media:twitter',
+    key: CACHE_KEY_MEMOIZE,
     cache
   })
 
