@@ -2,12 +2,13 @@
 
 const { get, reduce, set } = require('lodash')
 const memoizeOne = require('memoize-one')
+const { noop } = require('lodash')
 
 const { createTwitterInfo, isTwitterUrl } = require('./twitter-info')
 const { protocol } = require('@metascraper/helpers')
 const createGetMedia = require('./get-media')
 
-module.exports = ({ cache, cacheDir, userAgent, onError, proxies }) => {
+module.exports = ({ cache = new Map(), onError = noop, userAgent, cacheDir, proxies }) => {
   const getMedia = createGetMedia({ cacheDir, userAgent, onError })
   const getTwitterInfo = createTwitterInfo({
     cache,

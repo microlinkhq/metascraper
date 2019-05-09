@@ -3,7 +3,6 @@
 const debug = require('debug')('metascraper-media-provider:get-media')
 const youtubedl = require('@microlink/youtube-dl')
 const { promisify } = require('util')
-const { noop } = require('lodash')
 
 const getInfo = promisify(youtubedl.getInfo)
 
@@ -14,7 +13,7 @@ const getFlags = ({ userAgent, cacheDir }) => {
   return flags
 }
 
-module.exports = ({ onError = noop, ...opts } = {}) => {
+module.exports = ({ onError, ...opts } = {}) => {
   const baseFlags = getFlags(opts)
 
   return async url => {
