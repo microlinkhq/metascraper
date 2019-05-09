@@ -24,9 +24,10 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 const getTweetId = url => url.split('/').reverse()[0]
 
 const getGuestToken = ({ userAgent, tunnel }) => async () => {
-  const agent = tunnel ? tunnel() : undefined
   debug(
-    `getGuestToken agent=${agent ? agent.current().proxyAuth : undefined} userAgent=${userAgent}`
+    `getGuestToken agent=${
+      tunnel ? `${tunnel.index()}/${tunnel.size()}` : undefined
+    } userAgent=${userAgent}`
   )
   const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
     retry: 0,
