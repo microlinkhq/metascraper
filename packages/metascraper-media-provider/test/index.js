@@ -2,10 +2,9 @@
 
 const snapshot = require('snap-shot')
 const should = require('should')
-const getBrowserless = require('browserless')
 
 const metascraper = require('metascraper')([
-  require('..')({ getBrowserless }),
+  require('..')(),
   require('metascraper-publisher')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
