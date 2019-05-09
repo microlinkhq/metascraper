@@ -1,6 +1,6 @@
 'use strict'
 
-const { size, get, chain, isEmpty } = require('lodash')
+const { get, chain, isEmpty } = require('lodash')
 const luminatiTunnel = require('luminati-tunnel')
 const memoizeToken = require('memoize-token')
 const pReflect = require('p-reflect')
