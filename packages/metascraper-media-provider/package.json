@@ -23,9 +23,7 @@
     "got": "~9.6.0",
     "lodash": "~4.17.11",
     "luminati-tunnel": "~1.1.0",
-    "memoize-one": "~5.0.4",
-    "memoize-token": "~1.1.4",
-    "p-reflect": "~2.1.0"
+    "memoize-one": "~5.0.4"
   },
   "devDependencies": {
     "is-ci": "latest",

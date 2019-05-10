@@ -3,19 +3,10 @@
 const debug = require('debug')('metascraper-media-provider:get-media')
 const { get, chain, isEmpty } = require('lodash')
 const luminatiTunnel = require('luminati-tunnel')
-const memoizeToken = require('memoize-token')
-const pReflect = require('p-reflect')
 const { URL } = require('url')
 const got = require('got')
 
-const {
-  TWITTER_TOKEN_TIMEOUT,
-  TWITTER_BEARER_TOKEN,
-  TWITTER_HOSTNAMES,
-  TWITTER_ACTIVATE_LIMIT,
-  CACHE_KEY_MEMOIZE,
-  CACHE_KEY_PROXY
-} = require('./constant')
+const { TWITTER_BEARER_TOKEN, TWITTER_HOSTNAMES } = require('./constant')
 
 const isTweet = url => url.includes('/status/')
 
@@ -25,25 +16,22 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getAgent = async ({ cache, tunnel }) => {
+const getAgent = async ({ tunnel }) => {
   if (!tunnel) return
   const agent = tunnel()
   debug(`getAgent agent=${tunnel.index()}/${tunnel.size()}`)
-  await cache.set(CACHE_KEY_PROXY, tunnel.index())
   return agent
 }
 
-const createTunnel = async ({ cache, proxies }) => {
+const createTunnel = async ({ proxies }) => {
   if (isEmpty(proxies)) return
-  const index = await cache.get(CACHE_KEY_PROXY)
-  if (index === undefined) await cache.set(CACHE_KEY_PROXY, 0)
-  const tunnel = luminatiTunnel(proxies, index)
-  debug(`tunnel index=${index || 0} size=${tunnel.size()}`)
+  const tunnel = luminatiTunnel(proxies)
+  debug(`tunnel size=${tunnel.size()}`)
   return tunnel
 }
 
-const createGuestToken = ({ cache, userAgent, proxies }) => {
-  const getTunnel = createTunnel({ cache, proxies })
+const createGuestToken = ({ userAgent, proxies }) => {
+  const getTunnel = createTunnel({ proxies })
   let retry = 0
 
   return async () => {
@@ -51,9 +39,10 @@ const createGuestToken = ({ cache, userAgent, proxies }) => {
     let token
 
     do {
+      const agent = retry ? await getAgent({ tunnel }) : undefined
+      debug(`guestToken retry=${retry} agent=${!!agent}`)
+
       try {
-        const agent = retry ? await getAgent({ cache, tunnel }) : undefined
-        debug(`guestToken iteration=${retry} agent=${!!agent}`)
         const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
           json: true,
           retry: 0,
@@ -66,6 +55,7 @@ const createGuestToken = ({ cache, userAgent, proxies }) => {
         })
         token = get(body, 'guest_token')
       } catch (err) {
+        debug(`guestToken:err`, err.statusCode)
         ++retry
       }
     } while (!token)
@@ -74,55 +64,57 @@ const createGuestToken = ({ cache, userAgent, proxies }) => {
   }
 }
 
-const getTwitterInfo = ({ userAgent, getToken }) => async url => {
-  const tweetId = getTweetId(url)
-  const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
-  const guestToken = await getToken()
+const getTwitterInfo = ({ userAgent, getGuestToken }) => {
+  let guestToken = getGuestToken()
 
-  debug(`getTwitterInfo apiUrl=${apiUrl} guestToken=${guestToken} userAgent=${userAgent}`)
+  return async url => {
+    const tweetId = getTweetId(url)
+    const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
+    let data
 
-  const res = await pReflect(
-    got(apiUrl, {
-      retry: 0,
-      json: true,
-      timeout: TWITTER_TOKEN_TIMEOUT,
-      headers: {
-        referer: url,
-        'x-guest-token': guestToken,
-        origin: 'https://twitter.com',
-        authorization: TWITTER_BEARER_TOKEN,
-        'user-agent': userAgent
+    do {
+      const token = await guestToken
+      debug(`getTwitterInfo apiUrl=${apiUrl} guestToken=${token} userAgent=${userAgent}`)
+
+      try {
+        const { body } = await got(apiUrl, {
+          retry: 0,
+          json: true,
+          headers: {
+            referer: url,
+            'x-guest-token': token,
+            origin: 'https://twitter.com',
+            authorization: TWITTER_BEARER_TOKEN,
+            'user-agent': userAgent
+          }
+        })
+
+        const id = get(body, `globalObjects.tweets.${tweetId}.retweeted_status_id_str`, tweetId)
+
+        const tweetObj = get(body, `globalObjects.tweets.${id}`)
+
+        data = {
+          extractor_key: 'Twitter',
+          language: get(tweetObj, 'lang'),
+          formats: chain(tweetObj)
+            .get('extended_entities.media.0.video_info.variants')
+            .filter('bitrate')
+            .orderBy('bitrate', 'asc')
+            .value()
+        }
+      } catch (err) {
+        guestToken = getGuestToken()
+        debug(`getTwitterInfo rotating token`)
       }
-    })
-  )
+    } while (!data)
 
-  const body = get(res, 'value.body')
-
-  const id = get(body, `globalObjects.tweets.${tweetId}.retweeted_status_id_str`, tweetId)
-
-  const tweetObj = get(body, `globalObjects.tweets.${id}`)
-
-  return {
-    extractor_key: 'Twitter',
-    language: get(tweetObj, 'lang'),
-    formats: chain(tweetObj)
-      .get('extended_entities.media.0.video_info.variants')
-      .filter('bitrate')
-      .orderBy('bitrate', 'asc')
-      .value()
+    return data
   }
 }
 
-const createTwitterInfo = ({ cache, userAgent, proxies }) => {
-  const getGuestToken = createGuestToken({ proxies, cache, userAgent })
-
-  const getToken = memoizeToken(getGuestToken, {
-    max: TWITTER_ACTIVATE_LIMIT,
-    key: CACHE_KEY_MEMOIZE,
-    cache
-  })
-
-  return getTwitterInfo({ getToken, userAgent })
+const createTwitterInfo = ({ userAgent, proxies }) => {
+  const getGuestToken = createGuestToken({ proxies, userAgent })
+  return getTwitterInfo({ getGuestToken, userAgent })
 }
 
 module.exports = { createTwitterInfo, isTwitterUrl, createGuestToken }
