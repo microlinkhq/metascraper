@@ -7,5 +7,6 @@ module.exports = {
   TWITTER_HOSTNAMES: ['twitter.com', 'mobile.twitter.com'],
   TWITTER_TOKEN_TIMEOUT: 6000,
   TWITTER_ACTIVATE_LIMIT: 187,
-  CACHE_KEY_MEMOIZE: 'twitter'
+  CACHE_KEY_MEMOIZE: 'twitter',
+  CACHE_KEY_PROXY: 'proxy:index'
 }

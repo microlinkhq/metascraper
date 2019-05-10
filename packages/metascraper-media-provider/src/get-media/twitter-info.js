@@ -13,7 +13,8 @@ const {
   TWITTER_BEARER_TOKEN,
   TWITTER_HOSTNAMES,
   TWITTER_ACTIVATE_LIMIT,
-  CACHE_KEY_MEMOIZE
+  CACHE_KEY_MEMOIZE,
+  CACHE_KEY_PROXY
 } = require('./constant')
 
 const isTweet = url => url.includes('/status/')
@@ -24,24 +25,53 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getGuestToken = ({ userAgent, tunnel }) => async () => {
-  debug(
-    `getGuestToken agent=${
-      tunnel ? `${tunnel.index()}/${tunnel.size()}` : undefined
-    } userAgent=${userAgent}`
-  )
-  const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
-    retry: 0,
-    json: true,
-    agent: tunnel ? tunnel() : undefined,
-    timeout: TWITTER_TOKEN_TIMEOUT / 2,
-    headers: {
-      authorization: TWITTER_BEARER_TOKEN,
-      origin: 'https://twitter.com',
-      'user-agent': userAgent
-    }
-  })
-  return get(body, 'guest_token')
+const getAgent = async ({ cache, tunnel }) => {
+  if (!tunnel) return
+  const agent = tunnel()
+  debug(`getAgent agent=${tunnel.index()}/${tunnel.size()}`)
+  await cache.set(CACHE_KEY_PROXY, tunnel.index())
+  return agent
+}
+
+const createTunnel = async ({ cache, proxies }) => {
+  if (isEmpty(proxies)) return
+  const index = await cache.get(CACHE_KEY_PROXY)
+  if (index === undefined) await cache.set(CACHE_KEY_PROXY, 0)
+  const tunnel = luminatiTunnel(proxies, index)
+  debug(`tunnel index=${index || 0} size=${tunnel.size()}`)
+  return tunnel
+}
+
+const createGuestToken = ({ cache, userAgent, proxies }) => {
+  const getTunnel = createTunnel({ cache, proxies })
+  let retry = 0
+
+  return async () => {
+    const tunnel = await getTunnel
+    let token
+
+    do {
+      try {
+        const agent = retry ? await getAgent({ cache, tunnel }) : undefined
+        debug(`guestToken iteration=${retry} agent=${!!agent}`)
+        const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
+          json: true,
+          retry: 0,
+          agent,
+          headers: {
+            authorization: TWITTER_BEARER_TOKEN,
+            origin: 'https://twitter.com',
+            'user-agent': userAgent
+          }
+        })
+        token = get(body, 'guest_token')
+      } catch (err) {
+        ++retry
+      }
+    } while (!token)
+
+    return token
+  }
 }
 
 const getTwitterInfo = ({ userAgent, getToken }) => async url => {
@@ -84,11 +114,9 @@ const getTwitterInfo = ({ userAgent, getToken }) => async url => {
 }
 
 const createTwitterInfo = ({ cache, userAgent, proxies }) => {
-  const tunnel = !isEmpty(proxies) ? luminatiTunnel(proxies) : undefined
-  tunnel && debug(`intialize size=${tunnel.size()}`)
-  const fn = getGuestToken({ userAgent, tunnel })
+  const getGuestToken = createGuestToken({ proxies, cache, userAgent })
 
-  const getToken = memoizeToken(fn, {
+  const getToken = memoizeToken(getGuestToken, {
     max: TWITTER_ACTIVATE_LIMIT,
     key: CACHE_KEY_MEMOIZE,
     cache
@@ -97,4 +125,4 @@ const createTwitterInfo = ({ cache, userAgent, proxies }) => {
   return getTwitterInfo({ getToken, userAgent })
 }
 
-module.exports = { createTwitterInfo, isTwitterUrl }
+module.exports = { createTwitterInfo, isTwitterUrl, createGuestToken }
