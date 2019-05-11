@@ -17,10 +17,6 @@ $ npm install metascraper-media-provider --save
 
 ### options
 
-#### cache
-
-It specficies in memory cache connector, see [memoize-token#cache](https://github.com/microlinkhq/memoize-token#cache).
-
 #### cacheDir
 
 Type: `string`

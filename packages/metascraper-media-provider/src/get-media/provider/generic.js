@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('metascraper-media-provider:get-media')
+const debug = require('debug')('metascraper-media-provider:generic')
 const youtubedl = require('@microlink/youtube-dl')
 const { promisify } = require('util')
 
@@ -13,8 +13,8 @@ const getFlags = ({ userAgent, cacheDir }) => {
   return flags
 }
 
-module.exports = ({ onError, ...opts } = {}) => {
-  const baseFlags = getFlags(opts)
+module.exports = ({ onError, userAgent, cacheDir }) => {
+  const baseFlags = getFlags({ userAgent, cacheDir })
 
   return async url => {
     const flags = baseFlags.concat([`--referer=${url}`])

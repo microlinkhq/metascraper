@@ -1,41 +1,16 @@
 'use strict'
 
-const { get, reduce, set } = require('lodash')
 const memoizeOne = require('memoize-one')
 const { noop } = require('lodash')
 
-const { createTwitterInfo, isTwitterUrl } = require('./twitter-info')
-const { protocol } = require('@metascraper/helpers')
-const createGetMedia = require('./get-media')
+const { isTwitterUrl, createTunnel } = require('./util')
+const createTwitterProvider = require('./provider/twitter')
+const createGenericProvider = require('./provider/generic')
 
-module.exports = ({ cache = new Map(), onError = noop, userAgent, cacheDir, proxies }) => {
-  const getMedia = createGetMedia({ cacheDir, userAgent, onError })
-  const getTwitterInfo = createTwitterInfo({
-    cache,
-    userAgent,
-    proxies
-  })
-
-  const getInfo = async url => {
-    if (!isTwitterUrl(url)) return getMedia(url)
-
-    const [videoInfo, twitterVideos] = await Promise.all([getMedia(url), getTwitterInfo(url)])
-
-    const { formats: twitterVideoFormats, ...twitterVideosData } = twitterVideos
-
-    const formats = reduce(
-      twitterVideoFormats,
-      (acc, twitterVideo, index) => {
-        const { url } = twitterVideo
-        const format = get(acc, index, {})
-        set(acc, index, { ...format, url, protocol: protocol(url) })
-        return acc
-      },
-      get(videoInfo, 'formats')
-    )
-
-    return { ...videoInfo, ...twitterVideosData, formats }
-  }
-
+module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
+  const getTunnel = createTunnel({ proxies })
+  const fromGeneric = createGenericProvider({ cacheDir, userAgent, onError })
+  const fromTwitter = createTwitterProvider({ getTunnel, userAgent, fromGeneric })
+  const getInfo = async url => (isTwitterUrl(url) ? fromTwitter(url) : fromGeneric(url))
   return memoizeOne(getInfo)
 }
