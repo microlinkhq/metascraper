@@ -10,13 +10,9 @@ const getTunnel = createTunnel({ proxies })
 
 const uniqueRandomArray = require('unique-random-array')
 const userAgent = require('ua-string')
+const { noop } = require('lodash')
 
-function onError (err, url) {
-  // console.log(`url`, url)
-  // console.log(`err`, err)
-}
-
-const fromGeneric = createFromGeneric({ getTunnel, onError, userAgent })
+const fromGeneric = createFromGeneric({ getTunnel, onError: noop, userAgent })
 const getUrl = uniqueRandomArray(urls)
 
 // When it reaches the max, it returns a 429 rate limit error
