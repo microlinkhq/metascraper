@@ -48,16 +48,15 @@ describe('metascraper-media-provider', () => {
       })
     })
     describe('vimeo', () => {
-      ;[
-        // 'https://vimeo.com/channels/staffpicks/287117046',
-        // 'https://vimeo.com/186386161'
-      ].forEach(url => {
-        it(url, async () => {
-          const metadata = await metascraper({ url })
-          console.log(metadata.video)
-          should(extension(metadata.video)).be.equal('mp4')
-        })
-      })
+      ;['https://vimeo.com/channels/staffpicks/287117046', 'https://vimeo.com/186386161'].forEach(
+        url => {
+          it(url, async () => {
+            const metadata = await metascraper({ url })
+            console.log(metadata.video)
+            should(extension(metadata.video)).be.equal('mp4')
+          })
+        }
+      )
     })
 
     describe('youtube', () => {
