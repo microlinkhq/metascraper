@@ -5,7 +5,7 @@ const { reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
 
 const got = require('got')
-const { getAgent, getTweetId } = require('../util')
+const { expirableCounter, getAgent, getTweetId } = require('../util')
 
 // twitter guest web token
 // https://github.com/soimort/you-get/blob/da8c982608c9308765e0960e08fc28cccb74b215/src/you_get/extractors/twitter.py#L72
@@ -14,15 +14,17 @@ const TWITTER_BEARER_TOKEN =
   'Bearer AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%2F40K4moUkGsoc%3DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw'
 
 const createGuestToken = ({ userAgent, getTunnel }) => {
-  let retry = 0 // TODO: reset every 10min
+  let retry = expirableCounter()
 
   return async () => {
     const tunnel = await getTunnel
     let token
 
     do {
-      const agent = retry ? await getAgent({ tunnel }) : undefined
-      debug(`guestToken retry=${retry} agent=${!!agent}`)
+      const agent = retry.val() ? await getAgent({ tunnel }) : undefined
+      debug(
+        `guestToken retry=${retry.val()} agent=${agent ? agent.options.proxy.proxyAuth : false}`
+      )
 
       try {
         const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
@@ -38,7 +40,7 @@ const createGuestToken = ({ userAgent, getTunnel }) => {
         token = get(body, 'guest_token')
       } catch (err) {
         debug(`guestToken:err`, err.statusCode)
-        ++retry
+        retry.incr()
       }
     } while (!token)
 
@@ -46,7 +48,7 @@ const createGuestToken = ({ userAgent, getTunnel }) => {
   }
 }
 
-const createGetTwitterInfo = ({ userAgent, getGuestToken }) => {
+const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
   let guestToken = getGuestToken()
 
   return async url => {
@@ -96,10 +98,10 @@ const createGetTwitterInfo = ({ userAgent, getGuestToken }) => {
 
 module.exports = ({ fromGeneric, userAgent, getTunnel }) => {
   const getGuestToken = createGuestToken({ getTunnel, userAgent })
-  const getTwitterInfo = createGetTwitterInfo({ getGuestToken, userAgent })
+  const getTwitterVideo = createGetTwitterVideo({ getGuestToken, userAgent })
 
   return async url => {
-    const [videoInfo, twitterVideos] = await Promise.all([fromGeneric(url), getTwitterInfo(url)])
+    const [videoInfo, twitterVideos] = await Promise.all([fromGeneric(url), getTwitterVideo(url)])
 
     const { formats: twitterVideoFormats, ...twitterVideosData } = twitterVideos
 
@@ -117,3 +119,6 @@ module.exports = ({ fromGeneric, userAgent, getTunnel }) => {
     return { ...videoInfo, ...twitterVideosData, formats }
   }
 }
+
+module.exports.createGuestToken = createGuestToken
+module.exports.createGetTwitterVideo = createGetTwitterVideo

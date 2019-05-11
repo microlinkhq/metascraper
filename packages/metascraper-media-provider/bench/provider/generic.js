@@ -1,10 +1,10 @@
 'use strict'
 
-const createFromGeneric = require('../src/get-media/provider/generic')
+const createFromGeneric = require('../../src/get-media/provider/generic')
 
-const { createTunnel } = require('../src/get-media/util')
+const { createTunnel } = require('../../src/get-media/util')
 
-const { proxies, urls } = require('./constants')
+const { proxies, urls } = require('../constants')
 
 const getTunnel = createTunnel({ proxies })
 

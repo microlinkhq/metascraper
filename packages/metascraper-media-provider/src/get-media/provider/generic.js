@@ -5,7 +5,7 @@ const youtubedl = require('@microlink/youtube-dl')
 const { isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const { getAgent, isTwitterUrl } = require('../util')
+const { getAgent, isTwitterUrl, expirableCounter } = require('../util')
 
 const getInfo = promisify(youtubedl.getInfo)
 
@@ -31,7 +31,7 @@ const proxyUri = agent => {
 
 module.exports = ({ getTunnel, onError, userAgent, cacheDir }) => {
   const baseFlags = getFlags({ userAgent, cacheDir })
-  let retry = 0 // TODO: reset every 10min
+  let retry = expirableCounter()
 
   return async url => {
     const flags = baseFlags.concat([`--referer=${url}`])
@@ -40,11 +40,11 @@ module.exports = ({ getTunnel, onError, userAgent, cacheDir }) => {
 
     do {
       try {
-        const agent = retry ? await getAgent({ tunnel }) : undefined
-        debug(`getInfo retry=${retry} agent=${false} url=${url} flags=${flags.join(' ')}`)
+        const agent = retry.val() ? await getAgent({ tunnel }) : undefined
+        debug(`getInfo retry=${retry.val()} agent=${false} url=${url} flags=${flags.join(' ')}`)
         data = await getInfo(url, agent ? flags.concat(`--proxy=${proxyUri(agent)}`) : flags)
       } catch (err) {
-        ++retry
+        retry.incr()
         onError(err, url)
         if (!(tunnel && isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message))) return data
       }
