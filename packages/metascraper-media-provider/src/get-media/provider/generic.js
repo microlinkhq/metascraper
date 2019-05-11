@@ -31,11 +31,11 @@ const proxyUri = agent => {
 
 module.exports = ({ getTunnel, onError, userAgent, cacheDir }) => {
   const baseFlags = getFlags({ userAgent, cacheDir })
+  let retry = 0 // TODO: reset every 10min
 
   return async url => {
     const flags = baseFlags.concat([`--referer=${url}`])
     const tunnel = await getTunnel
-    let retry = 0
     let data = {}
 
     do {
@@ -46,7 +46,7 @@ module.exports = ({ getTunnel, onError, userAgent, cacheDir }) => {
       } catch (err) {
         ++retry
         onError(err, url)
-        if (!(isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message))) return data
+        if (!(tunnel && isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message))) return data
       }
     } while (isEmpty(data))
 
