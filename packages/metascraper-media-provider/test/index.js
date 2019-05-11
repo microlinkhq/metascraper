@@ -47,7 +47,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    describe('vimeo', () => {
+    ;(isCI ? describe.skip : describe)('vimeo', () => {
       ;['https://vimeo.com/channels/staffpicks/287117046', 'https://vimeo.com/186386161'].forEach(
         url => {
           it(url, async () => {
