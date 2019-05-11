@@ -9,7 +9,7 @@ const createGenericProvider = require('./provider/generic')
 
 module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
   const getTunnel = createTunnel({ proxies })
-  const fromGeneric = createGenericProvider({ cacheDir, userAgent, onError })
+  const fromGeneric = createGenericProvider({ getTunnel, cacheDir, userAgent, onError })
   const fromTwitter = createTwitterProvider({ getTunnel, userAgent, fromGeneric })
   const getInfo = async url => (isTwitterUrl(url) ? fromTwitter(url) : fromGeneric(url))
   return memoizeOne(getInfo)
