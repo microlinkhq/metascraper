@@ -2,7 +2,7 @@
   "name": "metascraper-soundcloud",
   "description": "metascraper integration with SoundCloud",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-soundcloud",
-  "version": "5.2.4",
+  "version": "5.3.0-alpha.3",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "soundcloud"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.2.4"
+    "@metascraper/helpers": "^5.3.0-alpha.3"
   },
   "devDependencies": {
     "mocha": "latest",
