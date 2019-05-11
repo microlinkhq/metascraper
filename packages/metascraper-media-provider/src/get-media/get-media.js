@@ -7,7 +7,7 @@ const { promisify } = require('util')
 const getInfo = promisify(youtubedl.getInfo)
 
 const getFlags = ({ userAgent, cacheDir }) => {
-  const flags = ['--no-check-certificate', '--prefer-free-formats']
+  const flags = ['--no-check-certificate', '--prefer-free-formats', '--youtube-skip-dash-manifest']
   if (cacheDir) flags.push(`--cache-dir=${cacheDir}`)
   if (userAgent) flags.push(`--user-agent=${userAgent}`)
   return flags
