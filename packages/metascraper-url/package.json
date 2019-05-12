@@ -30,8 +30,5 @@
   "scripts": {
     "test": "exit 0"
   },
-  "license": "MIT",
-  "peerDependencies": {
-    "metascraper": "^5"
-  }
+  "license": "MIT"
 }

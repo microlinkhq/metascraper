@@ -39,9 +39,6 @@
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
-  "peerDependencies": {
-    "metascraper": "^5"
-  },
   "standard": {
     "env": [
       "mocha"
