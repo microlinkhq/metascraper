@@ -50,7 +50,14 @@ const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
   }
 }
 
+const proxyUri = agent => {
+  const { proxy } = agent.options
+  const { proxyAuth, host, port } = proxy
+  return `https://${proxyAuth}@${host}:${port}`
+}
+
 module.exports = {
+  proxyUri,
   isTweet,
   isTwitterHost,
   isTwitterUrl,

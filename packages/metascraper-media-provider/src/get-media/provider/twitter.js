@@ -5,7 +5,7 @@ const { reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
 
 const got = require('got')
-const { expirableCounter, getAgent, getTweetId } = require('../util')
+const { expirableCounter, getAgent, getTweetId, proxyUri } = require('../util')
 
 // twitter guest web token
 // https://github.com/soimort/you-get/blob/da8c982608c9308765e0960e08fc28cccb74b215/src/you_get/extractors/twitter.py#L72
@@ -22,9 +22,7 @@ const createGuestToken = ({ userAgent, getTunnel }) => {
 
     do {
       const agent = retry.val() ? await getAgent({ tunnel }) : undefined
-      debug(
-        `guestToken retry=${retry.val()} agent=${agent ? agent.options.proxy.proxyAuth : false}`
-      )
+      debug(`guestToken retry=${retry.val()} agent=${agent ? proxyUri(agent) : false}`)
 
       try {
         const { body } = await got.post('https://api.twitter.com/1.1/guest/activate.json', {
