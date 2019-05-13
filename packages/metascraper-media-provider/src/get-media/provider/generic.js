@@ -41,7 +41,7 @@ module.exports = ({ getTunnel, onError, userAgent, cacheDir }) => {
     do {
       try {
         const agent = isTwitterUrl(url) && retry.val() ? await getAgent({ tunnel }) : undefined
-        debug(`getInfo retry=${retry.val()} agent=${false} url=${url} flags=${flags.join(' ')}`)
+        debug(`getInfo retry=${retry.val()} agent=${!!agent} url=${url} flags=${flags.join(' ')}`)
         data = await getInfo(url, agent ? flags.concat(`--proxy=${proxyUri(agent)}`) : flags)
       } catch (err) {
         retry.incr()
