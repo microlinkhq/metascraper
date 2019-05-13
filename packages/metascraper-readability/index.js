@@ -6,7 +6,7 @@ const Readability = require('readability')
 const memoizeOne = require('memoize-one')
 const { JSDOM } = require('jsdom')
 
-const memoFn = (newArgs, oldArgs) => eq(newArgs.url, oldArgs.url)
+const memoFn = (newArgs, oldArgs) => eq(newArgs[1].url, oldArgs[1].url)
 
 const readability = memoizeOne((html, opts) => {
   const dom = new JSDOM(html, opts)
