@@ -15,6 +15,7 @@ const {
   size
 } = require('lodash')
 
+const entities = new (require('html-entities')).AllHtmlEntities()
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
@@ -89,7 +90,7 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
 
 const removeByPrefix = flow([value => value.replace(REGEX_BY, ''), trim])
 
-const createTitle = flow([condenseWhitespace, smartquotes])
+const createTitle = flow([entities.decode, condenseWhitespace, smartquotes])
 
 const titleize = (src, { capitalize = false, removeBy = false } = {}) => {
   let title = createTitle(src)
@@ -115,11 +116,9 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaUrl = (url, type, opts) =>
-  isUrl(url, opts) && isMediaExtension(url, type)
+const isMediaUrl = (url, type, opts) => isUrl(url, opts) && isMediaExtension(url, type)
 
-const isMediaExtension = (url, type) =>
-  eq(type, get(EXTENSIONS, extension(url)))
+const isMediaExtension = (url, type) => eq(type, get(EXTENSIONS, extension(url)))
 
 const isVideoUrl = (url, opts) => isMediaUrl(url, VIDEO, opts)
 
