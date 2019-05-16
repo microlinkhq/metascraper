@@ -1,15 +1,15 @@
 'use strict'
 
-const { map, fromPairs, isEmpty, isObject, isArray, mapValues, isPlainObject } = require('lodash')
+const { map, fromPairs, isEmpty, isObject, isArray, mapValues } = require('lodash')
 const xss = require('xss')
 
-const getValue = async ({ htmlDom, url, conditions, meta }) => {
+const getValue = async ({ htmlDom, jsonLd, url, conditions, meta }) => {
   const lastIndex = conditions.length
   let index = 0
   let value
 
   while (isEmpty(value) && index < lastIndex) {
-    value = await conditions[index++]({ htmlDom, url, meta })
+    value = await conditions[index++]({ htmlDom, jsonLd, url, meta })
   }
 
   return value
@@ -23,10 +23,10 @@ const mapValuesDeep = (object, fn) => {
 
 const escapeValue = (value, { escape }) => (!escape ? value : mapValuesDeep(value, xss))
 
-const getData = async ({ rules, htmlDom, url, escape }) => {
+const getData = async ({ rules, htmlDom, jsonLd, url, escape }) => {
   const data = await Promise.all(
     map(rules, async ([propName, conditions]) => {
-      const rawValue = await getValue({ htmlDom, url, conditions })
+      const rawValue = await getValue({ htmlDom, url, jsonLd, conditions })
       const value = isEmpty(rawValue) ? null : escapeValue(rawValue, { escape })
       return [propName, value]
     })
