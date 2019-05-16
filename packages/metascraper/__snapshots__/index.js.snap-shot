@@ -500,7 +500,7 @@ exports['medium 1'] = {
   "video": null,
   "lang": null,
   "logo": "https://cdn-images-1.medium.com/fit/c/304/304/1*Wx82vEGrMfW4AdSLodZXgQ.png",
-  "publisher": "Medium",
+  "publisher": "webpack",
   "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾",
   "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b"
 }

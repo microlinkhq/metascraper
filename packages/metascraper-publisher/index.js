@@ -17,6 +17,18 @@ const wrap = rule => ({ htmlDom }) => {
   return publisher(value)
 }
 
+/**
+ * Wrap a rule with validation and formatting logic.
+ *
+ * @param {Function} rule
+ * @return {Function} wrapped
+ */
+
+const ld = rule => ({ jsonLd }) => {
+  const value = rule(jsonLd)
+  return publisher(value)
+}
+
 const getFromTitle = (text, regex) => {
   const matches = regex.exec(text)
   if (!matches) return false
@@ -31,6 +43,7 @@ const getFromTitle = (text, regex) => {
 
 module.exports = () => ({
   publisher: [
+    ld(ld => ld.publisher && ld.publisher.name),
     wrap($ => $('meta[property="og:site_name"]').attr('content')),
     wrap($ => $('meta[name*="application-name" i]').attr('content')),
     wrap($ => $('meta[property="al:android:app_name"]').attr('content')),
