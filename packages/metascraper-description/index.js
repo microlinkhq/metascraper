@@ -15,11 +15,24 @@ const wrap = rule => ({ htmlDom }) => {
 }
 
 /**
+ * Wrap a rule with validation and formatting logic.
+ *
+ * @param {Function} rule
+ * @return {Function} wrapped
+ */
+
+const ld = rule => ({ jsonLd }) => {
+  const value = rule(jsonLd)
+  return description(value)
+}
+
+/**
  * Rules.
  */
 
 module.exports = () => ({
   description: [
+    ld(ld => ld.description),
     wrap($ => $('meta[property="og:description"]').attr('content')),
     wrap($ => $('meta[name="twitter:description"]').attr('content')),
     wrap($ => $('meta[name="description"]').attr('content')),
