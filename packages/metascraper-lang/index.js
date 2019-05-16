@@ -7,8 +7,14 @@ const wrap = rule => ({ htmlDom }) => {
   return lang(value)
 }
 
+const ld = rule => ({ jsonLd }) => {
+  const value = rule(jsonLd)
+  return lang(value)
+}
+
 module.exports = () => ({
   lang: [
+    ld(ld => ld.inLanguage),
     wrap($ => $('meta[property="og:locale"]').attr('content')),
     wrap($ => $('html').attr('lang'))
   ]
