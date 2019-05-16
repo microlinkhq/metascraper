@@ -15,11 +15,26 @@ const wrap = rule => ({ htmlDom }) => {
 }
 
 /**
+ * Wrap a rule with validation and formatting logic.
+ *
+ * @param {Function} rule
+ * @return {Function} wrapped
+ */
+
+const ld = rule => ({ jsonLd }) => {
+  const value = rule(jsonLd)
+  return date(value)
+}
+
+/**
  * Rules.
  */
 
 module.exports = () => ({
   date: [
+    ld(ld => ld.datePublished),
+    ld(ld => ld.dateCreated),
+    ld(ld => ld.dateModified),
     wrap($ => $('meta[property*="updated_time" i]').attr('content')),
     wrap($ => $('meta[property*="modified_time" i]').attr('content')),
     wrap($ => $('meta[property*="published_time" i]').attr('content')),
