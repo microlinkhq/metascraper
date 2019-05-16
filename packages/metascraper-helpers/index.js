@@ -39,7 +39,6 @@ const AUDIO = 'audio'
 const IMAGE = 'image'
 
 const imageExtensions = chain(require('image-extensions'))
-  .difference(['gif'])
   .reduce((acc, ext) => ({ ...acc, [ext]: IMAGE }), {})
   .value()
 
@@ -49,7 +48,6 @@ const audioExtensions = chain(require('audio-extensions'))
   .value()
 
 const videoExtensions = chain(require('video-extensions'))
-  .union(['gif'])
   .reduce((acc, ext) => ({ ...acc, [ext]: VIDEO }), {})
   .value()
 
@@ -117,21 +115,27 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaUrl = (url, type, opts) => isUrl(url, opts) && isMediaExtension(url, type)
+const isMediaTypeUrl = (url, type, opts) => isUrl(url, opts) && isMediaTypeExtension(url, type)
 
-const isMediaExtension = (url, type) => eq(type, get(EXTENSIONS, extension(url)))
+const isMediaTypeExtension = (url, type) => eq(type, get(EXTENSIONS, extension(url)))
 
-const isVideoUrl = (url, opts) => isMediaUrl(url, VIDEO, opts)
+const isMediaUrl = (url, opts) =>
+  isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
 
-const isAudioUrl = (url, opts) => isMediaUrl(url, AUDIO, opts)
+const isVideoUrl = (url, opts) => isMediaTypeUrl(url, VIDEO, opts)
 
-const isImageUrl = (url, opts) => isMediaUrl(url, IMAGE, opts)
+const isAudioUrl = (url, opts) => isMediaTypeUrl(url, AUDIO, opts)
 
-const isVideoExtension = url => isMediaExtension(url, VIDEO)
+const isImageUrl = (url, opts) => isMediaTypeUrl(url, IMAGE, opts)
 
-const isAudioExtension = url => isMediaExtension(url, AUDIO)
+const isMediaExtension = url =>
+  isImageExtension(url) || isVideoExtension(url) || isAudioExtension(url)
 
-const isImageExtension = url => isMediaExtension(url, IMAGE)
+const isVideoExtension = url => isMediaTypeExtension(url, VIDEO)
+
+const isAudioExtension = url => isMediaTypeExtension(url, AUDIO)
+
+const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
 
 const extension = (str = '') => {
   const urlObj = urlLib.parse(str)
@@ -209,13 +213,15 @@ module.exports = {
   protocol,
   publisher,
   normalizeUrl,
-  isMime,
-  isUrl,
   isString,
   isArray,
+  isMime,
+  isUrl,
+  isMediaUrl,
   isVideoUrl,
   isAudioUrl,
   isImageUrl,
+  isMediaExtension,
   isVideoExtension,
   isAudioExtension,
   isImageExtension

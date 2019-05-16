@@ -2,10 +2,10 @@
 
 const snapshot = require('snap-shot')
 const should = require('should')
-const getBrowserless = require('browserless')
+const isCI = require('is-ci')
 
 const metascraper = require('metascraper')([
-  require('..')({ getBrowserless }),
+  require('..')(),
   require('metascraper-publisher')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
@@ -47,17 +47,16 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    describe('vimeo', () => {
-      ;[
-        // 'https://vimeo.com/channels/staffpicks/287117046',
-        // 'https://vimeo.com/186386161'
-      ].forEach(url => {
-        it(url, async () => {
-          const metadata = await metascraper({ url })
-          console.log(metadata.video)
-          should(extension(metadata.video)).be.equal('mp4')
-        })
-      })
+    ;(isCI ? describe.skip : describe)('vimeo', () => {
+      ;['https://vimeo.com/channels/staffpicks/287117046', 'https://vimeo.com/186386161'].forEach(
+        url => {
+          it(url, async () => {
+            const metadata = await metascraper({ url })
+            console.log(metadata.video)
+            should(extension(metadata.video)).be.equal('mp4')
+          })
+        }
+      )
     })
 
     describe('youtube', () => {
@@ -79,8 +78,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-
-    describe('twitter', () => {
+    ;(isCI ? describe.skip : describe)('twitter', () => {
       ;[
         'https://twitter.com/verge/status/957383241714970624',
         'https://twitter.com/telediario_tve/status/1036860275859775488',

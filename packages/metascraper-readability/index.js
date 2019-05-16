@@ -6,20 +6,19 @@ const Readability = require('readability')
 const memoizeOne = require('memoize-one')
 const { JSDOM } = require('jsdom')
 
-const memoFn = (newArgs, oldArgs) => eq(newArgs.url, oldArgs.url)
+const memoFn = (newArgs, oldArgs) => eq(newArgs[1].url, oldArgs[1].url)
 
-const readability = opts => {
-  const dom = new JSDOM(opts)
+const readability = memoizeOne((html, opts) => {
+  const dom = new JSDOM(html, opts)
   const reader = new Readability(dom.window.document)
   return reader.parse()
-}
+}, memoFn)
 
-const getReadbility = ({ from, to = from }) =>
-  memoizeOne(({ htmlDom, url }) => {
-    const data = readability(htmlDom.html(), { url })
-    const value = get(data, from)
-    return invoke(helpers, to, value)
-  }, memoFn)
+const getReadbility = ({ from, to = from }) => ({ htmlDom, url }) => {
+  const data = readability(htmlDom.html(), { url })
+  const value = get(data, from)
+  return invoke(helpers, to, value)
+}
 
 module.exports = () => {
   return {

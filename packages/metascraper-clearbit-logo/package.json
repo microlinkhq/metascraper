@@ -2,7 +2,7 @@
   "name": "metascraper-clearbit-logo",
   "description": "metascraper integration with Clearbit Logo API",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit-logo",
-  "version": "5.0.2",
+  "version": "5.3.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -35,9 +35,6 @@
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
-  "peerDependencies": {
-    "metascraper": "^5"
-  },
   "standard": {
     "env": [
       "mocha"

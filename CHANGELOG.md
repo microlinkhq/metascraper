@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.4](https://github.com/microlinkhq/metascraper/compare/v5.2.3...v5.2.4) (2019-05-07)
+
+
+### Bug Fixes
+
+* gif as image format ([#171](https://github.com/microlinkhq/metascraper/issues/171)) ([1fbdae2](https://github.com/microlinkhq/metascraper/commit/1fbdae2))
+
+
+
+
+
 ## [5.2.3](https://github.com/microlinkhq/metascraper/compare/v5.2.2...v5.2.3) (2019-05-05)
 
 **Note:** Version bump only for package metascraper
