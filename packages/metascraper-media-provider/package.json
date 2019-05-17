@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.3.0",
-    "@microlink/youtube-dl": "~1.13.2",
+    "@microlink/youtube-dl": "~1.13.3",
     "debug": "~4.1.1",
     "got": "~9.6.0",
     "lodash": "~4.17.11",
