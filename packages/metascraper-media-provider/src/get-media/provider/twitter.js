@@ -37,7 +37,7 @@ const createGuestToken = ({ userAgent, getTunnel }) => {
         })
         token = get(body, 'guest_token')
       } catch (err) {
-        debug(`guestToken:err`, err.statusCode)
+        debug(`guestToken:err`, err.message)
         retry.incr()
       }
     } while (!token)

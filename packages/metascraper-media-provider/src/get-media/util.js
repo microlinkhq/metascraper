@@ -19,7 +19,7 @@ const getTweetId = url => url.split('/').reverse()[0]
 const getAgent = async ({ tunnel }) => {
   if (!tunnel) return
   const agent = tunnel()
-  debug(`getAgent agent=${tunnel.index() + 1}/${tunnel.size()}`)
+  debug(`getAgent agent=${tunnel.index()}/${tunnel.size()}`)
   return agent
 }
 
