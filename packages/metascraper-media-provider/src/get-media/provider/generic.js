@@ -2,10 +2,15 @@
 
 const debug = require('debug')('metascraper-media-provider:generic')
 const youtubedl = require('@microlink/youtube-dl')
-const { isEmpty } = require('lodash')
+const { get, isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const { getAgent, isTwitterUrl, expirableCounter, proxyUri } = require('../util')
+const {
+  getAgent,
+  isTwitterUrl,
+  expirableCounter,
+  proxyUri
+} = require('../util')
 
 const getInfo = promisify(youtubedl.getInfo)
 
@@ -13,7 +18,8 @@ const REGEX_RATE_LIMIT = /429: Too Many Requests/i
 
 const REGEX_ERR_MESSAGE = /ERROR: (.*);?/
 
-const isTwitterRateLimit = (url, err) => isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message)
+const isTwitterRateLimit = (url, err) =>
+  isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message)
 
 const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   const flags = [
@@ -33,8 +39,7 @@ const makeError = ({ rawError, url, flags }) => {
   let message
 
   if (rawError.message) {
-    const result = REGEX_ERR_MESSAGE.exec(rawError.message)
-    const [, extractedMessage] = result
+    const extractedMessage = get(REGEX_ERR_MESSAGE.exec(rawError.message), '1')
     if (extractedMessage) message = extractedMessage.split('; ')[0]
   } else {
     message = rawError
@@ -58,7 +63,10 @@ module.exports = ({ getTunnel, onError, userAgent, cacheDir }) => {
     let data = {}
 
     do {
-      const agent = isTwitterUrl(url) && retry.val() ? await getAgent({ tunnel }) : undefined
+      const agent =
+        isTwitterUrl(url) && retry.val()
+          ? await getAgent({ tunnel })
+          : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
       debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
       try {
