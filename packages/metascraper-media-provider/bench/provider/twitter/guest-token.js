@@ -6,8 +6,8 @@ const userAgent = require('ua-string')
 
 const { proxies } = require('../../constants')
 
-const getTunnel = createTunnel({ proxies })
-const getGuestToken = createGuestToken({ userAgent, getTunnel })
+const tunnel = createTunnel(proxies)
+const getGuestToken = createGuestToken({ userAgent, tunnel })
 
 // When it reaches the max, it returns a 429 rate limit error
 const mainLoop = async () => {
