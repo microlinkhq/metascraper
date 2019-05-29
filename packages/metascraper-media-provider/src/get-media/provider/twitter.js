@@ -13,15 +13,14 @@ const { expirableCounter, getAgent, getTweetId, proxyUri } = require('../util')
 const TWITTER_BEARER_TOKEN =
   'Bearer AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%2F40K4moUkGsoc%3DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw'
 
-const createGuestToken = ({ userAgent, getTunnel }) => {
+const createGuestToken = ({ userAgent, tunnel }) => {
   let retry = expirableCounter()
 
   return async () => {
-    const tunnel = await getTunnel
     let token
 
     do {
-      const agent = retry.val() ? await getAgent({ tunnel }) : undefined
+      const agent = retry.val() ? getAgent(tunnel) : undefined
       debug(`guestToken retry=${retry.val()} agent=${agent ? proxyUri(agent) : false}`)
 
       try {
@@ -94,8 +93,8 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
   }
 }
 
-module.exports = ({ fromGeneric, userAgent, getTunnel }) => {
-  const getGuestToken = createGuestToken({ getTunnel, userAgent })
+module.exports = ({ fromGeneric, userAgent, tunnel }) => {
+  const getGuestToken = createGuestToken({ tunnel, userAgent })
   const getTwitterVideo = createGetTwitterVideo({ getGuestToken, userAgent })
 
   return async url => {
