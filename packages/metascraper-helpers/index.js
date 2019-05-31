@@ -24,6 +24,7 @@ const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
+const { decodeHTML } = require('entities')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
@@ -201,26 +202,26 @@ const isMime = (contentType, type) => {
 }
 
 const jsonld = mem(
-  url,
-  $ => {
-    let json = {}
+  (url, $) => {
     try {
-      json = JSON.parse(
+      return JSON.parse(
         $('script[type="application/ld+json"]')
           .first()
           .contents()
           .text()
       )
-    } catch (err) {}
-    return json
+    } catch (err) {
+      return {}
+    }
   },
-  {
-    cacheKey: url => url
-  }
+  { cacheKey: url => url }
 )
 
-const $jsonld = propName => ({ url, htmlDom: $ }) =>
-  get(jsonld(url, $), propName)
+const $jsonld = propName => ($, url) => {
+  const json = jsonld(url, $)
+  const value = get(json, propName)
+  return isEmpty(value) ? value : decodeHTML(value)
+}
 
 module.exports = {
   author,
