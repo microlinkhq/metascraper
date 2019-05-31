@@ -20,9 +20,9 @@ const wrap = rule => ({ htmlDom }) => {
 
 module.exports = () => ({
   date: [
+    wrap($jsonld('dateModified')),
     wrap($jsonld('datePublished')),
     wrap($jsonld('dateCreated')),
-    wrap($jsonld('dateModified')),
     wrap($ => $('meta[property*="updated_time" i]').attr('content')),
     wrap($ => $('meta[property*="modified_time" i]').attr('content')),
     wrap($ => $('meta[property*="published_time" i]').attr('content')),

@@ -21,6 +21,7 @@ const wrap = rule => ({ htmlDom }) => {
 module.exports = () => ({
   description: [
     wrap($jsonld('description')),
+    wrap($jsonld('articleBody')),
     wrap($ => $('meta[property="og:description"]').attr('content')),
     wrap($ => $('meta[name="twitter:description"]').attr('content')),
     wrap($ => $('meta[name="description"]').attr('content')),
