@@ -1,6 +1,6 @@
 {
   "name": "metascraper",
-  "description": "A library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.",
+  "description": "A library to easily scrape metadata from an article on the web using Open Graph, JSON+LD, regular HTML metadata, and series of fallbacks.",
   "homepage": "https://metascraper.js.org",
   "version": "5.3.4",
   "main": "src/index.js",
@@ -12,6 +12,7 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "RDF",
     "article",
     "browser",
     "cheerio",
@@ -24,6 +25,9 @@
     "get",
     "graph",
     "html",
+    "json-ld",
+    "jsonld",
+    "linked data",
     "meta",
     "metadata",
     "micro format",
@@ -37,6 +41,8 @@
     "parser",
     "scrape",
     "scraper",
+    "semantic",
+    "semantic web",
     "server",
     "site",
     "summarize",
