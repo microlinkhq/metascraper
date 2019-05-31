@@ -1,18 +1,15 @@
 'use strict'
 
-const createFromGeneric = require('../../src/get-media/provider/generic')
-
-const { createTunnel } = require('../../src/get-media/util')
-
-const { proxies, urls } = require('../constants')
-
-const getTunnel = createTunnel({ proxies })
-
 const uniqueRandomArray = require('unique-random-array')
 const userAgent = require('ua-string')
 const { noop } = require('lodash')
 
-const fromGeneric = createFromGeneric({ getTunnel, onError: noop, userAgent })
+const createFromGeneric = require('../../src/get-media/provider/generic')
+const { createTunnel } = require('../../src/get-media/util')
+const { proxies, urls } = require('../constants')
+
+const tunnel = createTunnel(proxies)
+const fromGeneric = createFromGeneric({ tunnel, onError: noop, userAgent })
 const getUrl = uniqueRandomArray(urls)
 
 // When it reaches the max, it returns a 429 rate limit error

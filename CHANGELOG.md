@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.4](https://github.com/microlinkhq/metascraper/compare/v5.3.3...v5.3.4) (2019-05-30)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.3.3](https://github.com/microlinkhq/metascraper/compare/v5.3.2...v5.3.3) (2019-05-28)
+
+
+### Bug Fixes
+
+* ensure to access just if exist ([#174](https://github.com/microlinkhq/metascraper/issues/174)) ([9350086](https://github.com/microlinkhq/metascraper/commit/9350086))
+
+
+
+
+
+## [5.3.2](https://github.com/microlinkhq/metascraper/compare/v5.3.1...v5.3.2) (2019-05-20)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.3.1](https://github.com/microlinkhq/metascraper/compare/v5.3.0...v5.3.1) (2019-05-17)
+
+
+### Bug Fixes
+
+* count ([bb12aaf](https://github.com/microlinkhq/metascraper/commit/bb12aaf))
+
+
+
+
+
 ## [5.2.4](https://github.com/microlinkhq/metascraper/compare/v5.2.3...v5.2.4) (2019-05-07)
 
 

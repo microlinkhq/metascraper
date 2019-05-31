@@ -16,16 +16,16 @@ const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getAgent = async ({ tunnel }) => {
+const getAgent = tunnel => {
   if (!tunnel) return
   const agent = tunnel()
   debug(`getAgent agent=${tunnel.index()}/${tunnel.size()}`)
   return agent
 }
 
-const createTunnel = async ({ proxies }) => {
+const createTunnel = (proxies, opts) => {
   if (isEmpty(proxies)) return
-  const tunnel = luminatiTunnel(proxies)
+  const tunnel = luminatiTunnel(proxies, opts)
   debug(`tunnel size=${tunnel.size()}`)
   return tunnel
 }

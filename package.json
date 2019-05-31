@@ -63,7 +63,7 @@
     "postinstall": "lerna bootstrap --no-ci && lerna link --force-local",
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
-    "preversion": "lerna exec npx finepack && git-authors-cli && finepack",
+    "preversion": "npx lerna exec \"npx git-authors-cli || true; npx finepack\" --parallel",
     "release": "lerna publish --sort --conventional-commits -m \"chore(release): %s\"",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",

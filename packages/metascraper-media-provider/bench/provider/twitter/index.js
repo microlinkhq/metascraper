@@ -11,8 +11,8 @@ const userAgent = require('ua-string')
 const { proxies, urls } = require('../../constants')
 
 const getUrl = uniqueRandomArray(urls)
-const getTunnel = createTunnel({ proxies })
-const getGuestToken = createGuestToken({ userAgent, getTunnel })
+const tunnel = createTunnel(proxies)
+const getGuestToken = createGuestToken({ userAgent, tunnel })
 const twitterVideo = createGetTwitterVideo({ userAgent, getGuestToken })
 
 const mainLoop = async () => {

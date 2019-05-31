@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.3.0",
+  "version": "5.3.4",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "normalize-url": "~4.3.0",
     "smartquotes": "~2.3.1",
     "title": "~3.4.1",
-    "truncate": "~2.0.1",
+    "truncate": "~2.1.0",
     "url-regex": "~5.0.0",
     "video-extensions": "~1.1.0"
   },
