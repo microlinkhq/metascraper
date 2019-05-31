@@ -12,8 +12,8 @@ const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return publisher(value)
 }
 

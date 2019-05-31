@@ -2,8 +2,8 @@
 
 const { $jsonld, $filter, title } = require('@metascraper/helpers')
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return title(value)
 }
 

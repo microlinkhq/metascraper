@@ -9,8 +9,8 @@ const { date, $filter, $jsonld } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return date(value)
 }
 

@@ -10,7 +10,7 @@ const { $jsonld, $filter, url: urlFn } = require('@metascraper/helpers')
  */
 
 const wrap = rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom)
+  const value = rule(htmlDom, url)
   return urlFn(value, { url })
 }
 
