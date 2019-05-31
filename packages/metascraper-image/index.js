@@ -21,8 +21,8 @@ const getSrc = el => el.attr('src')
  */
 module.exports = () => ({
   image: [
+    wrap($jsonld('image.0')),
     wrap($jsonld('image')),
-    wrap($jsonld('image.0.url')),
     wrap($ => $('meta[property="og:image:secure_url"]').attr('content')),
     wrap($ => $('meta[property="og:image:url"]').attr('content')),
     wrap($ => $('meta[property="og:image"]').attr('content')),
