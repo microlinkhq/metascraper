@@ -1,6 +1,6 @@
 'use strict'
 
-const { date, $filter } = require('@metascraper/helpers')
+const { date, $filter, $jsonld } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -9,8 +9,8 @@ const { date, $filter } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return date(value)
 }
 
@@ -20,6 +20,9 @@ const wrap = rule => ({ htmlDom }) => {
 
 module.exports = () => ({
   date: [
+    wrap($jsonld('dateModified')),
+    wrap($jsonld('datePublished')),
+    wrap($jsonld('dateCreated')),
     wrap($ => $('meta[property*="updated_time" i]').attr('content')),
     wrap($ => $('meta[property*="modified_time" i]').attr('content')),
     wrap($ => $('meta[property*="published_time" i]').attr('content')),

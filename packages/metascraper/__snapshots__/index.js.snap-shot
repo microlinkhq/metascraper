@@ -1,11 +1,11 @@
 exports['anandtech 1'] = {
   "author": "Anton Shilov",
-  "date": null,
+  "date": "2017-06-29T00:00:00.000Z",
   "description": "This morning AMD is introducing their Ryzen PRO processors for business and commercial desktop PCs. The new lineup of CPUs includes the Ryzen 3 PRO, Ryzen 5 PRO and Ryzen 7 PRO families with four, six, or eight cores running at various frequencies. A superset to the standard Ryzen chips, the PRO chi…",
   "image": "http://images.anandtech.com/doci/11591/amd_ryzen_pro_678_678x452.jpg",
   "video": null,
   "lang": null,
-  "logo": "http://www.anandtech.com/content/images/podcast_a_huge.png",
+  "logo": "http://www.anandtech.com/content/images/rss_logo.png",
   "publisher": "AnandTech",
   "title": "AMD Launches Ryzen PRO CPUs: Enhanced Security, Longer Warranty, Better Quality",
   "url": "http://www.anandtech.com/show/11591/amd-launches-ryzen-pro-cpus-enhanced-security-longer-warranty-better-quality"
@@ -64,16 +64,16 @@ exports['audiense 1'] = {
 }
 
 exports['bbc 1'] = {
-  "author": "Will Smale Business reporter, BBC News",
-  "date": "2017-07-10T00:00:00.000Z",
+  "author": "Will Smale",
+  "date": "2017-07-14T20:28:07.000Z",
   "description": "How an IT worker quit his day job, and despite having no ideas to begin with, launched a firm from home that made him a multi-millionaire.",
-  "image": "https://ichef-1.bbci.co.uk/news/1024/cpsprodpb/D20B/production/_96817735_carl4.jpg",
+  "image": "https://ichef.bbci.co.uk/news/720/cpsprodpb/D20B/production/_96817735_carl4.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://static.bbci.co.uk/news/1.201.01763/apple-touch-icon.png",
+  "logo": "https://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
   "publisher": "BBC News",
-  "title": "The man who built a $1bn firm in his basement - BBC News",
-  "url": "http://www.bbc.com/news/business-40504764"
+  "title": "The man who built a $1bn firm in his basement",
+  "url": "https://www.bbc.com/news/business-40504764"
 }
 
 exports['bloomberg 1'] = {
@@ -95,7 +95,7 @@ exports['business-today 1'] = {
   "description": "HackerRank is helping companies recruit coding champions through online tests.",
   "image": "http://media2.intoday.in/btmt/images/stories/code505_051616043033.jpg",
   "video": null,
-  "lang": null,
+  "lang": "en",
   "logo": "http://www.businesstoday.in/images/favicon.ico",
   "publisher": "Business Today",
   "title": "Cracking the Code",
@@ -195,7 +195,7 @@ exports['economic-times 1'] = {
 
 exports['entrepreneur 1'] = {
   "author": "Reuters",
-  "date": "2016-05-04T15:56:14.000Z",
+  "date": "2016-05-04T15:40:00.000Z",
   "description": "‘One of the big causes for the stagnation of middle class wages is essentially because of clever computer programs,’ said David Siegel, co-chairman of Two Sigma.",
   "image": "https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg",
   "video": null,
@@ -221,7 +221,7 @@ exports['eweek 1'] = {
 
 exports['fast-company 1'] = {
   "author": "Lydia Dishman",
-  "date": "2016-05-24T21:27:05.000Z",
+  "date": "2016-05-24T09:42:00.000Z",
   "description": "Lack of access to capital is a big challenge, but so is the lack of access to networks and advisors.",
   "image": "http://b.fastcompany.net/multisite_files/fastcompany/imagecache/620x350/poster/2016/05/3060169-poster-p-1-one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business.jpg",
   "video": null,
@@ -481,7 +481,7 @@ exports['marketing-land 1'] = {
 
 exports['mashable 1'] = {
   "author": "Stacey Bishop",
-  "date": "2015-05-13T16:37:58.000Z",
+  "date": "2015-05-13T16:37:41.000Z",
   "description": "Analytics open the door to predictive selling and ensure that your sales team is doing more than hoarding data that it doesn’t know how to act on.",
   "image": "http://i.amz.mshcdn.com/jw9czJj9h-4ClVBegbu982-Zmb8=/1200x627/2015%2F05%2F13%2Fc6%2Frevenue_ana.65b72.jpg",
   "video": null,
@@ -494,13 +494,13 @@ exports['mashable 1'] = {
 
 exports['medium 1'] = {
   "author": "Sean T. Larkin",
-  "date": "2017-06-19T17:23:28.613Z",
+  "date": "2017-07-05T11:54:14.175Z",
   "description": "Now with Scope Hoisting, “magic comments”, and more!",
-  "image": "https://cdn-images-1.medium.com/max/1200/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
+  "image": "https://cdn-images-1.medium.com/max/2000/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
   "video": null,
   "lang": null,
-  "logo": "https://cdn-images-1.medium.com/fit/c/304/304/1*Wx82vEGrMfW4AdSLodZXgQ.png",
-  "publisher": "Medium",
+  "logo": "https://cdn-images-1.medium.com/max/308/1*gdoQ1_5OID90wf1eLTFvWw.png",
+  "publisher": "webpack",
   "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾",
   "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b"
 }
@@ -637,7 +637,7 @@ exports['silicon-angle 1'] = {
 
 exports['silicon-beat 1'] = {
   "author": "Marisa Kendall",
-  "date": "2016-04-20T02:05:48.000Z",
+  "date": "2016-04-20T01:52:32.000Z",
   "description": "It’s no secret that few women hold positions of power at venture capital firms. A new study quantifies what many in the industry have reported anecdotally. According to CrunchBase data released Tuesday on …",
   "image": "http://www.siliconbeat.com/wp-content/uploads/2016/04/Panel.jpg",
   "video": null,
@@ -670,7 +670,7 @@ exports['silicon-valley-business-journal 1'] = {
   "lang": null,
   "logo": "http://assets.bizjournals.com/lib/img/sanjose/apple_touch_icon.png",
   "publisher": "Silicon Valley Business Journal",
-  "title": "San Mateo email security startup Agari raises $22 million - Silicon Valley Business Journal",
+  "title": "Security startup Agari raises $22M to protect against email phishing",
   "url": "http://www.bizjournals.com/sanjose/blog/techflash/2016/05/security-startup-agari-raises-22m-to-protect.html"
 }
 
@@ -702,7 +702,7 @@ exports['startup-grind 1'] = {
 
 exports['techcrunch 1'] = {
   "author": "Frederic Lardinois",
-  "date": "2016-05-24T09:30:26.000Z",
+  "date": "2016-01-12T17:00:44.000Z",
   "description": "Recruiting software engineers is a massive headache for both startups and established companies. For a while now, HackerRank has tried to make both applying..",
   "image": "https://tctechcrunch2011.files.wordpress.com/2015/08/10-interviewed.png?w=720&h=388&crop=1",
   "video": null,
@@ -719,7 +719,7 @@ exports['the-boston-globe 1'] = {
   "description": "Ellen Pao spent the last few years spotlighting the technology industry’s lack of diversity, in court and beyond. Erica Baker caused a stir at Google when she started a spreadsheet last year for employees to share their salaries, highlighting the pay disparities between those of diff…",
   "image": "http://c.o0bg.com/rf/image_585w/Boston/2011-2020/2016/05/04/BostonGlobe.com/Business/Images/TECH_WOMEN_INCLUSION-6183.JPG",
   "video": null,
-  "lang": null,
+  "lang": "en",
   "logo": "https://c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png",
   "publisher": "BostonGlobe.com",
   "title": "Women in Tech Band Together to Track Diversity, After Hours - The Boston Globe",
@@ -844,13 +844,13 @@ exports['washington-post 1'] = {
 }
 
 exports['wired 1'] = {
-  "author": "Adam Rogers",
-  "date": "2017-07-13T00:00:00.000Z",
+  "author": "WIRED Staff",
+  "date": "2017-07-13T00:35:06.995Z",
   "description": "Even if climate change didn’t send Larsen C packing, the air and oceans on Earth are incontrovertibly warmer than they used to be. Could an event like this move a policy needle?",
-  "image": "https://media.wired.com/photos/5966648eb07d437d51477a87/191:100/pass/LarsenC-FeatureArt.jpg",
+  "image": "https://media.wired.com/photos/5966648eb07d437d51477a87/master/pass/LarsenC-FeatureArt.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://www.wired.com/favicon.ico",
+  "logo": "https://www.wired.com/images/logos/article-icon.jpg",
   "publisher": "WIRED",
   "title": "Giant Antarctic Icebergs and Crushing Existential Dread",
   "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread/"
@@ -970,9 +970,9 @@ exports['wikipedia 1'] = {
 
 exports['engadget 1'] = {
   "author": null,
-  "date": null,
+  "date": "2019-01-07T15:49:36.000Z",
   "description": "Previously, only paid subscribers had access to private repositories.",
-  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
+  "image": "https://o.aolcdn.com/images/dims?thumbnail=640%2C480&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=4539df4b9d0dc62559e62894701669f8e9e58612",
   "video": null,
   "lang": "en",
   "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",

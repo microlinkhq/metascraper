@@ -1,6 +1,6 @@
 'use strict'
 
-const { publisher } = require('@metascraper/helpers')
+const { $jsonld, publisher } = require('@metascraper/helpers')
 
 const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
 const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
@@ -12,8 +12,8 @@ const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return publisher(value)
 }
 
@@ -31,6 +31,7 @@ const getFromTitle = (text, regex) => {
 
 module.exports = () => ({
   publisher: [
+    wrap($jsonld('publisher.name')),
     wrap($ => $('meta[property="og:site_name"]').attr('content')),
     wrap($ => $('meta[name*="application-name" i]').attr('content')),
     wrap($ => $('meta[property="al:android:app_name"]').attr('content')),

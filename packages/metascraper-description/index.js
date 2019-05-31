@@ -1,6 +1,6 @@
 'use strict'
 
-const { $filter, description } = require('@metascraper/helpers')
+const { $filter, $jsonld, description } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -9,8 +9,8 @@ const { $filter, description } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return description(value)
 }
 
@@ -20,10 +20,12 @@ const wrap = rule => ({ htmlDom }) => {
 
 module.exports = () => ({
   description: [
+    wrap($jsonld('description')),
     wrap($ => $('meta[property="og:description"]').attr('content')),
     wrap($ => $('meta[name="twitter:description"]').attr('content')),
     wrap($ => $('meta[name="description"]').attr('content')),
     wrap($ => $('meta[itemprop="description"]').attr('content')),
+    wrap($jsonld('articleBody')),
     wrap($ => $('#description').text()),
     wrap($ => $filter($, $('[class*="content" i] > p'))),
     wrap($ => $filter($, $('[class*="content" i] p')))

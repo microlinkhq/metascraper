@@ -10,6 +10,7 @@ const wrap = rule => ({ htmlDom }) => {
 module.exports = () => ({
   lang: [
     wrap($ => $('meta[property="og:locale"]').attr('content')),
+    wrap($ => $('meta[itemprop="inLanguage"]').attr('content')),
     wrap($ => $('html').attr('lang'))
   ]
 })

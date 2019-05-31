@@ -6,6 +6,7 @@ const {
   replace,
   includes,
   isString,
+  isArray,
   trim,
   flow,
   chain,
@@ -23,6 +24,7 @@ const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
+const { decodeHTML } = require('entities')
 const mimeTypes = require('mime-types')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
@@ -31,6 +33,7 @@ const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
 const urlLib = require('url')
+const mem = require('mem')
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
@@ -113,9 +116,11 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaTypeUrl = (url, type, opts) => isUrl(url, opts) && isMediaTypeExtension(url, type)
+const isMediaTypeUrl = (url, type, opts) =>
+  isUrl(url, opts) && isMediaTypeExtension(url, type)
 
-const isMediaTypeExtension = (url, type) => eq(type, get(EXTENSIONS, extension(url)))
+const isMediaTypeExtension = (url, type) =>
+  eq(type, get(EXTENSIONS, extension(url)))
 
 const isMediaUrl = (url, opts) =>
   isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
@@ -196,29 +201,55 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
+const jsonld = mem(
+  (url, $) => {
+    try {
+      return JSON.parse(
+        $('script[type="application/ld+json"]')
+          .first()
+          .contents()
+          .text()
+      )
+    } catch (err) {
+      return {}
+    }
+  },
+  { cacheKey: url => url }
+)
+
+const $jsonld = propName => ($, url) => {
+  const json = jsonld(url, $)
+  const value = get(json, propName)
+  return isEmpty(value) ? value : decodeHTML(value)
+}
+
 module.exports = {
-  author,
-  title,
-  lang,
-  url,
-  description,
-  date,
   $filter,
-  titleize,
+  $jsonld,
   absoluteUrl,
-  sanetizeUrl,
+  author,
+  date,
+  description,
   extension,
-  protocol,
-  publisher,
-  normalizeUrl,
-  isMime,
-  isUrl,
-  isMediaUrl,
-  isVideoUrl,
+  isArray,
+  isAudioExtension,
   isAudioUrl,
+  isImageExtension,
   isImageUrl,
   isMediaExtension,
+  isMediaUrl,
+  isMime,
+  isString,
+  isUrl,
   isVideoExtension,
-  isAudioExtension,
-  isImageExtension
+  isVideoUrl,
+  jsonld,
+  lang,
+  normalizeUrl,
+  protocol,
+  publisher,
+  sanetizeUrl,
+  title,
+  titleize,
+  url
 }

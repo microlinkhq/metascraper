@@ -1,14 +1,15 @@
 'use strict'
 
-const { $filter, title } = require('@metascraper/helpers')
+const { $jsonld, $filter, title } = require('@metascraper/helpers')
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return title(value)
 }
 
 module.exports = () => ({
   title: [
+    wrap($jsonld('headline')),
     wrap($ => $('meta[property="og:title"]').attr('content')),
     wrap($ => $('meta[name="twitter:title"]').attr('content')),
     wrap($ => $('.post-title').text()),

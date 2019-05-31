@@ -1,6 +1,6 @@
 'use strict'
 
-const { $filter, author } = require('@metascraper/helpers')
+const { $jsonld, $filter, author } = require('@metascraper/helpers')
 
 const REGEX_STRICT = /^\S+\s+\S+/
 
@@ -11,8 +11,8 @@ const REGEX_STRICT = /^\S+\s+\S+/
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
+const wrap = rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
   return author(value)
 }
 
@@ -34,6 +34,7 @@ const strict = rule => $ => {
 
 module.exports = () => ({
   author: [
+    wrap($jsonld('author.name')),
     wrap($ => $('meta[name="author"]').attr('content')),
     wrap($ => $('meta[property="author"]').attr('content')),
     wrap($ => $('meta[property="article:author"]').attr('content')),

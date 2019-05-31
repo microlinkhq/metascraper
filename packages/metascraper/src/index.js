@@ -19,10 +19,11 @@ module.exports = rules => {
         code: 'INVALID_URL'
       })
     }
+    const htmlDom = loadHTML(html)
     return getData({
       url,
       escape,
-      htmlDom: loadHTML(html),
+      htmlDom,
       rules: mergeRules(inlineRules, loadedRules)
     })
   }

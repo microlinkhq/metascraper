@@ -5,7 +5,12 @@ const youtubedl = require('@microlink/youtube-dl')
 const { get, isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const { getAgent, isTwitterUrl, expirableCounter, proxyUri } = require('../util')
+const {
+  getAgent,
+  isTwitterUrl,
+  expirableCounter,
+  proxyUri
+} = require('../util')
 
 const getInfo = promisify(youtubedl.getInfo)
 
@@ -13,7 +18,8 @@ const REGEX_RATE_LIMIT = /429: Too Many Requests/i
 
 const REGEX_ERR_MESSAGE = /ERROR: (.*);?/
 
-const isTwitterRateLimit = (url, err) => isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message)
+const isTwitterRateLimit = (url, err) =>
+  isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message)
 
 const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   const flags = [
@@ -54,7 +60,8 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
   return async url => {
     let data = {}
     do {
-      const agent = isTwitterUrl(url) && retry.val() ? getAgent(tunnel) : undefined
+      const agent =
+        isTwitterUrl(url) && retry.val() ? getAgent(tunnel) : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
       debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
       try {
