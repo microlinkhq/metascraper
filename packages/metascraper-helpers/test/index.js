@@ -1,5 +1,7 @@
 'use strict'
 
+const snapshot = require('snap-shot')
+const cheerio = require('cheerio')
 const should = require('should')
 
 const {
@@ -13,7 +15,8 @@ const {
   extension,
   absoluteUrl,
   description,
-  url
+  url,
+  $jsonld
 } = require('..')
 
 describe('metascraper-helpers', () => {
@@ -26,26 +29,42 @@ describe('metascraper-helpers', () => {
     should(url(NaN, { url: 'https://kikobeats.com' })).be.null()
     should(url('http://<foo>', { url: 'https://kikobeats.com' })).be.null()
 
-    should(url('blog', { url: 'https://kikobeats.com/' })).be.equal('https://kikobeats.com/blog')
+    should(url('blog', { url: 'https://kikobeats.com/' })).be.equal(
+      'https://kikobeats.com/blog'
+    )
 
     should(
-      url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
-    ).be.equal('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+      url(
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+      )
+    ).be.equal(
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )
     should(
-      url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', {
-        url: 'https://kikobeats.com/'
-      })
-    ).be.equal('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+      url(
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+        {
+          url: 'https://kikobeats.com/'
+        }
+      )
+    ).be.equal(
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )
     should(
       url('magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a', {
         url: 'https://kikobeats.com/'
       })
     ).be.equal('magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a')
     should(
-      url('http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg', {
-        url: 'http://www.cloudpro.co.uk/go/6024'
-      })
-    ).be.equal('http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg')
+      url(
+        'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg',
+        {
+          url: 'http://www.cloudpro.co.uk/go/6024'
+        }
+      )
+    ).be.equal(
+      'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg'
+    )
   })
 
   it('.absoluteUrl', () => {
@@ -54,14 +73,30 @@ describe('metascraper-helpers', () => {
         'https://kikobeats.com/',
         'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
       )
-    ).be.equal('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
-    should(absoluteUrl('https://kikobeats.com/', '')).be.equal('https://kikobeats.com/')
-    should(absoluteUrl('https://kikobeats.com/', null)).be.equal('https://kikobeats.com/')
-    should(absoluteUrl('https://kikobeats.com/', undefined)).be.equal('https://kikobeats.com/')
-    should(absoluteUrl('https://kikobeats.com/', 'blog')).be.equal('https://kikobeats.com/blog')
-    should(absoluteUrl('https://kikobeats.com', '/blog')).be.equal('https://kikobeats.com/blog')
-    should(absoluteUrl('https://kikobeats.com/', '/blog')).be.equal('https://kikobeats.com/blog')
-    should(absoluteUrl('http://kikobeats.com/', '/blog')).be.equal('http://kikobeats.com/blog')
+    ).be.equal(
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )
+    should(absoluteUrl('https://kikobeats.com/', '')).be.equal(
+      'https://kikobeats.com/'
+    )
+    should(absoluteUrl('https://kikobeats.com/', null)).be.equal(
+      'https://kikobeats.com/'
+    )
+    should(absoluteUrl('https://kikobeats.com/', undefined)).be.equal(
+      'https://kikobeats.com/'
+    )
+    should(absoluteUrl('https://kikobeats.com/', 'blog')).be.equal(
+      'https://kikobeats.com/blog'
+    )
+    should(absoluteUrl('https://kikobeats.com', '/blog')).be.equal(
+      'https://kikobeats.com/blog'
+    )
+    should(absoluteUrl('https://kikobeats.com/', '/blog')).be.equal(
+      'https://kikobeats.com/blog'
+    )
+    should(absoluteUrl('http://kikobeats.com/', '/blog')).be.equal(
+      'http://kikobeats.com/blog'
+    )
   })
 
   it('.extension', () => {
@@ -136,5 +171,20 @@ describe('metascraper-helpers', () => {
     ).be.equal(
       'Let me tell you the story of two investors, neither of whom knew each other, but whose paths crossed in an interesting way. Grace Groner was orphaned at age 12. She never married. She never had kids. She never drove a car. She lived most of her life alone in a one-bedroom house and worked her whole …'
     )
+  })
+
+  describe('.$jsonld', function () {
+    it('empty object if JSON-LD is not preset into the html', async () => {
+      const $ = cheerio.load('')
+      should($jsonld($)).be.deepEqual({})
+    })
+    it('object if JSON-LD is preset into the html', async () => {
+      const url =
+        'https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving'
+      const $ = cheerio.load(`<script type="application/ld+json">
+      {"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":"https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving","headline":"This is the Tesla Semi truck","description":"500 miles of range and more aerodynamic than a supercar","speakable":{"@type":"SpeakableSpecification","xpath":["/html/head/title","/html/head/meta[@name='description']/@content"]},"datePublished":"2017-11-16T23:47:07-05:00","dateModified":"2017-11-16T23:47:07-05:00","author":{"@type":"Person","name":"Zac Estrada"},"publisher":{"@type":"Organization","name":"The Verge","logo":{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/uploads/chorus_asset/file/13668586/google_amp.0.png","width":600,"height":60}},"about":{"@type":"Event","name":"Tesla Semi Truck Event 2017","startDate":"2017-11-17T04:00:00+00:00","location":{"@type":"Place","name":"Tesla Motors factory","address":"Hawthorne, California, USA"}},"image":[{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/k8ssXKPAuRwxa1pKew982ZMgv0o=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":1400},{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/l6nkV8CkJIdUrJIzHFWUFc1zLRM=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":1050},{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/5Sqo6J73lBi1hwzEiKCQy6FLx3I=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":788}]}
+    </script>`)
+      snapshot($jsonld($, url))
+    })
   })
 })

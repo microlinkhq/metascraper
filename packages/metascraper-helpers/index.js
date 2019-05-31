@@ -16,7 +16,6 @@ const {
   size
 } = require('lodash')
 
-const entities = new (require('html-entities')).AllHtmlEntities()
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
@@ -33,6 +32,7 @@ const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
 const urlLib = require('url')
+const mem = require('mem')
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
@@ -89,7 +89,7 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
 
 const removeByPrefix = flow([value => value.replace(REGEX_BY, ''), trim])
 
-const createTitle = flow([entities.decode, condenseWhitespace, smartquotes])
+const createTitle = flow([condenseWhitespace, smartquotes])
 
 const titleize = (src, { capitalize = false, removeBy = false } = {}) => {
   let title = createTitle(src)
@@ -115,9 +115,11 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaTypeUrl = (url, type, opts) => isUrl(url, opts) && isMediaTypeExtension(url, type)
+const isMediaTypeUrl = (url, type, opts) =>
+  isUrl(url, opts) && isMediaTypeExtension(url, type)
 
-const isMediaTypeExtension = (url, type) => eq(type, get(EXTENSIONS, extension(url)))
+const isMediaTypeExtension = (url, type) =>
+  eq(type, get(EXTENSIONS, extension(url)))
 
 const isMediaUrl = (url, opts) =>
   isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
@@ -198,6 +200,28 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
+const jsonld = mem(
+  url,
+  $ => {
+    let json = {}
+    try {
+      json = JSON.parse(
+        $('script[type="application/ld+json"]')
+          .first()
+          .contents()
+          .text()
+      )
+    } catch (err) {}
+    return json
+  },
+  {
+    cacheKey: url => url
+  }
+)
+
+const $jsonld = propName => ({ url, htmlDom: $ }) =>
+  get(jsonld(url, $), propName)
+
 module.exports = {
   author,
   title,
@@ -206,6 +230,7 @@ module.exports = {
   description,
   date,
   $filter,
+  $jsonld,
   titleize,
   absoluteUrl,
   sanetizeUrl,
