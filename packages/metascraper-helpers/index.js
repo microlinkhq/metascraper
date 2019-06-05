@@ -170,7 +170,7 @@ const url = (value, { url = '' } = {}) => {
 }
 
 const date = value => {
-  if (!value) return false
+  if (!isString(value)) return false
 
   // remove whitespace for easier parsing
   value = value.trim()
