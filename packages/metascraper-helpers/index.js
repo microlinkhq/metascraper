@@ -13,7 +13,8 @@ const {
   isEmpty,
   eq,
   lte,
-  size
+  size,
+  isNumber
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -170,10 +171,10 @@ const url = (value, { url = '' } = {}) => {
 }
 
 const date = value => {
-  if (!isString(value)) return false
+  if (!(isString(value) || isNumber(value))) return false
 
   // remove whitespace for easier parsing
-  value = value.trim()
+  if (isString(value)) trim(value)
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
