@@ -13,7 +13,7 @@ module.exports = () => ({
     wrap($ => $('meta[property="og:title"]').attr('content')),
     wrap($ => $('meta[name="twitter:title"]').attr('content')),
     wrap($ => $('.post-title').text()),
-    wrap($ => ($('.entry-title').length === 1 ? $('.entry-title').text() : '')),
+    wrap($ => $filter($, $('.entry-title'))),
     wrap($ => $('h1[class*="title" i] a').text()),
     wrap($ => $('h1[class*="title" i]').text()),
     wrap($ => $filter($, $('title')))
