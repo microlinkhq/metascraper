@@ -9,13 +9,13 @@ const wrap = rule => ({ htmlDom, url }) => {
 
 module.exports = () => ({
   title: [
-    wrap($jsonld('headline')),
     wrap($ => $('meta[property="og:title"]').attr('content')),
     wrap($ => $('meta[name="twitter:title"]').attr('content')),
+    wrap($ => $filter($, $('title'))),
+    wrap($jsonld('headline')),
     wrap($ => $('.post-title').text()),
     wrap($ => $filter($, $('.entry-title'))),
     wrap($ => $('h1[class*="title" i] a').text()),
-    wrap($ => $('h1[class*="title" i]').text()),
-    wrap($ => $filter($, $('title')))
+    wrap($ => $('h1[class*="title" i]').text())
   ]
 })
