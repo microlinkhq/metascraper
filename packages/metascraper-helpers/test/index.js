@@ -195,6 +195,7 @@ describe('metascraper-helpers', () => {
       should(titleize('     hello world         ')).be.equal('hello world')
     })
     it('remove separators ', async () => {
+      should(titleize('Fastersite: A better timer for JavaScript', { removeSeparator: true })).be.equal('Fastersite: A better timer for JavaScript')
       should(titleize('2018–19 UEFA Champions League - Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
       should(titleize('2018–19 UEFA Champions League | Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
       should(titleize('2018–19 UEFA Champions League • Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
