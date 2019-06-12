@@ -31,7 +31,7 @@ describe('xss', () => {
       escape: false
     })
 
-    should(metadata.title).be.equal('<script src=‘http://127.0.0.1:8080/malware.js’></script>')
+    should(metadata.title).be.equal('<script src=‘http:')
   })
 
   it('escape when the value is not empty', async () => {
