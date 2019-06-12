@@ -63,6 +63,8 @@ const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
+const REGEX_TITLE_SEPARATOR = /^[^|\-/•—]+/
+
 const TRUNCATE_MAX_LENGTH = 300
 
 const AUTHOR_MAX_LENGTH = 128
@@ -89,14 +91,20 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
   return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
 }
 
-const removeByPrefix = flow([value => value.replace(REGEX_BY, ''), trim])
+const removeBy = flow([value => value.replace(REGEX_BY, ''), trim])
+
+const removeSeparator = title => {
+  let newTitle = (REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title
+  return newTitle.trim()
+}
 
 const createTitle = flow([condenseWhitespace, smartquotes])
 
-const titleize = (src, { capitalize = false, removeBy = false } = {}) => {
+const titleize = (src, opts = {}) => {
   let title = createTitle(src)
-  if (removeBy) title = removeByPrefix(title).trim()
-  if (capitalize) title = toTitle(title)
+  if (opts.removeBy) title = removeBy(title)
+  if (opts.removeSeparator) title = removeSeparator(title)
+  if (opts.capitalize) title = toTitle(title)
   return title
 }
 
@@ -195,7 +203,8 @@ const lang = value => {
   return isLang ? lang : false
 }
 
-const title = value => isString(value) && titleize(value)
+const title = (value, { removeSeparator = true } = {}) =>
+  isString(value) && titleize(value, { removeSeparator })
 
 const isMime = (contentType, type) => {
   const ext = mimeTypes.extension(contentType)

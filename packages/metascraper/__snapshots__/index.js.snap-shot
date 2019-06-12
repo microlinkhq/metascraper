@@ -33,7 +33,7 @@ exports['astier 1'] = {
   "lang": "en",
   "logo": "https://anisse.astier.eu/theme/img/favicon.png",
   "publisher": "awk driven IoT",
-  "title": "Linux Engineer’s random thoughts - awk driven IoT",
+  "title": "Linux Engineer’s random thoughts",
   "url": "https://anisse.astier.eu/awk-driven-iot.html"
 }
 
@@ -59,7 +59,7 @@ exports['audiense 1'] = {
   "lang": "en",
   "logo": "https://audiense.com/wp-content/uploads/2016/03/favicon.png",
   "publisher": "Audiense",
-  "title": "Twin Peaks 2017: Using the data to create the next big TV sensation | Audiense",
+  "title": "Twin Peaks 2017: Using the data to create the next big TV sensation",
   "url": "https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation/"
 }
 
@@ -67,7 +67,7 @@ exports['bbc 1'] = {
   "author": "Will Smale",
   "date": "2017-07-14T20:28:07.000Z",
   "description": "How an IT worker quit his day job, and despite having no ideas to begin with, launched a firm from home that made him a multi-millionaire.",
-  "image": "https://ichef.bbci.co.uk/news/720/cpsprodpb/D20B/production/_96817735_carl4.jpg",
+  "image": "https://ichef.bbci.co.uk/news/1024/branded_news/D20B/production/_96817735_carl4.jpg",
   "video": null,
   "lang": "en",
   "logo": "https://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
@@ -85,7 +85,7 @@ exports['bloomberg 1'] = {
   "lang": null,
   "logo": "https://assets.bwbx.io/business/public/images/favicons/favicon-192x192-3621dae772.png",
   "publisher": "Bloomberg.com",
-  "title": "As Zenefits Stumbles, Gusto Goes Head-On by Selling Insurance",
+  "title": "As Zenefits Stumbles, Gusto Goes Head",
   "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
 }
 
@@ -111,7 +111,7 @@ exports['cbr 1'] = {
   "lang": "en",
   "logo": "https://www.cbronline.com/wp-content/uploads/2016/09/cbr-icon.png",
   "publisher": "Computer Business Review",
-  "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market - Computer Business Review",
+  "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market",
   "url": "https://www.cbronline.com/cloud/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858/"
 }
 
@@ -163,7 +163,7 @@ exports['computerworld 1'] = {
   "lang": "en",
   "logo": "http://idge.staticworld.net/ctw/computerworld-logo144x144.png",
   "publisher": "Computerworld",
-  "title": "Healthcare Data Protection and Privacy Prognosis—Still Critical but New Treatment is Available",
+  "title": "Healthcare Data Protection and Privacy Prognosis",
   "url": "http://www.computerworld.com/article/3057179/data-analytics/healthcare-data-protection-and-privacy-prognosis-still-critical-but-new-treatment-is-available.html"
 }
 
@@ -189,7 +189,7 @@ exports['economic-times 1'] = {
   "lang": null,
   "logo": "http://economictimes.indiatimes.com/icons/etfavicon.ico",
   "publisher": "The Economic Times",
-  "title": "HackerRank launches job search platform HackerRank Jobs - The Economic Times",
+  "title": "HackerRank launches job search platform HackerRank Jobs",
   "url": "http://economictimes.indiatimes.com/jobs/hackerrank-launches-job-search-platform-hackerrank-jobs/articleshow/50551900.cms"
 }
 
@@ -228,7 +228,7 @@ exports['fast-company 1'] = {
   "lang": "en",
   "logo": "http://www.fastcompany.com/favicon.ico",
   "publisher": "Fast Company",
-  "title": "One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business",
+  "title": "One Of The Biggest Challenges Of Getting Funding For Minority",
   "url": "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business"
 }
 
@@ -241,7 +241,7 @@ exports['fastersite 1'] = {
   "lang": null,
   "logo": "http://gent.ilcore.com/favicon.ico",
   "publisher": "Fastersite",
-  "title": "A better timer for JavaScript",
+  "title": "Fastersite: A better timer for JavaScript",
   "url": "http://gent.ilcore.com/2012/06/better-timer-for-javascript.html"
 }
 
@@ -267,7 +267,7 @@ exports['financial-times 1'] = {
   "lang": "en",
   "logo": "http://im.ft-static.com/m/icons/apple-touch-icon.png",
   "publisher": "Financial Times",
-  "title": "How confidence can help attract funding for women - FT.com",
+  "title": "How confidence can help attract funding for women",
   "url": "http://www.ft.com/cms/s/2/796d1220-475e-11e5-af2f-4d6e0e5eda22.html"
 }
 
@@ -319,7 +319,7 @@ exports['github 1'] = {
   "lang": "en",
   "logo": "https://assets-cdn.github.com/favicon.ico",
   "publisher": "GitHub",
-  "title": "microlinkhq/microlink-core",
+  "title": "microlinkhq",
   "url": "https://github.com/microlinkhq/microlink-core"
 }
 
@@ -358,7 +358,7 @@ exports['information-week 1'] = {
   "lang": "en",
   "logo": "http://img.deusm.com/informationweek/favicon.ico",
   "publisher": "InformationWeek",
-  "title": "Microsoft Expands Global Connectivity With Local Startups - InformationWeek",
+  "title": "Microsoft Expands Global Connectivity With Local Startups",
   "url": "http://www.informationweek.com/cloud/microsoft-expands-global-connectivity-with-local-startups/d/d-id/1325645"
 }
 
@@ -371,7 +371,7 @@ exports['instagram 1'] = {
   "lang": "en",
   "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/b407fa101800.png",
   "publisher": "Instagram",
-  "title": "Instagram post by Tesla • Jul 9, 2017 at 4:58am UTC",
+  "title": "Instagram post by Tesla",
   "url": "https://www.instagram.com/p/BWUDBntl3_Z/"
 }
 
@@ -397,7 +397,7 @@ exports['lean-data 1'] = {
   "lang": "en",
   "logo": "http://www.leandatainc.com/wp-content/uploads/2015/11/favicon.ico",
   "publisher": "LeanData",
-  "title": "The Winds of Change",
+  "title": "LeanData",
   "url": "http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change"
 }
 
@@ -436,7 +436,7 @@ exports['los-angeles-times 1'] = {
   "lang": "en",
   "logo": "http://www.trbas.com/jive/prod/common/images/lanews-apple-touch-icon.1q2w3_9ffdb679907f116af126c65ff1edb27a.png",
   "publisher": "latimes.com",
-  "title": "As venture capital dries up, tech start-ups discover frugality",
+  "title": "As venture capital dries up, tech start",
   "url": "http://www.latimes.com/business/technology/la-fi-tn-tech-downturn-20160429-story.html"
 }
 
@@ -496,12 +496,12 @@ exports['medium 1'] = {
   "author": "Sean T. Larkin",
   "date": "2017-07-05T11:54:14.175Z",
   "description": "Now with Scope Hoisting, “magic comments”, and more!",
-  "image": "https://cdn-images-1.medium.com/max/2000/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
+  "image": "https://cdn-images-1.medium.com/max/1200/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
   "video": null,
   "lang": null,
   "logo": "https://cdn-images-1.medium.com/max/308/1*gdoQ1_5OID90wf1eLTFvWw.png",
   "publisher": "webpack",
-  "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾",
+  "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾 – webpack – Medium",
   "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b"
 }
 
@@ -657,7 +657,7 @@ exports['silicon-tap 1'] = {
   "lang": null,
   "logo": "https://www.silicontap.com/favicon.ico",
   "publisher": "silicontap.com",
-  "title": "CircleCI Scores $18M | silicontap.com",
+  "title": "CircleCI Scores $18M",
   "url": "https://www.silicontap.com/story/0053475.html"
 }
 
@@ -670,7 +670,7 @@ exports['silicon-valley-business-journal 1'] = {
   "lang": null,
   "logo": "http://assets.bizjournals.com/lib/img/sanjose/apple_touch_icon.png",
   "publisher": "Silicon Valley Business Journal",
-  "title": "Security startup Agari raises $22M to protect against email phishing",
+  "title": "San Mateo email security startup Agari raises $22 million",
   "url": "http://www.bizjournals.com/sanjose/blog/techflash/2016/05/security-startup-agari-raises-22m-to-protect.html"
 }
 
@@ -722,7 +722,7 @@ exports['the-boston-globe 1'] = {
   "lang": "en",
   "logo": "https://c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png",
   "publisher": "BostonGlobe.com",
-  "title": "Women in Tech Band Together to Track Diversity, After Hours - The Boston Globe",
+  "title": "Women in Tech Band Together to Track Diversity, After Hours",
   "url": "https://www.bostonglobe.com/business/2016/05/03/women-tech-band-together-track-diversity-after-hours/mWL9Pte1lx34HXMqXhEY4H/story.html"
 }
 
@@ -832,13 +832,13 @@ exports['vimeo 1'] = {
 
 exports['washington-post 1'] = {
   "author": "Abby Ohlheiser",
-  "date": "2016-05-24T02:20:00.000Z",
+  "date": "2016-05-24T18:20:48.000Z",
   "description": "Twitter announced a series of changes that will make the site easier to use.",
-  "image": "https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Images/2016-05-09/Getty/AFP_AD4OR.jpg",
+  "image": "https://www.washingtonpost.com/resizer/koHP6G-N-IEesDnQ2qlC-c3G7H4=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/YU7K4QHOU45NXLUUOZBD64ZCM4.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://www.washingtonpost.com/favicon.ico",
-  "publisher": "Washington Post",
+  "logo": "https://www.washingtonpost.com/pb/resources/img/thewashingtonpost-black-400x60.png",
+  "publisher": "The Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all/"
 }
@@ -847,7 +847,7 @@ exports['wired 1'] = {
   "author": "WIRED Staff",
   "date": "2017-07-13T00:35:06.995Z",
   "description": "Even if climate change didn’t send Larsen C packing, the air and oceans on Earth are incontrovertibly warmer than they used to be. Could an event like this move a policy needle?",
-  "image": "https://media.wired.com/photos/5966648eb07d437d51477a87/master/pass/LarsenC-FeatureArt.jpg",
+  "image": "https://media.wired.com/photos/5966648eb07d437d51477a87/191:100/pass/LarsenC-FeatureArt.jpg",
   "video": null,
   "lang": "en",
   "logo": "https://www.wired.com/images/logos/article-icon.jpg",
@@ -878,7 +878,7 @@ exports['xconomy 1'] = {
   "lang": "en",
   "logo": "http://www.xconomy.com/wordpress/wp-content/themes/xconomy/images/favicon.ico",
   "publisher": "Xconomy",
-  "title": "Cybersecurity Company Agari Raises $22M For E-Mail Shield | Xconomy",
+  "title": "Cybersecurity Company Agari Raises $22M For E",
   "url": "http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield/"
 }
 
@@ -904,7 +904,7 @@ exports['zdnet 1'] = {
   "lang": "en",
   "logo": "http://zdnet1.cbsistatic.com/fly/bundles/zdnetcss/images/logos/logo-192x192.png",
   "publisher": "ZDNet",
-  "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
+  "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks",
   "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks/"
 }
 
@@ -964,7 +964,7 @@ exports['wikipedia 1'] = {
   "lang": "en",
   "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
   "publisher": "Wikipedia",
-  "title": "Bob Dylan - Wikipedia",
+  "title": "Bob Dylan",
   "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
 }
 
@@ -972,7 +972,7 @@ exports['engadget 1'] = {
   "author": null,
   "date": "2019-01-07T15:49:36.000Z",
   "description": "Previously, only paid subscribers had access to private repositories.",
-  "image": "https://o.aolcdn.com/images/dims?thumbnail=640%2C480&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=4539df4b9d0dc62559e62894701669f8e9e58612",
+  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
   "video": null,
   "lang": "en",
   "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",

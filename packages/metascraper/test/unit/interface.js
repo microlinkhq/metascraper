@@ -53,9 +53,7 @@ it('escape is enabled by default', async () => {
     url: 'http://127.0.0.1:8080'
   })
 
-  should(metadata.title).be.equal(
-    '&lt;script src=‘http://127.0.0.1:8080/malware.js’&gt;&lt;/script&gt;'
-  )
+  should(!metadata.title.includes('http://127.0.0.1:8080/malware.js')).be.true()
 })
 
 it('load extra rules', async () => {
