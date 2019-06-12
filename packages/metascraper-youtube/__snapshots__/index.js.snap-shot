@@ -6,7 +6,7 @@ exports['youtube video 1'] = {
   "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017",
+  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado)",
   "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
 }
 
@@ -18,7 +18,7 @@ exports['youtube video old 1'] = {
   "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
   "lang": "en",
   "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
-  "title": "Overwatch - Huge Massive Fist Punch Man",
+  "title": "Overwatch",
   "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg"
 }
 
@@ -29,7 +29,7 @@ exports['youtube channel 1'] = {
   "description": "Thor 3, Star Wars, Valerian, Transformers 5, Baywatch, Despicable Me 3, Fast and Furious 8, Wonder Woman, Justice League... ALL The Must See Movie Trailer, F...",
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "title": "ONE Media - YouTube",
+  "title": "ONE Media",
   "url": "https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA"
 }
 
