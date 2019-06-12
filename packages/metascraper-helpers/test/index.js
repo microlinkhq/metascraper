@@ -16,7 +16,8 @@ const {
   absoluteUrl,
   description,
   url,
-  jsonld
+  jsonld,
+  titleize
 } = require('..')
 
 describe('metascraper-helpers', () => {
@@ -186,6 +187,23 @@ describe('metascraper-helpers', () => {
       {"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":"https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving","headline":"This is the Tesla Semi truck","description":"500 miles of range and more aerodynamic than a supercar","speakable":{"@type":"SpeakableSpecification","xpath":["/html/head/title","/html/head/meta[@name='description']/@content"]},"datePublished":"2017-11-16T23:47:07-05:00","dateModified":"2017-11-16T23:47:07-05:00","author":{"@type":"Person","name":"Zac Estrada"},"publisher":{"@type":"Organization","name":"The Verge","logo":{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/uploads/chorus_asset/file/13668586/google_amp.0.png","width":600,"height":60}},"about":{"@type":"Event","name":"Tesla Semi Truck Event 2017","startDate":"2017-11-17T04:00:00+00:00","location":{"@type":"Place","name":"Tesla Motors factory","address":"Hawthorne, California, USA"}},"image":[{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/k8ssXKPAuRwxa1pKew982ZMgv0o=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":1400},{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/l6nkV8CkJIdUrJIzHFWUFc1zLRM=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":1050},{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/5Sqo6J73lBi1hwzEiKCQy6FLx3I=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":788}]}
     </script>`)
       snapshot(jsonld(url, $))
+    })
+  })
+
+  describe('.titleize', function () {
+    it('remove unnecessary space', async () => {
+      should(titleize('     hello world         ')).be.equal('hello world')
+    })
+    it('remove separators ', async () => {
+      should(titleize('2018–19 UEFA Champions League - Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
+      should(titleize('2018–19 UEFA Champions League | Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
+      should(titleize('2018–19 UEFA Champions League • Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
+      should(titleize('2018–19 UEFA Champions League | Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
+      should(titleize('2018–19 UEFA Champions League | Wikipedia | Wikipedia', { removeSeparator: true })).be.equal('2018–19 UEFA Champions League')
+      should(titleize('2018–19: UEFA Champions League | Wikipedia | Wikipedia', { removeSeparator: true })).be.equal('2018–19: UEFA Champions League')
+      should(titleize('Yo Polymer – A Whirlwind Tour Of Web Component Tooling - HTML5Rocks Updates', { removeSeparator: true })).be.equal('Yo Polymer – A Whirlwind Tour Of Web Component Tooling')
+      should(titleize('Building a Yeoman generator      | \nRhumaric, pixel distiller    ', { removeSeparator: true })).be.equal('Building a Yeoman generator')
+      should(titleize('Wikipedia: #Edit2014', { removeSeparator: true })).be.equal('Wikipedia: #Edit2014')
     })
   })
 })
