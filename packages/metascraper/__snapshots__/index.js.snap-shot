@@ -832,13 +832,13 @@ exports['vimeo 1'] = {
 
 exports['washington-post 1'] = {
   "author": "Abby Ohlheiser",
-  "date": "2016-05-24T02:20:00.000Z",
+  "date": "2016-05-24T18:20:48.000Z",
   "description": "Twitter announced a series of changes that will make the site easier to use.",
-  "image": "https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Images/2016-05-09/Getty/AFP_AD4OR.jpg",
+  "image": "https://www.washingtonpost.com/resizer/koHP6G-N-IEesDnQ2qlC-c3G7H4=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/YU7K4QHOU45NXLUUOZBD64ZCM4.jpg",
   "video": null,
   "lang": "en",
-  "logo": null,
-  "publisher": "Washington Post",
+  "logo": "https://www.washingtonpost.com/pb/resources/img/thewashingtonpost-black-400x60.png",
+  "publisher": "The Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all/"
 }
