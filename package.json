@@ -20,6 +20,10 @@
       "email": "shwanton@gmail.com"
     },
     {
+      "name": "Steven Frostwick",
+      "email": "steven.frostwick@gmail.com"
+    },
+    {
       "name": "Nikola Ristic",
       "email": "risticn6@gmail.com"
     },
@@ -76,7 +80,7 @@
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "preversion": "npx lerna exec \"npx git-authors-cli || true; npx finepack\" --parallel",
-    "release": "git-authors-cli && finepack && lerna publish --sort --conventional-commits -m \"chore(release): %s\"",
+    "release": "git-authors-cli && finepack && git add package.json && lerna publish --sort --conventional-commits -m \"chore(release): %s\"",
     "server:dev": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "test": "lerna exec npm run test",
     "update": "lerna exec ncu -- -u",
