@@ -1,6 +1,6 @@
 'use strict'
 
-const { $filter, $jsonld, description } = require('@metascraper/helpers')
+const { $jsonld, description } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -25,9 +25,6 @@ module.exports = () => ({
     wrap($ => $('meta[name="twitter:description"]').attr('content')),
     wrap($ => $('meta[name="description"]').attr('content')),
     wrap($ => $('meta[itemprop="description"]').attr('content')),
-    wrap($jsonld('articleBody')),
-    wrap($ => $('#description').text()),
-    wrap($ => $filter($, $('[class*="content" i] > p'))),
-    wrap($ => $filter($, $('[class*="content" i] p')))
+    wrap($jsonld('articleBody'))
   ]
 })
