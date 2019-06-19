@@ -805,7 +805,7 @@ exports['venture-beat 1'] = {
 }
 
 exports['vimeo 1'] = {
-  "author": null,
+  "author": "SUPER VERY MORE",
   "date": "2017-12-10T07:52:19.000Z",
   "description": "- Client: OGN (CJ E&M) - Producer: Yeonjung Hong - Creative Director: Youngmin Kim - Motion Design: Youngmin Kim, Gyuhwan Yu, Dahee Ahn - Sound Design: Stone…",
   "image": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F613524460_1280x720.webp&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
@@ -945,7 +945,7 @@ exports['youtube channel 1'] = {
 exports['wikipedia 1'] = {
   "author": null,
   "date": "2016-10-13T00:00:00.000Z",
-  "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice …",
+  "description": "This article is about the musician. For his debut album, see Bob Dylan (album).",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
   "video": null,
   "lang": "en",
