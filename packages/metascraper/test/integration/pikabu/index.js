@@ -23,7 +23,8 @@ const metascraper = require('../../..')([
 
 const readFile = promisify(fs.readFile)
 
-const url = 'https://pikabu.ru'
+const url =
+  'https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662'
 
 it('pikabu', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))

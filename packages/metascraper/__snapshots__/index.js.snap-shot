@@ -531,19 +531,6 @@ exports['nytimes 1'] = {
   "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
 }
 
-exports['pikabu 1'] = {
-  "author": null,
-  "date": null,
-  "description": "Вчера к нам приезжали друзья. К вечеру все засобирались домой, потопали каждый к своей машине. Через 5 минут позвонил один из товарищей и сказал, что его авто заперли. В общем, позвали его обратно домой, чай пить, а сами пока стали думать, что же тут делать. Вот, собственно, как выглядел паркинг",
-  "image": "https://ads.adfox.ru/211055/getCode?p1=bvoqq&p2=v&pfc=bpndz&pfb=eyxrx&pr=[RANDOM]&pe=b",
-  "video": null,
-  "lang": null,
-  "logo": "https://cs.pikabu.ru/images/icon_ios144.png",
-  "publisher": "Комментарий дня ТОП 50 Вот так камеры в Москве фиксируют штрафы. +1314 figurist; 14 часов назад # Годный интерфейс, как в каком-нибудь фильме про хацкеров (:",
-  "title": "Горячее",
-  "url": "https://pikabu.ru"
-}
-
 exports['pr-newswire 1'] = {
   "author": "HackerRank",
   "date": "2016-04-25T15:39:00.000Z",
@@ -1005,5 +992,18 @@ exports['health.govt.nz 1'] = {
   "publisher": "Ministry of Health NZ",
   "title": "Quality Improvement Agency: Health Quality and Safety Commission: Functions, Powers and Funding",
   "url": "https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding"
+}
+
+exports['pikabu 1'] = {
+  "author": null,
+  "date": "2019-06-19T21:04:27.000Z",
+  "description": "Поделился пикабушник: odno.kino",
+  "image": "https://cs10.pikabu.ru/post_img/2019/06/14/8/156051367927850595.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://cs.pikabu.ru/mobile/img/apple-touch-icon-152x152.png",
+  "publisher": "Пикабу",
+  "title": "7 интересных наблюдений о первой Матрице",
+  "url": "https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662"
 }
 
