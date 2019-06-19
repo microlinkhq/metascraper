@@ -531,19 +531,6 @@ exports['nytimes 1'] = {
   "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
 }
 
-exports['pikabu 1'] = {
-  "author": null,
-  "date": null,
-  "description": "Вчера к нам приезжали друзья. К вечеру все засобирались домой, потопали каждый к своей машине. Через 5 минут позвонил один из товарищей и сказал, что его авто заперли. В общем, позвали его обратно домой, чай пить, а сами пока стали думать, что же тут делать. Вот, собственно, как выглядел паркинг",
-  "image": "https://ads.adfox.ru/211055/getCode?p1=bvoqq&p2=v&pfc=bpndz&pfb=eyxrx&pr=[RANDOM]&pe=b",
-  "video": null,
-  "lang": null,
-  "logo": "https://cs.pikabu.ru/images/icon_ios144.png",
-  "publisher": "Комментарий дня ТОП 50 Вот так камеры в Москве фиксируют штрафы. +1314 figurist; 14 часов назад # Годный интерфейс, как в каком-нибудь фильме про хацкеров (:",
-  "title": "Горячее",
-  "url": "https://pikabu.ru"
-}
-
 exports['pr-newswire 1'] = {
   "author": "HackerRank",
   "date": "2016-04-25T15:39:00.000Z",
@@ -818,7 +805,7 @@ exports['venture-beat 1'] = {
 }
 
 exports['vimeo 1'] = {
-  "author": null,
+  "author": "SUPER VERY MORE",
   "date": "2017-12-10T07:52:19.000Z",
   "description": "- Client: OGN (CJ E&M) - Producer: Yeonjung Hong - Creative Director: Youngmin Kim - Motion Design: Youngmin Kim, Gyuhwan Yu, Dahee Ahn - Sound Design: Stone…",
   "image": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F613524460_1280x720.webp&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
@@ -958,7 +945,7 @@ exports['youtube channel 1'] = {
 exports['wikipedia 1'] = {
   "author": null,
   "date": "2016-10-13T00:00:00.000Z",
-  "description": "Bob Dylan (/ˈdɪlən/; born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter, author, and painter, who has been an influential figure in popular music and culture for more than five decades. Much of his most celebrated work dates from the 1960s, when he became a reluctant “voice …",
+  "description": "This article is about the musician. For his debut album, see Bob Dylan (album).",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
   "video": null,
   "lang": "en",
@@ -1005,5 +992,18 @@ exports['health.govt.nz 1'] = {
   "publisher": "Ministry of Health NZ",
   "title": "Quality Improvement Agency: Health Quality and Safety Commission: Functions, Powers and Funding",
   "url": "https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding"
+}
+
+exports['pikabu 1'] = {
+  "author": null,
+  "date": "2019-06-19T21:04:27.000Z",
+  "description": "Поделился пикабушник: odno.kino",
+  "image": "https://cs10.pikabu.ru/post_img/2019/06/14/8/156051367927850595.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://cs.pikabu.ru/mobile/img/apple-touch-icon-152x152.png",
+  "publisher": "Пикабу",
+  "title": "7 интересных наблюдений о первой Матрице",
+  "url": "https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662"
 }
 

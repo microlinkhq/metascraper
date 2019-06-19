@@ -1,7 +1,33 @@
 language: node_js
 
 node_js:
-  - "node"
-  - "lts/*"
+  - lts/*
+  - node
 
-after_success: npm run coveralls
+after_success: npm run coverage
+
+stages:
+  - Test
+  - name: Release
+    if: branch = master AND commit_message !~ /(release|no-release)/
+
+install:
+  - npm config set package-lock false
+  - npm install
+
+jobs:
+  include:
+    - stage: Release
+      node_js: lts/*
+      before_deploy:
+        - git config --global user.email ${GITHUB_EMAIL}
+        - git config --global user.name ${GITHUB_USER}
+        - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+        - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+        - git checkout master
+      deploy:
+        skip_cleanup: true
+        provider: script
+        script: npm run release
+        on:
+          branch: master

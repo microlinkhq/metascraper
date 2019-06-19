@@ -1,6 +1,7 @@
 'use strict'
 
 const {
+  castArray,
   chain,
   eq,
   first,
@@ -21,6 +22,7 @@ const {
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
+
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const { resolve: resolveUrl } = require('url')
@@ -214,18 +216,16 @@ const isMime = (contentType, type) => {
 
 const jsonld = mem(
   (url, $) => {
+    let data = {}
     try {
-      return first(
-        JSON.parse(
-          $('script[type="application/ld+json"]')
-            .first()
-            .contents()
-            .text()
-        )
+      data = JSON.parse(
+        $('script[type="application/ld+json"]')
+          .first()
+          .contents()
+          .text()
       )
-    } catch (err) {
-      return {}
-    }
+    } catch (err) {}
+    return first(castArray(data))
   },
   { cacheKey: url => url }
 )
