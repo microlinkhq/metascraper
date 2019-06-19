@@ -1,20 +1,21 @@
 'use strict'
 
 const {
-  get,
-  toLower,
-  replace,
-  includes,
-  isString,
-  isArray,
-  trim,
-  flow,
   chain,
-  isEmpty,
   eq,
+  first,
+  flow,
+  get,
+  includes,
+  isArray,
+  isEmpty,
+  isNumber,
+  isString,
   lte,
+  replace,
   size,
-  isNumber
+  toLower,
+  trim
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -214,11 +215,13 @@ const isMime = (contentType, type) => {
 const jsonld = mem(
   (url, $) => {
     try {
-      return JSON.parse(
-        $('script[type="application/ld+json"]')
-          .first()
-          .contents()
-          .text()
+      return first(
+        JSON.parse(
+          $('script[type="application/ld+json"]')
+            .first()
+            .contents()
+            .text()
+        )
       )
     } catch (err) {
       return {}
