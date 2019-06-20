@@ -1,28 +1,32 @@
 {
-  "name": "metascraper-clearbit-logo",
+  "name": "metascraper-clearbit",
   "description": "metascraper integration with Clearbit Logo API",
-  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit-logo",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit",
   "version": "5.3.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper-clearbit-logo.git"
+    "url": "git+https://github.com/microlinkhq/metascraper-clearbit.git"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/metascraper-clearbit-logo/issues"
+    "url": "https://github.com/microlinkhq/metascraper-clearbit/issues"
   },
   "keywords": [
     "clearbit",
     "logo",
+    "autocomplete",
     "metascraper"
   ],
   "dependencies": {
-    "got": "~9.6.0"
+    "@metascraper/helpers": "~5.4.6",
+    "got": "~9.6.0",
+    "memoize-one": "~5.0.4",
+    "tldts": "~5.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
     "nyc": "latest",
-    "should": "latest",
+    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {

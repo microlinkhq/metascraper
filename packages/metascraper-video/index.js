@@ -1,11 +1,6 @@
 'use strict'
 
-const {
-  isMime,
-  url: urlFn,
-  isVideoUrl,
-  extension
-} = require('@metascraper/helpers')
+const { isMime, url: urlFn, extension, video } = require('@metascraper/helpers')
 const { chain } = require('lodash')
 
 /**
@@ -29,8 +24,8 @@ const wrapVideo = createWrapper((domNodes, url) => {
     .orderBy(videoUrl => extension(videoUrl) === 'mp4', ['desc'])
     .first()
     .value()
-  const urlValue = urlFn(videoUrl, { url })
-  return isVideoUrl(urlValue) && urlValue
+
+  return video(videoUrl, { url })
 })
 
 const withContentType = (url, contentType) =>

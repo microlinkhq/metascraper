@@ -1,24 +1,19 @@
 'use strict'
 
-const helpers = require('@metascraper/helpers')
-const { eq, get, invoke } = require('lodash')
+const { createValidator } = require('@metascraper/helpers')
 const Readability = require('readability')
 const memoizeOne = require('memoize-one')
 const { JSDOM } = require('jsdom')
 
-const memoFn = (newArgs, oldArgs) => eq(newArgs[1].url, oldArgs[1].url)
+const memoFn = (newArgs, oldArgs) => newArgs.url === oldArgs.url
 
-const readability = memoizeOne((html, opts) => {
-  const dom = new JSDOM(html, opts)
+const readability = memoizeOne(({ htmlDom, url }) => {
+  const dom = new JSDOM(htmlDom.html(), { url })
   const reader = new Readability(dom.window.document)
   return reader.parse()
 }, memoFn)
 
-const getReadbility = ({ from, to = from }) => ({ htmlDom, url }) => {
-  const data = readability(htmlDom.html(), { url })
-  const value = get(data, from)
-  return invoke(helpers, to, value)
-}
+const getReadbility = createValidator(readability)
 
 module.exports = () => {
   return {

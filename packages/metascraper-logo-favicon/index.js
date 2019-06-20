@@ -1,8 +1,8 @@
 'use strict'
 
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
+const { logo, url: urlFn } = require('@metascraper/helpers')
 const { resolve: resolveUrl, URL } = require('url')
-const { url: urlFn } = require('@metascraper/helpers')
 const got = require('got')
 
 const getSize = flow([str => split(str, 'x'), first, toNumber])
@@ -63,7 +63,7 @@ module.exports = () => ({
 
       try {
         await got.head(logoUrl, { retry: 0, timeout: 10000 })
-        return logoUrl
+        return logo(logoUrl)
       } catch (err) {
         return null
       }

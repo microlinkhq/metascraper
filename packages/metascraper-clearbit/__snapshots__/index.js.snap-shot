@@ -9,3 +9,13 @@ exports['if logo is not present, fallback to clearbit logo API 1'] = {
   "url": "https://facebook.com"
 }
 
+exports['returns when is possible resolve logo 1'] = {
+  "logo": "https://logo.clearbit.com/facebook.com",
+  "publisher": "Facebook"
+}
+
+exports['otherwise returns null 1'] = {
+  "logo": "https://logo.clearbit.com/facebook.com",
+  "publisher": "Facebook"
+}
+

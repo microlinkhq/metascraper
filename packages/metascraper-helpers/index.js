@@ -16,7 +16,8 @@ const {
   replace,
   size,
   toLower,
-  trim
+  trim,
+  invoke
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -236,6 +237,40 @@ const $jsonld = propName => ($, url) => {
   return isEmpty(value) ? value : decodeHTML(value)
 }
 
+const image = url
+
+const logo = url
+
+const video = (value, opts) => {
+  const urlValue = url(value, opts)
+  return isVideoUrl(urlValue) && urlValue
+}
+
+const audio = (value, opts) => {
+  const urlValue = url(value, opts)
+  return isAudioUrl(urlValue) && urlValue
+}
+
+const validator = {
+  date,
+  audio,
+  author,
+  video,
+  title,
+  publisher,
+  image,
+  logo,
+  url,
+  description,
+  lang
+}
+
+const createValidator = fn => ({ from, to = from }) => async args => {
+  const data = await fn(args)
+  const value = get(data, from)
+  return invoke(validator, to, value)
+}
+
 module.exports = {
   $filter,
   $jsonld,
@@ -264,5 +299,11 @@ module.exports = {
   sanetizeUrl,
   title,
   titleize,
-  url
+  url,
+  image,
+  logo,
+  audio,
+  video,
+  validator,
+  createValidator
 }
