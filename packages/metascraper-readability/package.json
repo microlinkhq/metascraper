@@ -18,11 +18,11 @@
   "dependencies": {
     "@metascraper/helpers": "^5.4.6",
     "jsdom": "~15.1.1",
-    "lodash": "~4.17.11",
     "memoize-one": "~5.0.4",
     "readability": "github:mozilla/readability"
   },
   "devDependencies": {
+    "coveralls": "latest",
     "metascraper": "latest",
     "mocha": "latest",
     "nyc": "latest",
@@ -36,6 +36,7 @@
     "index.js"
   ],
   "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",

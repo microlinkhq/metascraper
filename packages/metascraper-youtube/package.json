@@ -23,6 +23,7 @@
     "p-locate": "~4.1.0"
   },
   "devDependencies": {
+    "coveralls": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
@@ -36,6 +37,7 @@
     "index.js"
   ],
   "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",

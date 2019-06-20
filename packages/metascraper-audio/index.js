@@ -1,6 +1,6 @@
 'use strict'
 
-const { isMime, url: urlFn, isAudioUrl } = require('@metascraper/helpers')
+const { isMime, audio } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -14,10 +14,7 @@ const createWrapper = fn => rule => ({ htmlDom, url }) => {
   return fn(value, url)
 }
 
-const wrapAudio = createWrapper((value, url) => {
-  const urlValue = urlFn(value, { url })
-  return isAudioUrl(urlValue) && urlValue
-})
+const wrapAudio = createWrapper((value, url) => audio(value, { url }))
 
 const withContentType = (url, contentType) =>
   isMime(contentType, 'audio') ? url : false

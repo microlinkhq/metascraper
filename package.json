@@ -20,6 +20,10 @@
       "email": "shwanton@gmail.com"
     },
     {
+      "name": "Sampo Juustila",
+      "email": "sampo.niskanen@iki.fi"
+    },
+    {
       "name": "Steven Frostwick",
       "email": "steven.frostwick@gmail.com"
     },
@@ -30,10 +34,6 @@
     {
       "name": "Jesse Rogers",
       "email": "djrquazz@gmail.com"
-    },
-    {
-      "name": "Sampo Juustila",
-      "email": "sampo.niskanen@iki.fi"
     }
   ],
   "repository": {

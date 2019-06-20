@@ -1,6 +1,6 @@
 'use strict'
 
-const { $jsonld, $filter, url: urlFn } = require('@metascraper/helpers')
+const { $jsonld, $filter, image } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -11,7 +11,7 @@ const { $jsonld, $filter, url: urlFn } = require('@metascraper/helpers')
 
 const wrap = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return urlFn(value, { url })
+  return image(value, { url })
 }
 
 const getSrc = el => el.attr('src')

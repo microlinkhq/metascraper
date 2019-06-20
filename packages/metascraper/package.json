@@ -66,7 +66,8 @@
   },
   "devDependencies": {
     "clear-module": "latest",
-    "metascraper-clearbit-logo": "latest",
+    "coveralls": "latest",
+    "metascraper-clearbit": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
@@ -80,6 +81,7 @@
     "src"
   ],
   "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
