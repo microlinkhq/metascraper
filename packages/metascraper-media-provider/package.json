@@ -26,6 +26,7 @@
     "memoize-one": "~5.0.4"
   },
   "devDependencies": {
+    "coveralls": "latest",
     "is-ci": "latest",
     "mocha": "latest",
     "nyc": "latest",
@@ -42,6 +43,7 @@
     "src"
   ],
   "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
