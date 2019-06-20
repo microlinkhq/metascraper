@@ -9,12 +9,12 @@ const { isMime, audio } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const createWrapper = fn => rule => ({ htmlDom, url }) => {
+const createWrap = fn => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
   return fn(value, url)
 }
 
-const wrapAudio = createWrapper((value, url) => audio(value, { url }))
+const wrapAudio = createWrap((value, url) => audio(value, { url }))
 
 const withContentType = (url, contentType) =>
   isMime(contentType, 'audio') ? url : false

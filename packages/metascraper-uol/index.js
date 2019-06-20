@@ -4,7 +4,8 @@ const {
   $jsonld,
   title,
   description,
-  createWrapper
+  createWrap,
+  createWard
 } = require('@metascraper/helpers')
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
@@ -15,10 +16,10 @@ const isValidUrl = memoizeOne(url =>
   ROOT_DOMAINS.some(domain => getDomain(url) === domain)
 )
 
-const ward = fn => args => (isValidUrl(args.url) ? fn(args) : null)
+const ward = createWard(({ url }) => isValidUrl(url))
 
-const wrapTitle = createWrapper(title)
-const wrapDescription = createWrapper(description)
+const wrapTitle = createWrap(title)
+const wrapDescription = createWrap(description)
 
 module.exports = () => {
   return {

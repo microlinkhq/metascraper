@@ -4,7 +4,8 @@ const {
   $filter,
   author,
   description,
-  createWrapper
+  createWrap,
+  createWard
 } = require('@metascraper/helpers')
 
 const isReachable = require('is-reachable')
@@ -27,15 +28,15 @@ const getThumbnailUrl = id => {
   return pLocate(urls, isReachable)
 }
 
-const wrapAuthor = createWrapper(author)
+const wrapAuthor = createWrap(author)
 
-const wrapDescription = createWrapper(description)
+const wrapDescription = createWrap(description)
 
 const getVideoInfo = memoizeOne(getVideoId)
 
 const isValidUrl = url => getVideoInfo(url).service === 'youtube'
 
-const ward = fn => args => (isValidUrl(args.url) ? fn(args) : null)
+const ward = createWard(({ url }) => isValidUrl(url))
 
 module.exports = () => ({
   author: [

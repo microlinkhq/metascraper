@@ -10,14 +10,14 @@ const { chain } = require('lodash')
  * @return {Function} wrapped
  */
 
-const createWrapper = fn => rule => ({ htmlDom, url }) => {
+const createWrap = fn => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
   return fn(value, url)
 }
 
-const wrap = createWrapper((value, url) => urlFn(value, { url }))
+const wrap = createWrap((value, url) => urlFn(value, { url }))
 
-const wrapVideo = createWrapper((domNodes, url) => {
+const wrapVideo = createWrap((domNodes, url) => {
   const videoUrl = chain(domNodes)
     .map('attribs.src')
     .uniq()
