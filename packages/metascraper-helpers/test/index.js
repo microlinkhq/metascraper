@@ -8,6 +8,7 @@ const {
   isImageUrl,
   isAudioUrl,
   isVideoUrl,
+  isAuthor,
   isVideoExtension,
   isAudioExtension,
   isImageExtension,
@@ -140,6 +141,12 @@ describe('metascraper-helpers', () => {
     should(isAudioUrl('https://microlink.io/demo.aac')).be.true()
     should(isAudioUrl('https://microlink.io/demo.wav')).be.true()
     should(isAudioUrl('https://microlink.io/demo.m4a')).be.true()
+  })
+
+  it('.isAuthor', () => {
+    should(isAuthor('')).be.false()
+    should(isAuthor('Kiko')).be.true()
+    should(isAuthor('https://metascraper.org')).be.false()
   })
 
   it('.isVideoExtension', () => {

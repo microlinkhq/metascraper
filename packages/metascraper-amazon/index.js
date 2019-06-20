@@ -1,11 +1,21 @@
 'use strict'
 
-const { url: urlFn, $filter, titleize } = require('@metascraper/helpers')
-const { URL } = require('url')
-const { chain } = require('lodash')
+const {
+  url: urlFn,
+  $filter,
+  title,
+  author,
+  createWard,
+  createWrap,
+  lang
+} = require('@metascraper/helpers')
+
+const { getPublicSuffix } = require('tldts')
+const memoizeOne = require('memoize-one')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
-const isAmazonUrl = url => REGEX_AMAZON_URL.test(url)
+
+const isValidUrl = memoizeOne(url => REGEX_AMAZON_URL.test(url))
 
 const SUFFIX_LANGUAGES = {
   ca: 'en',
@@ -21,42 +31,30 @@ const SUFFIX_LANGUAGES = {
   it: 'it'
 }
 
-const getSuffix = host =>
-  chain(host)
-    .replace('www.', '')
-    .split('.')
-    .tail()
-    .join('.')
-    .value()
+const getDomainLanguage = url => SUFFIX_LANGUAGES[getPublicSuffix(url)]
 
-const getDomainLanguage = url => SUFFIX_LANGUAGES[getSuffix(new URL(url).host)]
-
-const createWrap = fn => rule => ({ htmlDom, url }) => {
-  const value = isAmazonUrl(url) && rule(htmlDom)
-  return fn(url, value)
-}
-
-const wrap = createWrap((url, value) => value)
-const wrapUrl = createWrap((url, value) => urlFn(value, { url }))
+const wrapUrl = createWrap(urlFn)
+const wrapAuthor = createWrap(author)
+const wrapTitle = createWrap(title, { removeSeparator: false })
+const wrapLang = createWrap(lang)
+const ward = createWard(({ url }) => isValidUrl(url))
 
 module.exports = () => ({
-  lang: [
-    ({ htmlDom: $, meta, url }) => isAmazonUrl(url) && getDomainLanguage(url)
-  ],
+  lang: [ward(wrapLang(($, url) => getDomainLanguage(url)))],
   author: [
-    wrap($ => titleize($('.contributorNameID').text())),
-    wrap($ => titleize($('#bylineInfo').text())),
-    wrap($ => titleize($('#brand').text()))
+    ward(wrapAuthor($ => $('.contributorNameID').text())),
+    ward(wrapAuthor($ => $('#bylineInfo').text())),
+    ward(wrapAuthor($ => $('#brand').text()))
   ],
   title: [
-    wrap($ => titleize($('#productTitle').text())),
-    wrap($ => titleize($('#btAsinTitle').text())),
-    wrap($ => titleize($filter($, $('h1.a-size-large')))),
-    wrap($ => titleize($('#item_name').text()))
+    ward(wrapTitle($ => $('#productTitle').text())),
+    ward(wrapTitle($ => $('#btAsinTitle').text())),
+    ward(wrapTitle($ => $filter($, $('h1.a-size-large')))),
+    ward(wrapTitle($ => $('#item_name').text()))
   ],
-  publisher: [wrap($ => 'Amazon')],
+  publisher: [ward(() => 'Amazon')],
   image: [
-    wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
-    wrapUrl($ => $('.a-dynamic-image').attr('src'))
+    ward(wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires'))),
+    ward(wrapUrl($ => $('.a-dynamic-image').attr('src')))
   ]
 })

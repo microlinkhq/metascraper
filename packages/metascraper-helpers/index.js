@@ -120,7 +120,10 @@ const $filter = ($, domNodes, fn = defaultFn) => {
 }
 
 const isAuthor = (str, opts = { relative: false }) =>
-  !isUrl(str, opts) && isString(str) && lte(size(str), AUTHOR_MAX_LENGTH)
+  !isUrl(str, opts) &&
+  !isEmpty(str) &&
+  isString(str) &&
+  lte(size(str), AUTHOR_MAX_LENGTH)
 
 const getAuthor = (str, opts = { removeBy: true }) => titleize(str, opts)
 
@@ -265,11 +268,28 @@ const validator = {
   lang
 }
 
+/**
+ * Create a property mapper with validator inside.
+ */
 const createValidator = fn => ({ from, to = from }) => async args => {
   const data = await fn(args)
   const value = get(data, from)
   return invoke(validator, to, value)
 }
+
+/**
+ * Wrap a rule into a validator
+ */
+const createWrap = (fn, opts) => rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
+  return fn(value, opts)
+}
+
+/**
+ * Ward a rule only if `validator` returns `true`.
+ */
+const createWard = validator => fn => args =>
+  validator(args) ? fn(args) : null
 
 module.exports = {
   $filter,
@@ -280,6 +300,7 @@ module.exports = {
   description,
   extension,
   isArray,
+  isAuthor,
   isAudioExtension,
   isAudioUrl,
   isImageExtension,
@@ -305,5 +326,7 @@ module.exports = {
   audio,
   video,
   validator,
-  createValidator
+  createValidator,
+  createWrap,
+  createWard
 }

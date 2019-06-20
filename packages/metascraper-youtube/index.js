@@ -1,8 +1,16 @@
 'use strict'
 
-const { $filter, author } = require('@metascraper/helpers')
+const {
+  $filter,
+  author,
+  description,
+  createWrap,
+  createWard
+} = require('@metascraper/helpers')
+
 const isReachable = require('is-reachable')
 const getVideoId = require('get-video-id')
+const memoizeOne = require('memoize-one')
 const pLocate = require('p-locate')
 
 const THUMBAILS_RESOLUTIONS = [
@@ -20,22 +28,30 @@ const getThumbnailUrl = id => {
   return pLocate(urls, isReachable)
 }
 
-const wrap = rule => ({ htmlDom }) => {
-  const value = rule(htmlDom)
-  return author(value)
-}
+const wrapAuthor = createWrap(author)
+
+const wrapDescription = createWrap(description)
+
+const getVideoInfo = memoizeOne(getVideoId)
+
+const isValidUrl = url => getVideoInfo(url).service === 'youtube'
+
+const ward = createWard(({ url }) => isValidUrl(url))
 
 module.exports = () => ({
   author: [
-    wrap($ => $('#owner-name').text()),
-    wrap($ => $('#channel-title').text()),
-    wrap($ => $filter($, $('[class*="user-info" i]')))
+    ward(wrapAuthor($ => $('#owner-name').text())),
+    ward(wrapAuthor($ => $('#channel-title').text())),
+    ward(wrapAuthor($ => $filter($, $('[class*="user-info" i]'))))
   ],
-  publisher: [({ url }) => getVideoId(url).service === 'youtube' && 'YouTube'],
+  description: [ward(wrapDescription($ => $('#description').text()))],
+  publisher: [ward(() => 'YouTube')],
   image: [
-    ({ htmlDom, url }) => {
-      const { id, service } = getVideoId(url)
-      return service === 'youtube' && id && getThumbnailUrl(id)
-    }
+    ward(({ htmlDom, url }) => {
+      const { id } = getVideoId(url)
+      return id && getThumbnailUrl(id)
+    })
   ]
 })
+
+module.exports.isValidUrl = isValidUrl

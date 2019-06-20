@@ -84,8 +84,8 @@
     "preversion": "lerna exec \"git-authors-cli || true; finepack\" --parallel && git-authors-cli && finepack",
     "release": "lerna publish --yes --sort --conventional-commits -m \"chore(release): %s\" --create-release github",
     "test": "lerna exec npm run test",
-    "update": "lerna exec ncu -- -u",
-    "update:check": "ncu -- --error-level 2"
+    "update": "lerna exec ncu -- --upgrade && ncu -- --upgrade",
+    "update:check": "lerna exec ncu -- --error-level 2 && ncu -- --error-level 2"
   },
   "private": true,
   "license": "MIT",

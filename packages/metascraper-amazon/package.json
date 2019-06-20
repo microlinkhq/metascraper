@@ -16,7 +16,9 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.4.7"
+    "@metascraper/helpers": "^5.4.7",
+    "memoize-one": "~5.0.4",
+    "tldts": "~5.1.0"
   },
   "devDependencies": {
     "coveralls": "latest",
