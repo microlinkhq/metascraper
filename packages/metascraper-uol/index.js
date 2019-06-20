@@ -21,16 +21,14 @@ const ward = createWard(({ url }) => isValidUrl(url))
 const wrapTitle = createWrap(title)
 const wrapDescription = createWrap(description)
 
-module.exports = () => {
-  return {
-    title: [
-      ward(wrapTitle(($, url) => $jsonld('headline')($, url))),
-      ward(wrapTitle($ => $('title').text()))
-    ],
-    description: [
-      ward(wrapDescription(($, url) => $jsonld('description')($, url)))
-    ]
-  }
-}
+module.exports = () => ({
+  title: [
+    ward(wrapTitle(($, url) => $jsonld('headline')($, url))),
+    ward(wrapTitle($ => $('title').text()))
+  ],
+  description: [
+    ward(wrapDescription(($, url) => $jsonld('description')($, url)))
+  ]
+})
 
 module.exports.isValidUrl = isValidUrl
