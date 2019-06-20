@@ -271,6 +271,11 @@ const createValidator = fn => ({ from, to = from }) => async args => {
   return invoke(validator, to, value)
 }
 
+const createWrapper = fn => rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
+  return fn(value)
+}
+
 module.exports = {
   $filter,
   $jsonld,
@@ -305,5 +310,6 @@ module.exports = {
   audio,
   video,
   validator,
-  createValidator
+  createValidator,
+  createWrapper
 }

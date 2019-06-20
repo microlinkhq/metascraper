@@ -1,6 +1,11 @@
 'use strict'
 
-const { $jsonld, title, description } = require('@metascraper/helpers')
+const {
+  $jsonld,
+  title,
+  description,
+  createWrapper
+} = require('@metascraper/helpers')
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
 
@@ -11,11 +16,6 @@ const isValidUrl = memoizeOne(url =>
 )
 
 const ward = fn => args => (isValidUrl(args.url) ? fn(args) : null)
-
-const createWrapper = fn => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return fn(value)
-}
 
 const wrapTitle = createWrapper(title)
 const wrapDescription = createWrapper(description)
