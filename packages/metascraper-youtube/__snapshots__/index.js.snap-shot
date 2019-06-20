@@ -1,9 +1,9 @@
 exports['youtube video 1'] = {
   "author": "ONE Media",
+  "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
   "publisher": "YouTube",
   "image": "https://img.youtube.com/vi/hwMkbaS_M_c/maxresdefault.jpg",
   "date": "2017-04-14T12:00:00.000Z",
-  "description": null,
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
   "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado)",
@@ -12,10 +12,10 @@ exports['youtube video 1'] = {
 
 exports['youtube video old 1'] = {
   "author": "Andrew JRT",
+  "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
   "publisher": "YouTube",
   "image": "https://img.youtube.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
   "date": "2017-07-07T00:00:00.000Z",
-  "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
   "lang": "en",
   "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
   "title": "Overwatch",
@@ -24,9 +24,9 @@ exports['youtube video old 1'] = {
 
 exports['youtube channel 1'] = {
   "author": "ONE Media",
+  "description": "GRINGO Official Trailer (2018) Charlize Theron, Amanda Seyfried Action Movie HD\n© 2017 - Amazon Comedy, Kids, Family and Animated Film, Blockbuster, Action Cinema, Blockbuster, Scifi Movie or Fantasy film, Drama... We keep you in the know! Subscribe now to catch the bes…",
   "publisher": "YouTube",
   "image": "https://yt3.ggpht.com/-q3yclmvjVzk/AAAAAAAAAAI/AAAAAAAAAAA/jVaGJKJjUps/s200-c-k-no-mo-rj-c0xffffff/photo.jpg",
-  "description": "Thor 3, Star Wars, Valerian, Transformers 5, Baywatch, Despicable Me 3, Fast and Furious 8, Wonder Woman, Justice League... ALL The Must See Movie Trailer, F...",
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
   "title": "ONE Media",
@@ -35,9 +35,9 @@ exports['youtube channel 1'] = {
 
 exports['get the high image size 1'] = {
   "author": "Elon Musk Viral Videos",
+  "description": "Subscribe for daily Elon Musk videos.",
   "publisher": "YouTube",
   "image": "https://img.youtube.com/vi/rXyKq7izYCQ/sddefault.jpg",
-  "description": "Subscribe for daily Elon Musk videos.",
   "lang": "es",
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
   "title": "Neil DeGrasse Tyson Comments on SpaceXs Falcon Heavy Launch",
