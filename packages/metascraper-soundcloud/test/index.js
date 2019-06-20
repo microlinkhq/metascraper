@@ -24,9 +24,10 @@ const readFile = promisify(fs.readFile)
 describe('metascraper-soundcloud', () => {
   it('song', async () => {
     const html = await readFile(resolve(__dirname, 'fixtures/song.html'))
-    const url = 'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
+    const url =
+      'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
 
-    const metadata = await metascraper({ html, url, escape: false })
+    const metadata = await metascraper({ html, url })
     snapshot(metadata)
   })
 })

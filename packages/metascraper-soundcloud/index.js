@@ -1,19 +1,24 @@
 'use strict'
 
-const { $filter, title } = require('@metascraper/helpers')
+const {
+  $filter,
+  author,
+  description,
+  createWrap,
+  createWard
+} = require('@metascraper/helpers')
+const memoizeOne = require('memoize-one')
+const { getDomain } = require('tldts')
+
+const isValidUrl = memoizeOne(url => getDomain(url) === 'soundcloud.com')
+
+const ward = createWard(({ url }) => isValidUrl(url))
+const wrapDescription = createWrap(description)
+const wrapAuthor = createWrap(author)
 
 module.exports = () => ({
-  author: [
-    ({ htmlDom: $, meta, url: baseUrl }) =>
-      title($filter($, $('.soundTitle__username')))
-  ],
+  author: [ward(wrapAuthor($ => $filter($, $('.soundTitle__username'))))],
   description: [
-    ({ htmlDom: $, meta, url: baseUrl }) =>
-      title(
-        $('.soundTitle__description')
-          .first()
-          .text(),
-        { capitalize: false }
-      )
+    ward(wrapDescription($ => $filter($, $('.soundTitle__description'))))
   ]
 })
