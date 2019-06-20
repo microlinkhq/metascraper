@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/compare/v5.4.7...v5.5.0) (2019-06-20)
+
+
+### Features
+
+* add metascraper-uol ([#183](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/issues/183)) ([2a06b1d](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/commit/2a06b1d))
+
+
+
+
+
 ## [5.4.7](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/compare/v5.4.6...v5.4.7) (2019-06-20)
 
 **Note:** Version bump only for package metascraper-video
