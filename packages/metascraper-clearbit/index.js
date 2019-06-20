@@ -7,7 +7,7 @@ const got = require('got')
 
 const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
 
-const memoFn = (newArgs, oldArgs) => newArgs.url === oldArgs.url
+const memoFn = (newArgs, oldArgs) => newArgs[0].url === oldArgs[0].url
 
 const clearbit = memoizeOne(async ({ url }) => {
   const domain = getDomain(url)
