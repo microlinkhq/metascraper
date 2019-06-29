@@ -2,7 +2,7 @@
   "name": "metascraper-clearbit",
   "description": "metascraper integration with Clearbit Logo API",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit",
-  "version": "5.5.0",
+  "version": "5.5.3",
   "main": "index.js",
   "repository": {
     "type": "git",
