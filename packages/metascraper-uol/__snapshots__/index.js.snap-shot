@@ -13,3 +13,8 @@ exports['entretenimento.uol.com.br 1'] = {
   "description": "Gabriel Diniz, famoso pelo hit “Jenifer”, morreu em um acidente de avião hoje, em Sergipe, na região de Porto do Mato, em Estância, a 66 km de Aracaju. O músico, que tinha 28 anos, estava a bordo de uma aeronave que caiu em um mangue. A assessoria de impr"
 }
 
+exports['folha.uol.com.br 1'] = {
+  "title": "Folha de S.Paulo: Notícias, Imagens, Vídeos e Entrevistas",
+  "description": "Siga a Folha e fique informado sobre tudo o que acontece no Brasil e no mundo. Notícias sobre política, economia, cultura, esporte, entretenimento e mais."
+}
+

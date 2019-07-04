@@ -24,6 +24,7 @@ const wrapDescription = createWrap(description)
 module.exports = () => ({
   title: [
     ward(wrapTitle(($, url) => $jsonld('headline')($, url))),
+    ward(wrapTitle(($, url) => $jsonld('name')($, url))),
     ward(wrapTitle($ => $('title').text()))
   ],
   description: [

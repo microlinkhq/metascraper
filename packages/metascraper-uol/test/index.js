@@ -66,5 +66,12 @@ describe('metascraper-uol', () => {
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
+
+    it('folha.uol.com.br', async () => {
+      const url = 'https://www.folha.uol.com.br'
+      const html = await readFile(resolve(__dirname, 'fixtures/folha.html'))
+      const metadata = await metascraper({ html, url })
+      snapshot(metadata)
+    })
   })
 })
