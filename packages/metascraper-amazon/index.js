@@ -5,7 +5,6 @@ const {
   $filter,
   title,
   author,
-  createWard,
   createWrap,
   lang
 } = require('@metascraper/helpers')
@@ -37,24 +36,25 @@ const wrapUrl = createWrap(urlFn)
 const wrapAuthor = createWrap(author)
 const wrapTitle = createWrap(title, { removeSeparator: false })
 const wrapLang = createWrap(lang)
-const ward = createWard(({ url }) => isValidUrl(url))
 
 module.exports = () => ({
-  lang: [ward(wrapLang(($, url) => getDomainLanguage(url)))],
+  lang: [wrapLang(($, url) => getDomainLanguage(url))],
   author: [
-    ward(wrapAuthor($ => $('.contributorNameID').text())),
-    ward(wrapAuthor($ => $('#bylineInfo').text())),
-    ward(wrapAuthor($ => $('#brand').text()))
+    wrapAuthor($ => $('.contributorNameID').text()),
+    wrapAuthor($ => $('#bylineInfo').text()),
+    wrapAuthor($ => $('#brand').text())
   ],
   title: [
-    ward(wrapTitle($ => $('#productTitle').text())),
-    ward(wrapTitle($ => $('#btAsinTitle').text())),
-    ward(wrapTitle($ => $filter($, $('h1.a-size-large')))),
-    ward(wrapTitle($ => $('#item_name').text()))
+    wrapTitle($ => $('#productTitle').text()),
+    wrapTitle($ => $('#btAsinTitle').text()),
+    wrapTitle($ => $filter($, $('h1.a-size-large'))),
+    wrapTitle($ => $('#item_name').text())
   ],
-  publisher: [ward(() => 'Amazon')],
+  publisher: [() => 'Amazon'],
   image: [
-    ward(wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires'))),
-    ward(wrapUrl($ => $('.a-dynamic-image').attr('src')))
+    wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
+    wrapUrl($ => $('.a-dynamic-image').attr('src'))
   ]
 })
+
+module.exports.test = ({ url }) => isValidUrl(url)

@@ -8,7 +8,9 @@ Rules bundles are a collection of HTML selectors around a determinate property.
 
 ## Writing Your Own Rules
 
-Just you need to declare your rules using the following interface:
+### Get value from HTML
+
+Every rule receives `htmlDom` (*cheerio*) and `url` as parameters inside an object:
 
 ```js
 'use strict'
@@ -23,14 +25,26 @@ module.exports = () => {
       // They receive as parameter:
       // - `htmlDom`: the cheerio HTML instance.
       // - `url`: The input URL used for extact the content.
-      ({ htmlDom: $, url }) => wrap($ => $('meta[property="og:logo"]').attr('content')),
-      ({ htmlDom: $, url }) => wrap($ => $('meta[itemprop="logo"]').attr('content'))
+      ({ htmlDom: $, url }) => $('meta[property="og:logo"]').attr('content'),
+      ({ htmlDom: $, url }) => $('meta[itemprop="logo"]').attr('content')
     ]
   })
 }
 ```
 
-The order of rules are loaded are important: Just the first rule that returns a truthy value will be used. The rest rules after that will be not invoked.
+You can declare any logic you need in order to determinate the output.
+
+A set of rules under the same namespace runs on series and only the value returned by the first rule that output a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value will be taken. So remember, the order is important!.
+
+### Defining `test` function
+
+You can associate a `test` function with your rule bundle:
+
+```js
+module.exports.test = ({url}) => getVideoInfo(url).service === 'youtube'))
+```
+
+The `test` function will receive the same arguments than a rule. This is useful for just skip all the rules into that doesn't target an specific URL.
 
 ## Testing your Rules
 
