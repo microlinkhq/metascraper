@@ -19,7 +19,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.5.4",
     "got": "~9.6.0",
-    "lodash": "~4.17.11"
+    "lodash": "~4.17.12"
   },
   "devDependencies": {
     "coveralls": "latest",
