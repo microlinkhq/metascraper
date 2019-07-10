@@ -1,13 +1,8 @@
 'use strict'
 
-const {
-  map,
-  fromPairs,
-  isEmpty,
-  isObject,
-  isArray,
-  mapValues
-} = require('lodash')
+const { isString, map, fromPairs } = require('lodash')
+const { hasValue } = require('@metascraper/helpers')
+const mapValuesDeep = require('map-values-deep')
 
 const xss = require('xss')
 
@@ -18,37 +13,29 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
   let index = 0
   let value
 
-  while (isEmpty(value) && index < lastIndex) {
+  do {
     const rule = rules[index++]
     const test = rule.test || noopTest
     if (test({ htmlDom, url, meta })) {
       value = await rule({ htmlDom, url, meta })
     }
-  }
+  } while (!hasValue(value) && index < lastIndex)
 
   return value
 }
 
-const mapValuesDeep = (object, fn) => {
-  if (isArray(object)) {
-    return map(object, innerObject => mapValuesDeep(innerObject, fn))
-  }
-
-  if (isObject(object)) {
-    return mapValues(object, value => mapValuesDeep(value, fn))
-  }
-
-  return fn(object)
-}
-
 const escapeValue = (value, { escape }) =>
-  !escape ? value : mapValuesDeep(value, xss)
+  !escape
+    ? value
+    : mapValuesDeep(value, value => (isString(value) ? xss(value) : value))
 
 const getData = async ({ rules, htmlDom, url, escape }) => {
   const data = await Promise.all(
     map(rules, async ([propName, innerRules]) => {
       const rawValue = await getValue({ htmlDom, url, rules: innerRules })
-      const value = isEmpty(rawValue) ? null : escapeValue(rawValue, { escape })
+      const value = hasValue(rawValue)
+        ? escapeValue(rawValue, { escape })
+        : null
       return [propName, value]
     })
   )

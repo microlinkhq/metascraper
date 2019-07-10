@@ -17,7 +17,8 @@ const {
   size,
   toLower,
   trim,
-  invoke
+  invoke,
+  isNil
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -31,6 +32,7 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const mimeTypes = require('mime-types')
+const hasValues = require('has-values')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
 const isIso = require('isostring')
@@ -285,18 +287,28 @@ const createWrap = (fn, opts) => rule => ({ htmlDom, url }) => {
   return fn(value, opts)
 }
 
+const hasValue = value =>
+  isNil(value) || value === false || value === 0 || value === ''
+    ? false
+    : hasValues(value)
+
 module.exports = {
   $filter,
   $jsonld,
   absoluteUrl,
+  audio,
   author,
+  createValidator,
+  createWrap,
   date,
   description,
   extension,
+  hasValue,
+  image,
   isArray,
-  isAuthor,
   isAudioExtension,
   isAudioUrl,
+  isAuthor,
   isImageExtension,
   isImageUrl,
   isMediaExtension,
@@ -308,6 +320,7 @@ module.exports = {
   isVideoUrl,
   jsonld,
   lang,
+  logo,
   normalizeUrl,
   protocol,
   publisher,
@@ -315,11 +328,6 @@ module.exports = {
   title,
   titleize,
   url,
-  image,
-  logo,
-  audio,
-  video,
   validator,
-  createValidator,
-  createWrap
+  video
 }
