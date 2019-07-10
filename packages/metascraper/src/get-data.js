@@ -20,7 +20,7 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
 
   while (isEmpty(value) && index < lastIndex) {
     const rule = rules[index++]
-    const test = rules.test || noopTest
+    const test = rule.test || noopTest
     if (test({ htmlDom, url, meta })) {
       value = await rule({ htmlDom, url, meta })
     }
