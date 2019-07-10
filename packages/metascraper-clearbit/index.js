@@ -27,9 +27,7 @@ const clearbit = memoizeOne(async ({ url }) => {
 
 const getClearbit = createValidator(clearbit)
 
-module.exports = () => {
-  return {
-    logo: getClearbit({ from: 'logo' }),
-    publisher: getClearbit({ from: 'name', to: 'publisher' })
-  }
-}
+module.exports = () => ({
+  logo: getClearbit({ from: 'logo' }),
+  publisher: getClearbit({ from: 'name', to: 'publisher' })
+})

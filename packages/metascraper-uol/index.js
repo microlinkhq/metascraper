@@ -4,8 +4,7 @@ const {
   $jsonld,
   title,
   description,
-  createWrap,
-  createWard
+  createWrap
 } = require('@metascraper/helpers')
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
@@ -16,20 +15,21 @@ const isValidUrl = memoizeOne(url =>
   ROOT_DOMAINS.some(domain => getDomain(url) === domain)
 )
 
-const ward = createWard(({ url }) => isValidUrl(url))
-
 const wrapTitle = createWrap(title)
 const wrapDescription = createWrap(description)
 
-module.exports = () => ({
-  title: [
-    ward(wrapTitle(($, url) => $jsonld('headline')($, url))),
-    ward(wrapTitle(($, url) => $jsonld('name')($, url))),
-    ward(wrapTitle($ => $('title').text()))
-  ],
-  description: [
-    ward(wrapDescription(($, url) => $jsonld('description')($, url)))
-  ]
-})
+module.exports = () => {
+  const rules = {
+    title: [
+      wrapTitle(($, url) => $jsonld('headline')($, url)),
+      wrapTitle(($, url) => $jsonld('name')($, url)),
+      wrapTitle($ => $('title').text())
+    ],
+    description: [wrapDescription(($, url) => $jsonld('description')($, url))]
+  }
+
+  rules.test = ({ url }) => isValidUrl(url)
+  return rules
+}
 
 module.exports.isValidUrl = isValidUrl

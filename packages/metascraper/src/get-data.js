@@ -11,13 +11,19 @@ const {
 
 const xss = require('xss')
 
-const getValue = async ({ htmlDom, url, conditions, meta }) => {
-  const lastIndex = conditions.length
+const noopTest = () => true
+
+const getValue = async ({ htmlDom, url, rules, meta }) => {
+  const lastIndex = rules.length
   let index = 0
   let value
 
   while (isEmpty(value) && index < lastIndex) {
-    value = await conditions[index++]({ htmlDom, url, meta })
+    const rule = rules[index++]
+    const test = rule.test || noopTest
+    if (test({ htmlDom, url, meta })) {
+      value = await rule({ htmlDom, url, meta })
+    }
   }
 
   return value
@@ -40,8 +46,8 @@ const escapeValue = (value, { escape }) =>
 
 const getData = async ({ rules, htmlDom, url, escape }) => {
   const data = await Promise.all(
-    map(rules, async ([propName, conditions]) => {
-      const rawValue = await getValue({ htmlDom, url, conditions })
+    map(rules, async ([propName, innerRules]) => {
+      const rawValue = await getValue({ htmlDom, url, rules: innerRules })
       const value = isEmpty(rawValue) ? null : escapeValue(rawValue, { escape })
       return [propName, value]
     })

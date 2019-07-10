@@ -2,14 +2,18 @@
 
 const { has, set, concat, forEach, chain } = require('lodash')
 
-module.exports = rules =>
-  chain(rules)
-    .reduce((acc, rules) => {
+module.exports = rulesBundle =>
+  chain(rulesBundle)
+    .reduce((acc, { test, ...rules }) => {
       forEach(rules, function (innerRules, propName) {
+        if (test) forEach(innerRules, rule => (rule.test = test))
+
         set(
           acc,
           propName,
-          has(acc, propName) ? concat(acc[propName], innerRules) : concat(innerRules)
+          has(acc, propName)
+            ? concat(acc[propName], innerRules)
+            : concat(innerRules)
         )
 
         return acc

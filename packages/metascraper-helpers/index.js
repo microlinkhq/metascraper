@@ -285,12 +285,6 @@ const createWrap = (fn, opts) => rule => ({ htmlDom, url }) => {
   return fn(value, opts)
 }
 
-/**
- * Ward a rule only if `validator` returns `true`.
- */
-const createWard = validator => fn => args =>
-  validator(args) ? fn(args) : null
-
 module.exports = {
   $filter,
   $jsonld,
@@ -327,6 +321,5 @@ module.exports = {
   video,
   validator,
   createValidator,
-  createWrap,
-  createWard
+  createWrap
 }
