@@ -1,14 +1,7 @@
 'use strict'
 
-const {
-  map,
-  fromPairs,
-  isEmpty,
-  isObject,
-  isArray,
-  mapValues
-} = require('lodash')
-
+const { map, fromPairs, isObject, isArray, mapValues } = require('lodash')
+const has = require('has-values')
 const xss = require('xss')
 
 const noopTest = () => true
@@ -18,7 +11,7 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
   let index = 0
   let value
 
-  while (isEmpty(value) && index < lastIndex) {
+  while (!has(value) && index < lastIndex) {
     const rule = rules[index++]
     const test = rule.test || noopTest
     if (test({ htmlDom, url, meta })) {
@@ -48,7 +41,7 @@ const getData = async ({ rules, htmlDom, url, escape }) => {
   const data = await Promise.all(
     map(rules, async ([propName, innerRules]) => {
       const rawValue = await getValue({ htmlDom, url, rules: innerRules })
-      const value = isEmpty(rawValue) ? null : escapeValue(rawValue, { escape })
+      const value = has(rawValue) ? escapeValue(rawValue, { escape }) : null
       return [propName, value]
     })
   )
