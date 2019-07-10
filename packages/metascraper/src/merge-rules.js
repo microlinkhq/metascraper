@@ -9,14 +9,11 @@ const {
   chain
 } = require('lodash')
 
-const noopTest = () => true
-
 module.exports = (rules, baseRules) =>
   chain(rules)
-    .reduce((acc, { test = noopTest, ...rules }) => {
+    .reduce((acc, { test, ...rules }) => {
       forEach(rules, (innerRules, propName) => {
-        forEach(innerRules, rule => (rule.test = test))
-
+        if (test) forEach(innerRules, rule => (rule.test = test))
         // find the rules associated with `propName`
         const index = findIndex(acc, item => first(item) === propName)
         // if `propName` has more rule, add the new rule from the end
