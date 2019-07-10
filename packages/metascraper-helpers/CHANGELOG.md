@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.6.0...v5.6.1) (2019-07-10)
+
+
+### Bug Fixes
+
+* value detection ([#190](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/190)) ([db84e16](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/db84e16))
+
+
+
+
+
 # [5.6.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.5.4...v5.6.0) (2019-07-10)
 
 

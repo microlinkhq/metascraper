@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-media-provider",
-  "version": "5.6.0",
+  "version": "5.6.1",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "youtube-dl"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.6.0",
+    "@metascraper/helpers": "^5.6.1",
     "@microlink/youtube-dl": "~2.0.0",
     "debug": "~4.1.1",
     "got": "~9.6.0",
