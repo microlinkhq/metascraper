@@ -18,7 +18,8 @@ const {
   description,
   url,
   jsonld,
-  titleize
+  titleize,
+  hasValue
 } = require('..')
 
 describe('metascraper-helpers', () => {
@@ -264,5 +265,26 @@ describe('metascraper-helpers', () => {
         titleize('Wikipedia: #Edit2014', { removeSeparator: true })
       ).be.equal('Wikipedia: #Edit2014')
     })
+  })
+})
+
+describe('.hasValue', () => {
+  it('true', () => {
+    should(hasValue(true)).be.true()
+    should(hasValue('foo')).be.true()
+    should(hasValue(123)).be.true()
+    should(hasValue(['foo'])).be.true()
+    should(hasValue({ foo: 'bar' })).be.true()
+  })
+
+  it('false', () => {
+    should(hasValue(false)).be.false()
+    should(hasValue(0)).be.false()
+    should(hasValue('')).be.false()
+    should(hasValue(null)).be.false()
+    should(hasValue(undefined)).be.false()
+    should(hasValue({})).be.false()
+    should(hasValue([])).be.false()
+    should(hasValue([''])).be.false()
   })
 })
