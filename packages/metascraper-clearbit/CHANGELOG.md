@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/microlinkhq/metascraper-clearbit/compare/v5.5.4...v5.6.0) (2019-07-10)
+
+
+### Features
+
+* add test function to rules bundle ([#189](https://github.com/microlinkhq/metascraper-clearbit/issues/189)) ([7c209e9](https://github.com/microlinkhq/metascraper-clearbit/commit/7c209e9)), closes [#184](https://github.com/microlinkhq/metascraper-clearbit/issues/184)
+
+
+
+
+
 ## [5.5.4](https://github.com/microlinkhq/metascraper-clearbit/compare/v5.5.3...v5.5.4) (2019-07-04)
 
 **Note:** Version bump only for package metascraper-clearbit
