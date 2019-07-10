@@ -86,7 +86,8 @@ it('load extra rules', async () => {
 
   const rules = [
     {
-      foo: [() => 'bar']
+      foo: [() => 'bar', () => 'barz'],
+      barz: [() => 'foo', () => 'foorz']
     }
   ]
 
@@ -121,10 +122,13 @@ it('associate test function with rules', async () => {
   </html>
   `
 
-  const rules = [{ foo: [() => 'bar'] }]
-  rules.test = ({ url: urlBase }) => urlBase !== url
+  const rulesBundle = () => {
+    const rules = { foo: [() => 'bar'] }
+    rules.test = ({ url: urlBase }) => urlBase !== url
+    return rules
+  }
 
-  const metascraper = createMetascraper(rules)
-  const meta = await metascraper({ url, html, rules })
+  const metascraper = createMetascraper([rulesBundle()])
+  const meta = await metascraper({ url, html })
   should(meta.foo).be.null()
 })

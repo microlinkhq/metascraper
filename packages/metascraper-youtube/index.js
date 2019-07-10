@@ -35,22 +35,26 @@ const getVideoInfo = memoizeOne(getVideoId)
 
 const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
-module.exports = () => ({
-  author: [
-    wrapAuthor($ => $('#owner-name').text()),
-    wrapAuthor($ => $('#channel-title').text()),
-    wrapAuthor($ => $filter($, $('[class*="user-info" i]')))
-  ],
-  description: [wrapDescription($ => $('#description').text())],
-  publisher: [() => 'YouTube'],
-  image: [
-    ({ htmlDom, url }) => {
-      const { id } = getVideoId(url)
-      return id && getThumbnailUrl(id)
-    }
-  ]
-})
+module.exports = () => {
+  const rules = {
+    author: [
+      wrapAuthor($ => $('#owner-name').text()),
+      wrapAuthor($ => $('#channel-title').text()),
+      wrapAuthor($ => $filter($, $('[class*="user-info" i]')))
+    ],
+    description: [wrapDescription($ => $('#description').text())],
+    publisher: [() => 'YouTube'],
+    image: [
+      ({ htmlDom, url }) => {
+        const { id } = getVideoId(url)
+        return id && getThumbnailUrl(id)
+      }
+    ]
+  }
+
+  rules.test = ({ url }) => isValidUrl(url)
+
+  return rules
+}
 
 module.exports.isValidUrl = isValidUrl
-
-module.exports.test = ({ url }) => isValidUrl(url)

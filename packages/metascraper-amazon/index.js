@@ -37,24 +37,27 @@ const wrapAuthor = createWrap(author)
 const wrapTitle = createWrap(title, { removeSeparator: false })
 const wrapLang = createWrap(lang)
 
-module.exports = () => ({
-  lang: [wrapLang(($, url) => getDomainLanguage(url))],
-  author: [
-    wrapAuthor($ => $('.contributorNameID').text()),
-    wrapAuthor($ => $('#bylineInfo').text()),
-    wrapAuthor($ => $('#brand').text())
-  ],
-  title: [
-    wrapTitle($ => $('#productTitle').text()),
-    wrapTitle($ => $('#btAsinTitle').text()),
-    wrapTitle($ => $filter($, $('h1.a-size-large'))),
-    wrapTitle($ => $('#item_name').text())
-  ],
-  publisher: [() => 'Amazon'],
-  image: [
-    wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
-    wrapUrl($ => $('.a-dynamic-image').attr('src'))
-  ]
-})
+module.exports = () => {
+  const rules = {
+    lang: [wrapLang(($, url) => getDomainLanguage(url))],
+    author: [
+      wrapAuthor($ => $('.contributorNameID').text()),
+      wrapAuthor($ => $('#bylineInfo').text()),
+      wrapAuthor($ => $('#brand').text())
+    ],
+    title: [
+      wrapTitle($ => $('#productTitle').text()),
+      wrapTitle($ => $('#btAsinTitle').text()),
+      wrapTitle($ => $filter($, $('h1.a-size-large'))),
+      wrapTitle($ => $('#item_name').text())
+    ],
+    publisher: [() => 'Amazon'],
+    image: [
+      wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
+      wrapUrl($ => $('.a-dynamic-image').attr('src'))
+    ]
+  }
 
-module.exports.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => isValidUrl(url)
+  return rules
+}

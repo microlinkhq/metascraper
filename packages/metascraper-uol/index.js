@@ -18,15 +18,18 @@ const isValidUrl = memoizeOne(url =>
 const wrapTitle = createWrap(title)
 const wrapDescription = createWrap(description)
 
-module.exports = () => ({
-  title: [
-    wrapTitle(($, url) => $jsonld('headline')($, url)),
-    wrapTitle(($, url) => $jsonld('name')($, url)),
-    wrapTitle($ => $('title').text())
-  ],
-  description: [wrapDescription(($, url) => $jsonld('description')($, url))]
-})
+module.exports = () => {
+  const rules = {
+    title: [
+      wrapTitle(($, url) => $jsonld('headline')($, url)),
+      wrapTitle(($, url) => $jsonld('name')($, url)),
+      wrapTitle($ => $('title').text())
+    ],
+    description: [wrapDescription(($, url) => $jsonld('description')($, url))]
+  }
+
+  rules.test = ({ url }) => isValidUrl(url)
+  return rules
+}
 
 module.exports.isValidUrl = isValidUrl
-
-module.exports.test = ({ url }) => isValidUrl(url)

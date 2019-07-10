@@ -11,8 +11,6 @@ const {
 
 const xss = require('xss')
 
-const noopTest = () => true
-
 const getValue = async ({ htmlDom, url, rules, meta }) => {
   const lastIndex = rules.length
   let index = 0
@@ -20,9 +18,7 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
 
   while (isEmpty(value) && index < lastIndex) {
     const rule = rules[index++]
-    const test = rule.test || noopTest
-
-    if (test({ htmlDom, url, meta })) {
+    if (rule.test({ htmlDom, url, meta })) {
       value = await rule({ htmlDom, url, meta })
     }
   }

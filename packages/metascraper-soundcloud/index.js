@@ -14,9 +14,14 @@ const isValidUrl = memoizeOne(url => getDomain(url) === 'soundcloud.com')
 const wrapDescription = createWrap(description)
 const wrapAuthor = createWrap(author)
 
-module.exports = () => ({
-  author: [wrapAuthor($ => $filter($, $('.soundTitle__username')))],
-  description: [wrapDescription($ => $filter($, $('.soundTitle__description')))]
-})
+module.exports = () => {
+  const rules = {
+    author: [wrapAuthor($ => $filter($, $('.soundTitle__username')))],
+    description: [
+      wrapDescription($ => $filter($, $('.soundTitle__description')))
+    ]
+  }
 
-module.exports.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => isValidUrl(url)
+  return rules
+}
