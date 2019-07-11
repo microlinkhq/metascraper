@@ -60,8 +60,8 @@
     "@metascraper/helpers": "^5.6.1",
     "cheerio": "~1.0.0-rc.2",
     "cheerio-advanced-selectors": "~2.0.1",
-    "lodash": "~4.17.13",
-    "map-values-deep": "~1.0.1",
+    "lodash": "~4.17.14",
+    "map-values-deep": "~1.0.2",
     "whoops": "~4.0.2",
     "xss": "~1.0.6"
   },
