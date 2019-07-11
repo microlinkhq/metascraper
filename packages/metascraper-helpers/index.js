@@ -172,7 +172,7 @@ const getDescription = (
   str,
   { truncateLength = TRUNCATE_MAX_LENGTH, ...opts } = {}
 ) => {
-  const description = removeLocation(truncate(str, TRUNCATE_MAX_LENGTH))
+  const description = removeLocation(truncate(str, truncateLength))
   return titleize(description, opts)
 }
 
