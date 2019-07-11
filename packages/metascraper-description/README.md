@@ -11,6 +11,19 @@
 $ npm install metascraper-description --save
 ```
 
+## API
+
+### netascraper-description([options])
+
+#### options
+
+##### truncateLength
+
+Type: `number`<br>
+Default: `300`
+
+Truncate the value extracted to a maximum size.
+
 ## License
 
 **metascraper-description** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper-description/blob/master/LICENSE.md) License.<br>
