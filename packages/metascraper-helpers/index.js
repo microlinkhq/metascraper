@@ -165,9 +165,13 @@ const extension = (str = '') => {
   return fileExtension(urlLib.format(urlObj))
 }
 
-const description = value => isString(value) && getDescription(value)
+const description = (value, opts) =>
+  isString(value) && getDescription(value, opts)
 
-const getDescription = (str, opts) => {
+const getDescription = (
+  str,
+  { truncateLength = TRUNCATE_MAX_LENGTH, ...opts } = {}
+) => {
   const description = removeLocation(truncate(str, TRUNCATE_MAX_LENGTH))
   return titleize(description, opts)
 }

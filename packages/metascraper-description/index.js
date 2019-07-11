@@ -9,22 +9,25 @@ const { $jsonld, description } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom, url }) => {
+const createWrap = opts => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return description(value)
+  return description(value, opts)
 }
 
 /**
  * Rules.
  */
 
-module.exports = () => ({
-  description: [
-    wrap($jsonld('description')),
-    wrap($ => $('meta[property="og:description"]').attr('content')),
-    wrap($ => $('meta[name="twitter:description"]').attr('content')),
-    wrap($ => $('meta[name="description"]').attr('content')),
-    wrap($ => $('meta[itemprop="description"]').attr('content')),
-    wrap($jsonld('articleBody'))
-  ]
-})
+module.exports = opts => {
+  const wrap = opts => createWrap(opts)
+  return {
+    description: [
+      wrap($jsonld('description')),
+      wrap($ => $('meta[property="og:description"]').attr('content')),
+      wrap($ => $('meta[name="twitter:description"]').attr('content')),
+      wrap($ => $('meta[name="description"]').attr('content')),
+      wrap($ => $('meta[itemprop="description"]').attr('content')),
+      wrap($jsonld('articleBody'))
+    ]
+  }
+}
