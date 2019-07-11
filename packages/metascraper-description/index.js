@@ -19,7 +19,7 @@ const createWrap = opts => rule => ({ htmlDom, url }) => {
  */
 
 module.exports = opts => {
-  const wrap = opts => createWrap(opts)
+  const wrap = createWrap(opts)
   return {
     description: [
       wrap($jsonld('description')),
