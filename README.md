@@ -109,9 +109,6 @@ A audio URL that best represents the article.
 - `description` — eg. *Venture capitalists are raising money at the fastest rate...*<br/>
   The publisher's chosen description of the article.
 
-- `audio` — eg. *https://cf-media.sndcdn.com/U78RIfDPV6ok.128.mp3*<br/>
-A audio URL that best represents the article.
-
 - `video` — eg. *https://assets.entrepreneur.com/content/preview.mp4*<br/>
   A video URL that best represents the article.
 
