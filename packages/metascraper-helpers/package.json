@@ -19,7 +19,7 @@
     "audio-extensions": "0.0.0",
     "chrono-node": "~1.3.11",
     "condense-whitespace": "~2.0.0",
-    "entities": "~1.1.2",
+    "entities": "~2.0.0",
     "file-extension": "~4.0.5",
     "has-values": "~2.0.1",
     "image-extensions": "~1.1.0",
