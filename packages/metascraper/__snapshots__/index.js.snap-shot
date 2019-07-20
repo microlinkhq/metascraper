@@ -33,7 +33,7 @@ exports['astier 1'] = {
   "lang": "en",
   "logo": "https://anisse.astier.eu/theme/img/favicon.png",
   "publisher": "awk driven IoT",
-  "title": "Linux Engineer’s random thoughts",
+  "title": "Linux Engineer’s random thoughts - awk driven IoT",
   "url": "https://anisse.astier.eu/awk-driven-iot.html"
 }
 
@@ -59,7 +59,7 @@ exports['audiense 1'] = {
   "lang": "en",
   "logo": "https://audiense.com/wp-content/uploads/2016/03/favicon.png",
   "publisher": "Audiense",
-  "title": "Twin Peaks 2017: Using the data to create the next big TV sensation",
+  "title": "Twin Peaks 2017: Using the data to create the next big TV sensation | Audiense",
   "url": "https://audiense.com/twin-peaks-2017-using-the-social-data-audience-consumer-insights-to-create-the-next-big-tv-sensation/"
 }
 
@@ -85,7 +85,7 @@ exports['bloomberg 1'] = {
   "lang": null,
   "logo": "https://assets.bwbx.io/business/public/images/favicons/favicon-192x192-3621dae772.png",
   "publisher": "Bloomberg.com",
-  "title": "As Zenefits Stumbles, Gusto Goes Head",
+  "title": "As Zenefits Stumbles, Gusto Goes Head-On by Selling Insurance",
   "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
 }
 
@@ -111,7 +111,7 @@ exports['cbr 1'] = {
   "lang": "en",
   "logo": "https://www.cbronline.com/wp-content/uploads/2016/09/cbr-icon.png",
   "publisher": "Computer Business Review",
-  "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market",
+  "title": "Virtustream CEO: Taking a masochistic approach to fighting in the cloud market - Computer Business Review",
   "url": "https://www.cbronline.com/cloud/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858/"
 }
 
@@ -163,7 +163,7 @@ exports['computerworld 1'] = {
   "lang": "en",
   "logo": "http://idge.staticworld.net/ctw/computerworld-logo144x144.png",
   "publisher": "Computerworld",
-  "title": "Healthcare Data Protection and Privacy Prognosis",
+  "title": "Healthcare Data Protection and Privacy Prognosis—Still Critical but New Treatment is Available",
   "url": "http://www.computerworld.com/article/3057179/data-analytics/healthcare-data-protection-and-privacy-prognosis-still-critical-but-new-treatment-is-available.html"
 }
 
@@ -189,7 +189,7 @@ exports['economic-times 1'] = {
   "lang": null,
   "logo": "http://economictimes.indiatimes.com/icons/etfavicon.ico",
   "publisher": "The Economic Times",
-  "title": "HackerRank launches job search platform HackerRank Jobs",
+  "title": "HackerRank launches job search platform HackerRank Jobs - The Economic Times",
   "url": "http://economictimes.indiatimes.com/jobs/hackerrank-launches-job-search-platform-hackerrank-jobs/articleshow/50551900.cms"
 }
 
@@ -228,7 +228,7 @@ exports['fast-company 1'] = {
   "lang": "en",
   "logo": "http://www.fastcompany.com/favicon.ico",
   "publisher": "Fast Company",
-  "title": "One Of The Biggest Challenges Of Getting Funding For Minority",
+  "title": "One Of The Biggest Challenges Of Getting Funding For Minority-Owned Business",
   "url": "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business"
 }
 
@@ -267,7 +267,7 @@ exports['financial-times 1'] = {
   "lang": "en",
   "logo": "http://im.ft-static.com/m/icons/apple-touch-icon.png",
   "publisher": "Financial Times",
-  "title": "How confidence can help attract funding for women",
+  "title": "How confidence can help attract funding for women - FT.com",
   "url": "http://www.ft.com/cms/s/2/796d1220-475e-11e5-af2f-4d6e0e5eda22.html"
 }
 
@@ -319,7 +319,7 @@ exports['github 1'] = {
   "lang": "en",
   "logo": "https://assets-cdn.github.com/favicon.ico",
   "publisher": "GitHub",
-  "title": "microlinkhq",
+  "title": "microlinkhq/microlink-core",
   "url": "https://github.com/microlinkhq/microlink-core"
 }
 
@@ -358,7 +358,7 @@ exports['information-week 1'] = {
   "lang": "en",
   "logo": "http://img.deusm.com/informationweek/favicon.ico",
   "publisher": "InformationWeek",
-  "title": "Microsoft Expands Global Connectivity With Local Startups",
+  "title": "Microsoft Expands Global Connectivity With Local Startups - InformationWeek",
   "url": "http://www.informationweek.com/cloud/microsoft-expands-global-connectivity-with-local-startups/d/d-id/1325645"
 }
 
@@ -371,7 +371,7 @@ exports['instagram 1'] = {
   "lang": "en",
   "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/b407fa101800.png",
   "publisher": "Instagram",
-  "title": "Instagram post by Tesla",
+  "title": "Instagram post by Tesla • Jul 9, 2017 at 4:58am UTC",
   "url": "https://www.instagram.com/p/BWUDBntl3_Z/"
 }
 
@@ -397,7 +397,7 @@ exports['lean-data 1'] = {
   "lang": "en",
   "logo": "http://www.leandatainc.com/wp-content/uploads/2015/11/favicon.ico",
   "publisher": "LeanData",
-  "title": "LeanData",
+  "title": "LeanData | The Winds of Change",
   "url": "http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change"
 }
 
@@ -436,7 +436,7 @@ exports['los-angeles-times 1'] = {
   "lang": "en",
   "logo": "http://www.trbas.com/jive/prod/common/images/lanews-apple-touch-icon.1q2w3_9ffdb679907f116af126c65ff1edb27a.png",
   "publisher": "latimes.com",
-  "title": "As venture capital dries up, tech start",
+  "title": "As venture capital dries up, tech start-ups discover frugality",
   "url": "http://www.latimes.com/business/technology/la-fi-tn-tech-downturn-20160429-story.html"
 }
 
@@ -644,7 +644,7 @@ exports['silicon-tap 1'] = {
   "lang": "en",
   "logo": "https://www.silicontap.com/apple-touch-icon.605639ab.png",
   "publisher": "silicontap.com",
-  "title": "CircleCI Picks Up $6M",
+  "title": "CircleCI Picks Up $6M - silicontap.com",
   "url": "https://www.silicontap.com/story/0053475.html"
 }
 
@@ -657,7 +657,7 @@ exports['silicon-valley-business-journal 1'] = {
   "lang": null,
   "logo": "http://assets.bizjournals.com/lib/img/sanjose/apple_touch_icon.png",
   "publisher": "Silicon Valley Business Journal",
-  "title": "San Mateo email security startup Agari raises $22 million",
+  "title": "San Mateo email security startup Agari raises $22 million - Silicon Valley Business Journal",
   "url": "http://www.bizjournals.com/sanjose/blog/techflash/2016/05/security-startup-agari-raises-22m-to-protect.html"
 }
 
@@ -709,7 +709,7 @@ exports['the-boston-globe 1'] = {
   "lang": "en",
   "logo": "https://c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png",
   "publisher": "BostonGlobe.com",
-  "title": "Women in Tech Band Together to Track Diversity, After Hours",
+  "title": "Women in Tech Band Together to Track Diversity, After Hours - The Boston Globe",
   "url": "https://www.bostonglobe.com/business/2016/05/03/women-tech-band-together-track-diversity-after-hours/mWL9Pte1lx34HXMqXhEY4H/story.html"
 }
 
@@ -865,7 +865,7 @@ exports['xconomy 1'] = {
   "lang": "en",
   "logo": "http://www.xconomy.com/wordpress/wp-content/themes/xconomy/images/favicon.ico",
   "publisher": "Xconomy",
-  "title": "Cybersecurity Company Agari Raises $22M For E",
+  "title": "Cybersecurity Company Agari Raises $22M For E-Mail Shield | Xconomy",
   "url": "http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield/"
 }
 
@@ -891,7 +891,7 @@ exports['zdnet 1'] = {
   "lang": "en",
   "logo": "http://zdnet1.cbsistatic.com/fly/bundles/zdnetcss/images/logos/logo-192x192.png",
   "publisher": "ZDNet",
-  "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks",
+  "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
   "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks/"
 }
 
@@ -951,7 +951,7 @@ exports['wikipedia 1'] = {
   "lang": "en",
   "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
   "publisher": "Wikipedia",
-  "title": "Bob Dylan",
+  "title": "Bob Dylan - Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
 }
 

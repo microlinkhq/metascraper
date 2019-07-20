@@ -216,7 +216,7 @@ const lang = value => {
   return isLang ? lang : false
 }
 
-const title = (value, { removeSeparator = true } = {}) =>
+const title = (value, { removeSeparator = false } = {}) =>
   isString(value) && titleize(value, { removeSeparator })
 
 const isMime = (contentType, type) => {
