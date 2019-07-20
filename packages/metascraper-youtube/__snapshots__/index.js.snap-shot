@@ -6,7 +6,7 @@ exports['youtube video 1'] = {
   "date": "2017-04-14T12:00:00.000Z",
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado)",
+  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 - YouTube",
   "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
 }
 
@@ -18,7 +18,7 @@ exports['youtube video old 1'] = {
   "date": "2017-07-07T00:00:00.000Z",
   "lang": "en",
   "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
-  "title": "Overwatch",
+  "title": "Overwatch - Huge Massive Fist Punch Man",
   "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg"
 }
 
@@ -29,7 +29,7 @@ exports['youtube channel 1'] = {
   "image": "https://yt3.ggpht.com/-q3yclmvjVzk/AAAAAAAAAAI/AAAAAAAAAAA/jVaGJKJjUps/s200-c-k-no-mo-rj-c0xffffff/photo.jpg",
   "lang": null,
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "title": "ONE Media",
+  "title": "ONE Media - YouTube",
   "url": "https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA"
 }
 
