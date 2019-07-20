@@ -30,7 +30,7 @@ it('url is required', async () => {
   }
 })
 
-it('escape is enabled by default', async () => {
+it.only('escape is enabled by default', async () => {
   const html = `
   <!doctype html>
   <html xmlns:og="http://ogp.me/ns#" lang="en">
@@ -55,7 +55,9 @@ it('escape is enabled by default', async () => {
     url: 'http://127.0.0.1:8080'
   })
 
-  should(!metadata.title.includes('http://127.0.0.1:8080/malware.js')).be.true()
+  should(metadata.title).be.equal(
+    '&lt;script src=‘http://127.0.0.1:8080/malware.js’&gt;&lt;/script&gt;'
+  )
 })
 
 it('load extra rules', async () => {
