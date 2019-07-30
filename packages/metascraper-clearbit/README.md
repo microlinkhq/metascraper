@@ -13,38 +13,27 @@ $ npm install metascraper-clearbit --save
 
 ## API
 
-### clearbitLogo([options])
+### netascraper-clearbit([options])
 
 #### options
 
-##### size
+#### gotOpts
 
-Type: `string`<br>
-Default: `128`
+Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
-Length of longest side in pixels.
+In addition, these options are set by default:
 
-##### format
+```json
+{
+  "retry": 0,
+  "json": true,
+  "timeout": 1500
+}
+```
 
-Type: `string`<br>
-Default: `png`
+#### logoOpts
 
-Image format, either "png" or "jpg".
-
-##### greyscale
-
-Type: `boolean`<br>
-Default: `false`
-
-Desaturates image if set to `true`.
-
-##### timeout
-
-Type: `number`<br>
-Default: 1000
-
-Time in milliseconds before giving up on the Clearbit API request and
-returning `null`.
+Any option provided here will passed to [Clearbit Logo API](https://clearbit.com/docs#logo-api).
 
 ## License
 

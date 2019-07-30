@@ -20,6 +20,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.6.3",
     "got": "~9.6.0",
+    "lodash": "~4.17.15",
     "memoize-one": "~5.0.5",
     "tldts": "~5.3.1"
   },
