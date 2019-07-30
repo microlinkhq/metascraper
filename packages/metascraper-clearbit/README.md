@@ -13,7 +13,7 @@ $ npm install metascraper-clearbit --save
 
 ## API
 
-### netascraper-clearbit([options])
+### metascraper-clearbit([options])
 
 #### options
 
