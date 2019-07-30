@@ -11,7 +11,13 @@ describe('metascraper-clearbit', () => {
     snapshot(meta)
   })
 
-  it('otherwise returns null', async () => {
+  it('returns null if timeout is passed', async () => {
+    const url = 'https://facebook.com'
+    const meta = await metascraper({ url, timeout: 1 })
+    snapshot(meta)
+  })
+
+  it('returns null if no logo available', async () => {
     const url = 'https://lolwerhere.com'
     const meta = await metascraper({ url })
     snapshot(meta)

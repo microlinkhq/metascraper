@@ -38,6 +38,14 @@ Default: `false`
 
 Desaturates image if set to `true`.
 
+##### timeout
+
+Type: `number`<br>
+Default: 1000
+
+Time in milliseconds before giving up on the Clearbit API request and
+returning `null`.
+
 ## License
 
 **metascraper-clearbit** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper-clearbit/blob/master/LICENSE.md) License.<br>

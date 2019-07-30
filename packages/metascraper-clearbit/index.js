@@ -9,14 +9,14 @@ const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
 
 const memoFn = (newArgs, oldArgs) => newArgs[0].url === oldArgs[0].url
 
-const clearbit = memoizeOne(async ({ url }) => {
+const clearbit = memoizeOne(async ({ url, timeout = 1000 }) => {
   const domain = getDomain(url)
 
   try {
     const { body } = await got(`${ENDPOINT}?query=${domain}`, {
       json: true,
       retry: 0,
-      timeout: 1000
+      timeout
     })
 
     return body.find(item => domain === item.domain)
