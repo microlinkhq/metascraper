@@ -101,18 +101,13 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.js": [
-        "prettier-standard",
-        "git add"
-      ],
-      "package.json": [
-        "finepack",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "static/*.{js, css}"
+    "*.js": [
+      "prettier-standard",
+      "git add"
+    ],
+    "package.json": [
+      "finepack",
+      "git add"
     ]
   },
   "standard": {

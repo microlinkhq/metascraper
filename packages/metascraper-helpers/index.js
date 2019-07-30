@@ -27,7 +27,6 @@ const urlRegex = require('url-regex')({ exact: true })
 
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
-const { resolve: resolveUrl } = require('url')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
@@ -39,7 +38,6 @@ const isIso = require('isostring')
 const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
-const urlLib = require('url')
 const mem = require('mem')
 
 const VIDEO = 'video'
@@ -82,7 +80,7 @@ const isUrl = (url, { relative = false } = {}) =>
 
 const absoluteUrl = (baseUrl, relativePath) => {
   if (isEmpty(relativePath)) return baseUrl
-  return resolveUrl(baseUrl, relativePath)
+  return new URL(relativePath, baseUrl).toString()
 }
 
 const sanetizeUrl = (url, opts) =>
@@ -100,7 +98,7 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
 const removeBy = flow([value => value.replace(REGEX_BY, ''), trim])
 
 const removeSeparator = title => {
-  let newTitle = (REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title
+  const newTitle = (REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title
   return newTitle.trim()
 }
 
@@ -159,10 +157,10 @@ const isAudioExtension = url => isMediaTypeExtension(url, AUDIO)
 const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
 
 const extension = (str = '') => {
-  const urlObj = urlLib.parse(str)
-  urlObj.hash = ''
-  urlObj.search = ''
-  return fileExtension(urlLib.format(urlObj))
+  const url = new URL(str, isRelativeUrl(str) ? 'http://localhost' : undefined)
+  url.hash = ''
+  url.search = ''
+  return fileExtension(url.toString())
 }
 
 const description = (value, opts) =>
@@ -186,7 +184,7 @@ const url = (value, { url = '' } = {}) => {
   try {
     const absoluteUrl = normalizeUrl(url, value)
     if (isUrl(absoluteUrl)) return absoluteUrl
-  } catch (err) {}
+  } catch (_) {}
 
   return isUri(value) ? value : null
 }
