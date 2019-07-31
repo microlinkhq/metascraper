@@ -2,7 +2,7 @@
 
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
 const { logo, url: urlFn } = require('@metascraper/helpers')
-const { resolve: resolveUrl, URL } = require('url')
+const { URL } = require('url')
 const got = require('got')
 
 const getSize = flow([str => split(str, 'x'), first, toNumber])
@@ -59,7 +59,7 @@ module.exports = () => ({
     }),
     async ({ url }) => {
       const { origin } = new URL(url)
-      const logoUrl = resolveUrl(origin, 'favicon.ico')
+      const logoUrl = new URL('favicon.ico', origin)
 
       try {
         await got.head(logoUrl, { retry: 0, timeout: 10000 })

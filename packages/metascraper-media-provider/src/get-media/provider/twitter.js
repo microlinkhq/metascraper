@@ -14,7 +14,7 @@ const TWITTER_BEARER_TOKEN =
   'Bearer AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%2F40K4moUkGsoc%3DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw'
 
 const createGuestToken = ({ userAgent, tunnel }) => {
-  let retry = expirableCounter()
+  const retry = expirableCounter()
 
   return async () => {
     let token

@@ -56,7 +56,7 @@ const makeError = ({ rawError, url, flags }) => {
 }
 
 module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
-  let retry = expirableCounter(1)
+  const retry = expirableCounter(1)
   return async url => {
     let data = {}
     do {
