@@ -17,7 +17,7 @@ const DEFAULT_GOT_OPTS = {
   retry: 0
 }
 
-const addQuery = (data, query) => {
+const appendQuery = (data, query) => {
   if (!isObject(data) || !isObject(query)) return data
   const logoUrl = get(data, 'logo')
   if (!isString(logoUrl)) return data
@@ -34,7 +34,7 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
         ...gotOpts
       })
 
-      return addQuery(body.find(item => domain === item.domain), logoOpts)
+      return appendQuery(body.find(item => domain === item.domain), logoOpts)
     } catch (err) {
       return null
     }
