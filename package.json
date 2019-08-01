@@ -74,7 +74,7 @@
   "scripts": {
     "build": "gulp build",
     "clean": "lerna clean --yes && rm -rf node_modules",
-    "coverage": "lerna exec npm run coverage --parallel",
+    "coverage": "lerna exec npm run coverage --parallel --scope \"metascraper\"",
     "dev": "concurrently \"gulp\" \"npm run dev:server\"",
     "dev:server": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "install": "lerna bootstrap --no-ci --force-local",
