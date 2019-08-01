@@ -22,10 +22,8 @@
     "readability": "github:mozilla/readability"
   },
   "devDependencies": {
-    "coveralls": "latest",
     "metascraper": "latest",
     "mocha": "latest",
-    "nyc": "latest",
     "snap-shot": "latest",
     "standard": "latest"
   },
@@ -36,8 +34,7 @@
     "index.js"
   ],
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
   },
   "license": "MIT",
   "standard": {
