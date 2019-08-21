@@ -21,7 +21,7 @@
     "@metascraper/helpers": "^5.6.5",
     "got": "~9.6.0",
     "lodash": "~4.17.15",
-    "memoize-one": "~5.0.5",
+    "memoize-one": "~5.1.0",
     "tldts": "~5.3.2"
   },
   "devDependencies": {
