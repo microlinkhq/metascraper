@@ -43,7 +43,7 @@ const createGuestToken = ({ userAgent, tunnel }) => {
         )
         token = get(body, 'guest_token')
       } catch (err) {
-        debug(`guestToken:err`, err.message)
+        debug('guestToken:err', err.message)
         retry.incr()
       }
     } while (!token)
@@ -98,7 +98,7 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
         }
       } catch (err) {
         guestToken = getGuestToken()
-        debug(`getTwitterInfo rotating token`)
+        debug('getTwitterInfo rotating token')
       }
     } while (!data)
 

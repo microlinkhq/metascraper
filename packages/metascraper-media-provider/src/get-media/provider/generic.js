@@ -68,7 +68,7 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
         data = await getInfo(url, flags)
       } catch (rawError) {
         const err = makeError({ rawError, url, flags })
-        debug(`getInfo:err`, err.message)
+        debug('getInfo:err', err.message)
         retry.incr()
         onError(err, url)
         if (!(tunnel && isTwitterRateLimit(url, err))) return data
