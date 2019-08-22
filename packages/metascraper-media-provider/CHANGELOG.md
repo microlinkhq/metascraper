@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.6](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.6.5...v5.6.6) (2019-08-22)
+
+
+### Bug Fixes
+
+* linter ([ef3c6ed](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/ef3c6ed))
+
+
+
+
+
 ## [5.6.5](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.6.4...v5.6.5) (2019-08-01)
 
 **Note:** Version bump only for package metascraper-media-provider
