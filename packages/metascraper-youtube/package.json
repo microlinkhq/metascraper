@@ -20,7 +20,7 @@
     "@metascraper/helpers": "^5.6.5",
     "get-video-id": "~3.1.4",
     "is-reachable": "~3.1.0",
-    "memoize-one": "~5.0.5",
+    "memoize-one": "~5.1.0",
     "p-locate": "~4.1.0"
   },
   "devDependencies": {
