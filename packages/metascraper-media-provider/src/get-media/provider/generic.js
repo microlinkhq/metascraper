@@ -1,8 +1,8 @@
 'use strict'
 
 const debug = require('debug')('metascraper-media-provider:generic')
-const youtubedl = require('youtube-dl')
 const { get, isEmpty } = require('lodash')
+const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
 
 const {
@@ -24,6 +24,7 @@ const isTwitterRateLimit = (url, err) =>
 const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   const flags = [
     '--no-warnings',
+    '--no-call-home',
     '--no-check-certificate',
     '--prefer-free-formats',
     '--youtube-skip-dash-manifest',
@@ -57,6 +58,7 @@ const makeError = ({ rawError, url, flags }) => {
 
 module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
   const retry = expirableCounter(1)
+
   return async url => {
     let data = {}
     do {
