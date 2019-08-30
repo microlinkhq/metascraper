@@ -18,7 +18,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.6.6",
     "jsdom": "~15.1.1",
-    "memoize-one": "~5.1.0",
+    "memoize-one": "~5.1.1",
     "readability": "github:mozilla/readability"
   },
   "devDependencies": {
