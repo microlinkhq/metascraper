@@ -3,9 +3,9 @@
 const memoizeOne = require('memoize-one')
 const { noop } = require('lodash')
 
-const { isTwitterUrl, createTunnel } = require('./util')
 const createTwitterProvider = require('./provider/twitter')
 const createGenericProvider = require('./provider/generic')
+const { isTwitterUrl, createTunnel } = require('./util')
 
 module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
   const tunnel = createTunnel(proxies)
@@ -16,7 +16,8 @@ module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
     onError
   })
   const fromTwitter = createTwitterProvider({ tunnel, userAgent, fromGeneric })
-  return memoizeOne(async url =>
+
+  return memoizeOne(url =>
     isTwitterUrl(url) ? fromTwitter(url) : fromGeneric(url)
   )
 }
