@@ -13,17 +13,17 @@ $ npm install metascraper-media-provider --save
 
 ## Usage
 
-.constructor([options])
+### metascraper-media-provider([options])
 
-### options
+#### options
 
-#### cacheDir
+##### cacheDir
 
 Type: `string`
 
 It specifies cache based on file system to be used by [youtube-dl](youtube-dl).
 
-#### onError
+##### onError
 
 Type: `function`
 
@@ -31,13 +31,13 @@ A function to be called when something wrong happens.
 
 It will receive `error` and `url`.
 
-#### proxies
+##### proxies
 
 Type: `array`
 
 When it is specified, a proxy will be used for each of the requests using [luminati-tunnel](https://github.com/Kikobeats/luminati-tunnel).
 
-#### userAgent
+##### userAgent
 
 Type: `string`
 
