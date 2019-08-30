@@ -22,7 +22,7 @@
     "got": "~9.6.0",
     "lodash": "~4.17.15",
     "memoize-one": "~5.1.0",
-    "tldts": "~5.3.2"
+    "tldts": "~5.4.0"
   },
   "devDependencies": {
     "mocha": "latest",
