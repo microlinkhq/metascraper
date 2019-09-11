@@ -226,14 +226,20 @@ const jsonld = mem(
   (url, $) => {
     let data = {}
     try {
-      data = JSON.parse(
-        $('script[type="application/ld+json"]')
-          .first()
-          .contents()
-          .text()
+      $('script[type="application/ld+json"]').map((i, e) =>
+        Object.assign(
+          data,
+          JSON.parse(
+            $(e)
+              .contents()
+              .text()
+          )
+        )
       )
-    } catch (err) {}
-    return first(castArray(data))
+    } catch (err) {
+      console.error(err)
+    }
+    return data
   },
   { cacheKey: url => url }
 )
