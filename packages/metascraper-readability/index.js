@@ -3,12 +3,16 @@
 const { createValidator } = require('@metascraper/helpers')
 const Readability = require('readability')
 const memoizeOne = require('memoize-one')
-const { JSDOM } = require('jsdom')
+const jsdom = require('jsdom')
+
+const { JSDOM } = jsdom
 
 const memoFn = (newArgs, oldArgs) => newArgs[0].url === oldArgs[0].url
 
+const virtualConsole = new jsdom.VirtualConsole()
+
 const readability = memoizeOne(({ htmlDom, url }) => {
-  const dom = new JSDOM(htmlDom.html(), { url })
+  const dom = new JSDOM(htmlDom.html(), { virtualConsole, url })
   const reader = new Readability(dom.window.document)
   return reader.parse()
 }, memoFn)
