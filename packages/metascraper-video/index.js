@@ -39,6 +39,7 @@ module.exports = () => ({
   image: [wrap($ => $('video').attr('poster'))],
   video: [
     wrapVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
+    wrapVideo($ => $('meta[property="og:video:url"]').attr('content')),
     wrapVideo($ => $('meta[property="og:video"]').attr('content')),
     wrapVideo($ => {
       const contentType = $(
