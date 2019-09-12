@@ -1,10 +1,8 @@
 'use strict'
 
 const {
-  castArray,
   chain,
   eq,
-  first,
   flow,
   get,
   includes,
@@ -18,7 +16,8 @@ const {
   toLower,
   trim,
   invoke,
-  isNil
+  isNil,
+  castArray
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -224,16 +223,23 @@ const isMime = (contentType, type) => {
 
 const jsonld = mem(
   (url, $) => {
-    let data = {}
+    const data = {}
     try {
-      data = JSON.parse(
-        $('script[type="application/ld+json"]')
-          .first()
-          .contents()
-          .text()
+      $('script[type="application/ld+json"]').map((i, e) =>
+        Object.assign(
+          data,
+          ...castArray(
+            JSON.parse(
+              $(e)
+                .contents()
+                .text()
+            )
+          )
+        )
       )
     } catch (err) {}
-    return first(castArray(data))
+
+    return data
   },
   { cacheKey: url => url }
 )
