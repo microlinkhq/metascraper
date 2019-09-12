@@ -1,7 +1,7 @@
 'use strict'
 
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
-const { logo, url: urlFn } = require('@metascraper/helpers')
+const { logo, url: isUrl } = require('@metascraper/helpers')
 const { URL } = require('url')
 const got = require('got')
 
@@ -39,9 +39,9 @@ const sizeSelectors = [
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom, url }) => {
+const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return urlFn(value, { url })
+  return isUrl(value, { url })
 }
 
 /**
@@ -49,7 +49,7 @@ const wrap = rule => ({ htmlDom, url }) => {
  */
 module.exports = () => ({
   logo: [
-    wrap($ => {
+    wrapUrl($ => {
       const sizes = getSizes($, sizeSelectors)
       const size = chain(sizes)
         .first()

@@ -1,6 +1,6 @@
 'use strict'
 
-const { $jsonld, url: urlFn } = require('@metascraper/helpers')
+const { $jsonld, url: isUrl } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -9,9 +9,9 @@ const { $jsonld, url: urlFn } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom, url }) => {
+const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return urlFn(value, { url })
+  return isUrl(value, { url })
 }
 
 /**
@@ -19,10 +19,10 @@ const wrap = rule => ({ htmlDom, url }) => {
  */
 module.exports = () => ({
   logo: [
-    wrap($jsonld('publisher.logo.url')),
-    wrap($jsonld('publisher.logo')),
-    wrap($ => $('meta[property="og:logo"]').attr('content')),
-    wrap($ => $('meta[itemprop="logo"]').attr('content')),
-    wrap($ => $('img[itemprop="logo"]').attr('src'))
+    wrapUrl($jsonld('publisher.logo.url')),
+    wrapUrl($jsonld('publisher.logo')),
+    wrapUrl($ => $('meta[property="og:logo"]').attr('content')),
+    wrapUrl($ => $('meta[itemprop="logo"]').attr('content')),
+    wrapUrl($ => $('img[itemprop="logo"]').attr('src'))
   ]
 })

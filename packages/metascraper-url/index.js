@@ -1,6 +1,6 @@
 'use strict'
 
-const { url: urlFn } = require('@metascraper/helpers')
+const { url: isUrl } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -9,9 +9,9 @@ const { url: urlFn } = require('@metascraper/helpers')
  * @return {Function} wrapped
  */
 
-const wrap = rule => ({ htmlDom, url }) => {
+const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return urlFn(value, { url })
+  return isUrl(value, { url })
 }
 
 /**
@@ -20,10 +20,10 @@ const wrap = rule => ({ htmlDom, url }) => {
 
 module.exports = () => ({
   url: [
-    wrap($ => $('meta[property="og:url"]').attr('content')),
-    wrap($ => $('meta[name="twitter:url"]').attr('content')),
-    wrap($ => $('link[rel="canonical"]').attr('href')),
-    wrap($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
+    wrapUrl($ => $('meta[property="og:url"]').attr('content')),
+    wrapUrl($ => $('meta[name="twitter:url"]').attr('content')),
+    wrapUrl($ => $('link[rel="canonical"]').attr('href')),
+    wrapUrl($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
     ({ url }) => url
   ]
 })
