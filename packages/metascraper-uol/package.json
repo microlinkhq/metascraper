@@ -2,7 +2,7 @@
   "name": "metascraper-uol",
   "description": "metascraper integration for website under Universo Online group",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-uol",
-  "version": "5.6.7",
+  "version": "5.7.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.6.6",
+    "@metascraper/helpers": "^5.7.0",
     "memoize-one": "~5.1.1",
     "tldts": "~5.4.0"
   },

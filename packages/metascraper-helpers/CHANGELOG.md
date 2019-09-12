@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.6.8...v5.7.0) (2019-09-12)
+
+
+### Features
+
+* fixes [#207](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/207): parse multiple json-ld blocks ([#208](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/208)) ([0c8ee94](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/0c8ee94))
+
+
+
+
+
 ## [5.6.6](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.6.5...v5.6.6) (2019-08-22)
 
 
