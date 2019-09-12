@@ -12,10 +12,10 @@
     "url": "https://github.com/microlinkhq/metascraper-uol/issues"
   },
   "keywords": [
-    "uol",
-    "universo",
+    "metascraper",
     "online",
-    "metascraper"
+    "universo",
+    "uol"
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.7.0",
