@@ -78,7 +78,7 @@ const isUrl = (url, { relative = false } = {}) =>
   relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
 
 const absoluteUrl = (baseUrl, relativePath) => {
-  if (isEmpty(relativePath)) return baseUrl
+  if (isEmpty(relativePath)) return new URL(baseUrl).toString()
   return new URL(relativePath, baseUrl).toString()
 }
 
