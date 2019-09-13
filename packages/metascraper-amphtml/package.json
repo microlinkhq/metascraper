@@ -6,7 +6,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-url"
+    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amphtml"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
