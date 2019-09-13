@@ -1,0 +1,34 @@
+{
+  "name": "metascraper-amphtml",
+  "description": "Get the AMP url from HTML markup",
+  "homepage": "https://metascraper.js.org",
+  "version": "5.7.4",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-url"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "url"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.7.4"
+  },
+  "devDependencies": {
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "exit 0"
+  },
+  "license": "MIT"
+}
