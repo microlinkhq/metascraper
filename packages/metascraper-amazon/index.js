@@ -1,7 +1,7 @@
 'use strict'
 
 const {
-  url: urlFn,
+  url: isUrl,
   $filter,
   title,
   author,
@@ -32,7 +32,7 @@ const SUFFIX_LANGUAGES = {
 
 const getDomainLanguage = url => SUFFIX_LANGUAGES[getPublicSuffix(url)]
 
-const wrapUrl = createWrap(urlFn)
+const wrapUrl = createWrap(isUrl)
 const wrapAuthor = createWrap(author)
 const wrapTitle = createWrap(title, { removeSeparator: false })
 const wrapLang = createWrap(lang)
