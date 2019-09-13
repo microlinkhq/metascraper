@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.4](https://github.com/microlinkhq/metascraper-uol/compare/v5.7.3...v5.7.4) (2019-09-13)
+
+**Note:** Version bump only for package metascraper-uol
+
+
+
+
+
 ## [5.7.1](https://github.com/microlinkhq/metascraper-uol/compare/v5.7.0...v5.7.1) (2019-09-12)
 
 **Note:** Version bump only for package metascraper-uol
