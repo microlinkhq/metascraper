@@ -20,7 +20,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.7.4",
     "memoize-one": "~5.1.1",
-    "tldts": "~5.4.0"
+    "tldts": "~5.4.1"
   },
   "devDependencies": {
     "mocha": "latest",
