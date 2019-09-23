@@ -30,7 +30,7 @@
     "lodash": "~4.17.15",
     "mem": "~5.1.1",
     "mime-types": "~2.1.24",
-    "normalize-url": "~4.3.0",
+    "normalize-url": "~4.4.1",
     "smartquotes": "~2.3.1",
     "title": "~3.4.1",
     "truncate": "~2.1.0",
