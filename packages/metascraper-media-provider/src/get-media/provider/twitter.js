@@ -46,7 +46,7 @@ const createGuestToken = ({ userAgent, tunnel }) => {
         debug('guestToken:err', err.message)
         retry.incr()
       }
-    } while (!token)
+    } while (!token && retry.val() < tunnel.size())
 
     return token
   }
