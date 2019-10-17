@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.7](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.7.6...v5.7.7) (2019-10-17)
+
+
+### Bug Fixes
+
+* condition under no tunnel ([a1866f1](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/a1866f1))
+* don't loop if max tunnel size is reached ([3a014f4](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/3a014f4))
+
+
+
+
+
 ## [5.7.6](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.7.5...v5.7.6) (2019-09-29)
 
 **Note:** Version bump only for package metascraper-media-provider
