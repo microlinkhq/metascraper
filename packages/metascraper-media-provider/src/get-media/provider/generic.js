@@ -58,6 +58,8 @@ const makeError = ({ rawError, url, flags }) => {
 
 module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
   const retry = expirableCounter()
+  const hasTunnelAvailable = () => tunnel && retry.val() < tunnel.size()
+
   return async url => {
     let data = {}
     do {
@@ -74,7 +76,7 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
         if (!tunnel && isTwitterRateLimit(url, err)) return data
         retry.incr()
       }
-    } while (isEmpty(data) && retry.val() < tunnel.size())
+    } while (isEmpty(data) && hasTunnelAvailable())
     return data
   }
 }

@@ -15,6 +15,7 @@ const TWITTER_BEARER_TOKEN =
 
 const createGuestToken = ({ userAgent, tunnel }) => {
   const retry = expirableCounter()
+  const hasTunnelAvailable = () => tunnel && retry.val() < tunnel.size()
 
   return async () => {
     let token
@@ -46,7 +47,7 @@ const createGuestToken = ({ userAgent, tunnel }) => {
         debug('guestToken:err', err.message)
         retry.incr()
       }
-    } while (!token && retry.val() < tunnel.size())
+    } while (!token && hasTunnelAvailable())
 
     return token
   }
