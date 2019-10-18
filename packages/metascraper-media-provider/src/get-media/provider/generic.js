@@ -15,11 +15,13 @@ const {
 const getInfo = promisify(youtubedl.getInfo)
 
 const REGEX_RATE_LIMIT = /429: Too Many Requests/i
-
+const REGEX_UNSUPPORTED_URL = /Unsupported URL/i
 const REGEX_ERR_MESSAGE = /ERROR: (.*);?/
 
-const isTwitterRateLimit = (url, err) =>
+const isTwitterRateLimit = (err, url) =>
   isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message)
+
+const isUnsupportedUrl = err => REGEX_UNSUPPORTED_URL.test(err.message)
 
 const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   const flags = [
@@ -73,7 +75,8 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
         const err = makeError({ rawError, url, flags })
         debug('getInfo:err', err.message)
         onError(err, url)
-        if (!tunnel && isTwitterRateLimit(url, err)) return data
+        if (isUnsupportedUrl(err)) return data
+        if (!tunnel && isTwitterRateLimit(err, url)) return data
         retry.incr()
       }
     } while (isEmpty(data) && hasTunnelAvailable())
