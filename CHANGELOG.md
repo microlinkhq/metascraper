@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.9](https://github.com/microlinkhq/metascraper/compare/v5.7.8...v5.7.9) (2019-10-18)
+
+
+### Bug Fixes
+
+* missing await ([7fbd220](https://github.com/microlinkhq/metascraper/commit/7fbd220))
+
+
+
+
+
 ## [5.7.8](https://github.com/microlinkhq/metascraper/compare/v5.7.7...v5.7.8) (2019-10-18)
 
 **Note:** Version bump only for package metascraper
