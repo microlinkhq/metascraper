@@ -98,7 +98,7 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
             .value()
         }
       } catch (err) {
-        guestToken = getGuestToken()
+        guestToken = await getGuestToken()
         debug('getTwitterInfo rotating token')
       }
     } while (!data)
