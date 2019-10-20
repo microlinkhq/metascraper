@@ -3,8 +3,9 @@
 const debug = require('debug')('metascraper-media-provider:twitter')
 const { reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
-
+const pRetry = require('p-retry')
 const got = require('got')
+
 const { expirableCounter, getAgent, getTweetId, proxyUri } = require('../util')
 
 // twitter guest web token
@@ -98,7 +99,7 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
             .value()
         }
       } catch (err) {
-        guestToken = await getGuestToken()
+        guestToken = pRetry(getGuestToken)
         debug('getTwitterInfo rotating token')
       }
     } while (!data)
