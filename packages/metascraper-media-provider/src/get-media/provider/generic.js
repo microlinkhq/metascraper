@@ -1,27 +1,14 @@
 'use strict'
 
 const debug = require('debug')('metascraper-media-provider:generic')
-const { get, isEmpty } = require('lodash')
 const youtubedl = require('youtube-dl')
+const { isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const {
-  getAgent,
-  isTwitterUrl,
-  expirableCounter,
-  proxyUri
-} = require('../util')
+const { getAgent, expirableCounter, proxyUri } = require('../util')
+const youtubedlError = require('./youtube-dl-error')
 
 const getInfo = promisify(youtubedl.getInfo)
-
-const REGEX_RATE_LIMIT = /429: Too Many Requests/i
-const REGEX_UNSUPPORTED_URL = /Unsupported URL/i
-const REGEX_ERR_MESSAGE = /ERROR: (.*);?/
-
-const isTwitterRateLimit = (err, url) =>
-  isTwitterUrl(url) && REGEX_RATE_LIMIT.test(err.message)
-
-const isUnsupportedUrl = err => REGEX_UNSUPPORTED_URL.test(err.message)
 
 const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   const flags = [
@@ -38,26 +25,6 @@ const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   return flags
 }
 
-const makeError = ({ rawError, url, flags }) => {
-  let message
-
-  if (rawError.message) {
-    const extractedMessage = get(REGEX_ERR_MESSAGE.exec(rawError.message), '1')
-    if (extractedMessage) message = extractedMessage.split('; ')[0]
-  } else {
-    message = rawError
-  }
-
-  const error = new Error(message)
-  error.name = 'youtubedlError'
-  error.code = rawError.code
-  error.signal = rawError.signal
-  error.url = url
-  error.flags = flags
-
-  return error
-}
-
 module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
   const retry = expirableCounter()
   const hasTunnelAvailable = () => tunnel && retry.val() < tunnel.size()
@@ -65,23 +32,20 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
   return async url => {
     let data = {}
     do {
-      const agent =
-        isTwitterUrl(url) && retry.val() ? getAgent(tunnel) : undefined
+      const agent = retry.val() && getAgent(tunnel)
       const flags = getFlags({ url, agent, userAgent, cacheDir })
       debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
       try {
         data = await getInfo(url, flags)
       } catch (rawError) {
-        const err = makeError({ rawError, url, flags })
+        const err = youtubedlError({ rawError, url, flags })
         debug('getInfo:err', err.message)
         onError(err, url)
-        if (isUnsupportedUrl(err)) return data
-        if (!tunnel && isTwitterRateLimit(err, url)) return data
+        if (err.unsupportedUrl) return data
+        if (!tunnel) return data
         retry.incr()
       }
     } while (isEmpty(data) && hasTunnelAvailable())
     return data
   }
 }
-
-module.exports.makeError = makeError

@@ -22,7 +22,7 @@ const createGuestToken = ({ userAgent, tunnel }) => {
     let token
 
     do {
-      const agent = retry.val() ? getAgent(tunnel) : undefined
+      const agent = retry.val() && getAgent(tunnel)
       debug(
         `guestToken retry=${retry.val()} agent=${
           agent ? proxyUri(agent) : false
