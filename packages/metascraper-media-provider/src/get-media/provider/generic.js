@@ -32,7 +32,7 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
   return async url => {
     let data = {}
     do {
-      const agent = retry.val() && getAgent(tunnel)
+      const agent = retry.val() ? getAgent(tunnel) : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
       debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
       try {
