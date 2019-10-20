@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.12](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.7.11...v5.7.12) (2019-10-20)
+
+
+### Bug Fixes
+
+* use undefined ([ae693e3](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/ae693e3))
+
+
+
+
+
 ## [5.7.11](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.7.10...v5.7.11) (2019-10-20)
 
 **Note:** Version bump only for package metascraper-media-provider
