@@ -37,6 +37,11 @@ const isM4a = isMIME('m4a')
 const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 
+const hasCodec = prop => format => format[prop] !== 'none'
+
+const hasAudioCodec = hasCodec('acodec')
+const hasVideoCodec = hasCodec('vcodec')
+
 const hasAudio = format =>
   isMp3(format) || isM4a(format) || isAac(format) || isWav(format)
 
@@ -45,7 +50,7 @@ const hasVideo = format =>
 
 const notDownloadable = format => !includes(format.url, 'download=1')
 
-const getFormatUrls = ({ orderBy, filterBy }) => ({ formats }, filters) => {
+const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
   const url = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
@@ -60,10 +65,22 @@ const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
 
 const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
 
-const getVideo = data =>
-  getVideoUrls(data, [hasVideo, isMp4, isHttps, notDownloadable])
+const getVideo = data => {
+  const videoFilters = [
+    hasVideo,
+    isMp4,
+    isHttps,
+    notDownloadable,
+    hasVideoCodec
+  ]
+  return (
+    getVideoUrls(data, [...videoFilters, hasAudioCodec]) ||
+    getVideoUrls(data, videoFilters)
+  )
+}
 
-const getAudio = data => getAudioUrls(data, [hasAudio, isHttps])
+const getAudio = data =>
+  getAudioUrls(data, [hasAudio, isHttps, notDownloadable, hasAudioCodec])
 
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))

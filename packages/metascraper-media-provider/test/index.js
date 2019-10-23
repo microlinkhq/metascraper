@@ -33,7 +33,10 @@ describe('metascraper-media-provider', () => {
       snapshot(getVideo(require('./fixtures/video/vimeo.json')))
     })
     it('youtube', () => {
-      getVideo(getVideo(require('./fixtures/video/youtube.json')))
+      snapshot(getVideo(require('./fixtures/video/youtube.json')))
+    })
+    it('prefer a video url with audio', () => {
+      snapshot(getVideo(require('./fixtures/video/youtube-video-audio.json')))
     })
   })
 
