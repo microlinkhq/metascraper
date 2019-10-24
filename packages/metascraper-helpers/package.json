@@ -28,7 +28,7 @@
     "iso-639-3": "~1.2.0",
     "isostring": "0.0.1",
     "lodash": "~4.17.15",
-    "mem": "~5.1.1",
+    "memoize-one": "~5.1.1",
     "mime-types": "~2.1.24",
     "normalize-url": "~4.5.0",
     "smartquotes": "~2.3.1",
