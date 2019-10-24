@@ -37,7 +37,7 @@ const isIso = require('isostring')
 const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
-const mem = require('mem')
+const memoizeOne = require('memoize-one')
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
@@ -221,28 +221,25 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
-const jsonld = mem(
-  (url, $) => {
-    const data = {}
-    try {
-      $('script[type="application/ld+json"]').map((i, e) =>
-        Object.assign(
-          data,
-          ...castArray(
-            JSON.parse(
-              $(e)
-                .contents()
-                .text()
-            )
+const jsonld = memoizeOne((url, $) => {
+  const data = {}
+  try {
+    $('script[type="application/ld+json"]').map((i, e) =>
+      Object.assign(
+        data,
+        ...castArray(
+          JSON.parse(
+            $(e)
+              .contents()
+              .text()
           )
         )
       )
-    } catch (err) {}
+    )
+  } catch (err) {}
 
-    return data
-  },
-  { cacheKey: url => url }
-)
+  return data
+})
 
 const $jsonld = propName => ($, url) => {
   const json = jsonld(url, $)
