@@ -55,54 +55,54 @@ const createGuestToken = ({ userAgent, tunnel }) => {
 }
 
 const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
-  let guestToken = getGuestToken()
-
   return async url => {
     const tweetId = getTweetId(url)
     const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
     let data
 
-    do {
-      const token = await guestToken
+    const getContent = async () => {
+      const token = await getGuestToken()
       debug(
         `getTwitterInfo apiUrl=${apiUrl} guestToken=${token} userAgent=${userAgent}`
       )
 
-      try {
-        const { body } = await got(apiUrl, {
-          retry: 0,
-          json: true,
-          headers: {
-            referer: url,
-            'x-guest-token': token,
-            origin: 'https://twitter.com',
-            authorization: TWITTER_BEARER_TOKEN,
-            'user-agent': userAgent
-          }
-        })
-
-        const id = get(
-          body,
-          `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
-          tweetId
-        )
-
-        const tweetObj = get(body, `globalObjects.tweets.${id}`)
-
-        data = {
-          extractor_key: 'Twitter',
-          language: get(tweetObj, 'lang'),
-          formats: chain(tweetObj)
-            .get('extended_entities.media.0.video_info.variants')
-            .filter('bitrate')
-            .orderBy('bitrate', 'asc')
-            .value()
+      const { body } = await got(apiUrl, {
+        retry: 0,
+        json: true,
+        headers: {
+          referer: url,
+          'x-guest-token': token,
+          origin: 'https://twitter.com',
+          authorization: TWITTER_BEARER_TOKEN,
+          'user-agent': userAgent
         }
-      } catch (err) {
-        guestToken = pRetry(getGuestToken)
+      })
+
+      const id = get(
+        body,
+        `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
+        tweetId
+      )
+
+      const tweetObj = get(body, `globalObjects.tweets.${id}`)
+
+      data = {
+        extractor_key: 'Twitter',
+        language: get(tweetObj, 'lang'),
+        formats: chain(tweetObj)
+          .get('extended_entities.media.0.video_info.variants')
+          .filter('bitrate')
+          .orderBy('bitrate', 'asc')
+          .value()
+      }
+    }
+
+    await pRetry(getContent, {
+      retries: 3,
+      onFailedAttempt: () => {
         debug('getTwitterInfo rotating token')
       }
-    } while (!data)
+    })
 
     return data
   }
