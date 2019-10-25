@@ -7,7 +7,7 @@
 
 ![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper.svg?style=flat-square)
 [![Coverage Status](https://img.shields.io/coveralls/microlinkhq/metascraper.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/metascraper)
-[![Build Status](https://img.shields.io/travis/microlinkhq/metascraper/master.svg?style=flat-square)](https://travis-ci.org/microlinkhq/metascraper)
+[![Build Status](https://img.shields.io/travis/com/microlinkhq/metascraper/master.svg?style=flat-square)](https://travis-ci.com/microlinkhq/metascraper)
 [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper)
 [![NPM Status](https://img.shields.io/npm/dm/metascraper.svg?style=flat-square)](https://www.npmjs.org/package/metascraper)
 
