@@ -302,6 +302,7 @@ module.exports = {
   $jsonld,
   absoluteUrl,
   audio,
+  audioExtensions,
   author,
   createValidator,
   createWrap,
@@ -310,6 +311,7 @@ module.exports = {
   extension,
   hasValue,
   image,
+  imageExtensions,
   isArray,
   isAudioExtension,
   isAudioUrl,
@@ -334,5 +336,6 @@ module.exports = {
   titleize,
   url,
   validator,
-  video
+  video,
+  videoExtensions
 }
