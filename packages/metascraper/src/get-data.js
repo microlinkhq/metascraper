@@ -3,7 +3,6 @@
 const { isString, map, fromPairs } = require('lodash')
 const { hasValue } = require('@metascraper/helpers')
 const mapValuesDeep = require('map-values-deep')
-
 const xss = require('xss')
 
 const noopTest = () => true
@@ -24,25 +23,19 @@ const getValue = async ({ htmlDom, url, rules, meta, ...props }) => {
   return value
 }
 
-const escapeValue = (value, { escape }) =>
-  !escape
-    ? value
-    : mapValuesDeep(value, value => (isString(value) ? xss(value) : value))
+const escapeValue = (value, { escape }) => {
+  if (!hasValue(value)) return null
+  if (!escape) return value
+  return mapValuesDeep(value, value => (isString(value) ? xss(value) : value))
+}
 
 const getData = async ({ rules, htmlDom, url, escape, ...props }) => {
   const data = await Promise.all(
     map(rules, async ([propName, innerRules]) => {
-      const rawValue = await getValue({
-        htmlDom,
-        url,
-        rules: innerRules,
-        ...props
-      })
-      const value = hasValue(rawValue)
-        ? propName !== 'iframe'
-          ? escapeValue(rawValue, { escape })
-          : rawValue
-        : null
+      const value = escapeValue(
+        await getValue({ htmlDom, url, rules: innerRules }),
+        { escape }
+      )
       return [propName, value]
     })
   )

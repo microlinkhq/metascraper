@@ -1,4 +1,8 @@
 exports['escape when the value is not empty 1'] = {
-  "title": "&lt;script src=‘http:"
+  "title": "&lt;script src=‘http://127.0.0.1:8080/malware.js’&gt;&lt;/script&gt;"
+}
+
+exports['explicitily disable escape 1'] = {
+  "title": "<script src=‘http://127.0.0.1:8080/malware.js’></script>"
 }
 
