@@ -247,7 +247,7 @@ Type: `String`
 
 The HTML markup for extracting the content.
 
-#### escape
+##### escape
 
 Type: `Boolean`<br>
 Default: `true`
