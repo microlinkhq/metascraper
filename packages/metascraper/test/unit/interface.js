@@ -30,7 +30,7 @@ it('url is required', async () => {
   }
 })
 
-it.only('escape is enabled by default', async () => {
+it('escape is enabled by default', async () => {
   const html = `
   <!doctype html>
   <html xmlns:og="http://ogp.me/ns#" lang="en">
