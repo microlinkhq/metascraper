@@ -1,7 +1,7 @@
 'use strict'
 
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
-const { logo, url: isUrl } = require('@metascraper/helpers')
+const { absoluteUrl, logo, url: isUrl } = require('@metascraper/helpers')
 const { URL } = require('url')
 const got = require('got')
 
@@ -58,9 +58,7 @@ module.exports = () => ({
       return size
     }),
     async ({ url }) => {
-      const { origin } = new URL(url)
-      const logoUrl = new URL('favicon.ico', origin)
-
+      const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
       try {
         await got.head(logoUrl, { retry: 0, timeout: 10000 })
         return logo(logoUrl)

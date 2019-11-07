@@ -286,12 +286,12 @@ exports['forbes 1'] = {
 
 exports['fortune 1'] = {
   "author": "Kia Kokalitcheva",
-  "date": "2015-10-05T00:00:00.000Z",
+  "date": "2015-10-05T20:52:17.000Z",
   "description": "HackerRank, a four-year-old startup, is changing the way companies find and evaluate programmers.",
   "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://fortune.com/img/favicons/favicon-192.png",
+  "logo": "http://fortune.com/img/logo.png",
   "publisher": "Fortune",
   "title": "Why your next job search may involve solving online puzzles",
   "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool/"
@@ -1005,5 +1005,18 @@ exports['pikabu 1'] = {
   "publisher": "Пикабу",
   "title": "7 интересных наблюдений о первой Матрице",
   "url": "https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662"
+}
+
+exports['bukvy 1'] = {
+  "author": "Буквы",
+  "date": "2019-01-06T07:43:59.000Z",
+  "description": "Президент Петр Порошенко заявил, что государство будет уважать религиозный выбор и вероисповедание каждого гражданина страны. Об этом он заявил в обращении после торжественной церемонии вручения в Стамбуле Томоса об автокефалии Православной церкви Украины. “Я как Президент гарантирую от имени госуда…",
+  "image": "https://bykvu.com/ru/kd_image_generate/141935.jpg",
+  "video": null,
+  "lang": null,
+  "logo": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png",
+  "publisher": "Буквы",
+  "title": "Украина будет уважать религиозный выбор каждого гражданина, – Порошенко",
+  "url": "https://bykvu.com/ru/bukvy/107312-ukraina-budet-uvazhat-religioznyj-vybor-kazhdogo-grazhdanina-poroshenko/"
 }
 
