@@ -247,6 +247,13 @@ Type: `String`
 
 The HTML markup for extracting the content.
 
+#### escape
+
+Type: `Boolean`<br>
+Default: `true`
+
+It sanetizes the ouptut to prevent xss attacks.
+
 #### rules
 
 Type: `Array`
