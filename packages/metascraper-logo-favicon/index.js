@@ -1,7 +1,7 @@
 'use strict'
 
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
-const { absoluteUrl, logo, url: isUrl } = require('@metascraper/helpers')
+const { absoluteUrl, logo, url: urlFn } = require('@metascraper/helpers')
 const { URL } = require('url')
 const got = require('got')
 
@@ -41,7 +41,7 @@ const sizeSelectors = [
 
 const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return isUrl(value, { url })
+  return urlFn(value, { url })
 }
 
 const DEFAULT_GOT_OPTS = {

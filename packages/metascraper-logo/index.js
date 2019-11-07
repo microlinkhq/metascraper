@@ -1,6 +1,6 @@
 'use strict'
 
-const { $jsonld, url: isUrl } = require('@metascraper/helpers')
+const { $jsonld, url: urlFn } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -11,7 +11,7 @@ const { $jsonld, url: isUrl } = require('@metascraper/helpers')
 
 const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return isUrl(value, { url })
+  return urlFn(value, { url })
 }
 
 /**

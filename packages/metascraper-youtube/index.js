@@ -4,7 +4,7 @@ const {
   $filter,
   author,
   description,
-  createWrap
+  wrapRule
 } = require('@metascraper/helpers')
 
 const isReachable = require('is-reachable')
@@ -27,9 +27,9 @@ const getThumbnailUrl = id => {
   return pLocate(urls, isReachable)
 }
 
-const wrapAuthor = createWrap(author)
+const toAuthor = wrapRule(author)
 
-const wrapDescription = createWrap(description)
+const toDescription = wrapRule(description)
 
 const getVideoInfo = memoizeOne(getVideoId)
 
@@ -38,11 +38,11 @@ const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 module.exports = () => {
   const rules = {
     author: [
-      wrapAuthor($ => $('#owner-name').text()),
-      wrapAuthor($ => $('#channel-title').text()),
-      wrapAuthor($ => $filter($, $('[class*="user-info" i]')))
+      toAuthor($ => $('#owner-name').text()),
+      toAuthor($ => $('#channel-title').text()),
+      toAuthor($ => $filter($, $('[class*="user-info" i]')))
     ],
-    description: [wrapDescription($ => $('#description').text())],
+    description: [toDescription($ => $('#description').text())],
     publisher: [() => 'YouTube'],
     image: [
       ({ htmlDom, url }) => {

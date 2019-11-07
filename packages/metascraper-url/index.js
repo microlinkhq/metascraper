@@ -1,6 +1,6 @@
 'use strict'
 
-const { url: isUrl } = require('@metascraper/helpers')
+const { url: urlFn } = require('@metascraper/helpers')
 
 /**
  * Wrap a rule with validation and formatting logic.
@@ -11,7 +11,7 @@ const { url: isUrl } = require('@metascraper/helpers')
 
 const wrapUrl = rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom)
-  return isUrl(value, { url })
+  return urlFn(value, { url })
 }
 
 /**
