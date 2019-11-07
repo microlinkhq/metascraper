@@ -13,7 +13,7 @@ const memoFn = (newArgs, oldArgs) => newArgs[0].url === oldArgs[0].url
 
 const DEFAULT_GOT_OPTS = {
   json: true,
-  timeout: 1500,
+  timeout: 3000,
   retry: 0
 }
 

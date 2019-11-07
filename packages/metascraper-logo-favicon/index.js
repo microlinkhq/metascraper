@@ -44,10 +44,15 @@ const wrapUrl = rule => ({ htmlDom, url }) => {
   return isUrl(value, { url })
 }
 
+const DEFAULT_GOT_OPTS = {
+  timeout: 3000,
+  retry: 0
+}
+
 /**
  * Rules.
  */
-module.exports = () => ({
+module.exports = ({ gotOpts } = {}) => ({
   logo: [
     wrapUrl($ => {
       const sizes = getSizes($, sizeSelectors)
@@ -60,7 +65,10 @@ module.exports = () => ({
     async ({ url }) => {
       const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
       try {
-        await got.head(logoUrl, { retry: 0, timeout: 10000 })
+        await got.head(logoUrl, {
+          ...DEFAULT_GOT_OPTS,
+          ...gotOpts
+        })
         return logo(logoUrl)
       } catch (err) {
         return null
