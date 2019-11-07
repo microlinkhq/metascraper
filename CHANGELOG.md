@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.19](https://github.com/microlinkhq/metascraper/compare/v5.7.18...v5.7.19) (2019-11-07)
+
+
+### Bug Fixes
+
+* compose absolute url properly ([17b55ca](https://github.com/microlinkhq/metascraper/commit/17b55cabf06f95f1aef9bce305cafba623b811e8))
+* remove only ([a81002c](https://github.com/microlinkhq/metascraper/commit/a81002cd76748bf6603c75318e2616b856557d56))
+
+
+
+
+
 ## [5.7.18](https://github.com/microlinkhq/metascraper/compare/v5.7.17...v5.7.18) (2019-11-07)
 
 **Note:** Version bump only for package metascraper
