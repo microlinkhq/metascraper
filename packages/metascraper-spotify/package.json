@@ -23,6 +23,7 @@
     "spotify-url-info": "~1.3.0"
   },
   "devDependencies": {
+    "kind-of": "latest",
     "lodash": "latest",
     "mocha": "latest",
     "should": "latest",

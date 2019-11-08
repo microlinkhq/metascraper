@@ -1,7 +1,8 @@
 'use strict'
 
+const { mapValues } = require('lodash')
 const snapshot = require('snap-shot')
-const { omit } = require('lodash')
+const kindOf = require('kind-of')
 const should = require('should')
 
 const metascraperSpotify = require('metascraper-spotify')
@@ -41,8 +42,8 @@ describe('metascraper-spotify', () => {
   describe('extract metadata', () => {
     spotifyUrls.forEach(url => {
       it(url, async () => {
-        const metadata = await metascraper({ url })
-        snapshot(omit(metadata, ['url']))
+        const meta = await metascraper({ url })
+        snapshot(mapValues(meta, kindOf))
       })
     })
   })
