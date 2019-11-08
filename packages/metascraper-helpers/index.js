@@ -277,8 +277,11 @@ const validator = {
 /**
  * Create a property mapper with validator inside.
  */
-const createValidator = fn => ({ from, to = from }) => async args => {
-  const data = await fn(args)
+const createValidator = fn => ({ from, to = from }) => async ({
+  htmlDom,
+  url
+}) => {
+  const data = await fn(htmlDom, url)
   const value = get(data, from)
   return invoke(validator, to, value)
 }
