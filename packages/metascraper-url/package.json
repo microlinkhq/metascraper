@@ -2,7 +2,7 @@
   "name": "metascraper-url",
   "description": "Get url property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "5.7.21",
+  "version": "5.8.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.7.21"
+    "@metascraper/helpers": "^5.8.0"
   },
   "devDependencies": {
     "standard": "latest"

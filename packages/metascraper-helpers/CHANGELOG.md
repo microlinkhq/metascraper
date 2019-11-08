@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.7.21...v5.8.0) (2019-11-08)
+
+
+### Features
+
+* add spotify integration ([#232](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/232)) ([74cd3ac](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/74cd3ac112323baef229b5b49075343997bc628a))
+
+
+
+
+
 ## [5.7.21](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.7.20...v5.7.21) (2019-11-08)
 
 **Note:** Version bump only for package @metascraper/helpers
