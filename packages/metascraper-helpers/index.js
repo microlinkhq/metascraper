@@ -285,9 +285,9 @@ const createValidator = fn => ({ from, to = from }) => async args => {
 }
 
 /**
- * Wrap a rule into a validator
+ * Wrap a rule interface into a validator
  */
-const createWrap = (fn, opts) => rule => ({ htmlDom, url }) => {
+const wrapRule = (fn, opts) => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
   return fn(value, opts)
 }
@@ -305,7 +305,7 @@ module.exports = {
   audioExtensions,
   author,
   createValidator,
-  createWrap,
+  wrapRule,
   date,
   description,
   extension,

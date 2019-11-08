@@ -15,7 +15,7 @@ const {
   author: authorFn,
   description: descriptionFn,
   title: titleFn,
-  url: isUrl,
+  url: urlFn,
   lang,
   publisher,
   protocol: protocolFn
@@ -97,7 +97,7 @@ const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
 const getDate = ({ timestamp }) =>
   !isNil(timestamp) && new Date(timestamp * 1000).toISOString()
 
-const getImage = (url, { thumbnail }) => isUrl(thumbnail, { url })
+const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
 
 const getDescription = ({ description }) => descriptionFn(description)
 

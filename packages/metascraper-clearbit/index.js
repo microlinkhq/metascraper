@@ -1,7 +1,7 @@
 'use strict'
 
-const { get, isString, isObject } = require('lodash')
 const { createValidator } = require('@metascraper/helpers')
+const { get, isString, isObject } = require('lodash')
 const { stringify } = require('querystring')
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
