@@ -1,25 +1,18 @@
 'use strict'
 
-const { url: urlFn, extension, video } = require('@metascraper/helpers')
+const {
+  url: urlFn,
+  wrapRule,
+  extension,
+  video
+} = require('@metascraper/helpers')
+
 const { chain } = require('lodash')
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
+const toUrl = wrapRule(urlFn)
+const toVideo = wrapRule(video)
 
-const wrapRule = fn => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom)
-  return fn(value, url)
-}
-
-const toUrl = wrapRule((value, url) => urlFn(value, { url }))
-
-const toVideo = wrapRule((input, url) => video(input, { url }))
-
-const toVideoFromDom = wrapRule((domNodes, url) => {
+const toVideoFromDom = wrapRule((domNodes, opts) => {
   const videoUrl = chain(domNodes)
     .map('attribs.src')
     .uniq()
@@ -27,7 +20,7 @@ const toVideoFromDom = wrapRule((domNodes, url) => {
     .first()
     .value()
 
-  return video(videoUrl, { url })
+  return video(videoUrl, opts)
 })
 
 /**

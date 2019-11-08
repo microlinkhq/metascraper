@@ -6,6 +6,7 @@ const {
   description,
   wrapRule
 } = require('@metascraper/helpers')
+
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
 

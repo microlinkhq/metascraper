@@ -288,7 +288,7 @@ const createValidator = fn => ({ from, to = from }) => async args => {
  */
 const wrapRule = (fn, opts) => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return fn(value, opts)
+  return fn(value, { url, ...opts })
 }
 
 const has = value =>
@@ -302,7 +302,6 @@ module.exports = {
   audioExtensions,
   author,
   createValidator,
-  wrapRule,
   date,
   description,
   extension,
@@ -334,5 +333,6 @@ module.exports = {
   url,
   validator,
   video,
-  videoExtensions
+  videoExtensions,
+  wrapRule
 }

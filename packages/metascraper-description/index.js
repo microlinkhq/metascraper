@@ -1,25 +1,10 @@
 'use strict'
 
-const { $jsonld, description } = require('@metascraper/helpers')
+const { $jsonld, wrapRule, description } = require('@metascraper/helpers')
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
+const toDescription = wrapRule(description)
 
-const wrapRule = opts => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return description(value, opts)
-}
-
-/**
- * Rules.
- */
-
-module.exports = opts => {
-  const toDescription = wrapRule(opts)
+module.exports = () => {
   return {
     description: [
       toDescription($jsonld('description')),
