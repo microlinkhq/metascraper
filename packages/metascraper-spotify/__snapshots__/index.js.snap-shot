@@ -1,0 +1,52 @@
+exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 1'] = {
+  "title": "string",
+  "image": "string",
+  "audio": "string",
+  "url": "string",
+  "author": "string",
+  "date": "null",
+  "description": "null",
+  "lang": "null",
+  "logo": "string",
+  "publisher": "null"
+}
+
+exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 2'] = {
+  "title": "string",
+  "image": "string",
+  "audio": "string",
+  "url": "string",
+  "author": "string",
+  "date": "null",
+  "description": "null",
+  "lang": "null",
+  "logo": "string",
+  "publisher": "null"
+}
+
+exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 3'] = {
+  "title": "string",
+  "image": "string",
+  "audio": "string",
+  "url": "string",
+  "author": "string",
+  "date": "null",
+  "description": "null",
+  "lang": "null",
+  "logo": "string",
+  "publisher": "null"
+}
+
+exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 4'] = {
+  "title": "string",
+  "image": "string",
+  "audio": "string",
+  "url": "string",
+  "author": "string",
+  "date": "null",
+  "description": "null",
+  "lang": "null",
+  "logo": "string",
+  "publisher": "null"
+}
+

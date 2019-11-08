@@ -130,11 +130,11 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaTypeUrl = (url, type, opts) =>
-  isUrl(url, opts) && isMediaTypeExtension(url, type)
+const isMediaTypeUrl = (url, type, { ext, ...opts } = {}) =>
+  isUrl(url, opts) && isMediaTypeExtension(url, type, ext)
 
-const isMediaTypeExtension = (url, type) =>
-  eq(type, get(EXTENSIONS, extension(url)))
+const isMediaTypeExtension = (url, type, ext) =>
+  eq(type, get(EXTENSIONS, ext || extension(url)))
 
 const isMediaUrl = (url, opts) =>
   isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
@@ -252,12 +252,12 @@ const logo = url
 
 const video = (value, opts) => {
   const urlValue = url(value, opts)
-  return isVideoUrl(urlValue) && urlValue
+  return isVideoUrl(urlValue, opts) && urlValue
 }
 
 const audio = (value, opts) => {
   const urlValue = url(value, opts)
-  return isAudioUrl(urlValue) && urlValue
+  return isAudioUrl(urlValue, opts) && urlValue
 }
 
 const validator = {
@@ -279,7 +279,7 @@ const toRule = (fn, opts) => rule => ({ htmlDom, url }) => {
   return fn(value, { url, ...opts })
 }
 
-const composeRule = (fn, opts) => ({ from, to = from }) => async ({
+const composeRule = fn => ({ from, to = from, ...opts }) => async ({
   htmlDom,
   url
 }) => {

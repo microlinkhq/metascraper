@@ -1,0 +1,48 @@
+{
+  "name": "metascraper-spotify",
+  "description": "metascraper integration with Spotify",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-spotify",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper-spotify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper-spotify/issues"
+  },
+  "keywords": [
+    "audio",
+    "metascraper",
+    "spotify"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.7.21",
+    "memoize-one": "~5.1.1",
+    "spotify-uri": "~1.0.0",
+    "spotify-url-info": "~1.3.0"
+  },
+  "devDependencies": {
+    "kind-of": "latest",
+    "lodash": "latest",
+    "mocha": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+  },
+  "license": "MIT",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}
