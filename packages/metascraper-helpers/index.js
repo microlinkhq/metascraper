@@ -16,7 +16,6 @@ const {
   toLower,
   trim,
   invoke,
-  isNil,
   castArray
 } = require('lodash')
 
@@ -292,10 +291,8 @@ const wrapRule = (fn, opts) => rule => ({ htmlDom, url }) => {
   return fn(value, opts)
 }
 
-const hasValue = value =>
-  isNil(value) || value === false || value === 0 || value === ''
-    ? false
-    : hasValues(value)
+const has = value =>
+  value === null || value === false || value === 0 ? false : hasValues(value)
 
 module.exports = {
   $filter,
@@ -309,7 +306,7 @@ module.exports = {
   date,
   description,
   extension,
-  hasValue,
+  has,
   image,
   imageExtensions,
   isArray,

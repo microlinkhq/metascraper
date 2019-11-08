@@ -19,7 +19,7 @@ const {
   url,
   jsonld,
   titleize,
-  hasValue
+  has
 } = require('..')
 
 describe('metascraper-helpers', () => {
@@ -171,7 +171,6 @@ describe('metascraper-helpers', () => {
     should(isImageExtension('demo.jpeg')).be.true()
     should(isImageExtension('demo.gif')).be.true()
   })
-
   it('.description', async () => {
     should(
       description(
@@ -310,23 +309,46 @@ describe('metascraper-helpers', () => {
   })
 })
 
-describe('.hasValue', () => {
-  it('true', () => {
-    should(hasValue(true)).be.true()
-    should(hasValue('foo')).be.true()
-    should(hasValue(123)).be.true()
-    should(hasValue(['foo'])).be.true()
-    should(hasValue({ foo: 'bar' })).be.true()
+describe('.has', () => {
+  describe('true', () => {
+    it('true', () => {
+      should(has(true)).be.true()
+    })
+    it('foo', () => {
+      should(has('foo')).be.true()
+    })
+    it('123', () => {
+      should(has(123)).be.true()
+    })
+    it('[foo]', () => {
+      should(has(['foo'])).be.true()
+    })
+    it('{foo: "bar"}', () => {
+      should(has({ foo: 'bar' })).be.true()
+    })
   })
 
-  it('false', () => {
-    should(hasValue(false)).be.false()
-    should(hasValue(0)).be.false()
-    should(hasValue('')).be.false()
-    should(hasValue(null)).be.false()
-    should(hasValue(undefined)).be.false()
-    should(hasValue({})).be.false()
-    should(hasValue([])).be.false()
-    should(hasValue([''])).be.false()
+  describe('false', () => {
+    it('false', () => {
+      should(has(false)).be.false()
+    })
+    it('0', () => {
+      should(has(0)).be.false()
+    })
+    it("''", () => {
+      should(has('')).be.false()
+    })
+    it('null', () => {
+      should(has(null)).be.false()
+    })
+    it('undefined', () => {
+      should(has(undefined)).be.false()
+    })
+    it('{}', () => {
+      should(has({})).be.false()
+    })
+    it('[]', () => {
+      should(has([])).be.false()
+    })
   })
 })

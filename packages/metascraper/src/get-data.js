@@ -1,7 +1,7 @@
 'use strict'
 
 const { isString, map, fromPairs } = require('lodash')
-const { hasValue } = require('@metascraper/helpers')
+const { has } = require('@metascraper/helpers')
 const mapValuesDeep = require('map-values-deep')
 const xss = require('xss')
 
@@ -18,13 +18,13 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
     if (test({ htmlDom, url, meta })) {
       value = await rule({ htmlDom, url, meta })
     }
-  } while (!hasValue(value) && index < lastIndex)
+  } while (!has(value) && index < lastIndex)
 
   return value
 }
 
 const escapeValue = (value, { escape }) => {
-  if (!hasValue(value)) return null
+  if (!has(value)) return null
   if (!escape) return value
   return mapValuesDeep(value, value => (isString(value) ? xss(value) : value))
 }
