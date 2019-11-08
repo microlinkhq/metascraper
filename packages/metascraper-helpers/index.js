@@ -16,7 +16,6 @@ const {
   toLower,
   trim,
   invoke,
-  isNil,
   castArray
 } = require('lodash')
 
@@ -275,27 +274,22 @@ const validator = {
   lang
 }
 
-/**
- * Create a property mapper with validator inside.
- */
-const createValidator = fn => ({ from, to = from }) => async args => {
-  const data = await fn(args)
-  const value = get(data, from)
-  return invoke(validator, to, value)
-}
-
-/**
- * Wrap a rule into a validator
- */
-const createWrap = (fn, opts) => rule => ({ htmlDom, url }) => {
+const toRule = (fn, opts) => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return fn(value, opts)
+  return fn(value, { url, ...opts })
 }
 
-const hasValue = value =>
-  isNil(value) || value === false || value === 0 || value === ''
-    ? false
-    : hasValues(value)
+const composeRule = (fn, opts) => ({ from, to = from }) => async ({
+  htmlDom,
+  url
+}) => {
+  const data = await fn(htmlDom, url)
+  const value = get(data, from)
+  return invoke(validator, to, value, { url, ...opts })
+}
+
+const has = value =>
+  value === null || value === false || value === 0 ? false : hasValues(value)
 
 module.exports = {
   $filter,
@@ -304,12 +298,11 @@ module.exports = {
   audio,
   audioExtensions,
   author,
-  createValidator,
-  createWrap,
+  composeRule,
   date,
   description,
   extension,
-  hasValue,
+  has,
   image,
   imageExtensions,
   isArray,
@@ -337,5 +330,6 @@ module.exports = {
   url,
   validator,
   video,
-  videoExtensions
+  videoExtensions,
+  toRule
 }

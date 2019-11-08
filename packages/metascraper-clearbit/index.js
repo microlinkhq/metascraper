@@ -1,7 +1,7 @@
 'use strict'
 
+const { composeRule } = require('@metascraper/helpers')
 const { get, isString, isObject } = require('lodash')
-const { createValidator } = require('@metascraper/helpers')
 const { stringify } = require('querystring')
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
@@ -9,7 +9,7 @@ const got = require('got')
 
 const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
 
-const memoFn = (newArgs, oldArgs) => newArgs[0].url === oldArgs[0].url
+const memoFn = (newArgs, oldArgs) => newArgs[1] === oldArgs[1]
 
 const DEFAULT_GOT_OPTS = {
   json: true,
@@ -25,7 +25,7 @@ const appendQuery = (data, query) => {
 }
 
 const createClearbit = ({ gotOpts, logoOpts } = {}) =>
-  memoizeOne(async ({ url }) => {
+  memoizeOne(async ($, url) => {
     const domain = getDomain(url)
 
     try {
@@ -41,7 +41,7 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
   }, memoFn)
 
 module.exports = opts => {
-  const getClearbit = createValidator(createClearbit(opts))
+  const getClearbit = composeRule(createClearbit(opts))
 
   return {
     logo: getClearbit({ from: 'logo' }),

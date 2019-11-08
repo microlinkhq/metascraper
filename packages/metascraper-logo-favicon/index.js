@@ -1,7 +1,13 @@
 'use strict'
 
+const {
+  absoluteUrl,
+  logo,
+  url: urlFn,
+  toRule
+} = require('@metascraper/helpers')
+
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
-const { absoluteUrl, logo, url: isUrl } = require('@metascraper/helpers')
 const { URL } = require('url')
 const got = require('got')
 
@@ -32,17 +38,7 @@ const sizeSelectors = [
   { tag: 'link[rel="shortcut icon"]', attr: 'href' }
 ]
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
-
-const wrapUrl = rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom)
-  return isUrl(value, { url })
-}
+const toUrl = toRule(urlFn)
 
 const DEFAULT_GOT_OPTS = {
   timeout: 3000,
@@ -54,7 +50,7 @@ const DEFAULT_GOT_OPTS = {
  */
 module.exports = ({ gotOpts } = {}) => ({
   logo: [
-    wrapUrl($ => {
+    toUrl($ => {
       const sizes = getSizes($, sizeSelectors)
       const size = chain(sizes)
         .first()
