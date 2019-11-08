@@ -1,11 +1,6 @@
 'use strict'
 
-const {
-  $filter,
-  author,
-  description,
-  wrapRule
-} = require('@metascraper/helpers')
+const { $filter, author, description, toRule } = require('@metascraper/helpers')
 
 const isReachable = require('is-reachable')
 const getVideoId = require('get-video-id')
@@ -27,9 +22,9 @@ const getThumbnailUrl = id => {
   return pLocate(urls, isReachable)
 }
 
-const toAuthor = wrapRule(author)
+const toAuthor = toRule(author)
 
-const toDescription = wrapRule(description)
+const toDescription = toRule(description)
 
 const getVideoInfo = memoizeOne(getVideoId)
 

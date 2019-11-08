@@ -1,8 +1,8 @@
 'use strict'
 
-const { $jsonld, url: urlFn, wrapRule } = require('@metascraper/helpers')
+const { $jsonld, url: urlFn, toRule } = require('@metascraper/helpers')
 
-const toUrl = wrapRule(urlFn)
+const toUrl = toRule(urlFn)
 
 module.exports = () => ({
   logo: [

@@ -1,8 +1,8 @@
 'use strict'
 
-const { $jsonld, $filter, image, wrapRule } = require('@metascraper/helpers')
+const { $jsonld, $filter, image, toRule } = require('@metascraper/helpers')
 
-const toImage = wrapRule(image)
+const toImage = toRule(image)
 
 const getSrc = el => el.attr('src')
 

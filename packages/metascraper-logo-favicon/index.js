@@ -4,7 +4,7 @@ const {
   absoluteUrl,
   logo,
   url: urlFn,
-  wrapRule
+  toRule
 } = require('@metascraper/helpers')
 
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
@@ -38,7 +38,7 @@ const sizeSelectors = [
   { tag: 'link[rel="shortcut icon"]', attr: 'href' }
 ]
 
-const toUrl = wrapRule(urlFn)
+const toUrl = toRule(urlFn)
 
 const DEFAULT_GOT_OPTS = {
   timeout: 3000,

@@ -1,8 +1,8 @@
 'use strict'
 
-const { $jsonld, wrapRule, description } = require('@metascraper/helpers')
+const { $jsonld, toRule, description } = require('@metascraper/helpers')
 
-const toDescription = wrapRule(description)
+const toDescription = toRule(description)
 
 module.exports = () => {
   return {

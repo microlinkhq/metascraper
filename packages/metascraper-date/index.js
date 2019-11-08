@@ -1,8 +1,8 @@
 'use strict'
 
-const { date, $filter, $jsonld, wrapRule } = require('@metascraper/helpers')
+const { date, $filter, $jsonld, toRule } = require('@metascraper/helpers')
 
-const toDate = wrapRule(date)
+const toDate = toRule(date)
 
 module.exports = () => ({
   date: [

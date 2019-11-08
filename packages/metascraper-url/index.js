@@ -1,8 +1,8 @@
 'use strict'
 
-const { wrapRule, url: urlFn } = require('@metascraper/helpers')
+const { toRule, url: urlFn } = require('@metascraper/helpers')
 
-const toUrl = wrapRule(urlFn)
+const toUrl = toRule(urlFn)
 
 module.exports = () => ({
   url: [

@@ -1,8 +1,8 @@
 'use strict'
 
-const { lang, wrapRule } = require('@metascraper/helpers')
+const { lang, toRule } = require('@metascraper/helpers')
 
-const toLang = wrapRule(lang)
+const toLang = toRule(lang)
 
 module.exports = () => ({
   lang: [

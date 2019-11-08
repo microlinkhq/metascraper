@@ -5,7 +5,7 @@ const {
   $filter,
   title,
   author,
-  wrapRule,
+  toRule,
   lang
 } = require('@metascraper/helpers')
 
@@ -32,10 +32,10 @@ const SUFFIX_LANGUAGES = {
 
 const getDomainLanguage = url => SUFFIX_LANGUAGES[getPublicSuffix(url)]
 
-const toUrl = wrapRule(url)
-const toAuthor = wrapRule(author)
-const toTitle = wrapRule(title, { removeSeparator: false })
-const toLang = wrapRule(lang)
+const toUrl = toRule(url)
+const toAuthor = toRule(author)
+const toTitle = toRule(title, { removeSeparator: false })
+const toLang = toRule(lang)
 
 module.exports = () => {
   const rules = {

@@ -274,24 +274,18 @@ const validator = {
   lang
 }
 
-/**
- * Create a property mapper with validator inside.
- */
-const createValidator = fn => ({ from, to = from }) => async ({
+const toRule = (fn, opts) => rule => ({ htmlDom, url }) => {
+  const value = rule(htmlDom, url)
+  return fn(value, { url, ...opts })
+}
+
+const composeRule = (fn, opts) => ({ from, to = from }) => async ({
   htmlDom,
   url
 }) => {
   const data = await fn(htmlDom, url)
   const value = get(data, from)
-  return invoke(validator, to, value)
-}
-
-/**
- * Wrap a rule interface into a validator
- */
-const wrapRule = (fn, opts) => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return fn(value, { url, ...opts })
+  return invoke(validator, to, value, { url, ...opts })
 }
 
 const has = value =>
@@ -304,7 +298,7 @@ module.exports = {
   audio,
   audioExtensions,
   author,
-  createValidator,
+  composeRule,
   date,
   description,
   extension,
@@ -337,5 +331,5 @@ module.exports = {
   validator,
   video,
   videoExtensions,
-  wrapRule
+  toRule
 }

@@ -1,10 +1,10 @@
 'use strict'
 
-const { $jsonld, $filter, wrapRule, author } = require('@metascraper/helpers')
+const { $jsonld, $filter, toRule, author } = require('@metascraper/helpers')
 
 const REGEX_STRICT = /^\S+\s+\S+/
 
-const toAuthor = wrapRule(author)
+const toAuthor = toRule(author)
 
 /**
  * Enforce stricter matching for a `rule`.

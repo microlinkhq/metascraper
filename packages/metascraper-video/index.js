@@ -1,18 +1,13 @@
 'use strict'
 
-const {
-  url: urlFn,
-  wrapRule,
-  extension,
-  video
-} = require('@metascraper/helpers')
+const { url: urlFn, toRule, extension, video } = require('@metascraper/helpers')
 
 const { chain } = require('lodash')
 
-const toUrl = wrapRule(urlFn)
-const toVideo = wrapRule(video)
+const toUrl = toRule(urlFn)
+const toVideo = toRule(video)
 
-const toVideoFromDom = wrapRule((domNodes, opts) => {
+const toVideoFromDom = toRule((domNodes, opts) => {
   const videoUrl = chain(domNodes)
     .map('attribs.src')
     .uniq()

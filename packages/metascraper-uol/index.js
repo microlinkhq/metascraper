@@ -1,11 +1,6 @@
 'use strict'
 
-const {
-  $jsonld,
-  title,
-  description,
-  wrapRule
-} = require('@metascraper/helpers')
+const { $jsonld, title, description, toRule } = require('@metascraper/helpers')
 const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
 
@@ -15,8 +10,8 @@ const isValidUrl = memoizeOne(url =>
   ROOT_DOMAINS.some(domain => getDomain(url) === domain)
 )
 
-const toTitle = wrapRule(title)
-const toDescription = wrapRule(description)
+const toTitle = toRule(title)
+const toDescription = toRule(description)
 
 module.exports = () => {
   const rules = {

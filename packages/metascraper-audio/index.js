@@ -1,8 +1,8 @@
 'use strict'
 
-const { isMime, audio, wrapRule } = require('@metascraper/helpers')
+const { isMime, audio, toRule } = require('@metascraper/helpers')
 
-const toAudio = wrapRule(audio)
+const toAudio = toRule(audio)
 
 const withContentType = (url, contentType) =>
   isMime(contentType, 'audio') ? url : false

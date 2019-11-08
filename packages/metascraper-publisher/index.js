@@ -1,11 +1,11 @@
 'use strict'
 
-const { $jsonld, publisher, wrapRule } = require('@metascraper/helpers')
+const { $jsonld, publisher, toRule } = require('@metascraper/helpers')
 
 const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
 const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
 
-const toPublisher = wrapRule(publisher)
+const toPublisher = toRule(publisher)
 
 const getFromTitle = (text, regex) => {
   const matches = regex.exec(text)
