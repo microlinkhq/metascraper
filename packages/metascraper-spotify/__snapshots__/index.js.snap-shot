@@ -1,0 +1,52 @@
+exports['ad5bbc912b5260028b5775ba6d03a0697592ead84acc359f25f38a214815d660 1'] = {
+  "title": "Immaterial",
+  "image": "https://i.scdn.co/image/d6f496a6708d22a2f867e5acb84afb0eb0b07bc1",
+  "audio": "https://p.scdn.co/mp3-preview/6be8eb12ff18ae09b7a6d38ff1e5327fd128a74e?cid=a46f5c5745a14fbf826186da8da5ecc3",
+  "url": "https://open.spotify.com/track/5nTtCOCds6I0PHMNtqelas",
+  "author": "SOPHIE",
+  "date": null,
+  "description": null,
+  "lang": null,
+  "logo": "https://embed.spotify.com/favicon.ico",
+  "publisher": null
+}
+
+exports['ad5bbc912b5260028b5775ba6d03a0697592ead84acc359f25f38a214815d660 2'] = {
+  "title": "Immaterial",
+  "image": "https://i.scdn.co/image/d6f496a6708d22a2f867e5acb84afb0eb0b07bc1",
+  "audio": "https://p.scdn.co/mp3-preview/6be8eb12ff18ae09b7a6d38ff1e5327fd128a74e?cid=a46f5c5745a14fbf826186da8da5ecc3",
+  "url": "https://open.spotify.com/track/5nTtCOCds6I0PHMNtqelas",
+  "author": "SOPHIE",
+  "date": null,
+  "description": null,
+  "lang": null,
+  "logo": "https://open.spotify.com/favicon.ico",
+  "publisher": null
+}
+
+exports['ad5bbc912b5260028b5775ba6d03a0697592ead84acc359f25f38a214815d660 3'] = {
+  "title": "Thrones",
+  "image": "https://i.scdn.co/image/ab67616d0000b273b2e2e8384aa498c6579ecba4",
+  "audio": "https://p.scdn.co/mp3-preview/610d2f2de94a751446d9fea3e8b7485693edf72e?cid=a46f5c5745a14fbf826186da8da5ecc3",
+  "url": "https://open.spotify.com/track/6YqroNoDYeQAOUMpdmim9M",
+  "author": "Chuki Beats",
+  "date": null,
+  "description": null,
+  "lang": null,
+  "logo": "https://open.spotify.com/favicon.ico",
+  "publisher": null
+}
+
+exports['ad5bbc912b5260028b5775ba6d03a0697592ead84acc359f25f38a214815d660 4'] = {
+  "title": "The Days",
+  "image": "https://i.scdn.co/image/ab67616d0000b273b9591cb18806aabd30d78aa8",
+  "audio": "https://p.scdn.co/mp3-preview/48a8445c3d6ad4b895fe04ab92acac0cbe6b9c69?cid=a46f5c5745a14fbf826186da8da5ecc3",
+  "url": "https://open.spotify.com/track/5Iy2Jj87Ha0C0IBlNE1I4y",
+  "author": "Avicii",
+  "date": null,
+  "description": null,
+  "lang": null,
+  "logo": "https://play.spotify.com/favicon.ico",
+  "publisher": null
+}
+
