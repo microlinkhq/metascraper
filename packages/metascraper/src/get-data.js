@@ -33,7 +33,7 @@ const getData = async ({ rules, htmlDom, url, escape, ...props }) => {
   const data = await Promise.all(
     map(rules, async ([propName, innerRules]) => {
       const value = escapeValue(
-        await getValue({ htmlDom, url, rules: innerRules }),
+        await getValue({ htmlDom, url, rules: innerRules, ...props }),
         { escape }
       )
       return [propName, value]
