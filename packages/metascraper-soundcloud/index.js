@@ -1,11 +1,12 @@
 'use strict'
 
 const { $filter, author, description, toRule } = require('@metascraper/helpers')
-
+const { getDomainWithoutSuffix } = require('tldts')
 const memoizeOne = require('memoize-one')
-const { getDomain } = require('tldts')
 
-const isValidUrl = memoizeOne(url => getDomain(url) === 'soundcloud.com')
+const isValidUrl = memoizeOne(
+  url => getDomainWithoutSuffix(url) === 'soundcloud'
+)
 
 const toDescription = toRule(description)
 const toAuthor = toRule(author)

@@ -11,7 +11,7 @@ const spotify = memoizeOne(($, url) => getPreview(url), memoFn)
 
 const getSpotify = composeRule(spotify)
 
-const isValidUrl = url => !!spotifyUri(url).id
+const isValidUrl = memoizeOne(url => !!spotifyUri(url).id)
 
 module.exports = () => {
   const rules = {
