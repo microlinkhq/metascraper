@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.3](https://github.com/microlinkhq/metascraper/compare/v5.8.2...v5.8.3) (2019-11-09)
+
+
+### Bug Fixes
+
+* ensure only spotify urls are valid ([a707c57](https://github.com/microlinkhq/metascraper/commit/a707c574d1afd0f1765260bba69b7fbb29a90600))
+
+
+
+
+
 ## [5.8.2](https://github.com/microlinkhq/metascraper/compare/v5.8.1...v5.8.2) (2019-11-09)
 
 **Note:** Version bump only for package metascraper
