@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/microlinkhq/metascraper/compare/v5.8.0...v5.8.1) (2019-11-09)
+
+
+### Bug Fixes
+
+* ensure innerRules is a collection ([#234](https://github.com/microlinkhq/metascraper/issues/234)) ([04fe20d](https://github.com/microlinkhq/metascraper/commit/04fe20dd9db5686d778ad614f69f545728368dbb))
+
+
+
+
+
 # [5.8.0](https://github.com/microlinkhq/metascraper/compare/v5.7.21...v5.8.0) (2019-11-08)
 
 
