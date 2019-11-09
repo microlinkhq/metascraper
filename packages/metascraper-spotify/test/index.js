@@ -32,9 +32,20 @@ const spotifyUrls = [
 
 describe('metascraper-spotify', () => {
   describe('.isvalidUrl', () => {
-    spotifyUrls.forEach(url => {
-      it(url, () => {
-        should(isValidUrl(url)).be.true()
+    describe('true', () => {
+      spotifyUrls.forEach(url => {
+        it(url, () => {
+          should(isValidUrl(url)).be.true()
+        })
+      })
+    })
+    describe('false', () => {
+      ;[
+        'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
+      ].forEach(url => {
+        it(url, () => {
+          should(isValidUrl(url)).be.false()
+        })
       })
     })
   })

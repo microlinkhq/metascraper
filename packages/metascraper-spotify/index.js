@@ -2,8 +2,8 @@
 
 const { composeRule } = require('@metascraper/helpers')
 const { getPreview } = require('spotify-url-info')
-const spotifyUri = require('spotify-uri')
 const memoizeOne = require('memoize-one')
+const { getDomainWithoutSuffix } = require('tldts')
 
 const memoFn = (newArgs, oldArgs) => newArgs[1] === oldArgs[1]
 
@@ -11,7 +11,7 @@ const spotify = memoizeOne(($, url) => getPreview(url), memoFn)
 
 const getSpotify = composeRule(spotify)
 
-const isValidUrl = memoizeOne(url => !!spotifyUri(url).id)
+const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
 
 module.exports = () => {
   const rules = {
