@@ -25,11 +25,11 @@ const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
 
 const isRelativeUrl = require('is-relative-url')
-const createMemoizeOne = require('memoize-one')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
+const memoizeOne = require('memoize-one')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
@@ -220,8 +220,6 @@ const isMime = (contentType, type) => {
   const ext = mimeTypes.extension(contentType)
   return eq(type, get(EXTENSIONS, ext))
 }
-
-const memoizeOne = fn => createMemoizeOne(fn)
 
 const jsonld = memoizeOne((url, $) => {
   const data = {}
