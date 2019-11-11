@@ -1,7 +1,7 @@
 'use strict'
 
+const { memoizeOne } = require('@metascraper/helpers')
 const { getDomainWithoutSuffix } = require('tldts')
-const memoizeOne = require('memoize-one')
 const { find, some } = require('lodash')
 
 const providers = require('./providers')
