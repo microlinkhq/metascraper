@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.5](https://github.com/microlinkhq/metascraper/compare/v5.8.4...v5.8.5) (2019-11-11)
+
+
+### Bug Fixes
+
+* ensure chrono output is a date ([2391f15](https://github.com/microlinkhq/metascraper/commit/2391f15a31de63943a4296baaec21b632da0a5c0))
+
+
+
+
+
 ## [5.8.4](https://github.com/microlinkhq/metascraper/compare/v5.8.3...v5.8.4) (2019-11-11)
 
 **Note:** Version bump only for package metascraper
