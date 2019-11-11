@@ -14,7 +14,7 @@ describe('metascraper-iframe » vimeo', () => {
       it(url, async () => {
         const metascraper = createMetascraper([createMetascraperIframe()])
         const meta = await metascraper({ url, escape: false })
-        should(meta.iframe).be.not.undefined()
+        should(meta.iframe).be.not.null()
       })
     })
   })

@@ -15,7 +15,6 @@ describe('metascraper-iframe » spotify', () => {
         const metascraper = createMetascraper([createMetascraperIframe()])
         const meta = await metascraper({ url, escape: false })
         should(meta.iframe).be.not.null()
-        console.log(meta.iframe)
       })
     })
   })
