@@ -8,19 +8,21 @@ const createMetascraper = require('metascraper')
 describe('metascraper-iframe » spotify', () => {
   describe('test urls', () => {
     ;[
-      'https://spotify.com/channels/staffpicks/135373919',
-      'https://spotify.com/135373919'
+      'https://open.spotify.com/track/63W11KVHDOpSlh3XMQ7qMg?si=Yd-hIkD9TtSUeFeR0jzKsA',
+      'https://open.spotify.com/playlist/1xY6msLHX1W34EzB0UkkbU?si=cFF7LjzgQxWz5ni6TCN_jA'
     ].forEach(url => {
       it(url, async () => {
         const metascraper = createMetascraper([createMetascraperIframe()])
         const meta = await metascraper({ url, escape: false })
-        should(meta.iframe).be.not.undefined()
+        should(meta.iframe).be.not.null()
+        console.log(meta.iframe)
       })
     })
   })
 
   it('passing specific query params', async () => {
-    const url = 'https://spotify.com/135373919'
+    const url =
+      'https://open.spotify.com/track/63W11KVHDOpSlh3XMQ7qMg?si=Yd-hIkD9TtSUeFeR0jzKsA'
     const metascraper = createMetascraper([createMetascraperIframe()])
     const meta = await metascraper({
       url,
