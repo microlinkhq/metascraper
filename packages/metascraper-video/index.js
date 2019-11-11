@@ -1,25 +1,12 @@
 'use strict'
 
-const { url: isUrl, extension, video } = require('@metascraper/helpers')
+const { url: urlFn, toRule, extension, video } = require('@metascraper/helpers')
 const { chain } = require('lodash')
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
+const toUrl = toRule(urlFn)
+const toVideo = toRule(video)
 
-const createWrap = fn => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom)
-  return fn(value, url)
-}
-
-const wrapUrl = createWrap((value, url) => isUrl(value, { url }))
-
-const wrapVideo = createWrap((input, url) => video(input, { url }))
-
-const wrapVideoNodes = createWrap((domNodes, url) => {
+const toVideoFromDom = toRule((domNodes, opts) => {
   const videoUrl = chain(domNodes)
     .map('attribs.src')
     .uniq()
@@ -27,21 +14,17 @@ const wrapVideoNodes = createWrap((domNodes, url) => {
     .first()
     .value()
 
-  return video(videoUrl, { url })
+  return video(videoUrl, opts)
 })
 
-/**
- * Rules.
- */
-
 module.exports = () => ({
-  image: [wrapUrl($ => $('video').attr('poster'))],
+  image: [toUrl($ => $('video').attr('poster'))],
   video: [
-    wrapVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
-    wrapVideo($ => $('meta[property="og:video:url"]').attr('content')),
-    wrapVideo($ => $('meta[property="og:video"]').attr('content')),
-    wrapVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
-    wrapVideoNodes($ => $('video').get()),
-    wrapVideoNodes($ => $('video > source').get())
+    toVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
+    toVideo($ => $('meta[property="og:video:url"]').attr('content')),
+    toVideo($ => $('meta[property="og:video"]').attr('content')),
+    toVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
+    toVideoFromDom($ => $('video').get()),
+    toVideoFromDom($ => $('video > source').get())
   ]
 })

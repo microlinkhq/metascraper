@@ -1,58 +1,44 @@
 'use strict'
 
-const { date, $filter, $jsonld } = require('@metascraper/helpers')
+const { date, $filter, $jsonld, toRule } = require('@metascraper/helpers')
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
-
-const wrap = rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return date(value)
-}
-
-/**
- * Rules.
- */
+const toDate = toRule(date)
 
 module.exports = () => ({
   date: [
-    wrap($jsonld('dateModified')),
-    wrap($jsonld('datePublished')),
-    wrap($jsonld('dateCreated')),
-    wrap($ => $('meta[property*="updated_time" i]').attr('content')),
-    wrap($ => $('meta[property*="modified_time" i]').attr('content')),
-    wrap($ => $('meta[property*="published_time" i]').attr('content')),
-    wrap($ => $('meta[property*="release_date" i]').attr('content')),
-    wrap($ => $('meta[name="date" i]').attr('content')),
-    wrap($ => $('[itemprop*="datemodified" i]').attr('content')),
-    wrap($ => $('[itemprop="datepublished" i]').attr('content')),
-    wrap($ => $('[itemprop*="date" i]').attr('content')),
-    wrap($ => $('time[itemprop*="date" i]').attr('datetime')),
-    wrap($ => $('time[datetime]').attr('datetime')),
-    wrap($ => $('time[datetime][pubdate]').attr('datetime')),
-    wrap($ => $('meta[name*="dc.date" i]').attr('content')),
-    wrap($ => $('meta[name*="dc.date.issued" i]').attr('content')),
-    wrap($ => $('meta[name*="dc.date.created" i]').attr('content')),
-    wrap($ => $('meta[name*="dcterms.date" i]').attr('content')),
-    wrap($ => $('[property*="dc:date" i]').attr('content')),
-    wrap($ => $('[property*="dc:created" i]').attr('content')),
-    wrap($ => $filter($, $('[class*="byline" i]'))),
-    wrap($ => $filter($, $('[class*="dateline" i]'))),
-    wrap($ => $filter($, $('[id*="metadata" i]'))),
-    wrap($ => $filter($, $('[class*="metadata" i]'))), // twitter, move into a bundle of rules
-    wrap($ => $filter($, $('[id*="date" i]'))),
-    wrap($ => $filter($, $('[class*="date" i]'))),
-    wrap($ => $filter($, $('[id*="publish" i]'))),
-    wrap($ => $filter($, $('[class*="publish" i]'))),
-    wrap($ => $filter($, $('[id*="post-timestamp" i]'))),
-    wrap($ => $filter($, $('[class*="post-timestamp" i]'))),
-    wrap($ => $filter($, $('[id*="post-meta" i]'))),
-    wrap($ => $filter($, $('[class*="post-meta" i]'))),
-    wrap($ => $filter($, $('[id*="time" i]'))),
-    wrap($ => $filter($, $('[class*="time" i]')))
+    toDate($jsonld('dateModified')),
+    toDate($jsonld('datePublished')),
+    toDate($jsonld('dateCreated')),
+    toDate($ => $('meta[property*="updated_time" i]').attr('content')),
+    toDate($ => $('meta[property*="modified_time" i]').attr('content')),
+    toDate($ => $('meta[property*="published_time" i]').attr('content')),
+    toDate($ => $('meta[property*="release_date" i]').attr('content')),
+    toDate($ => $('meta[name="date" i]').attr('content')),
+    toDate($ => $('[itemprop*="datemodified" i]').attr('content')),
+    toDate($ => $('[itemprop="datepublished" i]').attr('content')),
+    toDate($ => $('[itemprop*="date" i]').attr('content')),
+    toDate($ => $('time[itemprop*="date" i]').attr('datetime')),
+    toDate($ => $('time[datetime]').attr('datetime')),
+    toDate($ => $('time[datetime][pubdate]').attr('datetime')),
+    toDate($ => $('meta[name*="dc.date" i]').attr('content')),
+    toDate($ => $('meta[name*="dc.date.issued" i]').attr('content')),
+    toDate($ => $('meta[name*="dc.date.created" i]').attr('content')),
+    toDate($ => $('meta[name*="dcterms.date" i]').attr('content')),
+    toDate($ => $('[property*="dc:date" i]').attr('content')),
+    toDate($ => $('[property*="dc:created" i]').attr('content')),
+    toDate($ => $filter($, $('[class*="byline" i]'))),
+    toDate($ => $filter($, $('[class*="dateline" i]'))),
+    toDate($ => $filter($, $('[id*="metadata" i]'))),
+    toDate($ => $filter($, $('[class*="metadata" i]'))), // twitter, move into a bundle of rules
+    toDate($ => $filter($, $('[id*="date" i]'))),
+    toDate($ => $filter($, $('[class*="date" i]'))),
+    toDate($ => $filter($, $('[id*="publish" i]'))),
+    toDate($ => $filter($, $('[class*="publish" i]'))),
+    toDate($ => $filter($, $('[id*="post-timestamp" i]'))),
+    toDate($ => $filter($, $('[class*="post-timestamp" i]'))),
+    toDate($ => $filter($, $('[id*="post-meta" i]'))),
+    toDate($ => $filter($, $('[class*="post-meta" i]'))),
+    toDate($ => $filter($, $('[id*="time" i]'))),
+    toDate($ => $filter($, $('[class*="time" i]')))
   ]
 })

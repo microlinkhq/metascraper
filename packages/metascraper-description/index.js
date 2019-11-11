@@ -1,33 +1,18 @@
 'use strict'
 
-const { $jsonld, description } = require('@metascraper/helpers')
+const { $jsonld, toRule, description } = require('@metascraper/helpers')
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
+const toDescription = toRule(description)
 
-const createWrap = opts => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return description(value, opts)
-}
-
-/**
- * Rules.
- */
-
-module.exports = opts => {
-  const wrap = createWrap(opts)
+module.exports = () => {
   return {
     description: [
-      wrap($jsonld('description')),
-      wrap($ => $('meta[property="og:description"]').attr('content')),
-      wrap($ => $('meta[name="twitter:description"]').attr('content')),
-      wrap($ => $('meta[name="description"]').attr('content')),
-      wrap($ => $('meta[itemprop="description"]').attr('content')),
-      wrap($jsonld('articleBody'))
+      toDescription($jsonld('description')),
+      toDescription($ => $('meta[property="og:description"]').attr('content')),
+      toDescription($ => $('meta[name="twitter:description"]').attr('content')),
+      toDescription($ => $('meta[name="description"]').attr('content')),
+      toDescription($ => $('meta[itemprop="description"]').attr('content')),
+      toDescription($jsonld('articleBody'))
     ]
   }
 }

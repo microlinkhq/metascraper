@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.6](https://github.com/microlinkhq/metascraper/compare/v5.8.5...v5.8.6) (2019-11-11)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.5](https://github.com/microlinkhq/metascraper/compare/v5.8.4...v5.8.5) (2019-11-11)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.1](https://github.com/microlinkhq/metascraper/compare/v5.8.0...v5.8.1) (2019-11-09)
+
+
+### Bug Fixes
+
+* ensure innerRules is a collection ([#234](https://github.com/microlinkhq/metascraper/issues/234)) ([04fe20d](https://github.com/microlinkhq/metascraper/commit/04fe20dd9db5686d778ad614f69f545728368dbb))
+
+
+
+
+
+# [5.8.0](https://github.com/microlinkhq/metascraper/compare/v5.7.21...v5.8.0) (2019-11-08)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.21](https://github.com/microlinkhq/metascraper/compare/v5.7.20...v5.7.21) (2019-11-08)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
 ## [5.7.19](https://github.com/microlinkhq/metascraper/compare/v5.7.18...v5.7.19) (2019-11-07)
 
 

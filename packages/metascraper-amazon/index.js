@@ -1,20 +1,20 @@
 'use strict'
 
 const {
-  url: isUrl,
   $filter,
-  title,
   author,
-  createWrap,
-  lang
+  toRule,
+  lang,
+  memoizeOne,
+  title,
+  url
 } = require('@metascraper/helpers')
 
 const { getPublicSuffix } = require('tldts')
-const memoizeOne = require('memoize-one')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 
-const isValidUrl = memoizeOne(url => REGEX_AMAZON_URL.test(url))
+const isValidUrl = memoizeOne(({ url }) => REGEX_AMAZON_URL.test(url))
 
 const SUFFIX_LANGUAGES = {
   ca: 'en',
@@ -32,32 +32,32 @@ const SUFFIX_LANGUAGES = {
 
 const getDomainLanguage = url => SUFFIX_LANGUAGES[getPublicSuffix(url)]
 
-const wrapUrl = createWrap(isUrl)
-const wrapAuthor = createWrap(author)
-const wrapTitle = createWrap(title, { removeSeparator: false })
-const wrapLang = createWrap(lang)
+const toUrl = toRule(url)
+const toAuthor = toRule(author)
+const toTitle = toRule(title, { removeSeparator: false })
+const toLang = toRule(lang)
 
 module.exports = () => {
   const rules = {
-    lang: [wrapLang(($, url) => getDomainLanguage(url))],
+    lang: [toLang(($, url) => getDomainLanguage(url))],
     author: [
-      wrapAuthor($ => $('.contributorNameID').text()),
-      wrapAuthor($ => $('#bylineInfo').text()),
-      wrapAuthor($ => $('#brand').text())
+      toAuthor($ => $('.contributorNameID').text()),
+      toAuthor($ => $('#bylineInfo').text()),
+      toAuthor($ => $('#brand').text())
     ],
     title: [
-      wrapTitle($ => $('#productTitle').text()),
-      wrapTitle($ => $('#btAsinTitle').text()),
-      wrapTitle($ => $filter($, $('h1.a-size-large'))),
-      wrapTitle($ => $('#item_name').text())
+      toTitle($ => $('#productTitle').text()),
+      toTitle($ => $('#btAsinTitle').text()),
+      toTitle($ => $filter($, $('h1.a-size-large'))),
+      toTitle($ => $('#item_name').text())
     ],
     publisher: [() => 'Amazon'],
     image: [
-      wrapUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
-      wrapUrl($ => $('.a-dynamic-image').attr('src'))
+      toUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
+      toUrl($ => $('.a-dynamic-image').attr('src'))
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = isValidUrl
   return rules
 }
