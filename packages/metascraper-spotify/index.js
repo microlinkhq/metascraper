@@ -7,7 +7,13 @@ const { getDomainWithoutSuffix } = require('tldts')
 
 const memoFn = (newArgs, oldArgs) => newArgs[1] === oldArgs[1]
 
-const spotify = memoizeOne(($, url) => getPreview(url), memoFn)
+const spotify = memoizeOne(async ($, url) => {
+  try {
+    return await getPreview(url)
+  } catch (_) {
+    return {}
+  }
+}, memoFn)
 
 const getSpotify = composeRule(spotify)
 
