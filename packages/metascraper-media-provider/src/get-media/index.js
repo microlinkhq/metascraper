@@ -1,6 +1,6 @@
 'use strict'
 
-const memoizeOne = require('memoize-one')
+const { memoizeOne } = require('@metascraper/helpers')
 const { noop } = require('lodash')
 
 const createTwitterProvider = require('./provider/twitter')

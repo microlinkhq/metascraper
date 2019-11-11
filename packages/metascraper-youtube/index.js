@@ -1,10 +1,14 @@
 'use strict'
 
-const { $filter, author, description, toRule } = require('@metascraper/helpers')
-
+const {
+  $filter,
+  author,
+  description,
+  toRule,
+  memoizeOne
+} = require('@metascraper/helpers')
 const isReachable = require('is-reachable')
 const getVideoId = require('get-video-id')
-const memoizeOne = require('memoize-one')
 const pLocate = require('p-locate')
 
 const THUMBAILS_RESOLUTIONS = [
@@ -28,7 +32,9 @@ const toDescription = toRule(description)
 
 const getVideoInfo = memoizeOne(getVideoId)
 
-const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
+const isValidUrl = memoizeOne(
+  ({ url }) => getVideoInfo(url).service === 'youtube'
+)
 
 module.exports = () => {
   const rules = {
@@ -47,7 +53,7 @@ module.exports = () => {
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = isValidUrl
 
   return rules
 }

@@ -124,13 +124,21 @@ it('associate test function with rules', async () => {
   </html>
   `
 
+  let isCalled = false
+
+  function test ({ url: urlBase }) {
+    isCalled = true
+    return urlBase !== url
+  }
+
   const rulesBundle = () => {
     const rules = { foo: [() => 'bar'] }
-    rules.test = ({ url: urlBase }) => urlBase !== url
+    rules.test = test
     return rules
   }
 
   const metascraper = createMetascraper([rulesBundle()])
   const meta = await metascraper({ url, html })
   should(meta.foo).be.null()
+  should(isCalled).be.true()
 })

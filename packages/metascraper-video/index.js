@@ -1,7 +1,6 @@
 'use strict'
 
 const { url: urlFn, toRule, extension, video } = require('@metascraper/helpers')
-
 const { chain } = require('lodash')
 
 const toUrl = toRule(urlFn)
@@ -17,10 +16,6 @@ const toVideoFromDom = toRule((domNodes, opts) => {
 
   return video(videoUrl, opts)
 })
-
-/**
- * Rules.
- */
 
 module.exports = () => ({
   image: [toUrl($ => $('video').attr('poster'))],

@@ -1,15 +1,12 @@
 'use strict'
 
-const { composeRule } = require('@metascraper/helpers')
+const { memoizeOne, composeRule } = require('@metascraper/helpers')
 const { get, isString, isObject } = require('lodash')
 const { stringify } = require('querystring')
-const memoizeOne = require('memoize-one')
 const { getDomain } = require('tldts')
 const got = require('got')
 
 const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
-
-const memoFn = (newArgs, oldArgs) => newArgs[1] === oldArgs[1]
 
 const DEFAULT_GOT_OPTS = {
   json: true,
@@ -38,7 +35,7 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
     } catch (err) {
       return null
     }
-  }, memoFn)
+  })
 
 module.exports = opts => {
   const getClearbit = composeRule(createClearbit(opts))

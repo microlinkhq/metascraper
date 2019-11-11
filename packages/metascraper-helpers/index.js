@@ -25,6 +25,7 @@ const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
 
 const isRelativeUrl = require('is-relative-url')
+const createMemoizeOne = require('memoize-one')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
@@ -37,7 +38,6 @@ const isIso = require('isostring')
 const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
-const memoizeOne = require('memoize-one')
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
@@ -221,6 +221,8 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
+const memoizeOne = fn => createMemoizeOne(fn)
+
 const jsonld = memoizeOne((url, $) => {
   const data = {}
   try {
@@ -322,6 +324,7 @@ module.exports = {
   jsonld,
   lang,
   logo,
+  memoizeOne,
   normalizeUrl,
   protocol,
   publisher,

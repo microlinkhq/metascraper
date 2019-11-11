@@ -5,7 +5,7 @@ const { has } = require('@metascraper/helpers')
 const mapValuesDeep = require('map-values-deep')
 const xss = require('xss')
 
-const noopTest = () => true
+const truthyTest = () => true
 
 const getValue = async ({ htmlDom, url, rules, meta }) => {
   const lastIndex = rules.length
@@ -14,7 +14,8 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
 
   do {
     const rule = rules[index++]
-    const test = rule.test || noopTest
+    const test = rule.test || truthyTest
+
     if (test({ htmlDom, url, meta })) {
       value = await rule({ htmlDom, url, meta })
     }
