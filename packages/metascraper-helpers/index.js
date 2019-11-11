@@ -1,12 +1,15 @@
 'use strict'
 
 const {
+  castArray,
   chain,
   eq,
   flow,
   get,
   includes,
+  invoke,
   isArray,
+  isDate,
   isEmpty,
   isNumber,
   isString,
@@ -14,9 +17,7 @@ const {
   replace,
   size,
   toLower,
-  trim,
-  invoke,
-  castArray
+  trim
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -202,7 +203,7 @@ const date = value => {
 
   // try to parse a complex date string
   const parsed = chrono.parseDate(value)
-  if (parsed) return parsed.toISOString()
+  if (isDate(parsed)) return parsed.toISOString()
 }
 
 const lang = value => {
