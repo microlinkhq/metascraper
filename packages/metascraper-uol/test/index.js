@@ -35,15 +35,15 @@ describe('metascraper-uol', () => {
         ].forEach(domain => {
           const url = `${protocol}://${domain}`
           it(url, async () => {
-            should(isValidUrl(`${url}/${wordSlug()}`)).be.true()
+            should(isValidUrl({ url: `${url}/${wordSlug()}` })).be.true()
           })
         })
       })
     })
     it('false', () => {
-      should(isValidUrl('https://youtube.com')).be.false()
-      should(isValidUrl('https://microlink.io')).be.false()
-      should(isValidUrl('https://kikobeats.com')).be.false()
+      should(isValidUrl({ url: 'https://youtube.com' })).be.false()
+      should(isValidUrl({ url: 'https://microlink.io' })).be.false()
+      should(isValidUrl({ url: 'https://kikobeats.com' })).be.false()
     })
   })
 

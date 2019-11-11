@@ -1,20 +1,20 @@
 'use strict'
 
 const {
-  url,
   $filter,
-  title,
   author,
   toRule,
-  lang
+  lang,
+  memoizeOne,
+  title,
+  url
 } = require('@metascraper/helpers')
 
 const { getPublicSuffix } = require('tldts')
-const memoizeOne = require('memoize-one')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 
-const isValidUrl = memoizeOne(url => REGEX_AMAZON_URL.test(url))
+const isValidUrl = memoizeOne(({ url }) => REGEX_AMAZON_URL.test(url))
 
 const SUFFIX_LANGUAGES = {
   ca: 'en',
@@ -58,6 +58,6 @@ module.exports = () => {
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = isValidUrl
   return rules
 }

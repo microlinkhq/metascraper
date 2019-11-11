@@ -31,21 +31,23 @@ describe('metascraper-youtube', () => {
   describe('.isvalidUrl', function () {
     it('true', () => {
       should(
-        isValidUrl('https://www.youtube.com/watch?v=hwMkbaS_M_c')
+        isValidUrl({ url: 'https://www.youtube.com/watch?v=hwMkbaS_M_c' })
       ).be.true()
       should(
-        isValidUrl('https://www.youtube.com/watch?v=GDRd-BFTYIg')
+        isValidUrl({ url: 'https://www.youtube.com/watch?v=GDRd-BFTYIg' })
       ).be.true()
       should(
-        isValidUrl('https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA')
+        isValidUrl({
+          url: 'https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA'
+        })
       ).be.true()
       should(
-        isValidUrl('https://www.youtube.com/watch?v=rXyKq7izYCQ')
+        isValidUrl({ url: 'https://www.youtube.com/watch?v=rXyKq7izYCQ' })
       ).be.true()
     })
     it('false', () => {
-      should(isValidUrl('https://microlink.io')).be.false()
-      should(isValidUrl('https://kikobeats.com')).be.false()
+      should(isValidUrl({ url: 'https://microlink.io' })).be.false()
+      should(isValidUrl({ url: 'https://kikobeats.com' })).be.false()
     })
   })
 

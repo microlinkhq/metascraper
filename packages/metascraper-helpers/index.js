@@ -29,6 +29,7 @@ const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
+const memoizeOne = require('memoize-one')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
@@ -37,7 +38,6 @@ const isIso = require('isostring')
 const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
-const memoizeOne = require('memoize-one')
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
@@ -322,6 +322,7 @@ module.exports = {
   jsonld,
   lang,
   logo,
+  memoizeOne,
   normalizeUrl,
   protocol,
   publisher,
