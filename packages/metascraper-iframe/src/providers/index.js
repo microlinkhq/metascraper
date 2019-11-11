@@ -1,4 +1,5 @@
 module.exports = {
-  youtube: require('./youtube'),
-  vimeo: require('./vimeo')
+  spotify: require('./spotify'),
+  vimeo: require('./vimeo'),
+  youtube: require('./youtube')
 }

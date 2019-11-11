@@ -23,13 +23,17 @@
     "youtube"
   ],
   "dependencies": {
-    "get-video-id": "~3.1.4",
-    "memoize-one": "~5.1.1"
+    "get-youtube-id": "~1.0.1",
+    "lodash": "~4.17.15",
+    "memoize-one": "~5.1.1",
+    "spotify-uri": "~1.0.0",
+    "tldts": "~5.6.1",
+    "vimeo-regex": "~1.0.0",
+    "youtube-regex": "~1.0.5"
   },
   "devDependencies": {
     "mocha": "latest",
     "should": "latest",
-    "snap-shot": "latest",
     "standard": "latest"
   },
   "engines": {

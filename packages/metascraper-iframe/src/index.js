@@ -1,23 +1,28 @@
 'use strict'
 
-const getVideoId = require('get-video-id')
+const { getDomainWithoutSuffix } = require('tldts')
 const memoizeOne = require('memoize-one')
+const { find, some } = require('lodash')
 
 const providers = require('./providers')
 
-const parseUrl = memoizeOne(getVideoId)
+const getService = url => {
+  let service
+  find(providers, ({ test }, provider) => (service = test(url) && provider))
+  return service || getDomainWithoutSuffix(url)
+}
 
-module.exports = (opts = {}) => {
-  const rules = {
-    iframe: async ({ url, meta, htmlDom, ...query }) => {
-      const { id, service } = getVideoId(url)
-      return providers[service]({ id, url, ...query })
-    }
-  }
+const iframe = async ({ url, meta, htmlDom, ...query }) => {
+  const service = getService(url)
+  return providers[service]({ url, ...query })
+}
 
-  rules.test = ({ url }) => {
-    const { service } = parseUrl(url)
-    return service === 'youtube' || service === 'vimeo'
-  }
+const isValidUrl = memoizeOne(({ url }) =>
+  some(providers, provider => provider.test(url))
+)
+
+module.exports = () => {
+  const rules = { iframe }
+  rules.test = isValidUrl
   return rules
 }
