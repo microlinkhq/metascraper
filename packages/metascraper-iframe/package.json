@@ -1,6 +1,6 @@
 {
   "name": "metascraper-iframe",
-  "description": "Get image property from HTML markup",
+  "description": "Embed a representation of an URL on third party sites",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-iframe",
   "version": "0.0.0",
   "main": "src/index.js",
@@ -12,24 +12,14 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "facebook",
+    "embed",
     "iframe",
-    "instagram",
     "metascraper",
-    "soundcloud",
-    "spotify",
-    "twitter",
-    "vimeo",
-    "youtube"
+    "oembed"
   ],
   "dependencies": {
     "@metascraper/helpers": "~5.8.6",
-    "get-youtube-id": "~1.0.1",
-    "lodash": "~4.17.15",
-    "spotify-uri": "~1.0.0",
-    "tldts": "~5.6.1",
-    "vimeo-regex": "~1.0.0",
-    "youtube-regex": "~1.0.5"
+    "oembed-parser": "~1.3.6"
   },
   "devDependencies": {
     "mocha": "latest",
