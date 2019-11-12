@@ -7,7 +7,7 @@ const xss = require('xss')
 
 const truthyTest = () => true
 
-const getValue = async ({ htmlDom, url, rules, meta }) => {
+const getValue = async ({ htmlDom, url, rules, meta, ...props }) => {
   const lastIndex = rules.length
   let index = 0
   let value
@@ -17,7 +17,7 @@ const getValue = async ({ htmlDom, url, rules, meta }) => {
     const test = rule.test || truthyTest
 
     if (test({ htmlDom, url, meta })) {
-      value = await rule({ htmlDom, url, meta })
+      value = await rule({ htmlDom, url, meta, ...props })
     }
   } while (!has(value) && index < lastIndex)
 
@@ -30,11 +30,11 @@ const escapeValue = (value, { escape }) => {
   return mapValuesDeep(value, value => (isString(value) ? xss(value) : value))
 }
 
-const getData = async ({ rules, htmlDom, url, escape }) => {
+const getData = async ({ rules, htmlDom, url, escape, ...props }) => {
   const data = await Promise.all(
     map(rules, async ([propName, innerRules]) => {
       const value = escapeValue(
-        await getValue({ htmlDom, url, rules: innerRules }),
+        await getValue({ htmlDom, url, rules: innerRules, ...props }),
         { escape }
       )
       return [propName, value]
