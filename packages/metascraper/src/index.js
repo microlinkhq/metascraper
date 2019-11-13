@@ -3,8 +3,7 @@
 const { isUrl } = require('@metascraper/helpers')
 const whoops = require('whoops')
 
-const mergeRules = require('./merge-rules')
-const loadRules = require('./load-rules')
+const { loadRules, mergeRules } = require('./rules')
 const loadHTML = require('./load-html')
 const getData = require('./get-data')
 
