@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.8](https://github.com/microlinkhq/metascraper/compare/v5.8.7...v5.8.8) (2019-11-13)
+
+
+### Bug Fixes
+
+* ensure inline rules merged are collections ([#237](https://github.com/microlinkhq/metascraper/issues/237)) ([7327236](https://github.com/microlinkhq/metascraper/commit/7327236cd45643e46b767ae523d97f8a0e9c7814))
+
+
+
+
+
 ## [5.8.7](https://github.com/microlinkhq/metascraper/compare/v5.8.6...v5.8.7) (2019-11-12)
 
 **Note:** Version bump only for package metascraper
