@@ -1,8 +1,8 @@
 'use strict'
 
 const { isString, map, fromPairs } = require('lodash')
-const { has } = require('@metascraper/helpers')
 const mapValuesDeep = require('map-values-deep')
+const { has } = require('@metascraper/helpers')
 const xss = require('xss')
 
 const truthyTest = () => true
