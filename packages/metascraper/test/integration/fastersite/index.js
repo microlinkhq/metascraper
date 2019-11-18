@@ -1,9 +1,7 @@
 'use strict'
 
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
-
 const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
