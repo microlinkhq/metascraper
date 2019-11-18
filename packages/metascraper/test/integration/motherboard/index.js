@@ -4,7 +4,7 @@ const snapshot = require('snap-shot')
 const { promisify } = require('util')
 const { resolve } = require('path')
 
-const fs = require('fs')
+const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -21,9 +21,8 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const readFile = promisify(fs.readFile)
-
-const url = 'http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion'
+const url =
+  'http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion'
 
 it('motherboard', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
