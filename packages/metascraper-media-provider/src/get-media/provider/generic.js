@@ -3,6 +3,7 @@
 const debug = require('debug')('metascraper-media-provider:generic')
 const youtubedl = require('youtube-dl')
 const { isEmpty } = require('lodash')
+const { promisify } = require('util')
 
 const { isVimeoUrl, getAgent, expirableCounter, proxyUri } = require('../util')
 const youtubedlError = require('./youtube-dl-error')
