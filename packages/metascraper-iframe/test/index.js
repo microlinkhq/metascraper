@@ -1,13 +1,16 @@
 'use strict'
 
+const { readFile } = require('fs').promises
+const { resolve } = require('path')
 const should = require('should')
+const cheerio = require('cheerio')
 
 const createMetascraperIframe = require('..')
 const createMetascraper = require('metascraper')
 
 const { isValidUrl } = createMetascraperIframe
 
-const urls = [
+const commonProviders = [
   'https://www.youtube.com/watch?v=Gu8X7vM3Avw',
   'https://youtu.be/Gu8X7vM3Avw',
   'https://www.youtube.com/watch?v=-TWztwbOpog&list=PL5aqr5w5fRe4nO30px44D5sBukIUw1UwX',
@@ -19,20 +22,45 @@ const urls = [
 
 describe('metascraper-iframe', () => {
   describe('.isValidUrl', () => {
-    urls.forEach(url => {
-      it(url, () => {
-        should(isValidUrl({ url })).be.true()
+    describe('from common providers', () => {
+      commonProviders.forEach(url => {
+        it(url, () => {
+          const htmlDom = cheerio.load('')
+          const isValid = isValidUrl({ url, htmlDom })
+          should(isValid).be.true()
+        })
       })
+    })
+
+    it('from markup', async () => {
+      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
+      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+
+      const htmlDom = cheerio.load(html)
+      const isValid = isValidUrl({ url, htmlDom })
+      should(isValid).be.true()
     })
   })
 
   describe('iframe', () => {
-    urls.forEach(url => {
-      it(url, async () => {
-        const metascraper = createMetascraper([createMetascraperIframe()])
-        const meta = await metascraper({ url, escape: false })
-        should(meta.iframe).be.not.null()
+    describe('from common providers', () => {
+      commonProviders.forEach(url => {
+        it(url, async () => {
+          const metascraper = createMetascraper([createMetascraperIframe()])
+          const meta = await metascraper({ url, escape: false })
+          should(meta.iframe).be.not.null()
+        })
       })
+    })
+
+    it('from markup', async () => {
+      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
+      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+
+      const metascraper = createMetascraper([createMetascraperIframe()])
+      const meta = await metascraper({ url, html, escape: false })
+
+      should(meta.iframe).be.not.null()
     })
   })
 })

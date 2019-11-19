@@ -1,13 +1,10 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
 const { omit } = require('lodash')
 const should = require('should')
-const fs = require('fs')
-
-const readFile = promisify(fs.readFile)
 
 const metascraper = require('metascraper')([
   require('..')(),
