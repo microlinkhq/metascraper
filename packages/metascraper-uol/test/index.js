@@ -1,13 +1,10 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const wordSlug = require('word-slug')
-const { promisify } = require('util')
 const snapshot = require('snap-shot')
 const { resolve } = require('path')
 const should = require('should')
-const fs = require('fs')
-
-const readFile = promisify(fs.readFile)
 
 const metascraperUol = require('..')
 

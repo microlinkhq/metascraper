@@ -1,10 +1,8 @@
 'use strict'
 
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
-
-const fs = require('fs')
+const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -20,8 +18,6 @@ const metascraper = require('../../..')([
   require('metascraper-url')(),
   require('metascraper-readability')()
 ])
-
-const readFile = promisify(fs.readFile)
 
 const url =
   'http://www.cio.com/article/2929788/cloud-computing/20-ways-to-measure-the-success-of-your-growing-cloud-investment.html'

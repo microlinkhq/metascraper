@@ -1,11 +1,10 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
-const should = require('should')
-const { promisify } = require('util')
 const { resolve } = require('path')
 const { omit } = require('lodash')
-const fs = require('fs')
+const should = require('should')
 
 const metascraperYoutube = require('metascraper-youtube')
 
@@ -24,8 +23,6 @@ const metascraper = require('metascraper')([
   require('metascraper-title')(),
   require('metascraper-url')()
 ])
-
-const readFile = promisify(fs.readFile)
 
 describe('metascraper-youtube', () => {
   describe('.isvalidUrl', function () {

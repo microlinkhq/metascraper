@@ -1,10 +1,8 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
-
-const fs = require('fs')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -20,8 +18,6 @@ const metascraper = require('../../..')([
   require('metascraper-url')(),
   require('metascraper-readability')()
 ])
-
-const readFile = promisify(fs.readFile)
 
 const url = 'http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire'
 
