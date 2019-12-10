@@ -19,7 +19,8 @@ const {
   url,
   jsonld,
   titleize,
-  has
+  has,
+  date
 } = require('..')
 
 describe('metascraper-helpers', () => {
@@ -306,6 +307,12 @@ describe('metascraper-helpers', () => {
         titleize('Wikipedia: #Edit2014', { removeSeparator: true })
       ).be.equal('Wikipedia: #Edit2014')
     })
+  })
+
+  it('.date', () => {
+    should(date('Jun 20')).be.equal('2019-06-20T12:00:00.000Z')
+    should(date('Jun 20 2018')).be.equal('2018-06-20T12:00:00.000Z')
+    should(date('Jun 2018')).be.equal('2018-06-01T12:00:00.000Z')
   })
 })
 
