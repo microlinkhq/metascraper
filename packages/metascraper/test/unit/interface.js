@@ -30,7 +30,7 @@ it('url is required', async () => {
   }
 })
 
-it.only('escape is enabled by default', async () => {
+it('escape is enabled by default', async () => {
   const html = `
   <!doctype html>
   <html xmlns:og="http://ogp.me/ns#" lang="en">
@@ -124,13 +124,21 @@ it('associate test function with rules', async () => {
   </html>
   `
 
+  let isCalled = false
+
+  function test ({ url: urlBase }) {
+    isCalled = true
+    return urlBase !== url
+  }
+
   const rulesBundle = () => {
     const rules = { foo: [() => 'bar'] }
-    rules.test = ({ url: urlBase }) => urlBase !== url
+    rules.test = test
     return rules
   }
 
   const metascraper = createMetascraper([rulesBundle()])
   const meta = await metascraper({ url, html })
   should(meta.foo).be.null()
+  should(isCalled).be.true()
 })

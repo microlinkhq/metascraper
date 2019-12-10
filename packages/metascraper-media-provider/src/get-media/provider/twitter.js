@@ -3,8 +3,9 @@
 const debug = require('debug')('metascraper-media-provider:twitter')
 const { reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
-
+const pRetry = require('p-retry')
 const got = require('got')
+
 const { expirableCounter, getAgent, getTweetId, proxyUri } = require('../util')
 
 // twitter guest web token
@@ -15,6 +16,7 @@ const TWITTER_BEARER_TOKEN =
 
 const createGuestToken = ({ userAgent, tunnel }) => {
   const retry = expirableCounter()
+  const hasTunnel = () => tunnel && retry.val() < tunnel.size()
 
   return async () => {
     let token
@@ -46,61 +48,61 @@ const createGuestToken = ({ userAgent, tunnel }) => {
         debug('guestToken:err', err.message)
         retry.incr()
       }
-    } while (!token)
+    } while (!token && hasTunnel())
 
     return token
   }
 }
 
 const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
-  let guestToken = getGuestToken()
-
   return async url => {
     const tweetId = getTweetId(url)
     const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
     let data
 
-    do {
-      const token = await guestToken
+    const getContent = async () => {
+      const token = await getGuestToken()
       debug(
         `getTwitterInfo apiUrl=${apiUrl} guestToken=${token} userAgent=${userAgent}`
       )
 
-      try {
-        const { body } = await got(apiUrl, {
-          retry: 0,
-          json: true,
-          headers: {
-            referer: url,
-            'x-guest-token': token,
-            origin: 'https://twitter.com',
-            authorization: TWITTER_BEARER_TOKEN,
-            'user-agent': userAgent
-          }
-        })
-
-        const id = get(
-          body,
-          `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
-          tweetId
-        )
-
-        const tweetObj = get(body, `globalObjects.tweets.${id}`)
-
-        data = {
-          extractor_key: 'Twitter',
-          language: get(tweetObj, 'lang'),
-          formats: chain(tweetObj)
-            .get('extended_entities.media.0.video_info.variants')
-            .filter('bitrate')
-            .orderBy('bitrate', 'asc')
-            .value()
+      const { body } = await got(apiUrl, {
+        retry: 0,
+        json: true,
+        headers: {
+          referer: url,
+          'x-guest-token': token,
+          origin: 'https://twitter.com',
+          authorization: TWITTER_BEARER_TOKEN,
+          'user-agent': userAgent
         }
-      } catch (err) {
-        guestToken = getGuestToken()
+      })
+
+      const id = get(
+        body,
+        `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
+        tweetId
+      )
+
+      const tweetObj = get(body, `globalObjects.tweets.${id}`)
+
+      data = {
+        extractor_key: 'Twitter',
+        language: get(tweetObj, 'lang'),
+        formats: chain(tweetObj)
+          .get('extended_entities.media.0.video_info.variants')
+          .filter('bitrate')
+          .orderBy('bitrate', 'asc')
+          .value()
+      }
+    }
+
+    await pRetry(getContent, {
+      retries: 3,
+      onFailedAttempt: () => {
         debug('getTwitterInfo rotating token')
       }
-    } while (!data)
+    })
 
     return data
   }

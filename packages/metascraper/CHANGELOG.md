@@ -3,6 +3,139 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.9](https://github.com/microlinkhq/metascraper/compare/v5.8.8...v5.8.9) (2019-11-19)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.8](https://github.com/microlinkhq/metascraper/compare/v5.8.7...v5.8.8) (2019-11-13)
+
+
+### Bug Fixes
+
+* ensure inline rules merged are collections ([#237](https://github.com/microlinkhq/metascraper/issues/237)) ([7327236](https://github.com/microlinkhq/metascraper/commit/7327236cd45643e46b767ae523d97f8a0e9c7814))
+
+
+
+
+
+## [5.8.7](https://github.com/microlinkhq/metascraper/compare/v5.8.6...v5.8.7) (2019-11-12)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.6](https://github.com/microlinkhq/metascraper/compare/v5.8.5...v5.8.6) (2019-11-11)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.5](https://github.com/microlinkhq/metascraper/compare/v5.8.4...v5.8.5) (2019-11-11)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.1](https://github.com/microlinkhq/metascraper/compare/v5.8.0...v5.8.1) (2019-11-09)
+
+
+### Bug Fixes
+
+* ensure innerRules is a collection ([#234](https://github.com/microlinkhq/metascraper/issues/234)) ([04fe20d](https://github.com/microlinkhq/metascraper/commit/04fe20dd9db5686d778ad614f69f545728368dbb))
+
+
+
+
+
+# [5.8.0](https://github.com/microlinkhq/metascraper/compare/v5.7.21...v5.8.0) (2019-11-08)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.21](https://github.com/microlinkhq/metascraper/compare/v5.7.20...v5.7.21) (2019-11-08)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.19](https://github.com/microlinkhq/metascraper/compare/v5.7.18...v5.7.19) (2019-11-07)
+
+
+### Bug Fixes
+
+* compose absolute url properly ([17b55ca](https://github.com/microlinkhq/metascraper/commit/17b55cabf06f95f1aef9bce305cafba623b811e8))
+* remove only ([a81002c](https://github.com/microlinkhq/metascraper/commit/a81002cd76748bf6603c75318e2616b856557d56))
+
+
+
+
+
+## [5.7.17](https://github.com/microlinkhq/metascraper/compare/v5.7.16...v5.7.17) (2019-10-29)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.14](https://github.com/microlinkhq/metascraper/compare/v5.7.13...v5.7.14) (2019-10-24)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.6](https://github.com/microlinkhq/metascraper/compare/v5.7.5...v5.7.6) (2019-09-29)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.5](https://github.com/microlinkhq/metascraper/compare/v5.7.4...v5.7.5) (2019-09-23)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.4](https://github.com/microlinkhq/metascraper/compare/v5.7.3...v5.7.4) (2019-09-13)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+# [5.7.0](https://github.com/microlinkhq/metascraper/compare/v5.6.8...v5.7.0) (2019-09-12)
+
+
+### Features
+
+* fixes [#207](https://github.com/microlinkhq/metascraper/issues/207): parse multiple json-ld blocks ([#208](https://github.com/microlinkhq/metascraper/issues/208)) ([0c8ee94](https://github.com/microlinkhq/metascraper/commit/0c8ee94))
+
+
+
+
+
 ## [5.6.6](https://github.com/microlinkhq/metascraper/compare/v5.6.5...v5.6.6) (2019-08-22)
 
 **Note:** Version bump only for package metascraper

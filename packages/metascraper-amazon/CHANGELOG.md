@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.9](https://github.com/microlinkhq/metascraper-amazon/compare/v5.8.8...v5.8.9) (2019-11-19)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.8.7](https://github.com/microlinkhq/metascraper-amazon/compare/v5.8.6...v5.8.7) (2019-11-12)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.8.6](https://github.com/microlinkhq/metascraper-amazon/compare/v5.8.5...v5.8.6) (2019-11-11)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.8.5](https://github.com/microlinkhq/metascraper-amazon/compare/v5.8.4...v5.8.5) (2019-11-11)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+# [5.8.0](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.21...v5.8.0) (2019-11-08)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.21](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.20...v5.7.21) (2019-11-08)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.17](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.16...v5.7.17) (2019-10-29)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.14](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.13...v5.7.14) (2019-10-24)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.7](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.6...v5.7.7) (2019-10-17)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.6](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.5...v5.7.6) (2019-09-29)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.5](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.4...v5.7.5) (2019-09-23)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.4](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.3...v5.7.4) (2019-09-13)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+## [5.7.3](https://github.com/microlinkhq/metascraper-amazon/compare/v5.7.2...v5.7.3) (2019-09-13)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
+# [5.7.0](https://github.com/microlinkhq/metascraper-amazon/compare/v5.6.8...v5.7.0) (2019-09-12)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
 ## [5.6.7](https://github.com/microlinkhq/metascraper-amazon/compare/v5.6.6...v5.6.7) (2019-08-30)
 
 **Note:** Version bump only for package metascraper-amazon

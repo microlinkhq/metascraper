@@ -1,7 +1,13 @@
 'use strict'
 
+const {
+  absoluteUrl,
+  logo,
+  url: urlFn,
+  toRule
+} = require('@metascraper/helpers')
+
 const { flow, first, toNumber, split, chain, concat } = require('lodash')
-const { logo, url: urlFn } = require('@metascraper/helpers')
 const { URL } = require('url')
 const got = require('got')
 
@@ -32,24 +38,19 @@ const sizeSelectors = [
   { tag: 'link[rel="shortcut icon"]', attr: 'href' }
 ]
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
+const toUrl = toRule(urlFn)
 
-const wrap = rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom)
-  return urlFn(value, { url })
+const DEFAULT_GOT_OPTS = {
+  timeout: 3000,
+  retry: 0
 }
 
 /**
  * Rules.
  */
-module.exports = () => ({
+module.exports = ({ gotOpts } = {}) => ({
   logo: [
-    wrap($ => {
+    toUrl($ => {
       const sizes = getSizes($, sizeSelectors)
       const size = chain(sizes)
         .first()
@@ -58,11 +59,12 @@ module.exports = () => ({
       return size
     }),
     async ({ url }) => {
-      const { origin } = new URL(url)
-      const logoUrl = new URL('favicon.ico', origin)
-
+      const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
       try {
-        await got.head(logoUrl, { retry: 0, timeout: 10000 })
+        await got.head(logoUrl, {
+          ...DEFAULT_GOT_OPTS,
+          ...gotOpts
+        })
         return logo(logoUrl)
       } catch (err) {
         return null

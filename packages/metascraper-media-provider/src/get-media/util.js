@@ -1,18 +1,18 @@
 'use strict'
 
 const debug = require('debug')('metascraper-media-provider:util')
+const { getDomainWithoutSuffix } = require('tldts')
 const luminatiTunnel = require('luminati-tunnel')
 const { isEmpty } = require('lodash')
-const { URL } = require('url')
 
-const TWITTER_HOSTNAMES = ['twitter.com', 'mobile.twitter.com']
 const TEN_MIN_MS = 10 * 60 * 1000
 
 const isTweet = url => url.includes('/status/')
 
-const isTwitterHost = url => TWITTER_HOSTNAMES.includes(new URL(url).hostname)
+const isTweetUrl = url =>
+  isTweet(url) && getDomainWithoutSuffix(url) === 'twitter'
 
-const isTwitterUrl = url => isTwitterHost(url) && isTweet(url)
+const isVimeoUrl = url => getDomainWithoutSuffix(url) === 'vimeo'
 
 const getTweetId = url => url.split('/').reverse()[0]
 
@@ -59,8 +59,8 @@ const proxyUri = agent => {
 module.exports = {
   proxyUri,
   isTweet,
-  isTwitterHost,
-  isTwitterUrl,
+  isVimeoUrl,
+  isTweetUrl,
   getTweetId,
   getAgent,
   createTunnel,

@@ -4,11 +4,12 @@ const {
   castArray,
   chain,
   eq,
-  first,
   flow,
   get,
   includes,
+  invoke,
   isArray,
+  isDate,
   isEmpty,
   isNumber,
   isString,
@@ -16,9 +17,7 @@ const {
   replace,
   size,
   toLower,
-  trim,
-  invoke,
-  isNil
+  trim
 } = require('lodash')
 
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
@@ -30,6 +29,7 @@ const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
+const memoizeOne = require('memoize-one')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
@@ -38,7 +38,6 @@ const isIso = require('isostring')
 const toTitle = require('title')
 const isUri = require('is-uri')
 const { URL } = require('url')
-const mem = require('mem')
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
@@ -79,7 +78,7 @@ const isUrl = (url, { relative = false } = {}) =>
   relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
 
 const absoluteUrl = (baseUrl, relativePath) => {
-  if (isEmpty(relativePath)) return baseUrl
+  if (isEmpty(relativePath)) return new URL(baseUrl).toString()
   return new URL(relativePath, baseUrl).toString()
 }
 
@@ -132,11 +131,11 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaTypeUrl = (url, type, opts) =>
-  isUrl(url, opts) && isMediaTypeExtension(url, type)
+const isMediaTypeUrl = (url, type, { ext, ...opts } = {}) =>
+  isUrl(url, opts) && isMediaTypeExtension(url, type, ext)
 
-const isMediaTypeExtension = (url, type) =>
-  eq(type, get(EXTENSIONS, extension(url)))
+const isMediaTypeExtension = (url, type, ext) =>
+  eq(type, get(EXTENSIONS, ext || extension(url)))
 
 const isMediaUrl = (url, opts) =>
   isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
@@ -200,7 +199,7 @@ const date = value => {
 
   // try to parse a complex date string
   const parsed = chrono.parseDate(value)
-  if (parsed) return parsed.toISOString()
+  if (isDate(parsed)) return parsed.toISOString()
 }
 
 const lang = value => {
@@ -218,21 +217,25 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
-const jsonld = mem(
-  (url, $) => {
-    let data = {}
-    try {
-      data = JSON.parse(
-        $('script[type="application/ld+json"]')
-          .first()
-          .contents()
-          .text()
+const jsonld = memoizeOne((url, $) => {
+  const data = {}
+  try {
+    $('script[type="application/ld+json"]').map((i, e) =>
+      Object.assign(
+        data,
+        ...castArray(
+          JSON.parse(
+            $(e)
+              .contents()
+              .text()
+          )
+        )
       )
-    } catch (err) {}
-    return first(castArray(data))
-  },
-  { cacheKey: url => url }
-)
+    )
+  } catch (err) {}
+
+  return data
+})
 
 const $jsonld = propName => ($, url) => {
   const json = jsonld(url, $)
@@ -246,12 +249,12 @@ const logo = url
 
 const video = (value, opts) => {
   const urlValue = url(value, opts)
-  return isVideoUrl(urlValue) && urlValue
+  return isVideoUrl(urlValue, opts) && urlValue
 }
 
 const audio = (value, opts) => {
   const urlValue = url(value, opts)
-  return isAudioUrl(urlValue) && urlValue
+  return isAudioUrl(urlValue, opts) && urlValue
 }
 
 const validator = {
@@ -268,41 +271,37 @@ const validator = {
   lang
 }
 
-/**
- * Create a property mapper with validator inside.
- */
-const createValidator = fn => ({ from, to = from }) => async args => {
-  const data = await fn(args)
-  const value = get(data, from)
-  return invoke(validator, to, value)
-}
-
-/**
- * Wrap a rule into a validator
- */
-const createWrap = (fn, opts) => rule => ({ htmlDom, url }) => {
+const toRule = (fn, opts) => rule => ({ htmlDom, url }) => {
   const value = rule(htmlDom, url)
-  return fn(value, opts)
+  return fn(value, { url, ...opts })
 }
 
-const hasValue = value =>
-  isNil(value) || value === false || value === 0 || value === ''
-    ? false
-    : hasValues(value)
+const composeRule = fn => ({ from, to = from, ...opts }) => async ({
+  htmlDom,
+  url
+}) => {
+  const data = await fn(htmlDom, url)
+  const value = get(data, from)
+  return invoke(validator, to, value, { url, ...opts })
+}
+
+const has = value =>
+  value === null || value === false || value === 0 ? false : hasValues(value)
 
 module.exports = {
   $filter,
   $jsonld,
   absoluteUrl,
   audio,
+  audioExtensions,
   author,
-  createValidator,
-  createWrap,
+  composeRule,
   date,
   description,
   extension,
-  hasValue,
+  has,
   image,
+  imageExtensions,
   isArray,
   isAudioExtension,
   isAudioUrl,
@@ -319,6 +318,7 @@ module.exports = {
   jsonld,
   lang,
   logo,
+  memoizeOne,
   normalizeUrl,
   protocol,
   publisher,
@@ -327,5 +327,7 @@ module.exports = {
   titleize,
   url,
   validator,
-  video
+  video,
+  videoExtensions,
+  toRule
 }

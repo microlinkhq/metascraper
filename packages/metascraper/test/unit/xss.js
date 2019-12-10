@@ -2,7 +2,6 @@
 
 const metascraper = require('metascraper')([require('metascraper-title')()])
 const snapshot = require('snap-shot')
-const should = require('should')
 
 const html = `
 <!doctype html>
@@ -31,7 +30,7 @@ describe('xss', () => {
       escape: false
     })
 
-    should(metadata.title).be.equal('<script src=‘http:')
+    snapshot(metadata)
   })
 
   it('escape when the value is not empty', async () => {

@@ -1,9 +1,8 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
-const fs = require('fs')
 
 const metascraper = require('metascraper')([
   require('metascraper-soundcloud')(),
@@ -18,8 +17,6 @@ const metascraper = require('metascraper')([
   require('metascraper-title')(),
   require('metascraper-url')()
 ])
-
-const readFile = promisify(fs.readFile)
 
 describe('metascraper-soundcloud', () => {
   it('song', async () => {

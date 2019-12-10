@@ -1,10 +1,8 @@
 'use strict'
 
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
-
-const fs = require('fs')
+const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -20,8 +18,6 @@ const metascraper = require('../../..')([
   require('metascraper-url')(),
   require('metascraper-readability')()
 ])
-
-const readFile = promisify(fs.readFile)
 
 const url =
   'http://www.xconomy.com/san-francisco/2016/05/24/cybersecurity-company-agari-raises-22m-for-e-mail-shield'

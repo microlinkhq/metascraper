@@ -4,24 +4,25 @@ const {
   $filter,
   author,
   description,
-  createWrap
+  toRule,
+  memoizeOne
 } = require('@metascraper/helpers')
-const memoizeOne = require('memoize-one')
-const { getDomain } = require('tldts')
 
-const isValidUrl = memoizeOne(url => getDomain(url) === 'soundcloud.com')
+const { getDomainWithoutSuffix } = require('tldts')
 
-const wrapDescription = createWrap(description)
-const wrapAuthor = createWrap(author)
+const isValidUrl = memoizeOne(
+  ({ url }) => getDomainWithoutSuffix(url) === 'soundcloud'
+)
+
+const toDescription = toRule(description)
+const toAuthor = toRule(author)
 
 module.exports = () => {
   const rules = {
-    author: [wrapAuthor($ => $filter($, $('.soundTitle__username')))],
-    description: [
-      wrapDescription($ => $filter($, $('.soundTitle__description')))
-    ]
+    author: [toAuthor($ => $filter($, $('.soundTitle__username')))],
+    description: [toDescription($ => $filter($, $('.soundTitle__description')))]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = isValidUrl
   return rules
 }

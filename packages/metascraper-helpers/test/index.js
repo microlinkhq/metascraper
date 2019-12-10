@@ -172,7 +172,6 @@ describe('metascraper-helpers', () => {
     should(isImageExtension('demo.jpeg')).be.true()
     should(isImageExtension('demo.gif')).be.true()
   })
-
   it('.description', async () => {
     should(
       description(
@@ -207,6 +206,48 @@ describe('metascraper-helpers', () => {
       should(typeof json).be.equal('object')
       should(Array.isArray(json)).be.false()
       should(Object.keys(json).length > 0).be.true()
+    })
+
+    it('reads multiple JSON-LD blocks', () => {
+      const $ = cheerio.load(`
+<script type="application/ld+json"> { "@context": "http://schema.org", "@type": "Organization", "url": "https://bykvu.com/ru", "logo": "https://bykvu.com/wp-content/themes/bykvu/img/logo.svg" } </script>
+<script type="application/ld+json"> { "@context": "http://schema.org", "@type": "NewsArticle", "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bykvu.com/ru/bukvy/uchenye-nazvali-depressiju-prichinoj-22-opasnyh-zabolevanij/" }, "headline": "Ученые назвали депрессию причиной 22 опасных заболеваний", "image": [ "https://bykvu.com/wp-content/themes/bykvu/includes/images/noimage_large.jpg" ], "datePublished": "2019-09-09T00:29:09+02:00", "dateModified": "2019-09-09T00:29:09+02:00", "author": { "@type": "Person", "name": "Буквы" }, "publisher": { "@type": "Organization", "name": "Буквы", "logo": { "@type": "ImageObject", "url": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png" } }, "description": "Ученые австралийского центра точного здравоохранения при Университете Южной Австралии выяснили, что депрессия является причиной 22 различных заболеваний." } </script>
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "item": { "@id": "https://bykvu.com/ru", "name": "Буквы" } }, { "@type": "ListItem", "position": 2, "item": { "@id": "https://bykvu.com/ru/category/bukvy/", "name": "Новости" } }, { "@type": "ListItem", "position": 3, "item": { "@id": "https://bykvu.com/ru/bukvy/uchenye-nazvali-depressiju-prichinoj-22-opasnyh-zabolevanij/", "name": "Ученые назвали депрессию причиной 22 опасных заболеваний" } } ] } </script>`)
+
+      const json = jsonld(url, $)
+      should(typeof json).be.equal('object')
+      should(Array.isArray(json)).be.false()
+      should(Object.keys(json).length).equal(13)
+    })
+
+    it('only caches the last invocation', () => {
+      const url =
+        'https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving'
+      const html =
+        '<script type="application/ld+json">[{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":"https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving","headline":"This is the Tesla Semi truck","description":"500 miles of range and more aerodynamic than a supercar","speakable":{"@type":"SpeakableSpecification","xpath":["/html/head/title","/html/head/meta[@name=\'description\']/@content"]},"datePublished":"2017-11-16T23:47:07-05:00","dateModified":"2017-11-16T23:47:07-05:00","author":{"@type":"Person","name":"Zac Estrada"},"publisher":{"@type":"Organization","name":"The Verge","logo":{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/uploads/chorus_asset/file/13668586/google_amp.0.png","width":600,"height":60}},"about":{"@type":"Event","name":"Tesla Semi Truck Event 2017","startDate":"2017-11-17T04:00:00+00:00","location":{"@type":"Place","name":"Tesla Motors factory","address":"Hawthorne, California, USA"}},"image":[{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/k8ssXKPAuRwxa1pKew982ZMgv0o=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":1400},{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/l6nkV8CkJIdUrJIzHFWUFc1zLRM=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":1050},{"@type":"ImageObject","url":"https://cdn.vox-cdn.com/thumbor/5Sqo6J73lBi1hwzEiKCQy6FLx3I=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9699573/Semi_Front_Profile.jpg","width":1400,"height":788}]}]</script>'
+
+      // Load it and process it with jsonld.
+      const $1 = cheerio.load(html)
+      const json1 = jsonld(url, $1)
+
+      // Remove the script from the document. This never happens in the
+      // codebase, but it's done to show that the last invocation is cached
+      // because the value of $ does not change when we do this.
+      $1('script[type="application/ld+json"]').remove()
+
+      // Load it and process it with the same instance of cherrio. Because this
+      // is the same arguments used in json1, json2 should be equal to one
+      // another.
+      const json2 = jsonld(url, $1)
+      should(json1).be.equal(json2)
+
+      // Load the HTML again and use it to process with jsonld. We will expect
+      // that the json3 created does not equal json1, even though it has the
+      // same arguments. This because we want to ensure that subsequent calls
+      // with the same URL but different content actually gets parsed.
+      const $2 = cheerio.load(html)
+      const json3 = jsonld(url, $2)
+      should(json3).not.equal(json1)
     })
   })
 
@@ -274,23 +315,46 @@ describe('metascraper-helpers', () => {
   })
 })
 
-describe('.hasValue', () => {
-  it('true', () => {
-    should(hasValue(true)).be.true()
-    should(hasValue('foo')).be.true()
-    should(hasValue(123)).be.true()
-    should(hasValue(['foo'])).be.true()
-    should(hasValue({ foo: 'bar' })).be.true()
+describe('.has', () => {
+  describe('true', () => {
+    it('true', () => {
+      should(has(true)).be.true()
+    })
+    it('foo', () => {
+      should(has('foo')).be.true()
+    })
+    it('123', () => {
+      should(has(123)).be.true()
+    })
+    it('[foo]', () => {
+      should(has(['foo'])).be.true()
+    })
+    it('{foo: "bar"}', () => {
+      should(has({ foo: 'bar' })).be.true()
+    })
   })
 
-  it('false', () => {
-    should(hasValue(false)).be.false()
-    should(hasValue(0)).be.false()
-    should(hasValue('')).be.false()
-    should(hasValue(null)).be.false()
-    should(hasValue(undefined)).be.false()
-    should(hasValue({})).be.false()
-    should(hasValue([])).be.false()
-    should(hasValue([''])).be.false()
+  describe('false', () => {
+    it('false', () => {
+      should(has(false)).be.false()
+    })
+    it('0', () => {
+      should(has(0)).be.false()
+    })
+    it("''", () => {
+      should(has('')).be.false()
+    })
+    it('null', () => {
+      should(has(null)).be.false()
+    })
+    it('undefined', () => {
+      should(has(undefined)).be.false()
+    })
+    it('{}', () => {
+      should(has({})).be.false()
+    })
+    it('[]', () => {
+      should(has([])).be.false()
+    })
   })
 })

@@ -1,11 +1,10 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
-const should = require('should')
-const { promisify } = require('util')
 const { resolve } = require('path')
 const { omit } = require('lodash')
-const fs = require('fs')
+const should = require('should')
 
 const metascraperYoutube = require('metascraper-youtube')
 
@@ -25,27 +24,27 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-const readFile = promisify(fs.readFile)
-
 describe('metascraper-youtube', () => {
   describe('.isvalidUrl', function () {
     it('true', () => {
       should(
-        isValidUrl('https://www.youtube.com/watch?v=hwMkbaS_M_c')
+        isValidUrl({ url: 'https://www.youtube.com/watch?v=hwMkbaS_M_c' })
       ).be.true()
       should(
-        isValidUrl('https://www.youtube.com/watch?v=GDRd-BFTYIg')
+        isValidUrl({ url: 'https://www.youtube.com/watch?v=GDRd-BFTYIg' })
       ).be.true()
       should(
-        isValidUrl('https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA')
+        isValidUrl({
+          url: 'https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA'
+        })
       ).be.true()
       should(
-        isValidUrl('https://www.youtube.com/watch?v=rXyKq7izYCQ')
+        isValidUrl({ url: 'https://www.youtube.com/watch?v=rXyKq7izYCQ' })
       ).be.true()
     })
     it('false', () => {
-      should(isValidUrl('https://microlink.io')).be.false()
-      should(isValidUrl('https://kikobeats.com')).be.false()
+      should(isValidUrl({ url: 'https://microlink.io' })).be.false()
+      should(isValidUrl({ url: 'https://kikobeats.com' })).be.false()
     })
   })
 

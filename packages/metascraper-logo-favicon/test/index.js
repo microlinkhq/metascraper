@@ -1,13 +1,10 @@
 'use strict'
 
-const { promisify } = require('util')
+const { readFile } = require('fs').promises
 const { resolve } = require('path')
 const should = require('should')
-const fs = require('fs')
 
 const metascraper = require('metascraper')([require('..')()])
-
-const readFile = promisify(fs.readFile)
 
 describe('metascraper-logo-favicon', () => {
   it('create an absolute favicon url if the logo is not present', async () => {

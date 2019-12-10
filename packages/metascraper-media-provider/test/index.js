@@ -4,8 +4,12 @@ const snapshot = require('snap-shot')
 const should = require('should')
 const isCI = require('is-ci')
 
+const { PROXIES = '' } = process.env
+
 const metascraper = require('metascraper')([
-  require('..')(),
+  require('..')({
+    proxies: PROXIES.split(',')
+  }),
   require('metascraper-publisher')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
@@ -29,7 +33,10 @@ describe('metascraper-media-provider', () => {
       snapshot(getVideo(require('./fixtures/video/vimeo.json')))
     })
     it('youtube', () => {
-      getVideo(getVideo(require('./fixtures/video/youtube.json')))
+      snapshot(getVideo(require('./fixtures/video/youtube.json')))
+    })
+    it('prefer a video url with audio', () => {
+      snapshot(getVideo(require('./fixtures/video/youtube-video-audio.json')))
     })
   })
 
@@ -48,15 +55,16 @@ describe('metascraper-media-provider', () => {
       })
     })
     ;(isCI ? describe.skip : describe)('vimeo', () => {
-      ;['https://vimeo.com/channels/staffpicks/287117046', 'https://vimeo.com/186386161'].forEach(
-        url => {
-          it(url, async () => {
-            const metadata = await metascraper({ url })
-            console.log(metadata.video)
-            should(extension(metadata.video)).be.equal('mp4')
-          })
-        }
-      )
+      ;[
+        'https://vimeo.com/channels/staffpicks/287117046',
+        'https://vimeo.com/186386161'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ url })
+          console.log(metadata.video)
+          should(extension(metadata.video)).be.equal('mp4')
+        })
+      })
     })
 
     describe('youtube', () => {

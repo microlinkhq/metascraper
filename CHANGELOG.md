@@ -3,6 +3,297 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.9](https://github.com/microlinkhq/metascraper/compare/v5.8.8...v5.8.9) (2019-11-19)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.8](https://github.com/microlinkhq/metascraper/compare/v5.8.7...v5.8.8) (2019-11-13)
+
+
+### Bug Fixes
+
+* ensure inline rules merged are collections ([#237](https://github.com/microlinkhq/metascraper/issues/237)) ([7327236](https://github.com/microlinkhq/metascraper/commit/7327236cd45643e46b767ae523d97f8a0e9c7814))
+
+
+
+
+
+## [5.8.7](https://github.com/microlinkhq/metascraper/compare/v5.8.6...v5.8.7) (2019-11-12)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.6](https://github.com/microlinkhq/metascraper/compare/v5.8.5...v5.8.6) (2019-11-11)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.5](https://github.com/microlinkhq/metascraper/compare/v5.8.4...v5.8.5) (2019-11-11)
+
+
+### Bug Fixes
+
+* ensure chrono output is a date ([2391f15](https://github.com/microlinkhq/metascraper/commit/2391f15a31de63943a4296baaec21b632da0a5c0))
+
+
+
+
+
+## [5.8.4](https://github.com/microlinkhq/metascraper/compare/v5.8.3...v5.8.4) (2019-11-11)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.3](https://github.com/microlinkhq/metascraper/compare/v5.8.2...v5.8.3) (2019-11-09)
+
+
+### Bug Fixes
+
+* ensure only spotify urls are valid ([a707c57](https://github.com/microlinkhq/metascraper/commit/a707c574d1afd0f1765260bba69b7fbb29a90600))
+
+
+
+
+
+## [5.8.2](https://github.com/microlinkhq/metascraper/compare/v5.8.1...v5.8.2) (2019-11-09)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.8.1](https://github.com/microlinkhq/metascraper/compare/v5.8.0...v5.8.1) (2019-11-09)
+
+
+### Bug Fixes
+
+* ensure innerRules is a collection ([#234](https://github.com/microlinkhq/metascraper/issues/234)) ([04fe20d](https://github.com/microlinkhq/metascraper/commit/04fe20dd9db5686d778ad614f69f545728368dbb))
+
+
+
+
+
+# [5.8.0](https://github.com/microlinkhq/metascraper/compare/v5.7.21...v5.8.0) (2019-11-08)
+
+
+### Features
+
+* add spotify integration ([#232](https://github.com/microlinkhq/metascraper/issues/232)) ([74cd3ac](https://github.com/microlinkhq/metascraper/commit/74cd3ac112323baef229b5b49075343997bc628a))
+
+
+
+
+
+## [5.7.21](https://github.com/microlinkhq/metascraper/compare/v5.7.20...v5.7.21) (2019-11-08)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.20](https://github.com/microlinkhq/metascraper/compare/v5.7.19...v5.7.20) (2019-11-07)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.19](https://github.com/microlinkhq/metascraper/compare/v5.7.18...v5.7.19) (2019-11-07)
+
+
+### Bug Fixes
+
+* compose absolute url properly ([17b55ca](https://github.com/microlinkhq/metascraper/commit/17b55cabf06f95f1aef9bce305cafba623b811e8))
+* remove only ([a81002c](https://github.com/microlinkhq/metascraper/commit/a81002cd76748bf6603c75318e2616b856557d56))
+
+
+
+
+
+## [5.7.18](https://github.com/microlinkhq/metascraper/compare/v5.7.17...v5.7.18) (2019-11-07)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.17](https://github.com/microlinkhq/metascraper/compare/v5.7.16...v5.7.17) (2019-10-29)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.16](https://github.com/microlinkhq/metascraper/compare/v5.7.15...v5.7.16) (2019-10-26)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.15](https://github.com/microlinkhq/metascraper/compare/v5.7.14...v5.7.15) (2019-10-24)
+
+
+### Bug Fixes
+
+* retry ([b768aa1](https://github.com/microlinkhq/metascraper/commit/b768aa15a589ba2da54267c3e4f0f60a455d90f6))
+
+
+
+
+
+## [5.7.14](https://github.com/microlinkhq/metascraper/compare/v5.7.13...v5.7.14) (2019-10-24)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.13](https://github.com/microlinkhq/metascraper/compare/v5.7.12...v5.7.13) (2019-10-23)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.12](https://github.com/microlinkhq/metascraper/compare/v5.7.11...v5.7.12) (2019-10-20)
+
+
+### Bug Fixes
+
+* use undefined ([ae693e3](https://github.com/microlinkhq/metascraper/commit/ae693e3))
+
+
+
+
+
+## [5.7.11](https://github.com/microlinkhq/metascraper/compare/v5.7.10...v5.7.11) (2019-10-20)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.10](https://github.com/microlinkhq/metascraper/compare/v5.7.9...v5.7.10) (2019-10-20)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.9](https://github.com/microlinkhq/metascraper/compare/v5.7.8...v5.7.9) (2019-10-18)
+
+
+### Bug Fixes
+
+* missing await ([7fbd220](https://github.com/microlinkhq/metascraper/commit/7fbd220))
+
+
+
+
+
+## [5.7.8](https://github.com/microlinkhq/metascraper/compare/v5.7.7...v5.7.8) (2019-10-18)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.7](https://github.com/microlinkhq/metascraper/compare/v5.7.6...v5.7.7) (2019-10-17)
+
+
+### Bug Fixes
+
+* condition under no tunnel ([a1866f1](https://github.com/microlinkhq/metascraper/commit/a1866f1))
+* don't loop if max tunnel size is reached ([3a014f4](https://github.com/microlinkhq/metascraper/commit/3a014f4))
+
+
+
+
+
+## [5.7.6](https://github.com/microlinkhq/metascraper/compare/v5.7.5...v5.7.6) (2019-09-29)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.5](https://github.com/microlinkhq/metascraper/compare/v5.7.4...v5.7.5) (2019-09-23)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.4](https://github.com/microlinkhq/metascraper/compare/v5.7.3...v5.7.4) (2019-09-13)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.3](https://github.com/microlinkhq/metascraper/compare/v5.7.2...v5.7.3) (2019-09-13)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.2](https://github.com/microlinkhq/metascraper/compare/v5.7.1...v5.7.2) (2019-09-12)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+## [5.7.1](https://github.com/microlinkhq/metascraper/compare/v5.7.0...v5.7.1) (2019-09-12)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
+# [5.7.0](https://github.com/microlinkhq/metascraper/compare/v5.6.8...v5.7.0) (2019-09-12)
+
+
+### Features
+
+* fixes [#207](https://github.com/microlinkhq/metascraper/issues/207): parse multiple json-ld blocks ([#208](https://github.com/microlinkhq/metascraper/issues/208)) ([0c8ee94](https://github.com/microlinkhq/metascraper/commit/0c8ee94))
+
+
+
+
+
 ## [5.6.8](https://github.com/microlinkhq/metascraper/compare/v5.6.7...v5.6.8) (2019-08-30)
 
 **Note:** Version bump only for package metascraper

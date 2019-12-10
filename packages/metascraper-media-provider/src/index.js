@@ -1,6 +1,14 @@
 'use strict'
 
-const { chain, eq, find, isEmpty, includes, isNil, overEvery } = require('lodash')
+const {
+  chain,
+  eq,
+  find,
+  isEmpty,
+  includes,
+  isNil,
+  overEvery
+} = require('lodash')
 
 const {
   extension: extensionFn,
@@ -29,14 +37,20 @@ const isM4a = isMIME('m4a')
 const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 
-const hasAudio = format => isMp3(format) || isM4a(format) || isAac(format) || isWav(format)
+const hasCodec = prop => format => format[prop] !== 'none'
+
+const hasAudioCodec = hasCodec('acodec')
+const hasVideoCodec = hasCodec('vcodec')
+
+const hasAudio = format =>
+  isMp3(format) || isM4a(format) || isAac(format) || isWav(format)
 
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
 const notDownloadable = format => !includes(format.url, 'download=1')
 
-const getFormatUrls = ({ orderBy, filterBy }) => ({ formats }, filters) => {
+const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
   const url = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
@@ -51,9 +65,22 @@ const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
 
 const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
 
-const getVideo = data => getVideoUrls(data, [hasVideo, isMp4, isHttps, notDownloadable])
+const getVideo = data => {
+  const videoFilters = [
+    hasVideo,
+    isMp4,
+    isHttps,
+    notDownloadable,
+    hasVideoCodec
+  ]
+  return (
+    getVideoUrls(data, [...videoFilters, hasAudioCodec]) ||
+    getVideoUrls(data, videoFilters)
+  )
+}
 
-const getAudio = data => getAudioUrls(data, [hasAudio, isHttps])
+const getAudio = data =>
+  getAudioUrls(data, [hasAudio, isHttps, notDownloadable, hasAudioCodec])
 
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
@@ -67,7 +94,8 @@ const getLang = ({ language, http_headers: headers = {} }) =>
 const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
   find([mainTitle, secondaryTitle], titleFn)
 
-const getDate = ({ timestamp }) => !isNil(timestamp) && new Date(timestamp * 1000).toISOString()
+const getDate = ({ timestamp }) =>
+  !isNil(timestamp) && new Date(timestamp * 1000).toISOString()
 
 const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
 

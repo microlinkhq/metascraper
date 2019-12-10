@@ -66,7 +66,7 @@ const metascraper = require('metascraper')([
 
 describe('metascraper-logo', () => {
   it('create an absolute favicon url if the logo is not present', async () => {
-    const html = ```
+    const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -80,7 +80,7 @@ describe('metascraper-logo', () => {
     <body>
     </body>
     </html>
-    ```
+    `
     const meta = await metascraper({ html, url }))
     should(meta.log).be.equal("open graph value")
   })

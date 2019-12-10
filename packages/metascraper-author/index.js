@@ -1,20 +1,10 @@
 'use strict'
 
-const { $jsonld, $filter, author } = require('@metascraper/helpers')
+const { $jsonld, $filter, toRule, author } = require('@metascraper/helpers')
 
 const REGEX_STRICT = /^\S+\s+\S+/
 
-/**
- * Wrap a rule with validation and formatting logic.
- *
- * @param {Function} rule
- * @return {Function} wrapped
- */
-
-const wrap = rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return author(value)
-}
+const toAuthor = toRule(author)
 
 /**
  * Enforce stricter matching for a `rule`.
@@ -28,24 +18,20 @@ const strict = rule => $ => {
   return REGEX_STRICT.test(value) && value
 }
 
-/**
- * Rules.
- */
-
 module.exports = () => ({
   author: [
-    wrap($jsonld('author.name')),
-    wrap($ => $('meta[name="author"]').attr('content')),
-    wrap($ => $('meta[property="author"]').attr('content')),
-    wrap($ => $('meta[property="article:author"]').attr('content')),
-    wrap($ => $filter($, $('[itemprop*="author" i] [itemprop="name"]'))),
-    wrap($ => $filter($, $('[itemprop*="author" i]'))),
-    wrap($ => $filter($, $('[rel="author"]'))),
-    strict(wrap($ => $filter($, $('a[class*="author" i]')))),
-    strict(wrap($ => $filter($, $('[class*="author" i] a')))),
-    strict(wrap($ => $filter($, $('a[href*="/author/" i]')))),
-    wrap($ => $filter($, $('a[class*="screenname" i]'))),
-    strict(wrap($ => $filter($, $('[class*="author" i]')))),
-    strict(wrap($ => $filter($, $('[class*="byline" i]'))))
+    toAuthor($jsonld('author.name')),
+    toAuthor($ => $('meta[name="author"]').attr('content')),
+    toAuthor($ => $('meta[property="author"]').attr('content')),
+    toAuthor($ => $('meta[property="article:author"]').attr('content')),
+    toAuthor($ => $filter($, $('[itemprop*="author" i] [itemprop="name"]'))),
+    toAuthor($ => $filter($, $('[itemprop*="author" i]'))),
+    toAuthor($ => $filter($, $('[rel="author"]'))),
+    strict(toAuthor($ => $filter($, $('a[class*="author" i]')))),
+    strict(toAuthor($ => $filter($, $('[class*="author" i] a')))),
+    strict(toAuthor($ => $filter($, $('a[href*="/author/" i]')))),
+    toAuthor($ => $filter($, $('a[class*="screenname" i]'))),
+    strict(toAuthor($ => $filter($, $('[class*="author" i]')))),
+    strict(toAuthor($ => $filter($, $('[class*="byline" i]'))))
   ]
 })

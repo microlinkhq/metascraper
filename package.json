@@ -10,30 +10,6 @@
     {
       "name": "Kiko Beats",
       "email": "josefrancisco.verdu@gmail.com"
-    },
-    {
-      "name": "David Eriksson",
-      "email": "david@activout.se"
-    },
-    {
-      "name": "Shawn Dempsey",
-      "email": "shwanton@gmail.com"
-    },
-    {
-      "name": "Sampo Juustila",
-      "email": "sampo.niskanen@iki.fi"
-    },
-    {
-      "name": "Steven Frostwick",
-      "email": "steven.frostwick@gmail.com"
-    },
-    {
-      "name": "Nikola Ristic",
-      "email": "risticn6@gmail.com"
-    },
-    {
-      "name": "Jesse Rogers",
-      "email": "djrquazz@gmail.com"
     }
   ],
   "repository": {
@@ -74,14 +50,14 @@
   "scripts": {
     "build": "gulp build",
     "clean": "lerna clean --yes && rm -rf node_modules",
+    "contributors": "(lerna exec finepack --parallel && git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "coverage": "lerna exec npm run coverage --parallel --scope \"metascraper\"",
     "dev": "concurrently \"gulp\" \"npm run dev:server\"",
     "dev:server": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "install": "lerna bootstrap --no-ci --force-local",
     "lint": "standard-markdown README.md && standard",
-    "prerelease": "npm run update:check",
+    "prerelease": "npm run update:check && npm run contributors",
     "pretest": "npm run lint",
-    "preversion": "lerna exec \"git-authors-cli || true; finepack\" --parallel && git-authors-cli && finepack",
     "release": "lerna publish --yes --sort --conventional-commits -m \"chore(release): %s\" --create-release github",
     "test": "lerna exec npm run test",
     "update": "lerna exec ncu -- --upgrade && ncu -- --upgrade",

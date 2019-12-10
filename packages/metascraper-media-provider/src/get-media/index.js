@@ -1,11 +1,11 @@
 'use strict'
 
-const memoizeOne = require('memoize-one')
+const { memoizeOne } = require('@metascraper/helpers')
 const { noop } = require('lodash')
 
 const createTwitterProvider = require('./provider/twitter')
 const createGenericProvider = require('./provider/generic')
-const { isTwitterUrl, createTunnel } = require('./util')
+const { isTweetUrl, createTunnel } = require('./util')
 
 module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
   const tunnel = createTunnel(proxies)
@@ -18,6 +18,6 @@ module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
   const fromTwitter = createTwitterProvider({ tunnel, userAgent, fromGeneric })
 
   return memoizeOne(url =>
-    isTwitterUrl(url) ? fromTwitter(url) : fromGeneric(url)
+    isTweetUrl(url) ? fromTwitter(url) : fromGeneric(url)
   )
 }

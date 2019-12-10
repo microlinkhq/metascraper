@@ -1,13 +1,10 @@
 'use strict'
 
+const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
-const { promisify } = require('util')
 const { resolve } = require('path')
-const fs = require('fs')
 
 const metascraper = require('metascraper')([require('..')()])
-
-const readFile = promisify(fs.readFile)
 
 describe('metascraper-lang', () => {
   it('html lang property', async () => {
