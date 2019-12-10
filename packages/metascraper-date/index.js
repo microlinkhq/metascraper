@@ -20,6 +20,7 @@ module.exports = () => ({
     toDate($ => $('time[itemprop*="date" i]').attr('datetime')),
     toDate($ => $('time[datetime]').attr('datetime')),
     toDate($ => $('time[datetime][pubdate]').attr('datetime')),
+    toDate($ => $('time.published[datetime]').attr('datetime')),
     toDate($ => $('meta[name*="dc.date" i]').attr('content')),
     toDate($ => $('meta[name*="dc.date.issued" i]').attr('content')),
     toDate($ => $('meta[name*="dc.date.created" i]').attr('content')),
