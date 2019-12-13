@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.10](https://github.com/microlinkhq/metascraper/compare/v5.8.9...v5.8.10) (2019-12-13)
+
+
+### Bug Fixes
+
+* **metascrapper-date:** chrono as default date parser fix [#241](https://github.com/microlinkhq/metascraper/issues/241) ([#244](https://github.com/microlinkhq/metascraper/issues/244)) ([87e40fe](https://github.com/microlinkhq/metascraper/commit/87e40fe65e0c01039793e0ffa359cd07e4315d89))
+
+
+
+
+
 ## [5.8.9](https://github.com/microlinkhq/metascraper/compare/v5.8.8...v5.8.9) (2019-11-19)
 
 **Note:** Version bump only for package metascraper
