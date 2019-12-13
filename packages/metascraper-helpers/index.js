@@ -196,7 +196,7 @@ const date = value => {
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
-  
+
   const parsed = chrono.parseDate(value)
   if (isDate(parsed)) return parsed.toISOString()
 }
