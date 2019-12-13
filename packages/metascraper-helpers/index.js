@@ -197,8 +197,7 @@ const date = value => {
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
 
-  // try to parse a complex date string
-  const parsed = chrono.parseDate(value, new Date(''), { forwardDate: true }) // magick
+  const parsed = chrono.parseDate(value)
   if (isDate(parsed)) return parsed.toISOString()
 }
 
