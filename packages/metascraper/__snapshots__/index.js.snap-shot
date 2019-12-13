@@ -26,7 +26,7 @@ exports['arstechnica 1'] = {
 
 exports['astier 1'] = {
   "author": "Anisse Astier",
-  "date": "2017-07-05T00:00:00.000Z",
+  "date": "2017-07-05T12:00:00.000Z",
   "description": "In which I babble about some projects I do and I rant about stuff I like. I’m working as a Linux Kernel engineer as a day job, and I probably play too much video games on my free time.",
   "image": "https://anisse.astier.eu/images/anisse.jpg",
   "video": null,
@@ -325,7 +325,7 @@ exports['github 1'] = {
 
 exports['googleblog 1'] = {
   "author": "Google",
-  "date": "2016-09-29T00:00:00.000Z",
+  "date": "2016-09-29T12:00:00.000Z",
   "description": "Posted by Brian Stevens, Vice President, Google Cloud As we officially move into the Google Cloud era, Google Cloud Platform (GCP) conti...",
   "image": "https://3.bp.blogspot.com/-m90zG1Qb7vc/Vel5wAn_isI/AAAAAAAARGE/iSOuuYWUXUA/s1600-r/CloudPlatform_128px_Retina.png",
   "video": null,
@@ -663,7 +663,7 @@ exports['silicon-valley-business-journal 1'] = {
 
 exports['smitten-kitchen 1'] = {
   "author": null,
-  "date": "2016-05-26T00:00:00.000Z",
+  "date": "2016-05-26T12:00:00.000Z",
   "description": "Cucumber Yogurt Raita Salad Think of this as cucumber raita with the proportions inverted -- a lot of cucumber, a smaller amount of yogurt dressing -- but it’s not overly technical, as there are ingredients here not common in raita. Notes: Feel free to play around with this salad; each seed option w…",
   "image": "http://smittenkitchen.com/wp-content/uploads/cucumber-yogurt-raita-salad-300x200.jpg",
   "video": null,
@@ -780,7 +780,7 @@ exports['twitter (tweet with image) 1'] = {
 
 exports['usa-today 1'] = {
   "author": "Editors, USA TODAY",
-  "date": "2016-05-24T16:52:12.240Z",
+  "date": "2016-05-24T16:52:12.000Z",
   "description": "Out of the loop today? We’ve got what you missed.",
   "image": "http://www.gannett-cdn.com/-mm-/b4fe31162dae4fb60b80c760486d2384a93fb163/c=0-95-1024-674&r=x633&c=1200x630/local/-/media/2016/05/24/USATODAY/USATODAY/635997039647041990-ShortList.jpg",
   "video": null,
@@ -871,7 +871,7 @@ exports['xconomy 1'] = {
 
 exports['yahoo-news 1'] = {
   "author": null,
-  "date": "2016-05-25T00:00:00.000Z",
+  "date": "2016-05-25T12:00:00.000Z",
   "description": "Justin Bieber coldly rejects a fan’s gift in this viral video.",
   "image": "https://s.yimg.com/ny/api/res/1.2/hnWTAtxjD0NGNLijeWWBGw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTYxNjtoPTQ2MDtzbT0xO2lsPXBsYW5l/http://media.zenfs.com/en-US/homerun/mic_26/8de763298d0eafd3534895283457892c.cf.jpg",
   "video": null,
@@ -944,7 +944,7 @@ exports['youtube channel 1'] = {
 
 exports['wikipedia 1'] = {
   "author": null,
-  "date": "2016-10-13T00:00:00.000Z",
+  "date": "2016-10-13T12:00:00.000Z",
   "description": "This article is about the musician. For his debut album, see Bob Dylan (album).",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
   "video": null,
@@ -983,7 +983,7 @@ exports['learnnode 1'] = {
 
 exports['health.govt.nz 1'] = {
   "author": null,
-  "date": "2011-04-07T00:00:00.000Z",
+  "date": "2011-04-07T12:00:00.000Z",
   "description": "In December 2009 Cabinet agreed to strengthen the health sector’s focus on quality and safety by creating a Health Quality and Safety Commission. This regulatory impact statement considers what additional functions, powers, and funding mechanisms the Commission might need to achieve sustained qualit…",
   "image": "https://html-microservice.herokuapp.com/sites/all/themes/mohpub_bootstrap/images/mohlogo.svg",
   "video": null,
