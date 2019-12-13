@@ -8,7 +8,7 @@ const cheerio = require('cheerio')
 const createMetascraperIframe = require('..')
 const createMetascraper = require('metascraper')
 
-const { isValidUrl } = createMetascraperIframe
+const { test } = createMetascraperIframe
 
 const commonProviders = [
   'https://www.youtube.com/watch?v=Gu8X7vM3Avw',
@@ -21,27 +21,24 @@ const commonProviders = [
 ]
 
 describe('metascraper-iframe', () => {
-  describe('.isValidUrl', () => {
+  describe('.test', () => {
     describe('from common providers', () => {
       commonProviders.forEach(url => {
         it(url, () => {
           const htmlDom = cheerio.load('')
-          const isValid = isValidUrl({ url, htmlDom })
+          const isValid = test({ url, htmlDom })
           should(isValid).be.true()
         })
       })
     })
-
     it('from markup', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
-
       const htmlDom = cheerio.load(html)
-      const isValid = isValidUrl({ url, htmlDom })
+      const isValid = test({ url, htmlDom })
       should(isValid).be.true()
     })
   })
-
   describe('iframe', () => {
     describe('from common providers', () => {
       commonProviders.forEach(url => {
@@ -52,14 +49,12 @@ describe('metascraper-iframe', () => {
         })
       })
     })
-
     it('from markup', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
-
-      const metascraper = createMetascraper([createMetascraperIframe()])
+      const rules = [createMetascraperIframe()]
+      const metascraper = createMetascraper(rules)
       const meta = await metascraper({ url, html, escape: false })
-
       should(meta.iframe).be.not.null()
     })
   })
