@@ -34,7 +34,7 @@
     "node": ">= 8"
   },
   "files": [
-    "index.js"
+    "src"
   ],
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
