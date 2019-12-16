@@ -62,7 +62,7 @@
     "cheerio-advanced-selectors": "~2.0.1",
     "lodash": "~4.17.15",
     "map-values-deep": "~1.0.2",
-    "whoops": "~4.0.2",
+    "whoops": "~4.1.0",
     "xss": "~1.0.6"
   },
   "devDependencies": {
