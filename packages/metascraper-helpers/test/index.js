@@ -313,6 +313,7 @@ describe('metascraper-helpers', () => {
     should(date('Jun 20')).be.equal('2019-06-20T12:00:00.000Z')
     should(date('Jun 20 2018')).be.equal('2018-06-20T12:00:00.000Z')
     should(date('Jun 2018')).be.equal('2018-06-01T12:00:00.000Z')
+    should(date(2010)).be.equal('2010-01-01T00:00:00.000Z')
   })
 })
 

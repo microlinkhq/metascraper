@@ -17,6 +17,7 @@ const {
   replace,
   size,
   toLower,
+  toString,
   trim
 } = require('lodash')
 
@@ -196,6 +197,10 @@ const date = value => {
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
+
+  if (/^\d{4}$/.test(value)) {
+    return new Date(toString(value)).toISOString()
+  }
 
   const parsed = chrono.parseDate(value)
   if (isDate(parsed)) return parsed.toISOString()
