@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.12](https://github.com/microlinkhq/metascraper/compare/v5.8.11...v5.8.12) (2019-12-17)
+
+
+### Bug Fixes
+
+* parse years ([c65f73e](https://github.com/microlinkhq/metascraper/commit/c65f73ed4c3446ec9f72dd2d8a7b7e97d815fabd))
+
+
+
+
+
 ## [5.8.11](https://github.com/microlinkhq/metascraper/compare/v5.8.10...v5.8.11) (2019-12-15)
 
 
