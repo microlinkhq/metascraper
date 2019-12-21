@@ -23,8 +23,7 @@ const {
 
 const createGetMedia = require('./get-media')
 
-const isProtocol = value => ({ protocol, url }) =>
-  protocol ? eq(protocol, value) : protocolFn(url, value)
+const isProtocol = value => ({ url }) => eq(protocolFn(url), value)
 
 const isHttps = isProtocol('https')
 
