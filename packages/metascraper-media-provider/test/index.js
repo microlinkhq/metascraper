@@ -5,11 +5,11 @@ const snapshot = require('snap-shot')
 const should = require('should')
 const isCI = require('is-ci')
 
-const { PROXIES = '' } = process.env
+const { PROXIES } = process.env
 
 const metascraper = require('metascraper')([
   require('..')({
-    proxies: PROXIES.split(',')
+    proxies: PROXIES ? PROXIES.split(',') : undefined
   }),
   require('metascraper-publisher')(),
   require('metascraper-author')(),
