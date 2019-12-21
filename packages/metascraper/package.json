@@ -58,7 +58,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.8.12",
-    "cheerio": "~1.0.0-rc.2",
+    "cheerio": "~1.0.0-rc.3",
     "cheerio-advanced-selectors": "~2.0.1",
     "lodash": "~4.17.15",
     "map-values-deep": "~1.0.2",
