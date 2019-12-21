@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug')('metascraper-media-provider:test')
 const snapshot = require('snap-shot')
 const should = require('should')
 const isCI = require('is-ci')
@@ -61,7 +62,7 @@ describe('metascraper-media-provider', () => {
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.video)
+          debug(metadata.video)
           should(extension(metadata.video)).be.equal('mp4')
         })
       })
@@ -71,7 +72,7 @@ describe('metascraper-media-provider', () => {
       ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.video)
+          debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
       })
@@ -81,7 +82,7 @@ describe('metascraper-media-provider', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.video)
+          debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
       })
@@ -94,7 +95,7 @@ describe('metascraper-media-provider', () => {
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.video)
+          debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
       })
@@ -107,7 +108,7 @@ describe('metascraper-media-provider', () => {
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.video)
+          debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
       })
@@ -119,7 +120,7 @@ describe('metascraper-media-provider', () => {
       ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.audio)
+          debug(metadata.audio)
           should(isUrl(metadata.audio)).be.true()
         })
       })
@@ -132,7 +133,19 @@ describe('metascraper-media-provider', () => {
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata.audio)
+          debug(metadata.audio)
+          should(isUrl(metadata.audio)).be.true()
+        })
+      })
+    })
+
+    describe('soundcloud', () => {
+      ;[
+        'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
+      ].forEach(url => {
+        it(url, async () => {
+          const metadata = await metascraper({ url })
+          debug(metadata.audio)
           should(isUrl(metadata.audio)).be.true()
         })
       })
