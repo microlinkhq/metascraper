@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.13](https://github.com/microlinkhq/metascraper/compare/v5.8.12...v5.8.13) (2019-12-21)
+
+
+### Bug Fixes
+
+* get protocol based on URL schema ([dce1863](https://github.com/microlinkhq/metascraper/commit/dce18637bbf65a40d8bfc316efe2b14c424d6d99))
+
+
+
+
+
 ## [5.8.12](https://github.com/microlinkhq/metascraper/compare/v5.8.11...v5.8.12) (2019-12-17)
 
 
