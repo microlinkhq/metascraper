@@ -3,6 +3,7 @@
 const debug = require('debug')('metascraper-media-provider:twitter')
 const { reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
+const pReflect = require('p-reflect')
 const pRetry = require('p-retry')
 const got = require('got')
 
@@ -55,6 +56,26 @@ const createGuestToken = ({ userAgent, tunnel }) => {
 }
 
 const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
+  const getData = async (apiUrl, url, token) => {
+    const { isFulfilled, value, reason } = await pReflect(
+      got(apiUrl, {
+        retry: 0,
+        json: true,
+        headers: {
+          referer: url,
+          'x-guest-token': token,
+          origin: 'https://twitter.com',
+          authorization: TWITTER_BEARER_TOKEN,
+          'user-agent': userAgent
+        }
+      })
+    )
+
+    if (isFulfilled) return value.body
+    if (reason.statusCode === 404) return {}
+    throw reason
+  }
+
   return async url => {
     const tweetId = getTweetId(url)
     const apiUrl = `https://api.twitter.com/2/timeline/conversation/${tweetId}.json?tweet_mode=extended`
@@ -66,25 +87,15 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
         `getTwitterInfo apiUrl=${apiUrl} guestToken=${token} userAgent=${userAgent}`
       )
 
-      const { body } = await got(apiUrl, {
-        retry: 0,
-        json: true,
-        headers: {
-          referer: url,
-          'x-guest-token': token,
-          origin: 'https://twitter.com',
-          authorization: TWITTER_BEARER_TOKEN,
-          'user-agent': userAgent
-        }
-      })
+      const payload = await getData(apiUrl, url, token)
 
       const id = get(
-        body,
+        payload,
         `globalObjects.tweets.${tweetId}.retweeted_status_id_str`,
         tweetId
       )
 
-      const tweetObj = get(body, `globalObjects.tweets.${id}`)
+      const tweetObj = get(payload, `globalObjects.tweets.${id}`)
 
       data = {
         extractor_key: 'Twitter',

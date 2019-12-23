@@ -99,6 +99,12 @@ describe('metascraper-media-provider', () => {
           should(isUrl(metadata.video)).be.true()
         })
       })
+
+      it('omit 404 urls', async () => {
+        const url = 'https://twitter.com/chenzonaut/status/456218458162601984'
+        const metadata = await metascraper({ url })
+        should(isUrl(metadata.video)).be.false()
+      })
     })
 
     describe('facebook', () => {
