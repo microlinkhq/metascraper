@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.14](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.8.13...v5.8.14) (2019-12-23)
+
+
+### Bug Fixes
+
+* omit 404 twitter urls ([93674e0](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/93674e0dc2de03d6a5e694928e10fad67d028bb5))
+
+
+
+
+
 ## [5.8.13](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.8.12...v5.8.13) (2019-12-21)
 
 
