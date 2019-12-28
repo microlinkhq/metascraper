@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.15](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description/compare/v5.8.14...v5.8.15) (2019-12-28)
+
+
+### Bug Fixes
+
+* ensure to pass description options ([#250](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description/issues/250)) ([9637022](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description/commit/9637022a5fe9049c3454fe35aa672511639e0acb))
+
+
+
+
+
 ## [5.8.13](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description/compare/v5.8.12...v5.8.13) (2019-12-21)
 
 **Note:** Version bump only for package metascraper-description

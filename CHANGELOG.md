@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.15](https://github.com/microlinkhq/metascraper/compare/v5.8.14...v5.8.15) (2019-12-28)
+
+
+### Bug Fixes
+
+* ensure to pass description options ([#250](https://github.com/microlinkhq/metascraper/issues/250)) ([9637022](https://github.com/microlinkhq/metascraper/commit/9637022a5fe9049c3454fe35aa672511639e0acb))
+
+
+
+
+
 ## [5.8.14](https://github.com/microlinkhq/metascraper/compare/v5.8.13...v5.8.14) (2019-12-23)
 
 

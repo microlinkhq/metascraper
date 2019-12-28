@@ -2,7 +2,7 @@
   "name": "metascraper-amazon",
   "description": "metascraper integration with Amazon",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-amazon",
-  "version": "5.8.13",
+  "version": "5.8.15",
   "main": "index.js",
   "repository": {
     "type": "git",
