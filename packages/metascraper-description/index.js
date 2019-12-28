@@ -2,9 +2,9 @@
 
 const { $jsonld, toRule, description } = require('@metascraper/helpers')
 
-const toDescription = toRule(description)
+module.exports = opts => {
+  const toDescription = toRule(description, opts)
 
-module.exports = () => {
   return {
     description: [
       toDescription($jsonld('description')),
