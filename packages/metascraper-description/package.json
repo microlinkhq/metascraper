@@ -19,6 +19,8 @@
     "@metascraper/helpers": "^5.8.13"
   },
   "devDependencies": {
+    "mocha": "latest",
+    "should": "latest",
     "standard": "latest"
   },
   "engines": {
@@ -28,7 +30,12 @@
     "index.js"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
 }
