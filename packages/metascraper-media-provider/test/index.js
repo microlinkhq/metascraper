@@ -67,8 +67,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-
-    describe('youtube', () => {
+    ;(isCI ? describe.skip : describe)('youtube', () => {
       ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
@@ -144,8 +143,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-
-    describe('soundcloud', () => {
+    ;(isCI ? describe.skip : describe)('soundcloud', () => {
       ;[
         'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
       ].forEach(url => {
