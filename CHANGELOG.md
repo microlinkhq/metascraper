@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/microlinkhq/metascraper/compare/v5.8.15...v5.9.0) (2019-12-30)
+
+
+### Features
+
+* remove xss ([#252](https://github.com/microlinkhq/metascraper/issues/252)) ([87670c1](https://github.com/microlinkhq/metascraper/commit/87670c1e9fe0a91aef86af920b23cf6a98cdf5d5)), closes [#251](https://github.com/microlinkhq/metascraper/issues/251)
+
+
+
+
+
 ## [5.8.15](https://github.com/microlinkhq/metascraper/compare/v5.8.14...v5.8.15) (2019-12-28)
 
 
