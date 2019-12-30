@@ -44,7 +44,7 @@ describe('metascraper-iframe', () => {
       commonProviders.forEach(url => {
         it(url, async () => {
           const metascraper = createMetascraper([createMetascraperIframe()])
-          const meta = await metascraper({ url, escape: false })
+          const meta = await metascraper({ url })
           should(meta.iframe).be.not.null()
         })
       })
@@ -54,7 +54,7 @@ describe('metascraper-iframe', () => {
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
       const rules = [createMetascraperIframe()]
       const metascraper = createMetascraper(rules)
-      const meta = await metascraper({ url, html, escape: false })
+      const meta = await metascraper({ url, html })
       should(meta.iframe).be.not.null()
     })
   })

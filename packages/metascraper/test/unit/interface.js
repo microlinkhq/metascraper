@@ -30,36 +30,6 @@ it('url is required', async () => {
   }
 })
 
-it('escape is enabled by default', async () => {
-  const html = `
-  <!doctype html>
-  <html xmlns:og="http://ogp.me/ns#" lang="en">
-
-  <head>
-      <meta charset="utf8">
-      <title>metascraper</title>
-      <meta property="og:description" content="The HR startups go to war.">
-      <meta property="og:image" content="image">
-      <meta property="og:title" content="<script src='http://127.0.0.1:8080/malware.js'></script>">
-      <meta property="og:type" content="article">
-      <meta property="og:url" content="http://127.0.0.1:8080">
-  </head>
-
-  <body>
-  </body>
-  </html>
-  `
-  const metascraper = createMetascraper([titleRules])
-  const metadata = await metascraper({
-    html,
-    url: 'http://127.0.0.1:8080'
-  })
-
-  should(metadata.title).be.equal(
-    '&lt;script src=‘http://127.0.0.1:8080/malware.js’&gt;&lt;/script&gt;'
-  )
-})
-
 it('load extra rules', async () => {
   const url = 'https://microlink.io'
 
