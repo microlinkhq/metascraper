@@ -1,38 +1,28 @@
 'use strict'
 
-const { extract, hasProvider } = require('oembed-parser')
 const { memoizeOne } = require('@metascraper/helpers')
 const pReflect = require('p-reflect')
+const oEmbed = require('oembed-spec')
 const { get } = require('lodash')
 
+const findProvider = memoizeOne(oEmbed.findProvider)
+
+const { fetchProvider } = oEmbed
+
 const fromProvider = async ({ url, meta, htmlDom, ...opts }) => {
-  const { value } = await pReflect(extract(findProviderUrl(url), opts))
+  const provider = findProvider(url)
+
+  const { value } = await pReflect(
+    fetchProvider(provider, {
+      opts,
+      url,
+      format: 'json'
+    })
+  )
+
   return get(value, 'html', null)
 }
 
-const findProviderUrl = memoizeOne(url => {
-  let providerUrl
-
-  // build up a list of URL variations to test against because the oembed
-  // providers list is not always up to date with scheme or www vs non-www
-  const baseUrl = url.replace(/^\/\/|^https?:\/\/(?:www\.)?/, '')
-  const testUrls = [
-    `http://${baseUrl}`,
-    `https://${baseUrl}`,
-    `http://www.${baseUrl}`,
-    `https://www.${baseUrl}`
-  ]
-
-  for (const testUrl of testUrls) {
-    if (hasProvider(testUrl)) {
-      providerUrl = testUrl
-      break
-    }
-  }
-
-  return providerUrl
-})
-
-fromProvider.test = url => !!findProviderUrl(url)
+fromProvider.test = url => findProvider(url) !== undefined
 
 module.exports = fromProvider
