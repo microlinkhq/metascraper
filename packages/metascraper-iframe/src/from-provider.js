@@ -11,15 +11,7 @@ const { fetchProvider } = oEmbed
 
 const fromProvider = async ({ url, meta, htmlDom, ...opts }) => {
   const provider = findProvider(url)
-
-  const { value } = await pReflect(
-    fetchProvider(provider, {
-      opts,
-      url,
-      format: 'json'
-    })
-  )
-
+  const { value } = await pReflect(fetchProvider(provider, url, opts))
   return get(value, 'html', null)
 }
 
