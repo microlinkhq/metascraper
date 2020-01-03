@@ -21,6 +21,6 @@ module.exports = () => ({
     toImage($ => $filter($, $('article img[src]'), getSrc)),
     toImage($ => $filter($, $('#content img[src]'), getSrc)),
     toImage($ => $('img[alt*="author" i]').attr('src')),
-    toImage($ => $('img[src]').attr('src'))
+    toImage($ => $('img[src]:not([aria-hidden="true"])').attr('src'))
   ]
 })

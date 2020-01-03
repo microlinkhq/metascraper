@@ -1020,3 +1020,16 @@ exports['bukvy 1'] = {
   "url": "https://bykvu.com/ru/bukvy/107312-ukraina-budet-uvazhat-religioznyj-vybor-kazhdogo-grazhdanina-poroshenko/"
 }
 
+exports['yandex 1'] = {
+  "author": null,
+  "date": "2020-01-03T10:40:00.000Z",
+  "description": "Не удалось загрузить данные",
+  "image": "https://avatars.mds.yandex.net/get-banana/64225/x25G_Jg8R53qYZ50bElMrXP9_banana_20161021_everesthd.png/optimize",
+  "video": null,
+  "lang": "ru",
+  "logo": "https://yastatic.net/iconostasis/_/wT9gfGZZ80sP0VsoR6dgDyXJf2Y.png",
+  "publisher": "Яндекс",
+  "title": "Яндекс",
+  "url": "https://yandex.ru/"
+}
+
