@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.4](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.9.3...v5.9.4) (2020-01-03)
+
+**Note:** Version bump only for package metascraper-iframe
+
+
+
+
+
 ## [5.9.3](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.9.2...v5.9.3) (2020-01-02)
 
 **Note:** Version bump only for package metascraper-iframe
