@@ -20,7 +20,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'https://html-microservice.herokuapp.com/https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding'
+  'https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding'
 
 it('health.govt.nz', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
