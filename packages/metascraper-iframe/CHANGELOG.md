@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.9.5...v5.10.0) (2020-01-07)
+
+
+### Features
+
+* support pass custom got opts ([8b04337](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/commit/8b04337d8009b988f4798dd760f0a241196d9ada))
+
+
+
+
+
 ## [5.9.5](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.9.4...v5.9.5) (2020-01-07)
 
 **Note:** Version bump only for package metascraper-iframe
