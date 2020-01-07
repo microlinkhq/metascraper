@@ -9,9 +9,9 @@ const findProvider = memoizeOne(oEmbed.findProvider)
 
 const { fetchProvider } = oEmbed
 
-const fromProvider = async ({ url, meta, htmlDom, ...opts }) => {
+const fromProvider = gotOpts => async ({ url, meta, htmlDom, ...opts }) => {
   const provider = findProvider(url)
-  const { value } = await pReflect(fetchProvider(provider, url, opts))
+  const { value } = await pReflect(fetchProvider(provider, url, opts, gotOpts))
   return get(value, 'html', null)
 }
 

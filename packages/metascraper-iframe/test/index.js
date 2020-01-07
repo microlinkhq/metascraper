@@ -39,7 +39,7 @@ describe('metascraper-iframe', () => {
       should(isValid).be.true()
     })
   })
-  describe('iframe', () => {
+  describe('get iframe', () => {
     describe('from common providers', () => {
       commonProviders.forEach(url => {
         it(url, async () => {
@@ -56,6 +56,21 @@ describe('metascraper-iframe', () => {
       const metascraper = createMetascraper(rules)
       const meta = await metascraper({ url, html })
       should(meta.iframe).be.not.null()
+    })
+  })
+  describe('opts', () => {
+    it('pass custom got options', async () => {
+      const cache = new Map()
+      const gotOpts = { json: true, retry: 0, cache }
+
+      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
+      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+
+      const rules = [createMetascraperIframe({ gotOpts })]
+      const metascraper = createMetascraper(rules)
+      const meta = await metascraper({ url, html })
+      should(meta.iframe).be.not.null()
+      should(cache.size).be.equal(1)
     })
   })
 })
