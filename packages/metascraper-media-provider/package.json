@@ -25,7 +25,7 @@
     "p-reflect": "~2.1.0",
     "p-retry": "~4.2.0",
     "tldts": "~5.6.3",
-    "youtube-dl": "~2.3.0"
+    "youtube-dl": "~3.0.0"
   },
   "devDependencies": {
     "is-ci": "latest",
