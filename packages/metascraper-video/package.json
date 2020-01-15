@@ -2,7 +2,7 @@
   "name": "metascraper-video",
   "description": "Get video property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-video",
-  "version": "5.9.5",
+  "version": "5.10.3",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "video"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.9.5",
+    "@metascraper/helpers": "^5.10.3",
     "lodash": "~4.17.15"
   },
   "devDependencies": {
