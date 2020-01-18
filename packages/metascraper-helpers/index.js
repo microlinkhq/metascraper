@@ -9,7 +9,6 @@ const {
   includes,
   invoke,
   isArray,
-  isDate,
   isEmpty,
   isNumber,
   isString,
@@ -24,7 +23,6 @@ const {
 const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
-
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
@@ -189,8 +187,10 @@ const url = (value, { url = '' } = {}) => {
   return isUri(value) ? value : null
 }
 
+const LANGUAGES_DETECTION_SUPPORTED = ['fr', 'en', 'es', 'pt', 'ja', 'de']
+
 const date = value => {
-  if (!(isString(value) || isNumber(value))) return false
+  if (!(isString(value) || isNumber(value))) return undefined
 
   // remove whitespace for easier parsing
   if (isString(value)) trim(value)
@@ -202,8 +202,19 @@ const date = value => {
     return new Date(toString(value)).toISOString()
   }
 
-  const parsed = chrono.parseDate(value)
-  if (isDate(parsed)) return parsed.toISOString()
+  let parsedValue
+
+  for (let index = 0; index < LANGUAGES_DETECTION_SUPPORTED.length; index++) {
+    const lang = LANGUAGES_DETECTION_SUPPORTED[index]
+    const parsed = chrono[lang].parseDate(value)
+
+    if (parsed && !isNaN(parsed.getTime())) {
+      parsedValue = parsed.toISOString()
+      break
+    }
+  }
+
+  return parsedValue
 }
 
 const lang = value => {

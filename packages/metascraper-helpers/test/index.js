@@ -310,10 +310,16 @@ describe('metascraper-helpers', () => {
   })
 
   it('.date', () => {
+    should(date('')).be.equal(undefined)
+    should(date()).be.equal(undefined)
+    should(date(undefined)).be.equal(undefined)
+    should(date(null)).be.equal(undefined)
+    should(date('null')).be.equal(undefined)
     should(date('Jun 20')).be.equal('2020-06-20T12:00:00.000Z')
     should(date('Jun 20 2018')).be.equal('2018-06-20T12:00:00.000Z')
     should(date('Jun 2018')).be.equal('2018-06-01T12:00:00.000Z')
     should(date(2010)).be.equal('2010-01-01T00:00:00.000Z')
+    should(date('11 juil. 2019')).be.equal(undefined)
   })
 })
 
