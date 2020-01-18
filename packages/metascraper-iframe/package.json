@@ -31,7 +31,7 @@
     "standard": "latest"
   },
   "engines": {
-    "node": ">= 8"
+    "node": ">= 10"
   },
   "files": [
     "src"
