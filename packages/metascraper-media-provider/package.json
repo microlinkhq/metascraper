@@ -46,6 +46,13 @@
     "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper-media-provider:test*  NODE_ENV=test mocha test"
   },
   "license": "MIT",
+  "mocha": {
+    "bail": true,
+    "recursive": true,
+    "reporter": "spec",
+    "slow": 300,
+    "timeout": "120000"
+  },
   "standard": {
     "env": [
       "mocha"
