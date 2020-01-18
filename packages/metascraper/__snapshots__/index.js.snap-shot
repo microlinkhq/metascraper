@@ -754,7 +754,7 @@ exports['the-verge 1'] = {
 
 exports['twitter (tweet with gif) 1'] = {
   "author": "Kikobeats",
-  "date": "2017-06-28T21:01:00.000Z",
+  "date": "2017-06-28T12:00:00.000Z",
   "description": "“Experimenting with Clearbit API + Apple TV 3D Parallax https://t.co/Qsm163k4mJ https://t.co/5bcuqoEyAa”",
   "image": "https://pbs.twimg.com/profile_images/876748424690925568/14xPNAvw_400x400.jpg",
   "video": null,
@@ -767,7 +767,7 @@ exports['twitter (tweet with gif) 1'] = {
 
 exports['twitter (tweet with image) 1'] = {
   "author": "k4rliky",
-  "date": "2017-11-25T19:04:00.000Z",
+  "date": "2017-11-25T12:00:00.000Z",
   "description": "“Lo mejor de @codemotion_es #codemotionMadrid es estar con la gente que quieres 😍@ladyCircus”",
   "image": "https://pbs.twimg.com/media/DPfzNMGXUAESoL3.jpg:large",
   "video": null,
@@ -1022,7 +1022,7 @@ exports['bukvy 1'] = {
 
 exports['yandex 1'] = {
   "author": null,
-  "date": "2020-01-14T10:40:00.000Z",
+  "date": "2020-01-18T10:40:00.000Z",
   "description": "Не удалось загрузить данные",
   "image": "https://avatars.mds.yandex.net/get-banana/64225/x25G_Jg8R53qYZ50bElMrXP9_banana_20161021_everesthd.png/optimize",
   "video": null,
