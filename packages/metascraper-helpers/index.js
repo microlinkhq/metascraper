@@ -190,7 +190,7 @@ const url = (value, { url = '' } = {}) => {
 const LANGUAGES_DETECTION_SUPPORTED = ['fr', 'en', 'es', 'pt', 'ja', 'de']
 
 const date = value => {
-  if (!(isString(value) || isNumber(value))) return false
+  if (!(isString(value) || isNumber(value))) return undefined
 
   // remove whitespace for easier parsing
   if (isString(value)) trim(value)
@@ -202,7 +202,7 @@ const date = value => {
     return new Date(toString(value)).toISOString()
   }
 
-  let parsedValue = false
+  let parsedValue
 
   for (let index = 0; index < LANGUAGES_DETECTION_SUPPORTED.length; index++) {
     const lang = LANGUAGES_DETECTION_SUPPORTED[index]
@@ -218,9 +218,9 @@ const date = value => {
 }
 
 const lang = value => {
-  if (isEmpty(value)) return false
+  if (isEmpty(value)) return undefined
   const lang = toLower(value.trim().substring(0, 2))
-  return includes(langs, lang) ? lang : false
+  return includes(langs, lang) ? lang : undefined
 }
 
 const title = (value, { removeSeparator = false } = {}) =>
