@@ -1022,7 +1022,7 @@ exports['bukvy 1'] = {
 
 exports['yandex 1'] = {
   "author": null,
-  "date": "2020-01-18T10:40:00.000Z",
+  "date": "2020-01-21T10:40:00.000Z",
   "description": "Не удалось загрузить данные",
   "image": "https://avatars.mds.yandex.net/get-banana/64225/x25G_Jg8R53qYZ50bElMrXP9_banana_20161021_everesthd.png/optimize",
   "video": null,

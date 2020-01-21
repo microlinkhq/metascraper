@@ -20,9 +20,9 @@ const {
   trim
 } = require('lodash')
 
-const langs = require('iso-639-3').map(({ iso6391 }) => iso6391)
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
+const langs = Object.values(require('iso-639-3/to-1'))
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
@@ -190,7 +190,7 @@ const url = (value, { url = '' } = {}) => {
 const LANGUAGES_DETECTION_SUPPORTED = ['fr', 'en', 'es', 'pt', 'ja', 'de']
 
 const date = value => {
-  if (!(isString(value) || isNumber(value))) return undefined
+  if (!(isString(value) || isNumber(value))) return false
 
   // remove whitespace for easier parsing
   if (isString(value)) trim(value)
@@ -202,7 +202,7 @@ const date = value => {
     return new Date(toString(value)).toISOString()
   }
 
-  let parsedValue
+  let parsedValue = false
 
   for (let index = 0; index < LANGUAGES_DETECTION_SUPPORTED.length; index++) {
     const lang = LANGUAGES_DETECTION_SUPPORTED[index]
@@ -220,8 +220,7 @@ const date = value => {
 const lang = value => {
   if (isEmpty(value)) return false
   const lang = toLower(value.trim().substring(0, 2))
-  const isLang = includes(langs, lang)
-  return isLang ? lang : false
+  return includes(langs, lang) ? lang : false
 }
 
 const title = (value, { removeSeparator = false } = {}) =>
