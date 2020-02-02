@@ -70,7 +70,7 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
     )
 
     if (isFulfilled) return value.body
-    if (reason.statusCode === 404) return {}
+    if (reason.response.statusCode === 404) return {}
     throw reason
   }
 
