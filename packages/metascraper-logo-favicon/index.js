@@ -41,8 +41,7 @@ const sizeSelectors = [
 const toUrl = toRule(urlFn)
 
 const DEFAULT_GOT_OPTS = {
-  timeout: 3000,
-  retry: 0
+  timeout: 3000
 }
 
 /**

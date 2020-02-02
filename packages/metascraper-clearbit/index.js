@@ -10,8 +10,7 @@ const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
 
 const DEFAULT_GOT_OPTS = {
   responseType: 'json',
-  timeout: 3000,
-  retry: 0
+  timeout: 3000
 }
 
 const appendQuery = (data, query) => {
