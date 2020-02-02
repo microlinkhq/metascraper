@@ -39,10 +39,10 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
       try {
         data = await getInfo(url, flags)
       } catch (rawError) {
-        const err = youtubedlError({ rawError, url, flags })
-        debug('getInfo:err', err.message)
-        onError(err, url)
-        if (err.unsupportedUrl) return data
+        const error = youtubedlError({ rawError, url, flags })
+        debug('getInfo:error', error.message)
+        onError(error, url)
+        if (error.unsupportedUrl) return data
         if (!tunnel) return data
         retry.incr()
       }
