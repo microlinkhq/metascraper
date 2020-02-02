@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.10.7",
-    "jsdom": "~16.0.1",
+    "jsdom": "~16.1.0",
     "readability": "github:mozilla/readability"
   },
   "devDependencies": {
