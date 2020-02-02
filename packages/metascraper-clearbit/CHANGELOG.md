@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0](https://github.com/microlinkhq/metascraper-clearbit/compare/v5.10.7...v5.11.0) (2020-02-02)
+
+
+### Features
+
+* update got ([aa9481e](https://github.com/microlinkhq/metascraper-clearbit/commit/aa9481e2487a9054b2f5586e014c18dd6fb42626))
+
+
+
+
+
 ## [5.10.7](https://github.com/microlinkhq/metascraper-clearbit/compare/v5.10.6...v5.10.7) (2020-02-01)
 
 **Note:** Version bump only for package metascraper-clearbit

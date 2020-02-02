@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0](https://github.com/microlinkhq/metascraper-logo-favicon/compare/v5.10.7...v5.11.0) (2020-02-02)
+
+
+### Features
+
+* update got ([f11838b](https://github.com/microlinkhq/metascraper-logo-favicon/commit/f11838b20742a60a87124878ade2761b31828b7f))
+
+
+
+
+
 ## [5.10.7](https://github.com/microlinkhq/metascraper-logo-favicon/compare/v5.10.6...v5.10.7) (2020-02-01)
 
 **Note:** Version bump only for package metascraper-logo-favicon

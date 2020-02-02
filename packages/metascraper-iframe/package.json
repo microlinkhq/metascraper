@@ -2,7 +2,7 @@
   "name": "metascraper-iframe",
   "description": "Embed a representation of an URL on third party sites",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-iframe",
-  "version": "5.10.7",
+  "version": "5.11.0",
   "main": "src/index.js",
   "repository": {
     "type": "git",
