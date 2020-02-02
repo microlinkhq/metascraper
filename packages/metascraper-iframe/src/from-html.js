@@ -14,8 +14,10 @@ const fromHTML = gotOpts => async ({ url, meta, htmlDom, ...opts }) => {
   if (!oembedUrl) return null
   const oembedUrlObj = new URL(oembedUrl)
   forEach(opts, (value, key) => oembedUrlObj.searchParams.append(key, value))
-  const { value } = await pReflect(got(oembedUrlObj.toString(), gotOpts))
-  return get(value, 'body.html', null)
+  const { value } = await pReflect(
+    got(oembedUrlObj.toString(), gotOpts).json()
+  )
+  return get(value, 'html', null)
 }
 
 fromHTML.test = $ => !!jsonOembed($)

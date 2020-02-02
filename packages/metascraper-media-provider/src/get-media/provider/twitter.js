@@ -34,8 +34,7 @@ const createGuestToken = ({ userAgent, tunnel }) => {
         const { body } = await got.post(
           'https://api.twitter.com/1.1/guest/activate.json',
           {
-            json: true,
-            retry: 0,
+            responseType: 'json',
             agent,
             headers: {
               authorization: TWITTER_BEARER_TOKEN,
@@ -59,8 +58,7 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
   const getData = async (apiUrl, url, token) => {
     const { isFulfilled, value, reason } = await pReflect(
       got(apiUrl, {
-        retry: 0,
-        json: true,
+        responseType: 'json',
         headers: {
           referer: url,
           'x-guest-token': token,

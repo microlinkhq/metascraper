@@ -61,7 +61,7 @@ describe('metascraper-iframe', () => {
   describe('opts', () => {
     it('pass custom got options', async () => {
       const cache = new Map()
-      const gotOpts = { json: true, retry: 0, cache }
+      const gotOpts = { cache }
 
       const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'

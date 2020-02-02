@@ -12,8 +12,7 @@ const test = memoizeOne(
   ({ url, htmlDom: $ }) => htmlTest($) || providerTest(url)
 )
 
-module.exports = ({ gotOpts: _gotOpts } = {}) => {
-  const gotOpts = { json: true, retry: 0, ..._gotOpts }
+module.exports = ({ gotOpts } = {}) => {
   const rules = { iframe: [fromHTML(gotOpts), fromProvider(gotOpts)] }
   rules.test = test
   return rules
