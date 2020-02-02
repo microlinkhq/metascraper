@@ -114,12 +114,10 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier-standard",
-      "git add"
+      "prettier-standard"
     ],
     "package.json": [
-      "finepack",
-      "git add"
+      "finepack"
     ]
   },
   "standard": {
