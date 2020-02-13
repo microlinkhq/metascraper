@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.1](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-publisher/compare/v5.11.0...v5.11.1) (2020-02-13)
+
+**Note:** Version bump only for package metascraper-publisher
+
+
+
+
+
 ## [5.10.7](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-publisher/compare/v5.10.6...v5.10.7) (2020-02-01)
 
 **Note:** Version bump only for package metascraper-publisher
