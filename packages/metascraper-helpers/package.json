@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "~1.4.2",
+    "chrono-node": "~1.4.3",
     "condense-whitespace": "~2.0.0",
     "entities": "~2.0.0",
     "file-extension": "~4.0.5",
