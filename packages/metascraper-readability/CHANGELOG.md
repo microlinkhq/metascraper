@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.3](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability/compare/v5.11.2...v5.11.3) (2020-02-17)
+
+
+### Bug Fixes
+
+* avoid to reuse virtual console ([eec0404](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability/commit/eec04045cc8ff3cff19a4786be39864b88d1e1a4))
+
+
+
+
+
 ## [5.11.2](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability/compare/v5.11.1...v5.11.2) (2020-02-17)
 
 **Note:** Version bump only for package metascraper-readability
