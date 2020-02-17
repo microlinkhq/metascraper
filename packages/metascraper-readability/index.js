@@ -5,12 +5,10 @@ const { memoizeOne, composeRule } = require('@metascraper/helpers')
 const Readability = require('readability')
 const jsdom = require('jsdom')
 
-const { JSDOM } = jsdom
-
-const virtualConsole = new jsdom.VirtualConsole()
+const { JSDOM, VirtualConsole } = jsdom
 
 const readability = memoizeOne(($, url) => {
-  const dom = new JSDOM($.html(), { virtualConsole, url })
+  const dom = new JSDOM($.html(), { url, virtualConsole: new jsdom.VirtualConsole() })
   const reader = new Readability(dom.window.document)
   return reader.parse()
 })
