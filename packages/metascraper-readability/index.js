@@ -8,7 +8,7 @@ const jsdom = require('jsdom')
 const { JSDOM, VirtualConsole } = jsdom
 
 const readability = memoizeOne(($, url) => {
-  const dom = new JSDOM($.html(), { url, virtualConsole: new jsdom.VirtualConsole() })
+  const dom = new JSDOM($.html(), { url, virtualConsole: new VirtualConsole() })
   const reader = new Readability(dom.window.document)
   return reader.parse()
 })
