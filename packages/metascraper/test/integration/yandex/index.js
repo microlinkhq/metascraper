@@ -3,6 +3,7 @@
 const snapshot = require('snap-shot')
 const { resolve } = require('path')
 const { readFile } = require('fs').promises
+const should = require('should')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -24,5 +25,7 @@ const url = 'https://yandex.ru/'
 it('yandex', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
+  should(typeof metadata.date === 'string').be.true()
+  delete metadata.date
   snapshot(metadata)
 })
