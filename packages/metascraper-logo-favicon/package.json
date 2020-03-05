@@ -2,7 +2,7 @@
   "name": "metascraper-logo-favicon",
   "description": "metascraper logo favicon fallback",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-logo-favicon",
-  "version": "5.11.4",
+  "version": "5.11.6",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.11.1",
+    "@metascraper/helpers": "^5.11.6",
     "got": "~10.6.0",
     "lodash": "~4.17.15"
   },

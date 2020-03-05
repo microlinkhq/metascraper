@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.6](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability/compare/v5.11.5...v5.11.6) (2020-03-05)
+
+**Note:** Version bump only for package metascraper-readability
+
+
+
+
+
 ## [5.11.3](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability/compare/v5.11.2...v5.11.3) (2020-02-17)
 
 
