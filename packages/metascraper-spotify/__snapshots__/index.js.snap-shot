@@ -7,7 +7,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 1'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -20,7 +19,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 2'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -33,7 +31,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 3'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -46,7 +43,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 4'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -59,7 +55,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 5'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -72,7 +67,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 6'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -85,7 +79,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 7'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -98,7 +91,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 8'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -111,7 +103,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 9'] = 
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -124,7 +115,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 10'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -137,7 +127,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 11'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -150,7 +139,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 12'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -163,7 +151,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 13'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -176,20 +163,18 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 14'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
 exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 15'] = {
-  "title": "null",
-  "image": "null",
-  "audio": "null",
+  "title": "string",
+  "image": "string",
+  "audio": "string",
   "url": "string",
-  "author": "null",
+  "author": "string",
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -202,7 +187,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 16'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -215,7 +199,6 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 17'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
   "publisher": "null"
 }
 
@@ -228,7 +211,19 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 18'] =
   "date": "null",
   "description": "null",
   "lang": "null",
-  "logo": "string",
+  "publisher": "null"
+}
+
+exports['d7d3d924d8310dcb2bd8aed419f9f33b2098c82f6193a6e9031e2e11bfb9b1c0 1'] = {
+  "title": "string",
+  "image": "string",
+  "audio": "string",
+  "url": "string",
+  "author": "string",
+  "date": "null",
+  "description": "null",
+  "lang": "null",
+  "logo": "null",
   "publisher": "null"
 }
 
