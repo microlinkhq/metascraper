@@ -13,7 +13,7 @@ $ npm install metascraper-description --save
 
 ## API
 
-### netascraper-description([options])
+### metascraper-description([options])
 
 #### options
 
