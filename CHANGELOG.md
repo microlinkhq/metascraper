@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.10](https://github.com/microlinkhq/metascraper/compare/v5.11.9...v5.11.10) (2020-04-27)
+
+
+### Bug Fixes
+
+* identation ([a90843a](https://github.com/microlinkhq/metascraper/commit/a90843a4530c71aea61319b473af2ca271c9cae4))
+
+
+
+
+
 ## [5.11.9](https://github.com/microlinkhq/metascraper/compare/v5.11.8...v5.11.9) (2020-04-14)
 
 **Note:** Version bump only for package metascraper
