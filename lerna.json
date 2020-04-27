@@ -3,7 +3,7 @@
     "packages/*"
   ],
   "version": "5.11.9",
-   "command": {
+  "command": {
     "bootstrap": {
       "npmClientArgs": [
         "--no-package-lock"
