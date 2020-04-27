@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "~1.4.5",
+    "chrono-node": "~1.4.6",
     "condense-whitespace": "~2.0.0",
     "entities": "~2.0.0",
     "file-extension": "~4.0.5",
@@ -29,7 +29,7 @@
     "isostring": "0.0.1",
     "lodash": "~4.17.15",
     "memoize-one": "~5.1.1",
-    "mime-types": "~2.1.26",
+    "mime-types": "~2.1.27",
     "normalize-url": "~5.0.0",
     "smartquotes": "~2.3.1",
     "title": "~3.4.2",
