@@ -35,7 +35,7 @@ const createGuestToken = ({ userAgent, tunnel }) => {
           'https://api.twitter.com/1.1/guest/activate.json',
           {
             responseType: 'json',
-            agent,
+            agent: agent ? { https: agent } : undefined,
             headers: {
               authorization: TWITTER_BEARER_TOKEN,
               origin: 'https://twitter.com',
