@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.13](https://github.com/microlinkhq/metascraper/compare/v5.11.12...v5.11.13) (2020-05-08)
+
+
+### Bug Fixes
+
+* agent interface ([b3f899c](https://github.com/microlinkhq/metascraper/commit/b3f899c9ba158ca0cc17808c97ba20982c211b69))
+
+
+
+
+
 ## [5.11.12](https://github.com/microlinkhq/metascraper/compare/v5.11.11...v5.11.12) (2020-05-04)
 
 **Note:** Version bump only for package metascraper
