@@ -19,9 +19,9 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.11.10",
-    "got": "~11.1.0",
+    "got": "~11.1.2",
     "lodash": "~4.17.15",
-    "tldts": "~5.6.24"
+    "tldts": "~5.6.25"
   },
   "devDependencies": {
     "mocha": "latest",
