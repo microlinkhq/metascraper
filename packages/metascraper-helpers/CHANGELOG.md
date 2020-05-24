@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.14](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.11.13...v5.11.14) (2020-05-24)
+
+
+### Bug Fixes
+
+* consider NaN as falsy value ([bec5c10](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/bec5c10d59563b39272004be1f9242d2417cd846))
+
+
+
+
+
 ## [5.11.10](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.11.9...v5.11.10) (2020-04-27)
 
 **Note:** Version bump only for package @metascraper/helpers
