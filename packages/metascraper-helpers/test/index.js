@@ -323,7 +323,7 @@ describe('metascraper-helpers', () => {
   })
 })
 
-describe('.has', () => {
+describe.only('.has', () => {
   describe('true', () => {
     it('true', () => {
       should(has(true)).be.true()
@@ -363,6 +363,9 @@ describe('.has', () => {
     })
     it('[]', () => {
       should(has([])).be.false()
+    })
+    it('NaN', () => {
+      should(has(NaN)).be.false()
     })
   })
 })

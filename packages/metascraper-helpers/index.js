@@ -300,7 +300,9 @@ const composeRule = fn => ({ from, to = from, ...opts }) => async ({
 }
 
 const has = value =>
-  value === null || value === false || value === 0 ? false : hasValues(value)
+  value === null || value === false || value === 0 || Number.isNaN(value)
+    ? false
+    : hasValues(value)
 
 module.exports = {
   $filter,
