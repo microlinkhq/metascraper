@@ -323,7 +323,7 @@ describe('metascraper-helpers', () => {
   })
 })
 
-describe.only('.has', () => {
+describe('.has', () => {
   describe('true', () => {
     it('true', () => {
       should(has(true)).be.true()

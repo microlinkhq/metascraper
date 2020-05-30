@@ -21,14 +21,14 @@
     "debug": "~4.1.1",
     "got": "~11.1.4",
     "lodash": "~4.17.15",
-    "luminati-tunnel": "~1.3.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.2.0",
+    "proxies-pool": "~2.0.0",
     "tldts": "~5.6.29",
+    "tunnel": "0.0.6",
     "youtube-dl": "~3.0.2"
   },
   "devDependencies": {
-    "is-ci": "latest",
     "mocha": "latest",
     "should": "latest",
     "snap-shot": "latest",
@@ -43,7 +43,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper-media-provider:test*  NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*  NODE_ENV=test mocha test"
   },
   "license": "MIT",
   "mocha": {

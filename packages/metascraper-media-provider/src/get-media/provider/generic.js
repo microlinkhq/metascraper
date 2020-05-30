@@ -5,7 +5,7 @@ const youtubedl = require('youtube-dl')
 const { isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const { isVimeoUrl, getAgent, expirableCounter, proxyUri } = require('../util')
+const { isDomainUrl, getAgent, expirableCounter, proxyUri } = require('../util')
 const youtubedlError = require('./youtube-dl-error')
 
 const getInfo = promisify(youtubedl.getInfo)
@@ -25,17 +25,24 @@ const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   return flags
 }
 
-module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
+module.exports = ({ proxyPool, onError, userAgent, cacheDir }) => {
   const retry = expirableCounter()
-  const hasTunnel = () => tunnel && retry.val() < tunnel.size()
+  const hasProxy = () => proxyPool && retry.val() < proxyPool.size()
 
   return async url => {
     let data = {}
     do {
       const agent =
-        retry.val() || isVimeoUrl(url) ? getAgent(tunnel) : undefined
+        retry.val() || isDomainUrl(url, ['vimeo'])
+          ? getAgent(proxyPool)
+          : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
-      debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
+      debug(
+        `getInfo retry=${retry.val()} url=${url} flags=${flags
+          .join(' ')
+          .replace(/--proxy=(.*)/g, '--proxy=***')}`
+      )
+
       try {
         data = await getInfo(url, flags)
       } catch (rawError) {
@@ -43,10 +50,10 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
         debug('getInfo:error', error.message)
         onError(error, url)
         if (error.unsupportedUrl) return data
-        if (!tunnel) return data
+        if (!proxyPool) return data
         retry.incr()
       }
-    } while (isEmpty(data) && hasTunnel())
+    } while (isEmpty(data) && hasProxy())
     return data
   }
 }

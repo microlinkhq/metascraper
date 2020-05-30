@@ -5,11 +5,11 @@ const userAgent = require('ua-string')
 const { noop } = require('lodash')
 
 const createFromGeneric = require('../../src/get-media/provider/generic')
-const { createTunnel } = require('../../src/get-media/util')
+const { createProxiesPool } = require('../../src/get-media/util')
 const { proxies, urls } = require('../constants')
 
-const tunnel = createTunnel(proxies)
-const fromGeneric = createFromGeneric({ tunnel, onError: noop, userAgent })
+const proxyPool = createProxiesPool(proxies)
+const fromGeneric = createFromGeneric({ proxyPool, onError: noop, userAgent })
 const getUrl = uniqueRandomArray(urls)
 
 // When it reaches the max, it returns a 429 rate limit error

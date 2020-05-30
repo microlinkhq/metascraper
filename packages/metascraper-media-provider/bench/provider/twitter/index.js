@@ -4,15 +4,15 @@ const {
   createGuestToken,
   createGetTwitterVideo
 } = require('../../../src/get-media/provider/twitter')
-const { createTunnel } = require('../../../src/get-media/util')
+const { createProxiesPool } = require('../../../src/get-media/util')
 const uniqueRandomArray = require('unique-random-array')
 const userAgent = require('ua-string')
 
 const { proxies, urls } = require('../../constants')
 
 const getUrl = uniqueRandomArray(urls)
-const tunnel = createTunnel(proxies)
-const getGuestToken = createGuestToken({ userAgent, tunnel })
+const proxyPool = createProxiesPool(proxies)
+const getGuestToken = createGuestToken({ userAgent, proxyPool })
 const twitterVideo = createGetTwitterVideo({ userAgent, getGuestToken })
 
 const mainLoop = async () => {

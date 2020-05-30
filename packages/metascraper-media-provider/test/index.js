@@ -3,7 +3,6 @@
 const debug = require('debug')('metascraper-media-provider:test')
 const snapshot = require('snap-shot')
 const should = require('should')
-const isCI = require('is-ci')
 
 const { PROXIES } = process.env
 
@@ -55,7 +54,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    ;(isCI ? describe.skip : describe)('vimeo', () => {
+    describe('vimeo', () => {
       ;[
         'https://vimeo.com/channels/staffpicks/287117046',
         'https://vimeo.com/186386161'
@@ -67,7 +66,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    ;(isCI ? describe.skip : describe)('youtube', () => {
+    describe('youtube', () => {
       ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
@@ -77,7 +76,7 @@ describe('metascraper-media-provider', () => {
       })
     })
 
-    describe('instagram', () => {
+    describe.skip('instagram', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
@@ -86,7 +85,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    ;(isCI ? describe.skip : describe)('twitter', () => {
+    describe('twitter', () => {
       ;[
         'https://twitter.com/verge/status/957383241714970624',
         'https://twitter.com/telediario_tve/status/1036860275859775488',
@@ -143,7 +142,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    ;(isCI ? describe.skip : describe)('soundcloud', () => {
+    describe('soundcloud', () => {
       ;[
         'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
       ].forEach(url => {
