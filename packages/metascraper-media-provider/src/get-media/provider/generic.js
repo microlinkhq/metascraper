@@ -33,7 +33,7 @@ module.exports = ({ proxyPool, onError, userAgent, cacheDir }) => {
     let data = {}
     do {
       const agent =
-        retry.val() || isDomainUrl(url, ['instagram', 'vimeo'])
+        retry.val() || isDomainUrl(url, ['vimeo'])
           ? getAgent(proxyPool)
           : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
