@@ -1,5 +1,4 @@
 module.exports = {
-  apiKey: process.env.MICROLINK_API_KEY,
   proxies: process.env.PROXIES.split(','),
   urls: [
     'https://twitter.com/Tour_du_Rwanda/status/1111166645475700737',

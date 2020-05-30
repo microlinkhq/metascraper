@@ -29,7 +29,6 @@
     "youtube-dl": "~3.0.2"
   },
   "devDependencies": {
-    "is-ci": "latest",
     "mocha": "latest",
     "should": "latest",
     "snap-shot": "latest",
@@ -44,7 +43,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper-media-provider:test*  NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*  NODE_ENV=test mocha test"
   },
   "license": "MIT",
   "mocha": {

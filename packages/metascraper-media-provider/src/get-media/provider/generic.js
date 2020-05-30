@@ -35,7 +35,12 @@ module.exports = ({ proxyPool, onError, userAgent, cacheDir }) => {
       const agent =
         retry.val() || isVimeoUrl(url) ? getAgent(proxyPool) : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
-      debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
+      debug(
+        `getInfo retry=${retry.val()} url=${url} flags=${flags
+          .join(' ')
+          .replace(/--proxy=(.*)/g, '--proxy=***')}`
+      )
+
       try {
         data = await getInfo(url, flags)
       } catch (rawError) {
