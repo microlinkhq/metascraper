@@ -5,7 +5,7 @@ const youtubedl = require('youtube-dl')
 const { isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const { isVimeoUrl, getAgent, expirableCounter, proxyUri } = require('../util')
+const { isDomainUrl, getAgent, expirableCounter, proxyUri } = require('../util')
 const youtubedlError = require('./youtube-dl-error')
 
 const getInfo = promisify(youtubedl.getInfo)
@@ -33,7 +33,9 @@ module.exports = ({ proxyPool, onError, userAgent, cacheDir }) => {
     let data = {}
     do {
       const agent =
-        retry.val() || isVimeoUrl(url) ? getAgent(proxyPool) : undefined
+        retry.val() || isDomainUrl(url, ['instagram', 'vimeo'])
+          ? getAgent(proxyPool)
+          : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
       debug(
         `getInfo retry=${retry.val()} url=${url} flags=${flags

@@ -2,8 +2,8 @@
 
 const debug = require('debug')('metascraper-media-provider:util')
 const { getDomainWithoutSuffix } = require('tldts')
+const { includes, isEmpty } = require('lodash')
 const proxiesPool = require('proxies-pool')
-const { isEmpty } = require('lodash')
 const tunnel = require('tunnel')
 
 const TEN_MIN_MS = 10 * 60 * 1000
@@ -13,7 +13,8 @@ const isTweet = url => url.includes('/status/')
 const isTweetUrl = url =>
   isTweet(url) && getDomainWithoutSuffix(url) === 'twitter'
 
-const isVimeoUrl = url => getDomainWithoutSuffix(url) === 'vimeo'
+const isDomainUrl = (url, domains) =>
+  includes(domains, getDomainWithoutSuffix(url))
 
 const getTweetId = url => url.split('/').reverse()[0]
 
@@ -67,6 +68,6 @@ module.exports = {
   getTweetId,
   isTweet,
   isTweetUrl,
-  isVimeoUrl,
+  isDomainUrl,
   proxyUri
 }
