@@ -25,15 +25,15 @@ const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   return flags
 }
 
-module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
+module.exports = ({ proxyPool, onError, userAgent, cacheDir }) => {
   const retry = expirableCounter()
-  const hasTunnel = () => tunnel && retry.val() < tunnel.size()
+  const hasProxy = () => proxyPool && retry.val() < proxyPool.size()
 
   return async url => {
     let data = {}
     do {
       const agent =
-        retry.val() || isVimeoUrl(url) ? getAgent(tunnel) : undefined
+        retry.val() || isVimeoUrl(url) ? getAgent(proxyPool) : undefined
       const flags = getFlags({ url, agent, userAgent, cacheDir })
       debug(`getInfo retry=${retry.val()} url=${url} flags=${flags.join(' ')}`)
       try {
@@ -43,10 +43,10 @@ module.exports = ({ tunnel, onError, userAgent, cacheDir }) => {
         debug('getInfo:error', error.message)
         onError(error, url)
         if (error.unsupportedUrl) return data
-        if (!tunnel) return data
+        if (!proxyPool) return data
         retry.incr()
       }
-    } while (isEmpty(data) && hasTunnel())
+    } while (isEmpty(data) && hasProxy())
     return data
   }
 }

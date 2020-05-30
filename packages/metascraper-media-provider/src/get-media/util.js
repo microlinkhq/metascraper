@@ -2,8 +2,9 @@
 
 const debug = require('debug')('metascraper-media-provider:util')
 const { getDomainWithoutSuffix } = require('tldts')
-const luminatiTunnel = require('luminati-tunnel')
+const proxiesPool = require('proxies-pool')
 const { isEmpty } = require('lodash')
+const tunnel = require('tunnel')
 
 const TEN_MIN_MS = 10 * 60 * 1000
 
@@ -16,18 +17,22 @@ const isVimeoUrl = url => getDomainWithoutSuffix(url) === 'vimeo'
 
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getAgent = tunnel => {
-  if (!tunnel) return
-  const agent = tunnel()
-  debug(`getAgent agent=${tunnel.index()}/${tunnel.size()}`)
-  return agent
+const getAgent = proxyPool => {
+  if (!proxyPool) return
+  const proxy = proxyPool()
+  debug(`getAgent proxy=${proxyPool.index()}/${proxyPool.size()}`)
+  return {
+    agent: {
+      http: tunnel.httpOverHttp(proxy)
+    }
+  }
 }
 
-const createTunnel = (proxies, opts) => {
+const createProxiesPool = (proxies, fromIndex) => {
   if (isEmpty(proxies)) return
-  const tunnel = luminatiTunnel(proxies, opts)
-  debug(`tunnel size=${tunnel.size()}`)
-  return tunnel
+  const proxyPool = proxiesPool(proxies, fromIndex)
+  debug(`proxiesPool size=${proxyPool.size()}`)
+  return proxyPool
 }
 
 const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
@@ -50,19 +55,18 @@ const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
   }
 }
 
-const proxyUri = agent => {
-  const { proxy } = agent.options
-  const { proxyAuth, host, port } = proxy
+const proxyUri = ({ agent }) => {
+  const { proxyAuth, host, port } = agent.http.options
   return `https://${proxyAuth}@${host}:${port}`
 }
 
 module.exports = {
-  proxyUri,
-  isTweet,
-  isVimeoUrl,
-  isTweetUrl,
-  getTweetId,
+  createProxiesPool,
+  expirableCounter,
   getAgent,
-  createTunnel,
-  expirableCounter
+  getTweetId,
+  isTweet,
+  isTweetUrl,
+  isVimeoUrl,
+  proxyUri
 }
