@@ -3,10 +3,10 @@ exports['youtube video 1'] = {
   "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
   "publisher": "YouTube",
   "image": "https://img.youtube.com/vi/hwMkbaS_M_c/maxresdefault.jpg",
-  "date": "2017-04-14T12:00:00.000Z",
-  "lang": null,
+  "date": "2017-04-14T00:00:00.000Z",
+  "lang": "es",
   "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 - YouTube",
+  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017",
   "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
 }
 
