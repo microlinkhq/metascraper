@@ -76,7 +76,7 @@ describe('metascraper-media-provider', () => {
       })
     })
 
-    describe.skip('instagram', () => {
+    describe('instagram', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
