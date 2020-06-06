@@ -28,7 +28,6 @@ const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
-const { decodeHTML } = require('entities')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
@@ -251,11 +250,7 @@ const jsonld = memoizeOne((url, $) => {
   return data
 })
 
-const $jsonld = propName => ($, url) => {
-  const json = jsonld(url, $)
-  const value = get(json, propName)
-  return isEmpty(value) ? value : decodeHTML(value)
-}
+const $jsonld = propName => ($, url) => get(jsonld(url, $), propName)
 
 const image = url
 
