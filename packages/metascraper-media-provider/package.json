@@ -19,7 +19,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.11.16",
     "debug": "~4.1.1",
-    "got": "~11.2.0",
+    "got": "~11.3.0",
     "lodash": "~4.17.15",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.2.0",
