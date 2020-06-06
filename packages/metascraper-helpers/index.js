@@ -74,7 +74,7 @@ const AUTHOR_MAX_LENGTH = 128
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
 const isUrl = (url, { relative = false } = {}) =>
-  relative ? isRelativeUrl(url) || urlRegex.test(url) : urlRegex.test(url)
+  relative ? isRelativeUrl(url) : urlRegex.test(url)
 
 const absoluteUrl = (baseUrl, relativePath) => {
   if (isEmpty(relativePath)) return new URL(baseUrl).toString()

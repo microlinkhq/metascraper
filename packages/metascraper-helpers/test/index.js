@@ -9,6 +9,7 @@ const {
   isAudioUrl,
   isVideoUrl,
   isAuthor,
+  isUrl,
   isVideoExtension,
   isAudioExtension,
   isImageExtension,
@@ -366,6 +367,32 @@ describe('.has', () => {
     })
     it('NaN', () => {
       should(has(NaN)).be.false()
+    })
+  })
+
+  describe('.isUrl', () => {
+    describe('{ relative: false }', () => {
+      it('true', () => {
+        should(isUrl('https://example.com/foo')).be.true()
+      })
+      it('false', () => {
+        should(isUrl('/foo')).be.false()
+        should(isUrl('data:image/svg+xml,%')).be.false()
+      })
+    })
+
+    describe('{ relative: true }', () => {
+      it('true', () => {
+        should(isUrl('/foo', { relative: true })).be.true()
+        should(
+          isUrl('//cdn.microlink.io/banner.png', { relative: true })
+        ).be.true()
+      })
+
+      it('false', () => {
+        should(isUrl('https://example.com/foo', { relative: true })).be.false()
+        should(isUrl('data:image/svg+xml,%', { relative: true })).be.false()
+      })
     })
   })
 })
