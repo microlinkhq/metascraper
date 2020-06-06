@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.21](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.11.20...v5.11.21) (2020-06-06)
+
+
+### Bug Fixes
+
+* .isUrl for relative URLs ([4590fdf](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/4590fdf48eec95cb01082a7232104a4c5e90e2f9))
+
+
+
+
+
 ## [5.11.20](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.11.19...v5.11.20) (2020-06-06)
 
 **Note:** Version bump only for package @metascraper/helpers
