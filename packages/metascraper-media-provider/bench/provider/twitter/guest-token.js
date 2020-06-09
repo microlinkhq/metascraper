@@ -1,21 +1,23 @@
 'use strict'
 
+const debug = require('debug-logfmt')(
+  'metascraper-media-provider:bench:twitter:get-guest-token'
+)
+
 const { createGuestToken } = require('../../../src/get-media/provider/twitter')
-const { createProxiesPool } = require('../../../src/get-media/util')
 const userAgent = require('ua-string')
 
-const { proxies } = require('../../constants')
+const { getProxy } = require('../../constants')
 
-const proxyPool = createProxiesPool(proxies)
-const getGuestToken = createGuestToken({ userAgent, proxyPool })
+const getGuestToken = createGuestToken({ userAgent, getProxy })
 
 // When it reaches the max, it returns a 429 rate limit error
 const mainLoop = async () => {
-  let index = 0
+  let n = 0
   while (true) {
     try {
       const guestToken = await getGuestToken()
-      console.log(++index, guestToken)
+      debug({ n: ++n, guestToken })
     } catch (err) {
       console.error('ERR', err)
     }

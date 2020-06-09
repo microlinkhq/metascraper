@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('metascraper-media-provider:test')
+const debug = require('debug-logfmt')('metascraper-media-provider:test')
 const snapshot = require('snap-shot')
 const should = require('should')
 

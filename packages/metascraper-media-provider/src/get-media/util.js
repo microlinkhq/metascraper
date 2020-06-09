@@ -1,10 +1,7 @@
 'use strict'
 
-const debug = require('debug')('metascraper-media-provider:util')
 const { getDomainWithoutSuffix } = require('tldts')
-const { includes, isEmpty } = require('lodash')
-const proxiesPool = require('proxies-pool')
-const tunnel = require('tunnel')
+const Agent = require('keepalive-proxy-agent')
 
 const TEN_MIN_MS = 10 * 60 * 1000
 
@@ -13,27 +10,17 @@ const isTweet = url => url.includes('/status/')
 const isTweetUrl = url =>
   isTweet(url) && getDomainWithoutSuffix(url) === 'twitter'
 
-const isDomainUrl = (url, domains) =>
-  includes(domains, getDomainWithoutSuffix(url))
-
 const getTweetId = url => url.split('/').reverse()[0]
 
-const getAgent = proxyPool => {
-  if (!proxyPool) return
-  const proxy = proxyPool()
-  debug(`getAgent proxy=${proxyPool.index()}/${proxyPool.size()}`)
-  return {
-    agent: {
-      http: tunnel.httpOverHttp(proxy)
-    }
-  }
-}
-
-const createProxiesPool = (proxies, fromIndex) => {
-  if (isEmpty(proxies)) return
-  const proxyPool = proxiesPool(proxies, fromIndex)
-  debug(`proxiesPool size=${proxyPool.size()}`)
-  return proxyPool
+const getAgent = proxy => {
+  return proxy
+    ? {
+        https: new Agent({
+          rejectUnauthorized: false,
+          proxy
+        })
+      }
+    : undefined
 }
 
 const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
@@ -56,18 +43,10 @@ const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
   }
 }
 
-const proxyUri = ({ agent }) => {
-  const { proxyAuth, host, port } = agent.http.options
-  return `https://${proxyAuth}@${host}:${port}`
-}
-
 module.exports = {
-  createProxiesPool,
   expirableCounter,
   getAgent,
   getTweetId,
   isTweet,
-  isTweetUrl,
-  isDomainUrl,
-  proxyUri
+  isTweetUrl
 }

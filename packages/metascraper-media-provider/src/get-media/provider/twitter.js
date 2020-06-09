@@ -1,13 +1,13 @@
 'use strict'
 
-const debug = require('debug')('metascraper-media-provider:twitter')
-const { reduce, set, get, chain } = require('lodash')
+const debug = require('debug-logfmt')('metascraper-media-provider:twitter')
+const { constant, reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
 const pReflect = require('p-reflect')
 const pRetry = require('p-retry')
 const got = require('got')
 
-const { expirableCounter, getAgent, getTweetId, proxyUri } = require('../util')
+const { expirableCounter, getAgent, getTweetId } = require('../util')
 
 // twitter guest web token
 // https://github.com/soimort/you-get/blob/da8c982608c9308765e0960e08fc28cccb74b215/src/you_get/extractors/twitter.py#L72
@@ -15,40 +15,46 @@ const { expirableCounter, getAgent, getTweetId, proxyUri } = require('../util')
 const TWITTER_BEARER_TOKEN =
   'Bearer AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%2F40K4moUkGsoc%3DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw'
 
-const createGuestToken = ({ userAgent, proxyPool }) => {
+const TWITTER_API_URL = 'https://api.twitter.com/1.1/guest/activate.json'
+
+const canRetry = proxy => !!proxy
+
+const createGuestToken = ({
+  timeout,
+  getProxy = constant(false),
+  userAgent
+}) => {
   const retry = expirableCounter()
-  const hasProxy = () => proxyPool && retry.val() < proxyPool.size()
 
   return async () => {
+    let proxy = getProxy(TWITTER_API_URL, retry.val())
     let token
 
     do {
-      const agent = retry.val() ? getAgent(proxyPool) : undefined
-      debug(
-        `guestToken retry=${retry.val()} agent=${
-          agent ? proxyUri(agent) : false
-        }`
-      )
+      const agent = getAgent(proxy)
+      debug(`guestToken retry=${retry.val()} hasAgent=${!!agent}`)
 
       try {
-        const { body } = await got.post(
-          'https://api.twitter.com/1.1/guest/activate.json',
-          {
-            responseType: 'json',
-            agent,
-            headers: {
-              authorization: TWITTER_BEARER_TOKEN,
-              origin: 'https://twitter.com',
-              'user-agent': userAgent
-            }
+        const { body } = await got.post(TWITTER_API_URL, {
+          timeout,
+          https: {
+            rejectUnauthorized: false
+          },
+          responseType: 'json',
+          agent,
+          headers: {
+            authorization: TWITTER_BEARER_TOKEN,
+            origin: 'https://twitter.com',
+            'user-agent': userAgent
           }
-        )
+        })
         token = get(body, 'guest_token')
       } catch (err) {
         debug('guestToken:err', err.message)
         retry.incr()
+        proxy = getProxy(TWITTER_API_URL, retry.val())
       }
-    } while (!token && hasProxy())
+    } while (!token && canRetry(proxy))
 
     return token
   }
@@ -117,8 +123,8 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
   }
 }
 
-module.exports = ({ fromGeneric, userAgent, proxyPool }) => {
-  const getGuestToken = createGuestToken({ proxyPool, userAgent })
+module.exports = ({ fromGeneric, userAgent, getProxy }) => {
+  const getGuestToken = createGuestToken({ getProxy, userAgent })
   const getTwitterVideo = createGetTwitterVideo({ getGuestToken, userAgent })
 
   return async url => {

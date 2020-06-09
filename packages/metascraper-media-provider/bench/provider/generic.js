@@ -1,26 +1,35 @@
 'use strict'
 
+const debug = require('debug-logfmt')(
+  'metascraper-media-provider:bench:generic'
+)
 const uniqueRandomArray = require('unique-random-array')
 const userAgent = require('ua-string')
-const { noop } = require('lodash')
+const timeSpan = require('time-span')
+const prettyMs = require('pretty-ms')
 
 const createFromGeneric = require('../../src/get-media/provider/generic')
-const { createProxiesPool } = require('../../src/get-media/util')
-const { proxies, urls } = require('../constants')
+const { getProxy, urls } = require('../constants')
 
-const proxyPool = createProxiesPool(proxies)
-const fromGeneric = createFromGeneric({ proxyPool, onError: noop, userAgent })
+const fromGeneric = createFromGeneric({
+  getProxy,
+  userAgent,
+  timeout: 20000
+})
+
 const getUrl = uniqueRandomArray(urls)
 
 // When it reaches the max, it returns a 429 rate limit error
 const mainLoop = async () => {
-  let index = 0
+  let n = 0
   let error = false
   while (!error) {
     try {
+      const end = timeSpan()
       const media = await fromGeneric(getUrl())
       const hasMedia = !!media.extractor
-      console.log(++index, 'media?', hasMedia)
+
+      debug({ n: n++, hasMedia, time: prettyMs(end()) })
 
       if (!hasMedia) {
         const err = new Error('No media detected!')

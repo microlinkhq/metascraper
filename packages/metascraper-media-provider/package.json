@@ -18,23 +18,23 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.11.21",
-    "debug": "~4.1.1",
+    "debug-logfmt": "~1.0.4",
     "got": "~11.3.0",
+    "keepalive-proxy-agent": "~1.1.1",
     "lodash": "~4.17.15",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.2.0",
-    "proxies-pool": "~2.0.0",
     "tldts": "~5.6.29",
-    "tunnel": "0.0.6",
     "youtube-dl": "~3.0.2"
   },
   "devDependencies": {
     "mocha": "latest",
+    "pretty-ms": "latest",
     "should": "latest",
     "snap-shot": "latest",
     "standard": "latest",
-    "ua-string": "latest",
-    "unique-random-array": "latest"
+    "time-span": "latest",
+    "ua-string": "latest"
   },
   "engines": {
     "node": ">= 10"
