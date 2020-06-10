@@ -34,7 +34,8 @@
     "snap-shot": "latest",
     "standard": "latest",
     "time-span": "latest",
-    "ua-string": "latest"
+    "ua-string": "latest",
+    "unique-random-array": "latest"
   },
   "engines": {
     "node": ">= 10"
