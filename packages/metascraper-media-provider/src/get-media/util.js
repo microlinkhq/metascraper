@@ -16,6 +16,7 @@ const getAgent = proxy => {
   return proxy
     ? {
       https: new Agent({
+        keepAlive: false,
         rejectUnauthorized: false,
         proxy
       })
