@@ -15,11 +15,11 @@ const getTweetId = url => url.split('/').reverse()[0]
 const getAgent = proxy => {
   return proxy
     ? {
-        https: new Agent({
-          rejectUnauthorized: false,
-          proxy
-        })
-      }
+      https: new Agent({
+        rejectUnauthorized: false,
+        proxy
+      })
+    }
     : undefined
 }
 
