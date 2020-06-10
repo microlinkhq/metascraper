@@ -44,7 +44,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*  NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider*  NODE_ENV=test mocha test"
   },
   "license": "MIT",
   "mocha": {

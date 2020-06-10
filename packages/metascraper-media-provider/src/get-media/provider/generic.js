@@ -1,6 +1,8 @@
 'use strict'
 
-const debug = require('debug-logfmt')('metascraper-media-provider:generic')
+const debug = require('debug-logfmt')(
+  'metascraper-media-provider:provider:generic'
+)
 const { noop, constant, isEmpty } = require('lodash')
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')

@@ -1,6 +1,8 @@
 'use strict'
 
-const debug = require('debug-logfmt')('metascraper-media-provider:twitter')
+const debug = require('debug-logfmt')(
+  'metascraper-media-provider:provider:twitter'
+)
 const { constant, reduce, set, get, chain } = require('lodash')
 const { protocol } = require('@metascraper/helpers')
 const pReflect = require('p-reflect')
