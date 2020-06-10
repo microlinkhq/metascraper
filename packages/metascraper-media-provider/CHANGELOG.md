@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.12.0](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.11.22...v5.12.0) (2020-06-10)
+
+
+### Features
+
+* improve proxy capabilities ([#277](https://github.com/microlinkhq/metascraper/tree/master/packages/issues/277)) ([55c688c](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/55c688cc8b5a285a428c6105b8af4b1f74c97b5b))
+
+
+
+
+
 ## [5.11.22](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.11.21...v5.11.22) (2020-06-06)
 
 **Note:** Version bump only for package metascraper-media-provider

@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-media-provider",
-  "version": "5.11.22",
+  "version": "5.12.0",
   "main": "src/index.js",
   "repository": {
     "type": "git",
