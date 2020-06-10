@@ -5,9 +5,9 @@ const { getDomainWithoutSuffix } = require('tldts')
 const snapshot = require('snap-shot')
 const should = require('should')
 
-// const PROXY_DATACENTER_DOMAINS = ['']
+const PROXY_DATACENTER_DOMAINS = []
 
-const PROXY_SCRAPERAPI_DOMAINS = ['vimeo', 'instagram']
+const PROXY_SCRAPERAPI_DOMAINS = ['vimeo']
 
 const createProxy = proxy => {
   proxy.toString = () => `https://${proxy.auth}@${proxy.host}:${proxy.port}`
@@ -28,11 +28,15 @@ const fromScraperApi = createProxy({
 
 const getProxy = (url, retry) => {
   const domain = getDomainWithoutSuffix(url)
-  // if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
-  if (PROXY_SCRAPERAPI_DOMAINS.includes(domain)) return fromLuminatiDataCenter
+  if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
+  if (PROXY_SCRAPERAPI_DOMAINS.includes(domain)) return fromScraperApi
   if (retry === 0) return false
 
-  return fromScraperApi
+  if (url === 'https://api.twitter.com/1.1/guest/activate.json') {
+    return fromLuminatiDataCenter
+  }
+
+  return fromLuminatiDataCenter
 }
 
 const metascraper = require('metascraper')([
@@ -81,7 +85,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    describe('vimeo', () => {
+    describe.only('vimeo', () => {
       ;[
         'https://vimeo.com/channels/staffpicks/287117046',
         'https://vimeo.com/186386161'
@@ -107,6 +111,7 @@ describe('metascraper-media-provider', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
+          console.log(metadata)
           debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
