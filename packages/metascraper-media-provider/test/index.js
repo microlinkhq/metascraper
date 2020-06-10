@@ -5,9 +5,9 @@ const { getDomainWithoutSuffix } = require('tldts')
 const snapshot = require('snap-shot')
 const should = require('should')
 
-const PROXY_DATACENTER_DOMAINS = ['vimeo']
+// const PROXY_DATACENTER_DOMAINS = ['']
 
-const PROXY_SCRAPERAPI_DOMAINS = ['instagram']
+const PROXY_SCRAPERAPI_DOMAINS = ['vimeo', 'instagram']
 
 const createProxy = proxy => {
   proxy.toString = () => `https://${proxy.auth}@${proxy.host}:${proxy.port}`
@@ -28,7 +28,7 @@ const fromScraperApi = createProxy({
 
 const getProxy = (url, retry) => {
   const domain = getDomainWithoutSuffix(url)
-  if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
+  // if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
   if (PROXY_SCRAPERAPI_DOMAINS.includes(domain)) return fromScraperApi
   if (retry === 0) return false
 
