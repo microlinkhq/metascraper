@@ -5,20 +5,18 @@ const { noop } = require('lodash')
 
 const createTwitterProvider = require('./provider/twitter')
 const createGenericProvider = require('./provider/generic')
-const { isTweetUrl, createProxiesPool } = require('./util')
+const { isTweetUrl } = require('./util')
 
-module.exports = ({ onError = noop, userAgent, cacheDir, proxies }) => {
-  const proxyPool = createProxiesPool(proxies)
-
+module.exports = ({ onError = noop, userAgent, getProxy, cacheDir }) => {
   const fromGeneric = createGenericProvider({
-    proxyPool,
+    getProxy,
     cacheDir,
     userAgent,
     onError
   })
 
   const fromTwitter = createTwitterProvider({
-    proxyPool,
+    getProxy,
     userAgent,
     fromGeneric
   })

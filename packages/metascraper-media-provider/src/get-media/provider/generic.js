@@ -1,16 +1,17 @@
 'use strict'
 
-const debug = require('debug')('metascraper-media-provider:generic')
+const debug = require('debug-logfmt')(
+  'metascraper-media-provider:provider:generic'
+)
+const { noop, constant, isEmpty } = require('lodash')
 const youtubedl = require('youtube-dl')
-const { isEmpty } = require('lodash')
 const { promisify } = require('util')
 
-const { isDomainUrl, getAgent, expirableCounter, proxyUri } = require('../util')
 const youtubedlError = require('./youtube-dl-error')
 
 const getInfo = promisify(youtubedl.getInfo)
 
-const getFlags = ({ url, agent, userAgent, cacheDir }) => {
+const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
   const flags = [
     '--no-warnings',
     '--no-call-home',
@@ -21,39 +22,46 @@ const getFlags = ({ url, agent, userAgent, cacheDir }) => {
   ]
   if (cacheDir) flags.push(`--cache-dir=${cacheDir}`)
   if (userAgent) flags.push(`--user-agent=${userAgent}`)
-  if (agent) flags.push(`--proxy=${proxyUri(agent)}`)
+  if (proxy) flags.push(`--proxy=${proxy.toString()}`)
   return flags
 }
 
-module.exports = ({ proxyPool, onError, userAgent, cacheDir }) => {
-  const retry = expirableCounter()
-  const hasProxy = () => proxyPool && retry.val() < proxyPool.size()
+const canRetry = proxy => !!proxy
 
+module.exports = ({
+  getProxy = constant(false),
+  onError = noop,
+  cacheDir,
+  userAgent,
+  ...props
+}) => {
   return async url => {
+    let isUnsupportedUrl = false
+    let retry = 0
+    let proxy = getProxy(url, retry)
     let data = {}
+
     do {
-      const agent =
-        retry.val() || isDomainUrl(url, ['vimeo'])
-          ? getAgent(proxyPool)
-          : undefined
-      const flags = getFlags({ url, agent, userAgent, cacheDir })
-      debug(
-        `getInfo retry=${retry.val()} url=${url} flags=${flags
-          .join(' ')
-          .replace(/--proxy=(.*)/g, '--proxy=***')}`
-      )
+      const flags = getFlags({ url, proxy, userAgent, cacheDir })
+
+      debug(`getInfo retry=${retry} url=${url} flags=${flags.join(' ')}`)
 
       try {
-        data = await getInfo(url, flags)
+        data = await getInfo(url, flags, props)
       } catch (rawError) {
         const error = youtubedlError({ rawError, url, flags })
-        debug('getInfo:error', error.message)
-        onError(error, url)
-        if (error.unsupportedUrl) return data
-        if (!proxyPool) return data
-        retry.incr()
+
+        debug('getInfo:error', error.message || error)
+        onError(url, error)
+
+        if (error.unsupportedUrl) {
+          isUnsupportedUrl = true
+        } else {
+          proxy = getProxy(url, ++retry)
+        }
       }
-    } while (isEmpty(data) && hasProxy())
+    } while (isEmpty(data) && !isUnsupportedUrl && canRetry(proxy))
+
     return data
   }
 }

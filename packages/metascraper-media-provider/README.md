@@ -31,11 +31,30 @@ A function to be called when something wrong happens.
 
 It will receive `error` and `url`.
 
-##### proxies
+```js
+const onError = (url, error) => {
+  console.error(`${url} failed: ${error.message}`)
+}
+```
 
-Type: `array`
+##### getProxy
 
-When it is specified, a proxy will be used for each of the requests using [luminati-tunnel](https://github.com/Kikobeats/luminati-tunnel).
+Type: `function`
+
+It will be called to determinate if a proxy should be used for resolving the next request URL.
+
+```js
+const getProxy = (url, retry) => {
+  if (retry === 0) return false
+  return 'http://user:pwd@proxy:8001'
+}
+```
+
+##### timeout
+
+Type: `number`
+
+The maximum time allowed to wait until considering the request as timed out.
 
 ##### userAgent
 
