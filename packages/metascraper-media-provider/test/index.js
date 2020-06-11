@@ -26,7 +26,7 @@ const fromScraperApi = createProxy({
   auth: process.env.SCRAPERAPI_AUTH
 })
 
-const getProxy = (url, retry) => {
+const getProxy = (url, { retry }) => {
   const domain = getDomainWithoutSuffix(url)
   if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
   if (PROXY_SCRAPERAPI_DOMAINS.includes(domain)) return fromScraperApi

@@ -38,7 +38,7 @@ module.exports = ({
   return async url => {
     let isUnsupportedUrl = false
     let retry = 0
-    let proxy = getProxy(url, retry)
+    let proxy = getProxy(url, { retry })
     let data = {}
 
     do {
@@ -57,7 +57,7 @@ module.exports = ({
         if (error.unsupportedUrl) {
           isUnsupportedUrl = true
         } else {
-          proxy = getProxy(url, ++retry)
+          proxy = getProxy(url, { retry: ++retry })
         }
       }
     } while (isEmpty(data) && !isUnsupportedUrl && canRetry(proxy))

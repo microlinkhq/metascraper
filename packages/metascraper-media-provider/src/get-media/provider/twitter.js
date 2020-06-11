@@ -29,7 +29,7 @@ const createGuestToken = ({
   const retry = expirableCounter()
 
   return async () => {
-    let proxy = getProxy(TWITTER_API_URL, retry.val())
+    let proxy = getProxy(TWITTER_API_URL, { retry: retry.val() })
     let token
 
     do {
@@ -54,7 +54,7 @@ const createGuestToken = ({
       } catch (err) {
         debug('guestToken:err', err.message)
         retry.incr()
-        proxy = getProxy(TWITTER_API_URL, retry.val())
+        proxy = getProxy(TWITTER_API_URL, { retry: retry.val() })
       }
     } while (!token && canRetry(proxy))
 

@@ -44,7 +44,7 @@ Type: `function`
 It will be called to determinate if a proxy should be used for resolving the next request URL.
 
 ```js
-const getProxy = (url, retry) => {
+const getProxy = (url, { retry  }) => {
   if (retry === 0) return false
   return 'http://user:pwd@proxy:8001'
 }
