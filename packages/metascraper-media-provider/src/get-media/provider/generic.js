@@ -36,6 +36,7 @@ module.exports = ({
   return async url => {
     let retry = 0
     let data = {}
+    let isTimeout = false
 
     const task = async () => {
       await pDoWhilst(
@@ -49,11 +50,16 @@ module.exports = ({
             onError(url, error)
           }
         },
-        () => isEmpty(data)
+        () => !isTimeout && isEmpty(data)
       )
       return data
     }
 
-    return pTimeout(task(), props.timeout)
+    const fallback = () => {
+      isTimeout = true
+      return data
+    }
+
+    return pTimeout(task(), props.timeout, fallback)
   }
 }
