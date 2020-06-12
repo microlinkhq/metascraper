@@ -40,7 +40,7 @@ const getProxy = (url, { retry }) => {
 }
 
 const metascraper = require('metascraper')([
-  require('..')({ getProxy, timeout: 10000 }),
+  require('..')({ getProxy }),
   require('metascraper-publisher')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
@@ -85,7 +85,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    describe.only('vimeo', () => {
+    describe('vimeo', () => {
       ;[
         'https://vimeo.com/channels/staffpicks/287117046',
         'https://vimeo.com/186386161'
