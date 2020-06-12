@@ -4,8 +4,10 @@ const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
 const { noop, constant, isEmpty } = require('lodash')
+const pDoWhilst = require('p-do-whilst')
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
+const pTimeout = require('p-timeout')
 
 const getInfo = promisify(youtubedl.getInfo)
 
@@ -24,8 +26,6 @@ const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
   return flags
 }
 
-const canRetry = proxy => !!proxy
-
 module.exports = ({
   getProxy = constant(false),
   onError = noop,
@@ -35,21 +35,25 @@ module.exports = ({
 }) => {
   return async url => {
     let retry = 0
-    let proxy = getProxy(url, { retry })
     let data = {}
 
-    do {
-      const flags = getFlags({ url, proxy, userAgent, cacheDir })
-      debug(`getInfo retry=${retry} url=${url} flags=${flags.join(' ')}`)
-      try {
-        data = await getInfo(url, flags, props)
-      } catch (error) {
-        debug('getInfo:error', error)
-        onError(url, error)
-        proxy = getProxy(url, { retry: ++retry })
-      }
-    } while (isEmpty(data) && canRetry(proxy))
+    const task = async () => {
+      await pDoWhilst(
+        async () => {
+          try {
+            const proxy = getProxy(url, { retry: retry++ })
+            const flags = getFlags({ url, proxy, userAgent, cacheDir })
+            data = await getInfo(url, flags, props)
+          } catch (error) {
+            debug('getInfo:error', error)
+            onError(url, error)
+          }
+        },
+        () => isEmpty(data)
+      )
+      return data
+    }
 
-    return data
+    return pTimeout(task(), props.timeout)
   }
 }

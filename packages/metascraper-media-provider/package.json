@@ -22,8 +22,10 @@
     "got": "~11.3.0",
     "keepalive-proxy-agent": "~1.1.1",
     "lodash": "~4.17.15",
+    "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.2.0",
+    "p-timeout": "~3.2.0",
     "tldts": "~5.6.31",
     "youtube-dl": "~3.0.2"
   },
