@@ -7,8 +7,6 @@ const { noop, constant, isEmpty } = require('lodash')
 const youtubedl = require('youtube-dl')
 const { promisify } = require('util')
 
-const youtubedlError = require('./youtube-dl-error')
-
 const getInfo = promisify(youtubedl.getInfo)
 
 const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
@@ -36,31 +34,21 @@ module.exports = ({
   ...props
 }) => {
   return async url => {
-    let isUnsupportedUrl = false
     let retry = 0
     let proxy = getProxy(url, { retry })
     let data = {}
 
     do {
       const flags = getFlags({ url, proxy, userAgent, cacheDir })
-
       debug(`getInfo retry=${retry} url=${url} flags=${flags.join(' ')}`)
-
       try {
         data = await getInfo(url, flags, props)
-      } catch (rawError) {
-        const error = youtubedlError({ rawError, url, flags })
-
-        debug('getInfo:error', error.message || error)
+      } catch (error) {
+        debug('getInfo:error', error)
         onError(url, error)
-
-        if (error.unsupportedUrl) {
-          isUnsupportedUrl = true
-        } else {
-          proxy = getProxy(url, { retry: ++retry })
-        }
+        proxy = getProxy(url, { retry: ++retry })
       }
-    } while (isEmpty(data) && !isUnsupportedUrl && canRetry(proxy))
+    } while (isEmpty(data) && canRetry(proxy))
 
     return data
   }
