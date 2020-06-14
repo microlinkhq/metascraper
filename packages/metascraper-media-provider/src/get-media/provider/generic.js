@@ -46,7 +46,7 @@ module.exports = ({
             const flags = getFlags({ url, proxy, userAgent, cacheDir })
             data = await getInfo(url, flags, props)
           } catch (error) {
-            debug('getInfo:error', error)
+            debug('getInfo:error', { retry }, error)
             onError(url, error)
           }
         },
