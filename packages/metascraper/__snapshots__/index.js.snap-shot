@@ -122,7 +122,7 @@ exports['cio 1'] = {
   "image": "http://images.techhive.com/images/article/2015/06/msftone_cloudperspective4-100588855-primary.idge.png",
   "video": null,
   "lang": "en",
-  "logo": "http://idge.staticworld.net/cio/CIO_logo_144x144.png",
+  "logo": "http://idge.staticworld.net/cio/CIO_logo_300x300.png",
   "publisher": "CIO",
   "title": "20 Ways to Measure the Success of Your Growing Cloud Investment",
   "url": "http://www.cio.com/article/2929788/cloud-computing/20-ways-to-measure-the-success-of-your-growing-cloud-investment.html"
@@ -161,7 +161,7 @@ exports['computerworld 1'] = {
   "image": "http://images.techhive.com/images/article/2016/04/blog-31_apr15_image-1-100656409-primary.idge.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://idge.staticworld.net/ctw/computerworld-logo144x144.png",
+  "logo": "http://idge.staticworld.net/ctw/computerworld-logo300x300.png",
   "publisher": "Computerworld",
   "title": "Healthcare Data Protection and Privacy Prognosis—Still Critical but New Treatment is Available",
   "url": "http://www.computerworld.com/article/3057179/data-analytics/healthcare-data-protection-and-privacy-prognosis-still-critical-but-new-treatment-is-available.html"

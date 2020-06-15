@@ -7,28 +7,38 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
-const { flow, first, toNumber, split, chain, concat } = require('lodash')
+const { isEmpty, first, toNumber, split, chain, get } = require('lodash')
 const { URL } = require('url')
 const got = require('got')
 
-const getSize = flow([str => split(str, 'x'), first, toNumber])
+const SIZE_REGEX = /\d+x\d+/
+
+const toSize = str => {
+  const [size] = split(str, 'x')
+  return !isEmpty(size) ? toNumber(size) : 0
+}
+
+const getSize = (url, sizes) =>
+  toSize(sizes) || toSize(first(url.match(SIZE_REGEX)))
 
 const getDomNodeSizes = (domNodes, attr) =>
   chain(domNodes)
-    .map(({ attribs }) => ({
-      size: getSize(attribs.sizes),
-      link: attribs[attr]
-    }))
+    .map(domNode => {
+      const url = domNode.attribs[attr]
+      return {
+        ...domNode.attribs,
+        url,
+        size: getSize(url, domNode.attribs.sizes)
+      }
+    })
     .value()
 
 const getSizes = ($, collection) =>
   chain(collection)
     .reduce((acc, { tag, attr }) => {
       const domNodes = $(tag).get()
-      const selectors = getDomNodeSizes(domNodes, attr)
-      return concat(acc, selectors)
+      return [...acc, ...getDomNodeSizes(domNodes, attr)]
     }, [])
-    .sortBy(({ size }) => -size)
     .value()
 
 const sizeSelectors = [
@@ -40,6 +50,12 @@ const sizeSelectors = [
 
 const toUrl = toRule(urlFn)
 
+const pickBiggerSize = sizes =>
+  chain(sizes)
+    .orderBy('size', 'desc')
+    .first()
+    .value()
+
 const DEFAULT_GOT_OPTS = {
   timeout: 3000
 }
@@ -47,15 +63,12 @@ const DEFAULT_GOT_OPTS = {
 /**
  * Rules.
  */
-module.exports = ({ gotOpts } = {}) => ({
+module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => ({
   logo: [
     toUrl($ => {
       const sizes = getSizes($, sizeSelectors)
-      const size = chain(sizes)
-        .first()
-        .get('link')
-        .value()
-      return size
+      const size = pickFn(sizes, pickBiggerSize)
+      return get(size, 'url')
     }),
     async ({ url }) => {
       const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
