@@ -52,7 +52,8 @@ const getProxy = (url, { retry  }) => {
 
 ##### timeout
 
-Type: `number`
+Type: `number`<br>
+Default: `3000`
 
 The maximum time allowed to wait until considering the request as timed out.
 

@@ -27,9 +27,10 @@ const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
 }
 
 module.exports = ({
+  cacheDir,
   getProxy = constant(false),
   onError = noop,
-  cacheDir,
+  timeout = 30000,
   userAgent,
   ...props
 }) => {
@@ -44,7 +45,7 @@ module.exports = ({
           try {
             const proxy = getProxy(url, { retry: retry++ })
             const flags = getFlags({ url, proxy, userAgent, cacheDir })
-            data = await getInfo(url, flags, props)
+            data = await getInfo(url, flags, { timeout, ...props })
           } catch (error) {
             debug('getInfo:error', { retry }, error)
             onError(url, error)
@@ -60,6 +61,6 @@ module.exports = ({
       return data
     }
 
-    return pTimeout(task(), props.timeout, fallback)
+    return pTimeout(task(), timeout, fallback)
   }
 }
