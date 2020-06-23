@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.7](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.12.6...v5.12.7) (2020-06-23)
+
+
+### Bug Fixes
+
+* setup a default timeout ([fb5809f](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/fb5809fc74c4905346c531e413f09b581e85b97a)), closes [#280](https://github.com/microlinkhq/metascraper/tree/master/packages/issues/280)
+
+
+
+
+
 ## [5.12.5](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.12.4...v5.12.5) (2020-06-14)
 
 **Note:** Version bump only for package metascraper-media-provider
