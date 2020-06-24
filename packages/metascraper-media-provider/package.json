@@ -30,6 +30,7 @@
     "youtube-dl": "~3.0.2"
   },
   "devDependencies": {
+    "is-ci": "latest",
     "mocha": "latest",
     "pretty-ms": "latest",
     "should": "latest",

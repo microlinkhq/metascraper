@@ -4,6 +4,7 @@ const debug = require('debug-logfmt')('metascraper-media-provider:test')
 const { getDomainWithoutSuffix } = require('tldts')
 const snapshot = require('snap-shot')
 const should = require('should')
+const isCI = require('is-ci')
 
 const PROXY_DATACENTER_DOMAINS = []
 
@@ -85,7 +86,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    describe('vimeo', () => {
+    ;(isCI ? describe.skip : describe)('vimeo', () => {
       ;[
         'https://vimeo.com/channels/staffpicks/287117046',
         'https://vimeo.com/186386161'
@@ -106,8 +107,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-
-    describe.skip('instagram', () => {
+    ;(isCI ? describe.skip : describe)('instagram', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
