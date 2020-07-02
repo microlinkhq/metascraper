@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.10](https://github.com/microlinkhq/metascraper/compare/v5.12.9...v5.12.10) (2020-07-02)
+
+
+### Bug Fixes
+
+* ensure keys are lowercase ([50d9d49](https://github.com/microlinkhq/metascraper/commit/50d9d4906d07228cbe13066263e18a69cf69dd60))
+
+
+
+
+
 ## [5.12.9](https://github.com/microlinkhq/metascraper/compare/v5.12.8...v5.12.9) (2020-06-29)
 
 **Note:** Version bump only for package metascraper

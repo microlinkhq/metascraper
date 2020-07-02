@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.10](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.12.9...v5.12.10) (2020-07-02)
+
+
+### Bug Fixes
+
+* ensure keys are lowercase ([50d9d49](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/commit/50d9d4906d07228cbe13066263e18a69cf69dd60))
+
+
+
+
+
 ## [5.12.7](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.12.6...v5.12.7) (2020-06-23)
 
 **Note:** Version bump only for package metascraper-iframe
