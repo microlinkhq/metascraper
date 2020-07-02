@@ -72,5 +72,24 @@ describe('metascraper-iframe', () => {
       should(meta.iframe).be.not.null()
       should(cache.size).be.equal(1)
     })
+
+    it('pass iframe options', async () => {
+      const url = 'https://vimeo.com/135373919'
+
+      const rules = [createMetascraperIframe()]
+      const metascraper = createMetascraper(rules)
+
+      should(
+        (await metascraper({ url, maxWidth: 350 })).iframe.includes(
+          'width="350"'
+        )
+      ).be.true()
+
+      should(
+        (await metascraper({ url, maxwidth: 350 })).iframe.includes(
+          'width="350"'
+        )
+      ).be.true()
+    })
   })
 })
