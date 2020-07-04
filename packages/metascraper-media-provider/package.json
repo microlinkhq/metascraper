@@ -19,7 +19,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.11.21",
     "debug-logfmt": "~1.0.4",
-    "got": "~11.3.0",
+    "got": "~11.4.0",
     "keepalive-proxy-agent": "~1.1.1",
     "lodash": "~4.17.15",
     "p-do-whilst": "~1.1.0",
