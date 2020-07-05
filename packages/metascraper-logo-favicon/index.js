@@ -23,14 +23,18 @@ const getSize = (url, sizes) =>
 
 const getDomNodeSizes = (domNodes, attr) =>
   chain(domNodes)
-    .map(domNode => {
+    .reduce((acc, domNode) => {
       const url = domNode.attribs[attr]
-      return {
-        ...domNode.attribs,
-        url,
-        size: getSize(url, domNode.attribs.sizes)
-      }
-    })
+      if (!url) return acc
+      return [
+        ...acc,
+        {
+          ...domNode.attribs,
+          url,
+          size: getSize(url, domNode.attribs.sizes)
+        }
+      ]
+    }, [])
     .value()
 
 const getSizes = ($, collection) =>

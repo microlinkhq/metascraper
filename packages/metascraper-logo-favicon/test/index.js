@@ -16,7 +16,7 @@ describe('metascraper-logo-favicon', () => {
 
   it('`pickFn` gets the bigger size by default', async () => {
     const url = 'https://www.theverge.com'
-    const html = await readFile(resolve(__dirname, 'fixtures/input.html'))
+    const html = await readFile(resolve(__dirname, 'fixtures/theverge.html'))
     const metascraper = createMetascraper()
     const meta = await metascraper({ url, html })
     should(meta.logo).be.equal(
@@ -26,7 +26,7 @@ describe('metascraper-logo-favicon', () => {
 
   it('provide a custom `pickFn`', async () => {
     const url = 'https://www.theverge.com'
-    const html = await readFile(resolve(__dirname, 'fixtures/input.html'))
+    const html = await readFile(resolve(__dirname, 'fixtures/theverge.html'))
     const pickFn = (sizes, pickDefault) => {
       const appleTouchIcon = sizes.find(item => item.rel.includes('apple'))
       return appleTouchIcon || pickDefault(sizes)
@@ -36,5 +36,14 @@ describe('metascraper-logo-favicon', () => {
     should(meta.logo).be.equal(
       'https://cdn.vox-cdn.com/uploads/chorus_asset/file/7395359/ios-icon.0.png'
     )
+  })
+
+  it('returns null if logo is not detected', async () => {
+    const url = 'https://liu.edu/Brooklyn'
+    const html = await readFile(resolve(__dirname, 'fixtures/liuedu.html'))
+    const metascraper = createMetascraper()
+    const meta = await metascraper({ url, html })
+
+    should(meta.logo).be.null()
   })
 })
