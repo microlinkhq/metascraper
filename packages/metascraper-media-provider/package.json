@@ -21,7 +21,7 @@
     "debug-logfmt": "~1.0.4",
     "got": "~11.5.0",
     "keepalive-proxy-agent": "~1.1.1",
-    "lodash": "~4.17.15",
+    "lodash": "~4.17.19",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.2.0",
