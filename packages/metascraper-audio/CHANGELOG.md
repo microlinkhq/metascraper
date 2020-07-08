@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.14](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/compare/v5.12.13...v5.12.14) (2020-07-08)
+
+**Note:** Version bump only for package metascraper-audio
+
+
+
+
+
 ## [5.11.21](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/compare/v5.11.20...v5.11.21) (2020-06-06)
 
 **Note:** Version bump only for package metascraper-audio
