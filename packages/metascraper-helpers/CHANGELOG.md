@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.16](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.12.15...v5.12.16) (2020-07-08)
+
+
+### Reverts
+
+* Revert "fix: use chrono english parsing" ([dbf5a19](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/dbf5a19e7fbf74813314d49d1c3a9ee436d8613d))
+
+
+
+
+
 ## [5.12.15](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.12.14...v5.12.15) (2020-07-08)
 
 
