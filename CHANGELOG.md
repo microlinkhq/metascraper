@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.15](https://github.com/microlinkhq/metascraper/compare/v5.12.14...v5.12.15) (2020-07-08)
+
+
+### Bug Fixes
+
+* use chrono english parsing ([692e5ca](https://github.com/microlinkhq/metascraper/commit/692e5ca3f27dbfd9913d3f1fa68bdc3bb8b8d270))
+
+
+
+
+
 ## [5.12.14](https://github.com/microlinkhq/metascraper/compare/v5.12.13...v5.12.14) (2020-07-08)
 
 **Note:** Version bump only for package metascraper
