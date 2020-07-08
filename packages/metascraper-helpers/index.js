@@ -187,6 +187,8 @@ const url = (value, { url = '' } = {}) => {
   return isUri(value) ? value : null
 }
 
+const LANGUAGES_DETECTION_SUPPORTED = ['fr', 'en', 'es', 'pt', 'ja', 'de']
+
 const date = value => {
   if (!(isString(value) || isNumber(value))) return undefined
 
@@ -202,10 +204,14 @@ const date = value => {
 
   let parsedValue
 
-  const parsed = chrono.parseDate(value)
+  for (let index = 0; index < LANGUAGES_DETECTION_SUPPORTED.length; index++) {
+    const lang = LANGUAGES_DETECTION_SUPPORTED[index]
+    const parsed = chrono[lang].parseDate(value)
 
-  if (parsed && !isNaN(parsed.getTime())) {
-    parsedValue = parsed.toISOString()
+    if (parsed && !isNaN(parsed.getTime())) {
+      parsedValue = parsed.toISOString()
+      break
+    }
   }
 
   return parsedValue
