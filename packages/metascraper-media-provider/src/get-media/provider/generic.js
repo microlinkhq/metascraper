@@ -35,7 +35,7 @@ module.exports = ({
   ...props
 }) => {
   return async url => {
-    let retry = 0
+    let retryCount = 0
     let data = {}
     let isTimeout = false
 
@@ -43,11 +43,11 @@ module.exports = ({
       await pDoWhilst(
         async () => {
           try {
-            const proxy = getProxy(url, { retry: retry++ })
+            const proxy = getProxy({ url, retryCount: retryCount++ })
             const flags = getFlags({ url, proxy, userAgent, cacheDir })
             data = await getInfo(url, flags, { timeout, ...props })
           } catch (error) {
-            debug('getInfo:error', { retry }, error)
+            debug('getInfo:error', { retryCount }, error)
             onError(url, error)
           }
         },

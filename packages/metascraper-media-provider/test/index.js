@@ -27,11 +27,11 @@ const fromScraperApi = createProxy({
   auth: process.env.SCRAPERAPI_AUTH
 })
 
-const getProxy = (url, { retry }) => {
+const getProxy = ({ url, retryCount }) => {
   const domain = getDomainWithoutSuffix(url)
   if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
   if (PROXY_SCRAPERAPI_DOMAINS.includes(domain)) return fromScraperApi
-  if (retry === 0) return false
+  if (retryCount === 0) return false
 
   if (url === 'https://api.twitter.com/1.1/guest/activate.json') {
     return fromLuminatiDataCenter
