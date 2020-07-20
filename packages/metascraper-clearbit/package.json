@@ -21,7 +21,7 @@
     "@metascraper/helpers": "^5.12.17",
     "got": "~11.5.1",
     "lodash": "~4.17.19",
-    "tldts": "~5.6.40"
+    "tldts": "~5.6.42"
   },
   "devDependencies": {
     "mocha": "latest",
