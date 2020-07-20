@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.13.0](https://github.com/microlinkhq/metascraper/compare/v5.12.20...v5.13.0) (2020-07-20)
+
+
+### Features
+
+* change .getProxy interface ([1901fa4](https://github.com/microlinkhq/metascraper/commit/1901fa4375609a94e216843d9dc0749b5fd0692c))
+
+
+
+
+
 ## [5.12.20](https://github.com/microlinkhq/metascraper/compare/v5.12.19...v5.12.20) (2020-07-20)
 
 **Note:** Version bump only for package metascraper
