@@ -1,6 +1,6 @@
 exports['returns returns logo url if it exists 1'] = {
   "logo": "https://logo.clearbit.com/microlink.io",
-  "publisher": "microlink.io"
+  "publisher": "Microlink"
 }
 
 exports['returns null if no logo available 1'] = {
@@ -15,6 +15,6 @@ exports['accept `gotOpts` options 1'] = {
 
 exports['accept `logoOpts` options 1'] = {
   "logo": "https://logo.clearbit.com/microlink.io?format=jpg&greyscale=true",
-  "publisher": "microlink.io"
+  "publisher": "Microlink"
 }
 
