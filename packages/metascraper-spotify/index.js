@@ -24,6 +24,8 @@ module.exports = () => {
     title: getSpotify({ from: 'title' }),
     image: getSpotify({ from: 'image' }),
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),
+    date: getSpotify({ from: 'date' }),
+    description: getSpotify({ from: 'date' }),
     url: getSpotify({ from: 'link', to: 'url' }),
     author: getSpotify({ from: 'artist', to: 'author' })
   }
