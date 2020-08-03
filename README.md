@@ -185,6 +185,10 @@ const metascraper = require('metascraper')([
 
 ?> Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
+**Official**
+
+> Rules bundles maintained by metascraper maintainers.
+
 | Package | Version | Dependencies |
 |--------|-------|------------|
 | [`metascraper-amazon`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) | [![npm](https://img.shields.io/npm/v/metascraper-amazon.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-amazon) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-amazon&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-amazon) |
@@ -209,6 +213,13 @@ const metascraper = require('metascraper')([
 | [`metascraper-spotify`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-spotify) | [![npm](https://img.shields.io/npm/v/metascraper-spotify.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-spotify) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-spotify&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-spotify) |
 | [`metascraper-video`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video) | [![npm](https://img.shields.io/npm/v/metascraper-video.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-video) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-video&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-video) |
 | [`metascraper-youtube`](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) | [![npm](https://img.shields.io/npm/v/metascraper-youtube.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-youtube) | [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-youtube&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-youtube) |
+
+**Community**
+
+> Rules bundles maintained by individual users.
+
+- [`metascraper-address`](https://github.com/goodhood-eu/metascraper-address) – Get product information from HTML markup on merchant websites.
+- [`metascraper-shopping`](https://github.com/samirrayani/metascraper-shopping) – Get schema.org formatted address.
 
 ### Write Your Own Rules
 
