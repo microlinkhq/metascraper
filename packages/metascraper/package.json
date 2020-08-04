@@ -57,7 +57,7 @@
     "website"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.13.1",
+    "@metascraper/helpers": "^5.13.2",
     "cheerio": "~1.0.0-rc.3",
     "cheerio-advanced-selectors": "~2.0.1",
     "lodash": "~4.17.19",

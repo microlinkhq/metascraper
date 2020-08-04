@@ -16,7 +16,7 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.13.1"
+    "@metascraper/helpers": "^5.13.2"
   },
   "devDependencies": {
     "standard": "latest"

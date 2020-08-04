@@ -16,7 +16,7 @@
     "publisher"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.13.1"
+    "@metascraper/helpers": "^5.13.2"
   },
   "devDependencies": {
     "mocha": "latest",
