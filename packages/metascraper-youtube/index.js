@@ -44,7 +44,7 @@ module.exports = () => {
       toAuthor($ => $filter($, $('[class*="user-info" i]')))
     ],
     description: [toDescription($ => $('#description').text())],
-    publisher: [() => 'YouTube'],
+    publisher: () => 'YouTube',
     image: [
       ({ htmlDom, url }) => {
         const { id } = getVideoId(url)

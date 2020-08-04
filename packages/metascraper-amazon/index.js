@@ -51,7 +51,7 @@ module.exports = () => {
       toTitle($ => $filter($, $('h1.a-size-large'))),
       toTitle($ => $('#item_name').text())
     ],
-    publisher: [() => 'Amazon'],
+    publisher: () => 'Amazon',
     image: [
       toUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
       toUrl($ => $('.a-dynamic-image').attr('src'))
