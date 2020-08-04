@@ -21,13 +21,14 @@ const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
 
 module.exports = () => {
   const rules = {
-    title: getSpotify({ from: 'title' }),
-    image: getSpotify({ from: 'image' }),
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),
+    author: getSpotify({ from: 'artist', to: 'author' }),
     date: getSpotify({ from: 'date' }),
     description: getSpotify({ from: 'description' }),
-    url: getSpotify({ from: 'link', to: 'url' }),
-    author: getSpotify({ from: 'artist', to: 'author' })
+    image: getSpotify({ from: 'image' }),
+    publisher: () => 'Spotify',
+    title: getSpotify({ from: 'title' }),
+    url: getSpotify({ from: 'link', to: 'url' })
   }
 
   rules.test = ({ url }) => isValidUrl(url)
