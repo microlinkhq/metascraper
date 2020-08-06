@@ -20,7 +20,7 @@
     "@metascraper/helpers": "^5.13.2",
     "memoize-one": "~5.1.1",
     "spotify-url-info": "~1.4.0",
-    "tldts": "~5.6.45"
+    "tldts": "~5.6.46"
   },
   "devDependencies": {
     "kind-of": "latest",
