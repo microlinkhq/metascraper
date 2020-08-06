@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.1](https://github.com/microlinkhq/metascraper/compare/v5.14.0...v5.14.1) (2020-08-06)
+
+
+### Bug Fixes
+
+* interface ([0394a4d](https://github.com/microlinkhq/metascraper/commit/0394a4d1f34eb4fceaa1239d830befa6705fd8f1))
+* package reference ([1cf26ff](https://github.com/microlinkhq/metascraper/commit/1cf26ff8f5af7f051b11091a96a9c6522fd86986))
+
+
+
+
+
 # [5.14.0](https://github.com/microlinkhq/metascraper/compare/v5.13.2...v5.14.0) (2020-08-04)
 
 

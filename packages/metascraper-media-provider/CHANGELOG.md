@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.1](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.14.0...v5.14.1) (2020-08-06)
+
+**Note:** Version bump only for package metascraper-media-provider
+
+
+
+
+
 ## [5.13.2](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.13.1...v5.13.2) (2020-08-03)
 
 **Note:** Version bump only for package metascraper-media-provider

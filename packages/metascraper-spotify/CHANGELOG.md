@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.1](https://github.com/microlinkhq/metascraper-spotify/compare/v5.14.0...v5.14.1) (2020-08-06)
+
+**Note:** Version bump only for package metascraper-spotify
+
+
+
+
+
 # [5.14.0](https://github.com/microlinkhq/metascraper-spotify/compare/v5.13.2...v5.14.0) (2020-08-04)
 
 
