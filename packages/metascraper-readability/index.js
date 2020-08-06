@@ -2,7 +2,7 @@
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
 
-const Readability = require('@mozilla/readability')
+const { Readability } = require('@mozilla/readability')
 const jsdom = require('jsdom')
 
 const { JSDOM, VirtualConsole } = jsdom
