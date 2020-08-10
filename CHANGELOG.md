@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.2](https://github.com/microlinkhq/metascraper/compare/v5.14.1...v5.14.2) (2020-08-10)
+
+
+### Bug Fixes
+
+* ensure to parse timestamp dates ([#295](https://github.com/microlinkhq/metascraper/issues/295)) ([7b1c9db](https://github.com/microlinkhq/metascraper/commit/7b1c9dbb7ca3d193673f5c723e3052f760b7bab3))
+
+
+
+
+
 ## [5.14.1](https://github.com/microlinkhq/metascraper/compare/v5.14.0...v5.14.1) (2020-08-06)
 
 
