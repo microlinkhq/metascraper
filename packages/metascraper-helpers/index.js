@@ -187,6 +187,8 @@ const url = (value, { url = '' } = {}) => {
   return isUri(value) ? value : null
 }
 
+const getISODate = date => date && !isNaN(date.getTime()) && date.toISOString()
+
 const date = value => {
   if (!(isString(value) || isNumber(value))) return undefined
 
@@ -200,18 +202,19 @@ const date = value => {
     return new Date(toString(value)).toISOString()
   }
 
-  let parsedValue
+  let isoDate
 
-  for (const item of value.split('\n').filter(Boolean)) {
-    const parsed = chrono.parseDate(item)
-
-    if (parsed && !isNaN(parsed.getTime())) {
-      parsedValue = parsed.toISOString()
-      break
+  if (isString(value)) {
+    for (const item of value.split('\n').filter(Boolean)) {
+      const parsed = chrono.parseDate(item)
+      isoDate = getISODate(parsed)
+      if (isoDate) break
     }
+  } else {
+    isoDate = getISODate(new Date(value * 1000))
   }
 
-  return parsedValue
+  return isoDate
 }
 
 const lang = value => {
