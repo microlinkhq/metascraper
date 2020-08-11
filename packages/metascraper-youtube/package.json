@@ -20,7 +20,7 @@
     "@metascraper/helpers": "^5.14.2",
     "get-video-id": "~3.1.4",
     "is-reachable": "~4.0.0",
-    "p-locate": "~4.1.0"
+    "p-locate": "~5.0.0"
   },
   "devDependencies": {
     "mocha": "latest",
