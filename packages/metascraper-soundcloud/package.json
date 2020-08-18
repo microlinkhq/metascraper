@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.14.2",
-    "tldts": "~5.6.47"
+    "tldts": "~5.6.50"
   },
   "devDependencies": {
     "mocha": "latest",

@@ -19,7 +19,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.14.2",
     "got": "~11.5.2",
-    "lodash": "~4.17.19"
+    "lodash": "~4.17.20"
   },
   "devDependencies": {
     "mocha": "latest",
