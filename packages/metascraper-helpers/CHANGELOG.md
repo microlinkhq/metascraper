@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.4](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.3...v5.14.4) (2020-08-20)
+
+
+### Bug Fixes
+
+* Use url-regex-safe to fix url-regex vulnerability ([#297](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/297)) ([157ef61](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/157ef61146b9b72feeaef8004bf60e9e754f28e8))
+
+
+
+
+
 ## [5.14.3](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.2...v5.14.3) (2020-08-18)
 
 **Note:** Version bump only for package @metascraper/helpers
