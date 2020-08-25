@@ -32,6 +32,7 @@
   "devDependencies": {
     "is-ci": "latest",
     "mocha": "latest",
+    "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
     "should": "latest",
     "snap-shot": "latest",

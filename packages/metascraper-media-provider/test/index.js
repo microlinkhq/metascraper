@@ -2,42 +2,21 @@
 
 const debug = require('debug-logfmt')('metascraper-media-provider:test')
 const { getDomainWithoutSuffix } = require('tldts')
+const parseProxy = require('parse-proxy-uri')
 const snapshot = require('snap-shot')
 const should = require('should')
 const isCI = require('is-ci')
 
-const PROXY_DATACENTER_DOMAINS = []
+const proxy = parseProxy(process.env.PROXY_URI)
 
-const PROXY_SCRAPERAPI_DOMAINS = ['vimeo']
+const PROXY_DOMAINS = ['vimeo']
+const PROXY_URLS = ['https://api.twitter.com/1.1/guest/activate.json']
 
-const createProxy = proxy => {
-  proxy.toString = () => `https://${proxy.auth}@${proxy.host}:${proxy.port}`
-  return proxy
-}
-
-const fromLuminatiDataCenter = createProxy({
-  host: process.env.LUMINATI_HOST,
-  port: process.env.LUMINATI_PORT,
-  auth: process.env.LUMINATI_AUTH
-})
-
-const fromScraperApi = createProxy({
-  host: process.env.SCRAPERAPI_HOST,
-  port: process.env.SCRAPERAPI_PORT,
-  auth: process.env.SCRAPERAPI_AUTH
-})
-
-const getProxy = ({ url, retryCount }) => {
-  const domain = getDomainWithoutSuffix(url)
-  if (PROXY_DATACENTER_DOMAINS.includes(domain)) return fromLuminatiDataCenter
-  if (PROXY_SCRAPERAPI_DOMAINS.includes(domain)) return fromScraperApi
+const getProxy = ({ url, retryCount = 1 }) => {
   if (retryCount === 0) return false
-
-  if (url === 'https://api.twitter.com/1.1/guest/activate.json') {
-    return fromLuminatiDataCenter
-  }
-
-  return fromLuminatiDataCenter
+  if (PROXY_URLS.includes(url)) return proxy
+  if (PROXY_DOMAINS.includes(getDomainWithoutSuffix(url))) return proxy
+  return false
 }
 
 const metascraper = require('metascraper')([

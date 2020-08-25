@@ -13,15 +13,14 @@ const isTweetUrl = url =>
 const getTweetId = url => url.split('/').reverse()[0]
 
 const getAgent = proxy => {
-  return proxy
-    ? {
-      https: new Agent({
-        keepAlive: false,
-        rejectUnauthorized: false,
-        proxy
-      })
-    }
-    : undefined
+  if (!proxy) return undefined
+  return {
+    [proxy.protocol]: new Agent({
+      keepAlive: false,
+      rejectUnauthorized: false,
+      proxy
+    })
+  }
 }
 
 const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
