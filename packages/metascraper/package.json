@@ -64,6 +64,7 @@
     "whoops": "~4.1.0"
   },
   "devDependencies": {
+    "@types/cheerio": "latest",
     "clear-module": "latest",
     "coveralls": "latest",
     "metascraper-clearbit": "latest",
