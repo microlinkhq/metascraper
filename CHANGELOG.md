@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.9](https://github.com/microlinkhq/metascraper/compare/v5.14.8...v5.14.9) (2020-09-04)
+
+**Note:** Version bump only for package metascraper
+
+
+
+
+
 ## [5.14.8](https://github.com/microlinkhq/metascraper/compare/v5.14.7...v5.14.8) (2020-09-01)
 
 **Note:** Version bump only for package metascraper
