@@ -19,8 +19,8 @@
   "dependencies": {
     "@metascraper/helpers": "^5.14.7",
     "memoize-one": "~5.1.1",
-    "spotify-url-info": "~1.4.0",
-    "tldts": "~5.6.52"
+    "spotify-url-info": "~2.0.0",
+    "tldts": "~5.6.54"
   },
   "devDependencies": {
     "kind-of": "latest",
