@@ -5,7 +5,7 @@ const should = require('should')
 const createMetascraper = require('../..')
 const titleRules = require('metascraper-title')()
 
-it('url is required', async () => {
+it('`url` is required', async () => {
   const metascraper = createMetascraper([titleRules])
   try {
     await metascraper()
@@ -30,7 +30,42 @@ it('url is required', async () => {
   }
 })
 
-it('load extra rules', async () => {
+it('Disable URL validation using `validateUrl`', async () => {
+  const metascraper = createMetascraper([titleRules])
+
+  const html = `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="logos">
+      <img class="logo" href="https://microlink.io/logo.png">
+      <img class="logo" href="https://microlink.io/logo.png">
+      <img class="logo" href="https://microlink.io/logo.png">
+      <img class="logo" href="https://microlink.io/logo.png">
+    </div>
+
+    <img class="main-logo" href="https://microlink.io/logo.png">
+    <p>Hello World </p>
+  </body>
+  </html>
+  `
+
+  const meta = await metascraper({
+    url: 'example.com',
+    validateUrl: false,
+    html
+  })
+
+  should(meta.title).equal('Document')
+})
+
+it('load extra `rules`', async () => {
   const url = 'https://microlink.io'
 
   const html = `

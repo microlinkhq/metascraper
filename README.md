@@ -268,6 +268,13 @@ You can pass additional rules to add on execution time.
 
 These rules will be merged with your loaded [`rules`](#rules) at the beginning.
 
+#### validateUrl
+
+Type: `boolean`<br>
+Default: `true`
+
+Ensure the URL provided is validated as a [WHATWG URL](https://nodejs.org/api/url.html#url_the_whatwg_url_api) API compliant.
+
 ## Benchmark
 
 To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:
