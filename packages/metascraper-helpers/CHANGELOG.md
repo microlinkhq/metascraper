@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.12](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.11...v5.14.12) (2020-09-18)
+
+
+### Bug Fixes
+
+* ensure to accept urls with parens ([#308](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/308)) ([6f1a027](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/6f1a02788d5e169f0ea073593bf2597d69c7b791)), closes [#307](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/307)
+
+
+
+
+
 ## [5.14.7](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.6...v5.14.7) (2020-08-31)
 
 **Note:** Version bump only for package @metascraper/helpers

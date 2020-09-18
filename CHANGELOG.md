@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.12](https://github.com/microlinkhq/metascraper/compare/v5.14.11...v5.14.12) (2020-09-18)
+
+
+### Bug Fixes
+
+* ensure to accept urls with parens ([#308](https://github.com/microlinkhq/metascraper/issues/308)) ([6f1a027](https://github.com/microlinkhq/metascraper/commit/6f1a02788d5e169f0ea073593bf2597d69c7b791)), closes [#307](https://github.com/microlinkhq/metascraper/issues/307)
+* update flag ([b5f795b](https://github.com/microlinkhq/metascraper/commit/b5f795bb502978d6e85db321843f131c5c43a9dc))
+
+
+
+
+
 ## [5.14.11](https://github.com/microlinkhq/metascraper/compare/v5.14.10...v5.14.11) (2020-09-15)
 
 **Note:** Version bump only for package metascraper
