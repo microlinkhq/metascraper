@@ -375,6 +375,9 @@ describe('.has', () => {
     describe('{ relative: false }', () => {
       it('true', () => {
         should(isUrl('https://example.com/foo')).be.true()
+        should(
+          isUrl('https://en.wikipedia.org/wiki/MBK_(Scooter_manufacturer)')
+        ).be.true()
       })
       it('false', () => {
         should(isUrl('/foo')).be.false()
