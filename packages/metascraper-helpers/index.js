@@ -21,7 +21,7 @@ const {
 } = require('lodash')
 
 const memoizeOne = require('memoize-one').default || require('memoize-one')
-const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
+const urlRegex = require('url-regex-safe')({ exact: true })
 const condenseWhitespace = require('condense-whitespace')
 const langs = Object.values(require('iso-639-3/to-1'))
 const isRelativeUrl = require('is-relative-url')
