@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.17](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.16...v5.14.17) (2020-10-14)
+
+
+### Bug Fixes
+
+* require old dependency ([c276529](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/c276529a537b59cc6f0bc9dbd8b27ba5c1d40c62)), closes [#317](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/issues/317)
+
+
+
+
+
 ## [5.14.16](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.15...v5.14.16) (2020-10-13)
 
 **Note:** Version bump only for package @metascraper/helpers

@@ -2,7 +2,7 @@
   "name": "metascraper-image",
   "description": "Get image property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-image",
-  "version": "5.14.16",
+  "version": "5.14.17",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.14.16"
+    "@metascraper/helpers": "^5.14.17"
   },
   "devDependencies": {
     "standard": "latest"
