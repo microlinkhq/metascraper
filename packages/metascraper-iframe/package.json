@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.14.17",
-    "got": "~11.7.0",
+    "got": "~11.8.0",
     "lodash": "~4.17.20",
     "oembed-spec": "~1.3.16",
     "p-reflect": "~2.1.0"
