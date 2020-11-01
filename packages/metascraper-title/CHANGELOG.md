@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.20](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-title/compare/v5.14.19...v5.14.20) (2020-11-01)
+
+**Note:** Version bump only for package metascraper-title
+
+
+
+
+
 ## [5.14.18](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-title/compare/v5.14.17...v5.14.18) (2020-10-21)
 
 **Note:** Version bump only for package metascraper-title
