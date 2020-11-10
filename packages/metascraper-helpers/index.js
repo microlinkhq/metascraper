@@ -24,6 +24,7 @@ const memoizeOne = require('memoize-one').default || require('memoize-one')
 const condenseWhitespace = require('condense-whitespace')
 const urlRegex = require('url-regex')({ exact: true })
 const langs = Object.values(require('iso-639-3/to-1'))
+const capitalize = require('microsoft-capitalize')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
@@ -34,9 +35,33 @@ const hasValues = require('has-values')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
 const isIso = require('isostring')
-const toTitle = require('title')
+
 const isUri = require('is-uri')
 const { URL } = require('url')
+
+const toTitle = str =>
+  capitalize(str, [
+    'CLI',
+    'API',
+    'HTTP',
+    'HTTPS',
+    'JSX',
+    'DNS',
+    'URL',
+    'CI',
+    'CDN',
+    'package.json',
+    'GitHub',
+    'GitLab',
+    'CSS',
+    'JS',
+    'JavaScript',
+    'TypeScript',
+    'HTML',
+    'WordPress',
+    'JavaScript',
+    'Node.js'
+  ])
 
 const VIDEO = 'video'
 const AUDIO = 'audio'
