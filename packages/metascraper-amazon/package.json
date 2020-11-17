@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.14.22",
-    "tldts": "~5.6.69"
+    "tldts": "~5.6.71"
   },
   "devDependencies": {
     "lodash": "latest",
