@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.24](https://github.com/microlinkhq/metascraper-youtube/compare/v5.14.23...v5.14.24) (2020-11-17)
+
+**Note:** Version bump only for package metascraper-youtube
+
+
+
+
+
 ## [5.14.22](https://github.com/microlinkhq/metascraper-youtube/compare/v5.14.21...v5.14.22) (2020-11-10)
 
 **Note:** Version bump only for package metascraper-youtube
