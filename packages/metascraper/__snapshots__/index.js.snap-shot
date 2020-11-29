@@ -629,7 +629,7 @@ exports['silicon-beat 1'] = {
   "image": "http://www.siliconbeat.com/wp-content/uploads/2016/04/Panel.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://www.siliconbeat.com/favicon.ico",
+  "logo": null,
   "publisher": "SiliconBeat",
   "title": "VC: Time to ‘come out as a woman’",
   "url": "http://www.siliconbeat.com/2016/04/19/time-come-woman/"

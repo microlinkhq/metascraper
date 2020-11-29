@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "2.1.9",
+    "chrono-node": "2.1.10",
     "condense-whitespace": "~2.0.0",
     "entities": "~2.1.0",
     "file-extension": "~4.0.5",
@@ -34,18 +34,17 @@
     "normalize-url": "~5.3.0",
     "smartquotes": "~2.3.1",
     "truncate": "~2.1.0",
-    "url-regex": "~5.0.0",
+    "url-regex-safe": "~1.0.2",
     "video-extensions": "~1.1.0"
   },
   "devDependencies": {
     "cheerio": "latest",
     "mocha": "latest",
     "should": "latest",
-    "snap-shot": "latest",
-    "standard": "latest"
+    "snap-shot": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "index.js"
@@ -53,10 +52,5 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
   },
-  "license": "MIT",
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  }
+  "license": "MIT"
 }

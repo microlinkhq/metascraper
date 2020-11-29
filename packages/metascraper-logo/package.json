@@ -18,14 +18,8 @@
   "dependencies": {
     "@metascraper/helpers": "^5.14.22"
   },
-  "devDependencies": {
-    "mocha": "latest",
-    "nyc": "latest",
-    "should": "latest",
-    "standard": "latest"
-  },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "index.js"

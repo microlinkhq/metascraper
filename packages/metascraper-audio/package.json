@@ -19,14 +19,11 @@
     "@metascraper/helpers": "^5.14.22"
   },
   "devDependencies": {
-    "lodash": "latest",
     "mocha": "latest",
-    "should": "latest",
-    "snap-shot": "latest",
-    "standard": "latest"
+    "snap-shot": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "index.js"
@@ -41,10 +38,5 @@
     "reporter": "spec",
     "slow": 300,
     "timeout": "120000"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
   }
 }

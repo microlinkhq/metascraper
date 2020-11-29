@@ -20,12 +20,10 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "nyc": "latest",
-    "should": "latest",
-    "standard": "latest"
+    "should": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "index.js"
@@ -33,10 +31,5 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
   },
-  "license": "MIT",
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  }
+  "license": "MIT"
 }
