@@ -22,7 +22,7 @@
     "lodash": "latest",
     "mocha": "latest",
     "should": "latest",
-    "snap-shot": "latest",
+    "snap-shot": "latest"
   },
   "engines": {
     "node": ">= 12"

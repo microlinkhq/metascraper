@@ -43,5 +43,5 @@
     "reporter": "spec",
     "slow": 300,
     "timeout": "120000"
-  },
+  }
 }
