@@ -41,7 +41,7 @@
     "unique-random-array": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "src"

@@ -20,7 +20,7 @@
     "lodash": "~4.17.20"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "index.js"
