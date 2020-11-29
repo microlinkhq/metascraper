@@ -2,7 +2,7 @@
   "name": "metascraper-youtube",
   "description": "metascraper integration with YouTube",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-youtube",
-  "version": "5.14.24",
+  "version": "5.14.26",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "youtube"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.14.22",
+    "@metascraper/helpers": "^5.14.26",
     "get-video-id": "~3.1.5",
     "is-reachable": "~5.0.0",
     "p-locate": "~5.0.0"

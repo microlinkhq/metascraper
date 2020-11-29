@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.26](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/compare/v5.14.25...v5.14.26) (2020-11-29)
+
+**Note:** Version bump only for package metascraper-video
+
+
+
+
+
 ## [5.14.22](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/compare/v5.14.21...v5.14.22) (2020-11-10)
 
 **Note:** Version bump only for package metascraper-video
