@@ -16,8 +16,7 @@
     "title"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.14.22",
-    "lodash": "~4.17.20"
+    "@metascraper/helpers": "^5.14.22"
   },
   "engines": {
     "node": ">= 12"

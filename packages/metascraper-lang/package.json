@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "should": "latest",
     "snap-shot": "latest"
   },
   "engines": {
