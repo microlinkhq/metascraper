@@ -25,8 +25,7 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "snap-shot": "latest",
-    "standard": "latest"
+    "snap-shot": "latest"
   },
   "engines": {
     "node": ">= 10"
@@ -45,9 +44,4 @@
     "slow": 300,
     "timeout": "120000"
   },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  }
 }

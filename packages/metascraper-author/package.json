@@ -19,9 +19,6 @@
     "@metascraper/helpers": "^5.14.22",
     "lodash": "~4.17.20"
   },
-  "devDependencies": {
-    "standard": "latest"
-  },
   "engines": {
     "node": ">= 10"
   },

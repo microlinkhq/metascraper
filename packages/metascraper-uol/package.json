@@ -25,7 +25,6 @@
     "mocha": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "standard": "latest",
     "word-slug": "latest"
   },
   "engines": {
@@ -44,10 +43,5 @@
     "reporter": "spec",
     "slow": 300,
     "timeout": "120000"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
   }
 }

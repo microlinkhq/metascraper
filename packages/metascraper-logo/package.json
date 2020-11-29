@@ -21,8 +21,7 @@
   "devDependencies": {
     "mocha": "latest",
     "nyc": "latest",
-    "should": "latest",
-    "standard": "latest"
+    "should": "latest"
   },
   "engines": {
     "node": ">= 10"

@@ -18,9 +18,6 @@
   "dependencies": {
     "@metascraper/helpers": "^5.14.22"
   },
-  "devDependencies": {
-    "standard": "latest"
-  },
   "engines": {
     "node": ">= 10"
   },

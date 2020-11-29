@@ -20,8 +20,7 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "should": "latest",
-    "standard": "latest"
+    "should": "latest"
   },
   "engines": {
     "node": ">= 10"
@@ -39,10 +38,5 @@
     "reporter": "spec",
     "slow": 300,
     "timeout": "120000"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
   }
 }
