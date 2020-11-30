@@ -9,11 +9,11 @@ const jsonOembed = memoizeOne($ =>
   $('link[type="application/json+oembed"]').attr('href')
 )
 
-const fromHTML = gotOpts => async ({ url, meta, htmlDom, ...opts }) => {
+const fromHTML = gotOpts => async ({ htmlDom, iframe }) => {
   const oembedUrl = jsonOembed(htmlDom)
   if (!oembedUrl) return null
   const oembedUrlObj = new URL(oembedUrl)
-  forEach(opts, (value, key) =>
+  forEach(iframe, (value, key) =>
     oembedUrlObj.searchParams.append(key.toLowerCase(), value)
   )
   const { value } = await pReflect(got(oembedUrlObj.toString(), gotOpts).json())
