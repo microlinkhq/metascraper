@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.27](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.14.26...v5.14.27) (2020-11-30)
+
+
+### Bug Fixes
+
+* use a specific prop for retrieving iframe values ([a8fa896](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/commit/a8fa896760bd86351ce5f817e81f25f6c08ebdeb))
+
+
+
+
+
 ## [5.14.26](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.14.25...v5.14.26) (2020-11-29)
 
 **Note:** Version bump only for package metascraper-iframe
