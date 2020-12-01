@@ -1,5 +1,7 @@
 'use strict'
 
+const { getDomainWithoutSuffix } = require('tldts')
+
 const {
   $filter,
   author,
@@ -8,14 +10,12 @@ const {
   memoizeOne
 } = require('@metascraper/helpers')
 
-const { getDomainWithoutSuffix } = require('tldts')
-
-const isValidUrl = memoizeOne(
-  ({ url }) => getDomainWithoutSuffix(url) === 'soundcloud'
-)
-
 const toDescription = toRule(description)
 const toAuthor = toRule(author)
+
+const isValidUrl = memoizeOne(
+  url => getDomainWithoutSuffix(url) === 'soundcloud'
+)
 
 module.exports = () => {
   const rules = {
@@ -23,6 +23,7 @@ module.exports = () => {
     description: [toDescription($ => $filter($, $('.soundTitle__description')))]
   }
 
-  rules.test = isValidUrl
+  rules.test = memoizeOne(({ url }) => isValidUrl(url))
+
   return rules
 }

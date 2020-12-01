@@ -256,7 +256,14 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
-const jsonld = memoizeOne((url, $) => {
+memoizeOne.EqualityHtmlDom = (newArgs, oldArgs) => {
+  return newArgs[0].html() === oldArgs[0].html()
+}
+
+memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
+  newArgs[1] === oldArgs[1] && newArgs[0].html() === oldArgs[0].html()
+
+const jsonld = memoizeOne($ => {
   const data = {}
   try {
     $('script[type="application/ld+json"]').map((i, e) =>
@@ -274,10 +281,10 @@ const jsonld = memoizeOne((url, $) => {
   } catch (err) {}
 
   return data
-})
+}, memoizeOne.EqualityHtmlDom)
 
-const $jsonld = propName => ($, url) => {
-  const json = jsonld(url, $)
+const $jsonld = propName => $ => {
+  const json = jsonld($)
   const value = get(json, propName)
   return isEmpty(value) ? value : decodeHTML(value)
 }
@@ -310,8 +317,9 @@ const validator = {
   lang
 }
 
-const toRule = (fn, opts) => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
+// TODO: review all the places where `toRule` is used and add an `await`
+const toRule = (fn, opts) => rule => async ({ htmlDom, url }) => {
+  const value = await rule(htmlDom, url)
   return fn(value, { url, ...opts })
 }
 

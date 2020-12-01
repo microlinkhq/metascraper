@@ -20,6 +20,7 @@ const appendQuery = (data, query) => {
   return { ...data, logo: `${logoUrl}?${stringify(query)}` }
 }
 
+// TODO: memoizeOne doesn't support async :(
 const createClearbit = ({ gotOpts, logoOpts } = {}) =>
   memoizeOne(async ($, url) => {
     const domain = getDomain(url)

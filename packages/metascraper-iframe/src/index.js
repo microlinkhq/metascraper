@@ -8,9 +8,12 @@ const fromHTML = require('./from-html')
 const htmlTest = fromHTML.test.bind(fromHTML)
 const providerTest = fromProvider.test.bind(fromProvider)
 
-const test = memoizeOne(
-  ({ url, htmlDom: $ }) => htmlTest($) || providerTest(url)
+const isValidUrl = memoizeOne(
+  ($, url) => htmlTest($) || providerTest(url),
+  memoizeOne.EqualityUrlAndHtmlDom
 )
+
+const test = ({ url, htmlDom }) => isValidUrl(htmlDom, url)
 
 module.exports = ({ gotOpts } = {}) => {
   const rules = { iframe: [fromHTML(gotOpts), fromProvider(gotOpts)] }

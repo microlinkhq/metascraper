@@ -11,7 +11,7 @@ const { getDomain } = require('tldts')
 
 const ROOT_DOMAINS = ['uol.com.br', 'torcedores.com']
 
-const isValidUrl = memoizeOne(({ url }) =>
+const isValidUrl = memoizeOne(url =>
   ROOT_DOMAINS.some(domain => getDomain(url) === domain)
 )
 
@@ -28,7 +28,7 @@ module.exports = () => {
     description: [toDescription(($, url) => $jsonld('description')($, url))]
   }
 
-  rules.test = isValidUrl
+  rules.test = ({ url }) => isValidUrl(url)
 
   return rules
 }

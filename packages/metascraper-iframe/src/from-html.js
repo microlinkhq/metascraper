@@ -5,8 +5,9 @@ const { forEach, get } = require('lodash')
 const pReflect = require('p-reflect')
 const got = require('got')
 
-const jsonOembed = memoizeOne($ =>
-  $('link[type="application/json+oembed"]').attr('href')
+const jsonOembed = memoizeOne(
+  $ => $('link[type="application/json+oembed"]').attr('href'),
+  memoizeOne.EqualityHtmlDom
 )
 
 const fromHTML = gotOpts => async ({ htmlDom, iframe }) => {
