@@ -1,6 +1,6 @@
 {
   "name": "metascraper-youtube",
-  "description": "metascraper integration with YouTube",
+  "description": "Metascraper integration with YouTube",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-youtube",
   "version": "5.14.26",
   "main": "index.js",

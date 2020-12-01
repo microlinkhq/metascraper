@@ -1,6 +1,6 @@
 {
   "name": "metascraper-amazon",
-  "description": "metascraper integration with Amazon",
+  "description": "Metascraper integration with Amazon",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-amazon",
   "version": "5.14.26",
   "main": "index.js",

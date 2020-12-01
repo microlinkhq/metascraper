@@ -1,6 +1,6 @@
 {
   "name": "metascraper-spotify",
-  "description": "metascraper integration with Spotify",
+  "description": "Metascraper integration with Spotify",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-spotify",
   "version": "5.14.26",
   "main": "index.js",
