@@ -3,9 +3,7 @@
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
 
 const { Readability } = require('@mozilla/readability')
-const jsdom = require('jsdom')
-
-const { JSDOM, VirtualConsole } = jsdom
+const { JSDOM, VirtualConsole } = require('jsdom')
 
 const readability = memoizeOne(($, url) => {
   const dom = new JSDOM($.html(), { url, virtualConsole: new VirtualConsole() })
