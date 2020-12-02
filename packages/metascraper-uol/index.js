@@ -1,5 +1,7 @@
 'use strict'
 
+const { getDomain } = require('tldts')
+
 const {
   $jsonld,
   title,
@@ -7,7 +9,6 @@ const {
   toRule,
   memoizeOne
 } = require('@metascraper/helpers')
-const { getDomain } = require('tldts')
 
 const ROOT_DOMAINS = ['uol.com.br', 'torcedores.com']
 

@@ -318,16 +318,16 @@ const validator = {
 }
 
 // TODO: review all the places where `toRule` is used and add an `await`
-const toRule = (fn, opts) => rule => async ({ htmlDom, url }) => {
+const toRule = (mapper, opts) => rule => async ({ htmlDom, url }) => {
   const value = await rule(htmlDom, url)
-  return fn(value, { url, ...opts })
+  return mapper(value, { url, ...opts })
 }
 
-const composeRule = fn => ({ from, to = from, ...opts }) => async ({
+const composeRule = rule => ({ from, to = from, ...opts }) => async ({
   htmlDom,
   url
 }) => {
-  const data = await fn(htmlDom, url)
+  const data = await rule(htmlDom, url)
   const value = get(data, from)
   return invoke(validator, to, value, { url, ...opts })
 }

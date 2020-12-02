@@ -239,3 +239,15 @@ exports['2af78bfdad666ee6542dc33e30916a7a0d83b88ec8aa1d97e5acc0a8023e3519 19'] =
   "lang": "null"
 }
 
+exports['5b64b0695b35d4fc95152accee6d91e8d0c013ce45d3faa5544450486f6346d6 1'] = {
+  "audio": "null",
+  "author": "string",
+  "date": "string",
+  "description": "null",
+  "image": "string",
+  "publisher": "string",
+  "title": "string",
+  "url": "string",
+  "lang": "null"
+}
+

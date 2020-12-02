@@ -727,7 +727,7 @@ exports['the-guardian 1'] = {
 }
 
 exports['the-register 1'] = {
-  "author": "Chris Mellor",
+  "author": "Ibm",
   "date": "2016-05-03T16:26:00.000Z",
   "description": "Announcement overload? Oh, you’ll love it just as much as Big Mickey Dell",
   "image": "https://regmedia.co.uk/2016/05/04/raincloud_teaser.jpg?x=1200&y=794",
@@ -969,7 +969,7 @@ exports['engadget 1'] = {
 }
 
 exports['learnnode 1'] = {
-  "author": null,
+  "author": "HackerYou",
   "date": null,
   "description": "A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.",
   "image": "https://learnnode.com/images/NODE/poster.jpg",

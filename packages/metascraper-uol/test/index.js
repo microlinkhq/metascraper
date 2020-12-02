@@ -32,7 +32,7 @@ describe('metascraper-uol', () => {
         ].forEach(domain => {
           const url = `${protocol}://${domain}`
           it(url, async () => {
-            should(isValidUrl({ url: `${url}/${wordSlug()}` })).be.true()
+            should(isValidUrl(`${url}/${wordSlug()}`)).be.true()
           })
         })
       })

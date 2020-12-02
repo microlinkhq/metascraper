@@ -45,7 +45,7 @@ module.exports = () => {
     description: [toDescription($ => $('#description').text())],
     publisher: () => 'YouTube',
     image: [
-      ({ htmlDom, url }) => {
+      ({ url }) => {
         const { id } = getVideoId(url)
         return id && getThumbnailUrl(id)
       }

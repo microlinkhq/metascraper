@@ -55,7 +55,7 @@ const { memoizeOne } = require('@metascraper/helpers')
 const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube'))
 
 const rules = []
-rules.test ({url}) => isValidUrl(url)
+rules.test ({ url }) => isValidUrl(url)
 ```
 
 ## Testing your Rules
