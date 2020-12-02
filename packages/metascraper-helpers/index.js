@@ -1,7 +1,6 @@
 'use strict'
 
 const {
-  castArray,
   chain,
   eq,
   flow,
@@ -263,30 +262,35 @@ memoizeOne.EqualityHtmlDom = (newArgs, oldArgs) => {
 memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
   newArgs[1] === oldArgs[1] && newArgs[0].html() === oldArgs[0].html()
 
-const jsonld = memoizeOne($ => {
-  const data = {}
-  try {
-    $('script[type="application/ld+json"]').map((i, e) =>
-      Object.assign(
-        data,
-        ...castArray(
-          JSON.parse(
+const jsonld = memoizeOne(
+  $ =>
+    $('script[type="application/ld+json"]')
+      .map((i, e) => {
+        try {
+          return JSON.parse(
             $(e)
               .contents()
               .text()
           )
-        )
-      )
-    )
-  } catch (err) {}
-
-  return data
-}, memoizeOne.EqualityHtmlDom)
+        } catch (err) {
+          return undefined
+        }
+      })
+      .get()
+      .filter(Boolean),
+  memoizeOne.EqualityHtmlDom
+)
 
 const $jsonld = propName => $ => {
-  const json = jsonld($)
-  const value = get(json, propName)
-  return isEmpty(value) ? value : decodeHTML(value)
+  const collection = jsonld($)
+  let value
+
+  collection.find(item => {
+    value = get(item, propName)
+    return !isEmpty(value)
+  })
+
+  return value ? decodeHTML(value) : value
 }
 
 const image = url
