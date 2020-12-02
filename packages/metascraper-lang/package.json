@@ -20,7 +20,9 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "snap-shot": "latest"
+    "nyc": "latest",
+    "snap-shot": "latest",
+    "coveralls": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -29,7 +31,8 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "mocha": {

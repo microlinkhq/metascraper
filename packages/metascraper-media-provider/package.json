@@ -32,9 +32,11 @@
   "devDependencies": {
     "is-ci": "latest",
     "mocha": "latest",
+    "nyc": "latest",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
     "should": "latest",
+    "coveralls": "latest",
     "snap-shot": "latest",
     "time-span": "latest",
     "ua-string": "latest",
@@ -47,7 +49,8 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider*  NODE_ENV=test mocha test"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "mocha": {

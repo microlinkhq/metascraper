@@ -27,6 +27,8 @@
   "devDependencies": {
     "cheerio": "latest",
     "mocha": "latest",
+    "nyc": "latest",
+    "coveralls": "latest",
     "should": "latest"
   },
   "engines": {
@@ -36,7 +38,8 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "mocha": {
