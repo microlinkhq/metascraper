@@ -1,19 +1,19 @@
 'use strict'
 
 const { composeRule, memoizeOne } = require('@metascraper/helpers')
+const asyncMemoizeOne = require('async-memoize-one')
 const { getDomainWithoutSuffix } = require('tldts')
 const { getPreview } = require('spotify-url-info')
 
-// TODO: Async is not supported :(
-const spotify = memoizeOne(
-  async ($, url) => {
+const spotify = asyncMemoizeOne(
+  async url => {
     try {
       return await getPreview(url)
     } catch (_) {
       return {}
     }
   },
-  (newArgs, oldArgs) => newArgs[1] === oldArgs[1]
+  (newArgs, oldArgs) => newArgs[0] === oldArgs[0]
 )
 
 const getSpotify = composeRule((htmlDom, url) => spotify(url))
