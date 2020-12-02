@@ -20,7 +20,7 @@ const getProxy = ({ url, retryCount = 1 }) => {
 }
 
 const metascraper = require('metascraper')([
-  require('..')({ getProxy }),
+  require('..')({ getProxy, timeout: 10000 }),
   require('metascraper-publisher')(),
   require('metascraper-author')(),
   require('metascraper-date')(),

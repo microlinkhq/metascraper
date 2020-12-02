@@ -14,7 +14,7 @@ const { getPublicSuffix } = require('tldts')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 
-const isValidUrl = memoizeOne(({ url }) => REGEX_AMAZON_URL.test(url))
+const isValidUrl = memoizeOne(url => REGEX_AMAZON_URL.test(url))
 
 const SUFFIX_LANGUAGES = {
   ca: 'en',
@@ -58,6 +58,6 @@ module.exports = () => {
     ]
   }
 
-  rules.test = isValidUrl
+  rules.test = ({ url }) => isValidUrl(url)
   return rules
 }

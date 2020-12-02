@@ -80,13 +80,13 @@ describe('metascraper-iframe', () => {
       const metascraper = createMetascraper(rules)
 
       should(
-        (await metascraper({ url, maxWidth: 350 })).iframe.includes(
+        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
           'width="350"'
         )
       ).be.true()
 
       should(
-        (await metascraper({ url, maxwidth: 350 })).iframe.includes(
+        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
           'width="350"'
         )
       ).be.true()

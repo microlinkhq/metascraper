@@ -3,15 +3,13 @@
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
 
 const { Readability } = require('@mozilla/readability')
-const jsdom = require('jsdom')
-
-const { JSDOM, VirtualConsole } = jsdom
+const { JSDOM, VirtualConsole } = require('jsdom')
 
 const readability = memoizeOne(($, url) => {
   const dom = new JSDOM($.html(), { url, virtualConsole: new VirtualConsole() })
   const reader = new Readability(dom.window.document)
   return reader.parse()
-})
+}, memoizeOne.EqualityUrlAndHtmlDom)
 
 const getReadbility = composeRule(readability)
 
@@ -23,5 +21,3 @@ module.exports = () => {
     title: getReadbility({ from: 'title' })
   }
 }
-
-module.exports.readability = readability

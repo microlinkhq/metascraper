@@ -1,6 +1,6 @@
 {
   "name": "metascraper-soundcloud",
-  "description": "metascraper integration with SoundCloud",
+  "description": "Metascraper integration with SoundCloud",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-soundcloud",
   "version": "5.14.26",
   "main": "index.js",

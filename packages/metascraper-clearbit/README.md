@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/metascraper-clearbit.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-clearbit)
 [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-clearbit&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-clearbit)
 
-> metascraper integration with Clearbit Logo API.
+> Metascraper integration with Clearbit Logo API.
 
 ## Install
 

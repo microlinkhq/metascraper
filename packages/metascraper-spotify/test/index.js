@@ -37,7 +37,7 @@ const spotifyUrls = [
   'https://open.spotify.com/user/tootallnate/starred',
   'https://embed.spotify.com/?uri=spotify:track:4XfokvilxHAOQXfnWD9p0Q',
   'https://open.spotify.com/embed/track/5oscsdDQ0NpjsTgpG4bI8S',
-  'https://open.spotify.com/track/5nTtCOCds6I0PHMNtqelas',
+  'https://open.spotify.com/track/6YqroNoDYeQAOUMpdmim9M',
   'https://open.spotify.com/track/6YqroNoDYeQAOUMpdmim9M?si=_-aA_80kSligZ0SN6VsboA',
   'https://play.spotify.com/track/4XfokvilxHAOQXfnWD9p0Q',
   'https://open.spotify.com/episode/64TORH3xleuD1wcnFsrH1E'

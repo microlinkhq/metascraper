@@ -1,5 +1,9 @@
 'use strict'
 
+const isReachable = require('is-reachable')
+const getVideoId = require('get-video-id')
+const pLocate = require('p-locate')
+
 const {
   $filter,
   author,
@@ -7,9 +11,6 @@ const {
   toRule,
   memoizeOne
 } = require('@metascraper/helpers')
-const isReachable = require('is-reachable')
-const getVideoId = require('get-video-id')
-const pLocate = require('p-locate')
 
 const THUMBAILS_RESOLUTIONS = [
   'maxresdefault.jpg',
@@ -32,9 +33,7 @@ const toDescription = toRule(description)
 
 const getVideoInfo = memoizeOne(getVideoId)
 
-const isValidUrl = memoizeOne(
-  ({ url }) => getVideoInfo(url).service === 'youtube'
-)
+const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
 module.exports = () => {
   const rules = {
@@ -46,14 +45,14 @@ module.exports = () => {
     description: [toDescription($ => $('#description').text())],
     publisher: () => 'YouTube',
     image: [
-      ({ htmlDom, url }) => {
+      ({ url }) => {
         const { id } = getVideoId(url)
         return id && getThumbnailUrl(id)
       }
     ]
   }
 
-  rules.test = isValidUrl
+  rules.test = ({ url }) => isValidUrl(url)
 
   return rules
 }

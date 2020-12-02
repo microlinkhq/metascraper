@@ -1,5 +1,9 @@
 'use strict'
 
+const { isEmpty, first, toNumber, split, chain, get } = require('lodash')
+const { URL } = require('url')
+const got = require('got')
+
 const {
   absoluteUrl,
   logo,
@@ -7,11 +11,9 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
-const { isEmpty, first, toNumber, split, chain, get } = require('lodash')
-const { URL } = require('url')
-const got = require('got')
-
 const SIZE_REGEX = /\d+x\d+/
+
+const toUrl = toRule(urlFn)
 
 const toSize = str => {
   const [size] = split(str, 'x')
@@ -52,8 +54,6 @@ const sizeSelectors = [
   { tag: 'link[rel="shortcut icon"]', attr: 'href' }
 ]
 
-const toUrl = toRule(urlFn)
-
 const pickBiggerSize = sizes =>
   chain(sizes)
     .orderBy('size', 'desc')
@@ -64,27 +64,33 @@ const DEFAULT_GOT_OPTS = {
   timeout: 3000
 }
 
+const createGetLogo = gotOpts => async url => {
+  const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
+  try {
+    await got.head(logoUrl, {
+      ...DEFAULT_GOT_OPTS,
+      ...gotOpts
+    })
+    return logo(logoUrl)
+  } catch (err) {
+    return null
+  }
+}
+
 /**
  * Rules.
  */
-module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => ({
-  logo: [
-    toUrl($ => {
-      const sizes = getSizes($, sizeSelectors)
-      const size = pickFn(sizes, pickBiggerSize)
-      return get(size, 'url')
-    }),
-    async ({ url }) => {
-      const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
-      try {
-        await got.head(logoUrl, {
-          ...DEFAULT_GOT_OPTS,
-          ...gotOpts
-        })
-        return logo(logoUrl)
-      } catch (err) {
-        return null
-      }
-    }
-  ]
-})
+module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => {
+  const getLogo = createGetLogo(gotOpts)
+
+  return {
+    logo: [
+      toUrl($ => {
+        const sizes = getSizes($, sizeSelectors)
+        const size = pickFn(sizes)
+        return get(size, 'url')
+      }),
+      ({ url }) => getLogo(url)
+    ]
+  }
+}

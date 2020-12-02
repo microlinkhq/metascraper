@@ -1,7 +1,8 @@
 'use strict'
 
-const { memoizeOne, composeRule } = require('@metascraper/helpers')
+const { composeRule } = require('@metascraper/helpers')
 const { get, isString, isObject } = require('lodash')
+const asyncMemoizeOne = require('async-memoize-one')
 const { stringify } = require('querystring')
 const { getDomain } = require('tldts')
 const got = require('got')
@@ -21,27 +22,31 @@ const appendQuery = (data, query) => {
 }
 
 const createClearbit = ({ gotOpts, logoOpts } = {}) =>
-  memoizeOne(async ($, url) => {
-    const domain = getDomain(url)
+  asyncMemoizeOne(
+    async url => {
+      const domain = getDomain(url)
 
-    try {
-      const { body } = await got(ENDPOINT, {
-        ...DEFAULT_GOT_OPTS,
-        ...gotOpts,
-        searchParams: { query: domain }
-      })
+      try {
+        const { body } = await got(ENDPOINT, {
+          ...DEFAULT_GOT_OPTS,
+          ...gotOpts,
+          searchParams: { query: domain }
+        })
 
-      return appendQuery(
-        body.find(item => domain === item.domain),
-        logoOpts
-      )
-    } catch (err) {
-      return null
-    }
-  })
+        return appendQuery(
+          body.find(item => domain === item.domain),
+          logoOpts
+        )
+      } catch (err) {
+        return null
+      }
+    },
+    (newArgs, oldArgs) => newArgs[0] === oldArgs[0]
+  )
 
 module.exports = opts => {
-  const getClearbit = composeRule(createClearbit(opts))
+  const clearbit = createClearbit(opts)
+  const getClearbit = composeRule((htmlDom, url) => clearbit(url))
 
   return {
     logo: getClearbit({ from: 'logo' }),

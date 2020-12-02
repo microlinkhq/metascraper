@@ -21,6 +21,7 @@ const strict = rule => $ => {
 module.exports = () => ({
   author: [
     toAuthor($jsonld('author.name')),
+    toAuthor($jsonld('brand.name')),
     toAuthor($ => $('meta[name="author"]').attr('content')),
     toAuthor($ => $('meta[property="author"]').attr('content')),
     toAuthor($ => $('meta[property="article:author"]').attr('content')),

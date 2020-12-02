@@ -5,7 +5,7 @@ const pReflect = require('p-reflect')
 const oEmbed = require('oembed-spec')
 const { get } = require('lodash')
 
-const findProvider = memoizeOne(oEmbed.findProvider)
+const findProvider = memoizeOne(url => oEmbed.findProvider(url))
 
 const { fetchProvider } = oEmbed
 

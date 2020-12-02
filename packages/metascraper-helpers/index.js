@@ -1,7 +1,6 @@
 'use strict'
 
 const {
-  castArray,
   chain,
   eq,
   flow,
@@ -256,30 +255,42 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
-const jsonld = memoizeOne((url, $) => {
-  const data = {}
-  try {
-    $('script[type="application/ld+json"]').map((i, e) =>
-      Object.assign(
-        data,
-        ...castArray(
-          JSON.parse(
+memoizeOne.EqualityHtmlDom = (newArgs, oldArgs) => {
+  return newArgs[0].html() === oldArgs[0].html()
+}
+
+memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
+  newArgs[1] === oldArgs[1] && newArgs[0].html() === oldArgs[0].html()
+
+const jsonld = memoizeOne(
+  $ =>
+    $('script[type="application/ld+json"]')
+      .map((i, e) => {
+        try {
+          return JSON.parse(
             $(e)
               .contents()
               .text()
           )
-        )
-      )
-    )
-  } catch (err) {}
+        } catch (err) {
+          return undefined
+        }
+      })
+      .get()
+      .filter(Boolean),
+  memoizeOne.EqualityHtmlDom
+)
 
-  return data
-})
+const $jsonld = propName => $ => {
+  const collection = jsonld($)
+  let value
 
-const $jsonld = propName => ($, url) => {
-  const json = jsonld(url, $)
-  const value = get(json, propName)
-  return isEmpty(value) ? value : decodeHTML(value)
+  collection.find(item => {
+    value = get(item, propName)
+    return !isEmpty(value)
+  })
+
+  return value ? decodeHTML(value) : value
 }
 
 const image = url
@@ -310,16 +321,17 @@ const validator = {
   lang
 }
 
-const toRule = (fn, opts) => rule => ({ htmlDom, url }) => {
-  const value = rule(htmlDom, url)
-  return fn(value, { url, ...opts })
+// TODO: review all the places where `toRule` is used and add an `await`
+const toRule = (mapper, opts) => rule => async ({ htmlDom, url }) => {
+  const value = await rule(htmlDom, url)
+  return mapper(value, { url, ...opts })
 }
 
-const composeRule = fn => ({ from, to = from, ...opts }) => async ({
+const composeRule = rule => ({ from, to = from, ...opts }) => async ({
   htmlDom,
   url
 }) => {
-  const data = await fn(htmlDom, url)
+  const data = await rule(htmlDom, url)
   const value = get(data, from)
   return invoke(validator, to, value, { url, ...opts })
 }

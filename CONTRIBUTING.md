@@ -42,10 +42,21 @@ A set of rules under the same namespace runs on series and only the value return
 You can associate a `test` function with your rule bundle:
 
 ```js
-rules.test = ({url}) => getVideoInfo(url).service === 'youtube'))
+rules.test = ({ url }) => getVideoInfo(url).service === 'youtube'))
 ```
 
 The `test` function will receive the same arguments than a rule. This is useful for just skip all the rules into that doesn't target an specific URL.
+
+A good practice there is to use a memoize function to prevent unnecessary CPU cycles for a previously computed value:
+
+```js
+const { memoizeOne } = require('@metascraper/helpers')
+
+const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube'))
+
+const rules = []
+rules.test ({ url }) => isValidUrl(url)
+```
 
 ## Testing your Rules
 
