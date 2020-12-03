@@ -33,12 +33,17 @@ const loadIframe = asyncMemoizeOne(
         resources: 'usable'
       })
 
-      dom.window.document.addEventListener('DOMContentLoaded', () => {
-        const iframe = dom.window.document.querySelector('iframe')
-        iframe.addEventListener('load', () => {
-          resolve(iframe.contentWindow)
-        })
-      })
+      const resolveIframe = iframe =>
+        iframe.addEventListener('load', () => resolve(iframe.contentWindow))
+
+      const getIframe = () => dom.window.document.querySelector('iframe')
+
+      const iframe = getIframe()
+      if (iframe) return resolveIframe(iframe)
+
+      dom.window.document.addEventListener('DOMContentLoaded', () =>
+        resolveIframe(getIframe())
+      )
     })
 )
 
