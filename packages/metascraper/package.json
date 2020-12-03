@@ -64,7 +64,6 @@
     "whoops": "~4.1.0"
   },
   "devDependencies": {
-    "coveralls": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "should": "latest",
@@ -77,8 +76,7 @@
     "src"
   ],
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
   },
   "license": "MIT",
   "mocha": {

@@ -27,6 +27,7 @@
   "devDependencies": {
     "cheerio": "latest",
     "mocha": "latest",
+    "nyc": "latest",
     "should": "latest"
   },
   "engines": {
@@ -36,7 +37,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
   },
   "license": "MIT",
   "mocha": {
