@@ -3,6 +3,7 @@
 const { readFile } = require('fs').promises
 const snapshot = require('snap-shot')
 const { resolve } = require('path')
+const should = require('should')
 
 const metascraper = require('metascraper')([
   require('metascraper-telegram')(),
@@ -18,7 +19,6 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-// TODO: Add date support
 describe('metascraper-telegram', () => {
   it('post with little image', async () => {
     const html = await readFile(
@@ -26,6 +26,10 @@ describe('metascraper-telegram', () => {
     )
     const url = 'https://t.me/teslahunt/2351'
     const metadata = await metascraper({ html, url })
+    const image = metadata.image
+
+    delete metadata.image
+    should(image.startsWith('https://cdn4')).be.true()
     snapshot(metadata)
   })
 
@@ -35,6 +39,10 @@ describe('metascraper-telegram', () => {
     )
     const url = 'https://t.me/sharingaway/76'
     const metadata = await metascraper({ html, url })
+    const image = metadata.image
+
+    delete metadata.image
+    should(image.startsWith('https://cdn4')).be.true()
     snapshot(metadata)
   })
 
@@ -44,6 +52,10 @@ describe('metascraper-telegram', () => {
     )
     const url = 'https://t.me/sharingaway/73'
     const metadata = await metascraper({ html, url })
+    const image = metadata.image
+
+    delete metadata.image
+    should(image.startsWith('https://cdn4')).be.true()
     snapshot(metadata)
   })
 })
