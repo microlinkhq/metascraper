@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.1](https://github.com/microlinkhq/metascraper-telegram/compare/v5.15.0...v5.15.1) (2020-12-03)
+
+**Note:** Version bump only for package metascraper-telegram
+
+
+
+
+
 # [5.15.0](https://github.com/microlinkhq/metascraper-telegram/compare/v5.14.27...v5.15.0) (2020-12-03)
 
 
