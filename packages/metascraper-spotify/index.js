@@ -5,16 +5,13 @@ const asyncMemoizeOne = require('async-memoize-one')
 const { getDomainWithoutSuffix } = require('tldts')
 const { getPreview } = require('spotify-url-info')
 
-const spotify = asyncMemoizeOne(
-  async url => {
-    try {
-      return await getPreview(url)
-    } catch (_) {
-      return {}
-    }
-  },
-  (newArgs, oldArgs) => newArgs[0] === oldArgs[0]
-)
+const spotify = asyncMemoizeOne(async url => {
+  try {
+    return await getPreview(url)
+  } catch (_) {
+    return {}
+  }
+})
 
 const getSpotify = composeRule((htmlDom, url) => spotify(url))
 

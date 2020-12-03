@@ -39,8 +39,7 @@ const loadIframe = asyncMemoizeOne(
           resolve(iframe.contentWindow)
         })
       })
-    }),
-  (newArgs, oldArgs) => newArgs[0] === oldArgs[0] && newArgs[1] === oldArgs[1]
+    })
 )
 
 module.exports = () => {

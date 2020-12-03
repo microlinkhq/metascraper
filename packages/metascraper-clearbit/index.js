@@ -22,27 +22,24 @@ const appendQuery = (data, query) => {
 }
 
 const createClearbit = ({ gotOpts, logoOpts } = {}) =>
-  asyncMemoizeOne(
-    async url => {
-      const domain = getDomain(url)
+  asyncMemoizeOne(async url => {
+    const domain = getDomain(url)
 
-      try {
-        const { body } = await got(ENDPOINT, {
-          ...DEFAULT_GOT_OPTS,
-          ...gotOpts,
-          searchParams: { query: domain }
-        })
+    try {
+      const { body } = await got(ENDPOINT, {
+        ...DEFAULT_GOT_OPTS,
+        ...gotOpts,
+        searchParams: { query: domain }
+      })
 
-        return appendQuery(
-          body.find(item => domain === item.domain),
-          logoOpts
-        )
-      } catch (err) {
-        return null
-      }
-    },
-    (newArgs, oldArgs) => newArgs[0] === oldArgs[0]
-  )
+      return appendQuery(
+        body.find(item => domain === item.domain),
+        logoOpts
+      )
+    } catch (err) {
+      return null
+    }
+  })
 
 module.exports = opts => {
   const clearbit = createClearbit(opts)

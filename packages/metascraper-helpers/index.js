@@ -259,9 +259,6 @@ memoizeOne.EqualityHtmlDom = (newArgs, oldArgs) => {
   return newArgs[0].html() === oldArgs[0].html()
 }
 
-memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
-  newArgs[1] === oldArgs[1] && newArgs[0].html() === oldArgs[0].html()
-
 const jsonld = memoizeOne(
   $ =>
     $('script[type="application/ld+json"]')

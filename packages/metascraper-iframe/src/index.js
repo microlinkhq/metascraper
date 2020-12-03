@@ -10,7 +10,8 @@ const providerTest = fromProvider.test.bind(fromProvider)
 
 const isValidUrl = memoizeOne(
   ($, url) => htmlTest($) || providerTest(url),
-  memoizeOne.EqualityUrlAndHtmlDom
+  (newArgs, oldArgs) =>
+    newArgs[1] === oldArgs[1] && newArgs[0].html() === oldArgs[0].html()
 )
 
 const test = ({ url, htmlDom }) => isValidUrl(htmlDom, url)
