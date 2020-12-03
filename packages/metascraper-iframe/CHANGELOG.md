@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.15.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.14.27...v5.15.0) (2020-12-03)
+
+
+### Bug Fixes
+
+* memoize resolver function ([#326](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/issues/326)) ([b0ea8b8](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/commit/b0ea8b80aa4c6dbabc1ad91776911ac21ebe94c7))
+
+
+
+
+
 ## [5.14.27](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe/compare/v5.14.26...v5.14.27) (2020-11-30)
 
 

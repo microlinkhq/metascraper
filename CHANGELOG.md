@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.15.0](https://github.com/microlinkhq/metascraper/compare/v5.14.27...v5.15.0) (2020-12-03)
+
+
+### Bug Fixes
+
+* memoize resolver function ([#326](https://github.com/microlinkhq/metascraper/issues/326)) ([b0ea8b8](https://github.com/microlinkhq/metascraper/commit/b0ea8b80aa4c6dbabc1ad91776911ac21ebe94c7))
+
+
+### Features
+
+* add telegram integration ([78dcdab](https://github.com/microlinkhq/metascraper/commit/78dcdaba1572115e8265dbcc4e5df59628115330))
+
+
+
+
+
 ## [5.14.27](https://github.com/microlinkhq/metascraper/compare/v5.14.26...v5.14.27) (2020-11-30)
 
 

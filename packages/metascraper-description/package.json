@@ -2,7 +2,7 @@
   "name": "metascraper-description",
   "description": "Get description property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-description",
-  "version": "5.14.26",
+  "version": "5.15.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.14.26"
+    "@metascraper/helpers": "^5.15.0"
   },
   "devDependencies": {
     "mocha": "latest",
