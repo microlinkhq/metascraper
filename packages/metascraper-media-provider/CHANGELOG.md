@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.2](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.15.1...v5.15.2) (2020-12-09)
+
+
+### Bug Fixes
+
+* reporter ([a5128ba](https://github.com/microlinkhq/metascraper/tree/master/packages/commit/a5128ba860ac53e1da1beaabed3a19161577d99a))
+
+
+
+
+
 # [5.15.0](https://github.com/microlinkhq/metascraper/tree/master/packages/compare/v5.14.27...v5.15.0) (2020-12-03)
 
 
