@@ -3,7 +3,7 @@
 const asyncMemoizeOne = require('async-memoize-one')
 const { getDomainWithoutSuffix } = require('tldts')
 const { JSDOM, VirtualConsole } = require('jsdom')
-const parseCssUrls = require('css-url-parser')
+const cssUrls = require('css-urls')
 
 const {
   memoizeOne,
@@ -58,7 +58,15 @@ module.exports = () => {
           dom.window.document.querySelector('.link_preview_image') ||
           dom.window.document.querySelector('.link_preview_right_image') ||
           dom.window.document.querySelector('.tgme_widget_message_photo_wrap')
-        return el ? parseCssUrls(el.style['background-image'])[0] : undefined
+
+        if (!el) return
+
+        const [{ normalizedUrl: cssUrl }] = cssUrls({
+          text: el.style['background-image'],
+          url
+        })
+
+        return cssUrl
       })
     ],
     date: [
