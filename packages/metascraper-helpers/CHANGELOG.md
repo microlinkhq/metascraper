@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.4](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.15.3...v5.15.4) (2020-12-17)
+
+**Note:** Version bump only for package @metascraper/helpers
+
+
+
+
+
 # [5.15.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.14.27...v5.15.0) (2020-12-03)
 
 
