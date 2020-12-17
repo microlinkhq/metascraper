@@ -37,5 +37,12 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "mocha": {
+    "bail": true,
+    "recursive": true,
+    "reporter": "spec",
+    "slow": 300,
+    "timeout": "120000"
+  }
 }
