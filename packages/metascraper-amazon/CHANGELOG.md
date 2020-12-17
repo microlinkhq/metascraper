@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.3](https://github.com/microlinkhq/metascraper-amazon/compare/v5.15.2...v5.15.3) (2020-12-17)
+
+**Note:** Version bump only for package metascraper-amazon
+
+
+
+
+
 # [5.15.0](https://github.com/microlinkhq/metascraper-amazon/compare/v5.14.27...v5.15.0) (2020-12-03)
 
 
