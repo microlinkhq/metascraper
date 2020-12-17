@@ -29,7 +29,7 @@
     "isostring": "0.0.1",
     "lodash": "~4.17.20",
     "memoize-one": "~5.1.1",
-    "microsoft-capitalize": "~1.0.3",
+    "microsoft-capitalize": "~1.0.4",
     "mime-types": "~2.1.27",
     "normalize-url": "~5.3.0",
     "smartquotes": "~2.3.2",
