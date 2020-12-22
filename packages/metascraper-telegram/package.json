@@ -18,9 +18,9 @@
   "dependencies": {
     "@metascraper/helpers": "^5.15.4",
     "async-memoize-one": "~1.0.1",
-    "css-urls": "~2.0.9",
+    "css-urls": "~2.0.10",
     "jsdom": "~16.4.0",
-    "tldts": "~5.6.77"
+    "tldts": "~5.6.79"
   },
   "devDependencies": {
     "mocha": "latest",
