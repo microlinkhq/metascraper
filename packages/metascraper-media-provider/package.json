@@ -20,7 +20,7 @@
     "@metascraper/helpers": "^5.16.0",
     "debug-logfmt": "~1.0.4",
     "got": "~11.8.1",
-    "keepalive-proxy-agent": "~1.1.2",
+    "keepalive-proxy-agent": "~1.2.0",
     "lodash": "~4.17.20",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
