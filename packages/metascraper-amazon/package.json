@@ -5,11 +5,12 @@
   "version": "5.16.0",
   "main": "index.js",
   "repository": {
+    "directory": "packages/metascraper-amazon",
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper-amazon.git"
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/metascraper-amazon/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
     "amazon",

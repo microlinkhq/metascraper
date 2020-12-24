@@ -6,10 +6,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper-soundcloud.git"
+    "url": "git+https://github.com/microlinkhq/metascraper.git",
+    "directory": "packages/metascraper-soundcloud"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/metascraper-soundcloud/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
     "audio",

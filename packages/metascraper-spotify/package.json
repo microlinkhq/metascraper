@@ -6,10 +6,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper-spotify.git"
+    "url": "git+https://github.com/microlinkhq/metascraper.git",
+    "directory": "packages/metascraper-spotify"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/metascraper-spotify/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
     "audio",

@@ -6,10 +6,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper-clearbit.git"
+    "url": "git+https://github.com/microlinkhq/metascraper.git",
+    "directory": "packages/metascraper-clearbit"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/metascraper-clearbit/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
     "autocomplete",

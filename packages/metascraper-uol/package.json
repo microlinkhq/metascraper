@@ -6,10 +6,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper-uol.git"
+    "url": "git+https://github.com/microlinkhq/metascraper.git",
+    "directory": "packages/metascraper-uol"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/metascraper-uol/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
     "metascraper",
