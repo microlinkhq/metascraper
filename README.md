@@ -219,8 +219,8 @@ const metascraper = require('metascraper')([
 
 > Rules bundles maintained by individual users.
 
-- [`metascraper-address`](https://github.com/goodhood-eu/metascraper-address) – Get product information from HTML markup on merchant websites.
-- [`metascraper-shopping`](https://github.com/samirrayani/metascraper-shopping) – Get schema.org formatted address.
+- [`metascraper-address`](https://github.com/goodhood-eu/metascraper-address) – Get schema.org formatted address.
+- [`metascraper-shopping`](https://github.com/samirrayani/metascraper-shopping) – Get product information from HTML markup on merchant websites.
 
 ### Write Your Own Rules
 
