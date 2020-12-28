@@ -5,9 +5,9 @@
   "version": "5.16.0",
   "main": "index.js",
   "repository": {
+    "directory": "packages/metascraper-spotify",
     "type": "git",
-    "url": "git+https://github.com/microlinkhq/metascraper.git",
-    "directory": "packages/metascraper-spotify"
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
