@@ -24,6 +24,10 @@
       "email": "slava.ganzin@gmail.com"
     },
     {
+      "name": "Steven Frostwick",
+      "email": "steven.frostwick@gmail.com"
+    },
+    {
       "name": "Wyatt Johnson",
       "email": "wyattjoh@gmail.com"
     },
@@ -44,16 +48,16 @@
       "email": "github@jonasrottmann.com"
     },
     {
+      "name": "Amine Bouyarmane",
+      "email": "amine.bouyarmane@gmail.com"
+    },
+    {
       "name": "Omar Diab",
       "email": "me@omardiab.com"
     },
     {
       "name": "Sampo Juustila",
       "email": "sampo.niskanen@iki.fi"
-    },
-    {
-      "name": "Steven Frostwick",
-      "email": "steven.frostwick@gmail.com"
     }
   ],
   "repository": {
