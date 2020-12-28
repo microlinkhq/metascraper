@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.3](https://github.com/microlinkhq/metascraper/compare/v5.16.2...v5.16.3) (2020-12-28)
+
+
+### Bug Fixes
+
+* package link reference ([802e629](https://github.com/microlinkhq/metascraper/commit/802e629352affd0c660d970be8728b2542d2a61f)), closes [#335](https://github.com/microlinkhq/metascraper/issues/335)
+
+
+
+
+
 ## [5.16.2](https://github.com/microlinkhq/metascraper/compare/v5.16.1...v5.16.2) (2020-12-24)
 
 **Note:** Version bump only for package metascraper
