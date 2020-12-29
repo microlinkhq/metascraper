@@ -19,3 +19,10 @@ exports['kikobeats.com 1'] = {
   "title": "Kikobeats"
 }
 
+exports['handle malformed HTML 1'] = {
+  "description": null,
+  "publisher": null,
+  "author": null,
+  "title": null
+}
+
