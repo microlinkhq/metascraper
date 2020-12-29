@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.4](https://github.com/microlinkhq/metascraper/compare/v5.16.3...v5.16.4) (2020-12-29)
+
+
+### Bug Fixes
+
+* ensure to handle malformed HTML ([170cd6a](https://github.com/microlinkhq/metascraper/commit/170cd6ae12645b4cec35b12cf4759573f2683dab))
+
+
+
+
+
 ## [5.16.3](https://github.com/microlinkhq/metascraper/compare/v5.16.2...v5.16.3) (2020-12-28)
 
 
