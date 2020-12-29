@@ -43,7 +43,7 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
 
 module.exports = opts => {
   const clearbit = createClearbit(opts)
-  const getClearbit = composeRule((htmlDom, url) => clearbit(url))
+  const getClearbit = composeRule(($, url) => clearbit(url))
 
   return {
     logo: getClearbit({ from: 'logo' }),

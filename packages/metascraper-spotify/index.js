@@ -13,7 +13,7 @@ const spotify = asyncMemoizeOne(async url => {
   }
 })
 
-const getSpotify = composeRule((htmlDom, url) => spotify(url))
+const getSpotify = composeRule(($, url) => spotify(url))
 
 const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
 
