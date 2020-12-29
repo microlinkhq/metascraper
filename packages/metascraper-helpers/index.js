@@ -290,9 +290,12 @@ const $jsonld = propName => $ => {
   return value ? decodeHTML(value) : value
 }
 
-const image = url
+const image = (value, opts) => {
+  const urlValue = url(value, opts)
+  return !isAudioUrl(urlValue, opts) && !isVideoUrl(urlValue, opts) && urlValue
+}
 
-const logo = url
+const logo = image
 
 const video = (value, opts) => {
   const urlValue = url(value, opts)

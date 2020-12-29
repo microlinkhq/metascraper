@@ -1045,3 +1045,16 @@ exports['teslahunt 1'] = {
   "url": "https://teslahunt.io/5YJSA7E49JF269238"
 }
 
+exports['softwarefordays 1'] = {
+  "author": null,
+  "date": null,
+  "description": "Excerpted from Functional Programming and the Semantics of Change, State & Time.",
+  "image": "https://softwarefordays.com/media/metavideoposter.gif",
+  "video": "https://softwarefordays.com/media/metavideo.mp4",
+  "lang": "en",
+  "logo": "https://softwarefordays.com/media/favicon_io/favicon-32x32.png",
+  "publisher": null,
+  "title": "Resolving the Time Paradox Implied by Functional Programs",
+  "url": "https://softwarefordays.com/post/resolving-the-fp-time-paradox/"
+}
+
