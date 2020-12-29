@@ -9,12 +9,12 @@ const htmlTest = fromHTML.test.bind(fromHTML)
 const providerTest = fromProvider.test.bind(fromProvider)
 
 const isValidUrl = memoizeOne(
-  ($, url) => htmlTest($) || providerTest(url),
+  (url, $) => htmlTest($) || providerTest(url),
   (newArgs, oldArgs) =>
-    newArgs[1] === oldArgs[1] && newArgs[0].html() === oldArgs[0].html()
+    newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
 )
 
-const test = ({ url, htmlDom }) => isValidUrl(htmlDom, url)
+const test = ({ url, htmlDom }) => isValidUrl(url, htmlDom)
 
 module.exports = ({ gotOpts } = {}) => {
   const rules = { iframe: [fromHTML(gotOpts), fromProvider(gotOpts)] }

@@ -13,13 +13,13 @@ const parseReader = reader => {
   }
 }
 
-const readability = memoizeOne((html, url) => {
+const readability = memoizeOne((url, html) => {
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
   const reader = new Readability(dom.window.document)
   return parseReader(reader)
 })
 
-const getReadbility = composeRule(($, url) => readability($.html(), url))
+const getReadbility = composeRule(($, url) => readability(url, $.html()))
 
 module.exports = () => {
   return {
