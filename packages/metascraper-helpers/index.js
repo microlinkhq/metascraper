@@ -321,7 +321,6 @@ const validator = {
   lang
 }
 
-// TODO: review all the places where `toRule` is used and add an `await`
 const toRule = (mapper, opts) => rule => async ({ htmlDom, url }) => {
   const value = await rule(htmlDom, url)
   return mapper(value, { url, ...opts })
