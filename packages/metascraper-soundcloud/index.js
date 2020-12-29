@@ -23,7 +23,7 @@ module.exports = () => {
     description: [toDescription($ => $filter($, $('.soundTitle__description')))]
   }
 
-  rules.test = memoizeOne(({ url }) => isValidUrl(url))
+  rules.test = ({ url }) => isValidUrl(url)
 
   return rules
 }
