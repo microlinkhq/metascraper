@@ -31,6 +31,7 @@ module.exports = ({
   getProxy = constant(false),
   onError = noop,
   timeout = 30000,
+  retry = 5,
   userAgent,
   ...props
 }) => {
@@ -39,20 +40,22 @@ module.exports = ({
     let data = {}
     let isTimeout = false
 
+    const condition = () => !isTimeout && isEmpty(data) && retryCount < retry
+
     const task = async () => {
-      await pDoWhilst(
-        async () => {
-          try {
-            const proxy = getProxy({ url, retryCount: retryCount++ })
-            const flags = getFlags({ url, proxy, userAgent, cacheDir })
-            data = await getInfo(url, flags, { timeout, ...props })
-          } catch (error) {
+      await pDoWhilst(async () => {
+        try {
+          const proxy = getProxy({ url, retryCount: retryCount++ })
+          const flags = getFlags({ url, proxy, userAgent, cacheDir })
+          data = await getInfo(url, flags, { timeout, ...props })
+        } catch (error) {
+          if (condition()) {
             debug('getInfo:error', { retryCount }, error)
             onError(url, error)
           }
-        },
-        () => !isTimeout && isEmpty(data)
-      )
+        }
+      }, condition)
+
       return data
     }
 

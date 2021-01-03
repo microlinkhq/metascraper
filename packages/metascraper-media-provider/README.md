@@ -50,6 +50,13 @@ const getProxy = ({ url, retryCount  }) => {
 }
 ```
 
+##### retry
+
+Type: `number`<br>
+Default: `5`
+
+The maximum number of retries allowed to perform.
+
 ##### timeout
 
 Type: `number`<br>
