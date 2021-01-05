@@ -49,6 +49,6 @@ describe('metascraper-audio', () => {
     const url = 'https://browserless.js.org'
 
     const metadata = await metascraper({ html, url })
-    snapshot(metadata.audio)
+    snapshot(metadata)
   })
 })
