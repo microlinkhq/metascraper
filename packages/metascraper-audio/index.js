@@ -21,6 +21,11 @@ module.exports = () => ({
       return contentType ? withContentType(streamUrl, contentType) : streamUrl
     }),
     toAudio($ => $('audio').attr('src')),
-    toAudio($ => $('audio > source').attr('src'))
+    toAudio($ => $('audio > source').attr('src')),
+    toAudio($ =>
+      $('a')
+        .filter((_, element) => audio(element.attribs['href']))
+        .attr('href')
+    )
   ]
 })
