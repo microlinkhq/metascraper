@@ -43,6 +43,7 @@ describe('metascraper-audio', () => {
     const metadata = await metascraper({ html, url })
     snapshot(metadata)
   })
+
   it('audio a:href', async () => {
     const html =
       '<a href="https://browserless.js.org/static/demo.mp3?some_param=this">Download</a>'
