@@ -24,32 +24,16 @@
       "email": "slava.ganzin@gmail.com"
     },
     {
-      "name": "Steven Frostwick",
-      "email": "steven.frostwick@gmail.com"
-    },
-    {
-      "name": "Wyatt Johnson",
-      "email": "wyattjoh@gmail.com"
-    },
-    {
-      "name": "Nikola Ristic",
-      "email": "risticn6@gmail.com"
-    },
-    {
-      "name": "Iheb KHEMISSI",
-      "email": "iheb.khemissi+github@gmail.com"
-    },
-    {
-      "name": "Jesse Rogers",
-      "email": "djrquazz@gmail.com"
-    },
-    {
       "name": "Jonas Rottmann",
       "email": "github@jonasrottmann.com"
     },
     {
-      "name": "Amine Bouyarmane",
-      "email": "amine.bouyarmane@gmail.com"
+      "name": "Gabe O'Leary",
+      "email": "oleary.gabe@gmail.com"
+    },
+    {
+      "name": "Nikola Ristic",
+      "email": "risticn6@gmail.com"
     },
     {
       "name": "Omar Diab",
@@ -58,6 +42,26 @@
     {
       "name": "Sampo Juustila",
       "email": "sampo.niskanen@iki.fi"
+    },
+    {
+      "name": "Amine Bouyarmane",
+      "email": "amine.bouyarmane@gmail.com"
+    },
+    {
+      "name": "Steven Frostwick",
+      "email": "steven.frostwick@gmail.com"
+    },
+    {
+      "name": "Wyatt Johnson",
+      "email": "wyattjoh@gmail.com"
+    },
+    {
+      "name": "Jesse Rogers",
+      "email": "djrquazz@gmail.com"
+    },
+    {
+      "name": "Iheb KHEMISSI",
+      "email": "iheb.khemissi+github@gmail.com"
     }
   ],
   "repository": {
