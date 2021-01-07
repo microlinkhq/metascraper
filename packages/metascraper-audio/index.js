@@ -1,6 +1,6 @@
 'use strict'
 
-const { isMime, audio, toRule } = require('@metascraper/helpers')
+const { isMime, audio, toRule, $filter } = require('@metascraper/helpers')
 
 const toAudio = toRule(audio)
 
@@ -21,6 +21,7 @@ module.exports = () => ({
       return contentType ? withContentType(streamUrl, contentType) : streamUrl
     }),
     toAudio($ => $('audio').attr('src')),
-    toAudio($ => $('audio > source').attr('src'))
+    toAudio($ => $('audio > source').attr('src')),
+    ({ htmlDom: $ }) => $filter($, $('a'), el => audio(el.attr('href')))
   ]
 })
