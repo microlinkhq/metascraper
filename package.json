@@ -94,7 +94,7 @@
     "standard-markdown": "latest"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14"
   },
   "scripts": {
     "build": "gulp build",
