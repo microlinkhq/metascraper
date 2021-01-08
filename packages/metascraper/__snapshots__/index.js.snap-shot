@@ -89,6 +89,19 @@ exports['bloomberg 1'] = {
   "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
 }
 
+exports['bukvy 1'] = {
+  "author": "Буквы",
+  "date": "2019-01-06T07:43:59.000Z",
+  "description": "Президент Петр Порошенко заявил, что государство будет уважать религиозный выбор и вероисповедание каждого гражданина страны. Об этом он заявил в обращении после торжественной церемонии вручения в Стамбуле Томоса об автокефалии Православной церкви Украины. “Я как Президент гарантирую от имени госуда…",
+  "image": "https://bykvu.com/ru/kd_image_generate/141935.jpg",
+  "video": null,
+  "lang": null,
+  "logo": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png",
+  "publisher": "Буквы",
+  "title": "Украина будет уважать религиозный выбор каждого гражданина, – Порошенко",
+  "url": "https://bykvu.com/ru/bukvy/107312-ukraina-budet-uvazhat-religioznyj-vybor-kazhdogo-grazhdanina-poroshenko/"
+}
+
 exports['business-today 1'] = {
   "author": null,
   "date": "2016-05-18T10:09:00.000Z",
@@ -191,6 +204,19 @@ exports['economic-times 1'] = {
   "publisher": "The Economic Times",
   "title": "HackerRank launches job search platform HackerRank Jobs - The Economic Times",
   "url": "http://economictimes.indiatimes.com/jobs/hackerrank-launches-job-search-platform-hackerrank-jobs/articleshow/50551900.cms"
+}
+
+exports['engadget 1'] = {
+  "author": "Mallory Locklear",
+  "date": "2019-01-07T15:49:36.000Z",
+  "description": "Previously, only paid subscribers had access to private repositories.",
+  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
+  "video": null,
+  "lang": "en",
+  "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",
+  "publisher": "Engadget",
+  "title": "All GitHub users can keep their code private",
+  "url": "https://www.engadget.com/2019/01/07/all-github-users-keep-code-private/"
 }
 
 exports['entrepreneur 1'] = {
@@ -336,6 +362,19 @@ exports['googleblog 1'] = {
   "url": "https://cloudplatform.googleblog.com/2016/09/Google-Cloud-Platform-sets-a-course-for-new-horizons.html"
 }
 
+exports['health.govt.nz 1'] = {
+  "author": null,
+  "date": "2011-04-07T12:00:00.000Z",
+  "description": "In December 2009 Cabinet agreed to strengthen the health sector’s focus on quality and safety by creating a Health Quality and Safety Commission. This regulatory impact statement considers what additional functions, powers, and funding mechanisms the Commission might need to achieve sustained qualit…",
+  "image": "https://www.health.govt.nz/sites/all/themes/mohpub_bootstrap/images/mohlogo.svg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.health.govt.nz/sites/all/themes/mohpub_bootstrap/favicon.ico",
+  "publisher": "Ministry of Health NZ",
+  "title": "Quality Improvement Agency: Health Quality and Safety Commission: Functions, Powers and Funding",
+  "url": "https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding"
+}
+
 exports['inc 1'] = {
   "author": "Jeremy Quittner",
   "date": "2016-05-24T05:55:00.000Z",
@@ -399,6 +438,19 @@ exports['lean-data 1'] = {
   "publisher": "LeanData",
   "title": "LeanData | The Winds of Change",
   "url": "http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change"
+}
+
+exports['learnnode 1'] = {
+  "author": "HackerYou",
+  "date": null,
+  "description": "A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.",
+  "image": "https://learnnode.com/images/NODE/poster.jpg",
+  "video": "https://player.vimeo.com/external/216213305.sd.mp4?s=815e208b400abe120e9b860dad68762bcf4b828a&profile_id=164",
+  "lang": null,
+  "logo": "https://learnnode.com/images/NODE/favicon.png",
+  "publisher": "Learn Node",
+  "title": "Learn Node",
+  "url": "https://learnnode.com"
 }
 
 exports['linkedin (company) 1'] = {
@@ -518,6 +570,33 @@ exports['motherboard 1'] = {
   "url": "http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion"
 }
 
+exports['nbcnews 1'] = {
+  "author": "David K. Li and Doha Madani",
+  "date": "2021-01-06T16:50:01.000Z",
+  "description": "Even before announcing his findings, the Kenosha County district attorney pleaded for peace.",
+  "image": "https://media4.s-nbcnews.com/j/newscms/2020_45/3407342/200825-jacob-blake-2x1-se-152p_19527f3bde0e0abf3b82395738909a41.nbcnews-fp-1200-630.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://sslnodeassets.nbcnews.com/cdnassets/projects/site-images/nbcnews-logo-white.png",
+  "publisher": "NBC News",
+  "title": "No charges filed against Kenosha officers in Jacob Blake shooting",
+  "url": "https://www.nbcnews.com/news/us-news/no-charges-filed-against-kenosha-officers-jacob-blake-shooting-n1252739"
+}
+
+exports['npr 1'] = {
+  "author": "Darian Woods,Sarah Gonzalez",
+  "date": "2020-12-24T03:36:00.000Z",
+  "description": "A global pandemic might not be the best time to try something new with technology. But Taiwan decided to do it anyway. | Subscribe to our weekly newsletter here.",
+  "image": "https://media.npr.org/assets/img/2020/12/23/gettyimages-1199493836_wide-b0f8c2e44d3617f2f5ff7f4dceff064ecad00439.jpg?s=1400",
+  "video": null,
+  "lang": "en",
+  "logo": "https://media.npr.org/chrome/npr-logo.jpg",
+  "publisher": "NPR",
+  "title": "Fork The Government : Planet Money",
+  "url": "https://www.npr.org/2020/12/23/949764249/fork-the-government",
+  "audio": "https://play.podtrac.com/510289/edge1.pod.npr.org/anon.npr-mp3/npr/pmoney/2020/12/20201223_pmoney_pmpod1054.mp3?orgId=1&topicId=1125&d=1477&p=510289&story=949764249&t=podcast&e=949764249&dl=1&siteplayer=true&size=23584686&awCollectionId=510289&awEpisodeId=949764249&dl=1"
+}
+
 exports['nytimes 1'] = {
   "author": "Tim Herrera",
   "date": "2017-07-05T15:18:50.000Z",
@@ -531,6 +610,32 @@ exports['nytimes 1'] = {
   "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
 }
 
+exports['pikabu 1'] = {
+  "author": null,
+  "date": "2019-06-19T21:04:27.000Z",
+  "description": "Поделился пикабушник: odno.kino",
+  "image": "https://cs10.pikabu.ru/post_img/2019/06/14/8/156051367927850595.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://cs.pikabu.ru/mobile/img/apple-touch-icon-152x152.png",
+  "publisher": "Пикабу",
+  "title": "7 интересных наблюдений о первой Матрице",
+  "url": "https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662"
+}
+
+exports['postplanner 1'] = {
+  "author": "Joshua Parkinson",
+  "date": "2020-12-30T02:13:22.000Z",
+  "description": "Want to get more Likes on Facebook in 2021? No problem. To increase Likes on your FB page, you need to boost Likes on your FB posts. Here’s how to do that.",
+  "image": "https://www.postplanner.com/hubfs/blog/11_Ways_to_Get_Lots_of_Likes_on_Facebook_(the_right_way)/11%20Ways%20to%20Get%20Lots%20of%20Likes%20on%20Facebook%20(the%20right%20way!!)%20hero.png#keepProtocol",
+  "video": null,
+  "lang": null,
+  "logo": "https://www.postplanner.com/hubfs/a-full-logo.png",
+  "publisher": "Post Planner",
+  "title": "Here’s How to Get More Likes on Facebook in 2021 (and Reach Millions)",
+  "url": "https://www.postplanner.com/get-more-likes-fans-facebook-page/"
+}
+
 exports['pr-newswire 1'] = {
   "author": "HackerRank",
   "date": "2016-04-25T15:39:00.000Z",
@@ -542,6 +647,20 @@ exports['pr-newswire 1'] = {
   "publisher": "PR Newswire",
   "title": "HackerRank & Cybermedia Technologies Partner to Help Close the STEM Skills Gap in Federal Government",
   "url": "http://www.prnewswire.com/news-releases/hackerrank--cybermedia-technologies-partner-to-help-close-the-stem-skills-gap-in-federal-government-300256929.html"
+}
+
+exports['reactpodcast 1'] = {
+  "author": null,
+  "date": "2021-01-08T00:00:00.000Z",
+  "description": "Tom Preston-Werner is building a full-stack framework for React and GraphQL developers.\nIn this episode we talk about RedwoodJS, a framework that’s bringing full-stack to Jamstack. Tom is a co-founder of GitHub, creator of Jekyll (the OG static site generator), TOML, and Semantic Versioning. If yo…",
+  "image": null,
+  "video": null,
+  "lang": "en",
+  "logo": "https://image.simplecastcdn.com/images/7672009f-32a0-470f-81b8-77a9748d560e/82cc2a41-1a7b-4c91-b6f0-a461c50830ed/simplecast-logo-32.jpg",
+  "publisher": "React Podcast",
+  "title": "117: Tom Preston-Werner on RedwoodJS | React Podcast",
+  "url": "https://reactpodcast.com/episodes/117",
+  "audio": "https://cdn.simplecast.com/audio/bdb43d4d-bd1d-4fbc-bd60-40f1e3299aa3/episodes/48e2fc0d-0af2-468c-9eaf-e6ba4d4f852e/audio/2f892c8b-ecc9-4905-ae9d-4283ffb1054e/default_tc.mp3"
 }
 
 exports['recode 1'] = {
@@ -674,6 +793,19 @@ exports['smitten-kitchen 1'] = {
   "url": "http://smittenkitchen.com/blog/2016/05/cucumber-yogurt-raita-salad/"
 }
 
+exports['softwarefordays 1'] = {
+  "author": null,
+  "date": null,
+  "description": "Excerpted from Functional Programming and the Semantics of Change, State & Time.",
+  "image": "https://softwarefordays.com/media/metavideoposter.gif",
+  "video": "https://softwarefordays.com/media/metavideo.mp4",
+  "lang": "en",
+  "logo": "https://softwarefordays.com/media/favicon_io/favicon-32x32.png",
+  "publisher": null,
+  "title": "Resolving the Time Paradox Implied by Functional Programs",
+  "url": "https://softwarefordays.com/post/resolving-the-fp-time-paradox/"
+}
+
 exports['startup-grind 1'] = {
   "author": "Patrick Linton",
   "date": "2016-04-08T20:30:39.000Z",
@@ -698,6 +830,19 @@ exports['techcrunch 1'] = {
   "publisher": "TechCrunch",
   "title": "HackerRank Makes Technical Recruiting More Transparent",
   "url": "http://social.techcrunch.com/2016/01/12/hackerrank-jobs-takes-the-mystery-out-of-technical-recruiting/"
+}
+
+exports['teslahunt 1'] = {
+  "author": "Tesla",
+  "date": null,
+  "description": "Tesla Model S Tesla Model S P100D 2018 2018 (5YJSA7E49JF269238) 28,604 kms 83,900 €",
+  "image": "https://cdn.teslahunt.io/AOb-KjXXb3dlmbqpGeNm1.jpeg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://teslahunt.io/logo.png",
+  "publisher": "Tesla Hunt",
+  "title": "Tesla Model S P100D 2018 | Tesla Hunt",
+  "url": "https://teslahunt.io/5YJSA7E49JF269238"
 }
 
 exports['the-boston-globe 1'] = {
@@ -830,6 +975,19 @@ exports['washington-post 1'] = {
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all/"
 }
 
+exports['wikipedia 1'] = {
+  "author": null,
+  "date": "2016-10-13T12:00:00.000Z",
+  "description": "This article is about the musician. For his debut album, see Bob Dylan (album).",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
+  "publisher": "Wikipedia",
+  "title": "Bob Dylan - Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
+}
+
 exports['wired 1'] = {
   "author": "WIRED Staff",
   "date": "2017-07-13T00:35:06.995Z",
@@ -841,6 +999,20 @@ exports['wired 1'] = {
   "publisher": "WIRED",
   "title": "Giant Antarctic Icebergs and Crushing Existential Dread",
   "url": "https://www.wired.com/story/giant-antarctic-icebergs-and-crushing-existential-dread/"
+}
+
+exports['wnycstudios 1'] = {
+  "author": "August 14, 2020",
+  "date": "2020-08-14T12:00:00.000Z",
+  "description": "In the 1980s, as China was modernizing, they ran into a problem. There was no way to fit their 70,000 plus character language on a QWERTY keyboard. Today, the story of how they did it.",
+  "image": "https://media.wnyc.org/i/1355/1600/c/80/2020/08/QWERTY.JPG",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.wnycstudios.org/favicon.ico",
+  "publisher": "WNYC Studios",
+  "title": "The Wubi Effect | Radiolab | WNYC Studios",
+  "url": "https://www.wnycstudios.org/podcasts/radiolab/articles/wubi-effect",
+  "audio": "https://www.podtrac.com/pts/redirect.mp3/audio.wnyc.org/radiolab_podcast/radiolab_podcast20thewubieffect.mp3"
 }
 
 exports['wsj 1'] = {
@@ -882,144 +1054,6 @@ exports['yahoo-news 1'] = {
   "url": "https://www.yahoo.com/news/justin-bieber-coldly-throws-fans-133800208.html"
 }
 
-exports['zdnet 1'] = {
-  "author": "Natalie Gagliordi",
-  "date": "2016-05-24T13:30:03.000Z",
-  "description": "Founded in 2009, Agari perviously partnered with PayPal, Yahoo and Google to create the DMARC authentication protocol.",
-  "image": "http://zdnet4.cbsistatic.com/hub/i/r/2016/05/09/292bfdbf-c37f-4cd2-a5b6-2d9ee9920aef/thumbnail/770x578/053a9fc8f93b4bafd36dcc90c3debd12/istock000074135653medium.jpg",
-  "video": null,
-  "lang": "en",
-  "logo": "http://zdnet1.cbsistatic.com/fly/bundles/zdnetcss/images/logos/logo-192x192.png",
-  "publisher": "ZDNet",
-  "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
-  "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks/"
-}
-
-exports['soundcloud 1'] = {
-  "author": null,
-  "date": "2014-01-27T16:19:55.000Z",
-  "description": "Thanks for 5.000 likes on https://www.facebook.com/BeautyBrainMusic :D <3 <3 <3",
-  "image": "https://i1.sndcdn.com/artworks-000069142357-nwttc6-t500x500.jpg",
-  "lang": "en",
-  "logo": "https://a-v2.sndcdn.com/assets/images/sc-icons/ios-a62dfc8f.png",
-  "publisher": "SoundCloud",
-  "title": "Swag Bandicoot [FREE DOWNLOAD]",
-  "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot"
-}
-
-exports['youtube classic 1'] = {
-  "author": "Andrew JRT",
-  "date": "2017-07-07T00:00:00.000Z",
-  "description": "👍 Subscribe - http://bit.do/AndrewJRT 🐦 Twitter - https://twitter.com/andrew_jrt 🎮 Twitch - https://twitch.tv/andrewjrt ❤ Patreon - https://www.patreon.com/a...",
-  "image": "https://i.ytimg.com/vi/GDRd-BFTYIg/maxresdefault.jpg",
-  "lang": "en",
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vflWmzoXw.png",
-  "publisher": "YouTube",
-  "title": "Overwatch - Huge Massive Fist Punch Man",
-  "url": "https://www.youtube.com/watch?v=GDRd-BFTYIg"
-}
-
-exports['youtube video 1'] = {
-  "author": "ONE Media",
-  "date": "2017-04-14T12:00:00.000Z",
-  "description": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017 © 2017 - Disney",
-  "image": "https://i.ytimg.com/vi/hwMkbaS_M_c/mqdefault.jpg",
-  "lang": null,
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "publisher": "ES",
-  "title": "Star Wars 8 El Ultimo JEDI Trailer Espanol (Subtitulado) - 2017",
-  "url": "https://www.youtube.com/watch?v=hwMkbaS_M_c"
-}
-
-exports['youtube channel 1'] = {
-  "author": "ONE Media",
-  "description": "Thor 3, Star Wars, Valerian, Transformers 5, Baywatch, Despicable Me 3, Fast and Furious 8, Wonder Woman, Justice League... ALL The Must See Movie Trailer, F...",
-  "image": "https://yt3.ggpht.com/-q3yclmvjVzk/AAAAAAAAAAI/AAAAAAAAAAA/jVaGJKJjUps/s200-c-k-no-mo-rj-c0xffffff/photo.jpg",
-  "lang": null,
-  "logo": "https://www.youtube.com/yts/img/favicon_144-vfliLAfaB.png",
-  "publisher": "YouTube",
-  "title": "ONE Media - YouTube",
-  "url": "https://www.youtube.com/channel/UCzcRQ3vRNr6fJ1A9rqFn7QA"
-}
-
-exports['wikipedia 1'] = {
-  "author": null,
-  "date": "2016-10-13T12:00:00.000Z",
-  "description": "This article is about the musician. For his debut album, see Bob Dylan (album).",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/1200px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg",
-  "video": null,
-  "lang": "en",
-  "logo": "https://en.wikipedia.org/static/apple-touch/wikipedia.png",
-  "publisher": "Wikipedia",
-  "title": "Bob Dylan - Wikipedia",
-  "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
-}
-
-exports['engadget 1'] = {
-  "author": "Mallory Locklear",
-  "date": "2019-01-07T15:49:36.000Z",
-  "description": "Previously, only paid subscribers had access to private repositories.",
-  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
-  "video": null,
-  "lang": "en",
-  "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",
-  "publisher": "Engadget",
-  "title": "All GitHub users can keep their code private",
-  "url": "https://www.engadget.com/2019/01/07/all-github-users-keep-code-private/"
-}
-
-exports['learnnode 1'] = {
-  "author": "HackerYou",
-  "date": null,
-  "description": "A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.",
-  "image": "https://learnnode.com/images/NODE/poster.jpg",
-  "video": "https://player.vimeo.com/external/216213305.sd.mp4?s=815e208b400abe120e9b860dad68762bcf4b828a&profile_id=164",
-  "lang": null,
-  "logo": "https://learnnode.com/images/NODE/favicon.png",
-  "publisher": "Learn Node",
-  "title": "Learn Node",
-  "url": "https://learnnode.com"
-}
-
-exports['health.govt.nz 1'] = {
-  "author": null,
-  "date": "2011-04-07T12:00:00.000Z",
-  "description": "In December 2009 Cabinet agreed to strengthen the health sector’s focus on quality and safety by creating a Health Quality and Safety Commission. This regulatory impact statement considers what additional functions, powers, and funding mechanisms the Commission might need to achieve sustained qualit…",
-  "image": "https://www.health.govt.nz/sites/all/themes/mohpub_bootstrap/images/mohlogo.svg",
-  "video": null,
-  "lang": "en",
-  "logo": "https://www.health.govt.nz/sites/all/themes/mohpub_bootstrap/favicon.ico",
-  "publisher": "Ministry of Health NZ",
-  "title": "Quality Improvement Agency: Health Quality and Safety Commission: Functions, Powers and Funding",
-  "url": "https://www.health.govt.nz/about-ministry/legislation-and-regulation/regulatory-impact-statements/quality-improvement-agency-health-quality-and-safety-commission-functions-powers-and-funding"
-}
-
-exports['pikabu 1'] = {
-  "author": null,
-  "date": "2019-06-19T21:04:27.000Z",
-  "description": "Поделился пикабушник: odno.kino",
-  "image": "https://cs10.pikabu.ru/post_img/2019/06/14/8/156051367927850595.jpg",
-  "video": null,
-  "lang": "en",
-  "logo": "https://cs.pikabu.ru/mobile/img/apple-touch-icon-152x152.png",
-  "publisher": "Пикабу",
-  "title": "7 интересных наблюдений о первой Матрице",
-  "url": "https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662"
-}
-
-exports['bukvy 1'] = {
-  "author": "Буквы",
-  "date": "2019-01-06T07:43:59.000Z",
-  "description": "Президент Петр Порошенко заявил, что государство будет уважать религиозный выбор и вероисповедание каждого гражданина страны. Об этом он заявил в обращении после торжественной церемонии вручения в Стамбуле Томоса об автокефалии Православной церкви Украины. “Я как Президент гарантирую от имени госуда…",
-  "image": "https://bykvu.com/ru/kd_image_generate/141935.jpg",
-  "video": null,
-  "lang": null,
-  "logo": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png",
-  "publisher": "Буквы",
-  "title": "Украина будет уважать религиозный выбор каждого гражданина, – Порошенко",
-  "url": "https://bykvu.com/ru/bukvy/107312-ukraina-budet-uvazhat-religioznyj-vybor-kazhdogo-grazhdanina-poroshenko/"
-}
-
 exports['yandex 1'] = {
   "author": null,
   "description": "Не удалось загрузить данные",
@@ -1032,71 +1066,16 @@ exports['yandex 1'] = {
   "url": "https://yandex.ru/"
 }
 
-exports['teslahunt 1'] = {
-  "author": "Tesla",
-  "date": null,
-  "description": "Tesla Model S Tesla Model S P100D 2018 2018 (5YJSA7E49JF269238) 28,604 kms 83,900 €",
-  "image": "https://cdn.teslahunt.io/AOb-KjXXb3dlmbqpGeNm1.jpeg",
+exports['zdnet 1'] = {
+  "author": "Natalie Gagliordi",
+  "date": "2016-05-24T13:30:03.000Z",
+  "description": "Founded in 2009, Agari perviously partnered with PayPal, Yahoo and Google to create the DMARC authentication protocol.",
+  "image": "http://zdnet4.cbsistatic.com/hub/i/r/2016/05/09/292bfdbf-c37f-4cd2-a5b6-2d9ee9920aef/thumbnail/770x578/053a9fc8f93b4bafd36dcc90c3debd12/istock000074135653medium.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://teslahunt.io/logo.png",
-  "publisher": "Tesla Hunt",
-  "title": "Tesla Model S P100D 2018 | Tesla Hunt",
-  "url": "https://teslahunt.io/5YJSA7E49JF269238"
-}
-
-exports['softwarefordays 1'] = {
-  "author": null,
-  "date": null,
-  "description": "Excerpted from Functional Programming and the Semantics of Change, State & Time.",
-  "image": "https://softwarefordays.com/media/metavideoposter.gif",
-  "video": "https://softwarefordays.com/media/metavideo.mp4",
-  "lang": "en",
-  "logo": "https://softwarefordays.com/media/favicon_io/favicon-32x32.png",
-  "publisher": null,
-  "title": "Resolving the Time Paradox Implied by Functional Programs",
-  "url": "https://softwarefordays.com/post/resolving-the-fp-time-paradox/"
-}
-
-exports['npr 1'] = {
-  "author": "Darian Woods,Sarah Gonzalez",
-  "date": "2020-12-24T03:36:00.000Z",
-  "description": "A global pandemic might not be the best time to try something new with technology. But Taiwan decided to do it anyway. | Subscribe to our weekly newsletter <a href=“https://www.npr.org/newsletter/money?utm_source=rss_feed_copy&utm_medium=podcast&utm_term=planet_money”>here</a>.",
-  "image": "https://media.npr.org/assets/img/2020/12/23/gettyimages-1199493836_wide-b0f8c2e44d3617f2f5ff7f4dceff064ecad00439.jpg?s=1400",
-  "video": null,
-  "lang": "en",
-  "logo": "https://media.npr.org/chrome/npr-logo.jpg",
-  "publisher": "NPR",
-  "title": "Fork The Government : Planet Money",
-  "url": "https://www.npr.org/2020/12/23/949764249/fork-the-government",
-  "audio": "https://play.podtrac.com/510289/edge1.pod.npr.org/anon.npr-mp3/npr/pmoney/2020/12/20201223_pmoney_pmpod1054.mp3?orgId=1&topicId=1125&d=1477&p=510289&story=949764249&t=podcast&e=949764249&dl=1&siteplayer=true&size=23584686&awCollectionId=510289&awEpisodeId=949764249&dl=1"
-}
-
-exports['wnycstudios 1'] = {
-  "author": "August 14, 2020",
-  "date": "2020-08-14T12:00:00.000Z",
-  "description": "In the 1980s, as China was modernizing, they ran into a problem. There was no way to fit their 70,000 plus character language on a QWERTY keyboard. Today, the story of how they did it.",
-  "image": "https://media.wnyc.org/i/1355/1600/c/80/2020/08/QWERTY.JPG",
-  "video": null,
-  "lang": "en",
-  "logo": "https://www.wnycstudios.org/favicon.ico",
-  "publisher": "WNYC Studios",
-  "title": "The Wubi Effect | Radiolab | WNYC Studios",
-  "url": "https://www.wnycstudios.org/podcasts/radiolab/articles/wubi-effect",
-  "audio": "https://www.podtrac.com/pts/redirect.mp3/audio.wnyc.org/radiolab_podcast/radiolab_podcast20thewubieffect.mp3"
-}
-
-exports['reactpodcast 1'] = {
-  "author": null,
-  "date": "2021-01-07T00:00:00.000Z",
-  "description": "Tom Preston-Werner is building a full-stack framework for React and GraphQL developers.\nIn this episode we talk about RedwoodJS, a framework that’s bringing full-stack to Jamstack. Tom is a co-founder of GitHub, creator of Jekyll (the OG static site generator), TOML, and Semantic Versioning. If yo…",
-  "image": null,
-  "video": null,
-  "lang": "en",
-  "logo": "https://image.simplecastcdn.com/images/7672009f-32a0-470f-81b8-77a9748d560e/82cc2a41-1a7b-4c91-b6f0-a461c50830ed/simplecast-logo-32.jpg",
-  "publisher": "React Podcast",
-  "title": "117: Tom Preston-Werner on RedwoodJS | React Podcast",
-  "url": "https://reactpodcast.com/episodes/117",
-  "audio": "https://cdn.simplecast.com/audio/bdb43d4d-bd1d-4fbc-bd60-40f1e3299aa3/episodes/48e2fc0d-0af2-468c-9eaf-e6ba4d4f852e/audio/2f892c8b-ecc9-4905-ae9d-4283ffb1054e/default_tc.mp3"
+  "logo": "http://zdnet1.cbsistatic.com/fly/bundles/zdnetcss/images/logos/logo-192x192.png",
+  "publisher": "ZDNet",
+  "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
+  "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks/"
 }
 
