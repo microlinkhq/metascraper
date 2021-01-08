@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.10](https://github.com/microlinkhq/metascraper/compare/v5.16.9...v5.16.10) (2021-01-08)
+
+
+### Bug Fixes
+
+* preinstall → postinstall ([2d9f5f6](https://github.com/microlinkhq/metascraper/commit/2d9f5f690e25b13253e800c29f04ebb55a67f1b5))
+
+
+
+
+
 ## [5.16.9](https://github.com/microlinkhq/metascraper/compare/v5.16.8...v5.16.9) (2021-01-08)
 
 **Note:** Version bump only for package metascraper-youtube
