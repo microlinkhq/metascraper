@@ -1058,3 +1058,29 @@ exports['softwarefordays 1'] = {
   "url": "https://softwarefordays.com/post/resolving-the-fp-time-paradox/"
 }
 
+exports['postplanner 1'] = {
+  "author": "Joshua Parkinson",
+  "date": "2020-12-30T02:13:22.000Z",
+  "description": "Want to get more Likes on Facebook in 2021? No problem. To increase Likes on your FB page, you need to boost Likes on your FB posts. Here’s how to do that.",
+  "image": "https://www.postplanner.com/hubfs/blog/11_Ways_to_Get_Lots_of_Likes_on_Facebook_(the_right_way)/11%20Ways%20to%20Get%20Lots%20of%20Likes%20on%20Facebook%20(the%20right%20way!!)%20hero.png#keepProtocol",
+  "video": null,
+  "lang": null,
+  "logo": "https://www.postplanner.com/hubfs/a-full-logo.png",
+  "publisher": "Post Planner",
+  "title": "Here’s How to Get More Likes on Facebook in 2021 (and Reach Millions)",
+  "url": "https://www.postplanner.com/get-more-likes-fans-facebook-page/"
+}
+
+exports['nbcnews 1'] = {
+  "author": "David K. Li and Doha Madani",
+  "date": "2021-01-06T16:50:01.000Z",
+  "description": "Even before announcing his findings, the Kenosha County district attorney pleaded for peace.",
+  "image": "https://media4.s-nbcnews.com/j/newscms/2020_45/3407342/200825-jacob-blake-2x1-se-152p_19527f3bde0e0abf3b82395738909a41.nbcnews-fp-1200-630.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://sslnodeassets.nbcnews.com/cdnassets/projects/site-images/nbcnews-logo-white.png",
+  "publisher": "NBC News",
+  "title": "No charges filed against Kenosha officers in Jacob Blake shooting",
+  "url": "https://www.nbcnews.com/news/us-news/no-charges-filed-against-kenosha-officers-jacob-blake-shooting-n1252739"
+}
+
