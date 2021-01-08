@@ -1082,5 +1082,46 @@ exports['nbcnews 1'] = {
   "publisher": "NBC News",
   "title": "No charges filed against Kenosha officers in Jacob Blake shooting",
   "url": "https://www.nbcnews.com/news/us-news/no-charges-filed-against-kenosha-officers-jacob-blake-shooting-n1252739"
+
+exports['npr 1'] = {
+  "author": "Darian Woods,Sarah Gonzalez",
+  "date": "2020-12-24T03:36:00.000Z",
+  "description": "A global pandemic might not be the best time to try something new with technology. But Taiwan decided to do it anyway. | Subscribe to our weekly newsletter <a href=“https://www.npr.org/newsletter/money?utm_source=rss_feed_copy&utm_medium=podcast&utm_term=planet_money”>here</a>.",
+  "image": "https://media.npr.org/assets/img/2020/12/23/gettyimages-1199493836_wide-b0f8c2e44d3617f2f5ff7f4dceff064ecad00439.jpg?s=1400",
+  "video": null,
+  "lang": "en",
+  "logo": "https://media.npr.org/chrome/npr-logo.jpg",
+  "publisher": "NPR",
+  "title": "Fork The Government : Planet Money",
+  "url": "https://www.npr.org/2020/12/23/949764249/fork-the-government",
+  "audio": "https://play.podtrac.com/510289/edge1.pod.npr.org/anon.npr-mp3/npr/pmoney/2020/12/20201223_pmoney_pmpod1054.mp3?orgId=1&topicId=1125&d=1477&p=510289&story=949764249&t=podcast&e=949764249&dl=1&siteplayer=true&size=23584686&awCollectionId=510289&awEpisodeId=949764249&dl=1"
+}
+
+exports['wnycstudios 1'] = {
+  "author": "August 14, 2020",
+  "date": "2020-08-14T12:00:00.000Z",
+  "description": "In the 1980s, as China was modernizing, they ran into a problem. There was no way to fit their 70,000 plus character language on a QWERTY keyboard. Today, the story of how they did it.",
+  "image": "https://media.wnyc.org/i/1355/1600/c/80/2020/08/QWERTY.JPG",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.wnycstudios.org/favicon.ico",
+  "publisher": "WNYC Studios",
+  "title": "The Wubi Effect | Radiolab | WNYC Studios",
+  "url": "https://www.wnycstudios.org/podcasts/radiolab/articles/wubi-effect",
+  "audio": "https://www.podtrac.com/pts/redirect.mp3/audio.wnyc.org/radiolab_podcast/radiolab_podcast20thewubieffect.mp3"
+}
+
+exports['reactpodcast 1'] = {
+  "author": null,
+  "date": "2021-01-07T00:00:00.000Z",
+  "description": "Tom Preston-Werner is building a full-stack framework for React and GraphQL developers.\nIn this episode we talk about RedwoodJS, a framework that’s bringing full-stack to Jamstack. Tom is a co-founder of GitHub, creator of Jekyll (the OG static site generator), TOML, and Semantic Versioning. If yo…",
+  "image": null,
+  "video": null,
+  "lang": "en",
+  "logo": "https://image.simplecastcdn.com/images/7672009f-32a0-470f-81b8-77a9748d560e/82cc2a41-1a7b-4c91-b6f0-a461c50830ed/simplecast-logo-32.jpg",
+  "publisher": "React Podcast",
+  "title": "117: Tom Preston-Werner on RedwoodJS | React Podcast",
+  "url": "https://reactpodcast.com/episodes/117",
+  "audio": "https://cdn.simplecast.com/audio/bdb43d4d-bd1d-4fbc-bd60-40f1e3299aa3/episodes/48e2fc0d-0af2-468c-9eaf-e6ba4d4f852e/audio/2f892c8b-ecc9-4905-ae9d-4283ffb1054e/default_tc.mp3"
 }
 

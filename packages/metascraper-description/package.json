@@ -24,7 +24,7 @@
     "should": "latest"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14"
   },
   "files": [
     "index.js"
