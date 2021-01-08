@@ -38,7 +38,7 @@
     "index.js"
   ],
   "scripts": {
-    "preinstall": "bin-version-check python '>=2'",
+    "postinstall": "bin-version-check python '>=2'",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
   },
   "license": "MIT"
