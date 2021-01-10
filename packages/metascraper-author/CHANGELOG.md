@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.11](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/compare/v5.16.10...v5.16.11) (2021-01-10)
+
+**Note:** Version bump only for package metascraper-author
+
+
+
+
+
 ## [5.16.9](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/compare/v5.16.8...v5.16.9) (2021-01-08)
 
 **Note:** Version bump only for package metascraper-author

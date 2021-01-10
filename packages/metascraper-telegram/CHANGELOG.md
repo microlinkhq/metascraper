@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.11](https://github.com/microlinkhq/metascraper/compare/v5.16.10...v5.16.11) (2021-01-10)
+
+
+### Bug Fixes
+
+* **iframe:** ensure oembed url is absolute ([#342](https://github.com/microlinkhq/metascraper/issues/342)) ([31d4a50](https://github.com/microlinkhq/metascraper/commit/31d4a50a32f0663c809ac413423701f5b977e844))
+
+
+
+
+
 ## [5.16.9](https://github.com/microlinkhq/metascraper/compare/v5.16.8...v5.16.9) (2021-01-08)
 
 **Note:** Version bump only for package metascraper-telegram
