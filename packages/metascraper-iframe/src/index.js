@@ -5,13 +5,9 @@ const { memoizeOne } = require('@metascraper/helpers')
 const fromProvider = require('./from-provider')
 const fromHTML = require('./from-html')
 
-const htmlTest = fromHTML.test.bind(fromHTML)
-const providerTest = fromProvider.test.bind(fromProvider)
-
 const isValidUrl = memoizeOne(
-  (url, $) => htmlTest($) || providerTest(url),
-  (newArgs, oldArgs) =>
-    newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
+  (url, $) => fromHTML.test(url, $) || fromProvider.test(url),
+  memoizeOne.EqualityUrlAndHtmlDom
 )
 
 const test = ({ url, htmlDom }) => isValidUrl(url, htmlDom)
