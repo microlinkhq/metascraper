@@ -651,7 +651,7 @@ exports['pr-newswire 1'] = {
 
 exports['reactpodcast 1'] = {
   "author": null,
-  "date": "2021-01-08T00:00:00.000Z",
+  "date": "2021-01-10T00:00:00.000Z",
   "description": "Tom Preston-Werner is building a full-stack framework for React and GraphQL developers.\nIn this episode we talk about RedwoodJS, a framework that’s bringing full-stack to Jamstack. Tom is a co-founder of GitHub, creator of Jekyll (the OG static site generator), TOML, and Semantic Versioning. If yo…",
   "image": null,
   "video": null,
