@@ -10,6 +10,8 @@ const createMetascraper = require('metascraper')
 
 const { test } = createMetascraperIframe
 
+const { getOembedUrl } = require('../src/from-html')
+
 const commonProviders = [
   'https://www.youtube.com/watch?v=Gu8X7vM3Avw',
   'https://youtu.be/Gu8X7vM3Avw',
@@ -39,6 +41,7 @@ describe('metascraper-iframe', () => {
       should(isValid).be.true()
     })
   })
+
   describe('get iframe', () => {
     describe('from common providers', () => {
       commonProviders.forEach(url => {
@@ -58,6 +61,7 @@ describe('metascraper-iframe', () => {
       should(meta.iframe).be.not.null()
     })
   })
+
   describe('opts', () => {
     it('pass custom got options', async () => {
       const cache = new Map()
@@ -90,6 +94,50 @@ describe('metascraper-iframe', () => {
           'width="350"'
         )
       ).be.true()
+    })
+  })
+
+  describe('.getOembedUrl', () => {
+    it('detect from `application/json+oembed`', () => {
+      const url = 'https://example.com'
+      const oembedUrl = 'https://example.com'
+      const html = `
+      <!DOCTYPE html>
+        <html lang="en">
+        <head><link rel="alternate" type="application/json+oembed" href="${oembedUrl}"></head>
+        <body></body>
+      </html>
+      `
+      const jsonUrl = getOembedUrl(url, cheerio.load(html))
+      should(jsonUrl).be.equal(oembedUrl)
+    })
+
+    it('detect oEmbed URL from `text/xml+oembed`', () => {
+      const url = 'https://example.com/'
+      const oembedUrl = 'https://example.com'
+      const html = `
+      <!DOCTYPE html>
+        <html lang="en">
+        <head><link rel="alternate" type="text/xml+oembed" href="${oembedUrl}"></head>
+        <body></body>
+      </html>
+      `
+      const jsonUrl = getOembedUrl(url, cheerio.load(html))
+      should(jsonUrl).be.equal(oembedUrl)
+    })
+
+    it('ensure output URL is absolute', () => {
+      const oembedUrl = '/wp-json/oembed.js'
+      const url = 'https://example.com'
+      const html = `
+      <!DOCTYPE html>
+        <html lang="en">
+        <head><link rel="alternate" type="text/xml+oembed" href="${oembedUrl}"></head>
+        <body></body>
+      </html>
+      `
+      const jsonUrl = getOembedUrl(url, cheerio.load(html))
+      should(jsonUrl).be.equal(`${url}${oembedUrl}`)
     })
   })
 })

@@ -255,9 +255,8 @@ const isMime = (contentType, type) => {
   return eq(type, get(EXTENSIONS, ext))
 }
 
-memoizeOne.EqualityHtmlDom = (newArgs, oldArgs) => {
-  return newArgs[0].html() === oldArgs[0].html()
-}
+memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
+  newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
 
 const jsonld = memoizeOne(
   $ =>
@@ -275,7 +274,7 @@ const jsonld = memoizeOne(
       })
       .get()
       .filter(Boolean),
-  memoizeOne.EqualityHtmlDom
+  (newArgs, oldArgs) => newArgs[0].html() === oldArgs[0].html()
 )
 
 const $jsonld = propName => $ => {

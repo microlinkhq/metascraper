@@ -1,18 +1,24 @@
 'use strict'
 
-const { memoizeOne } = require('@metascraper/helpers')
+const { normalizeUrl, memoizeOne } = require('@metascraper/helpers')
 const { forEach, get } = require('lodash')
 const pReflect = require('p-reflect')
 const got = require('got')
 
-const jsonOembed = memoizeOne(
-  $ => $('link[type="application/json+oembed"]').attr('href'),
-  memoizeOne.EqualityHtmlDom
+const getOembedUrl = memoizeOne(
+  (url, $) =>
+    normalizeUrl(
+      url,
+      $('link[type="application/json+oembed"]').attr('href') ||
+        $('link[type="text/xml+oembed"]').attr('href')
+    ),
+  memoizeOne.EqualityUrlAndHtmlDom
 )
 
-const fromHTML = gotOpts => async ({ htmlDom, iframe }) => {
-  const oembedUrl = jsonOembed(htmlDom)
+const fromHTML = gotOpts => async ({ htmlDom, url, iframe }) => {
+  const oembedUrl = getOembedUrl(url, htmlDom)
   if (!oembedUrl) return null
+
   const oembedUrlObj = new URL(oembedUrl)
   forEach(iframe, (value, key) =>
     oembedUrlObj.searchParams.append(key.toLowerCase(), value)
@@ -21,6 +27,7 @@ const fromHTML = gotOpts => async ({ htmlDom, iframe }) => {
   return get(value, 'html', null)
 }
 
-fromHTML.test = $ => !!jsonOembed($)
+fromHTML.test = (...args) => !!getOembedUrl(...args)
 
 module.exports = fromHTML
+module.exports.getOembedUrl = getOembedUrl

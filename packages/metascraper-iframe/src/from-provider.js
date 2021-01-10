@@ -17,6 +17,6 @@ const fromProvider = gotOpts => async ({ url, iframe }) => {
   return get(value, 'html', null)
 }
 
-fromProvider.test = url => findProvider(url) !== undefined
+fromProvider.test = url => !!findProvider(url)
 
 module.exports = fromProvider
