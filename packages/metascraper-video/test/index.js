@@ -34,6 +34,14 @@ describe('metascraper-video', () => {
         const metadata = await metascraper({ html, url })
         snapshot(metadata)
       })
+      it('multiple src with no valid video values', async () => {
+        const html = await readFile(
+          resolve(__dirname, 'fixtures/providers/bluecadet.com.html')
+        )
+        const url = 'https://www.bluecadet.com/'
+        const metadata = await metascraper({ html, url })
+        snapshot(metadata)
+      })
     })
 
     it('<source src />', async () => {

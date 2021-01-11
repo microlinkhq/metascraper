@@ -100,9 +100,17 @@ const removeLocation = value => replace(value, REGEX_LOCATION, '')
 const isUrl = (url, { relative = false } = {}) =>
   relative ? isRelativeUrl(url) : urlRegex.test(url)
 
+const urlObject = (...args) => {
+  try {
+    return new URL(...args)
+  } catch (err) {
+    return { toString: () => '' }
+  }
+}
+
 const absoluteUrl = (baseUrl, relativePath) => {
-  if (isEmpty(relativePath)) return new URL(baseUrl).toString()
-  return new URL(relativePath, baseUrl).toString()
+  if (isEmpty(relativePath)) return urlObject(baseUrl).toString()
+  return urlObject(relativePath, baseUrl).toString()
 }
 
 const sanetizeUrl = (url, opts) =>
@@ -150,7 +158,7 @@ const isAuthor = (str, opts = { relative: false }) =>
 const getAuthor = (str, opts = { removeBy: true }) => titleize(str, opts)
 
 const protocol = url => {
-  const { protocol = '' } = new URL(url)
+  const { protocol = '' } = urlObject(url)
   return protocol.replace(':', '')
 }
 
@@ -179,7 +187,10 @@ const isAudioExtension = url => isMediaTypeExtension(url, AUDIO)
 const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
 
 const extension = (str = '') => {
-  const url = new URL(str, isRelativeUrl(str) ? 'http://localhost' : undefined)
+  const url = urlObject(
+    str,
+    isRelativeUrl(str) ? 'http://localhost' : undefined
+  )
   url.hash = ''
   url.search = ''
   return fileExtension(url.toString())

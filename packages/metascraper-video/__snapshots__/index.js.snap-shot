@@ -33,3 +33,8 @@ exports['multiple src 1'] = {
   "video": "https://www.theverge.com/2018/1/22/16921092/video-small.mp4"
 }
 
+exports['multiple src with no valid video values 1'] = {
+  "image": null,
+  "video": "https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&profile_id=175"
+}
+
