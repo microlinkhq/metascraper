@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.13](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/compare/v5.16.12...v5.16.13) (2021-01-11)
+
+
+### Bug Fixes
+
+* **helpers:** safe way to get a WHATWG URL ([8c45f54](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/commit/8c45f54cc28454ef69beb09e22a9ce75c92e6285))
+
+
+
+
+
 ## [5.16.11](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video/compare/v5.16.10...v5.16.11) (2021-01-10)
 
 **Note:** Version bump only for package metascraper-video
