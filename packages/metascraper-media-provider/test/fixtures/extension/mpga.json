@@ -1,0 +1,55 @@
+{
+  "display_id": "brian-muraresku-on-psychedelics-and",
+  "extractor": "generic",
+  "protocol": "https",
+  "_filename": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity-brian-muraresku-on-psychedelics-and.mpga",
+  "format": "0 - audio only",
+  "requested_subtitles": null,
+  "playlist_uploader": null,
+  "format_id": "0",
+  "playlist_index": 1,
+  "subtitles": {},
+  "playlist_title": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity",
+  "playlist": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity",
+  "title": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity",
+  "url": "https://cdn.substack.com/public/audio/d19ff570-992d-44c9-8698-fa3e2cde1e3a.mpga?post_id=18585115",
+  "extractor_key": "Generic",
+  "vcodec": "none",
+  "http_headers": {
+    "Accept-Language": "en-us,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.21 Safari/537.36",
+    "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.7",
+    "Referer": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and",
+    "Cookie": "__cfduid=debc26be291885b15a67dd0a9f13aa53b1611169998"
+  },
+  "id": "brian-muraresku-on-psychedelics-and",
+  "playlist_id": "brian-muraresku-on-psychedelics-and",
+  "ext": "mpga",
+  "n_entries": 1,
+  "webpage_url": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and",
+  "formats": [
+    {
+      "protocol": "https",
+      "format": "0 - audio only",
+      "url": "https://cdn.substack.com/public/audio/d19ff570-992d-44c9-8698-fa3e2cde1e3a.mpga?post_id=18585115",
+      "vcodec": "none",
+      "http_headers": {
+        "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.7",
+        "Accept-Language": "en-us,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate",
+        "Cookie": "__cfduid=debc26be291885b15a67dd0a9f13aa53b1611169998",
+        "Referer": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.21 Safari/537.36"
+      },
+      "ext": "mpga",
+      "format_id": "0"
+    }
+  ],
+  "playlist_uploader_id": null,
+  "fulltitle": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity",
+  "thumbnail": null,
+  "webpage_url_basename": "brian-muraresku-on-psychedelics-and"
+}
