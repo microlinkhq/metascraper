@@ -71,6 +71,7 @@ const imageExtensions = chain(require('image-extensions'))
   .value()
 
 const audioExtensions = chain(require('audio-extensions'))
+  .concat(['mpga'])
   .difference(['mp4'])
   .reduce((acc, ext) => ({ ...acc, [ext]: AUDIO }), {})
   .value()

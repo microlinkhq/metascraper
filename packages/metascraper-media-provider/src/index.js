@@ -35,6 +35,7 @@ const isMp3 = isMIME('mp3')
 const isM4a = isMIME('m4a')
 const isAac = isMIME('aac')
 const isWav = isMIME('wav')
+const isMpga = isMIME('mpga')
 
 const hasCodec = prop => format => format[prop] !== 'none'
 
@@ -42,7 +43,11 @@ const hasAudioCodec = hasCodec('acodec')
 const hasVideoCodec = hasCodec('vcodec')
 
 const hasAudio = format =>
-  isMp3(format) || isM4a(format) || isAac(format) || isWav(format)
+  isMp3(format) ||
+  isM4a(format) ||
+  isAac(format) ||
+  isWav(format) ||
+  isMpga(format)
 
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)

@@ -49,6 +49,9 @@ describe('metascraper-media-provider', () => {
     it('prefer a video url with audio', () => {
       snapshot(getVideo(require('./fixtures/video/youtube-video-audio.json')))
     })
+    it('mpga extension', () => {
+      getVideo(require('./fixtures/extension/mpga.json'))
+    })
   })
 
   describe('video', () => {
