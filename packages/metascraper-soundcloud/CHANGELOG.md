@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.14](https://github.com/microlinkhq/metascraper/compare/v5.16.13...v5.16.14) (2021-01-20)
+
+**Note:** Version bump only for package metascraper-soundcloud
+
+
+
+
+
 ## [5.16.13](https://github.com/microlinkhq/metascraper/compare/v5.16.12...v5.16.13) (2021-01-11)
 
 **Note:** Version bump only for package metascraper-soundcloud
