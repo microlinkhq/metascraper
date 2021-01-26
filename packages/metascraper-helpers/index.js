@@ -86,7 +86,7 @@ const EXTENSIONS = {
   ...videoExtensions
 }
 
-const REGEX_BY = /^[\s\n]*by|@[\s\n]*/i
+const REGEX_BY = /^[\s\n]*by[\s\n]+|@[\s\n]*/i
 
 const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 

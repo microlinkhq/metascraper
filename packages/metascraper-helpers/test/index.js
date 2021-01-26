@@ -5,6 +5,7 @@ const cheerio = require('cheerio')
 const should = require('should')
 
 const {
+  author,
   isImageUrl,
   isAudioUrl,
   isVideoUrl,
@@ -25,6 +26,11 @@ const {
 } = require('..')
 
 describe('metascraper-helpers', () => {
+  it('.author', () => {
+    should(author('By Kiko Beats')).be.equal('Kiko Beats')
+    should(author('Byrne Hobart')).be.equal('Byrne Hobart')
+  })
+
   it('.url', () => {
     should(url()).be.null()
     should(url(null)).be.null()
