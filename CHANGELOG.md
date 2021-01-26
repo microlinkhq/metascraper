@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.16](https://github.com/microlinkhq/metascraper/compare/v5.16.15...v5.16.16) (2021-01-26)
+
+
+### Bug Fixes
+
+* ensure whitespace after by ([1aaa860](https://github.com/microlinkhq/metascraper/commit/1aaa86010503403a704c89b1586f293dbc6bc0fe)), closes [#352](https://github.com/microlinkhq/metascraper/issues/352)
+
+
+
+
+
 ## [5.16.15](https://github.com/microlinkhq/metascraper/compare/v5.16.14...v5.16.15) (2021-01-25)
 
 **Note:** Version bump only for package metascraper
