@@ -42,7 +42,7 @@
     "unique-random-array": "latest"
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 12"
   },
   "files": [
     "src"

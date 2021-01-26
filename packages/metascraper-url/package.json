@@ -19,7 +19,7 @@
     "@metascraper/helpers": "^5.16.15"
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 12"
   },
   "files": [
     "index.js"
