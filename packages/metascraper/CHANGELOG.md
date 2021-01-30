@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.17.0](https://github.com/microlinkhq/metascraper/compare/v5.16.16...v5.17.0) (2021-01-30)
+
+
+### Features
+
+* **audio/video:** add support for ld+json contentUrl property ([#355](https://github.com/microlinkhq/metascraper/issues/355)) ([eb17d3e](https://github.com/microlinkhq/metascraper/commit/eb17d3e391af0aeda9d43bb23d4cfefc0ecfbc59))
+
+
+
+
+
 ## [5.16.16](https://github.com/microlinkhq/metascraper/compare/v5.16.15...v5.16.16) (2021-01-26)
 
 **Note:** Version bump only for package metascraper
