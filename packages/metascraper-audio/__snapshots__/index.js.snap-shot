@@ -22,3 +22,7 @@ exports['audio a:href 1'] = {
   "audio": "https://browserless.js.org/static/demo.mp3?some_param=this"
 }
 
+exports['audio jsld:contentUrl 1'] = {
+  "audio": "https://example.com/audio.mp3"
+}
+
