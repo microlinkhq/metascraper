@@ -101,4 +101,15 @@ describe('metascraper-video', () => {
       snapshot(metadata)
     })
   })
+  describe('jsonld', () => {
+    it('contentUrl', async () => {
+      const html = `<script type="application/ld+json">
+        {"@context":"http://schema.org","@type":"VideoObject","@id":"https://example.com/video.mp4","contentUrl":"https://example.com/video.mp4"}
+      </script>`
+      const url = 'https://browserless.js.org'
+
+      const metadata = await metascraper({ html, url })
+      snapshot(metadata)
+    })
+  })
 })

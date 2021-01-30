@@ -24,6 +24,7 @@ module.exports = () => ({
     toVideo($ => $('meta[property="og:video:url"]').attr('content')),
     toVideo($ => $('meta[property="og:video"]').attr('content')),
     toVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
+    toVideo($jsonld('contentUrl')),
     toVideoFromDom($ => $('video').get()),
     toVideoFromDom($ => $('video > source').get())
   ]
