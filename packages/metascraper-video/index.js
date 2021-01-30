@@ -1,6 +1,13 @@
 'use strict'
 
-const { url: urlFn, toRule, extension, video } = require('@metascraper/helpers')
+const {
+  url: urlFn,
+  toRule,
+  extension,
+  video,
+  $jsonld
+} = require('@metascraper/helpers')
+
 const { chain } = require('lodash')
 
 const toUrl = toRule(urlFn)
