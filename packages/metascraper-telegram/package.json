@@ -21,7 +21,7 @@
     "async-memoize-one": "~1.0.1",
     "css-urls": "~2.0.11",
     "jsdom": "~16.4.0",
-    "tldts": "~5.7.1"
+    "tldts": "~5.7.2"
   },
   "devDependencies": {
     "mocha": "latest",
