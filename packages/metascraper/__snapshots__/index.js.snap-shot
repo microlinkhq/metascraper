@@ -597,19 +597,6 @@ exports['npr 1'] = {
   "audio": "https://play.podtrac.com/510289/edge1.pod.npr.org/anon.npr-mp3/npr/pmoney/2020/12/20201223_pmoney_pmpod1054.mp3?orgId=1&topicId=1125&d=1477&p=510289&story=949764249&t=podcast&e=949764249&dl=1&siteplayer=true&size=23584686&awCollectionId=510289&awEpisodeId=949764249&dl=1"
 }
 
-exports['nytimes 1'] = {
-  "author": "Tim Herrera",
-  "date": "2017-07-05T15:18:50.000Z",
-  "description": "Welcome to the second edition of the Smarter Living newsletter.",
-  "image": "https://static01.nyt.com/images/2017/06/23/smarter-living/Sl-newsletter-header/Sl-newsletter-header-facebookJumbo-v2.jpg",
-  "video": null,
-  "lang": "en",
-  "logo": "https://static01.nyt.com/images/icons/ios-ipad-144x144.png",
-  "publisher": "NYTimes",
-  "title": "How to See What the Internet Knows About You (And How to Stop It)",
-  "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
-}
-
 exports['pikabu 1'] = {
   "author": null,
   "date": "2019-06-19T21:04:27.000Z",
@@ -1076,5 +1063,33 @@ exports['zdnet 1'] = {
   "publisher": "ZDNet",
   "title": "Email security startup Agari raises $22 million to help enterprises fight phishing attacks | ZDNet",
   "url": "http://www.zdnet.com/article/email-security-startup-agari-raises-22-million-to-help-enterprises-fight-phishing-attacks/"
+}
+
+exports['nytimes (article) 1'] = {
+  "author": "Tim Herrera",
+  "audio": null,
+  "date": "2017-07-05T15:18:50.000Z",
+  "description": "Welcome to the second edition of the Smarter Living newsletter.",
+  "image": "https://static01.nyt.com/images/2017/06/23/smarter-living/Sl-newsletter-header/Sl-newsletter-header-facebookJumbo-v2.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://static01.nyt.com/images/icons/ios-ipad-144x144.png",
+  "publisher": "NYTimes",
+  "title": "How to See What the Internet Knows About You (And How to Stop It)",
+  "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
+}
+
+exports['nytimes (opinion) 1'] = {
+  "author": null,
+  "audio": "https://dts.podtrac.com/redirect.mp3/pdst.fm/e/chtbl.com/track/8DB4DB/nyt.simplecastaudio.com/3e43d072-f8a5-430f-bc8e-4c70aafdf3c7/episodes/041d2130-8915-42cf-804d-8371188d3249/audio/128/default.mp3?awCollectionId=3e43d072-f8a5-430f-bc8e-4c70aafdf3c7&awEpisodeId=041d2130-8915-42cf-804d-8371188d3249",
+  "date": "2020-12-11T00:41:34.190Z",
+  "description": "Well, many reasons. But Harvard economist Raj Chetty says that’s the age at which America’s “Einsteins” are identified — and lost.",
+  "image": "https://static01.nyt.com/images/2020/11/19/opinion/19sway-chetty-image/19sway-chetty-image-facebookJumbo.png",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.nytimes.com/vi-assets/static-assets/ios-ipad-144x144-28865b72953380a40aa43318108876cb.png",
+  "publisher": "NYTimes",
+  "title": "Opinion | Why 3rd Grade Matters",
+  "url": "https://www.nytimes.com/2020/11/19/opinion/sway-kara-swisher-raj-chetty.html"
 }
 

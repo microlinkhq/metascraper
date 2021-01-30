@@ -6,6 +6,7 @@ const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
+  require('metascraper-audio')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
   require('metascraper-video')(),
@@ -19,11 +20,18 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url =
-  'https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html'
+it('nytimes (article)', async () => {
+  const url =
+    'https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html'
+  const html = await readFile(resolve(__dirname, 'input/article.html'))
+  const metadata = await metascraper({ html, url })
+  snapshot(metadata)
+})
 
-it('nytimes', async () => {
-  const html = await readFile(resolve(__dirname, 'input.html'))
+it('nytimes (opinion)', async () => {
+  const url =
+    'https://www.nytimes.com/2020/11/19/opinion/sway-kara-swisher-raj-chetty.html'
+  const html = await readFile(resolve(__dirname, 'input/opinion.html'))
   const metadata = await metascraper({ html, url })
   snapshot(metadata)
 })
