@@ -52,4 +52,14 @@ describe('metascraper-audio', () => {
     const metadata = await metascraper({ html, url })
     snapshot(metadata)
   })
+
+  it('audio jsld:contentUrl', async () => {
+    const html = `<script type="application/ld+json">
+        {"@context":"http://schema.org","@type":"AudioObject","@id":"https://example.com/audio.mp3","contentUrl":"https://example.com/audio.mp3"}
+      </script>`
+    const url = 'https://browserless.js.org'
+
+    const metadata = await metascraper({ html, url })
+    snapshot(metadata)
+  })
 })
