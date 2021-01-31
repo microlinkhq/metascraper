@@ -16,7 +16,10 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.16.16"
+    "@metascraper/helpers": "^5.16.16",
+    "async-memoize-one": "~1.0.1",
+    "cheerio": "~1.0.0-rc.5",
+    "jsdom": "~16.4.0"
   },
   "devDependencies": {
     "mocha": "latest",
