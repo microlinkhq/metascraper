@@ -1,7 +1,8 @@
 'use strict'
 
-const { map, fromPairs } = require('lodash')
+const { map, fromPairs, flatten } = require('lodash')
 const { has } = require('@metascraper/helpers')
+const cheerio = require('cheerio')
 
 const truthyTest = () => true
 
@@ -25,16 +26,26 @@ const getValue = async ({ htmlDom, url, rules, meta, ...props }) => {
 const normalizeValue = value => (has(value) ? value : null)
 
 const getData = async ({ rules, htmlDom, url, ...props }) => {
+  const iframeDom = cheerio.load(htmlDom('iframe').html())
+  let doms = [htmlDom]
+  if (iframeDom) {
+    doms.push(iframeDom)
+  }
+
   const data = await Promise.all(
-    map(rules, async ([propName, innerRules]) => {
-      const value = await getValue({
-        htmlDom,
-        url,
-        rules: innerRules,
-        ...props
+    flatten(
+      map(doms, dom => {
+        return map(rules, async ([propName, innerRules]) => {
+          const value = await getValue({
+            htmlDom: dom,
+            url,
+            rules: innerRules,
+            ...props
+          })
+          return [propName, normalizeValue(value)]
+        })
       })
-      return [propName, normalizeValue(value)]
-    })
+    )
   )
 
   return fromPairs(data)
