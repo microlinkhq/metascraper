@@ -38,3 +38,8 @@ exports['multiple src with no valid video values 1'] = {
   "video": "https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&profile_id=175"
 }
 
+exports['contentUrl 1'] = {
+  "image": null,
+  "video": "https://example.com/video.mp4"
+}
+
