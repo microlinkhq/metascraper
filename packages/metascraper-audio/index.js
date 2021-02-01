@@ -62,6 +62,7 @@ module.exports = () => ({
       // Duplicated logic to the rule above
       //TODO: figure out a way to apply ALL audio rules to an iframe instead of
       // duplicating the rules in an iframe variant
+      if ($('iframe').length === 0) return
       const dom = await loadIframe(url, $.html())
       const $2 = cheerio.load(dom.document.body.innerHTML)
       return $filter($2, $2('a'), el => audio(el.attr('href')))
