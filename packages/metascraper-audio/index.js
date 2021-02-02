@@ -5,7 +5,8 @@ const {
   audio,
   toRule,
   $filter,
-  $jsonld
+  $jsonld,
+  has
 } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
 const { JSDOM, VirtualConsole } = require('jsdom')
@@ -34,37 +35,46 @@ const loadIframe = asyncMemoizeOne(
 
       const iframe = getIframe()
       if (iframe) return resolveIframe(iframe)
-
       dom.window.document.addEventListener('DOMContentLoaded', () =>
         resolveIframe(getIframe())
       )
     })
 )
 
+const audioRules = [
+  toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
+  toAudio($ => $('meta[property="og:audio"]').attr('content')),
+  toAudio($ => {
+    const contentType = $(
+      'meta[property="twitter:player:stream:content_type"]'
+    ).attr('content')
+    const streamUrl = $('meta[property="twitter:player:stream"]').attr(
+      'content'
+    )
+    return contentType ? withContentType(streamUrl, contentType) : streamUrl
+  }),
+  toAudio($jsonld('contentUrl')),
+  toAudio($ => $('audio').attr('src')),
+  toAudio($ => $('audio > source').attr('src')),
+  ({ htmlDom: $ }) => $filter($, $('a'), el => audio(el.attr('href')))
+]
+
 module.exports = () => ({
   audio: [
-    toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
-    toAudio($ => $('meta[property="og:audio"]').attr('content')),
-    toAudio($ => {
-      const contentType = $(
-        'meta[property="twitter:player:stream:content_type"]'
-      ).attr('content')
-      const streamUrl = $('meta[property="twitter:player:stream"]').attr(
-        'content'
-      )
-      return contentType ? withContentType(streamUrl, contentType) : streamUrl
-    }),
-    toAudio($jsonld('contentUrl')),
-    toAudio($ => $('audio').attr('src')),
-    toAudio($ => $('audio > source').attr('src')),
-    ({ htmlDom: $ }) => $filter($, $('a'), el => audio(el.attr('href'))),
-    toAudio(async ($, url) => {
-      // Duplicated logic to the rule above
-      //TODO: figure out a way to apply ALL audio rules to an iframe instead of
-      // duplicating the rules in an iframe variant
+    ...audioRules,
+    async ({ htmlDom: $, url }) => {
+      if ($('iframe').length === 0) return
       const dom = await loadIframe(url, $.html())
       const $2 = cheerio.load(dom.document.body.innerHTML)
-      return $filter($2, $2('a'), el => audio(el.attr('href')))
-    })
+      let index = 0
+      let value
+
+      do {
+        const rule = audioRules[index++]
+        value = await rule({ htmlDom: $2, url })
+      } while (!has(value) && index < audioRules.length)
+
+      return value
+    }
   ]
 })
