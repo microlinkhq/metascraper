@@ -1093,3 +1093,31 @@ exports['nytimes (opinion) 1'] = {
   "url": "https://www.nytimes.com/2020/11/19/opinion/sway-kara-swisher-raj-chetty.html"
 }
 
+exports['indiehackers 1'] = {
+  "author": "—Dawson Whitfield of Logojoy ($70K/mo)",
+  "date": "2017-10-11T12:00:00.000Z",
+  "description": "Why is it so difficult to recognize product-market fit before you find it? And how do you find it, anyway? Learn about the struggles the team behind Seg...",
+  "image": "https://storage.googleapis.com/indie-hackers.appspot.com/podcast-shareables/032-peter-and-calvin-of-segment.png",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.indiehackers.com/images/favicons/favicon--192x192.png",
+  "publisher": "Indie Hackers",
+  "title": "Before and After Product-Market Fit with Peter and Calvin from Segment",
+  "url": "https://www.indiehackers.com/podcast/032-peter-and-calvin-of-segment",
+  "audio": "https://chtbl.com/track/EB7BD2/media.transistor.fm/70c487ed/f3249e4a.mp3?download=true"
+}
+
+exports['transistor.fm 1'] = {
+  "author": "View the Website",
+  "date": "2017-10-11T12:00:00.000Z",
+  "description": null,
+  "image": "https://images.transistor.fm/file/transistor/images/episode/263474/medium_1590257639-artwork.jpg",
+  "video": null,
+  "lang": null,
+  "logo": "https://assets.transistor.fm/assets/favicon-6e847568a3fbd949ba82be5cb10951e28b51f7f58d6e573235b0cddf494de2c0.ico",
+  "publisher": "#032 – Before and After Product-Market Fit with Peter and Calvin from Segment",
+  "title": "Transistor Embed | #032 – Before and After Product-Market Fit with Peter and Calvin from Segment",
+  "url": "https://share.transistor.fm/e/70c487ed",
+  "audio": "https://chtbl.com/track/EB7BD2/media.transistor.fm/70c487ed/f3249e4a.mp3?download=true"
+}
+
