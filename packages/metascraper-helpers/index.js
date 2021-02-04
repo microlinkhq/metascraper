@@ -24,6 +24,7 @@ const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
 const langs = Object.values(require('iso-639-3/to-1'))
 const capitalize = require('microsoft-capitalize')
+const { JSDOM, VirtualConsole } = require('jsdom')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
@@ -351,6 +352,28 @@ const has = value =>
     ? false
     : hasValues(value)
 
+const loadIframe = (url, html) =>
+  new Promise(resolve => {
+    const dom = new JSDOM(html, {
+      url,
+      virtualConsole: new VirtualConsole(),
+      runScripts: 'dangerously',
+      resources: 'usable'
+    })
+
+    const resolveIframe = iframe =>
+      iframe.addEventListener('load', () => resolve(iframe.contentWindow))
+
+    const getIframe = () => dom.window.document.querySelector('iframe')
+
+    const iframe = getIframe()
+    if (iframe) return resolveIframe(iframe)
+
+    dom.window.document.addEventListener('DOMContentLoaded', () =>
+      resolveIframe(getIframe())
+    )
+  })
+
 module.exports = {
   $filter,
   $jsonld,
@@ -380,6 +403,7 @@ module.exports = {
   isVideoUrl,
   jsonld,
   lang,
+  loadIframe,
   logo,
   memoizeOne,
   normalizeUrl,
@@ -388,9 +412,9 @@ module.exports = {
   sanetizeUrl,
   title,
   titleize,
+  toRule,
   url,
   validator,
   video,
-  videoExtensions,
-  toRule
+  videoExtensions
 }

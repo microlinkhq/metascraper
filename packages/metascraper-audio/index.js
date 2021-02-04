@@ -1,45 +1,21 @@
 'use strict'
 
 const {
-  isMime,
-  audio,
-  toRule,
   $filter,
   $jsonld,
-  has
+  audio,
+  has,
+  isMime,
+  loadIframe,
+  toRule
 } = require('@metascraper/helpers')
-const asyncMemoizeOne = require('async-memoize-one')
-const { JSDOM, VirtualConsole } = require('jsdom')
+
 const cheerio = require('cheerio')
 
 const toAudio = toRule(audio)
 
 const withContentType = (url, contentType) =>
   isMime(contentType, 'audio') ? url : false
-
-// copied from metascraper-telegram TODO: move to helper
-const loadIframe = asyncMemoizeOne(
-  (url, html) =>
-    new Promise(resolve => {
-      const dom = new JSDOM(html, {
-        url,
-        virtualConsole: new VirtualConsole(),
-        runScripts: 'dangerously',
-        resources: 'usable'
-      })
-
-      const resolveIframe = iframe =>
-        iframe.addEventListener('load', () => resolve(iframe.contentWindow))
-
-      const getIframe = () => dom.window.document.querySelector('iframe')
-
-      const iframe = getIframe()
-      if (iframe) return resolveIframe(iframe)
-      dom.window.document.addEventListener('DOMContentLoaded', () =>
-        resolveIframe(getIframe())
-      )
-    })
-)
 
 const audioRules = [
   toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),

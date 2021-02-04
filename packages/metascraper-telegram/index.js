@@ -1,17 +1,19 @@
 'use strict'
 
-const asyncMemoizeOne = require('async-memoize-one')
-const { getDomainWithoutSuffix } = require('tldts')
-const { JSDOM, VirtualConsole } = require('jsdom')
-const cssUrls = require('css-urls')
-
 const {
-  memoizeOne,
-  date,
   author,
+  date,
   image,
+  loadIframe,
+  memoizeOne,
   toRule
 } = require('@metascraper/helpers')
+
+const asyncMemoizeOne = require('async-memoize-one')
+const { getDomainWithoutSuffix } = require('tldts')
+const cssUrls = require('css-urls')
+
+const iframe = asyncMemoizeOne(loadIframe)
 
 const toAuthor = toRule(author)
 const toImage = toRule(image)
@@ -23,37 +25,13 @@ const isValidUrl = memoizeOne(url =>
   TELEGRAM_DOMAINS.includes(getDomainWithoutSuffix(url))
 )
 
-const loadIframe = asyncMemoizeOne(
-  (url, html) =>
-    new Promise(resolve => {
-      const dom = new JSDOM(html, {
-        url,
-        virtualConsole: new VirtualConsole(),
-        runScripts: 'dangerously',
-        resources: 'usable'
-      })
-
-      const resolveIframe = iframe =>
-        iframe.addEventListener('load', () => resolve(iframe.contentWindow))
-
-      const getIframe = () => dom.window.document.querySelector('iframe')
-
-      const iframe = getIframe()
-      if (iframe) return resolveIframe(iframe)
-
-      dom.window.document.addEventListener('DOMContentLoaded', () =>
-        resolveIframe(getIframe())
-      )
-    })
-)
-
 module.exports = () => {
   const rules = {
     author: [toAuthor($ => $('meta[property="og:title"]').attr('content'))],
     logo: [toImage($ => $('meta[property="og:image"]').attr('content'))],
     image: [
       toImage(async ($, url) => {
-        const dom = await loadIframe(url, $.html())
+        const dom = await iframe(url, $.html())
         const el =
           dom.window.document.querySelector('.link_preview_image') ||
           dom.window.document.querySelector('.link_preview_right_image') ||
@@ -71,7 +49,7 @@ module.exports = () => {
     ],
     date: [
       toDate(async ($, url) => {
-        const dom = await loadIframe(url, $.html())
+        const dom = await iframe(url, $.html())
         const el = dom.window.document.querySelector('.datetime')
         return el ? el.getAttribute('datetime') : undefined
       })
