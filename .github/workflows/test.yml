@@ -44,8 +44,6 @@ jobs:
         run: npm install
       - name: Test
         run: cd packages/${{ matrix['package'] }} && npm test
-      - name: Coverage
-        run: npm run coverage
   coverage:
     name: Coverage
     needs: test
