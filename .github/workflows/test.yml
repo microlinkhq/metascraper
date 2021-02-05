@@ -6,6 +6,33 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - metascraper
+          - metascraper-amazon
+          - metascraper-audio
+          - metascraper-author
+          - metascraper-clearbit
+          - metascraper-date
+          - metascraper-description
+          - metascraper-helpers
+          - metascraper-iframe
+          - metascraper-image
+          - metascraper-lang
+          - metascraper-logo
+          - metascraper-logo-favicon
+          - metascraper-media-provider
+          - metascraper-publisher
+          - metascraper-readability
+          - metascraper-soundcloud
+          - metascraper-spotify
+          - metascraper-telegram
+          - metascraper-title
+          - metascraper-uol
+          - metascraper-url
+          - metascraper-video
+          - metascraper-youtube
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,12 +43,4 @@ jobs:
       - name: Install
         run: npm install
       - name: Test
-        run: npm test
-  coverage:
-      needs: [ test ]
-      name: Coverage
-      runs-on: ubuntu-latest
-      steps:
-      - uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: cd packages/${{ matrix['package'] }} && npm test
