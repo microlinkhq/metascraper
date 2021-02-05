@@ -1121,3 +1121,31 @@ exports['transistor.fm 1'] = {
   "audio": "https://chtbl.com/track/EB7BD2/media.transistor.fm/70c487ed/f3249e4a.mp3?download=true"
 }
 
+exports['theflip 1'] = {
+  "author": null,
+  "date": "2021-01-21T08:01:16.000Z",
+  "description": "The Flip podcast conversational series: digitizing healthcare with Goke Olubusi, the Co-founder and CEO of Nigerian healthtech Helium Health.",
+  "image": "https://theflip.africa/wp-content/uploads/2021/01/1600x500-EP2.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://theflip.africa/wp-content/uploads/2019/09/cropped-512-270x270.png",
+  "publisher": "The Flip Africa",
+  "title": "Digitizing Healthcare with Helium Health’s Goke Olubusi | The Flip Africa",
+  "url": "http://theflip.africa/podcast/digitizing-healthcare-helium-health-goke-olubusi/",
+  "audio": "https://chtbl.com/track/E29G91/cdn.simplecast.com/audio/0a6ef085-f6a9-4fbd-bcc2-77e7cfd4f65f/episodes/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7/audio/7c63582d-7e0e-486a-b028-7e5692895e84/default_tc.mp3?aid=embed"
+}
+
+exports['simplecast 1'] = {
+  "author": null,
+  "date": "2021-02-05T00:00:00.000Z",
+  "description": "Powered by Simplecast",
+  "image": null,
+  "video": null,
+  "lang": "en",
+  "logo": "https://player.simplecast.com/static/img/icons/apple-touch-icon-152x152.png",
+  "publisher": null,
+  "title": "Digitizing Healthcare with Helium Health’s Goke Olubusi",
+  "url": "https://player.simplecast.com/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7?dark=false",
+  "audio": "https://chtbl.com/track/E29G91/cdn.simplecast.com/audio/0a6ef085-f6a9-4fbd-bcc2-77e7cfd4f65f/episodes/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7/audio/7c63582d-7e0e-486a-b028-7e5692895e84/default_tc.mp3?aid=embed"
+}
+
