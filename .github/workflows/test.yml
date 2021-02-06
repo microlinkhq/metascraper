@@ -47,6 +47,6 @@ jobs:
       - name: Report
         run: npx nyc report --reporter=text-lcov
       - name: Coverage
-        uses: coverallsapp/github-action@v1
+        uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
