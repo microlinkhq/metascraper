@@ -16,7 +16,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Test
-        run: npm test
+        run: ( cd metascraper-readability && npm test )
       - name: Report
         run: npm run coverage
       - name: Coverage
