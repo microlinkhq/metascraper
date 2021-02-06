@@ -40,8 +40,8 @@ module.exports = () => ({
     ...audioRules,
     async ({ htmlDom: $, url }) => {
       if ($('iframe').length === 0) return
-      const dom = await loadIframe(url, $.html())
-      const htmlDom = cheerio.load(dom.document.body.innerHTML)
+      const iframe = await loadIframe(url, $.html())
+      const htmlDom = cheerio.load(iframe.document.documentElement.outerHTML)
       let index = 0
       let value
 

@@ -352,6 +352,14 @@ const has = value =>
     ? false
     : hasValues(value)
 
+const domLoaded = dom =>
+  new Promise(resolve =>
+    dom.window.document.readyState === 'interactive' ||
+    dom.window.document.readyState === 'complete'
+      ? resolve()
+      : dom.window.document.addEventListener('DOMContentLoaded', resolve)
+  )
+
 const loadIframe = (url, html) =>
   new Promise(resolve => {
     const dom = new JSDOM(html, {
@@ -361,17 +369,15 @@ const loadIframe = (url, html) =>
       resources: 'usable'
     })
 
-    const resolveIframe = iframe =>
-      iframe.addEventListener('load', () => resolve(iframe.contentWindow))
-
     const getIframe = () => dom.window.document.querySelector('iframe')
 
-    const iframe = getIframe()
-    if (iframe) return resolveIframe(iframe)
+    const load = iframe =>
+      iframe.addEventListener('load', () => resolve(iframe.contentWindow))
 
-    dom.window.document.addEventListener('DOMContentLoaded', () =>
-      resolveIframe(getIframe())
-    )
+    const iframe = getIframe()
+    if (iframe) return load(iframe)
+
+    domLoaded(dom).then(() => load(getIframe()))
   })
 
 module.exports = {

@@ -31,11 +31,12 @@ module.exports = () => {
     logo: [toImage($ => $('meta[property="og:image"]').attr('content'))],
     image: [
       toImage(async ($, url) => {
-        const dom = await fromIframe(url, $.html())
+        const iframe = await fromIframe(url, $.html())
+
         const el =
-          dom.window.document.querySelector('.link_preview_image') ||
-          dom.window.document.querySelector('.link_preview_right_image') ||
-          dom.window.document.querySelector('.tgme_widget_message_photo_wrap')
+          iframe.document.querySelector('.link_preview_image') ||
+          iframe.document.querySelector('.link_preview_right_image') ||
+          iframe.document.querySelector('.tgme_widget_message_photo_wrap')
 
         if (!el) return
 
