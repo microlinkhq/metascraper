@@ -44,12 +44,9 @@ jobs:
         run: npm install
       - name: Test
         run: ( cd packages/${{ matrix['package'] }} && npm test )
-  coverage:
-    name: Coverage
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - run: npx nyc report --reporter=text-lcov
-    - uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Report
+        run: npx nyc report --reporter=text-lcov
+      - name: Coverage
+        uses: coverallsapp/github-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
