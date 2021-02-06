@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.18.0](https://github.com/microlinkhq/metascraper/compare/v5.17.0...v5.18.0) (2021-02-06)
+
+
+### Bug Fixes
+
+* delete settings.json ([170e23b](https://github.com/microlinkhq/metascraper/commit/170e23b46be3a23cfbcc9dd7dd1337bd1e38a1ec))
+* don't wait when there are no iframes ([d1641db](https://github.com/microlinkhq/metascraper/commit/d1641db702da0d487661a1393f6936f35fd824c0))
+
+
+### Features
+
+* **audio:** pull download link from iframe ([30375da](https://github.com/microlinkhq/metascraper/commit/30375da010927cfe7e06949f92ea5a4154e024a2))
+* **audio:** run all audio rules on subframes ([0819fb4](https://github.com/microlinkhq/metascraper/commit/0819fb4c3ab820519466c715d87567c3ad627f1b))
+
+
+
+
+
 # [5.17.0](https://github.com/microlinkhq/metascraper/compare/v5.16.16...v5.17.0) (2021-01-30)
 
 

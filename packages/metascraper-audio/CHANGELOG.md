@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.18.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/compare/v5.17.0...v5.18.0) (2021-02-06)
+
+
+### Features
+
+* **audio:** pull download link from iframe ([30375da](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/commit/30375da010927cfe7e06949f92ea5a4154e024a2))
+* **audio:** run all audio rules on subframes ([0819fb4](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/commit/0819fb4c3ab820519466c715d87567c3ad627f1b))
+
+
+
+
+
 # [5.17.0](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/compare/v5.16.16...v5.17.0) (2021-01-30)
 
 
