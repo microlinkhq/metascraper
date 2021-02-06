@@ -17,7 +17,9 @@ jobs:
         run: npm install
       - name: Test
         run: npm test
-      - name: Coverage
+      - name: Report
         run: npm run coverage
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      - name: Coverage
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

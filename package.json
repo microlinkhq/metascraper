@@ -104,7 +104,7 @@
     "build": "gulp build",
     "clean": "lerna clean --yes && rm -rf node_modules",
     "contributors": "(lerna exec finepack --parallel && git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
-    "coverage": "nyc report --reporter=text-lcov | npx coveralls",
+    "coverage": "nyc report --reporter=text-lcov",
     "dev": "concurrently \"gulp\" \"npm run dev:server\"",
     "dev:server": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
     "install": "lerna bootstrap --no-ci --force-local",
