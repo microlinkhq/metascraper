@@ -43,10 +43,6 @@ jobs:
       - name: Install
         run: npm install
       - name: Test
-        run: ( cd packages/${{ matrix['package'] }} && npm test )
-      - name: Report
-        run: npx nyc report --reporter=text-lcov
+        run: npm test
       - name: Coverage
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run coverage
