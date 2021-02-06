@@ -49,6 +49,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+    - run: nyc report --reporter=text-lcov
     - uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
