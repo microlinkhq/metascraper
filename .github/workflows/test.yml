@@ -18,7 +18,7 @@ jobs:
       - name: Test
         run: ( cd packages/metascraper-readability && npm test )
       - name: Report
-        run: npm run coverage
+        run: mkdir -p coverage && npx nyc report --reporter=text-lcov > coverage/lcov.info
       - name: Coverage
         uses: coverallsapp/github-action@master
         with:
