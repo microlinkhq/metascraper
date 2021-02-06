@@ -42,6 +42,7 @@
     "recursive": true,
     "reporter": "spec",
     "slow": 300,
+    "exit": true,
     "timeout": "120000"
   }
 }
