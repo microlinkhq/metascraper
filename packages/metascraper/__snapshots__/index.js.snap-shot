@@ -1149,3 +1149,17 @@ exports['simplecast 1'] = {
   "audio": "https://chtbl.com/track/E29G91/cdn.simplecast.com/audio/0a6ef085-f6a9-4fbd-bcc2-77e7cfd4f65f/episodes/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7/audio/7c63582d-7e0e-486a-b028-7e5692895e84/default_tc.mp3?aid=embed"
 }
 
+exports['bfi 1'] = {
+  "author": null,
+  "date": "2021-01-14T03:00:06.000Z",
+  "description": "The expanding market influence of tech companies has sparked new fear of an old economic problem – monopoly power. In this episode, Eric Posner and Chad Syverson discuss whether these […]",
+  "image": "https://bfi.uchicago.edu/wp-content/uploads/2018/11/pie-web-banner_6.png",
+  "video": null,
+  "lang": "en",
+  "logo": "https://bfi.uchicago.edu/wp-content/uploads/2019/03/favicon-228.png",
+  "publisher": "BFI",
+  "title": "The Big Tech Threat? | BFI",
+  "url": "https://bfi.uchicago.edu/podcast/the-big-tech-threat/",
+  "audio": "https://podcast-stream.wbez.org/recast/the-pie/20210113155621-ThePie-E04.mp3"
+}
+
