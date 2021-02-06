@@ -7,7 +7,7 @@ node_js:
 after_success: npm run coverage
 
 stages:
-  - Test
+  # - Test
   - name: Release
     if: branch = master AND commit_message !~ /(release|no-release)/
 

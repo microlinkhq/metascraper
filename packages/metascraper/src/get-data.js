@@ -6,7 +6,6 @@ const { has } = require('@metascraper/helpers')
 const truthyTest = () => true
 
 const getValue = async ({ htmlDom, url, rules, meta, ...props }) => {
-  const lastIndex = rules.length
   let index = 0
   let value
 
@@ -17,7 +16,7 @@ const getValue = async ({ htmlDom, url, rules, meta, ...props }) => {
     if (test({ htmlDom, url, meta })) {
       value = await rule({ htmlDom, url, meta, ...props })
     }
-  } while (!has(value) && index < lastIndex)
+  } while (!has(value) && index < rules.length)
 
   return value
 }
