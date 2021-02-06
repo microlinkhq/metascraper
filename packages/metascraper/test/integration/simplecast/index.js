@@ -2,6 +2,7 @@
 
 const snapshot = require('snap-shot')
 const { resolve } = require('path')
+const { omit } = require('lodash')
 const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
@@ -26,5 +27,5 @@ const url =
 it('simplecast', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  snapshot(omit(metadata, ['date']))
 })

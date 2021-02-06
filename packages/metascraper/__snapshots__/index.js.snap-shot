@@ -1137,7 +1137,6 @@ exports['theflip 1'] = {
 
 exports['simplecast 1'] = {
   "author": null,
-  "date": "2021-02-05T00:00:00.000Z",
   "description": "Powered by Simplecast",
   "image": null,
   "video": null,
