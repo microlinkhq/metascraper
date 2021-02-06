@@ -41,13 +41,13 @@ module.exports = () => ({
     async ({ htmlDom: $, url }) => {
       if ($('iframe').length === 0) return
       const dom = await loadIframe(url, $.html())
-      const $2 = cheerio.load(dom.document.body.innerHTML)
+      const htmlDom = cheerio.load(dom.document.body.innerHTML)
       let index = 0
       let value
 
       do {
         const rule = audioRules[index++]
-        value = await rule({ htmlDom: $2, url })
+        value = await rule({ htmlDom, url })
       } while (!has(value) && index < audioRules.length)
 
       return value
