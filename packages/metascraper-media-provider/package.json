@@ -53,10 +53,10 @@
   "license": "MIT",
   "mocha": {
     "bail": true,
+    "exit": true,
     "recursive": true,
     "reporter": "spec",
     "slow": 300,
-    "exit": true,
     "timeout": "120000"
   }
 }
