@@ -2,7 +2,7 @@
   "name": "metascraper-telegram",
   "description": "Metascraper integration with Telegram",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-telegram",
-  "version": "5.18.0",
+  "version": "5.18.1",
   "main": "index.js",
   "repository": {
     "directory": "packages/metascraper-telegram",
@@ -17,7 +17,7 @@
     "telegram"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.0",
+    "@metascraper/helpers": "^5.18.1",
     "async-memoize-one": "~1.0.1",
     "css-urls": "~2.0.11",
     "tldts": "~5.7.2"
