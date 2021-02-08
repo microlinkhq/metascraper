@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.18.1",
+    "browserless": "~8.7.4",
     "cheerio": "~1.0.0-rc.5"
   },
   "devDependencies": {

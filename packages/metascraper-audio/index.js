@@ -6,11 +6,12 @@ const {
   audio,
   has,
   isMime,
-  loadIframe,
   toRule
 } = require('@metascraper/helpers')
 
 const cheerio = require('cheerio')
+
+const browserless = require('browserless')()
 
 const toAudio = toRule(audio)
 
@@ -42,8 +43,8 @@ module.exports = () => ({
       const src = $('iframe').attr('src')
       if (!src) return
 
-      const iframe = await loadIframe(url, `<iframe src="${src}"></iframe>`)
-      const htmlDom = cheerio.load(iframe.document.documentElement.outerHTML)
+      const html = await browserless.html(src)
+      const htmlDom = cheerio.load(html)
 
       let index = 0
       let value
