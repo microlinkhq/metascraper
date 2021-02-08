@@ -40,8 +40,9 @@ module.exports = () => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
-      const src = $('iframe').attr('src')
+      let src = $('iframe').attr('src')
       if (!src) return
+      if (src.indexOf('//') === 0) src = 'http:' + src
 
       const html = await browserless.html(src)
       const htmlDom = cheerio.load(html)
