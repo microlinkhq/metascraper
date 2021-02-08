@@ -42,7 +42,10 @@ module.exports = () => ({
     async ({ htmlDom: $, url }) => {
       let src = $('iframe').attr('src')
       if (!src) return
-      if (src.indexOf('//') === 0) src = 'http:' + src
+      if (src.indexOf('//') === 0) {
+        const { protocol } = new URL(url)
+        src = protocol + src
+      }
 
       const html = await browserless.html(src)
       const htmlDom = cheerio.load(html)
