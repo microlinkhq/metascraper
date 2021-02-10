@@ -21,7 +21,7 @@
     "@metascraper/helpers": "^5.18.1",
     "async-memoize-one": "~1.0.1",
     "spotify-url-info": "~2.2.0",
-    "tldts": "~5.7.2"
+    "tldts": "~5.7.3"
   },
   "devDependencies": {
     "kind-of": "latest",
