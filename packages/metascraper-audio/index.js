@@ -7,6 +7,7 @@ const {
   has,
   isMime,
   loadIframe,
+  normalizeUrl,
   toRule
 } = require('@metascraper/helpers')
 
@@ -35,15 +36,22 @@ const audioRules = [
   ({ htmlDom: $ }) => $filter($, $('a'), el => audio(el.attr('href')))
 ]
 
-module.exports = () => ({
+const _getIframe = async (url, { src }) => {
+  const iframe = await loadIframe(url, `<iframe src="${src}"></iframe>`)
+  return iframe.document.documentElement.outerHTML
+}
+
+module.exports = (getIframe = _getIframe) => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
-      const src = $('iframe').attr('src')
-      if (!src) return
+      const iframeSrc = $('iframe').attr('src')
+      if (!iframeSrc) return
 
-      const iframe = await loadIframe(url, `<iframe src="${src}"></iframe>`)
-      const htmlDom = cheerio.load(iframe.document.documentElement.outerHTML)
+      const src = normalizeUrl(url, iframeSrc)
+
+      const html = await getIframe(url, { src })
+      const htmlDom = cheerio.load(html)
 
       let index = 0
       let value

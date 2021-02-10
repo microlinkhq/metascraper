@@ -5,27 +5,38 @@ const cheerio = require('cheerio')
 const should = require('should')
 
 const {
+  absoluteUrl,
   author,
-  isImageUrl,
+  date,
+  description,
+  extension,
+  has,
+  isAudioExtension,
   isAudioUrl,
-  isVideoUrl,
   isAuthor,
+  isImageExtension,
+  isImageUrl,
+  isMime,
   isUrl,
   isVideoExtension,
-  isAudioExtension,
-  isImageExtension,
-  isMime,
-  extension,
-  absoluteUrl,
-  description,
-  url,
+  isVideoUrl,
   jsonld,
+  normalizeUrl,
   titleize,
-  has,
-  date
+  url
 } = require('..')
 
 describe('metascraper-helpers', () => {
+  it('.normalizeUrl', () => {
+    should(
+      normalizeUrl(
+        'https://bfi.uchicago.edu/podcast/the-big-tech-threat/',
+        '//wbez-rss.streamguys1.com/player/player21011316001810372.html'
+      )
+    ).be.equal(
+      'https://wbez-rss.streamguys1.com/player/player21011316001810372.html'
+    )
+  })
   it('.author', () => {
     should(author('By Kiko Beats')).be.equal('Kiko Beats')
     should(author('Byrne Hobart')).be.equal('Byrne Hobart')
