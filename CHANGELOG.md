@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.2](https://github.com/microlinkhq/metascraper/compare/v5.18.1...v5.18.2) (2021-02-10)
+
+
+### Bug Fixes
+
+* ensure iframe src is absolute ([#367](https://github.com/microlinkhq/metascraper/issues/367)) ([e1dfb17](https://github.com/microlinkhq/metascraper/commit/e1dfb1726f7a20c62e5bbec0daef0bb718804a12))
+
+
+
+
+
 ## [5.18.1](https://github.com/microlinkhq/metascraper/compare/v5.18.0...v5.18.1) (2021-02-07)
 
 **Note:** Version bump only for package metascraper
