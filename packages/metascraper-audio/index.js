@@ -41,7 +41,7 @@ const _getIframe = async (url, { src }) => {
   return iframe.document.documentElement.outerHTML
 }
 
-module.exports = (getIframe = _getIframe) => ({
+module.exports = ({ getIframe = _getIframe } = {}) => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
