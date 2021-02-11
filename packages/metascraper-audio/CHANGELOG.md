@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.3](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/compare/v5.18.2...v5.18.3) (2021-02-11)
+
+
+### Bug Fixes
+
+* interface ([676fd08](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/commit/676fd08953cb7fdb0bf4ab8e1d46f04a6cef3dde))
+
+
+
+
+
 ## [5.18.2](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio/compare/v5.18.1...v5.18.2) (2021-02-10)
 
 
