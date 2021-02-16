@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.4](https://github.com/microlinkhq/metascraper/compare/v5.18.3...v5.18.4) (2021-02-16)
+
+**Note:** Version bump only for package metascraper-clearbit
+
+
+
+
+
 ## [5.18.3](https://github.com/microlinkhq/metascraper/compare/v5.18.2...v5.18.3) (2021-02-11)
 
 **Note:** Version bump only for package metascraper-clearbit

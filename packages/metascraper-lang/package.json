@@ -2,7 +2,7 @@
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-lang",
-  "version": "5.18.2",
+  "version": "5.18.4",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.2"
+    "@metascraper/helpers": "^5.18.4"
   },
   "devDependencies": {
     "mocha": "latest",
