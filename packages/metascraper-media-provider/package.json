@@ -24,9 +24,9 @@
     "lodash": "~4.17.20",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
-    "p-retry": "~4.3.0",
+    "p-retry": "~4.4.0",
     "p-timeout": "~4.1.0",
-    "tldts": "~5.7.4",
+    "tldts": "~5.7.6",
     "youtube-dl": "~3.1.0"
   },
   "devDependencies": {
