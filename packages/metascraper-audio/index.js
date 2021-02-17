@@ -45,10 +45,11 @@ module.exports = ({ getIframe = _getIframe } = {}) => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
-      const iframeSrc = $('iframe').attr('src')
-      if (!iframeSrc) return
+      const src = $filter($, $('iframe'), el =>
+        normalizeUrl(url, el.attr('src'))
+      )
 
-      const src = normalizeUrl(url, iframeSrc)
+      if (!src) return
 
       const html = await getIframe(url, { src })
       const htmlDom = cheerio.load(html)
