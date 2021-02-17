@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.5](https://github.com/microlinkhq/metascraper/compare/v5.18.4...v5.18.5) (2021-02-17)
+
+
+### Bug Fixes
+
+* handle normalize url error ([d15d765](https://github.com/microlinkhq/metascraper/commit/d15d765d16d51e1f82cbcc4eeaf13f233bfdafd7))
+
+
+
+
+
 ## [5.18.4](https://github.com/microlinkhq/metascraper/compare/v5.18.3...v5.18.4) (2021-02-16)
 
 **Note:** Version bump only for package metascraper
