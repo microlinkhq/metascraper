@@ -1162,3 +1162,17 @@ exports['bfi 1'] = {
   "audio": "https://podcast-stream.wbez.org/recast/the-pie/20210113155621-ThePie-E04.mp3"
 }
 
+exports['stuff 1'] = {
+  "author": "Jono Galuszka",
+  "date": "2021-02-17T01:40:47.222Z",
+  "description": "Orphee Mickalad is on track to replace his former history teacher Tangi Utikere on Palmerston North City Council.",
+  "image": "https://resources.stuff.co.nz/content/dam/images/4/y/p/h/8/h/image.related.StuffLandscapeSixteenByNine.1420x800.4yr12n.png/1613526047477.jpg",
+  "video": null,
+  "lang": "en",
+  "logo": "https://www.stuff.co.nz/sics-assets/images/favicons/apple-touch-icon.png",
+  "publisher": "Stuff",
+  "title": "Orphee Mickalad leading Palmerston North by-election",
+  "url": "https://www.stuff.co.nz/manawatu-standard/news/300232751/orphee-mickalad-leading-palmerston-north-byelection",
+  "audio": null
+}
+
