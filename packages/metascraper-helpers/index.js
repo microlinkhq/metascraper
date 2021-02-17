@@ -124,7 +124,11 @@ const sanetizeUrl = (url, opts) =>
   })
 
 const normalizeUrl = (baseUrl, relativePath, opts) => {
-  return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
+  try {
+    return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
+  } catch (_) {
+    return null
+  }
 }
 
 const removeBy = flow([value => value.replace(REGEX_BY, ''), trim])

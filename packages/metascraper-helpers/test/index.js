@@ -28,6 +28,16 @@ const {
 
 describe('metascraper-helpers', () => {
   it('.normalizeUrl', () => {
+    should(normalizeUrl('https://example.com', 'javascript:false')).be.null()
+
+    should(
+      normalizeUrl(
+        'https://wbez-rss.streamguys1.com/player/player21011316001810372.html'
+      )
+    ).be.equal(
+      'https://wbez-rss.streamguys1.com/player/player21011316001810372.html'
+    )
+
     should(
       normalizeUrl(
         'https://bfi.uchicago.edu/podcast/the-big-tech-threat/',
