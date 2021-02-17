@@ -26,6 +26,5 @@ const url =
 it('stuff', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  console.log(metadata)
   snapshot(metadata)
 })
