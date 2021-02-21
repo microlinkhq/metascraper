@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.9](https://github.com/microlinkhq/metascraper/compare/v5.18.8...v5.18.9) (2021-02-21)
+
+**Note:** Version bump only for package metascraper-telegram
+
+
+
+
+
 ## [5.18.6](https://github.com/microlinkhq/metascraper/compare/v5.18.5...v5.18.6) (2021-02-18)
 
 **Note:** Version bump only for package metascraper-telegram
