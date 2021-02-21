@@ -21,13 +21,13 @@
     "debug-logfmt": "~1.0.4",
     "got": "~11.8.1",
     "keepalive-proxy-agent": "~1.2.0",
-    "lodash": "~4.17.20",
+    "lodash": "~4.17.21",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.4.0",
     "p-timeout": "~4.1.0",
-    "tldts": "~5.7.7",
-    "youtube-dl": "~3.4.0"
+    "tldts": "~5.7.8",
+    "youtube-dl": "~3.5.0"
   },
   "devDependencies": {
     "is-ci": "latest",

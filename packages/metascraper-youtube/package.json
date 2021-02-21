@@ -19,7 +19,6 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.18.6",
-    "bin-version-check-cli": "~2.0.0",
     "get-video-id": "~3.1.9",
     "is-reachable": "~5.0.0",
     "p-locate": "~5.0.0"
@@ -38,7 +37,6 @@
     "index.js"
   ],
   "scripts": {
-    "postinstall": "bin-version-check python '>=2'",
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
   },
   "license": "MIT"
