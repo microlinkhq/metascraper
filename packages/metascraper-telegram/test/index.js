@@ -26,6 +26,12 @@ describe('metascraper-telegram', () => {
     should(metadata.audio).be.undefined()
   })
 
+  it('avoid URLs with no iframe', async () => {
+    const url = 'https://t.me/unlimitedhangout'
+    const metadata = await metascraper({ url })
+    should(metadata.audio).be.undefined()
+  })
+
   it('post with little image', async () => {
     const html = await readFile(
       resolve(__dirname, 'fixtures/post-right-preview.html')
