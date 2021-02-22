@@ -376,6 +376,7 @@ const loadIframe = (url, html) =>
     const getIframe = () => dom.window.document.querySelector('iframe')
 
     const load = iframe => {
+      if (!iframe) return resolve()
       try {
         iframe.addEventListener('load', () => resolve(iframe.contentWindow))
       } catch (err) {

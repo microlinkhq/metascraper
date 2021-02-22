@@ -13,7 +13,7 @@ const asyncMemoizeOne = require('async-memoize-one')
 const { getDomain } = require('tldts')
 const cssUrls = require('css-urls')
 
-const fromIframe = asyncMemoizeOne(loadIframe)
+const fromIframe = asyncMemoizeOne((url, $) => loadIframe(url, $.html()))
 
 const toAuthor = toRule(author)
 const toImage = toRule(image)
@@ -29,7 +29,8 @@ module.exports = () => {
     logo: [toImage($ => $('meta[property="og:image"]').attr('content'))],
     image: [
       toImage(async ($, url) => {
-        const iframe = await fromIframe(url, $.html())
+        const iframe = await fromIframe(url, $)
+        if (!iframe) return
 
         const el =
           iframe.document.querySelector('.link_preview_image') ||
@@ -48,7 +49,9 @@ module.exports = () => {
     ],
     date: [
       toDate(async ($, url) => {
-        const iframe = await fromIframe(url, $.html())
+        const iframe = await fromIframe(url, $)
+        if (!iframe) return
+
         const el = iframe.document.querySelector('.datetime')
         return el ? el.getAttribute('datetime') : undefined
       })
