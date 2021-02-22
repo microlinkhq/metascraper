@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.12](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.18.11...v5.18.12) (2021-02-22)
+
+
+### Bug Fixes
+
+* ensure iframe is present ([b4c68c1](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/commit/b4c68c1c5d55e533f8d6bd33fd3f621a88f98021))
+
+
+
+
+
 ## [5.18.10](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers/compare/v5.18.9...v5.18.10) (2021-02-22)
 
 **Note:** Version bump only for package @metascraper/helpers
