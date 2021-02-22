@@ -10,7 +10,7 @@ const {
 } = require('@metascraper/helpers')
 
 const asyncMemoizeOne = require('async-memoize-one')
-const { getDomainWithoutSuffix } = require('tldts')
+const { getDomain } = require('tldts')
 const cssUrls = require('css-urls')
 
 const fromIframe = asyncMemoizeOne(loadIframe)
@@ -19,11 +19,9 @@ const toAuthor = toRule(author)
 const toImage = toRule(image)
 const toDate = toRule(date)
 
-const TELEGRAM_DOMAINS = ['telegram', 't']
+const TELEGRAM_DOMAINS = ['telegram.me', 't.me']
 
-const isValidUrl = memoizeOne(url =>
-  TELEGRAM_DOMAINS.includes(getDomainWithoutSuffix(url))
-)
+const isValidUrl = memoizeOne(url => TELEGRAM_DOMAINS.includes(getDomain(url)))
 
 module.exports = () => {
   const rules = {

@@ -20,6 +20,12 @@ const metascraper = require('metascraper')([
 ])
 
 describe('metascraper-telegram', () => {
+  it('avoid non allowed URLs', async () => {
+    const url = 'https://t.co/d0rwf2dLIp'
+    const metadata = await metascraper({ url })
+    should(metadata.audio).be.undefined()
+  })
+
   it('post with little image', async () => {
     const html = await readFile(
       resolve(__dirname, 'fixtures/post-right-preview.html')
