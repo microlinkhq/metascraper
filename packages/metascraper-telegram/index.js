@@ -48,8 +48,8 @@ module.exports = () => {
     ],
     date: [
       toDate(async ($, url) => {
-        const dom = await fromIframe(url, $.html())
-        const el = dom.window.document.querySelector('.datetime')
+        const iframe = await fromIframe(url, $.html())
+        const el = iframe.document.querySelector('.datetime')
         return el ? el.getAttribute('datetime') : undefined
       })
     ]
