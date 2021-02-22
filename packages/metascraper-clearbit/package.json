@@ -23,7 +23,7 @@
     "async-memoize-one": "~1.0.1",
     "got": "~11.8.1",
     "lodash": "~4.17.21",
-    "tldts": "~5.7.8"
+    "tldts": "~5.7.9"
   },
   "devDependencies": {
     "mocha": "latest",
