@@ -4,25 +4,23 @@ const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
 const { noop, constant, isEmpty } = require('lodash')
+const youtubedl = require('youtube-dl-exec')
 const pDoWhilst = require('p-do-whilst')
-const youtubedl = require('youtube-dl')
-const { promisify } = require('util')
 const pTimeout = require('p-timeout')
 
-const getInfo = promisify(youtubedl.getInfo)
-
 const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
-  const flags = [
-    '--no-warnings',
-    '--no-call-home',
-    '--no-check-certificate',
-    '--prefer-free-formats',
-    '--youtube-skip-dash-manifest',
-    `--referer=${url}`
-  ]
-  if (cacheDir) flags.push(`--cache-dir=${cacheDir}`)
-  if (userAgent) flags.push(`--user-agent=${userAgent}`)
-  if (proxy) flags.push(`--proxy=${proxy.toString()}`)
+  const flags = {
+    dumpJson: true,
+    noWarnings: true,
+    noCallHome: true,
+    noCheckCertificate: true,
+    preferFreeFormats: true,
+    youtubeSkipDashManifest: true,
+    referer: url
+  }
+  if (cacheDir) flags.cacheDir = cacheDir
+  if (userAgent) flags.userAgent = userAgent
+  if (proxy) flags.proxy = proxy.toString()
   return flags
 }
 
@@ -47,7 +45,7 @@ module.exports = ({
         try {
           const proxy = getProxy({ url, retryCount: retryCount++ })
           const flags = getFlags({ url, proxy, userAgent, cacheDir })
-          data = await getInfo(url, flags, { timeout, ...props })
+          data = await youtubedl(url, flags, { timeout, ...props })
         } catch (error) {
           if (condition()) {
             debug('getInfo:error', { retryCount }, error)
