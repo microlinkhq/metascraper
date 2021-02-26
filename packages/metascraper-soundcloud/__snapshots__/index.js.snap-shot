@@ -2,6 +2,8 @@ exports['song 1'] = {
   "author": "Beauty Brain",
   "description": "Thanks for 5.000 likes on https://www.facebook.com/BeautyBrainMusic :D <3 <3 <3",
   "date": "2014-01-27T16:19:55.000Z",
+  "datePublished": null
+  "dateModified": null
   "image": "https://i1.sndcdn.com/artworks-000069142357-nwttc6-t500x500.jpg",
   "lang": "en",
   "logo": "https://a-v2.sndcdn.com/assets/images/sc-icons/ios-a62dfc8f.png",
@@ -9,4 +11,3 @@ exports['song 1'] = {
   "title": "Swag Bandicoot [FREE DOWNLOAD]",
   "url": "https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot"
 }
-
