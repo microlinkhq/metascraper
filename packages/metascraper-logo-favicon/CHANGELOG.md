@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.19.1](https://github.com/microlinkhq/metascraper/compare/v5.19.0...v5.19.1) (2021-02-28)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
+
+
+
+
 ## [5.18.12](https://github.com/microlinkhq/metascraper/compare/v5.18.11...v5.18.12) (2021-02-22)
 
 **Note:** Version bump only for package metascraper-logo-favicon
