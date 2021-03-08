@@ -111,5 +111,14 @@ describe('metascraper-video', () => {
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
-  })
+  }),
+    describe('twitter', () => {
+      it('name twitter:player', async () => {
+        const html = `<meta name="twitter:player" content="https://browserless.js.org/videos/JPJAu6qU-UpFyHQ41.mp4">`
+        const url = 'https://browserless.js.org'
+
+        const metadata = await metascraper({ html, url })
+        snapshot(metadata)
+      })
+    })
 })
