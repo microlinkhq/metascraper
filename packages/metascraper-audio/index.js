@@ -49,10 +49,10 @@ module.exports = ({ getIframe = _getIframe } = {}) => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
-      const src = $filter($, $('iframe'), el =>
-        normalizeUrl(url, el.attr('src'))
-      )
+      const iframe = $('iframe')
+      if (iframe.length === 0) return
 
+      const src = $filter($, iframe, el => normalizeUrl(url, el.attr('src')))
       if (!src) return
 
       const html = await getIframe(url, { src })
