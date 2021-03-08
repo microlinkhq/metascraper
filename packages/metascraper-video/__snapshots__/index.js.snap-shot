@@ -43,3 +43,8 @@ exports['contentUrl 1'] = {
   "video": "https://example.com/video.mp4"
 }
 
+exports['name twitter:player 1'] = {
+  "image": null,
+  "video": "https://browserless.js.org/videos/JPJAu6qU-UpFyHQ41.mp4"
+}
+
