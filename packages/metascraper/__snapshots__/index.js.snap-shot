@@ -1104,7 +1104,7 @@ exports['indiehackers 1'] = {
   "publisher": "Indie Hackers",
   "title": "Before and After Product-Market Fit with Peter and Calvin from Segment",
   "url": "https://www.indiehackers.com/podcast/032-peter-and-calvin-of-segment",
-  "audio": "https://chtbl.com/track/EB7BD2/media.transistor.fm/70c487ed/f3249e4a.mp3?download=true"
+  "audio": "https://chtbl.com/track/EB7BD2/media.transistor.fm/70c487ed/f3249e4a.mp3?download=true&src=player"
 }
 
 exports['transistor.fm 1'] = {
