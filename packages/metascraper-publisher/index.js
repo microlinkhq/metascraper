@@ -25,9 +25,18 @@ module.exports = () => ({
     toPublisher($ => $('meta[property="al:ipad:app_name"]').attr('content')),
     toPublisher($ => $('meta[name="publisher" i]').attr('content')),
     toPublisher($ => $('meta[name="twitter:app:name:iphone"]').attr('content')),
+    toPublisher($ =>
+      $('meta[property="twitter:app:name:iphone"]').attr('content')
+    ),
     toPublisher($ => $('meta[name="twitter:app:name:ipad"]').attr('content')),
     toPublisher($ =>
+      $('meta[property="twitter:app:name:ipad"]').attr('content')
+    ),
+    toPublisher($ =>
       $('meta[name="twitter:app:name:googleplay"]').attr('content')
+    ),
+    toPublisher($ =>
+      $('meta[property="twitter:app:name:googleplay"]').attr('content')
     ),
     toPublisher($ => $('#logo').text()),
     toPublisher($ => $('.logo').text()),

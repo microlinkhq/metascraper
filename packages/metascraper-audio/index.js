@@ -22,13 +22,15 @@ const audioRules = [
   toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
   toAudio($ => $('meta[property="og:audio"]').attr('content')),
   toAudio($ => {
-    const contentType = $(
-      'meta[name="twitter:player:stream:content_type"]'
-    ).attr('content')
+    const contentType =
+      $('meta[name="twitter:player:stream:content_type"]').attr('content') ||
+      $('meta[property="twitter:player:stream:content_type"]').attr('content')
 
     const streamUrl =
       $('meta[name="twitter:player:stream"]').attr('content') ||
-      $('meta[name="twitter:player"]').attr('content')
+      $('meta[name="twitter:player"]').attr('content') ||
+      $('meta[property="twitter:player:stream"]').attr('content') ||
+      $('meta[property="twitter:player"]').attr('content')
 
     return contentType ? withContentType(streamUrl, contentType) : streamUrl
   }),
