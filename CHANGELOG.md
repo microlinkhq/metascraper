@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.20.0](https://github.com/microlinkhq/metascraper/compare/v5.19.2...v5.20.0) (2021-03-08)
+
+
+### Bug Fixes
+
+* markup issue ([4508d2e](https://github.com/microlinkhq/metascraper/commit/4508d2ec20ff0e36ce9ed95893b7e4cd38269c6d))
+
+
+### Features
+
+* add support for meta name & twitter:player video urls ([#379](https://github.com/microlinkhq/metascraper/issues/379)) ([acd8cc7](https://github.com/microlinkhq/metascraper/commit/acd8cc76e8233556f3017c5839172392a018b160))
+
+
+
+
+
 ## [5.19.2](https://github.com/microlinkhq/metascraper/compare/v5.19.1...v5.19.2) (2021-03-03)
 
 **Note:** Version bump only for package metascraper
