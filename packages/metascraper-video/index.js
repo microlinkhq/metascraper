@@ -51,6 +51,15 @@ module.exports = ({ gotOpts } = {}) => ({
 
       if (!playerUrl) return
 
+      const { headers } = await got.head(playerUrl, gotOpts)
+
+      if (
+        !headers['content-type'] ||
+        !headers['content-type'].startsWith('text')
+      ) {
+        return
+      }
+
       const html = await got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
       const htmlDom = cheerio.load(html)
 
