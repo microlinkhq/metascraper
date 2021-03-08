@@ -9,9 +9,19 @@ const should = require('should')
 const metascraper = require('metascraper')([require('..')()])
 
 describe('metascraper-video', () => {
+  describe('image', () => {
+    it('src:poster', async () => {
+      const html = await readFile(
+        resolve(__dirname, 'fixtures/source-poster.html')
+      )
+      const url = 'https://gfycat.com/gifs/detail/timelyhealthyarmadillo'
+      const metadata = await metascraper({ html, url })
+      snapshot(metadata)
+    })
+  })
   describe('video', () => {
     describe('<video />', () => {
-      it('single src', async () => {
+      it('source:src', async () => {
         const html = await readFile(
           resolve(__dirname, 'fixtures/video-src.html')
         )
@@ -20,7 +30,7 @@ describe('metascraper-video', () => {
         const metadata = await metascraper({ html, url })
         snapshot(metadata)
       })
-      it('multiple src', async () => {
+      it('multiple source:src', async () => {
         const html = `
         <video controls>
           <source src="video-small.mp4" type="video/mp4" media="all and (max-width: 480px)">
@@ -34,7 +44,7 @@ describe('metascraper-video', () => {
         const metadata = await metascraper({ html, url })
         snapshot(metadata)
       })
-      it('multiple src with no valid video values', async () => {
+      it('multiple source:src with no valid video values', async () => {
         const html = await readFile(
           resolve(__dirname, 'fixtures/providers/bluecadet.com.html')
         )
@@ -43,7 +53,6 @@ describe('metascraper-video', () => {
         snapshot(metadata)
       })
     })
-
     it('<source src />', async () => {
       const html = await readFile(
         resolve(__dirname, 'fixtures/source-src.html')
@@ -53,14 +62,38 @@ describe('metascraper-video', () => {
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
-
     it('og:video', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/tweet.html'))
       const url = 'https://twitter.com/_developit/status/955905369242513414'
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
+    it('jsonld:contentUrl', async () => {
+      const html = `<script type="application/ld+json">
+        {"@context":"http://schema.org","@type":"VideoObject","@id":"https://example.com/video.mp4","contentUrl":"https://example.com/video.mp4"}
+      </script>`
+      const url = 'https://browserless.js.org'
 
+      const metadata = await metascraper({ html, url })
+      snapshot(metadata)
+    })
+    it('twitter:player (video url)', async () => {
+      const html =
+        '<meta name="twitter:player" content="https://browserless.js.org/videos/JPJAu6qU-UpFyHQ41.mp4">'
+      const url = 'https://browserless.js.org'
+
+      const metadata = await metascraper({ html, url })
+      snapshot(metadata)
+    })
+    it.only('twitter:player (hosted player)', async () => {
+      const html =
+        '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
+      const url = 'https://twitter-card-player.vercel.app'
+
+      const metadata = await metascraper({ html, url })
+      console.log(metadata)
+      // snapshot(metadata)
+    })
     describe('by providers', () => {
       it('clips.twitch.tv', async () => {
         const html = await readFile(
@@ -88,38 +121,6 @@ describe('metascraper-video', () => {
         const metadata = await metascraper({ html, url })
         should(metadata.video.endsWith('.mp4')).be.true()
       })
-    })
-  })
-
-  describe('image', () => {
-    it('src:poster', async () => {
-      const html = await readFile(
-        resolve(__dirname, 'fixtures/source-poster.html')
-      )
-      const url = 'https://gfycat.com/gifs/detail/timelyhealthyarmadillo'
-      const metadata = await metascraper({ html, url })
-      snapshot(metadata)
-    })
-  })
-  describe('jsonld', () => {
-    it('contentUrl', async () => {
-      const html = `<script type="application/ld+json">
-        {"@context":"http://schema.org","@type":"VideoObject","@id":"https://example.com/video.mp4","contentUrl":"https://example.com/video.mp4"}
-      </script>`
-      const url = 'https://browserless.js.org'
-
-      const metadata = await metascraper({ html, url })
-      snapshot(metadata)
-    })
-  })
-  describe('twitter', () => {
-    it('name twitter:player', async () => {
-      const html =
-        '<meta name="twitter:player" content="https://browserless.js.org/videos/JPJAu6qU-UpFyHQ41.mp4">'
-      const url = 'https://browserless.js.org'
-
-      const metadata = await metascraper({ html, url })
-      snapshot(metadata)
     })
   })
 })
