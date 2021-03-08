@@ -48,3 +48,8 @@ exports['play.tv 1'] = {
   "video": "https://d1playscdntv-a.akamaihd.net/video/Ha35bprkDYG/processed/480.mp4"
 }
 
+exports['twitter:player (hosted player) 1'] = {
+  "image": null,
+  "video": "https://twitter-card-player.vercel.app/example.mp4"
+}
+

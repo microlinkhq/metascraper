@@ -85,14 +85,13 @@ describe('metascraper-video', () => {
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
-    it.only('twitter:player (hosted player)', async () => {
+    it('twitter:player (hosted player)', async () => {
       const html =
         '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
       const url = 'https://twitter-card-player.vercel.app'
 
       const metadata = await metascraper({ html, url })
-      console.log(metadata)
-      // snapshot(metadata)
+      snapshot(metadata)
     })
     describe('by providers', () => {
       it('clips.twitch.tv', async () => {

@@ -12,6 +12,7 @@ const {
 } = require('@metascraper/helpers')
 
 const cheerio = require('cheerio')
+const got = require('got')
 
 const toAudio = toRule(audio)
 
@@ -45,7 +46,7 @@ const _getIframe = async (url, { src }) => {
   return iframe.document.documentElement.outerHTML
 }
 
-module.exports = ({ getIframe = _getIframe } = {}) => ({
+module.exports = ({ getIframe = _getIframe, gotOpts } = {}) => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
@@ -56,6 +57,26 @@ module.exports = ({ getIframe = _getIframe } = {}) => ({
       if (!src) return
 
       const html = await getIframe(url, { src })
+      const htmlDom = cheerio.load(html)
+
+      let index = 0
+      let value
+
+      do {
+        const rule = audioRules[index++]
+        value = await rule({ htmlDom, url })
+      } while (!has(value) && index < audioRules.length)
+
+      return value
+    },
+    async ({ htmlDom: $, url }) => {
+      const playerUrl =
+        $('meta[name="twitter:player"]').attr('content') ||
+        $('meta[property="twitter:player"]').attr('content')
+
+      if (!playerUrl) return
+
+      const html = await got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
       const htmlDom = cheerio.load(html)
 
       let index = 0

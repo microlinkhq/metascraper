@@ -44,7 +44,7 @@ describe('metascraper-audio', () => {
     snapshot(metadata)
   })
 
-  it('audio a:href', async () => {
+  it('a:href', async () => {
     const html =
       '<a href="https://browserless.js.org/static/demo.mp3?some_param=this">Download</a>'
     const url = 'https://browserless.js.org'
@@ -53,7 +53,7 @@ describe('metascraper-audio', () => {
     snapshot(metadata)
   })
 
-  it('audio jsld:contentUrl', async () => {
+  it('jsld:contentUrl', async () => {
     const html = `<script type="application/ld+json">
         {"@context":"http://schema.org","@type":"AudioObject","@id":"https://example.com/audio.mp3","contentUrl":"https://example.com/audio.mp3"}
       </script>`

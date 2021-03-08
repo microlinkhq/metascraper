@@ -60,7 +60,6 @@ module.exports = ({ gotOpts } = {}) => ({
       do {
         const rule = videoRules[index++]
         value = await rule({ htmlDom, url })
-        console.log({ value })
       } while (!has(value) && index < videoRules.length)
 
       return value
