@@ -23,11 +23,13 @@ const audioRules = [
   toAudio($ => $('meta[property="og:audio"]').attr('content')),
   toAudio($ => {
     const contentType = $(
-      'meta[property="twitter:player:stream:content_type"]'
+      'meta[name="twitter:player:stream:content_type"]'
     ).attr('content')
-    const streamUrl = $('meta[property="twitter:player:stream"]').attr(
-      'content'
-    )
+
+    const streamUrl =
+      $('meta[name="twitter:player:stream"]').attr('content') ||
+      $('meta[name="twitter:player"]').attr('content')
+
     return contentType ? withContentType(streamUrl, contentType) : streamUrl
   }),
   toAudio($jsonld('contentUrl')),
