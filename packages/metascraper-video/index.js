@@ -30,8 +30,8 @@ module.exports = () => ({
     toVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
     toVideo($ => $('meta[property="og:video:url"]').attr('content')),
     toVideo($ => $('meta[property="og:video"]').attr('content')),
-    toVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
-    toVideo($ => $('meta[property="twitter:player"]').attr('content')),
+    toVideo($ => $('meta[name="twitter:player:stream"]').attr('content')),
+    toVideo($ => $('meta[name="twitter:player"]').attr('content')),
     toVideo($jsonld('contentUrl')),
     toVideoFromDom($ => $('video').get()),
     toVideoFromDom($ => $('video > source').get())
