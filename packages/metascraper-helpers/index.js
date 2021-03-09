@@ -390,16 +390,10 @@ const loadIframe = (url, html) =>
 
     const getIframe = () => dom.window.document.querySelector('iframe')
 
-    const load = iframe => {
-      if (!iframe) return resolve()
-      try {
-        iframe.addEventListener('load', () => resolve(iframe.contentWindow))
-      } catch (err) {
-        console.log('ERROR!', err.message || err)
-        console.log('ERROR!', { iframe: !!iframe, url, html: html.length })
-        resolve()
-      }
-    }
+    const load = iframe =>
+      iframe
+        ? iframe.addEventListener('load', () => resolve(iframe.contentWindow))
+        : resolve()
 
     const iframe = getIframe()
     if (iframe) return load(iframe)
