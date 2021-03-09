@@ -3,7 +3,7 @@
 const {
   $jsonld,
   extension,
-  has,
+  findRule,
   toRule,
   url: urlFn,
   video
@@ -52,26 +52,13 @@ module.exports = ({ gotOpts } = {}) => ({
       if (!playerUrl) return
 
       const { headers } = await got.head(playerUrl, gotOpts)
-
-      if (
-        !headers['content-type'] ||
-        !headers['content-type'].startsWith('text')
-      ) {
-        return
-      }
+      const contentType = headers['content-type']
+      if (!contentType || !contentType.startsWith('text')) return
 
       const html = await got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
       const htmlDom = cheerio.load(html)
 
-      let index = 0
-      let value
-
-      do {
-        const rule = videoRules[index++]
-        value = await rule({ htmlDom, url })
-      } while (!has(value) && index < videoRules.length)
-
-      return value
+      return findRule(videoRules, { htmlDom, url })
     }
   ]
 })

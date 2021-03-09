@@ -4,7 +4,7 @@ const {
   $filter,
   $jsonld,
   audio,
-  has,
+  findRule,
   isMime,
   loadIframe,
   normalizeUrl,
@@ -59,15 +59,7 @@ module.exports = ({ getIframe = _getIframe, gotOpts } = {}) => ({
       const html = await getIframe(url, { src })
       const htmlDom = cheerio.load(html)
 
-      let index = 0
-      let value
-
-      do {
-        const rule = audioRules[index++]
-        value = await rule({ htmlDom, url })
-      } while (!has(value) && index < audioRules.length)
-
-      return value
+      return findRule(audioRules, { htmlDom, url })
     },
     async ({ htmlDom: $, url }) => {
       const playerUrl =
@@ -77,26 +69,13 @@ module.exports = ({ getIframe = _getIframe, gotOpts } = {}) => ({
       if (!playerUrl) return
 
       const { headers } = await got.head(playerUrl, gotOpts)
-
-      if (
-        !headers['content-type'] ||
-        !headers['content-type'].startsWith('text')
-      ) {
-        return
-      }
+      const contentType = headers['content-type']
+      if (!contentType || !contentType.startsWith('text')) return
 
       const html = await got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
       const htmlDom = cheerio.load(html)
 
-      let index = 0
-      let value
-
-      do {
-        const rule = audioRules[index++]
-        value = await rule({ htmlDom, url })
-      } while (!has(value) && index < audioRules.length)
-
-      return value
+      return findRule(audioRules, { htmlDom, url })
     }
   ]
 })

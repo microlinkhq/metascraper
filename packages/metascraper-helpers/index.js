@@ -337,6 +337,21 @@ const validator = {
   lang
 }
 
+const truthyTest = () => true
+
+const findRule = async (rules, args) => {
+  let index = 0
+  let value
+
+  do {
+    const rule = rules[index++]
+    const test = rule.test || truthyTest
+    if (test(args)) value = await rule(args)
+  } while (!has(value) && index < rules.length)
+
+  return value
+}
+
 const toRule = (mapper, opts) => rule => async ({ htmlDom, url }) => {
   const value = await rule(htmlDom, url)
   return mapper(value, { url, ...opts })
@@ -403,6 +418,7 @@ module.exports = {
   date,
   description,
   extension,
+  findRule,
   has,
   image,
   imageExtensions,
