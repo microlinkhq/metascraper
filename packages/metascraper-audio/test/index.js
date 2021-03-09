@@ -21,6 +21,22 @@ describe('metascraper-audio', () => {
     snapshot(metadata)
   })
 
+  it('twitter:player (video url)', async () => {
+    const html =
+      '<meta property="twitter:player" content="https://browserless.js.org/static/demo.mp3">'
+    const url = 'https://browserless.js.org'
+    const metadata = await metascraper({ html, url })
+    snapshot(metadata)
+  })
+
+  it('twitter:player (hosted player)', async () => {
+    const html =
+      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
+    const url = 'https://browserless.js.org'
+    const metadata = await metascraper({ html, url })
+    snapshot(metadata)
+  })
+
   it('twitter:player:stream', async () => {
     const html =
       '<meta property="twitter:player:stream" content="https://browserless.js.org/static/demo.mp3">'
