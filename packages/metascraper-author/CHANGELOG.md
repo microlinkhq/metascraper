@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.21.0](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/compare/v5.20.0...v5.21.0) (2021-03-10)
+
+
+### Bug Fixes
+
+* property author is not valid ([#384](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/issues/384)) ([8036930](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/commits/8036930fd4c202b9b75b2f5e0f4edb7c7cd741d4))
+
+
+
+
+
 # [5.20.0](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/compare/v5.19.2...v5.20.0) (2021-03-08)
 
 **Note:** Version bump only for package metascraper-author

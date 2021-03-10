@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.21.0](https://github.com/microlinkhq/metascraper/compare/v5.20.0...v5.21.0) (2021-03-10)
+
+
+### Bug Fixes
+
+* property author is not valid ([#384](https://github.com/microlinkhq/metascraper/issues/384)) ([8036930](https://github.com/microlinkhq/metascraper/commit/8036930fd4c202b9b75b2f5e0f4edb7c7cd741d4))
+* use name instead of property ([#383](https://github.com/microlinkhq/metascraper/issues/383)) ([4e636ae](https://github.com/microlinkhq/metascraper/commit/4e636ae12c66ab789484aa47d4ff4bace2a598ba))
+
+
+### Features
+
+* add twitter property support ([#385](https://github.com/microlinkhq/metascraper/issues/385)) ([5201ede](https://github.com/microlinkhq/metascraper/commit/5201edecf2f707562d960f9762f389cf7f15cbc5))
+
+
+
+
+
 # [5.20.0](https://github.com/microlinkhq/metascraper/compare/v5.19.2...v5.20.0) (2021-03-08)
 
 
