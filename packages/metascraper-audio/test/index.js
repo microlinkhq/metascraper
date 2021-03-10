@@ -21,6 +21,22 @@ describe('metascraper-audio', () => {
     snapshot(metadata)
   })
 
+  it('twitter:player (video url)', async () => {
+    const html =
+      '<meta property="twitter:player" content="https://browserless.js.org/static/demo.mp3">'
+    const url = 'https://browserless.js.org'
+    const metadata = await metascraper({ html, url })
+    snapshot(metadata)
+  })
+
+  it('twitter:player (hosted player)', async () => {
+    const html =
+      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
+    const url = 'https://browserless.js.org'
+    const metadata = await metascraper({ html, url })
+    snapshot(metadata)
+  })
+
   it('twitter:player:stream', async () => {
     const html =
       '<meta property="twitter:player:stream" content="https://browserless.js.org/static/demo.mp3">'
@@ -44,7 +60,7 @@ describe('metascraper-audio', () => {
     snapshot(metadata)
   })
 
-  it('audio a:href', async () => {
+  it('a:href', async () => {
     const html =
       '<a href="https://browserless.js.org/static/demo.mp3?some_param=this">Download</a>'
     const url = 'https://browserless.js.org'
@@ -53,7 +69,7 @@ describe('metascraper-audio', () => {
     snapshot(metadata)
   })
 
-  it('audio jsld:contentUrl', async () => {
+  it('jsld:contentUrl', async () => {
     const html = `<script type="application/ld+json">
         {"@context":"http://schema.org","@type":"AudioObject","@id":"https://example.com/audio.mp3","contentUrl":"https://example.com/audio.mp3"}
       </script>`

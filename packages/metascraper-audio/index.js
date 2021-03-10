@@ -4,7 +4,7 @@ const {
   $filter,
   $jsonld,
   audio,
-  has,
+  findRule,
   isMime,
   loadIframe,
   normalizeUrl,
@@ -12,6 +12,7 @@ const {
 } = require('@metascraper/helpers')
 
 const cheerio = require('cheerio')
+const got = require('got')
 
 const toAudio = toRule(audio)
 
@@ -22,13 +23,15 @@ const audioRules = [
   toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
   toAudio($ => $('meta[property="og:audio"]').attr('content')),
   toAudio($ => {
-    const contentType = $(
-      'meta[name="twitter:player:stream:content_type"]'
-    ).attr('content')
+    const contentType =
+      $('meta[name="twitter:player:stream:content_type"]').attr('content') ||
+      $('meta[property="twitter:player:stream:content_type"]').attr('content')
 
     const streamUrl =
       $('meta[name="twitter:player:stream"]').attr('content') ||
-      $('meta[name="twitter:player"]').attr('content')
+      $('meta[property="twitter:player:stream"]').attr('content') ||
+      $('meta[name="twitter:player"]').attr('content') ||
+      $('meta[property="twitter:player"]').attr('content')
 
     return contentType ? withContentType(streamUrl, contentType) : streamUrl
   }),
@@ -43,28 +46,36 @@ const _getIframe = async (url, { src }) => {
   return iframe.document.documentElement.outerHTML
 }
 
-module.exports = ({ getIframe = _getIframe } = {}) => ({
+module.exports = ({ getIframe = _getIframe, gotOpts } = {}) => ({
   audio: [
     ...audioRules,
     async ({ htmlDom: $, url }) => {
-      const src = $filter($, $('iframe'), el =>
-        normalizeUrl(url, el.attr('src'))
-      )
+      const iframe = $('iframe')
+      if (iframe.length === 0) return
 
+      const src = $filter($, iframe, el => normalizeUrl(url, el.attr('src')))
       if (!src) return
 
       const html = await getIframe(url, { src })
       const htmlDom = cheerio.load(html)
 
-      let index = 0
-      let value
+      return findRule(audioRules, { htmlDom, url })
+    },
+    async ({ htmlDom: $, url }) => {
+      const playerUrl =
+        $('meta[name="twitter:player"]').attr('content') ||
+        $('meta[property="twitter:player"]').attr('content')
 
-      do {
-        const rule = audioRules[index++]
-        value = await rule({ htmlDom, url })
-      } while (!has(value) && index < audioRules.length)
+      if (!playerUrl) return
 
-      return value
+      const { headers } = await got.head(playerUrl, gotOpts)
+      const contentType = headers['content-type']
+      if (!contentType || !contentType.startsWith('text')) return
+
+      const html = await got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
+      const htmlDom = cheerio.load(html)
+
+      return findRule(audioRules, { htmlDom, url })
     }
   ]
 })

@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.20.0",
+    "cheerio": "~1.0.0-rc.5",
+    "got": "~11.8.2",
     "lodash": "~4.17.21"
   },
   "devDependencies": {

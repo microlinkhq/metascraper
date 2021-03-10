@@ -546,14 +546,14 @@ exports['mashable 1'] = {
 
 exports['medium 1'] = {
   "author": "Sean T. Larkin",
-  "date": "2017-07-05T11:54:14.175Z",
+  "date": "2018-06-05T03:29:05.031Z",
   "description": "Now with Scope Hoisting, “magic comments”, and more!",
-  "image": "https://cdn-images-1.medium.com/max/1200/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
+  "image": "https://miro.medium.com/max/1200/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
   "video": null,
-  "lang": null,
-  "logo": "https://cdn-images-1.medium.com/max/308/1*gdoQ1_5OID90wf1eLTFvWw.png",
+  "lang": "en",
+  "logo": "https://miro.medium.com/max/308/1*gdoQ1_5OID90wf1eLTFvWw.png",
   "publisher": "webpack",
-  "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾 – webpack – Medium",
+  "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾",
   "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b"
 }
 
@@ -952,10 +952,10 @@ exports['washington-post 1'] = {
   "author": "Abby Ohlheiser",
   "date": "2016-05-24T18:20:48.000Z",
   "description": "Twitter announced a series of changes that will make the site easier to use.",
-  "image": "https://www.washingtonpost.com/resizer/koHP6G-N-IEesDnQ2qlC-c3G7H4=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/YU7K4QHOU45NXLUUOZBD64ZCM4.jpg",
+  "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/YU7K4QHOU45NXLUUOZBD64ZCM4.jpg&w=1440",
   "video": null,
   "lang": "en",
-  "logo": "https://www.washingtonpost.com/pb/resources/img/thewashingtonpost-black-400x60.png",
+  "logo": "https://www.washingtonpost.com/wp-stat/img/wplogo_344x60_blk.png",
   "publisher": "The Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all/"
