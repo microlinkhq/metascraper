@@ -9,6 +9,7 @@ const {
   video
 } = require('@metascraper/helpers')
 
+const pReflect = require('p-reflect')
 const { chain } = require('lodash')
 const cheerio = require('cheerio')
 const got = require('got')
@@ -51,11 +52,17 @@ module.exports = ({ gotOpts } = {}) => ({
 
       if (!playerUrl) return
 
-      const { headers } = await got.head(playerUrl, gotOpts)
-      const contentType = headers['content-type']
+      const { isRejected, value } = await pReflect(got.head(playerUrl, gotOpts))
+      if (isRejected) return
+
+      const contentType = value.headers['content-type']
       if (!contentType || !contentType.startsWith('text')) return
 
-      const html = await got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
+      const { value: html } = await pReflect(
+        got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
+      )
+      if (!html) return
+
       const htmlDom = cheerio.load(html)
 
       return findRule(videoRules, { htmlDom, url })

@@ -18,7 +18,8 @@
   "dependencies": {
     "@metascraper/helpers": "^5.21.0",
     "cheerio": "~1.0.0-rc.5",
-    "got": "~11.8.2"
+    "got": "~11.8.2",
+    "p-reflect": "~2.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
