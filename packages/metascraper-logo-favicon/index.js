@@ -87,7 +87,7 @@ module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => {
     logo: [
       toUrl($ => {
         const sizes = getSizes($, sizeSelectors)
-        const size = pickFn(sizes)
+        const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
       ({ url }) => getLogo(url)
