@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '15'
       - name: Install
-        run: npm install
+        run: npm install --no-package-lock
       - name: Test
         run: npm test
       - name: Report
