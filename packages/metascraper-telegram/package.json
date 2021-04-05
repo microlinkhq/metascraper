@@ -20,7 +20,7 @@
     "@metascraper/helpers": "^5.21.4",
     "async-memoize-one": "~1.1.0",
     "css-urls": "~2.0.13",
-    "tldts": "~5.7.19"
+    "tldts": "~5.7.23"
   },
   "devDependencies": {
     "mocha": "latest",

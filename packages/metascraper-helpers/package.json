@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "2.2.5",
+    "chrono-node": "2.2.6",
     "condense-whitespace": "~2.0.0",
     "entities": "~2.2.0",
     "file-extension": "~4.0.5",
@@ -32,7 +32,7 @@
     "lodash": "~4.17.21",
     "memoize-one": "~5.1.1",
     "microsoft-capitalize": "~1.0.5",
-    "mime-types": "~2.1.29",
+    "mime-types": "~2.1.30",
     "normalize-url": "~5.3.0",
     "smartquotes": "~2.3.2",
     "truncate": "~2.1.0",
