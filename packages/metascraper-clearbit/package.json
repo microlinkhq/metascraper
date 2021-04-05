@@ -2,7 +2,7 @@
   "name": "metascraper-clearbit",
   "description": "Metascraper integration with Clearbit Logo API",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit",
-  "version": "5.21.4",
+  "version": "5.21.5",
   "main": "index.js",
   "repository": {
     "directory": "packages/metascraper-clearbit",
@@ -19,7 +19,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.21.4",
+    "@metascraper/helpers": "^5.21.5",
     "async-memoize-one": "~1.1.0",
     "got": "~11.8.2",
     "lodash": "~4.17.21",
