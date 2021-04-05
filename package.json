@@ -118,7 +118,7 @@
     "release": "lerna publish --yes --sort --conventional-commits -m \"chore(release): %s\" --create-release github",
     "test": "lerna exec npm run test",
     "update": "lerna exec ncu -- --upgrade && ncu -- --upgrade",
-    "update:check": "lerna exec ncu -- --errorLevel 2 iso-639-3 && ncu -- --errorLevel 2"
+    "update:check": "lerna exec ncu -- --errorLevel 2 -x iso-639-3 && ncu -- --errorLevel 2"
   },
   "private": true,
   "license": "MIT",
