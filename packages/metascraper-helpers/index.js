@@ -19,7 +19,6 @@ const {
   trim
 } = require('lodash')
 
-const memoizeOne = require('memoize-one').default || require('memoize-one')
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
 const langs = Object.values(require('iso-639-3/to-1'))
@@ -28,6 +27,7 @@ const { JSDOM, VirtualConsole } = require('jsdom')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
+const { memoizeOne } = require('memoize-one')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const mimeTypes = require('mime-types')
