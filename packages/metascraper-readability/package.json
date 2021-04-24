@@ -2,7 +2,7 @@
   "name": "metascraper-readability",
   "description": "A Readability connector for metascraper",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-readability",
-  "version": "5.21.6",
+  "version": "5.21.7",
   "main": "index.js",
   "repository": {
     "directory": "packages/metascraper-readability",
@@ -17,7 +17,7 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.21.6",
+    "@metascraper/helpers": "^5.21.7",
     "@mozilla/readability": "~0.4.1",
     "jsdom": "~16.5.3"
   },
