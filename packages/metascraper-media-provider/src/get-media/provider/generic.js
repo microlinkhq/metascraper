@@ -10,13 +10,13 @@ const pTimeout = require('p-timeout')
 
 const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
   const flags = {
-    dumpJson: true,
-    noWarnings: true,
+    dumpSingleJson: true,
     noCallHome: true,
     noCheckCertificate: true,
+    noWarnings: true,
     preferFreeFormats: true,
-    youtubeSkipDashManifest: true,
-    referer: url
+    referer: url,
+    youtubeSkipDashManifest: true
   }
   if (cacheDir) flags.cacheDir = cacheDir
   if (userAgent) flags.userAgent = userAgent
