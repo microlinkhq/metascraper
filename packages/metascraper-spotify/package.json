@@ -2,7 +2,7 @@
   "name": "metascraper-spotify",
   "description": "Metascraper integration with Spotify",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-spotify",
-  "version": "5.21.7",
+  "version": "5.21.8",
   "main": "index.js",
   "repository": {
     "directory": "packages/metascraper-spotify",
