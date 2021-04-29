@@ -26,7 +26,7 @@
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.5.0",
-    "p-timeout": "~4.1.0",
+    "p-timeout": "~5.0.0",
     "tldts": "~5.7.29",
     "youtube-dl-exec": "~1.2.1"
   },
