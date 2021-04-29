@@ -1,38 +1,11 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 99
-  ignore:
-  - dependency-name: p-reflect
-    versions:
-    - 3.0.0
-  - dependency-name: p-do-whilst
-    versions:
-    - 2.0.0
-  - dependency-name: p-timeout
-    versions:
-    - 5.0.0
-  - dependency-name: youtube-dl-exec
-    versions:
-    - 1.2.0
-  - dependency-name: chrono-node
-    versions:
-    - 2.2.1
-    - 2.2.3
-    - 2.2.6
-  - dependency-name: p-retry
-    versions:
-    - 4.4.0
-    - 4.5.0
-  - dependency-name: iso-639-3
-    versions:
-    - 3.0.0
-  - dependency-name: jsdom
-    versions:
-    - 16.5.0
-  - dependency-name: get-video-id
-    versions:
-    - 3.2.0
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every weekday
+      interval: "daily"
