@@ -20,36 +20,16 @@
       "email": "david@activout.se"
     },
     {
-      "name": "Shawn Dempsey",
-      "email": "shwanton@gmail.com"
-    },
-    {
       "name": "Slava",
       "email": "slava.ganzin@gmail.com"
     },
     {
-      "name": "Jonas Rottmann",
-      "email": "github@jonasrottmann.com"
-    },
-    {
-      "name": "Nikola Ristic",
-      "email": "risticn6@gmail.com"
-    },
-    {
-      "name": "Omar Diab",
-      "email": "me@omardiab.com"
+      "name": "Shawn Dempsey",
+      "email": "shwanton@gmail.com"
     },
     {
       "name": "Sampo Juustila",
       "email": "sampo.niskanen@iki.fi"
-    },
-    {
-      "name": "Dave Nicolson",
-      "email": "david.nicolson@gmail.com"
-    },
-    {
-      "name": "Amine Bouyarmane",
-      "email": "amine.bouyarmane@gmail.com"
     },
     {
       "name": "Steven Frostwick",
@@ -64,12 +44,36 @@
       "email": "wyattjoh@gmail.com"
     },
     {
-      "name": "Jesse Rogers",
-      "email": "djrquazz@gmail.com"
+      "name": "Kristianeaw",
+      "email": "kristianeaw@gmail.com"
+    },
+    {
+      "name": "Dave Nicolson",
+      "email": "david.nicolson@gmail.com"
     },
     {
       "name": "Iheb KHEMISSI",
       "email": "iheb.khemissi+github@gmail.com"
+    },
+    {
+      "name": "Jesse Rogers",
+      "email": "djrquazz@gmail.com"
+    },
+    {
+      "name": "Jonas Rottmann",
+      "email": "github@jonasrottmann.com"
+    },
+    {
+      "name": "Amine Bouyarmane",
+      "email": "amine.bouyarmane@gmail.com"
+    },
+    {
+      "name": "Nikola Ristic",
+      "email": "risticn6@gmail.com"
+    },
+    {
+      "name": "Omar Diab",
+      "email": "me@omardiab.com"
     }
   ],
   "repository": {
