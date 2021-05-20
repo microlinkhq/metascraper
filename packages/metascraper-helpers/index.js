@@ -10,6 +10,7 @@ const {
   isArray,
   isEmpty,
   isNumber,
+  isBoolean,
   isString,
   lte,
   replace,
@@ -300,7 +301,7 @@ const $jsonld = propName => $ => {
 
   collection.find(item => {
     value = get(item, propName)
-    return !isEmpty(value) || typeof value === 'number' || typeof value === 'boolean'
+    return !isEmpty(value) || isNumber(value) || isBoolean(value)
   })
 
   return value ? decodeHTML(value) : value
