@@ -300,7 +300,7 @@ const $jsonld = propName => $ => {
 
   collection.find(item => {
     value = get(item, propName)
-    return !isEmpty(value)
+    return !isEmpty(value) || typeof value === 'number' || typeof value === 'boolean'
   })
 
   return value ? decodeHTML(value) : value
