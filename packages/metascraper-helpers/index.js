@@ -149,12 +149,12 @@ const titleize = (src, opts = {}) => {
   return title
 }
 
-const defaultFn = el => el.text().trim()
-
-const $filter = ($, domNodes, fn = defaultFn) => {
+const $filter = ($, domNodes, fn = $filter.fn) => {
   const el = domNodes.filter((i, el) => fn($(el))).first()
   return fn(el)
 }
+
+$filter.fn = el => el.text().trim()
 
 const isAuthor = (str, opts = { relative: false }) =>
   !isUrl(str, opts) &&
