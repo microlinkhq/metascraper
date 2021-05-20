@@ -20,6 +20,7 @@ const {
   isUrl,
   isVideoExtension,
   isVideoUrl,
+  $jsonld,
   jsonld,
   normalizeUrl,
   titleize,
@@ -267,6 +268,16 @@ describe('metascraper-helpers', () => {
       const $2 = cheerio.load(html)
       const json3 = jsonld($2)
       should(json3).not.equal(json1)
+    })
+  })
+
+  describe('.$jsonld', function () {
+    it('returns the first valid value found', () => {
+      const $ = cheerio.load(`
+      <script type="application/ld+json">{ "offers": { "price": 119.99 }}</script>
+      <script type="application/ld+json">{ "offers": { "price": "" }}</script>
+      `)
+      should($jsonld('offers.price')($)).be.equal('119.99')
     })
   })
 
