@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.21.9](https://github.com/microlinkhq/metascraper/compare/v5.21.8...v5.21.9) (2021-05-21)
+
+
+### Bug Fixes
+
+* **author:** be sure byline rule is not a date ([#410](https://github.com/microlinkhq/metascraper/issues/410)) ([c8c035d](https://github.com/microlinkhq/metascraper/commit/c8c035d361508551bfe3637ac43bde69ad63371c)), closes [#408](https://github.com/microlinkhq/metascraper/issues/408)
+
+
+
+
+
 ## [5.21.8](https://github.com/microlinkhq/metascraper/compare/v5.21.7...v5.21.8) (2021-04-26)
 
 **Note:** Version bump only for package metascraper-soundcloud

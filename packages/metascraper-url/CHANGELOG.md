@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.21.9](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-url/compare/v5.21.8...v5.21.9) (2021-05-21)
+
+**Note:** Version bump only for package metascraper-url
+
+
+
+
+
 ## [5.21.7](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-url/compare/v5.21.6...v5.21.7) (2021-04-24)
 
 **Note:** Version bump only for package metascraper-url
