@@ -28,7 +28,7 @@
     "is-uri": "~1.2.0",
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
-    "jsdom": "~16.5.3",
+    "jsdom": "~16.6.0",
     "lodash": "~4.17.21",
     "memoize-one": "~5.2.1",
     "microsoft-capitalize": "~1.0.5",
