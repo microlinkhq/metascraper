@@ -216,7 +216,7 @@ const getDescription = (
 
 const publisher = value => isString(value) && condenseWhitespace(value)
 
-const author = value => isAuthor(value) && getAuthor(value)
+const author = (value, opts) => isAuthor(value) && getAuthor(value, opts)
 
 const url = (value, { url = '' } = {}) => {
   if (isEmpty(value)) return null
