@@ -41,15 +41,15 @@ module.exports = () => {
   const rules = {
     lang: [toLang(($, url) => getDomainLanguage(url))],
     author: [
-      toAuthor($ => $('.contributorNameID').text()),
-      toAuthor($ => $('#bylineInfo').text()),
-      toAuthor($ => $('#brand').text())
+      toAuthor($ => $filter($, $('.contributorNameID'))),
+      toAuthor($ => $filter($, $('#bylineInfo'))),
+      toAuthor($ => $filter($, $('#brand')))
     ],
     title: [
-      toTitle($ => $('#productTitle').text()),
-      toTitle($ => $('#btAsinTitle').text()),
+      toTitle($ => $filter($, $('#productTitle'))),
+      toTitle($ => $filter($, $('#btAsinTitle'))),
       toTitle($ => $filter($, $('h1.a-size-large'))),
-      toTitle($ => $('#item_name').text())
+      toTitle($ => $filter($, $('#item_name')))
     ],
     publisher: () => 'Amazon',
     image: [
