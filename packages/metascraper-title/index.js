@@ -11,7 +11,6 @@ module.exports = () => ({
     toTitle($ => $('meta[property="twitter:title"]').attr('content')),
     toTitle($ => $filter($, $('title'))),
     toTitle($jsonld('headline')),
-    toTitle($jsonld('alternativeHeadline')),
     toTitle($ => $filter($, $('.post-title'))),
     toTitle($ => $filter($, $('.entry-title'))),
     toTitle($ => $filter($, $('h1[class*="title" i] a'))),
