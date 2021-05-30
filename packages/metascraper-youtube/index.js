@@ -38,11 +38,11 @@ const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 module.exports = () => {
   const rules = {
     author: [
-      toAuthor($ => $('#owner-name').text()),
-      toAuthor($ => $('#channel-title').text()),
+      toAuthor($ => $filter($, $('#owner-name'))),
+      toAuthor($ => $filter($, $('#channel-title'))),
       toAuthor($ => $filter($, $('[class*="user-info" i]')))
     ],
-    description: [toDescription($ => $('#description').text())],
+    description: [toDescription($ => $filter($, $('#description')))],
     publisher: () => 'YouTube',
     image: [
       ({ url }) => {

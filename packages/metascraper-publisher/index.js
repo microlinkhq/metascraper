@@ -1,8 +1,7 @@
 'use strict'
 
-const { $jsonld, publisher, toRule } = require('@metascraper/helpers')
+const { $filter, $jsonld, publisher, toRule } = require('@metascraper/helpers')
 
-const REGEX_RSS = /^(.*?)\s[-|]\satom$/i
 const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
 
 const toPublisher = toRule(publisher)
@@ -38,15 +37,14 @@ module.exports = () => ({
     toPublisher($ =>
       $('meta[property="twitter:app:name:googleplay"]').attr('content')
     ),
-    toPublisher($ => $('#logo').text()),
-    toPublisher($ => $('.logo').text()),
-    toPublisher($ => $('a[class*="brand" i]').text()),
-    toPublisher($ => $('[class*="brand" i]').text()),
+    toPublisher($ => $filter($, $('#logo'))),
+    toPublisher($ => $filter($, $('.logo'))),
+    toPublisher($ => $filter($, $('a[class*="brand" i]'))),
+    toPublisher($ => $filter($, $('[class*="brand" i]'))),
     toPublisher($ => $('[class*="logo" i] a img[alt]').attr('alt')),
     toPublisher($ => $('[class*="logo" i] img[alt]').attr('alt')),
-    toPublisher($ => getFromTitle($('title').text(), REGEX_TITLE)),
     toPublisher($ =>
-      getFromTitle($('link[type*="xml" i]').attr('title'), REGEX_RSS)
+      $filter($, $('title'), el => getFromTitle($filter.fn(el), REGEX_TITLE))
     )
   ]
 })

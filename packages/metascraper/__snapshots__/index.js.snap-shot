@@ -258,19 +258,6 @@ exports['fast-company 1'] = {
   "url": "http://www.fastcompany.com/3060169/one-of-the-biggest-challenges-of-getting-funding-for-minority-owned-business"
 }
 
-exports['fastersite 1'] = {
-  "author": "Tony Gentilcore",
-  "date": "2012-06-13T12:00:00.000Z",
-  "description": "Browser performance guru, Nat Duca, has introduced high resolution timing to JavaScript. Ready to try in Chrome 20, the experimental window.performance.webkitNow() interface provides microsecond resolution and guarantees not to flow backward (monotonically nondecreasing).",
-  "image": "http://4.bp.blogspot.com/-f2MG3BXeZxY/T8sN8avF8MI/AAAAAAAAJxE/gJmx_aUEK-s/w1200-h630-p-nu/Screen%2BShot%2B2012-06-03%2Bat%2B12.09.18%2BAM.png",
-  "video": null,
-  "lang": null,
-  "logo": "http://gent.ilcore.com/favicon.ico",
-  "publisher": "Fastersite",
-  "title": "Fastersite: A better timer for JavaScript",
-  "url": "http://gent.ilcore.com/2012/06/better-timer-for-javascript.html"
-}
-
 exports['fierce-devops 1'] = {
   "author": "Chris Talbot",
   "date": "2016-05-17T12:00:00.000Z",

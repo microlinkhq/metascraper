@@ -4,6 +4,7 @@ const { getDomain } = require('tldts')
 
 const {
   $jsonld,
+  $filter,
   title,
   description,
   toRule,
@@ -24,7 +25,7 @@ module.exports = () => {
     title: [
       toTitle(($, url) => $jsonld('headline')($, url)),
       toTitle(($, url) => $jsonld('name')($, url)),
-      toTitle($ => $('title').text())
+      toTitle($ => $filter($, $('title')))
     ],
     description: [toDescription(($, url) => $jsonld('description')($, url))]
   }
