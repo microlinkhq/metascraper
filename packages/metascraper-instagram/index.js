@@ -1,12 +1,13 @@
 'use strict'
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
+const { getDomainWithoutSuffix } = require('tldts')
 const { JSDOM, VirtualConsole } = require('jsdom')
 const { get } = require('lodash')
 
-const { getDomain } = require('tldts')
-
-const isValidUrl = memoizeOne(url => getDomain(url) === 'instagram.com')
+const isValidUrl = memoizeOne(
+  url => getDomainWithoutSuffix(url) === 'instagram'
+)
 
 const extractData = memoizeOne((url, $) => {
   const dom = new JSDOM($.html(), {
@@ -23,8 +24,6 @@ const extractData = memoizeOne((url, $) => {
 
   const author = get(media, 'owner.full_name')
   const username = get(media, 'owner.username')
-
-  console.log(get(media, 'edge_media_to_caption.edges[0].node.text'))
 
   return {
     author: author,

@@ -25,7 +25,6 @@ describe('metascraper-instagram', () => {
       resolve(__dirname, 'fixtures/post-with-photo.html')
     )
     const metadata = await metascraper({ url, html })
-    console.log(metadata)
     snapshot(metadata)
   })
   it('from multi photo post', async () => {
@@ -34,7 +33,6 @@ describe('metascraper-instagram', () => {
       resolve(__dirname, 'fixtures/post-with-multi-photo.html')
     )
     const metadata = await metascraper({ url, html })
-    console.log(metadata)
     snapshot(metadata)
   })
   it('from video post', async () => {
@@ -43,7 +41,6 @@ describe('metascraper-instagram', () => {
       resolve(__dirname, 'fixtures/post-with-video.html')
     )
     const metadata = await metascraper({ url, html })
-    console.log(metadata)
     snapshot(metadata)
   })
   it('from clip post', async () => {
@@ -60,7 +57,6 @@ describe('metascraper-instagram', () => {
       resolve(__dirname, 'fixtures/post-with-igtv.html')
     )
     const metadata = await metascraper({ url, html })
-    console.log(metadata)
     snapshot(metadata)
   })
 })
