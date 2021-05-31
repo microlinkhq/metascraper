@@ -1,0 +1,48 @@
+{
+  "name": "metascraper-instagram",
+  "description": "Metascraper integration for Instagram",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-instagram",
+  "version": "5.21.10",
+  "main": "index.js",
+  "repository": {
+    "directory": "packages/metascraper-instagram",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "telegram"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.21.10",
+    "jsdom": "~16.6.0",
+    "lodash": "~4.17.21",
+    "tldts": "~5.7.37"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "nyc": "latest",
+    "snap-shot": "latest"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+  },
+  "license": "MIT",
+  "mocha": {
+    "bail": true,
+    "exit": true,
+    "recursive": true,
+    "reporter": "spec",
+    "slow": 300,
+    "timeout": "120000"
+  }
+}
