@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.22.0](https://github.com/microlinkhq/metascraper/compare/v5.21.10...v5.22.0) (2021-05-31)
+
+
+### Bug Fixes
+
+* getAuthor default options ([1ffc1d4](https://github.com/microlinkhq/metascraper/commit/1ffc1d40168fb3ae063fb441127b2b3ffc269bb9))
+* pass author helper options ([5b8faf9](https://github.com/microlinkhq/metascraper/commit/5b8faf9c763ea52cad3e3994641b25d49af1640f))
+
+
+### Features
+
+* add instagram integration ([#419](https://github.com/microlinkhq/metascraper/issues/419)) ([b5228e1](https://github.com/microlinkhq/metascraper/commit/b5228e1ff5981dfac12629d669d2a6ceb2302f59))
+
+
+
+
+
 ## [5.21.10](https://github.com/microlinkhq/metascraper/compare/v5.21.9...v5.21.10) (2021-05-24)
 
 **Note:** Version bump only for package metascraper
