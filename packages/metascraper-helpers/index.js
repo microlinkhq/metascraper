@@ -162,7 +162,8 @@ const isAuthor = (str, opts = { relative: false }) =>
   isString(str) &&
   lte(size(str), AUTHOR_MAX_LENGTH)
 
-const getAuthor = (str, opts = { removeBy: true }) => titleize(str, opts)
+const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
+  titleize(str, { removeBy, ...opts })
 
 const protocol = url => {
   const { protocol = '' } = urlObject(url)
