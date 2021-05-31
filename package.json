@@ -28,10 +28,6 @@
       "email": "slava.ganzin@gmail.com"
     },
     {
-      "name": "Sampo Juustila",
-      "email": "sampo.niskanen@iki.fi"
-    },
-    {
       "name": "Steven Frostwick",
       "email": "steven.frostwick@gmail.com"
     },
@@ -74,6 +70,10 @@
     {
       "name": "Omar Diab",
       "email": "me@omardiab.com"
+    },
+    {
+      "name": "Sampo Juustila",
+      "email": "sampo.niskanen@iki.fi"
     }
   ],
   "repository": {
