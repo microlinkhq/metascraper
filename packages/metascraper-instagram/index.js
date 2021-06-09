@@ -22,13 +22,15 @@ const extractData = memoizeOne((url, $) => {
   const page = getPage(sharedData)
 
   const getTitle = ({ author, username }) =>
-    `${author} (@${username}) on Instagram`
+    author
+      ? `${author} (@${username}) on Instagram`
+      : `@${username} on Instagram`
 
   switch (page) {
     case 'PostPage': {
       const media = get(
         sharedData,
-        'entry_data.PostPage[0].graphql.shortcode_media'
+        `entry_data.${page}[0].graphql.shortcode_media`
       )
 
       const author = get(media, 'owner.full_name')
@@ -44,7 +46,7 @@ const extractData = memoizeOne((url, $) => {
       }
     }
     case 'ProfilePage': {
-      const user = get(sharedData, 'entry_data.ProfilePage[0].graphql.user')
+      const user = get(sharedData, `entry_data.${page}[0].graphql.user`)
       const author = get(user, 'full_name')
       const username = get(user, 'username')
 
@@ -52,6 +54,14 @@ const extractData = memoizeOne((url, $) => {
         author,
         title: getTitle({ author, username }),
         description: get(user, 'biography')
+      }
+    }
+    case 'StoriesPage': {
+      const user = get(sharedData, `entry_data.${page}[0].user`)
+      const username = get(user, 'username')
+
+      return {
+        title: getTitle({ username })
       }
     }
   }

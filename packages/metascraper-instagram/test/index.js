@@ -65,4 +65,11 @@ describe('metascraper-instagram', () => {
     const metadata = await metascraper({ url, html })
     snapshot(metadata)
   })
+  it('from story', async () => {
+    const url =
+      'https://www.instagram.com/stories/jaimelorentelo/2591639087680304855/'
+    const html = await readFile(resolve(__dirname, 'fixtures/story.html'))
+    const metadata = await metascraper({ url, html })
+    snapshot(metadata)
+  })
 })

@@ -76,3 +76,16 @@ exports['from profile 1'] = {
   "url": "https://www.instagram.com/pluto__travel/"
 }
 
+exports['from story 1'] = {
+  "author": null,
+  "video": null,
+  "title": "@jaimelorentelo on Instagram",
+  "date": null,
+  "image": "https://scontent-mad1-1.cdninstagram.com/v/t51.2885-19/s150x150/125914091_693267034908343_2320601127762009501_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_ohc=VIsGLHxmbUEAX8PLvRD&edm=AK8tHi0BAAAA&ccb=7-4&oh=7829aba2b28edf05a152201542a47d06&oe=60C88CB1&_nc_sid=16f1e8",
+  "description": "14.1m Followers, 1,364 Following, 332 Posts",
+  "publisher": "Instagram",
+  "lang": "en",
+  "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png",
+  "url": "https://www.instagram.com/jaimelorentelo/"
+}
+
