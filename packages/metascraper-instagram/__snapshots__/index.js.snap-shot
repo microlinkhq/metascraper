@@ -63,3 +63,16 @@ exports['from igtv 1'] = {
   "url": "https://www.instagram.com/tv/CIoLRFIIL50/"
 }
 
+exports['from profile 1'] = {
+  "author": "Pluto",
+  "video": null,
+  "title": "Pluto (@pluto__travel) on Instagram",
+  "date": null,
+  "image": "https://scontent-mad1-1.cdninstagram.com/v/t51.2885-19/s150x150/133834346_403703180893250_1427065180629518897_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_ohc=Bq78-dxCd5QAX_03O3s&edm=ABfd0MgBAAAA&ccb=7-4&oh=4c14d5e8c35977f2ffed9bb2689ab4b2&oe=60C77F8B&_nc_sid=7bff83",
+  "description": "Where travel lovers go to escape. Our mobile app helps you organise a trip, get inspiration and protect yourself all in one place.\n——",
+  "publisher": "Instagram",
+  "lang": "en",
+  "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png",
+  "url": "https://www.instagram.com/pluto__travel/"
+}
+

@@ -59,4 +59,10 @@ describe('metascraper-instagram', () => {
     const metadata = await metascraper({ url, html })
     snapshot(metadata)
   })
+  it('from profile', async () => {
+    const url = 'https://www.instagram.com/pluto__travel/'
+    const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
+    const metadata = await metascraper({ url, html })
+    snapshot(metadata)
+  })
 })
