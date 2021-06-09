@@ -180,7 +180,7 @@ const metascraper = require('metascraper')([
 
 ## Rules Bundles
 
-?> Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
+Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
 **Official**
 
