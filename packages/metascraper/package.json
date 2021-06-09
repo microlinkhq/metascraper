@@ -58,7 +58,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.22.0",
-    "cheerio": "~1.0.0-rc.9",
+    "cheerio": "~1.0.0-rc.10",
     "lodash": "~4.17.21",
     "whoops": "~4.1.0"
   },
