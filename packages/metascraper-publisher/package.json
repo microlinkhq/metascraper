@@ -2,7 +2,7 @@
   "name": "metascraper-publisher",
   "description": "Get publisher property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-publisher",
-  "version": "5.22.0",
+  "version": "5.22.1",
   "main": "index.js",
   "repository": {
     "directory": "packages/metascraper-publisher",
@@ -17,7 +17,7 @@
     "publisher"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.22.0"
+    "@metascraper/helpers": "^5.22.1"
   },
   "devDependencies": {
     "mocha": "latest",
