@@ -236,7 +236,7 @@ const date = value => {
   if (!(isString(value) || isNumber(value))) return undefined
 
   // remove whitespace for easier parsing
-  if (isString(value)) trim(value)
+  if (isString(value)) value = trim(value)
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
