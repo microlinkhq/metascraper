@@ -16,8 +16,7 @@ const {
   replace,
   size,
   toLower,
-  toString,
-  trim
+  toString
 } = require('lodash')
 
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
@@ -132,12 +131,13 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
   }
 }
 
-const removeBy = flow([value => value.replace(REGEX_BY, ''), trim])
+const removeBy = flow([
+  value => value.replace(REGEX_BY, ''),
+  condenseWhitespace
+])
 
-const removeSeparator = title => {
-  const newTitle = (REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title
-  return newTitle.trim()
-}
+const removeSeparator = title =>
+  condenseWhitespace((REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title)
 
 const createTitle = flow([condenseWhitespace, smartquotes])
 
@@ -154,7 +154,7 @@ const $filter = ($, domNodes, fn = $filter.fn) => {
   return fn(el)
 }
 
-$filter.fn = el => el.text().trim()
+$filter.fn = el => condenseWhitespace(el.text())
 
 const isAuthor = (str, opts = { relative: false }) =>
   !isUrl(str, opts) &&
@@ -236,7 +236,7 @@ const date = value => {
   if (!(isString(value) || isNumber(value))) return undefined
 
   // remove whitespace for easier parsing
-  if (isString(value)) value = trim(value)
+  if (isString(value)) value = condenseWhitespace(value)
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
@@ -262,7 +262,7 @@ const date = value => {
 
 const lang = value => {
   if (isEmpty(value)) return undefined
-  const lang = toLower(value.trim().substring(0, 2))
+  const lang = toLower(condenseWhitespace(value).substring(0, 2))
   return includes(langs, lang) ? lang : undefined
 }
 
