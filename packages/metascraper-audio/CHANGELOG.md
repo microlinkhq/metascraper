@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.22.4](https://github.com/microlinkhq/metascraper/compare/v5.22.3...v5.22.4) (2021-06-27)
+
+**Note:** Version bump only for package metascraper-audio
+
+
+
+
+
 ## [5.22.2](https://github.com/microlinkhq/metascraper/compare/v5.22.1...v5.22.2) (2021-06-23)
 
 **Note:** Version bump only for package metascraper-audio
