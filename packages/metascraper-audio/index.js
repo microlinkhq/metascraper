@@ -39,7 +39,7 @@ const audioRules = [
   toAudio($jsonld('contentUrl')),
   toAudio($ => $('audio').attr('src')),
   toAudio($ => $('audio > source').attr('src')),
-  ({ htmlDom: $ }) => $filter($, $('a'), el => audio(el.attr('href')))
+  ({ htmlDom: $ }) => $filter($, $('a[href]'), el => audio(el.attr('href')))
 ]
 
 const _getIframe = async (url, { src }) => {
