@@ -29,7 +29,7 @@ module.exports = ({
   getProxy = constant(false),
   onError = noop,
   timeout = 30000,
-  retry = 5,
+  retry = 2,
   userAgent,
   ...props
 }) => {
@@ -38,7 +38,7 @@ module.exports = ({
     let data = {}
     let isTimeout = false
 
-    const condition = () => !isTimeout && isEmpty(data) && retryCount < retry
+    const condition = () => !isTimeout && isEmpty(data) && retryCount <= retry
 
     const task = async () => {
       await pDoWhilst(async () => {
