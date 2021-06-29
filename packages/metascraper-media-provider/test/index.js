@@ -2,14 +2,21 @@
 
 const debug = require('debug-logfmt')('metascraper-media-provider:test')
 const { getDomainWithoutSuffix } = require('tldts')
-const parseProxy = require('parse-proxy-uri')
+const parseProxyUri = require('parse-proxy-uri')
 const snapshot = require('snap-shot')
 const should = require('should')
 const isCI = require('is-ci')
 
-const proxy = parseProxy(process.env.PROXY_URI)
+const { PROXY_PASSWORD, PROXY_USERNAME, PROXY_HOST } = process.env
 
-const PROXY_DOMAINS = ['vimeo']
+const proxy =
+  PROXY_PASSWORD && PROXY_USERNAME && PROXY_HOST
+    ? parseProxyUri(
+        `socks5://${PROXY_USERNAME}:${PROXY_PASSWORD}@${PROXY_HOST}`
+      )
+    : undefined
+
+const PROXY_DOMAINS = ['vimeo', 'facebook']
 const PROXY_URLS = ['https://api.twitter.com/1.1/guest/activate.json']
 
 const getProxy = ({ url, retryCount = 1 }) => {
