@@ -38,7 +38,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --temp-dir ../../.nyc_output mocha test"
   },
   "license": "MIT"
 }
