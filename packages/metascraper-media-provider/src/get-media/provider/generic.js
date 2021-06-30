@@ -8,6 +8,8 @@ const youtubedl = require('youtube-dl-exec')
 const pDoWhilst = require('p-do-whilst')
 const pTimeout = require('p-timeout')
 
+const RE_UNSUPORTED_URL = /Unsupported URL/
+
 const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
   const flags = {
     dumpSingleJson: true,
@@ -37,8 +39,10 @@ module.exports = ({
     let retryCount = 0
     let data = {}
     let isTimeout = false
+    let isSupportedURL = true
 
-    const condition = () => !isTimeout && isEmpty(data) && retryCount <= retry
+    const condition = () =>
+      isSupportedURL && !isTimeout && isEmpty(data) && retryCount <= retry
 
     const task = async () => {
       await pDoWhilst(async () => {
@@ -51,6 +55,7 @@ module.exports = ({
             debug('getInfo:error', { retryCount }, error)
             onError(url, error)
           }
+          isSupportedURL = !RE_UNSUPORTED_URL.test(error.stderr)
         }
       }, condition)
 
