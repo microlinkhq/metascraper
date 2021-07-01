@@ -4,6 +4,11 @@
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-audio",
   "version": "5.22.5",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
     "directory": "packages/metascraper-audio",
     "type": "git",

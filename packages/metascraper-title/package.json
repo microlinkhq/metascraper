@@ -4,6 +4,11 @@
   "homepage": "https://metascraper.js.org",
   "version": "5.22.5",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
     "type": "git",
     "url": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-title"

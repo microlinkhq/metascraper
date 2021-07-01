@@ -4,6 +4,11 @@
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-media-provider",
   "version": "5.22.6",
   "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
     "directory": "packages/metascraper-media-provider",
     "type": "git",
