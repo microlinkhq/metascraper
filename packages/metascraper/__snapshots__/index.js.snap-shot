@@ -330,7 +330,7 @@ exports['github 1'] = {
   "image": "https://avatars1.githubusercontent.com/u/29799436?v=3&s=400",
   "video": null,
   "lang": "en",
-  "logo": "https://assets-cdn.github.com/favicon.ico",
+  "logo": "https://github.com/fluidicon.png",
   "publisher": "GitHub",
   "title": "microlinkhq/microlink-core",
   "url": "https://github.com/microlinkhq/microlink-core"
