@@ -47,11 +47,12 @@ const getSizes = ($, collection) =>
     }, [])
     .value()
 
+/* sortest from high to low resolution */
 const sizeSelectors = [
-  { tag: 'link[rel*="apple-touch-icon"]', attr: 'href' },
+  { tag: 'link[rel*="-icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
   { tag: 'meta[name*="msapplication-tileimage" i]', attr: 'content' },
-  { tag: 'link[rel="icon"]', attr: 'href' },
-  { tag: 'link[rel="shortcut icon"]', attr: 'href' }
+  { tag: 'link[rel*="icon" i]', attr: 'href' },
+  { tag: 'link[rel="shortcut icon i"]', attr: 'href' } // favicon
 ]
 
 const pickBiggerSize = sizes =>
