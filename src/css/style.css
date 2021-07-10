@@ -565,14 +565,15 @@ body {
 
 .markdown-section blockquote {
   border-left: 4px solid var(--primary-color);
-  color: #858585;
-  margin: 2em 0;
+  color: var(--text-color);
+  margin: 2em 0px;
   padding-left: 20px;
 }
 
 .markdown-section blockquote p {
-  font-weight: 600;
-  margin-left: 0;
+  font-weight: 400;
+  margin-left: 0px;
+  padding: 12px 0px;
 }
 
 .markdown-section em {
