@@ -70,7 +70,7 @@ exports['bbc 1'] = {
   "image": "https://ichef.bbci.co.uk/news/1024/branded_news/D20B/production/_96817735_carl4.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
+  "logo": "https://static.bbc.co.uk/news/1.281.03331/apple-touch-icon.png",
   "publisher": "BBC News",
   "title": "The man who built a $1bn firm in his basement",
   "url": "https://www.bbc.com/news/business-40504764"
@@ -96,7 +96,7 @@ exports['bukvy 1'] = {
   "image": "https://bykvu.com/ru/kd_image_generate/141935.jpg",
   "video": null,
   "lang": null,
-  "logo": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png",
+  "logo": "https://bykvu.com/wp-content/themes/bykvu/img/android-icon-192x192.png",
   "publisher": "Буквы",
   "title": "Украина будет уважать религиозный выбор каждого гражданина, – Порошенко",
   "url": "https://bykvu.com/ru/bukvy/107312-ukraina-budet-uvazhat-religioznyj-vybor-kazhdogo-grazhdanina-poroshenko/"
@@ -304,7 +304,7 @@ exports['fortune 1'] = {
   "image": "https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://fortune.com/img/logo.png",
+  "logo": "http://fortune.com/img/favicons/favicon-192.png",
   "publisher": "Fortune",
   "title": "Why your next job search may involve solving online puzzles",
   "url": "http://fortune.com/2015/10/05/hackerrank-recruiting-tool/"
@@ -538,7 +538,7 @@ exports['medium 1'] = {
   "image": "https://miro.medium.com/max/1200/1*Ac4K68j43uSbvHnKZKfXPw.jpeg",
   "video": null,
   "lang": "en",
-  "logo": "https://miro.medium.com/max/308/1*gdoQ1_5OID90wf1eLTFvWw.png",
+  "logo": "https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500.svg",
   "publisher": "webpack",
   "title": "🍾🚀 webpack 3: Official Release!! 🚀🍾",
   "url": "https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b"
@@ -564,20 +564,20 @@ exports['nbcnews 1'] = {
   "image": "https://media4.s-nbcnews.com/j/newscms/2020_45/3407342/200825-jacob-blake-2x1-se-152p_19527f3bde0e0abf3b82395738909a41.nbcnews-fp-1200-630.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://sslnodeassets.nbcnews.com/cdnassets/projects/site-images/nbcnews-logo-white.png",
+  "logo": "https://nodeassets.nbcnews.com/cdnassets/projects/ramen/favicon/nbcnews/all-other-sizes-PNG.ico/android-icon-192x192.png",
   "publisher": "NBC News",
   "title": "No charges filed against Kenosha officers in Jacob Blake shooting",
   "url": "https://www.nbcnews.com/news/us-news/no-charges-filed-against-kenosha-officers-jacob-blake-shooting-n1252739"
 }
 
 exports['npr 1'] = {
-  "author": "Darian Woods,Sarah Gonzalez",
+  "author": "Darian Woods",
   "date": "2020-12-24T03:36:00.000Z",
   "description": "A global pandemic might not be the best time to try something new with technology. But Taiwan decided to do it anyway. | Subscribe to our weekly newsletter here.",
   "image": "https://media.npr.org/assets/img/2020/12/23/gettyimages-1199493836_wide-b0f8c2e44d3617f2f5ff7f4dceff064ecad00439.jpg?s=1400",
   "video": null,
   "lang": "en",
-  "logo": "https://media.npr.org/chrome/npr-logo.jpg",
+  "logo": "https://static-assets.npr.org/static/images/favicon/favicon-180x180.png",
   "publisher": "NPR",
   "title": "Fork The Government : Planet Money",
   "url": "https://www.npr.org/2020/12/23/949764249/fork-the-government",
@@ -604,7 +604,7 @@ exports['postplanner 1'] = {
   "image": "https://www.postplanner.com/hubfs/blog/11_Ways_to_Get_Lots_of_Likes_on_Facebook_(the_right_way)/11%20Ways%20to%20Get%20Lots%20of%20Likes%20on%20Facebook%20(the%20right%20way!!)%20hero.png#keepProtocol",
   "video": null,
   "lang": null,
-  "logo": "https://www.postplanner.com/hubfs/a-full-logo.png",
+  "logo": "https://www.postplanner.com/favicon.ico",
   "publisher": "Post Planner",
   "title": "Here’s How to Get More Likes on Facebook in 2021 (and Reach Millions)",
   "url": "https://www.postplanner.com/get-more-likes-fans-facebook-page/"
@@ -942,7 +942,7 @@ exports['washington-post 1'] = {
   "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/YU7K4QHOU45NXLUUOZBD64ZCM4.jpg&w=1440",
   "video": null,
   "lang": "en",
-  "logo": "https://www.washingtonpost.com/wp-stat/img/wplogo_344x60_blk.png",
+  "logo": "https://www.washingtonpost.com/dr/resources/images/touch-icon-iphone-retina.png?d=622454693@436a987123d5ee2a664f6aba0dcd56b1947cd1ba",
   "publisher": "The Washington Post",
   "title": "Twitter says goodbye to all ‘.@’",
   "url": "https://www.washingtonpost.com/news/the-intersect/wp/2016/05/24/twitter-says-goodbye-to-all/"

@@ -277,7 +277,8 @@ describe('metascraper-helpers', () => {
       <script type="application/ld+json">{ "offers": { "price": 119.99 }}</script>
       <script type="application/ld+json">{ "offers": { "price": "" }}</script>
       `)
-      should($jsonld('offers.price')($)).be.equal('119.99')
+      const value = $jsonld('offers.price')($)
+      should(value).be.equal(119.99)
     })
   })
 
