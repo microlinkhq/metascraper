@@ -305,7 +305,7 @@ const $jsonld = propName => $ => {
     return !isEmpty(value) || isNumber(value) || isBoolean(value)
   })
 
-  return value ? decodeHTML(value) : value
+  return isString(value) ? decodeHTML(value) : value
 }
 
 const image = (value, opts) => {
