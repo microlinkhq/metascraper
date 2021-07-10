@@ -287,6 +287,23 @@ main {
 .sidebar ul li a {
   border-bottom: none;
   display: block;
+  color: var(--sidebar-color);
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline
+}
+
+.sidebar ul li.active>a {
+  border-right: 2px solid;
+  color: var(--sidebar-active-color);
+  font-weight: 700;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -679,4 +696,8 @@ pre:after {
   right: 0;
   text-align: right;
   top: 0;
+}
+
+.sidebar ul ul {
+  margin-left: 15px;
 }

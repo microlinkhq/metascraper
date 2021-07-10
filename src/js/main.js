@@ -2,7 +2,7 @@
 
 window.$docsify = {
   repo: 'microlinkhq/metascraper',
-  maxLevel: 3,
+  maxLevel: 4,
   executeScript: true,
   auto2top: true,
   noEmoji: true,
