@@ -1,6 +1,6 @@
-<h1>
+<h1 align="center">
   <br>
-  <img src="/static/logo-banner.png" alt="metascraper">
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="/static/logo-banner.png" alt="metascraper">
   <br>
   <br>
 </h1>
