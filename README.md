@@ -11,20 +11,6 @@
 
 > A library to easily scrape metadata from an article on the web using Open Graph, JSON+LD, regular HTML metadata, and series of fallbacks.
 
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Metadata](#metadata)
-- [How it works](#how-it-works)
-- [Importing Rules](#importing-rules)
-- [Rules bundles](#rules-bundles)
-- [API](#api)
-- [Benchmark](#benchmark)
-- [License](#license)
-
 ## Getting Started
 
 **metascraper** is library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
