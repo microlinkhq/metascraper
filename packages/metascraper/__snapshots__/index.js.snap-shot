@@ -208,15 +208,15 @@ exports['economic-times 1'] = {
 
 exports['engadget 1'] = {
   "author": "Mallory Locklear",
-  "date": "2019-01-07T15:49:36.000Z",
-  "description": "Previously, only paid subscribers had access to private repositories.",
-  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
+  "date": "2021-05-13T18:01:31.000Z",
+  "description": "Historically, if you’ve wanted to create a private repository on GitHub, you had to be a paying user, but that’s about to change.",
+  "image": "https://s.yimg.com/uu/api/res/1.2/C.Injrjs8P1U7ExbkYEEcg--~B/aD0xMDY5O3c9MTYwMDthcHBpZD15dGFjaHlvbg--/https://o.aolcdn.com/images/dims?crop=4834%2C3230%2C0%2C0&quality=85&format=jpg&resize=1600%2C1069&image_uri=https://s.yimg.com/os/creatr-images/2019-01/2d1e22f0-12ae-11e9-bae7-60d640081814&client=a1acac3e1b3290917d92&signature=269ae0af3a1a1772ffea6759d126791b9ad25184",
   "video": null,
   "lang": "en",
-  "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",
+  "logo": "https://s.yimg.com/kw/assets/favicon-160x160.png",
   "publisher": "Engadget",
-  "title": "All GitHub users can keep their code private",
-  "url": "https://www.engadget.com/2019/01/07/all-github-users-keep-code-private/"
+  "title": "All GitHub users can keep their code private | Engadget",
+  "url": "https://www.engadget.com/2019-01-07-all-github-users-keep-code-private.html"
 }
 
 exports['entrepreneur 1'] = {
