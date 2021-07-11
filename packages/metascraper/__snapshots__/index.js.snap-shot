@@ -1129,7 +1129,7 @@ exports['simplecast 1'] = {
   "video": null,
   "lang": "en",
   "logo": "https://player.simplecast.com/static/img/icons/apple-touch-icon-152x152.png",
-  "publisher": null,
+  "publisher": "Simplecast",
   "title": "Digitizing Healthcare with Helium Health’s Goke Olubusi",
   "url": "https://player.simplecast.com/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7?dark=false",
   "audio": "https://chtbl.com/track/E29G91/cdn.simplecast.com/audio/0a6ef085-f6a9-4fbd-bcc2-77e7cfd4f65f/episodes/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7/audio/7c63582d-7e0e-486a-b028-7e5692895e84/default_tc.mp3?aid=embed"
