@@ -19,6 +19,7 @@ const {
   toString
 } = require('lodash')
 
+const memoizeOne = require('memoize-one').default || require('memoize-one')
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
 const langs = Object.values(require('iso-639-3/to-1'))
@@ -29,7 +30,6 @@ const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
-const memoizeOne = require('memoize-one')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
