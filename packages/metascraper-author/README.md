@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/metascraper-author.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-author)
 [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-author&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-author)
 
-> Metascraper integration with Amazon.
+> Get author property from HTML markup.
 
 ## Install
 

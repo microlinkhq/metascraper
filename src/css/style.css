@@ -528,7 +528,7 @@ body {
 
 .markdown-section strong {
   font-family: var(--sans-serif-font);
-  color: var(--text-bold-color);
+  color: var(--secondary-color);
   font-weight: 600;
 }
 

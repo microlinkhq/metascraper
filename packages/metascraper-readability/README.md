@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/metascraper-readability.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-readability)
 [![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-readability&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-readability)
 
-> A Readability connector for metascraper
+> A Mozilla readability connector for metascraper.
 
 ## Install
 
