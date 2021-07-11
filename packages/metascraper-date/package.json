@@ -2,7 +2,7 @@
   "name": "metascraper-date",
   "description": "Get date property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-date",
-  "version": "5.22.8",
+  "version": "5.22.9",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.22.8"
+    "@metascraper/helpers": "^5.22.9"
   },
   "engines": {
     "node": ">= 12"

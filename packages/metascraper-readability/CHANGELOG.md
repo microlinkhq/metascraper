@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.22.9](https://github.com/microlinkhq/metascraper/compare/v5.22.8...v5.22.9) (2021-07-11)
+
+**Note:** Version bump only for package metascraper-readability
+
+
+
+
+
 ## [5.22.8](https://github.com/microlinkhq/metascraper/compare/v5.22.7...v5.22.8) (2021-07-10)
 
 **Note:** Version bump only for package metascraper-readability
