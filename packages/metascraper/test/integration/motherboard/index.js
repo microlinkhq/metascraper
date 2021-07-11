@@ -20,7 +20,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion'
+  'https://www.vice.com/en/article/kb77gv/google-wins-trial-against-oracle-saves-9-billion'
 
 it('motherboard', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))

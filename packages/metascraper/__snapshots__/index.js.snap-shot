@@ -545,16 +545,16 @@ exports['medium 1'] = {
 }
 
 exports['motherboard 1'] = {
-  "author": "Sarah Jeong",
-  "date": "2016-05-26T20:14:00.000Z",
-  "description": "The ruling that Google’s use of APIs is a fair use will have wide-ranging ramifications for the rest of the tech industry.",
-  "image": "http://motherboard-images.vice.com/content-images/article/no-id/1464294050922700.jpg",
+  "author": "Madeleine Gregory",
+  "date": "2020-02-15T00:00:00.000Z",
+  "description": "Detecting ‘technosignatures’ such as hypothetical Dyson spheres in space could lead us to extraterrestrial life, and now NASA is funding the search.",
+  "image": "https://video-images.vice.com/articles/60e8874db2fd6f009b21ae19/lede/1625851941294-gettyimages-1172247312-1.jpeg?image-resize-opts=Y3JvcD0xeHc6MC45NzkyMzAxODI5MjY4MjkzeGg7Y2VudGVyLGNlbnRlciZyZXNpemU9MTIwMDoqJnJlc2l6ZT0xMjAwOio",
   "video": null,
   "lang": "en",
-  "logo": "http://motherboard.vice.com/assets/favicons/motherboard/favicon-196x196.png?v",
-  "publisher": "Motherboard",
-  "title": "Google Wins Trial Against Oracle, Saves $9 Billion",
-  "url": "http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion"
+  "logo": "https://vice-web-statics-cdn.vice.com/favicons/vice/coast-228x228.png",
+  "publisher": null,
+  "title": "NASA Is Quietly Funding a Hunt for Alien Megastructures",
+  "url": "https://www.vice.com/en/article/pkbq7z/nasa-is-quietly-funding-a-hunt-for-alien-megastructures"
 }
 
 exports['nbcnews 1'] = {
