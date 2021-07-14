@@ -40,5 +40,24 @@ module.exports = () => ({
     toDate($ => $filter($, $('[class*="post-meta" i]'))),
     toDate($ => $filter($, $('[id*="time" i]'))),
     toDate($ => $filter($, $('[class*="time" i]')))
+  ],
+  datePublished: [
+    toDate($jsonld('datePublished')),
+    toDate($jsonld('dateCreated')),
+    toDate($ => $('meta[property*="published_time" i]').attr('content')),
+    toDate($ => $('meta[property*="release_date" i]').attr('content')),
+    toDate($ => $('[itemprop="datepublished" i]').attr('content')),
+    toDate($ => $('time[datetime][pubdate]').attr('datetime')),
+    toDate($ => $('meta[name*="dc.date.issued" i]').attr('content')),
+    toDate($ => $('meta[name*="dc.date.created" i]').attr('content')),
+    toDate($ => $('[property*="dc:created" i]').attr('content')),
+    toDate($ => $filter($, $('[id*="publish" i]'))),
+    toDate($ => $filter($, $('[class*="publish" i]')))
+  ],
+  dateModified: [
+    toDate($jsonld('dateModified')),
+    toDate($ => $('meta[property*="updated_time" i]').attr('content')),
+    toDate($ => $('meta[property*="modified_time" i]').attr('content')),
+    toDate($ => $('[itemprop*="datemodified" i]').attr('content'))
   ]
 })

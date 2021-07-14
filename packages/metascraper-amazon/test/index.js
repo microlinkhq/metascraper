@@ -27,7 +27,7 @@ describe('metascraper-amazon', () => {
       )
       const url =
         'https://www.amazon.co.uk/Vegetable-Perfection-tasty-recipes-shoots/dp/1849757097/ref=asap_bc?ie=UTF8'
-      const metadata = omit(await metascraper({ html, url }), ['date'])
+      const metadata = omit(await metascraper({ html, url }), ['date', 'datePublished', 'dateModified'])
       snapshot(metadata)
     })
   })
@@ -41,8 +41,10 @@ describe('metascraper-amazon', () => {
       const metadata = await metascraper({ html, url })
 
       // omit date because it is non deterministic
-      snapshot(omit(metadata, ['date']))
+      snapshot(omit(metadata, ['date', 'datePublished', 'dateModified']))
       should(metadata.date).instanceOf(String)
+      should(metadata.datePublished).not.be.ok()
+      should(metadata.dateModified).not.be.ok()
     })
 
     it('product url', async () => {
@@ -54,8 +56,10 @@ describe('metascraper-amazon', () => {
       const metadata = await metascraper({ html, url })
 
       // omit date because it is non deterministic
-      snapshot(omit(metadata, ['date']))
+      snapshot(omit(metadata, ['date', 'datePublished', 'dateModified']))
       should(metadata.date).instanceOf(String)
+      should(metadata.datePublished).not.be.ok()
+      should(metadata.dateModified).not.be.ok()
     })
   })
 
@@ -69,8 +73,10 @@ describe('metascraper-amazon', () => {
       const metadata = await metascraper({ html, url })
 
       // omit date because it is non deterministic
-      snapshot(omit(metadata, ['date']))
+      snapshot(omit(metadata, ['date', 'datePublished', 'dateModified']))
       should(metadata.date).instanceOf(String)
+      should(metadata.datePublished).instanceOf(String)
+      should(metadata.dateModified).not.be.ok()
     })
   })
 })
