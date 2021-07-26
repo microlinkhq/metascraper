@@ -262,11 +262,13 @@ const date = value => {
     }
   } else {
     if (value >= 1e16 || value <= -1e16) {
+      // nanoseconds
       value = Math.floor(value / 1000000)
     } else if (value >= 1e14 || value <= -1e14) {
+      // microseconds
       value = Math.floor(value / 1000)
-    } else if (value >= 1e11 || value <= -3e10) {
-    } else {
+    } else if (!(value >= 1e11) || value <= -3e10) {
+      // seconds
       value = value * 1000
     }
     isoDate = getISODate(new Date(value))
