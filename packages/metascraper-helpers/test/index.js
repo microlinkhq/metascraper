@@ -5,6 +5,7 @@ const cheerio = require('cheerio')
 const should = require('should')
 
 const {
+  $jsonld,
   absoluteUrl,
   author,
   date,
@@ -20,9 +21,9 @@ const {
   isUrl,
   isVideoExtension,
   isVideoUrl,
-  $jsonld,
   jsonld,
   normalizeUrl,
+  number,
   titleize,
   url
 } = require('..')
@@ -233,10 +234,9 @@ describe('metascraper-helpers', () => {
     })
 
     it('reads multiple JSON-LD blocks', () => {
-      const $ = cheerio.load(`
-<script type="application/ld+json"> { "@context": "http://schema.org", "@type": "Organization", "url": "https://bykvu.com/ru", "logo": "https://bykvu.com/wp-content/themes/bykvu/img/logo.svg" } </script>
-<script type="application/ld+json"> { "@context": "http://schema.org", "@type": "NewsArticle", "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bykvu.com/ru/bukvy/uchenye-nazvali-depressiju-prichinoj-22-opasnyh-zabolevanij/" }, "headline": "Ученые назвали депрессию причиной 22 опасных заболеваний", "image": [ "https://bykvu.com/wp-content/themes/bykvu/includes/images/noimage_large.jpg" ], "datePublished": "2019-09-09T00:29:09+02:00", "dateModified": "2019-09-09T00:29:09+02:00", "author": { "@type": "Person", "name": "Буквы" }, "publisher": { "@type": "Organization", "name": "Буквы", "logo": { "@type": "ImageObject", "url": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png" } }, "description": "Ученые австралийского центра точного здравоохранения при Университете Южной Австралии выяснили, что депрессия является причиной 22 различных заболеваний." } </script>
-<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "item": { "@id": "https://bykvu.com/ru", "name": "Буквы" } }, { "@type": "ListItem", "position": 2, "item": { "@id": "https://bykvu.com/ru/category/bukvy/", "name": "Новости" } }, { "@type": "ListItem", "position": 3, "item": { "@id": "https://bykvu.com/ru/bukvy/uchenye-nazvali-depressiju-prichinoj-22-opasnyh-zabolevanij/", "name": "Ученые назвали депрессию причиной 22 опасных заболеваний" } } ] } </script>`)
+      const $ = cheerio.load(`<script type="application/ld+json"> { "@context": "http://schema.org", "@type": "Organization", "url": "https://bykvu.com/ru", "logo": "https://bykvu.com/wp-content/themes/bykvu/img/logo.svg" } </script>
+        <script type="application/ld+json"> { "@context": "http://schema.org", "@type": "NewsArticle", "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bykvu.com/ru/bukvy/uchenye-nazvali-depressiju-prichinoj-22-opasnyh-zabolevanij/" }, "headline": "Ученые назвали депрессию причиной 22 опасных заболеваний", "image": [ "https://bykvu.com/wp-content/themes/bykvu/includes/images/noimage_large.jpg" ], "datePublished": "2019-09-09T00:29:09+02:00", "dateModified": "2019-09-09T00:29:09+02:00", "author": { "@type": "Person", "name": "Буквы" }, "publisher": { "@type": "Organization", "name": "Буквы", "logo": { "@type": "ImageObject", "url": "https://bykvu.com/wp-content/themes/bykvu/img/apple-icon-180x180.png" } }, "description": "Ученые австралийского центра точного здравоохранения при Университете Южной Австралии выяснили, что депрессия является причиной 22 различных заболеваний." } </script>
+        <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "item": { "@id": "https://bykvu.com/ru", "name": "Буквы" } }, { "@type": "ListItem", "position": 2, "item": { "@id": "https://bykvu.com/ru/category/bukvy/", "name": "Новости" } }, { "@type": "ListItem", "position": 3, "item": { "@id": "https://bykvu.com/ru/bukvy/uchenye-nazvali-depressiju-prichinoj-22-opasnyh-zabolevanij/", "name": "Ученые назвали депрессию причиной 22 опасных заболеваний" } } ] } </script>`)
 
       const data = jsonld($)
       should(Object.keys(data).length).equal(3)
@@ -357,6 +357,28 @@ describe('metascraper-helpers', () => {
     should(date('11 juil. 2019')).be.equal(null)
     const now = new Date()
     should(date(now)).be.equal(now.toISOString())
+  })
+
+  it('.number', () => {
+    should(number('test')).be.equal(null)
+    should(number(null)).be.equal(null)
+    should(number(undefined)).be.equal(null)
+    should(number({})).be.equal(null)
+    should(number(new Date('!'))).be.equal(null)
+    should(number(0 / 0)).be.equal(null)
+    should(number('')).be.equal(null)
+    should(number('$ 123,456.78')).be.equal(123456.78)
+    should(number('$ 123,456')).be.equal(123456)
+    should(number('&*()$ 123,456')).be.equal(123456)
+    should(number(';$@#$%^&123,456.78')).be.equal(123456.78)
+    should(number('$ -123,456')).be.equal(-123456)
+    should(number('$ -123,456.78')).be.equal(-123456.78)
+    should(number('&*()$ -123,456')).be.equal(-123456)
+    should(number(';$@#$%^&-123,456.78')).be.equal(-123456.78)
+    should(number('$ 123,456', ',')).be.equal(123.456)
+    should(number('$ 123456|78', '|')).be.equal(123456.78)
+    should(number('&*()$ 123>456', '>')).be.equal(123.456)
+    should(number(";$@#$%^&123,456'78", "'")).be.equal(123456.78)
   })
 })
 
