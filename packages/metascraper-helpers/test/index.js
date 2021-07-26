@@ -365,7 +365,7 @@ describe('metascraper-helpers', () => {
     should(number(undefined)).be.equal(null)
     should(number({})).be.equal(null)
     should(number(new Date('!'))).be.equal(null)
-    should(number(new Number(0 / 0))).be.equal(null)
+    should(number(0 / 0)).be.equal(null)
     should(number('')).be.equal(null)
     should(number('$ 123,456.78')).be.equal(123456.78)
     should(number('$ 123,456')).be.equal(123456)
