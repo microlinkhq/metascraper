@@ -12,6 +12,7 @@ const {
   isNumber,
   isBoolean,
   isString,
+  isDate,
   lte,
   replace,
   size,
@@ -233,6 +234,7 @@ const url = (value, { url = '' } = {}) => {
 const getISODate = date => date && !isNaN(date.getTime()) && date.toISOString()
 
 const date = value => {
+  if (isDate(value)) return value.toISOString()
   if (!(isString(value) || isNumber(value))) return undefined
 
   // remove whitespace for easier parsing
@@ -241,9 +243,7 @@ const date = value => {
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
 
-  if (/^\d{4}$/.test(value)) {
-    return new Date(toString(value)).toISOString()
-  }
+  if (/^\d{4}$/.test(value)) return new Date(toString(value)).toISOString()
 
   let isoDate
 
@@ -254,7 +254,15 @@ const date = value => {
       if (isoDate) break
     }
   } else {
-    isoDate = getISODate(new Date(value * 1000))
+    if (value >= 1e16 || value <= -1e16) {
+      value = Math.floor(value / 1000000)
+    } else if (value >= 1e14 || value <= -1e14) {
+      value = Math.floor(value / 1000)
+    } else if (value >= 1e11 || value <= -3e10) {
+    } else {
+      value = value * 1000
+    }
+    isoDate = getISODate(new Date(value))
   }
 
   return isoDate

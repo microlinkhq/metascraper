@@ -351,7 +351,12 @@ describe('metascraper-helpers', () => {
     should(date('Jun 2018')).be.equal('2018-06-01T12:00:00.000Z')
     should(date(2010)).be.equal('2010-01-01T00:00:00.000Z')
     should(date(1594767608)).be.equal('2020-07-14T23:00:08.000Z')
+    should(date(1594767608 * 1000)).be.equal('2020-07-14T23:00:08.000Z')
+    should(date(1594767608 * 1000000)).be.equal('2020-07-14T23:00:08.000Z')
+    should(date(1594767608 * 1000000000)).be.equal('2020-07-14T23:00:08.000Z')
     should(date('11 juil. 2019')).be.equal(null)
+    const now = new Date()
+    should(date(now)).be.equal(now.toISOString())
   })
 })
 
