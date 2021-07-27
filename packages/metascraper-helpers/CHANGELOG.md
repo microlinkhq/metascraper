@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.23.1](https://github.com/microlinkhq/metascraper/compare/v5.23.0...v5.23.1) (2021-07-27)
+
+
+### Bug Fixes
+
+* pass titleize options ([a13bde5](https://github.com/microlinkhq/metascraper/commit/a13bde5434cf37fc99c1a8dc86acbe8c97fae5dc))
+
+
+
+
+
 # [5.23.0](https://github.com/microlinkhq/metascraper/compare/v5.22.11...v5.23.0) (2021-07-26)
 
 
