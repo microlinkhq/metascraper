@@ -39,7 +39,6 @@
     "microsoft-capitalize": "~1.0.5",
     "mime-types": "~2.1.31",
     "normalize-url": "~6.1.0",
-    "parse-num": "~1.0.0",
     "smartquotes": "~2.3.2",
     "truncate": "~2.1.0",
     "url-regex-safe": "~2.0.2",

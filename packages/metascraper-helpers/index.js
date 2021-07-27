@@ -33,7 +33,6 @@ const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
-const parseNum = require('parse-num')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
 const isIso = require('isostring')
@@ -115,11 +114,6 @@ const urlObject = (...args) => {
 const absoluteUrl = (baseUrl, relativePath) => {
   if (isEmpty(relativePath)) return urlObject(baseUrl).toString()
   return urlObject(relativePath, baseUrl).toString()
-}
-
-const number = (value, opts) => {
-  const num = parseNum(value, opts)
-  return Number.isNaN(num) ? null : num
 }
 
 const sanetizeUrl = (url, opts) =>
@@ -350,7 +344,6 @@ const validator = {
   image,
   lang,
   logo,
-  number,
   publisher,
   title,
   url,
@@ -455,7 +448,6 @@ module.exports = {
   logo,
   memoizeOne,
   normalizeUrl,
-  number,
   protocol,
   publisher,
   sanetizeUrl,

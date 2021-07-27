@@ -23,7 +23,6 @@ const {
   isVideoUrl,
   jsonld,
   normalizeUrl,
-  number,
   titleize,
   url
 } = require('..')
@@ -357,28 +356,6 @@ describe('metascraper-helpers', () => {
     should(date('11 juil. 2019')).be.equal(null)
     const now = new Date()
     should(date(now)).be.equal(now.toISOString())
-  })
-
-  it('.number', () => {
-    should(number('test')).be.equal(null)
-    should(number(null)).be.equal(null)
-    should(number(undefined)).be.equal(null)
-    should(number({})).be.equal(null)
-    should(number(new Date('!'))).be.equal(null)
-    should(number(0 / 0)).be.equal(null)
-    should(number('')).be.equal(null)
-    should(number('$ 123,456.78')).be.equal(123456.78)
-    should(number('$ 123,456')).be.equal(123456)
-    should(number('&*()$ 123,456')).be.equal(123456)
-    should(number(';$@#$%^&123,456.78')).be.equal(123456.78)
-    should(number('$ -123,456')).be.equal(-123456)
-    should(number('$ -123,456.78')).be.equal(-123456.78)
-    should(number('&*()$ -123,456')).be.equal(-123456)
-    should(number(';$@#$%^&-123,456.78')).be.equal(-123456.78)
-    should(number('$ 123,456', ',')).be.equal(123.456)
-    should(number('$ 123456|78', '|')).be.equal(123456.78)
-    should(number('&*()$ 123>456', '>')).be.equal(123.456)
-    should(number(";$@#$%^&123,456'78", "'")).be.equal(123456.78)
   })
 })
 
