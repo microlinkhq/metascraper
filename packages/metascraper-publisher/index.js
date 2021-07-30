@@ -19,9 +19,8 @@ module.exports = () => ({
     toPublisher($jsonld('publisher.name')),
     toPublisher($ => $('meta[property="og:site_name"]').attr('content')),
     toPublisher($ => $('meta[name*="application-name" i]').attr('content')),
-    toPublisher($ => $('meta[property="al:android:app_name"]').attr('content')),
-    toPublisher($ => $('meta[property="al:iphone:app_name"]').attr('content')),
-    toPublisher($ => $('meta[property="al:ipad:app_name"]').attr('content')),
+    toPublisher($ => $('meta[name*="app-title" i]').attr('content')),
+    toPublisher($ => $('meta[property*="app_name" i]').attr('content')),
     toPublisher($ => $('meta[name="publisher" i]').attr('content')),
     toPublisher($ => $('meta[name="twitter:app:name:iphone"]').attr('content')),
     toPublisher($ =>

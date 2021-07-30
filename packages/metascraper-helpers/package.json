@@ -2,8 +2,13 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.22.4",
+  "version": "5.23.1",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
     "directory": "packages/metascraper-helpers",
     "type": "git",
@@ -18,7 +23,7 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "2.3.0",
+    "chrono-node": "2.3.1",
     "condense-whitespace": "~2.0.0",
     "entities": "~2.2.0",
     "file-extension": "~4.0.5",

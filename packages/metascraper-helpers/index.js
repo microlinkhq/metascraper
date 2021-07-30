@@ -12,6 +12,7 @@ const {
   isNumber,
   isBoolean,
   isString,
+  isDate,
   lte,
   replace,
   size,
@@ -19,6 +20,7 @@ const {
   toString
 } = require('lodash')
 
+const memoizeOne = require('memoize-one').default || require('memoize-one')
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
 const langs = Object.values(require('iso-639-3/to-1'))
@@ -29,7 +31,6 @@ const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
-const memoizeOne = require('memoize-one')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
@@ -230,9 +231,11 @@ const url = (value, { url = '' } = {}) => {
   return isUri(value) ? value : null
 }
 
-const getISODate = date => date && !isNaN(date.getTime()) && date.toISOString()
+const getISODate = date =>
+  date && !Number.isNaN(date.getTime()) && date.toISOString()
 
 const date = value => {
+  if (isDate(value)) return value.toISOString()
   if (!(isString(value) || isNumber(value))) return undefined
 
   // remove whitespace for easier parsing
@@ -241,9 +244,7 @@ const date = value => {
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
 
-  if (/^\d{4}$/.test(value)) {
-    return new Date(toString(value)).toISOString()
-  }
+  if (/^\d{4}$/.test(value)) return new Date(toString(value)).toISOString()
 
   let isoDate
 
@@ -254,7 +255,17 @@ const date = value => {
       if (isoDate) break
     }
   } else {
-    isoDate = getISODate(new Date(value * 1000))
+    if (value >= 1e16 || value <= -1e16) {
+      // nanoseconds
+      value = Math.floor(value / 1000000)
+    } else if (value >= 1e14 || value <= -1e14) {
+      // microseconds
+      value = Math.floor(value / 1000)
+    } else if (!(value >= 1e11) || value <= -3e10) {
+      // seconds
+      value = value * 1000
+    }
+    isoDate = getISODate(new Date(value))
   }
 
   return isoDate
@@ -266,8 +277,8 @@ const lang = value => {
   return includes(langs, lang) ? lang : undefined
 }
 
-const title = (value, { removeSeparator = false } = {}) =>
-  isString(value) && titleize(value, { removeSeparator })
+const title = (value, { removeSeparator = false, ...opts } = {}) =>
+  isString(value) && titleize(value, { removeSeparator, ...opts })
 
 const isMime = (contentType, type) => {
   const ext = mimeTypes.extension(contentType)
@@ -305,7 +316,7 @@ const $jsonld = propName => $ => {
     return !isEmpty(value) || isNumber(value) || isBoolean(value)
   })
 
-  return value ? decodeHTML(value) : value
+  return isString(value) ? decodeHTML(value) : value
 }
 
 const image = (value, opts) => {
@@ -326,17 +337,17 @@ const audio = (value, opts) => {
 }
 
 const validator = {
-  date,
   audio,
   author,
-  video,
-  title,
-  publisher,
-  image,
-  logo,
-  url,
+  date,
   description,
-  lang
+  image,
+  lang,
+  logo,
+  publisher,
+  title,
+  url,
+  video
 }
 
 const truthyTest = () => true

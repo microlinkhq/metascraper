@@ -13,7 +13,7 @@ $ npm install metascraper-audio --save
 
 ## License
 
-**metascraper-audio** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper-audio/blob/master/LICENSE.md) License.<br>
-Authored and maintained by microlink.io with help from [contributors](https://github.com/microlinkhq/metascraper-audio/contributors).
+**metascraper-audio** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
+Authored and maintained by [Microlink](https://microlink.io) with help from [contributors](https://github.com/microlinkhq/metascraper/contributors).
 
 > [microlink.io](https://microlink.io) · GitHub [@microlink.io](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)

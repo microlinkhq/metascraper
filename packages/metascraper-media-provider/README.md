@@ -44,7 +44,7 @@ Type: `function`
 It will be called to determinate if a proxy should be used for resolving the next request URL.
 
 ```js
-const getProxy = ({ url, retryCount  }) => {
+const getProxy = ({ url, retryCount }) => {
   if (retryCount === 0) return false
   return 'http://user:pwd@proxy:8001'
 }
@@ -72,7 +72,7 @@ It specifies a custom user agent.
 
 ## License
 
-**metascraper-media-provider** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq//blob/master/LICENSE.md) License.<br>
-Authored and maintained by microlink.io with help from [contributors](https://github.com/microlinkhq//contributors).
+**metascraper-media-provider** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
+Authored and maintained by [Microlink](https://microlink.io) with help from [contributors](https://github.com/microlinkhq/metascraper/contributors).
 
 > [microlink.io](https://microlink.io) · GitHub [@microlink.io](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)
