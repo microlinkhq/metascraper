@@ -60,5 +60,8 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --temp-dir ../../.nyc_output mocha test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }

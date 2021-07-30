@@ -29,9 +29,9 @@ jobs:
           PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
           PROXY_HOST: ${{ secrets.PROXY_HOST }}
-      - name: Report
-        run: mkdir -p coverage && npx nyc report --reporter=text-lcov > coverage/lcov.info
       - name: Coverage
+        run: npm run coverage
+      - name: Upload
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
