@@ -2,6 +2,7 @@
 
 const snapshot = require('snap-shot')
 const { resolve } = require('path')
+const { omit } = require('lodash')
 const { readFile } = require('fs').promises
 
 const metascraper = require('../../..')([
@@ -16,14 +17,14 @@ const metascraper = require('../../..')([
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
-  require('metascraper-readability')()
+  require('metascraper-readability')(),
+  require('metascraper-audio')()
 ])
 
-const url =
-  'https://www.vice.com/en/article/kb77gv/google-wins-trial-against-oracle-saves-9-billion'
+const url = 'https://qz.com/on/beyond-silicon-valley/'
 
-it('motherboard', async () => {
+it('qz', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  snapshot(omit(metadata, ['date']))
 })

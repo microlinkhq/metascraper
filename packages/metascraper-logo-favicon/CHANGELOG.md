@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.23.1](https://github.com/microlinkhq/metascraper/compare/v5.23.0...v5.23.1) (2021-07-27)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
+
+
+
+
+# [5.23.0](https://github.com/microlinkhq/metascraper/compare/v5.22.11...v5.23.0) (2021-07-26)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
+
+
+
+
+## [5.22.11](https://github.com/microlinkhq/metascraper/compare/v5.22.10...v5.22.11) (2021-07-19)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
+
+
+
+
+## [5.22.10](https://github.com/microlinkhq/metascraper/compare/v5.22.9...v5.22.10) (2021-07-11)
+
+
+### Bug Fixes
+
+* **favicon-logo:** avoid wide images ([3bfec5d](https://github.com/microlinkhq/metascraper/commit/3bfec5d39b896bfd8c6b1551389304912106b37b))
+
+
+
+
+
+## [5.22.9](https://github.com/microlinkhq/metascraper/compare/v5.22.8...v5.22.9) (2021-07-11)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
+
+
+
+
+## [5.22.8](https://github.com/microlinkhq/metascraper/compare/v5.22.7...v5.22.8) (2021-07-10)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
+
+
+
+
 ## [5.22.7](https://github.com/microlinkhq/metascraper/compare/v5.22.6...v5.22.7) (2021-07-08)
 
 **Note:** Version bump only for package metascraper-logo-favicon

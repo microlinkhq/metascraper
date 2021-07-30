@@ -50,7 +50,8 @@ const getSizes = ($, collection) =>
 /* sortest from high to low resolution */
 const sizeSelectors = [
   { tag: 'link[rel*="-icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
-  { tag: 'meta[name*="msapplication-tileimage" i]', attr: 'content' },
+  { tag: 'meta[name*="msapplication-tileimage" i]', attr: 'content' }, // Windows 8 Tiles
+  { tag: 'meta[name*="msapplication-square" i]', attr: 'content' }, // Internet Explorer 11 Tiles
   { tag: 'link[rel*="icon" i]', attr: 'href' },
   { tag: 'link[rel="shortcut icon i"]', attr: 'href' } // favicon
 ]

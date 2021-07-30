@@ -74,7 +74,7 @@ describe('metascraper-iframe', () => {
       const metascraper = createMetascraper(rules)
       const meta = await metascraper({ url, html })
       should(meta.iframe).be.not.null()
-      should(cache.size).be.equal(1)
+      should(cache.size > 0).be.true()
     })
 
     it('pass iframe options', async () => {

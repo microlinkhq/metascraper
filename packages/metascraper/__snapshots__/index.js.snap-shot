@@ -208,15 +208,15 @@ exports['economic-times 1'] = {
 
 exports['engadget 1'] = {
   "author": "Mallory Locklear",
-  "date": "2019-01-07T15:49:36.000Z",
-  "description": "Previously, only paid subscribers had access to private repositories.",
-  "image": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D4834%252C3230%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1069%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F2d1e22f0-12ae-11e9-bae7-60d640081814%26client%3Da1acac3e1b3290917d92%26signature%3D269ae0af3a1a1772ffea6759d126791b9ad25184&client=amp-blogside-v2&signature=ea8c3bcfcab1cb450830a18333e5a76988365326",
+  "date": "2021-05-13T18:01:31.000Z",
+  "description": "Historically, if you’ve wanted to create a private repository on GitHub, you had to be a paying user, but that’s about to change.",
+  "image": "https://s.yimg.com/uu/api/res/1.2/C.Injrjs8P1U7ExbkYEEcg--~B/aD0xMDY5O3c9MTYwMDthcHBpZD15dGFjaHlvbg--/https://o.aolcdn.com/images/dims?crop=4834%2C3230%2C0%2C0&quality=85&format=jpg&resize=1600%2C1069&image_uri=https://s.yimg.com/os/creatr-images/2019-01/2d1e22f0-12ae-11e9-bae7-60d640081814&client=a1acac3e1b3290917d92&signature=269ae0af3a1a1772ffea6759d126791b9ad25184",
   "video": null,
   "lang": "en",
-  "logo": "https://s.blogsmithmedia.com/www.engadget.com/assets-h79a2a298ee2333258b2b96d407e66b8d/images/favicon-160x160.png?h=1638b0a8bbe7effa8f85c3ecabb63620",
+  "logo": "https://s.yimg.com/kw/assets/favicon-160x160.png",
   "publisher": "Engadget",
-  "title": "All GitHub users can keep their code private",
-  "url": "https://www.engadget.com/2019/01/07/all-github-users-keep-code-private/"
+  "title": "All GitHub users can keep their code private | Engadget",
+  "url": "https://www.engadget.com/2019-01-07-all-github-users-keep-code-private.html"
 }
 
 exports['entrepreneur 1'] = {
@@ -545,16 +545,16 @@ exports['medium 1'] = {
 }
 
 exports['motherboard 1'] = {
-  "author": "Sarah Jeong",
-  "date": "2016-05-26T20:14:00.000Z",
-  "description": "The ruling that Google’s use of APIs is a fair use will have wide-ranging ramifications for the rest of the tech industry.",
-  "image": "http://motherboard-images.vice.com/content-images/article/no-id/1464294050922700.jpg",
+  "author": "Madeleine Gregory",
+  "date": "2020-02-15T00:00:00.000Z",
+  "description": "Detecting ‘technosignatures’ such as hypothetical Dyson spheres in space could lead us to extraterrestrial life, and now NASA is funding the search.",
+  "image": "https://video-images.vice.com/articles/60e8874db2fd6f009b21ae19/lede/1625851941294-gettyimages-1172247312-1.jpeg?image-resize-opts=Y3JvcD0xeHc6MC45NzkyMzAxODI5MjY4MjkzeGg7Y2VudGVyLGNlbnRlciZyZXNpemU9MTIwMDoqJnJlc2l6ZT0xMjAwOio",
   "video": null,
   "lang": "en",
-  "logo": "http://motherboard.vice.com/assets/favicons/motherboard/favicon-196x196.png?v",
-  "publisher": "Motherboard",
-  "title": "Google Wins Trial Against Oracle, Saves $9 Billion",
-  "url": "http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion"
+  "logo": "https://vice-web-statics-cdn.vice.com/favicons/vice/coast-228x228.png",
+  "publisher": null,
+  "title": "NASA Is Quietly Funding a Hunt for Alien Megastructures",
+  "url": "https://www.vice.com/en/article/pkbq7z/nasa-is-quietly-funding-a-hunt-for-alien-megastructures"
 }
 
 exports['nbcnews 1'] = {
@@ -1129,7 +1129,7 @@ exports['simplecast 1'] = {
   "video": null,
   "lang": "en",
   "logo": "https://player.simplecast.com/static/img/icons/apple-touch-icon-152x152.png",
-  "publisher": null,
+  "publisher": "Simplecast",
   "title": "Digitizing Healthcare with Helium Health’s Goke Olubusi",
   "url": "https://player.simplecast.com/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7?dark=false",
   "audio": "https://chtbl.com/track/E29G91/cdn.simplecast.com/audio/0a6ef085-f6a9-4fbd-bcc2-77e7cfd4f65f/episodes/3ab2ec74-8d89-4344-9be0-a30fa53ac6a7/audio/7c63582d-7e0e-486a-b028-7e5692895e84/default_tc.mp3?aid=embed"
@@ -1160,6 +1160,32 @@ exports['stuff 1'] = {
   "publisher": "Stuff",
   "title": "Orphee Mickalad leading Palmerston North by-election",
   "url": "https://www.stuff.co.nz/manawatu-standard/news/300232751/orphee-mickalad-leading-palmerston-north-byelection",
+  "audio": null
+}
+
+exports['qz 1'] = {
+  "author": null,
+  "description": "As tech giants in the US transition from disruptor to incumbent, a new generation of companies around the world are challenging their dominance–and changing the startup playbook along the way. From China’s internet giants to startups in Nigeria to policy debates in the EU, the next big battles in te…",
+  "image": "https://cms.qz.com/wp-content/uploads/2020/12/beyond-s.jpg?quality=75&strip=all&w=1200&h=630&crop=1",
+  "video": null,
+  "lang": "en",
+  "logo": "https://cms.qz.com/wp-content/uploads/2020/04/qz-icon.jpg?quality=75&strip=all&w=180&h=180&crop=1",
+  "publisher": "Quartz",
+  "title": "Beyond Silicon Valley",
+  "url": "https://qz.com/on/beyond-silicon-valley/",
+  "audio": null
+}
+
+exports['substack 1'] = {
+  "author": "Simon Sarris",
+  "description": "The world is a very malleable place. When I read biographies, early lives leap out the most. Leonardo da Vinci was a studio apprentice to Verrocchio at 14. Walt Disney took on a number of jobs, chiefly delivering papers, from 11 years old. Vladimir Nabokov published his first book (a collection of p…",
+  "image": "https://cdn.substack.com/image/fetch/w_1200,c_limit,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fef3bd0df-b9fa-4358-afee-116c23f4c55f_2560x1902.jpeg",
+  "video": null,
+  "lang": null,
+  "logo": "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/1115e358-65d9-4f1c-872a-f1ea44965132/apple-touch-icon-1024x1024.png",
+  "publisher": "The Map is Mostly Water",
+  "title": "The Most Precious Resource is Agency",
+  "url": "https://simonsarris.substack.com/p/the-most-precious-resource-is-agency",
   "audio": null
 }
 
