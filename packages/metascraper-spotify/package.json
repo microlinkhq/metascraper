@@ -2,7 +2,7 @@
   "name": "metascraper-spotify",
   "description": "Metascraper integration with Spotify",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-spotify",
-  "version": "5.22.11",
+  "version": "5.23.1",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -23,7 +23,7 @@
     "spotify"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.22.11",
+    "@metascraper/helpers": "^5.23.1",
     "async-memoize-one": "~1.1.0",
     "spotify-url-info": "~2.2.3",
     "tldts": "~5.7.38"

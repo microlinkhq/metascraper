@@ -283,8 +283,8 @@ const lang = value => {
   return includes(langs, lang) ? lang : undefined
 }
 
-const title = (value, { removeSeparator = false } = {}) =>
-  isString(value) && titleize(value, { removeSeparator })
+const title = (value, { removeSeparator = false, ...opts } = {}) =>
+  isString(value) && titleize(value, { removeSeparator, ...opts })
 
 const isMime = (contentType, type) => {
   const ext = mimeTypes.extension(contentType)
