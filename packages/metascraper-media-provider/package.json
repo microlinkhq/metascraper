@@ -54,7 +54,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test nyc --silent --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test nyc mocha test"
   },
   "license": "MIT",
   "mocha": {
