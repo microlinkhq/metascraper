@@ -23,7 +23,6 @@ const {
 const memoizeOne = require('memoize-one').default || require('memoize-one')
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
-const langs = Object.values(require('iso-639-3/to-1'))
 const capitalize = require('microsoft-capitalize')
 const { JSDOM, VirtualConsole } = require('jsdom')
 const isRelativeUrl = require('is-relative-url')
@@ -31,14 +30,16 @@ const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
+const iso6393 = require('iso-639-3/to-1')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
 const truncate = require('truncate')
 const isIso = require('isostring')
-
 const isUri = require('is-uri')
 const { URL } = require('url')
+
+const iso6393Values = Object.values(iso6393)
 
 const toTitle = str =>
   capitalize(str, [
@@ -271,10 +272,12 @@ const date = value => {
   return isoDate
 }
 
-const lang = value => {
-  if (isEmpty(value)) return undefined
-  const lang = toLower(condenseWhitespace(value).substring(0, 2))
-  return includes(langs, lang) ? lang : undefined
+const lang = input => {
+  if (isEmpty(input) || !isString(input)) return undefined
+  const key = toLower(condenseWhitespace(input))
+  if (input.length === 3) return iso6393[key]
+  const lang = toLower(key.substring(0, 2))
+  return includes(iso6393Values, lang) ? lang : undefined
 }
 
 const title = (value, { removeSeparator = false, ...opts } = {}) =>

@@ -22,6 +22,7 @@ const {
   isVideoExtension,
   isVideoUrl,
   jsonld,
+  lang,
   normalizeUrl,
   titleize,
   url
@@ -279,6 +280,21 @@ describe('metascraper-helpers', () => {
       const value = $jsonld('offers.price')($)
       should(value).be.equal(119.99)
     })
+  })
+
+  it('.lang', () => {
+    should(lang(undefined)).be.equal(undefined)
+    should(lang(NaN)).be.equal(undefined)
+    should(lang(null)).be.equal(undefined)
+    should(lang({})).be.equal(undefined)
+    should(lang(123)).be.equal(undefined)
+    should(lang('es')).be.equal('es')
+    should(lang('es')).be.equal('es')
+    should(lang('ES')).be.equal('es')
+    should(lang('en-US')).be.equal('en')
+    should(lang('en_GB')).be.equal('en')
+    should(lang('en_US')).be.equal('en')
+    should(lang('spa')).be.equal('es')
   })
 
   describe('.titleize', function () {
