@@ -107,7 +107,7 @@ const isUrl = (url, { relative = false } = {}) =>
 const urlObject = (...args) => {
   try {
     return new URL(...args)
-  } catch (err) {
+  } catch (_) {
     return { toString: () => '' }
   }
 }
@@ -128,9 +128,7 @@ const sanetizeUrl = (url, opts) =>
 const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
     return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
-  } catch (_) {
-    return null
-  }
+  } catch (_) {}
 }
 
 const removeBy = flow([
@@ -207,7 +205,7 @@ const extension = (str = '') => {
 }
 
 const description = (value, opts) =>
-  isString(value) && getDescription(value, opts)
+  isString(value) ? getDescription(value, opts) : undefined
 
 const getDescription = (
   str,
@@ -217,23 +215,25 @@ const getDescription = (
   return titleize(description, opts)
 }
 
-const publisher = value => isString(value) && condenseWhitespace(value)
+const publisher = value =>
+  isString(value) ? condenseWhitespace(value) : undefined
 
-const author = (value, opts) => isAuthor(value) && getAuthor(value, opts)
+const author = (value, opts) =>
+  isAuthor(value) ? getAuthor(value, opts) : undefined
 
 const url = (value, { url = '' } = {}) => {
-  if (isEmpty(value)) return null
+  if (isEmpty(value)) return undefined
 
   try {
     const absoluteUrl = normalizeUrl(url, value)
     if (isUrl(absoluteUrl)) return absoluteUrl
   } catch (_) {}
 
-  return isUri(value) ? value : null
+  return isUri(value) ? value : undefined
 }
 
 const getISODate = date =>
-  date && !Number.isNaN(date.getTime()) && date.toISOString()
+  date && !Number.isNaN(date.getTime()) ? date.toISOString() : undefined
 
 const date = value => {
   if (isDate(value)) return value.toISOString()
@@ -281,7 +281,7 @@ const lang = input => {
 }
 
 const title = (value, { removeSeparator = false, ...opts } = {}) =>
-  isString(value) && titleize(value, { removeSeparator, ...opts })
+  isString(value) ? titleize(value, { removeSeparator, ...opts }) : undefined
 
 const isMime = (contentType, type) => {
   const ext = mimeTypes.extension(contentType)
@@ -301,7 +301,7 @@ const jsonld = memoizeOne(
               .contents()
               .text()
           )
-        } catch (err) {
+        } catch (_) {
           return undefined
         }
       })
@@ -324,19 +324,21 @@ const $jsonld = propName => $ => {
 
 const image = (value, opts) => {
   const urlValue = url(value, opts)
-  return !isAudioUrl(urlValue, opts) && !isVideoUrl(urlValue, opts) && urlValue
+  return !isAudioUrl(urlValue, opts) && !isVideoUrl(urlValue, opts)
+    ? urlValue
+    : undefined
 }
 
 const logo = image
 
 const video = (value, opts) => {
   const urlValue = url(value, opts)
-  return isVideoUrl(urlValue, opts) && urlValue
+  return isVideoUrl(urlValue, opts) ? urlValue : undefined
 }
 
 const audio = (value, opts) => {
   const urlValue = url(value, opts)
-  return isAudioUrl(urlValue, opts) && urlValue
+  return isAudioUrl(urlValue, opts) ? urlValue : undefined
 }
 
 const validator = {
@@ -383,9 +385,7 @@ const composeRule = rule => ({ from, to = from, ...opts }) => async ({
 }
 
 const has = value =>
-  value === null || value === false || value === 0 || Number.isNaN(value)
-    ? false
-    : hasValues(value)
+  value !== undefined && !Number.isNaN(value) && hasValues(value)
 
 const domLoaded = dom =>
   new Promise(resolve =>

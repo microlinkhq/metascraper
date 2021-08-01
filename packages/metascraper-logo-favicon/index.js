@@ -74,9 +74,7 @@ const createGetLogo = gotOpts => async url => {
       ...gotOpts
     })
     return logo(logoUrl)
-  } catch (err) {
-    return null
-  }
+  } catch (_) {}
 }
 
 /**

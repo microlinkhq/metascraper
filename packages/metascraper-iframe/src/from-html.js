@@ -17,14 +17,14 @@ const getOembedUrl = memoizeOne(
 
 const fromHTML = gotOpts => async ({ htmlDom, url, iframe }) => {
   const oembedUrl = getOembedUrl(url, htmlDom)
-  if (!oembedUrl) return null
+  if (!oembedUrl) return
 
   const oembedUrlObj = new URL(oembedUrl)
   forEach(iframe, (value, key) =>
     oembedUrlObj.searchParams.append(key.toLowerCase(), value)
   )
   const { value } = await pReflect(got(oembedUrlObj.toString(), gotOpts).json())
-  return get(value, 'html', null)
+  return get(value, 'html')
 }
 
 fromHTML.test = (...args) => !!getOembedUrl(...args)

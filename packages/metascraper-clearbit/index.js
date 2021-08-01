@@ -24,7 +24,6 @@ const appendQuery = (data, query) => {
 const createClearbit = ({ gotOpts, logoOpts } = {}) =>
   asyncMemoizeOne(async url => {
     const domain = getDomain(url)
-
     try {
       const { body } = await got(ENDPOINT, {
         ...DEFAULT_GOT_OPTS,
@@ -36,9 +35,7 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
         body.find(item => domain === item.domain),
         logoOpts
       )
-    } catch (err) {
-      return null
-    }
+    } catch (_) {}
   })
 
 module.exports = opts => {
