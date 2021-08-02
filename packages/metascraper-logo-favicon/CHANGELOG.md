@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.24.0](https://github.com/microlinkhq/metascraper/compare/v5.23.3...v5.24.0) (2021-08-02)
+
+
+### Features
+
+* avoid null ([#441](https://github.com/microlinkhq/metascraper/issues/441)) ([bc18f7e](https://github.com/microlinkhq/metascraper/commit/bc18f7e62499d5328843f589b772d5d0c4d767be))
+
+
+
+
+
 ## [5.23.3](https://github.com/microlinkhq/metascraper/compare/v5.23.2...v5.23.3) (2021-08-01)
 
 **Note:** Version bump only for package metascraper-logo-favicon
