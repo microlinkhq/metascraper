@@ -30,7 +30,9 @@ const {
 
 describe('metascraper-helpers', () => {
   it('.normalizeUrl', () => {
-    should(normalizeUrl('https://example.com', 'javascript:false')).be.null()
+    should(
+      normalizeUrl('https://example.com', 'javascript:false')
+    ).be.undefined()
 
     should(
       normalizeUrl(
@@ -55,13 +57,13 @@ describe('metascraper-helpers', () => {
   })
 
   it('.url', () => {
-    should(url()).be.null()
-    should(url(null)).be.null()
-    should(url('')).be.null()
-    should(url('', { url: 'https://kikobeats.com/' })).be.null()
-    should(url('paco')).be.null()
-    should(url(NaN, { url: 'https://kikobeats.com' })).be.null()
-    should(url('http://<foo>', { url: 'https://kikobeats.com' })).be.null()
+    should(url()).be.undefined()
+    should(url(null)).be.undefined()
+    should(url('')).be.undefined()
+    should(url('', { url: 'https://kikobeats.com/' })).be.undefined()
+    should(url('paco')).be.undefined()
+    should(url(NaN, { url: 'https://kikobeats.com' })).be.undefined()
+    should(url('http://<foo>', { url: 'https://kikobeats.com' })).be.undefined()
 
     should(url('blog', { url: 'https://kikobeats.com/' })).be.equal(
       'https://kikobeats.com/blog'
@@ -360,7 +362,7 @@ describe('metascraper-helpers', () => {
     should(date()).be.equal(undefined)
     should(date(undefined)).be.equal(undefined)
     should(date(null)).be.equal(undefined)
-    should(date('null')).be.equal(null)
+    should(date('null')).be.equal(undefined)
     should(date('Jun 20')).be.equal('2021-06-20T12:00:00.000Z')
     should(date('Jun 20 2018')).be.equal('2018-06-20T12:00:00.000Z')
     should(date('Jun 2018')).be.equal('2018-06-01T12:00:00.000Z')
@@ -369,7 +371,7 @@ describe('metascraper-helpers', () => {
     should(date(1594767608 * 1000)).be.equal('2020-07-14T23:00:08.000Z')
     should(date(1594767608 * 1000000)).be.equal('2020-07-14T23:00:08.000Z')
     should(date(1594767608 * 1000000000)).be.equal('2020-07-14T23:00:08.000Z')
-    should(date('11 juil. 2019')).be.equal(null)
+    should(date('11 juil. 2019')).be.equal(undefined)
     const now = new Date()
     should(date(now)).be.equal(now.toISOString())
   })
@@ -379,6 +381,12 @@ describe('.has', () => {
   describe('true', () => {
     it('true', () => {
       should(has(true)).be.true()
+    })
+    it('0', () => {
+      should(has(0)).be.true()
+    })
+    it('null', () => {
+      should(has(null)).be.true()
     })
     it('foo', () => {
       should(has('foo')).be.true()
@@ -392,20 +400,14 @@ describe('.has', () => {
     it('{foo: "bar"}', () => {
       should(has({ foo: 'bar' })).be.true()
     })
+    it('false', () => {
+      should(has(false)).be.true()
+    })
   })
 
   describe('false', () => {
-    it('false', () => {
-      should(has(false)).be.false()
-    })
-    it('0', () => {
-      should(has(0)).be.false()
-    })
     it("''", () => {
       should(has('')).be.false()
-    })
-    it('null', () => {
-      should(has(null)).be.false()
     })
     it('undefined', () => {
       should(has(undefined)).be.false()
