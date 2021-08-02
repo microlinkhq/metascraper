@@ -14,7 +14,7 @@ const fromProvider = gotOpts => async ({ url, iframe }) => {
   const { value } = await pReflect(
     fetchProvider(provider, url, iframe, gotOpts)
   )
-  return get(value, 'html', null)
+  return get(value, 'html')
 }
 
 fromProvider.test = url => !!findProvider(url)
