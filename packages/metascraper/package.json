@@ -2,7 +2,7 @@
   "name": "metascraper",
   "description": "A library to easily scrape metadata from an article on the web using Open Graph, JSON+LD, regular HTML metadata, and series of fallbacks.",
   "homepage": "https://metascraper.js.org",
-  "version": "5.24.0",
+  "version": "5.24.1",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -57,7 +57,7 @@
     "website"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.24.0",
+    "@metascraper/helpers": "^5.24.1",
     "cheerio": "~1.0.0-rc.10",
     "lodash": "~4.17.21",
     "whoops": "~4.1.0"
