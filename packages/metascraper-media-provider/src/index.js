@@ -62,7 +62,7 @@ const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
     .last()
     .value()
 
-  return isEmpty(url) ? false : url
+  return !isEmpty(url) ? url : undefined
 }
 
 const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
@@ -99,7 +99,7 @@ const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
   find([mainTitle, secondaryTitle], titleFn)
 
 const getDate = ({ timestamp }) =>
-  !isNil(timestamp) && new Date(timestamp * 1000).toISOString()
+  !isNil(timestamp) ? new Date(timestamp * 1000).toISOString() : undefined
 
 const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
 
