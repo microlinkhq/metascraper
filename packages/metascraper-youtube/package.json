@@ -26,7 +26,7 @@
     "@metascraper/helpers": "^5.24.2",
     "get-video-id": "~3.2.0",
     "is-reachable": "~5.0.0",
-    "p-locate": "~5.0.0"
+    "p-locate": "~6.0.0"
   },
   "devDependencies": {
     "lodash": "latest",
