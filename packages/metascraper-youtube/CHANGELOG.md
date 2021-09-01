@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.24.4](https://github.com/microlinkhq/metascraper/compare/v5.24.3...v5.24.4) (2021-09-01)
+
+**Note:** Version bump only for package metascraper-youtube
+
+
+
+
+
 ## [5.24.2](https://github.com/microlinkhq/metascraper/compare/v5.24.1...v5.24.2) (2021-08-16)
 
 **Note:** Version bump only for package metascraper-youtube
