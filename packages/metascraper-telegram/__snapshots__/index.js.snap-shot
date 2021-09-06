@@ -13,7 +13,7 @@ exports['post with big image 1'] = {
   "author": "SharingAway - Tú canal de Growth Hacking y No-Code",
   "logo": "https://cdn4.telesco.pe/file/Dw4oM3jJA3bgTwUWX7J2sqCjuz5zDjYoHv2WSx4mf858AH4RiRo-zVgsF_I0thAaYlTVWaCq_wddmVS9n3XikFJ7RVJ8o1ZVeCrtDeGuAyF1K-vDrdtuCeBt6GNX2IvAYwz4s39CLr_xUN6XdCAA8Sl_wzp8v7ehqCGkCh9rh6f_XBn5Waqj3F18G9jfm5zSqTnxtNZwy5o1tI-JzKW-bSo4F_zcPAO9HPiM0o41pwzDs6l24iZ72OamwAEtYwjI8bM_Su79JBuv6e8asfrYQj3HMGV0RkGX4Xma-Fr8eT9Xf2ytp1YFERk-8DMx0ZD5hs4X3Rv-DBBZ8Z3c_KITUA.jpg",
   "date": "2020-10-22T13:17:55.000Z",
-  "description": "⭕️ Actualización de Sendy V5.0 Miquel Colomer Nos cuenta que han actualizado el Software de Newsletter Sendy que permite envíar correos de forma lowcost a traves de Amazon SES. 🔺**Sí tu licencia es posterior al día 31 de Diciembre de 2019 puedes actualizar sin costes a la última versión** 🔗https://sendy.co/get-updated",
+  "description": "⭕️ Actualización de Sendy V5.0 Miquel Colomer Nos cuenta que han actualizado el Software de Newsletter Sendy que permite envíar correos de forma lowcost a traves de Amazon SES. 🔺**Sí tu licencia es posterior al día 31 de Diciembre de 2019 puedes actualizar sin costes a la última versión** 🔗htt…",
   "lang": null,
   "publisher": "Telegram",
   "title": "SharingAway - Tú canal de Growth Hacking y No-Code",
@@ -30,4 +30,3 @@ exports['post with an image inside a link 1'] = {
   "title": "SharingAway - Tú canal de Growth Hacking y No-Code",
   "url": "https://t.me/sharingaway/73"
 }
-
