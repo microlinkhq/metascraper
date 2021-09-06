@@ -17,7 +17,8 @@ const {
   replace,
   size,
   toLower,
-  toString
+  toString,
+  truncate
 } = require('lodash')
 
 const memoizeOne = require('memoize-one').default || require('memoize-one')
@@ -34,7 +35,6 @@ const iso6393 = require('iso-639-3/to-1')
 const mimeTypes = require('mime-types')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
-const truncate = require('truncate')
 const isIso = require('isostring')
 const isUri = require('is-uri')
 const { URL } = require('url')
@@ -211,7 +211,9 @@ const getDescription = (
   str,
   { truncateLength = TRUNCATE_MAX_LENGTH, ...opts } = {}
 ) => {
-  const description = removeLocation(truncate(str, truncateLength))
+  const description = removeLocation(
+    truncate(str, { length: truncateLength, omission: '…' })
+  )
   return titleize(description, opts)
 }
 
