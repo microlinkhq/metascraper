@@ -19,7 +19,7 @@ describe('metascraper-description', () => {
 </html>`
 
       const metascraper = createMetascraper([
-        createMetascraperDescription({ truncateLength: 1 })
+        createMetascraperDescription({ truncateLength: 2 })
       ])
       const metadata = await metascraper({ url, html })
       should(metadata.description).be.equal('w…')
