@@ -212,7 +212,7 @@ const getDescription = (
 ) => {
   let truncatedStr = str.slice(0, truncateLength)
   if (truncatedStr.length < str.length) {
-    truncatedStr += '…'
+    truncatedStr = truncatedStr.trim() + '…'
   }
   const description = removeLocation(truncatedStr)
   return titleize(description, opts)
