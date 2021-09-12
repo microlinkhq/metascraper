@@ -21,10 +21,6 @@
       "email": "david@activout.se"
     },
     {
-      "name": "Shawn Dempsey",
-      "email": "shwanton@gmail.com"
-    },
-    {
       "name": "Slava",
       "email": "slava.ganzin@gmail.com"
     },
@@ -33,8 +29,12 @@
       "email": "JbIPS@users.noreply.github.com"
     },
     {
-      "name": "Sampo Juustila",
-      "email": "sampo.niskanen@iki.fi"
+      "name": "Mac Chaffee",
+      "email": "me@macchaffee.com"
+    },
+    {
+      "name": "Shawn Dempsey",
+      "email": "shwanton@gmail.com"
     },
     {
       "name": "Steven Frostwick",
@@ -83,6 +83,10 @@
     {
       "name": "Omar Diab",
       "email": "me@omardiab.com"
+    },
+    {
+      "name": "Sampo Juustila",
+      "email": "sampo.niskanen@iki.fi"
     }
   ],
   "repository": {
