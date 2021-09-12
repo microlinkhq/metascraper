@@ -17,8 +17,7 @@ const {
   replace,
   size,
   toLower,
-  toString,
-  truncate
+  toString
 } = require('lodash')
 
 const memoizeOne = require('memoize-one').default || require('memoize-one')
@@ -211,9 +210,11 @@ const getDescription = (
   str,
   { truncateLength = TRUNCATE_MAX_LENGTH, ...opts } = {}
 ) => {
-  const description = removeLocation(
-    truncate(str, { length: truncateLength, omission: '…' })
-  )
+  let truncatedStr = str.slice(0, truncateLength)
+  if (truncatedStr.length < str.length) {
+    truncatedStr = truncatedStr.trim() + '…'
+  }
+  const description = removeLocation(truncatedStr)
   return titleize(description, opts)
 }
 
