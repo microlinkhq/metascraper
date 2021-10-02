@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.24.7",
+    "async-memoize-one": "~1.1.0",
     "debug-logfmt": "~1.0.4",
     "got": "~11.8.2",
     "keepalive-proxy-agent": "~1.2.0",

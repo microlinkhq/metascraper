@@ -3,7 +3,7 @@
 const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
-const { noop, constant, isEmpty } = require('lodash')
+const { noop, constant } = require('lodash')
 const youtubedl = require('youtube-dl-exec')
 const pDoWhilst = require('p-do-whilst')
 const pTimeout = require('p-timeout')
@@ -37,12 +37,12 @@ module.exports = ({
 }) => {
   return async url => {
     let retryCount = 0
-    let data = {}
     let isTimeout = false
     let isSupportedURL = true
+    let data
 
     const condition = () =>
-      isSupportedURL && !isTimeout && isEmpty(data) && retryCount <= retry
+      isSupportedURL && !isTimeout && data !== undefined && retryCount <= retry
 
     const task = async () => {
       await pDoWhilst(async () => {

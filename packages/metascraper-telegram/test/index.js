@@ -49,7 +49,7 @@ describe('metascraper-telegram', () => {
     const html = await readFile(
       resolve(__dirname, 'fixtures/post-full-image.html')
     )
-    const url = 'https://t.me/sharingaway/76'
+    const url = 'https://t.me/chollometro/28542'
     const metadata = await metascraper({ html, url })
     const image = metadata.image
 
@@ -62,7 +62,7 @@ describe('metascraper-telegram', () => {
     const html = await readFile(
       resolve(__dirname, 'fixtures/post-link-image.html')
     )
-    const url = 'https://t.me/sharingaway/73'
+    const url = 'https://t.me/teslahunt/15513'
     const metadata = await metascraper({ html, url })
     const image = metadata.image
 
