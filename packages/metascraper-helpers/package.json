@@ -37,7 +37,7 @@
     "lodash": "~4.17.21",
     "memoize-one": "~5.2.1",
     "microsoft-capitalize": "~1.0.5",
-    "mime-types": "~2.1.32",
+    "mime-types": "~2.1.33",
     "normalize-url": "~6.1.0",
     "smartquotes": "~2.3.2",
     "url-regex-safe": "~2.0.2",
