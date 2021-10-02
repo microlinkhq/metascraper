@@ -2,7 +2,7 @@
   "name": "metascraper-instagram",
   "description": "Metascraper integration for Instagram",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-instagram",
-  "version": "5.24.7",
+  "version": "5.24.8",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "telegram"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.24.7",
+    "@metascraper/helpers": "^5.24.8",
     "jsdom": "~17.0.0",
     "lodash": "~4.17.21",
     "tldts": "~5.7.47"
