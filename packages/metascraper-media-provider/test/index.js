@@ -75,7 +75,7 @@ describe('metascraper-media-provider', () => {
         })
       })
     })
-    ;(isCI ? describe.skip : describe.only)('vimeo', () => {
+    ;(isCI ? describe.skip : describe)('vimeo', () => {
       ;[
         // TODO: uncomment when the issue is resolved
         // https://github.com/ytdl-org/youtube-dl/issues/29205
