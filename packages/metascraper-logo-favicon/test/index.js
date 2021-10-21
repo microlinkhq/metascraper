@@ -119,6 +119,30 @@ describe('metascraper-logo-favicon', () => {
     )
   })
 
+  it('detect `rel="apple-touch-icon-precomposed"`', async () => {
+    const url = 'https://github.com'
+    const metascraper = createMetascraper()
+    const html = createHtml([
+      '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicons/favicon-114.png">'
+    ])
+    const meta = await metascraper({ url, html })
+    should(meta.logo).be.equal(
+      'https://github.com/assets/favicons/favicon-114.png'
+    )
+  })
+
+  it('detect `rel="apple-touch-icon"`', async () => {
+    const url = 'https://github.com'
+    const metascraper = createMetascraper()
+    const html = createHtml([
+      '<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/favicon-114.png">'
+    ])
+    const meta = await metascraper({ url, html })
+    should(meta.logo).be.equal(
+      'https://github.com/assets/favicons/favicon-114.png'
+    )
+  })
+
   it('detect `rel="shortcut icon"`', async () => {
     const url = 'https://www.microsoft.com/design/fluent'
     const metascraper = createMetascraper()
@@ -128,6 +152,18 @@ describe('metascraper-logo-favicon', () => {
     const meta = await metascraper({ url, html })
     should(meta.logo).be.equal(
       'https://www.microsoft.com/design/assets/favicons/favicon.ico'
+    )
+  })
+
+  it('detect `rel="mask icon"`', async () => {
+    const url = 'https://www.microsoft.com/design/fluent'
+    const metascraper = createMetascraper()
+    const html = createHtml([
+      '<link rel="mask-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/round-2/safari-pinned-tab.svg" color="#000000" importance="low">'
+    ])
+    const meta = await metascraper({ url, html })
+    should(meta.logo).be.equal(
+      'https://assets.vercel.com/image/upload/q_auto/front/favicon/round-2/safari-pinned-tab.svg'
     )
   })
 
