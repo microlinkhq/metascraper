@@ -24,17 +24,35 @@ const SIZE_REGEX = /\d+x\d+/
 
 const toUrl = toRule(urlFn)
 
-const toSize = str => {
-  if (isEmpty(str)) return
-  const [verticalSize, horizontalSize] = split(first(split(str, ' ')), 'x')
+const extensionPriority = str => {
+  if (str.endsWith('svg')) return 3
+  if (str.endsWith('png')) return 2
+  if (str.endsWith('jpg') || str.endsWith('jpeg')) return 1
+  return 0
+}
+
+const toSize = (input, url) => {
+  if (isEmpty(input)) return
+  const [verticalSize, horizontalSize] = split(first(split(input, ' ')), 'x')
   const height = toNumber(verticalSize)
   const width = toNumber(horizontalSize)
-  return { height, width, square: width === height }
+
+  return {
+    height,
+    width,
+    square: width === height,
+    ext: extensionPriority(url)
+  }
 }
 
 const getSize = (url, sizes) =>
-  toSize(sizes) ||
-  toSize(first(url.match(SIZE_REGEX))) || { width: 0, height: 0, square: true }
+  toSize(sizes, url) ||
+  toSize(first(url.match(SIZE_REGEX)), url) || {
+    width: 0,
+    height: 0,
+    square: true,
+    ext: extensionPriority(url)
+  }
 
 const getDomNodeSizes = (domNodes, attr) =>
   chain(domNodes)
@@ -81,7 +99,7 @@ const pickBiggerSize = sizes => {
 }
 
 pickBiggerSize.sortBySize = collection =>
-  orderBy(collection, item => item.size.width, ['desc'])
+  orderBy(collection, ['size.width', 'size.ext'], ['desc', 'desc'])
 
 const DEFAULT_GOT_OPTS = {
   timeout: 3000
