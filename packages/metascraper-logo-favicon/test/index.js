@@ -167,12 +167,49 @@ describe('metascraper-logo-favicon', () => {
     )
   })
 
+  it('square logos has priority', async () => {
+    const url =
+      'https://www.engadget.com/2019-01-07-all-github-users-keep-code-private.html'
+    const metascraper = createMetascraper()
+    const html = createHtml([
+      '<meta name="msapplication-wide310x150logo" content="https://s.yimg.com/kw/assets/eng-e-558x270.png">',
+      '<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/favicon-114.png">'
+    ])
+    const meta = await metascraper({ url, html })
+    should(meta.logo).be.equal(
+      'https://www.engadget.com/assets/favicons/favicon-114.png'
+    )
+  })
+
+  it('detect size from `sizes`', async () => {
+    const url = 'https://example.com'
+    const metascraper = createMetascraper()
+    const html = createHtml([
+      '<link rel="icon" sizes="16x16 32x32 64x64" href="assets/favicons/favicon.ico">'
+    ])
+    const meta = await metascraper({ url, html })
+    should(meta.logo).be.equal(
+      'https://example.com/assets/favicons/favicon.ico'
+    )
+  })
+
+  it('use non square logo as in the worst scenario', async () => {
+    const url =
+      'https://www.engadget.com/2019-01-07-all-github-users-keep-code-private.html'
+    const metascraper = createMetascraper()
+    const html = createHtml([
+      '<meta name="msapplication-wide210x50logo" content="https://s.yimg.com/kw/assets/eng-e-458x170.png">',
+      '<meta name="msapplication-wide310x150logo" content="https://s.yimg.com/kw/assets/eng-e-558x270.png">'
+    ])
+    const meta = await metascraper({ url, html })
+    should(meta.logo).be.equal('https://s.yimg.com/kw/assets/eng-e-558x270.png')
+  })
+
   it('returns null if logo is not detected', async () => {
     const url = 'https://liu.edu/Brooklyn'
     const html = await readFile(resolve(__dirname, 'fixtures/liuedu.html'))
     const metascraper = createMetascraper()
     const meta = await metascraper({ url, html })
-
     should(meta.logo).be.null()
   })
 })

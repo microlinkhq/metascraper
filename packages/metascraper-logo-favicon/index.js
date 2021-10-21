@@ -1,8 +1,17 @@
 'use strict'
 
-const { isEmpty, first, toNumber, split, chain, get } = require('lodash')
 const { URL } = require('url')
 const got = require('got')
+
+const {
+  isEmpty,
+  first,
+  toNumber,
+  split,
+  chain,
+  get,
+  orderBy
+} = require('lodash')
 
 const {
   absoluteUrl,
@@ -16,12 +25,16 @@ const SIZE_REGEX = /\d+x\d+/
 const toUrl = toRule(urlFn)
 
 const toSize = str => {
-  const [size] = split(str, 'x')
-  return !isEmpty(size) ? toNumber(size) : 0
+  if (isEmpty(str)) return
+  const [verticalSize, horizontalSize] = split(first(split(str, ' ')), 'x')
+  const height = toNumber(verticalSize)
+  const width = toNumber(horizontalSize)
+  return { height, width, square: width === height }
 }
 
 const getSize = (url, sizes) =>
-  toSize(sizes) || toSize(first(url.match(SIZE_REGEX)))
+  toSize(sizes) ||
+  toSize(first(url.match(SIZE_REGEX))) || { width: 0, height: 0, square: true }
 
 const getDomNodeSizes = (domNodes, attr) =>
   chain(domNodes)
@@ -47,17 +60,28 @@ const getSizes = ($, collection) =>
     }, [])
     .value()
 
-/* sortest from high to low resolution */
 const sizeSelectors = [
   { tag: 'link[rel*="icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
   { tag: 'meta[name*="msapplication" i]', attr: 'content' } // Windows 8, Internet Explorer 11 Tiles
 ]
 
-const pickBiggerSize = sizes =>
-  chain(sizes)
-    .orderBy('size', 'desc')
-    .first()
-    .value()
+const pickBiggerSize = sizes => {
+  const sorted = sizes.reduce(
+    (acc, item) => {
+      acc[item.size.square ? 'square' : 'nonSquare'].push(item)
+      return acc
+    },
+    { square: [], nonSquare: [] }
+  )
+
+  return (
+    first(pickBiggerSize.sortBySize(sorted.square)) ||
+    first(pickBiggerSize.sortBySize(sorted.nonSquare))
+  )
+}
+
+pickBiggerSize.sortBySize = collection =>
+  orderBy(collection, item => item.size.width, ['desc'])
 
 const DEFAULT_GOT_OPTS = {
   timeout: 3000
