@@ -11,13 +11,14 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
-const SIZE_REGEX = /\d+x\d+/
+const SIZE_REGEX_BY_X = /\d+x\d+/
 
 const toUrl = toRule(urlFn)
 
 const priority = ({ url, width }) => {
   // lets consider apple icon is beauty
-  if (url.includes('apple-touch-icon')) return 6 * width
+  if (url.includes('apple')) return 5 * width
+  if (url.includes('android')) return 5 * width
   if (url.endsWith('png')) return 5 * width
   if (url.endsWith('jpg') || url.endsWith('jpeg')) return 4 * width
   if (url.endsWith('svg')) return 3 * width
@@ -46,18 +47,16 @@ const toSize = (input, url) => {
   }
 }
 
-toSize.fallback = url => {
-  return {
-    width: 0,
-    height: 0,
-    square: true,
-    priority: priority({ url, width: 1 })
-  }
-}
+toSize.fallback = url => ({
+  width: 0,
+  height: 0,
+  square: true,
+  priority: priority({ url, width: 1 })
+})
 
 const getSize = (url, sizes) =>
   toSize(sizes, url) ||
-  toSize(first(url.match(SIZE_REGEX)), url) ||
+  toSize(first(url.match(SIZE_REGEX_BY_X)), url) ||
   toSize.fallback(url)
 
 const getDomNodeSizes = (domNodes, attr) =>

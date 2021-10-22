@@ -19,7 +19,7 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url = 'http://mashable.com/2015/05/13/analytics-power-up-revenue'
+const url = 'https://mashable.com/article/dune-movie-hbo-review'
 
 it('mashable', async () => {
   const html = await readFile(resolve(__dirname, 'input.html'))
