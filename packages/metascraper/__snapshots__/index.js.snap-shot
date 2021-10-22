@@ -78,15 +78,15 @@ exports['bbc 1'] = {
 
 exports['bloomberg 1'] = {
   "author": "Ellen Huet",
-  "date": "2016-05-24T18:00:03.894Z",
+  "date": "2016-05-24T18:00:03.899Z",
   "description": "The HR startups go to war.",
-  "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioh_yWEn8gHo/v1/-1x-1.jpg",
+  "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioh_yWEn8gHo/v3/1200x800.jpg",
   "video": null,
-  "lang": null,
-  "logo": "https://assets.bwbx.io/business/public/images/favicons/favicon-192x192-3621dae772.png",
-  "publisher": "Bloomberg.com",
+  "lang": "en",
+  "logo": "https://assets.bwbx.io/s3/javelin/public/javelin/images/favicon-black-63fe5249d3.png",
+  "publisher": "Bloomberg",
   "title": "As Zenefits Stumbles, Gusto Goes Head-On by Selling Insurance",
-  "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
+  "url": "https://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
 }
 
 exports['bukvy 1'] = {
@@ -157,14 +157,14 @@ exports['cloud-pro 1'] = {
 exports['cnet 1'] = {
   "author": "Scott Stein",
   "date": "2016-05-24T14:00:00.000Z",
-  "description": "Smartwatches with heart rate support, plus a stand-alone puck called Core that acts as a 3G-connected smart button: Pebble is trying for a two-device approach in fitness wearables.",
-  "image": "https://cnet3.cbsistatic.com/hub/i/r/2016/05/23/ee9a228a-d1d9-40b3-b401-4ba0e07e2fce/thumbnail/670x503/90dc7a2315faa0f311e2e8f43e578847/pebblecore3.jpg",
+  "description": "Pebble’s latest wearables are trying harder than ever to nail fitness better, but one is aiming at being a new type of smart button.",
+  "image": "https://www.cnet.com/a/img/o7o1R0SgMd_Zf4mL0U0ICpR5x2o=/1200x630/2016/05/23/ee9a228a-d1d9-40b3-b401-4ba0e07e2fce/pebblecore3.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://www.cnet.com/favicon.ico",
+  "logo": "https://www.cnet.com/a/fly/bundles/cnetcss/images/core/redball/logo_310_white.png",
   "publisher": "CNET",
-  "title": "Pebble 2, Pebble Time 2, Pebble Core: Pebble’s fitness hat trick adds heart rate, GPS, Spotify, and 3G",
-  "url": "http://www.cnet.com/news/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017/"
+  "title": "Pebble 2 watch adds heart rate, and the Spotify-enabled 3G GPS Pebble Core isn’t a watch at all",
+  "url": "https://www.cnet.com/tech/mobile/pebble-2-pebble-time-2-pebble-core-announced-coming-this-year-and-2017/"
 }
 
 exports['computerworld 1'] = {
@@ -325,15 +325,14 @@ exports['geek-time 1'] = {
 
 exports['github 1'] = {
   "author": "microlinkhq",
-  "date": null,
-  "description": "Contribute to microlink-core development by creating an account on GitHub.",
-  "image": "https://avatars1.githubusercontent.com/u/29799436?v=3&s=400",
+  "description": "Microlink Query Language. The official HTTP client to interact with Microlink API for Node.js, browsers &amp; Deno. - microlinkhq/mql: Microlink Query Language. The official HTTP client to interact...",
+  "image": "https://opengraph.githubassets.com/0d2af1011fc53210b9778b88a31fa2f993cc70fad0b68c8dfa4553cfc124f7dc/microlinkhq/mql",
   "video": null,
   "lang": "en",
   "logo": "https://github.com/fluidicon.png",
   "publisher": "GitHub",
-  "title": "microlinkhq/microlink-core",
-  "url": "https://github.com/microlinkhq/microlink-core"
+  "title": "microlinkhq/mql: Microlink Query Language. The official HTTP client to interact with Microlink API for Node.js, browsers & Deno.",
+  "url": "https://github.com/microlinkhq/mql"
 }
 
 exports['googleblog 1'] = {
@@ -391,13 +390,13 @@ exports['information-week 1'] = {
 exports['instagram 1'] = {
   "author": null,
   "date": "2017-07-09T04:58:10.000Z",
-  "description": "139k Likes, 1,372 Comments - Tesla (@teslamotors) on Instagram: “The first Model 3 production car”",
-  "image": "https://scontent.cdninstagram.com/t51.2885-15/e35/19955323_327280991034910_1996793346030305280_n.jpg",
+  "description": "Tesla shared a photo on Instagram: “The first Model 3 production car” • See 683 photos and videos on their profile.",
+  "image": "https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/19955323_327280991034910_1996793346030305280_n.jpg?_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=VDeNnhXahEwAX8BdW_o&edm=AABBvjUBAAAA&ccb=7-4&oh=91e77ff01116fe89635f8fac37f48add&oe=6178BE62&_nc_sid=83d603",
   "video": null,
   "lang": "en",
-  "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/b407fa101800.png",
+  "logo": "https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png",
   "publisher": "Instagram",
-  "title": "Instagram post by Tesla • Jul 9, 2017 at 4:58am UTC",
+  "title": "Tesla on Instagram: “The first Model 3 production car”",
   "url": "https://www.instagram.com/p/BWUDBntl3_Z/"
 }
 
@@ -481,15 +480,15 @@ exports['los-angeles-times 1'] = {
 
 exports['mac-rumors 1'] = {
   "author": "Juli Clover",
-  "date": "2016-05-24T20:54:00.000Z",
+  "date": "2016-05-24T16:54:45.000Z",
   "description": "Apple is actively developing a product that would compete with the Amazon Echo and Google Home, reports The Information. Citing a source with direct...",
-  "image": "http://cdn.macrumors.com/article-new/2016/05/amazonecho2-250x362.jpg?retina",
+  "image": "https://images.macrumors.com/t/iW3I8r5mPGwRKw5nviIrKwFh6WU=/1600x/http://images.macrumors.com/article-new/2016/05/amazonecho2-250x362.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://cdn.macrumors.com/images-new/apple-touch-icon.png",
+  "logo": "https://images.macrumors.com/images-new/favicon-32x32.png",
   "publisher": "MacRumors",
   "title": "Apple Working on Amazon Echo Competitor, Opening Siri Up to Developers",
-  "url": "http://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor/"
+  "url": "https://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor/"
 }
 
 exports['market-wired 1'] = {
@@ -519,16 +518,16 @@ exports['marketing-land 1'] = {
 }
 
 exports['mashable 1'] = {
-  "author": "Stacey Bishop",
-  "date": "2015-05-13T16:37:41.000Z",
-  "description": "Analytics open the door to predictive selling and ensure that your sales team is doing more than hoarding data that it doesn’t know how to act on.",
-  "image": "http://i.amz.mshcdn.com/jw9czJj9h-4ClVBegbu982-Zmb8=/1200x627/2015%2F05%2F13%2Fc6%2Frevenue_ana.65b72.jpg",
+  "author": "Chris Taylor",
+  "date": "2021-10-22T06:25:06.000Z",
+  "description": "The movie, now on HBO Max, is brilliantly faithful to the Frank Herbert original. That reveals some flaws.",
+  "image": "https://helios-i.mashable.com/imagery/articles/03kMbX4uhsnOpnHQkfhoNzO/hero-image.fill.size_1200x675.v1634883906.jpg",
   "video": null,
   "lang": "en",
-  "logo": "http://mashable.com/android-chrome-192x192.png?v=m2Pmw8zNwl",
-  "publisher": "Mashable",
-  "title": "The sales cycle on steroids: 3 ways analytics power up revenue",
-  "url": "http://mashable.com/2015/05/13/analytics-power-up-revenue/"
+  "logo": "https://mashable.com/images/mashable-logomark.png",
+  "publisher": "helios.web",
+  "title": "The new ‘Dune’ is a great start — but can’t outrun the book’s biggest problem",
+  "url": "https://mashable.com/article/dune-movie-hbo-review"
 }
 
 exports['medium 1'] = {
@@ -923,16 +922,16 @@ exports['venture-beat 1'] = {
 }
 
 exports['vimeo 1'] = {
-  "author": "SUPER VERY MORE",
-  "date": "2017-12-10T07:52:19.000Z",
-  "description": "- Client: OGN (CJ E&M) - Producer: Yeonjung Hong - Creative Director: Youngmin Kim - Motion Design: Youngmin Kim, Gyuhwan Yu, Dahee Ahn - Sound Design: Stone…",
-  "image": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F613524460_1280x720.webp&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
+  "author": "MEGAFORCE",
+  "date": "2021-10-22T08:58:48.000Z",
+  "description": "FULL CREDITS: AGENCY & PRODUCTION: @riffrafffilms CREATIVE & DIRECTION: @the_megaforce EXEC PRODUCER/OWNER: Matthew Fone PRODUCER: @cathyhoodx PRODUCTION…",
+  "image": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1280513620-2e984a8e28be47e615461106d5ff44a4e8d9bf6f03d53c7e2_1280x853&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
   "video": null,
-  "lang": "es",
+  "lang": "en",
   "logo": "https://i.vimeocdn.com/favicon/main-touch_180",
   "publisher": "Vimeo",
-  "title": "Overwatch APEX Season2 Title",
-  "url": "https://vimeo.com/200104989"
+  "title": "Burberry - Open Spaces / Dir. Megaforce",
+  "url": "https://vimeo.com/637403296"
 }
 
 exports['washington-post 1'] = {
@@ -981,7 +980,7 @@ exports['wnycstudios 1'] = {
   "image": "https://media.wnyc.org/i/1355/1600/c/80/2020/08/QWERTY.JPG",
   "video": null,
   "lang": "en",
-  "logo": "https://www.wnycstudios.org/favicon.ico",
+  "logo": "https://media.wnyc.org/i/180/180/l/80/2018/09/wnycstudios_app_icon_500.png",
   "publisher": "WNYC Studios",
   "title": "The Wubi Effect | Radiolab | WNYC Studios",
   "url": "https://www.wnycstudios.org/podcasts/radiolab/articles/wubi-effect",
@@ -1053,28 +1052,28 @@ exports['zdnet 1'] = {
 }
 
 exports['nytimes (article) 1'] = {
-  "author": "Tim Herrera",
+  "author": "By",
   "audio": null,
-  "date": "2017-07-05T15:18:50.000Z",
+  "date": "2017-07-03T20:45:14.000Z",
   "description": "Welcome to the second edition of the Smarter Living newsletter.",
-  "image": "https://static01.nyt.com/images/2017/06/23/smarter-living/Sl-newsletter-header/Sl-newsletter-header-facebookJumbo-v2.jpg",
+  "image": "https://static01.nyt.com/images/2017/06/23/smarter-living/Sl-newsletter-header/Sl-newsletter-header-facebookJumbo-v5.jpg?year=2017&h=549&w=1050&s=59390661ac3a2f3b74ddd45784ffbda20b43ab3dd7cc0953097c8248536d7a0f&k=ZQJBKqZ0VN",
   "video": null,
   "lang": "en",
-  "logo": "https://static01.nyt.com/images/icons/ios-ipad-144x144.png",
+  "logo": "https://www.nytimes.com/vi-assets/static-assets/ios-ipad-144x144-dark-6382f2a0c195a4e0ded3d930aa7ed4ca.png",
   "publisher": "NYTimes",
-  "title": "How to See What the Internet Knows About You (And How to Stop It)",
+  "title": "How to See What the Internet Knows About You (And How to Stop It) (Published 2017)",
   "url": "https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html"
 }
 
 exports['nytimes (opinion) 1'] = {
-  "author": null,
+  "author": "Produced by",
   "audio": "https://dts.podtrac.com/redirect.mp3/pdst.fm/e/chtbl.com/track/8DB4DB/nyt.simplecastaudio.com/3e43d072-f8a5-430f-bc8e-4c70aafdf3c7/episodes/041d2130-8915-42cf-804d-8371188d3249/audio/128/default.mp3?awCollectionId=3e43d072-f8a5-430f-bc8e-4c70aafdf3c7&awEpisodeId=041d2130-8915-42cf-804d-8371188d3249",
-  "date": "2020-12-11T00:41:34.190Z",
+  "date": "2021-06-08T16:13:03.209Z",
   "description": "Well, many reasons. But Harvard economist Raj Chetty says that’s the age at which America’s “Einsteins” are identified — and lost.",
   "image": "https://static01.nyt.com/images/2020/11/19/opinion/19sway-chetty-image/19sway-chetty-image-facebookJumbo.png",
   "video": null,
   "lang": "en",
-  "logo": "https://www.nytimes.com/vi-assets/static-assets/ios-ipad-144x144-28865b72953380a40aa43318108876cb.png",
+  "logo": "https://www.nytimes.com/vi-assets/static-assets/ios-ipad-144x144-dark-6382f2a0c195a4e0ded3d930aa7ed4ca.png",
   "publisher": "NYTimes",
   "title": "Opinion | Why 3rd Grade Matters",
   "url": "https://www.nytimes.com/2020/11/19/opinion/sway-kara-swisher-raj-chetty.html"

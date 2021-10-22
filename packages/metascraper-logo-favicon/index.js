@@ -1,6 +1,6 @@
 'use strict'
 
-const { isEmpty, first, toNumber, split, chain, get } = require('lodash')
+const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
 const { URL } = require('url')
 const got = require('got')
 
@@ -11,17 +11,53 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
-const SIZE_REGEX = /\d+x\d+/
+const SIZE_REGEX_BY_X = /\d+x\d+/
 
 const toUrl = toRule(urlFn)
 
-const toSize = str => {
-  const [size] = split(str, 'x')
-  return !isEmpty(size) ? toNumber(size) : 0
+const priority = ({ url, width }) => {
+  // lets consider apple icon is beauty
+  if (url.includes('apple')) return 5 * width
+  if (url.includes('android')) return 5 * width
+  if (url.endsWith('png')) return 5 * width
+  if (url.endsWith('jpg') || url.endsWith('jpeg')) return 4 * width
+  if (url.endsWith('svg')) return 3 * width
+  if (url.endsWith('ico')) return 2 * width
+  return 1 * width
 }
 
+const toSize = (input, url) => {
+  if (isEmpty(input)) return
+
+  const [verticalSize, horizontalSize] = chain(input)
+    .replace(/×/g, 'x')
+    .split(' ')
+    .first()
+    .split('x')
+    .value()
+
+  const height = toNumber(verticalSize) || 0
+  const width = toNumber(horizontalSize) || 0
+
+  return {
+    height,
+    width,
+    square: width === height,
+    priority: priority({ url, width: width || 1 })
+  }
+}
+
+toSize.fallback = url => ({
+  width: 0,
+  height: 0,
+  square: true,
+  priority: priority({ url, width: 1 })
+})
+
 const getSize = (url, sizes) =>
-  toSize(sizes) || toSize(first(url.match(SIZE_REGEX)))
+  toSize(sizes, url) ||
+  toSize(first(url.match(SIZE_REGEX_BY_X)), url) ||
+  toSize.fallback(url)
 
 const getDomNodeSizes = (domNodes, attr) =>
   chain(domNodes)
@@ -47,20 +83,28 @@ const getSizes = ($, collection) =>
     }, [])
     .value()
 
-/* sortest from high to low resolution */
 const sizeSelectors = [
-  { tag: 'link[rel*="-icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
-  { tag: 'meta[name*="msapplication-tileimage" i]', attr: 'content' }, // Windows 8 Tiles
-  { tag: 'meta[name*="msapplication-square" i]', attr: 'content' }, // Internet Explorer 11 Tiles
-  { tag: 'link[rel*="icon" i]', attr: 'href' },
-  { tag: 'link[rel="shortcut icon i"]', attr: 'href' } // favicon
+  { tag: 'link[rel*="icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
+  { tag: 'meta[name*="msapplication" i]', attr: 'content' } // Windows 8, Internet Explorer 11 Tiles
 ]
 
-const pickBiggerSize = sizes =>
-  chain(sizes)
-    .orderBy('size', 'desc')
-    .first()
-    .value()
+const pickBiggerSize = sizes => {
+  const sorted = sizes.reduce(
+    (acc, item) => {
+      acc[item.size.square ? 'square' : 'nonSquare'].push(item)
+      return acc
+    },
+    { square: [], nonSquare: [] }
+  )
+
+  return (
+    first(pickBiggerSize.sortBySize(sorted.square)) ||
+    first(pickBiggerSize.sortBySize(sorted.nonSquare))
+  )
+}
+
+pickBiggerSize.sortBySize = collection =>
+  orderBy(collection, ['size.priority'], ['desc'])
 
 const DEFAULT_GOT_OPTS = {
   timeout: 3000
