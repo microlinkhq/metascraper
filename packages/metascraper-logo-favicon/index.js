@@ -1,17 +1,8 @@
 'use strict'
 
+const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
 const { URL } = require('url')
 const got = require('got')
-
-const {
-  isEmpty,
-  first,
-  toNumber,
-  split,
-  chain,
-  get,
-  orderBy
-} = require('lodash')
 
 const {
   absoluteUrl,
@@ -24,35 +15,50 @@ const SIZE_REGEX = /\d+x\d+/
 
 const toUrl = toRule(urlFn)
 
-const extensionPriority = str => {
-  if (str.endsWith('svg')) return 3
-  if (str.endsWith('png')) return 2
-  if (str.endsWith('jpg') || str.endsWith('jpeg')) return 1
-  return 0
+const priority = ({ url, width }) => {
+  // lets consider apple icon is beauty
+  if (url.includes('apple-touch-icon')) return 6 * width
+  if (url.endsWith('png')) return 5 * width
+  if (url.endsWith('jpg') || url.endsWith('jpeg')) return 4 * width
+  if (url.endsWith('svg')) return 3 * width
+  if (url.endsWith('ico')) return 2 * width
+  return 1 * width
 }
 
 const toSize = (input, url) => {
   if (isEmpty(input)) return
-  const [verticalSize, horizontalSize] = split(first(split(input, ' ')), 'x')
-  const height = toNumber(verticalSize)
-  const width = toNumber(horizontalSize)
+
+  const [verticalSize, horizontalSize] = chain(input)
+    .replace(/×/g, 'x')
+    .split(' ')
+    .first()
+    .split('x')
+    .value()
+
+  const height = toNumber(verticalSize) || 0
+  const width = toNumber(horizontalSize) || 0
 
   return {
     height,
     width,
     square: width === height,
-    ext: extensionPriority(url)
+    priority: priority({ url, width: width || 1 })
+  }
+}
+
+toSize.fallback = url => {
+  return {
+    width: 0,
+    height: 0,
+    square: true,
+    priority: priority({ url, width: 1 })
   }
 }
 
 const getSize = (url, sizes) =>
   toSize(sizes, url) ||
-  toSize(first(url.match(SIZE_REGEX)), url) || {
-    width: 0,
-    height: 0,
-    square: true,
-    ext: extensionPriority(url)
-  }
+  toSize(first(url.match(SIZE_REGEX)), url) ||
+  toSize.fallback(url)
 
 const getDomNodeSizes = (domNodes, attr) =>
   chain(domNodes)
@@ -99,7 +105,7 @@ const pickBiggerSize = sizes => {
 }
 
 pickBiggerSize.sortBySize = collection =>
-  orderBy(collection, ['size.width', 'size.ext'], ['desc', 'desc'])
+  orderBy(collection, ['size.priority'], ['desc'])
 
 const DEFAULT_GOT_OPTS = {
   timeout: 3000
