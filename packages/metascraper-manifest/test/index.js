@@ -21,7 +21,6 @@ describe('metascraper-manifest', () => {
     ])
     const meta = await metascraper({ url, html })
     snapshot(meta)
-    console.log(meta)
   })
   it('segment.com', async () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
@@ -31,6 +30,5 @@ describe('metascraper-manifest', () => {
     ])
     const meta = await metascraper({ url, html })
     snapshot(meta)
-    console.log(meta)
   })
 })
