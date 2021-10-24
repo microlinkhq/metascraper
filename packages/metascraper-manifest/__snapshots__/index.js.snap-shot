@@ -1,0 +1,14 @@
+exports['vercel.com 1'] = {
+  "lang": null,
+  "description": null,
+  "publisher": "Vercel",
+  "logo": "https://assets.vercel.com/image/upload/v1573246280/front/favicon/vercel/android-chrome-512x512.png"
+}
+
+exports['segment.com 1'] = {
+  "lang": null,
+  "description": null,
+  "publisher": "starter",
+  "logo": "https://segment.com/blog/icons/icon-96x96.png"
+}
+

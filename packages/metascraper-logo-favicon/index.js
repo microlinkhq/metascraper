@@ -15,17 +15,6 @@ const SIZE_REGEX_BY_X = /\d+x\d+/
 
 const toUrl = toRule(urlFn)
 
-const priority = ({ url, width }) => {
-  // lets consider apple icon is beauty
-  if (url.includes('apple')) return 5 * width
-  if (url.includes('android')) return 5 * width
-  if (url.endsWith('png')) return 5 * width
-  if (url.endsWith('jpg') || url.endsWith('jpeg')) return 4 * width
-  if (url.endsWith('svg')) return 3 * width
-  if (url.endsWith('ico')) return 2 * width
-  return 1 * width
-}
-
 const toSize = (input, url) => {
   if (isEmpty(input)) return
 
@@ -43,7 +32,7 @@ const toSize = (input, url) => {
     height,
     width,
     square: width === height,
-    priority: priority({ url, width: width || 1 })
+    priority: toSize.priority({ url, width: width || 1 })
   }
 }
 
@@ -51,8 +40,19 @@ toSize.fallback = url => ({
   width: 0,
   height: 0,
   square: true,
-  priority: priority({ url, width: 1 })
+  priority: toSize.priority({ url, width: 1 })
 })
+
+toSize.priority = ({ url, width }) => {
+  // lets consider apple icon is beauty
+  if (url.includes('apple')) return 5 * width
+  if (url.includes('android')) return 5 * width
+  if (url.endsWith('png')) return 5 * width
+  if (url.endsWith('jpg') || url.endsWith('jpeg')) return 4 * width
+  if (url.endsWith('svg')) return 3 * width
+  if (url.endsWith('ico')) return 2 * width
+  return 1 * width
+}
 
 const getSize = (url, sizes) =>
   toSize(sizes, url) ||
