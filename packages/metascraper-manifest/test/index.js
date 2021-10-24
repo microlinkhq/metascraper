@@ -13,6 +13,15 @@ const createHtml = meta =>
 </html>`.trim()
 
 describe('metascraper-manifest', () => {
+  it('does nothing if manifest URL is not reachable', async () => {
+    const metascraper = createMetascraper([createMetascraperManifest()])
+    const url = 'https://www.linkedin.com/company/audiense/'
+    const html = createHtml([
+      '<link rel="manifest" href="https://static-exp1.licdn.com/sc/h/8ekldmhv4d8prk5sml735t6np">'
+    ])
+    const meta = await metascraper({ url, html })
+    snapshot(meta)
+  })
   it('vercel.com', async () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
     const url = 'https://vercel.com'

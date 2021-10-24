@@ -12,3 +12,10 @@ exports['segment.com 1'] = {
   "logo": "https://segment.com/blog/icons/icon-96x96.png"
 }
 
+exports['does nothing if manifest URL is not reachable 1'] = {
+  "lang": null,
+  "description": null,
+  "publisher": null,
+  "logo": null
+}
+

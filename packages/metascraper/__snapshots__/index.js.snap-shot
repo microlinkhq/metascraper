@@ -442,13 +442,13 @@ exports['learnnode 1'] = {
 exports['linkedin (company) 1'] = {
   "author": null,
   "date": null,
-  "description": "LinkedIn领英",
+  "description": null,
   "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
   "video": null,
   "lang": "en",
-  "logo": "https://static.licdn.com/sc/h/eahiplrwoq61f4uan012ia17i",
-  "publisher": "LinkedIn领英",
-  "title": "LinkedIn",
+  "logo": "https://static-exp1.licdn.com/sc/h/eahiplrwoq61f4uan012ia17i",
+  "publisher": "LinkedIn",
+  "title": "Audiense: Overview | LinkedIn",
   "url": "https://www.linkedin.com/company/10529043/"
 }
 
@@ -525,7 +525,7 @@ exports['mashable 1'] = {
   "video": null,
   "lang": "en",
   "logo": "https://mashable.com/images/mashable-logomark.png",
-  "publisher": "helios.web",
+  "publisher": "Mashable",
   "title": "The new ‘Dune’ is a great start — but can’t outrun the book’s biggest problem",
   "url": "https://mashable.com/article/dune-movie-hbo-review"
 }
@@ -551,7 +551,7 @@ exports['motherboard 1'] = {
   "video": null,
   "lang": "en",
   "logo": "https://vice-web-statics-cdn.vice.com/favicons/vice/coast-228x228.png",
-  "publisher": null,
+  "publisher": "vice",
   "title": "NASA Is Quietly Funding a Hunt for Alien Megastructures",
   "url": "https://www.vice.com/en/article/pkbq7z/nasa-is-quietly-funding-a-hunt-for-alien-megastructures"
 }
