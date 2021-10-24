@@ -1188,3 +1188,16 @@ exports['substack 1'] = {
   "audio": null
 }
 
+exports['vice 1'] = {
+  "author": "Madeleine Gregory",
+  "date": "2020-02-15T00:00:00.000Z",
+  "description": "Detecting ‘technosignatures’ such as hypothetical Dyson spheres in space could lead us to extraterrestrial life, and now NASA is funding the search.",
+  "image": "https://video-images.vice.com/articles/60e8874db2fd6f009b21ae19/lede/1625851941294-gettyimages-1172247312-1.jpeg?image-resize-opts=Y3JvcD0xeHc6MC45NzkyMzAxODI5MjY4MjkzeGg7Y2VudGVyLGNlbnRlciZyZXNpemU9MTIwMDoqJnJlc2l6ZT0xMjAwOio",
+  "video": null,
+  "lang": "en",
+  "logo": "https://vice-web-statics-cdn.vice.com/favicons/vice/coast-228x228.png",
+  "publisher": "vice",
+  "title": "NASA Is Quietly Funding a Hunt for Alien Megastructures",
+  "url": "https://www.vice.com/en/article/pkbq7z/nasa-is-quietly-funding-a-hunt-for-alien-megastructures"
+}
+
