@@ -10,7 +10,7 @@ const DEFAULT_GOT_OPTS = {
   timeout: 3000
 }
 
-const createFetchManifest = gotOpts =>
+const createFetchManifest = ({ gotOpts } = {}) =>
   asyncMemoizeOne(async (url, $) => {
     const manifest = $('link[rel="manifest"]').attr('href')
     if (!manifest) return undefined

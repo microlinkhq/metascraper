@@ -25,15 +25,10 @@ In addition, these options are set by default:
 
 ```json
 {
-  "retry": 0,
-  "json": true,
-  "timeout": 1500
+  "responseType": "json",
+  "timeout": 3000
 }
 ```
-
-#### logoOpts
-
-Any option provided here will passed to [Clearbit Logo API](https://clearbit.com/docs#logo-api).
 
 ## License
 
