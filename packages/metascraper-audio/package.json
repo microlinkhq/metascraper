@@ -2,7 +2,7 @@
   "name": "metascraper-audio",
   "description": "Get audio property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-audio",
-  "version": "5.24.9",
+  "version": "5.25.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.24.9",
+    "@metascraper/helpers": "^5.25.0",
     "cheerio": "~1.0.0-rc.10",
     "got": "~11.8.2",
     "p-reflect": "~2.1.0"
