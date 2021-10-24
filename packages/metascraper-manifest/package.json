@@ -1,7 +1,7 @@
 {
-  "name": "metascraper-soundcloud",
-  "description": "Metascraper integration with SoundCloud",
-  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-soundcloud",
+  "name": "metascraper-manifest",
+  "description": "Metascraper integration for derecting PWA Web app manifest",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-manifest",
   "version": "5.24.9",
   "main": "index.js",
   "author": {
@@ -10,7 +10,7 @@
     "url": "https://microlink.io"
   },
   "repository": {
-    "directory": "packages/metascraper-soundcloud",
+    "directory": "packages/metascraper-manifest",
     "type": "git",
     "url": "git+https://github.com/microlinkhq/metascraper.git"
   },
@@ -18,13 +18,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "audio",
+    "manifest",
     "metascraper",
-    "soundcloud"
+    "pwa"
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.24.9",
-    "tldts": "~5.7.49"
+    "async-memoize-one": "~1.1.0",
+    "got": "~11.8.2",
+    "lodash": "~4.17.21"
   },
   "devDependencies": {
     "mocha": "latest",
@@ -40,5 +42,13 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "mocha": {
+    "bail": true,
+    "exit": true,
+    "recursive": true,
+    "reporter": "spec",
+    "slow": 300,
+    "timeout": "120000"
+  }
 }
