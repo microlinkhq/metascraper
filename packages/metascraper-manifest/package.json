@@ -22,7 +22,12 @@
     "metascraper",
     "pwa"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@metascraper/helpers": "^5.24.9",
+    "async-memoize-one": "~1.1.0",
+    "got": "~11.8.2",
+    "lodash": "~4.17.21"
+  },
   "devDependencies": {
     "mocha": "latest",
     "nyc": "latest",
