@@ -69,6 +69,7 @@ const AUDIO = 'audio'
 const IMAGE = 'image'
 
 const imageExtensions = chain(require('image-extensions'))
+  .concat(['avif'])
   .reduce((acc, ext) => ({ ...acc, [ext]: IMAGE }), {})
   .value()
 
