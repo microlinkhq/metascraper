@@ -31,7 +31,7 @@
     "image-extensions": "~1.1.0",
     "is-relative-url": "~3.0.0",
     "is-uri": "~1.2.0",
-    "iso-639-3": "~2.2.0",
+    "iso-639-3": "~3.0.1",
     "isostring": "0.0.1",
     "jsdom": "~18.0.0",
     "lodash": "~4.17.21",
