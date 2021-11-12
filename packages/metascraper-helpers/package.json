@@ -40,7 +40,7 @@
     "mime-types": "~2.1.33",
     "normalize-url": "~6.1.0",
     "smartquotes": "~2.3.2",
-    "url-regex-safe": "~2.0.2",
+    "url-regex-safe": "~2.1.0",
     "video-extensions": "~1.2.0"
   },
   "devDependencies": {
