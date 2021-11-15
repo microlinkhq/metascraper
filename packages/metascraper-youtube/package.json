@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.25.0",
-    "get-video-id": "~3.4.1",
+    "get-video-id": "~3.4.3",
     "is-reachable": "~5.1.0",
     "p-locate": "~5.0.0"
   },

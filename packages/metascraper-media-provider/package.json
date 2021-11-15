@@ -27,14 +27,14 @@
     "async-memoize-one": "~1.1.0",
     "debug-logfmt": "~1.0.4",
     "got": "~11.8.2",
-    "keepalive-proxy-agent": "~1.2.0",
+    "keepalive-proxy-agent": "~1.2.2",
     "lodash": "~4.17.21",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
-    "tldts": "~5.7.49",
-    "youtube-dl-exec": "~1.3.2"
+    "tldts": "~5.7.52",
+    "youtube-dl-exec": "~1.3.3"
   },
   "devDependencies": {
     "is-ci": "latest",
