@@ -2,7 +2,7 @@
   "name": "metascraper-url",
   "description": "Get url property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "5.25.0",
+  "version": "5.25.1",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -21,7 +21,7 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.25.0"
+    "@metascraper/helpers": "^5.25.1"
   },
   "engines": {
     "node": ">= 12"

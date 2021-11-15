@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.25.1](https://github.com/microlinkhq/metascraper/compare/v5.25.0...v5.25.1) (2021-11-15)
+
+
+### Bug Fixes
+
+* sort ([ad04568](https://github.com/microlinkhq/metascraper/commit/ad04568fcdae1e52bcecf09c00b7a4ba99b28f23))
+
+
+
+
+
 # [5.25.0](https://github.com/microlinkhq/metascraper/compare/v5.24.9...v5.25.0) (2021-10-24)
 
 
