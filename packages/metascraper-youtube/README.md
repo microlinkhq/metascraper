@@ -11,6 +11,14 @@
 $ npm install metascraper-youtube --save
 ```
 
+#### options
+
+##### gotOpts
+
+Type: `object`
+
+Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
+
 ## License
 
 **metascraper-youtube** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>

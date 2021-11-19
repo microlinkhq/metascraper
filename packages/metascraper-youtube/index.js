@@ -1,6 +1,6 @@
 'use strict'
 
-const isReachable = require('is-reachable')
+const reachableUrl = require('reachable-url')
 const getVideoId = require('get-video-id')
 const pLocate = require('p-locate')
 
@@ -20,11 +20,14 @@ const THUMBAILS_RESOLUTIONS = [
   'default.jpg'
 ]
 
-const getThumbnailUrl = id => {
+const getThumbnailUrl = (id, gotOpts) => {
   const urls = THUMBAILS_RESOLUTIONS.map(
     res => `https://img.youtube.com/vi/${id}/${res}`
   )
-  return pLocate(urls, isReachable)
+
+  return pLocate(urls, async url =>
+    reachableUrl.isReachable(await reachableUrl(url, gotOpts))
+  )
 }
 
 const toAuthor = toRule(author)
@@ -35,7 +38,7 @@ const getVideoInfo = memoizeOne(getVideoId)
 
 const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
-module.exports = () => {
+module.exports = ({ gotOpts } = {}) => {
   const rules = {
     author: [
       toAuthor($ => $filter($, $('#owner-name'))),
@@ -47,7 +50,7 @@ module.exports = () => {
     image: [
       ({ url }) => {
         const { id } = getVideoId(url)
-        return id && getThumbnailUrl(id)
+        return id && getThumbnailUrl(id, gotOpts)
       }
     ]
   }
