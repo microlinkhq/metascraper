@@ -106,15 +106,10 @@ const pickBiggerSize = sizes => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const DEFAULT_GOT_OPTS = {
-  timeout: 3000
-}
-
 const createGetLogo = gotOpts => async url => {
   const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
   try {
     await got.head(logoUrl, {
-      ...DEFAULT_GOT_OPTS,
       ...gotOpts
     })
     return logo(logoUrl)

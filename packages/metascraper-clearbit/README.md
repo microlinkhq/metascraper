@@ -25,8 +25,7 @@ In addition, these options are set by default:
 
 ```json
 {
-  "responseType": "json",
-  "timeout": 3000
+  "responseType": "json"
 }
 ```
 

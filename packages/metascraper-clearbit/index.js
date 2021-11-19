@@ -9,11 +9,6 @@ const got = require('got')
 
 const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
 
-const DEFAULT_GOT_OPTS = {
-  responseType: 'json',
-  timeout: 3000
-}
-
 const appendQuery = (data, query) => {
   if (!isObject(data) || !isObject(query)) return data
   const logoUrl = get(data, 'logo')
@@ -26,8 +21,8 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
     const domain = getDomain(url)
     try {
       const { body } = await got(ENDPOINT, {
-        ...DEFAULT_GOT_OPTS,
         ...gotOpts,
+        responseType: 'json',
         searchParams: { query: domain }
       })
 

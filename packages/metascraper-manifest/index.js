@@ -5,11 +5,6 @@ const asyncMemoizeOne = require('async-memoize-one')
 const { first, orderBy } = require('lodash')
 const got = require('got')
 
-const DEFAULT_GOT_OPTS = {
-  responseType: 'json',
-  timeout: 3000
-}
-
 const createFetchManifest = ({ gotOpts } = {}) =>
   asyncMemoizeOne(async (url, $) => {
     const manifest = $('link[rel="manifest"]').attr('href')
@@ -17,8 +12,8 @@ const createFetchManifest = ({ gotOpts } = {}) =>
     const manifestUrl = absoluteUrl(url, manifest)
     try {
       const { body: manifest } = await got(manifestUrl, {
-        ...DEFAULT_GOT_OPTS,
-        ...gotOpts
+        ...gotOpts,
+        responseType: 'json'
       })
       return manifest
     } catch (_) {}

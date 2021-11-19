@@ -44,14 +44,6 @@ Type: `object`
 
 Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
-In addition, these options are set by default:
-
-```json
-{
-  "timeout": 3000
-}
-```
-
 ## License
 
 **metascraper-logo-favicon** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
