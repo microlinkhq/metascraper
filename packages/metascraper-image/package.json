@@ -2,7 +2,7 @@
   "name": "metascraper-image",
   "description": "Get image property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-image",
-  "version": "5.25.1",
+  "version": "5.25.2",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.25.1"
+    "@metascraper/helpers": "^5.25.2"
   },
   "engines": {
     "node": ">= 12"
