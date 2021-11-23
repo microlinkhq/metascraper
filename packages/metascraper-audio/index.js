@@ -30,9 +30,7 @@ const audioRules = [
 
     const streamUrl =
       $('meta[name="twitter:player:stream"]').attr('content') ||
-      $('meta[property="twitter:player:stream"]').attr('content') ||
-      $('meta[name="twitter:player"]').attr('content') ||
-      $('meta[property="twitter:player"]').attr('content')
+      $('meta[property="twitter:player:stream"]').attr('content')
 
     return contentType ? withContentType(streamUrl, contentType) : streamUrl
   }),
