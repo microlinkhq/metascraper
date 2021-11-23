@@ -1,9 +1,7 @@
 'use strict'
 
 const { normalizeUrl, memoizeOne } = require('@metascraper/helpers')
-const { forEach, get } = require('lodash')
-const pReflect = require('p-reflect')
-const got = require('got')
+const { map } = require('lodash')
 
 const getPlayerUrl = memoizeOne(
   (url, $) =>
@@ -17,16 +15,12 @@ const getPlayerUrl = memoizeOne(
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
-const fromTwitter = gotOpts => async ({ htmlDom, url, iframe }) => {
+const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   const playerUrl = getPlayerUrl(url, htmlDom)
   if (!playerUrl) return
-
-  const playerUrlObj = new URL(playerUrl)
-  forEach(iframe, (value, key) =>
-    playerUrlObj.searchParams.append(key.toLowerCase(), value)
-  )
-  const { value } = await pReflect(got(playerUrlObj.toString(), gotOpts).json())
-  return get(value, 'html')
+  const props = map(iframe, (value, key) => `${key}="${value}"`)
+  const stringifiedProps = props.length === 0 ? '' : ' ' + props.join(' ')
+  return `<iframe src="${playerUrl}" frameborder="0" scrolling="no"${stringifiedProps}></iframe>`
 }
 
 fromTwitter.test = (...args) => !!getPlayerUrl(...args)
