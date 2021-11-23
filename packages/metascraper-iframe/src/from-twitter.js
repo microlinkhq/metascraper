@@ -8,9 +8,7 @@ const getPlayerUrl = memoizeOne(
     normalizeUrl(
       url,
       $('meta[name="twitter:player"]').attr('content') ||
-        $('meta[property="twitter:player"]').attr('content') ||
-        $('meta[name="twitter:player:stream"]').attr('content') ||
-        $('meta[property="twitter:player:stream"]').attr('content')
+        $('meta[property="twitter:player"]').attr('content')
     ),
   memoizeOne.EqualityUrlAndHtmlDom
 )
