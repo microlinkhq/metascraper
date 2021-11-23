@@ -77,15 +77,7 @@ describe('metascraper-video', () => {
       const metadata = await metascraper({ html, url })
       snapshot(metadata)
     })
-    it('twitter:player (video url)', async () => {
-      const html =
-        '<meta name="twitter:player" content="https://browserless.js.org/videos/JPJAu6qU-UpFyHQ41.mp4">'
-      const url = 'https://browserless.js.org'
-
-      const metadata = await metascraper({ html, url })
-      snapshot(metadata)
-    })
-    it('twitter:player (hosted player)', async () => {
+    it('twitter:player', async () => {
       const html =
         '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
       const url = 'https://twitter-card-player.vercel.app'
