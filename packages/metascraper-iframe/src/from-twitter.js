@@ -18,9 +18,14 @@ const getPlayerUrl = memoizeOne(
 const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   const playerUrl = getPlayerUrl(url, htmlDom)
   if (!playerUrl) return
-  const props = map(iframe, (value, key) => `${key}="${value}"`)
-  const stringifiedProps = props.length === 0 ? '' : ' ' + props.join(' ')
-  return `<iframe src="${playerUrl}" frameborder="0" scrolling="no"${stringifiedProps}></iframe>`
+
+  const props = [
+    'frameborder="0"',
+    'scrolling="no"',
+    ...map(iframe, (value, key) => `${key}="${value}"`)
+  ]
+
+  return `<iframe src="${playerUrl}" ${props.join(' ')}></iframe>`
 }
 
 fromTwitter.test = (...args) => !!getPlayerUrl(...args)
