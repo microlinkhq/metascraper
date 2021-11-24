@@ -52,6 +52,7 @@ describe('metascraper-iframe', () => {
         })
       })
     })
+
     it('from markup', async () => {
       const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
@@ -59,6 +60,20 @@ describe('metascraper-iframe', () => {
       const metascraper = createMetascraper(rules)
       const meta = await metascraper({ url, html })
       should(meta.iframe).be.not.null()
+    })
+
+    it('from twitter player', async () => {
+      const html = await readFile(
+        resolve(__dirname, 'fixtures/indiehacker.html')
+      )
+      const url = 'https://share.transistor.fm/s/ddad295d'
+      const rules = [createMetascraperIframe()]
+      const metascraper = createMetascraper(rules)
+      const meta = await metascraper({ url, html, iframe: { maxWidth: 350 } })
+
+      should(meta.iframe).be.equal(
+        '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" maxWidth="350"></iframe>'
+      )
     })
   })
 
@@ -73,6 +88,7 @@ describe('metascraper-iframe', () => {
       const rules = [createMetascraperIframe({ gotOpts })]
       const metascraper = createMetascraper(rules)
       const meta = await metascraper({ url, html })
+
       should(meta.iframe).be.not.null()
       should(cache.size > 0).be.true()
     })

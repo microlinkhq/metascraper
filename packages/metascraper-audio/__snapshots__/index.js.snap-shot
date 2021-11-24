@@ -35,7 +35,7 @@ exports['jsld:contentUrl 1'] = {
 }
 
 exports['twitter:player 1'] = {
-  "audio": "https://browserless.js.org/static/demo.mp3"
+  "audio": "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3"
 }
 
 exports['twitter:player (video url) 1'] = {

@@ -53,3 +53,8 @@ exports['twitter:player (hosted player) 1'] = {
   "video": "https://twitter-card-player.vercel.app/example.mp4"
 }
 
+exports['twitter:player 1'] = {
+  "image": null,
+  "video": "https://twitter-card-player.vercel.app/example.mp4"
+}
+
