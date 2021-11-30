@@ -31,10 +31,12 @@ const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   const playerHeight = getPlayerHeight(url, htmlDom)
 
   const props = [
-    'frameborder="0"',
-    'scrolling="no"',
-    `width="${playerWidth}px"`,
-    `height="${playerHeight}px"`,
+    ...[
+      'frameborder="0"',
+      'scrolling="no"',
+      playerWidth && `width="${playerWidth}"`,
+      playerHeight && `height="${playerHeight}"`,
+    ].filter(Boolean),
     ...map(iframe, (value, key) => `${key}="${value}"`)
   ]
 
