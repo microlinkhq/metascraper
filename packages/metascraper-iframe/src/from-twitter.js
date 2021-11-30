@@ -14,14 +14,14 @@ const getPlayerUrl = memoizeOne(
 )
 
 const getPlayerWidth = ($) => (
-  $('meta[name="twitter:player:width"]').attr("content") ||
-  $('meta[property="twitter:player:width"]').attr("content")
-);
+  $('meta[name="twitter:player:width"]').attr('content') ||
+  $('meta[property="twitter:player:width"]').attr('content')
+)
 
 const getPlayerHeight = ($) => (
-  $('meta[name="twitter:player:height"]').attr("content") ||
-  $('meta[property="twitter:player:height"]').attr("content")
-);
+  $('meta[name="twitter:player:height"]').attr('content') ||
+  $('meta[property="twitter:player:height"]').attr('content')
+)
 
 const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   const playerWidth = getPlayerWidth(url, htmlDom)
