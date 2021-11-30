@@ -72,7 +72,7 @@ describe('metascraper-iframe', () => {
       const meta = await metascraper({ url, html, iframe: { maxWidth: 350 } })
 
       should(meta.iframe).be.equal(
-        '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" maxWidth="350"></iframe>'
+        '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" width="500px" height="180px" maxWidth="350"></iframe>'
       )
     })
   })
