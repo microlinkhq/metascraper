@@ -24,10 +24,11 @@ const getPlayerHeight = ($) => (
 )
 
 const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
-  const playerWidth = getPlayerWidth(url, htmlDom)
-  const playerHeight = getPlayerHeight(url, htmlDom)
   const playerUrl = getPlayerUrl(url, htmlDom)
   if (!playerUrl) return
+  
+  const playerWidth = getPlayerWidth(url, htmlDom)
+  const playerHeight = getPlayerHeight(url, htmlDom)
 
   const props = [
     'frameborder="0"',
