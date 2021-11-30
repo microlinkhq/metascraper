@@ -13,20 +13,18 @@ const getPlayerUrl = memoizeOne(
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
-const getPlayerWidth = ($) => (
+const getPlayerWidth = $ =>
   $('meta[name="twitter:player:width"]').attr('content') ||
   $('meta[property="twitter:player:width"]').attr('content')
-)
 
-const getPlayerHeight = ($) => (
+const getPlayerHeight = $ =>
   $('meta[name="twitter:player:height"]').attr('content') ||
   $('meta[property="twitter:player:height"]').attr('content')
-)
 
 const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   const playerUrl = getPlayerUrl(url, htmlDom)
   if (!playerUrl) return
-  
+
   const playerWidth = getPlayerWidth(url, htmlDom)
   const playerHeight = getPlayerHeight(url, htmlDom)
 
@@ -35,7 +33,7 @@ const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
       'frameborder="0"',
       'scrolling="no"',
       playerWidth && `width="${playerWidth}"`,
-      playerHeight && `height="${playerHeight}"`,
+      playerHeight && `height="${playerHeight}"`
     ].filter(Boolean),
     ...map(iframe, (value, key) => `${key}="${value}"`)
   ]
