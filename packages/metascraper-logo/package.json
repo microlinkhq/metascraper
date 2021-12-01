@@ -2,7 +2,7 @@
   "name": "metascraper-logo",
   "description": "Get logo property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-logo",
-  "version": "5.25.2",
+  "version": "5.25.4",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.25.2",
+    "@metascraper/helpers": "^5.25.4",
     "lodash": "~4.17.21"
   },
   "engines": {
