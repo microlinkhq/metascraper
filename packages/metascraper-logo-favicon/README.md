@@ -11,7 +11,7 @@
 $ npm install metascraper-logo-favicon --save
 ```
 
-## Usage
+## API
 
 ### metascraper-logo-favicon([options])
 

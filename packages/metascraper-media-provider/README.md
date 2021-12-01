@@ -11,7 +11,7 @@
 $ npm install metascraper-media-provider --save
 ```
 
-## Usage
+## API
 
 ### metascraper-media-provider([options])
 

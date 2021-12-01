@@ -63,16 +63,32 @@ describe('metascraper-iframe', () => {
     })
 
     it('from twitter player', async () => {
+      const htmlWithDimensions = await readFile(
+        resolve(__dirname, 'fixtures/indiehacker-with-dimensions.html')
+      )
+
       const html = await readFile(
         resolve(__dirname, 'fixtures/indiehacker.html')
       )
+
       const url = 'https://share.transistor.fm/s/ddad295d'
       const rules = [createMetascraperIframe()]
       const metascraper = createMetascraper(rules)
-      const meta = await metascraper({ url, html, iframe: { maxWidth: 350 } })
 
-      should(meta.iframe).be.equal(
+      const iframe = (html, opts) =>
+        metascraper({ url, html, iframe: opts }).then(data => data.iframe)
+
+      should(await iframe(html, { maxWidth: 350 })).be.equal(
         '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" maxWidth="350"></iframe>'
+      )
+
+      should(await iframe(htmlWithDimensions, { maxWidth: 350 })).be.equal(
+        '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" width="500" height="180" maxWidth="350"></iframe>'
+      )
+      should(
+        await iframe(htmlWithDimensions, { maxWidth: 350, width: 100 })
+      ).be.equal(
+        '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" width="100" height="180" maxWidth="350"></iframe>'
       )
     })
   })
