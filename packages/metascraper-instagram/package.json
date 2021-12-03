@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.25.4",
-    "jsdom": "~18.1.0",
+    "jsdom": "~19.0.0",
     "lodash": "~4.17.21",
     "tldts": "~5.7.53"
   },

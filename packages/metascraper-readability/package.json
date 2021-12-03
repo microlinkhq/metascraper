@@ -24,7 +24,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.25.4",
     "@mozilla/readability": "~0.4.1",
-    "jsdom": "~18.1.0"
+    "jsdom": "~19.0.0"
   },
   "devDependencies": {
     "metascraper": "latest",
