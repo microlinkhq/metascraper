@@ -111,8 +111,8 @@
     "gulp-strip-css-comments": "latest",
     "gulp-uglify": "latest",
     "lerna": "latest",
-    "lint-staged": "latest",
     "make-dir": "latest",
+    "nano-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
     "prettier-standard": "latest",
@@ -147,7 +147,7 @@
       "@commitlint/config-conventional"
     ]
   },
-  "lint-staged": {
+  "nano-staged": {
     "*.js": [
       "prettier-standard"
     ],
@@ -160,7 +160,7 @@
   },
   "simple-git-hooks": {
     "commit-msg": "npx commitlint --edit",
-    "pre-commit": "npx lint-staged"
+    "pre-commit": "npx nano-staged"
   },
   "standard": {
     "env": [
