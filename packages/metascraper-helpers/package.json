@@ -46,7 +46,6 @@
   "devDependencies": {
     "cheerio": "latest",
     "mocha": "latest",
-    "nyc": "latest",
     "should": "latest",
     "snap-shot": "latest"
   },
@@ -57,7 +56,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
   },
   "license": "MIT",
   "publishConfig": {

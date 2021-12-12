@@ -33,7 +33,6 @@
   "devDependencies": {
     "cheerio": "latest",
     "mocha": "latest",
-    "nyc": "latest",
     "should": "latest"
   },
   "engines": {
@@ -43,7 +42,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
   },
   "license": "MIT",
   "mocha": {
