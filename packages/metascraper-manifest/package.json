@@ -2,7 +2,7 @@
   "name": "metascraper-manifest",
   "description": "Metascraper integration for derecting PWA Web app manifest",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-manifest",
-  "version": "5.25.5",
+  "version": "5.25.6",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -23,7 +23,7 @@
     "pwa"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.25.5",
+    "@metascraper/helpers": "^5.25.6",
     "async-memoize-one": "~1.1.0",
     "got": "~11.8.3",
     "lodash": "~4.17.21"
