@@ -39,8 +39,9 @@
     "microsoft-capitalize": "~1.0.5",
     "mime-types": "~2.1.34",
     "normalize-url": "~6.1.0",
+    "re2": "~1.17.2",
     "smartquotes": "~2.3.2",
-    "url-regex-safe": "~2.1.0",
+    "url-regex-safe": "~3.0.0",
     "video-extensions": "~1.2.0"
   },
   "devDependencies": {
