@@ -2,7 +2,7 @@
   "name": "metascraper-title",
   "description": "Get title property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "5.25.7",
+  "version": "5.25.8",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -21,7 +21,7 @@
     "title"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.25.7"
+    "@metascraper/helpers": "^5.25.8"
   },
   "engines": {
     "node": ">= 12"

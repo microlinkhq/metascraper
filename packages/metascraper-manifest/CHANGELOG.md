@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.25.8](https://github.com/microlinkhq/metascraper/compare/v5.25.7...v5.25.8) (2022-02-01)
+
+
+### Bug Fixes
+
+* **manifest:** ensure at least one icon is present ([dc7e346](https://github.com/microlinkhq/metascraper/commit/dc7e346bca7f46e6eac179a79dbc5522c697501b))
+
+
+
+
+
 ## [5.25.7](https://github.com/microlinkhq/metascraper/compare/v5.25.6...v5.25.7) (2022-01-04)
 
 **Note:** Version bump only for package metascraper-manifest
