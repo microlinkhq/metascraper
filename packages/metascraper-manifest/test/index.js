@@ -22,6 +22,15 @@ describe('metascraper-manifest', () => {
     const meta = await metascraper({ url, html })
     snapshot(meta)
   })
+  it('does nothing if icons field at manifest is not present', async () => {
+    const metascraper = createMetascraper([createMetascraperManifest()])
+    const url = 'https://www.linkedin.com/company/audiense/'
+    const html = createHtml([
+      '<link rel="manifest" href="https://testnet.lumeris.finance/manifest.json">'
+    ])
+    const meta = await metascraper({ url, html })
+    snapshot(meta)
+  })
   it('vercel.com', async () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
     const url = 'https://vercel.com'

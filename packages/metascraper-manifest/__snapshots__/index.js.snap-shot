@@ -19,3 +19,10 @@ exports['does nothing if manifest URL is not reachable 1'] = {
   "logo": null
 }
 
+exports['does nothing if icons field at manifest is not present 1'] = {
+  "lang": null,
+  "description": null,
+  "publisher": "Lumeris",
+  "logo": null
+}
+
