@@ -25,11 +25,23 @@ const commonProviders = [
 describe('metascraper-iframe', () => {
   describe('.test', () => {
     describe('from common providers', () => {
-      commonProviders.forEach(url => {
-        it(url, () => {
-          const htmlDom = cheerio.load('')
-          const isValid = test({ url, htmlDom })
-          should(isValid).be.true()
+      describe('true', () => {
+        commonProviders.forEach(url => {
+          it(url, () => {
+            const htmlDom = cheerio.load('')
+            const isValid = test({ url, htmlDom })
+            should(isValid).be.true()
+          })
+        })
+      })
+
+      describe('false', () => {
+        ;['https://example.com'].forEach(url => {
+          it(url, () => {
+            const htmlDom = cheerio.load('')
+            const isValid = test({ url, htmlDom })
+            should(isValid).be.false()
+          })
         })
       })
     })
