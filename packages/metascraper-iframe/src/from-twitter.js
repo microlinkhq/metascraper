@@ -3,15 +3,13 @@
 const { normalizeUrl, memoizeOne } = require('@metascraper/helpers')
 const { map } = require('lodash')
 
-const getPlayerUrl = memoizeOne(
-  (url, $) =>
-    normalizeUrl(
-      url,
-      $('meta[name="twitter:player"]').attr('content') ||
-        $('meta[property="twitter:player"]').attr('content')
-    ),
-  memoizeOne.EqualityUrlAndHtmlDom
-)
+const getPlayerUrl = memoizeOne((url, $) => {
+  const playerUrl =
+    $('meta[name="twitter:player"]').attr('content') ||
+    $('meta[property="twitter:player"]').attr('content')
+
+  return playerUrl === undefined ? undefined : normalizeUrl(url, playerUrl)
+}, memoizeOne.EqualityUrlAndHtmlDom)
 
 const playerWidth = $ =>
   $('meta[name="twitter:player:width"]').attr('content') ||
@@ -35,7 +33,7 @@ const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   return `<iframe src="${playerUrl}" frameborder="0" scrolling="no" ${props}></iframe>`
 }
 
-fromTwitter.test = (...args) => !!getPlayerUrl(...args)
+fromTwitter.test = (url, $) => getPlayerUrl(url, $) !== undefined
 
 module.exports = fromTwitter
 module.exports.getPlayerUrl = getPlayerUrl

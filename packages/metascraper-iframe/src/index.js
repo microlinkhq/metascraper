@@ -8,7 +8,9 @@ const fromTwitter = require('./from-twitter')
 
 const isValidUrl = memoizeOne(
   (url, $) =>
-    fromHTML.test(url, $) || fromProvider.test(url) || fromTwitter.test(url),
+    fromHTML.test(url, $) ||
+    fromProvider.test(url, $) ||
+    fromTwitter.test(url, $),
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
