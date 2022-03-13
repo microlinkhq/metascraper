@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.26.0](https://github.com/microlinkhq/metascraper/compare/v5.25.8...v5.26.0) (2022-03-13)
+
+
+### Bug Fixes
+
+* **iframe:** strict comparison ([#502](https://github.com/microlinkhq/metascraper/issues/502)) ([1ae08c4](https://github.com/microlinkhq/metascraper/commit/1ae08c429805b5559592b6aa51021fb078ab53d8))
+
+
+### Features
+
+* **readability:** add lang detection ([910589e](https://github.com/microlinkhq/metascraper/commit/910589eeb977804125d9600f8d7364d9c636ede8))
+
+
+
+
+
 ## [5.25.8](https://github.com/microlinkhq/metascraper/compare/v5.25.7...v5.25.8) (2022-02-01)
 
 

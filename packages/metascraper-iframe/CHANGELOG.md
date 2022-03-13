@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.26.0](https://github.com/microlinkhq/metascraper/compare/v5.25.8...v5.26.0) (2022-03-13)
+
+
+### Bug Fixes
+
+* **iframe:** strict comparison ([#502](https://github.com/microlinkhq/metascraper/issues/502)) ([1ae08c4](https://github.com/microlinkhq/metascraper/commit/1ae08c429805b5559592b6aa51021fb078ab53d8))
+
+
+
+
+
 ## [5.25.8](https://github.com/microlinkhq/metascraper/compare/v5.25.7...v5.25.8) (2022-02-01)
 
 **Note:** Version bump only for package metascraper-iframe
