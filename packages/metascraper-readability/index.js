@@ -23,9 +23,10 @@ const getReadbility = composeRule(($, url) => readability(url, $.html()))
 
 module.exports = () => {
   return {
-    description: getReadbility({ from: 'excerpt', to: 'description' }),
-    publisher: getReadbility({ from: 'siteName', to: 'publisher' }),
     author: getReadbility({ from: 'byline', to: 'author' }),
+    description: getReadbility({ from: 'excerpt', to: 'description' }),
+    lang: getReadbility({ from: 'lang' }),
+    publisher: getReadbility({ from: 'siteName', to: 'publisher' }),
     title: getReadbility({ from: 'title' })
   }
 }
