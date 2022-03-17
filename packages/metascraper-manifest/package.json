@@ -25,7 +25,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.26.0",
     "async-memoize-one": "~1.1.0",
-    "got": "~11.8.3",
+    "got": "~12.0.2",
     "lodash": "~4.17.21"
   },
   "devDependencies": {
