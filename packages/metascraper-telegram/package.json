@@ -24,7 +24,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.26.0",
     "async-memoize-one": "~1.1.0",
-    "css-urls": "~2.0.21",
+    "css-urls": "~2.0.22",
     "tldts": "~5.7.69"
   },
   "devDependencies": {

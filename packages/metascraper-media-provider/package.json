@@ -34,7 +34,7 @@
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
     "tldts": "~5.7.69",
-    "youtube-dl-exec": "~2.0.7"
+    "youtube-dl-exec": "~2.0.8"
   },
   "devDependencies": {
     "is-ci": "latest",
