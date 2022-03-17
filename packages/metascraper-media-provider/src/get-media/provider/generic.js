@@ -42,7 +42,7 @@ module.exports = ({
     let data
 
     const condition = () =>
-      isSupportedURL && !isTimeout && data !== undefined && retryCount <= retry
+      isSupportedURL && !isTimeout && data === undefined && retryCount <= retry
 
     const task = async () => {
       await pDoWhilst(async () => {
