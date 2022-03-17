@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.26.1](https://github.com/microlinkhq/metascraper/compare/v5.26.0...v5.26.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* **media-provider:** invert condition ([219b2a5](https://github.com/microlinkhq/metascraper/commit/219b2a5a8caeef77d15de0eee8fb9ddae88b026a))
+
+
+
+
+
 # [5.26.0](https://github.com/microlinkhq/metascraper/compare/v5.25.8...v5.26.0) (2022-03-13)
 
 
