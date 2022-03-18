@@ -45,19 +45,21 @@ const { extension, isUrl } = require('@metascraper/helpers')
 describe('metascraper-media-provider', () => {
   describe('.getVideo', () => {
     it('twitter', () => {
-      snapshot(getVideo(require('./fixtures/video/twitter.json')))
+      snapshot(getVideo(require('./fixtures/provider/twitter.json')))
     })
     it('vimeo', () => {
-      snapshot(getVideo(require('./fixtures/video/vimeo.json')))
+      snapshot(getVideo(require('./fixtures/provider/vimeo.json')))
     })
     it('youtube', () => {
-      snapshot(getVideo(require('./fixtures/video/youtube.json')))
+      snapshot(getVideo(require('./fixtures/provider/youtube.json')))
     })
     it('prefer a video url with audio', () => {
-      snapshot(getVideo(require('./fixtures/video/youtube-video-audio.json')))
+      snapshot(
+        getVideo(require('./fixtures/provider/youtube-video-audio.json'))
+      )
     })
     it('mpga extension', () => {
-      getVideo(require('./fixtures/extension/mpga.json'))
+      getVideo(require('./fixtures/mpga.json'))
     })
   })
 
@@ -103,7 +105,6 @@ describe('metascraper-media-provider', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata)
           debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
