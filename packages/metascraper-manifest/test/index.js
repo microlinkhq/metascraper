@@ -26,7 +26,7 @@ describe('metascraper-manifest', () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
     const url = 'https://www.linkedin.com/company/audiense/'
     const html = createHtml([
-      '<link rel="manifest" href="https://testnet.lumeris.finance/manifest.json">'
+      '<link rel="manifest" href="https://test-webmanifest.vercel.app?icons=false&name=Lumeris&short_name=Lumeris">'
     ])
     const meta = await metascraper({ url, html })
     snapshot(meta)
