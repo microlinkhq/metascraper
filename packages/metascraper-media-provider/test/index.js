@@ -83,7 +83,7 @@ describe('metascraper-media-provider', () => {
         // https://github.com/ytdl-org/youtube-dl/issues/29205
         // 'https://vimeo.com/channels/staffpicks/287117046',
         // 'https://vimeo.com/showcase/3717822',
-        'https://vimeo.com/186386161'
+        'https://vimeo.com/443437002'
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
