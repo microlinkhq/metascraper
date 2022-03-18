@@ -61,6 +61,9 @@ describe('metascraper-media-provider', () => {
     it('mpga extension', () => {
       getVideo(require('./fixtures/mpga.json'))
     })
+    it('avoid m3u8', () => {
+      getVideo(require('./fixtures/m3u8.json'))
+    })
   })
 
   describe('video', () => {
