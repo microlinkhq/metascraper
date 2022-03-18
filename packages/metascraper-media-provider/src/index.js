@@ -4,9 +4,10 @@ const {
   chain,
   eq,
   find,
-  isEmpty,
   includes,
+  isEmpty,
   isNil,
+  negate,
   overEvery
 } = require('lodash')
 
@@ -52,7 +53,7 @@ const hasAudio = format =>
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
-const notDownloadable = format => !includes(format.url, 'download=1')
+const isDownloadable = format => includes(format.url, 'download=1')
 
 const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
   const url = chain(formats)
@@ -69,22 +70,24 @@ const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
 
 const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
 
+const VIDEO_FILTERS = [
+  hasVideo,
+  isMp4,
+  isHttps,
+  negate(isDownloadable),
+  hasVideoCodec
+]
+
+const AUDIO_FILTERS = [hasAudio, isHttps, negate(isDownloadable), hasAudioCodec]
+
 const getVideo = data => {
-  const videoFilters = [
-    hasVideo,
-    isMp4,
-    isHttps,
-    notDownloadable,
-    hasVideoCodec
-  ]
   return (
-    getVideoUrls(data, [...videoFilters, hasAudioCodec]) ||
-    getVideoUrls(data, videoFilters)
+    getVideoUrls(data, [hasAudioCodec, ...VIDEO_FILTERS]) ||
+    getVideoUrls(data, VIDEO_FILTERS)
   )
 }
 
-const getAudio = data =>
-  getAudioUrls(data, [hasAudio, isHttps, notDownloadable, hasAudioCodec])
+const getAudio = data => getAudioUrls(data, AUDIO_FILTERS)
 
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
