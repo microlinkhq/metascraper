@@ -9,7 +9,7 @@ exports['segment.com 1'] = {
   "lang": null,
   "description": null,
   "publisher": "starter",
-  "logo": "https://segment.com/blog/icons/icon-96x96.png"
+  "logo": "https://segment.com/blog/icons/icon-96x96.png?v=9b5333b486d45b7c637ce3ea53f7a24c"
 }
 
 exports['does nothing if manifest URL is not reachable 1'] = {

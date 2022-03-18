@@ -39,25 +39,33 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-const { getVideo } = require('..')
+const { getVideo, getAudio } = require('..')
 const { extension, isUrl } = require('@metascraper/helpers')
 
 describe('metascraper-media-provider', () => {
   describe('.getVideo', () => {
     it('twitter', () => {
-      snapshot(getVideo(require('./fixtures/video/twitter.json')))
+      snapshot(getVideo(require('./fixtures/provider/twitter.json')))
     })
     it('vimeo', () => {
-      snapshot(getVideo(require('./fixtures/video/vimeo.json')))
+      snapshot(getVideo(require('./fixtures/provider/vimeo.json')))
     })
     it('youtube', () => {
-      snapshot(getVideo(require('./fixtures/video/youtube.json')))
+      snapshot(getVideo(require('./fixtures/provider/youtube.json')))
     })
     it('prefer a video url with audio', () => {
-      snapshot(getVideo(require('./fixtures/video/youtube-video-audio.json')))
+      snapshot(
+        getVideo(require('./fixtures/provider/youtube-video-audio.json'))
+      )
     })
+    it('avoid m3u8', () => {
+      snapshot(getVideo(require('./fixtures/m3u8.json')))
+    })
+  })
+
+  describe('.getAudio', () => {
     it('mpga extension', () => {
-      getVideo(require('./fixtures/extension/mpga.json'))
+      snapshot(getAudio(require('./fixtures/mpga.json')))
     })
   })
 
@@ -81,7 +89,7 @@ describe('metascraper-media-provider', () => {
         // https://github.com/ytdl-org/youtube-dl/issues/29205
         // 'https://vimeo.com/channels/staffpicks/287117046',
         // 'https://vimeo.com/showcase/3717822',
-        'https://vimeo.com/186386161'
+        'https://vimeo.com/443437002'
       ].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
@@ -103,7 +111,6 @@ describe('metascraper-media-provider', () => {
       ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
         it(url, async () => {
           const metadata = await metascraper({ url })
-          console.log(metadata)
           debug(metadata.video)
           should(isUrl(metadata.video)).be.true()
         })
