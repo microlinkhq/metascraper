@@ -38,6 +38,10 @@ const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 const isMpga = isMIME('mpga')
 
+const isM3u8 = ({ url }) => new URL(url).pathname.endsWith('.m3u8')
+
+const isMpd = ({ url }) => new URL(url).pathname.endsWith('.mpd')
+
 const hasCodec = prop => format => format[prop] !== 'none'
 
 const hasAudioCodec = hasCodec('acodec')
@@ -53,7 +57,8 @@ const hasAudio = format =>
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
-const isDownloadable = format => includes(format.url, 'download=1')
+const isDownloadable = ({ url }) =>
+  new URL(url).searchParams.get('download') === '1'
 
 const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
   const url = chain(formats)
@@ -75,6 +80,8 @@ const VIDEO_FILTERS = [
   isMp4,
   isHttps,
   negate(isDownloadable),
+  negate(isM3u8),
+  negate(isMpd),
   hasVideoCodec
 ]
 
