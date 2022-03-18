@@ -1,15 +1,6 @@
 'use strict'
 
-const {
-  chain,
-  eq,
-  find,
-  includes,
-  isEmpty,
-  isNil,
-  negate,
-  overEvery
-} = require('lodash')
+const { chain, eq, find, isEmpty, isNil, negate, overEvery } = require('lodash')
 
 const {
   extension: extensionFn,
@@ -87,12 +78,9 @@ const VIDEO_FILTERS = [
 
 const AUDIO_FILTERS = [hasAudio, isHttps, negate(isDownloadable), hasAudioCodec]
 
-const getVideo = data => {
-  return (
-    getVideoUrls(data, [hasAudioCodec, ...VIDEO_FILTERS]) ||
-    getVideoUrls(data, VIDEO_FILTERS)
-  )
-}
+const getVideo = data =>
+  getVideoUrls(data, [hasAudioCodec, ...VIDEO_FILTERS]) ||
+  getVideoUrls(data, VIDEO_FILTERS)
 
 const getAudio = data => getAudioUrls(data, AUDIO_FILTERS)
 

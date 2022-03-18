@@ -8,3 +8,5 @@ exports['prefer a video url with audio 1'] = "https://r4---sn-h5q7knel.googlevid
 
 exports['avoid m3u8 1'] = "https://rr1---sn-h5qzen7d.googlevideo.com/videoplayback?expire=1647578885&ei=pbozYqemMMyuWbDrmJAB&ip=88.20.20.109&id=o-AMn2o8_IQNPAJMSyD8x3QQmZ3_ZSHdrczdbUujRCgyeH&itag=22&source=youtube&requiressl=yes&mh=ES&mm=31%2C29&mn=sn-h5qzen7d%2Csn-h5q7knes&ms=au%2Crdu&mv=m&mvi=1&pl=16&initcwndbps=1012500&vprv=1&mime=video%2Fmp4&ns=q7T-2eTkmUZFOoCDutdRqUgG&cnr=14&ratebypass=yes&dur=2622.113&lmt=1646703739665431&mt=1647556602&fvip=5&fexp=24001373%2C24007246&c=WEB&txp=4532434&n=nGmmOcWEvz5edFEIG&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgZFyVy6LC9GAKwQIEY4FM08UXlIxv6L8QC1ty52sw3BYCIEkXicYDC7WH1zOMhJE2fVkPDUaoLxxmmp_SHTFRJxvR&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhALUh5dkKN6vcHPZTDRuFCtuUiGIsYJINvArjX2JwX4mVAiAz6uxPc09Ej-lCrXh-ye5PuGtCbkea8IGBpgatlJRfyA%3D%3D"
 
+exports['mpga extension 1'] = "https://cdn.substack.com/public/audio/d19ff570-992d-44c9-8698-fa3e2cde1e3a.mpga?post_id=18585115"
+

@@ -39,7 +39,7 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-const { getVideo } = require('..')
+const { getVideo, getAudio } = require('..')
 const { extension, isUrl } = require('@metascraper/helpers')
 
 describe('metascraper-media-provider', () => {
@@ -58,11 +58,14 @@ describe('metascraper-media-provider', () => {
         getVideo(require('./fixtures/provider/youtube-video-audio.json'))
       )
     })
-    it('mpga extension', () => {
-      getVideo(require('./fixtures/mpga.json'))
-    })
     it('avoid m3u8', () => {
-      getVideo(require('./fixtures/m3u8.json'))
+      snapshot(getVideo(require('./fixtures/m3u8.json')))
+    })
+  })
+
+  describe('.getAudio', () => {
+    it('mpga extension', () => {
+      snapshot(getAudio(require('./fixtures/mpga.json')))
     })
   })
 
