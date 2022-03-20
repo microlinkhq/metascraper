@@ -2,7 +2,7 @@
   "name": "metascraper-instagram",
   "description": "Metascraper integration for Instagram",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-instagram",
-  "version": "5.26.0",
+  "version": "5.26.3",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
