@@ -59,5 +59,6 @@ module.exports = () => {
   }
 
   rules.test = ({ url }) => isValidUrl(url)
+
   return rules
 }

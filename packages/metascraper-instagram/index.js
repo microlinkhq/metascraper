@@ -78,6 +78,8 @@ module.exports = () => {
     description: getData({ from: 'description' }),
     publisher: () => 'Instagram'
   }
+
   rules.test = ({ url }) => isValidUrl(url)
+
   return rules
 }
