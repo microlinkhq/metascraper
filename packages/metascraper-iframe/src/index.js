@@ -24,4 +24,4 @@ module.exports = ({ gotOpts } = {}) => {
   return rules
 }
 
-module.exports.test = test
+module.exports.isValidUrl = isValidUrl

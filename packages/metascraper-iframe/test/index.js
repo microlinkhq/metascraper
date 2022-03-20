@@ -8,7 +8,7 @@ const cheerio = require('cheerio')
 const createMetascraperIframe = require('..')
 const createMetascraper = require('metascraper')
 
-const { test } = createMetascraperIframe
+const { isValidUrl } = createMetascraperIframe
 
 const { getOembedUrl } = require('../src/from-html')
 
@@ -29,8 +29,7 @@ describe('metascraper-iframe', () => {
         commonProviders.forEach(url => {
           it(url, () => {
             const htmlDom = cheerio.load('')
-            const isValid = test({ url, htmlDom })
-            should(isValid).be.true()
+            should(isValidUrl(url, htmlDom)).be.true()
           })
         })
       })
@@ -39,8 +38,7 @@ describe('metascraper-iframe', () => {
         ;['https://example.com'].forEach(url => {
           it(url, () => {
             const htmlDom = cheerio.load('')
-            const isValid = test({ url, htmlDom })
-            should(isValid).be.false()
+            should(isValidUrl(url, htmlDom)).be.false()
           })
         })
       })
@@ -49,8 +47,7 @@ describe('metascraper-iframe', () => {
       const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
       const htmlDom = cheerio.load(html)
-      const isValid = test({ url, htmlDom })
-      should(isValid).be.true()
+      should(isValidUrl(url, htmlDom)).be.true()
     })
   })
 
