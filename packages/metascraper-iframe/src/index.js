@@ -14,13 +14,13 @@ const isValidUrl = memoizeOne(
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
-const test = ({ url, htmlDom }) => isValidUrl(url, htmlDom)
-
 module.exports = ({ gotOpts } = {}) => {
   const rules = {
     iframe: [fromHTML(gotOpts), fromProvider(gotOpts), fromTwitter(gotOpts)]
   }
-  rules.test = test
+
+  rules.test = ({ url, htmlDom }) => isValidUrl(url, htmlDom)
+
   return rules
 }
 
