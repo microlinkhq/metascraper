@@ -3,8 +3,8 @@
 const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
-const { noop, constant } = require('lodash')
 const youtubedl = require('youtube-dl-exec')
+const { get, constant } = require('lodash')
 const pDoWhilst = require('p-do-whilst')
 const pTimeout = require('p-timeout')
 
@@ -29,10 +29,10 @@ const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
 module.exports = ({
   cacheDir,
   getProxy = constant(false),
-  onError = noop,
+  getAgent, // destructure to don't pass it
   timeout = 30000,
   retry = 2,
-  userAgent,
+  gotOpts,
   ...props
 }) => {
   return async url => {
@@ -44,6 +44,8 @@ module.exports = ({
     const condition = () =>
       isSupportedURL && !isTimeout && data === undefined && retryCount <= retry
 
+    const userAgent = get(gotOpts, 'headers.user-agent')
+
     const task = async () => {
       await pDoWhilst(async () => {
         try {
@@ -51,10 +53,7 @@ module.exports = ({
           const flags = getFlags({ url, proxy, userAgent, cacheDir })
           data = await youtubedl(url, flags, { timeout, ...props })
         } catch (error) {
-          if (condition()) {
-            debug('getInfo:error', { retryCount }, error)
-            onError(url, error)
-          }
+          if (condition()) debug('getInfo:error', { retryCount }, error)
           isSupportedURL = !RE_UNSUPORTED_URL.test(error.stderr)
         }
       }, condition)

@@ -9,6 +9,7 @@ const { isTweetUrl } = require('./util')
 module.exports = props => {
   const fromGeneric = createGenericProvider(props)
   const fromTwitter = createTwitterProvider({ ...props, fromGeneric })
+
   return asyncMemoizeOne(async url => {
     const result = await (isTweetUrl(url) ? fromTwitter(url) : fromGeneric(url))
     return result || {}

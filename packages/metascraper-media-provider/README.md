@@ -23,20 +23,6 @@ Type: `string`
 
 It specifies cache based on file system to be used by [youtube-dl](youtube-dl).
 
-##### onError
-
-Type: `function`
-
-A function to be called when something wrong happens.
-
-It will receive `error` and `url`.
-
-```js
-const onError = (url, error) => {
-  console.error(`${url} failed: ${error.message}`)
-}
-```
-
 ##### getProxy
 
 Type: `function`
@@ -49,6 +35,18 @@ const getProxy = ({ url, retryCount }) => {
   return 'http://user:pwd@proxy:8001'
 }
 ```
+
+##### getAgent
+
+Type: `function`
+
+It receives as input the output from `.getProxy`. The output will be passed to `.gotOpts`.
+
+##### gotOpts
+
+Type: `object`
+
+Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
 ##### retry
 
@@ -63,12 +61,6 @@ Type: `number`<br>
 Default: `30000`
 
 The maximum time allowed to wait until considering the request as timed out.
-
-##### userAgent
-
-Type: `string`
-
-It specifies a custom user agent.
 
 ## License
 
