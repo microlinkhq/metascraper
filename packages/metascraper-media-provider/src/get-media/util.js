@@ -1,7 +1,6 @@
 'use strict'
 
 const { getDomainWithoutSuffix } = require('tldts')
-const Agent = require('keepalive-proxy-agent')
 
 const TEN_MIN_MS = 10 * 60 * 1000
 
@@ -11,17 +10,6 @@ const isTweetUrl = url =>
   isTweet(url) && getDomainWithoutSuffix(url) === 'twitter'
 
 const getTweetId = url => url.split('/').reverse()[0]
-
-const getAgent = proxy => {
-  if (!proxy) return undefined
-  return {
-    [proxy.protocol]: new Agent({
-      keepAlive: false,
-      rejectUnauthorized: false,
-      proxy
-    })
-  }
-}
 
 const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
   let timestamp = Date.now()
@@ -45,7 +33,6 @@ const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
 
 module.exports = {
   expirableCounter,
-  getAgent,
   getTweetId,
   isTweet,
   isTweetUrl

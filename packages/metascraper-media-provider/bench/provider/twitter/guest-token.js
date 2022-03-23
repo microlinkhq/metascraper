@@ -5,11 +5,10 @@ const debug = require('debug-logfmt')(
 )
 
 const { createGuestToken } = require('../../../src/get-media/provider/twitter')
-const userAgent = require('ua-string')
 
-const { getProxy } = require('../../constants')
+const opts = require('../../constants')
 
-const getGuestToken = createGuestToken({ userAgent, getProxy })
+const getGuestToken = createGuestToken(opts)
 
 // When it reaches the max, it returns a 429 rate limit error
 const mainLoop = async () => {

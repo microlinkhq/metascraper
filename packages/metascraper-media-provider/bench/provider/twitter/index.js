@@ -11,14 +11,10 @@ const {
   createGetTwitterVideo
 } = require('../../../src/get-media/provider/twitter')
 
-const uniqueRandomArray = require('unique-random-array')
-const userAgent = require('ua-string')
+const { getUrl, ...opts } = require('../../constants')
 
-const { getProxy, urls } = require('../../constants')
-
-const getUrl = uniqueRandomArray(urls)
-const getGuestToken = createGuestToken({ userAgent, getProxy })
-const twitterVideo = createGetTwitterVideo({ userAgent, getGuestToken })
+const getGuestToken = createGuestToken(opts)
+const twitterVideo = createGetTwitterVideo({ ...opts, getGuestToken })
 
 const mainLoop = async () => {
   let n = 0
