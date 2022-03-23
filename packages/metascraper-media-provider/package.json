@@ -42,7 +42,7 @@
     "pretty-ms": "latest",
     "should": "latest",
     "snap-shot": "latest",
-    "time-span": "4",
+    "time-span": "5",
     "unique-random-array": "2"
   },
   "engines": {
