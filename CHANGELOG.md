@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.27.1](https://github.com/microlinkhq/metascraper/compare/v5.27.0...v5.27.1) (2022-03-24)
+
+### Bug Fixes
+
+* **logo-favicon:** start relative path with slash ([5d9e628](https://github.com/microlinkhq/metascraper/commit/5d9e628853c10c8f4dd494bfffe08266957deafa))
+
 # [5.27.0](https://github.com/microlinkhq/metascraper/compare/v5.26.3...v5.27.0) (2022-03-23)
 
 ### Features
