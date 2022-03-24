@@ -30,13 +30,8 @@ module.exports = opts => {
     logo: async ({ htmlDom, url }) => {
       const manifest = await fetchManifest(url, htmlDom)
       if (!manifest) return
-
-      const icon = first(orderBy(manifest.icons, 'sizes', 'desc'))
-      if (!icon) return
-
-      const { src: srcUrl } = icon
-      const iconUrl = absoluteUrl(url, srcUrl)
-      return logo(iconUrl)
+      const icon = first(orderBy(manifest.icons, 'sizes', 'desc')) || {}
+      return logo(icon.src, { url })
     }
   }
 }

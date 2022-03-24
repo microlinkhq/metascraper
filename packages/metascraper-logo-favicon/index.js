@@ -1,15 +1,8 @@
 'use strict'
 
 const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
-const { URL } = require('url')
-const got = require('got')
-
-const {
-  absoluteUrl,
-  logo,
-  url: urlFn,
-  toRule
-} = require('@metascraper/helpers')
+const { logo, url: urlFn, toRule } = require('@metascraper/helpers')
+const reachableUrl = require('reachable-url')
 
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
@@ -107,18 +100,12 @@ pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
 const createGetLogo = gotOpts => async url => {
-  const logoUrl = absoluteUrl(new URL(url).origin, 'favicon.ico')
-  try {
-    await got.head(logoUrl, {
-      ...gotOpts
-    })
-    return logo(logoUrl)
-  } catch (_) {}
+  const faviconUrl = logo('favicon.ico', { url })
+  if (!faviconUrl) return
+  const response = await reachableUrl(faviconUrl, gotOpts)
+  return reachableUrl.isReachable(response) ? faviconUrl : undefined
 }
 
-/**
- * Rules.
- */
 module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => {
   const getLogo = createGetLogo(gotOpts)
 
