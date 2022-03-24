@@ -137,7 +137,7 @@
     "prerelease": "npm run contributors",
     "pretest": "npm run lint",
     "release": "lerna publish --yes --sort --conventional-commits -m \"chore(release): %s\" --create-release github",
-    "test": "c8 lerna exec npm run test",
+    "test": "c8 pnpm --recursive run test",
     "update": "pnpm --recursive --parallel exec ncu -u",
     "update:check": "pnpm --recursive --parallel exec ncu -errorLevel 2"
   },
