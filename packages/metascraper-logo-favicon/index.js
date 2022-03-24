@@ -100,7 +100,7 @@ pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
 const createGetLogo = gotOpts => async url => {
-  const faviconUrl = logo('favicon.ico', { url })
+  const faviconUrl = logo('/favicon.ico', { url })
   if (!faviconUrl) return
   const response = await reachableUrl(faviconUrl, gotOpts)
   return reachableUrl.isReachable(response) ? faviconUrl : undefined
