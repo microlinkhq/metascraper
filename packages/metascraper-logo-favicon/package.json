@@ -24,8 +24,8 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.26.0",
-    "got": "~11.8.3",
-    "lodash": "~4.17.21"
+    "lodash": "~4.17.21",
+    "reachable-url": "~1.6.7"
   },
   "devDependencies": {
     "mocha": "latest",
