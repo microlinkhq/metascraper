@@ -3,6 +3,7 @@
 const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
 const { logo, url: urlFn, toRule } = require('@metascraper/helpers')
 const reachableUrl = require('reachable-url')
+const memoize = require('@keyvhq/memoize')
 
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
@@ -99,15 +100,22 @@ const pickBiggerSize = sizes => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const createGetLogo = gotOpts => async url => {
-  const faviconUrl = logo('/favicon.ico', { url })
-  if (!faviconUrl) return
-  const response = await reachableUrl(faviconUrl, gotOpts)
-  return reachableUrl.isReachable(response) ? faviconUrl : undefined
+const createGetLogo = ({ gotOpts, keyvOpts }) => {
+  const getLogo = async url => {
+    const faviconUrl = logo('/favicon.ico', { url })
+    if (!faviconUrl) return
+
+    const response = await reachableUrl(faviconUrl, gotOpts)
+    return reachableUrl.isReachable(response) ? faviconUrl : undefined
+  }
+
+  return memoize(getLogo, keyvOpts, {
+    value: value => (value === undefined ? null : value)
+  })
 }
 
-module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => {
-  const getLogo = createGetLogo(gotOpts)
+module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
+  const getLogo = createGetLogo({ gotOpts, keyvOpts })
 
   return {
     logo: [
@@ -116,7 +124,10 @@ module.exports = ({ gotOpts, pickFn = pickBiggerSize } = {}) => {
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
-      ({ url }) => getLogo(url)
+      async ({ url }) => {
+        const value = await getLogo(url)
+        return value === null ? undefined : value
+      }
     ]
   }
 }
