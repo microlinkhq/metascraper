@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.27.2](https://github.com/microlinkhq/metascraper/compare/v5.27.1...v5.27.2) (2022-03-24)
+
+### Performance Improvements
+
+* **logo-favicon:** memoize urls resolution ([#512](https://github.com/microlinkhq/metascraper/issues/512)) ([20e6c32](https://github.com/microlinkhq/metascraper/commit/20e6c32743e14a23a9982945999e3f2a587b3c98))
+
 ## [5.27.1](https://github.com/microlinkhq/metascraper/compare/v5.27.0...v5.27.1) (2022-03-24)
 
 ### Bug Fixes
