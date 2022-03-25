@@ -12,14 +12,14 @@ const {
 } = require('@metascraper/helpers')
 
 const reachableUrl = require('reachable-url')
+const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
 const cheerio = require('cheerio')
 const got = require('got')
 
 const toAudio = toRule(audio)
 
-const withContentType = (url, contentType) =>
-  isMime(contentType, 'audio') ? url : false
+const withContentType = (url, contentType) => (isMime(contentType, 'audio') ? url : false)
 
 const audioRules = [
   toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
@@ -46,42 +46,48 @@ const _getIframe = async (url, { src }) => {
   return iframe.document.documentElement.outerHTML
 }
 
-module.exports = ({ getIframe = _getIframe, gotOpts } = {}) => ({
-  audio: [
-    ...audioRules,
-    async ({ htmlDom: $, url }) => {
-      const iframe = $('iframe')
-      if (iframe.length === 0) return
+const createGetPlayer = ({ gotOpts, keyvOpts }) => {
+  const getPlayer = async playerUrl => {
+    const response = await reachableUrl(playerUrl, gotOpts)
+    if (!reachableUrl.isReachable(response)) return
+    const contentType = response.headers['content-type']
+    if (!contentType || !contentType.startsWith('text')) return
+    const { value: html } = await pReflect(got(playerUrl, { resolveBodyOnly: true, ...gotOpts }))
+    return html
+  }
 
-      const src = $filter($, iframe, el => normalizeUrl(url, el.attr('src')))
-      if (!src) return
+  return memoize(getPlayer, keyvOpts)
+}
 
-      const html = await getIframe(url, { src })
-      const htmlDom = cheerio.load(html)
+module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
+  const getPlayer = createGetPlayer({ gotOpts, keyvOpts })
 
-      return findRule(audioRules, { htmlDom, url })
-    },
-    async ({ htmlDom: $, url }) => {
-      const playerUrl =
-        $('meta[name="twitter:player"]').attr('content') ||
-        $('meta[property="twitter:player"]').attr('content')
+  return {
+    audio: [
+      ...audioRules,
+      async ({ htmlDom: $, url }) => {
+        const iframe = $('iframe')
+        if (iframe.length === 0) return
 
-      if (!playerUrl) return
+        const src = $filter($, iframe, el => normalizeUrl(url, el.attr('src')))
+        if (!src) return
 
-      const response = await reachableUrl(playerUrl, gotOpts)
-      if (!reachableUrl.isReachable(response)) return
+        const html = await getIframe(url, { src })
+        const htmlDom = cheerio.load(html)
 
-      const contentType = response.headers['content-type']
-      if (!contentType || !contentType.startsWith('text')) return
+        return findRule(audioRules, { htmlDom, url })
+      },
+      async ({ htmlDom: $, url }) => {
+        const playerUrl =
+          $('meta[name="twitter:player"]').attr('content') ||
+          $('meta[property="twitter:player"]').attr('content')
 
-      const { value: html } = await pReflect(
-        got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
-      )
-      if (!html) return
-
-      const htmlDom = cheerio.load(html)
-
-      return findRule(audioRules, { htmlDom, url })
-    }
-  ]
-})
+        if (!playerUrl) return
+        const html = await getPlayer(playerUrl)
+        if (!html) return
+        const htmlDom = cheerio.load(html)
+        return findRule(audioRules, { htmlDom, url })
+      }
+    ]
+  }
+}

@@ -1,15 +1,9 @@
 'use strict'
 
-const {
-  $jsonld,
-  extension,
-  findRule,
-  toRule,
-  url: urlFn,
-  video
-} = require('@metascraper/helpers')
+const { $jsonld, extension, findRule, toRule, url: urlFn, video } = require('@metascraper/helpers')
 
 const reachableUrl = require('reachable-url')
+const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
 const { chain } = require('lodash')
 const cheerio = require('cheerio')
@@ -40,31 +34,37 @@ const videoRules = [
   toVideoFromDom($ => $('video > source').get())
 ]
 
-module.exports = ({ gotOpts } = {}) => ({
-  image: [toUrl($ => $('video').attr('poster'))],
-  video: [
-    ...videoRules,
-    async ({ htmlDom: $, url }) => {
-      const playerUrl =
-        $('meta[name="twitter:player"]').attr('content') ||
-        $('meta[property="twitter:player"]').attr('content')
+const createGetPlayer = ({ gotOpts, keyvOpts }) => {
+  const getPlayer = async playerUrl => {
+    const response = await reachableUrl(playerUrl, gotOpts)
+    if (!reachableUrl.isReachable(response)) return
+    const contentType = response.headers['content-type']
+    if (!contentType || !contentType.startsWith('text')) return
+    const { value: html } = await pReflect(got(playerUrl, { resolveBodyOnly: true, ...gotOpts }))
+    return html
+  }
 
-      if (!playerUrl) return
+  return memoize(getPlayer, keyvOpts)
+}
 
-      const response = await reachableUrl(playerUrl, gotOpts)
-      if (!reachableUrl.isReachable(response)) return
+module.exports = ({ gotOpts, keyvOpts } = {}) => {
+  const getPlayer = createGetPlayer({ gotOpts, keyvOpts })
 
-      const contentType = response.headers['content-type']
-      if (!contentType || !contentType.startsWith('text')) return
+  return {
+    image: [toUrl($ => $('video').attr('poster'))],
+    video: [
+      ...videoRules,
+      async ({ htmlDom: $, url }) => {
+        const playerUrl =
+          $('meta[name="twitter:player"]').attr('content') ||
+          $('meta[property="twitter:player"]').attr('content')
 
-      const { value: html } = await pReflect(
-        got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
-      )
-      if (!html) return
-
-      const htmlDom = cheerio.load(html)
-
-      return findRule(videoRules, { htmlDom, url })
-    }
-  ]
-})
+        if (!playerUrl) return
+        const html = await getPlayer(playerUrl)
+        if (!html) return
+        const htmlDom = cheerio.load(html)
+        return findRule(videoRules, { htmlDom, url })
+      }
+    ]
+  }
+}
