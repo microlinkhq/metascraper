@@ -26,7 +26,8 @@
     "cheerio": "~1.0.0-rc.10",
     "got": "~11.8.3",
     "lodash": "~4.17.21",
-    "p-reflect": "~2.1.0"
+    "p-reflect": "~2.1.0",
+    "reachable-url": "~1.6.7"
   },
   "devDependencies": {
     "mocha": "latest",

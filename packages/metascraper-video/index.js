@@ -9,6 +9,7 @@ const {
   video
 } = require('@metascraper/helpers')
 
+const reachableUrl = require('reachable-url')
 const pReflect = require('p-reflect')
 const { chain } = require('lodash')
 const cheerio = require('cheerio')
@@ -50,10 +51,10 @@ module.exports = ({ gotOpts } = {}) => ({
 
       if (!playerUrl) return
 
-      const { isRejected, value } = await pReflect(got.head(playerUrl, gotOpts))
-      if (isRejected) return
+      const response = await reachableUrl(playerUrl, gotOpts)
+      if (!reachableUrl.isReachable(response)) return
 
-      const contentType = value.headers['content-type']
+      const contentType = response.headers['content-type']
       if (!contentType || !contentType.startsWith('text')) return
 
       const { value: html } = await pReflect(
