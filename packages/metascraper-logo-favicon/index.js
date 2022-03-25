@@ -4,6 +4,7 @@ const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
 const { logo, url: urlFn, toRule } = require('@metascraper/helpers')
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
+const { getDomain } = require('tldts')
 
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
@@ -114,6 +115,8 @@ const createGetLogo = ({ gotOpts, keyvOpts }) => {
   })
 }
 
+const castNull = value => (value === null ? undefined : value)
+
 module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
   const getLogo = createGetLogo({ gotOpts, keyvOpts })
 
@@ -124,9 +127,12 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
+      async ({ url }) => castNull(await getLogo(url)),
       async ({ url }) => {
-        const value = await getLogo(url)
-        return value === null ? undefined : value
+        const urlObj = new URL(url)
+        urlObj.hostname = getDomain(url)
+        const result = await getLogo(urlObj.toString())
+        return castNull(result)
       }
     ]
   }
