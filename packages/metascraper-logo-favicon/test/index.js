@@ -212,4 +212,11 @@ describe('metascraper-logo-favicon', () => {
     const meta = await metascraper({ url, html })
     should(meta.logo).be.null()
   })
+
+  it('resolve domain favicon', async () => {
+    const url = 'https://cdn.teslahunt.io/foo/bar'
+    const metascraper = createMetascraper()
+    const meta = await metascraper({ url })
+    should(meta.logo).be.equal('https://teslahunt.io/favicon.ico')
+  })
 })
