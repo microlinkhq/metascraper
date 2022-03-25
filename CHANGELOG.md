@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.28.0](https://github.com/microlinkhq/metascraper/compare/v5.27.3...v5.28.0) (2022-03-25)
+
+### Features
+
+* **logo-favicon:** root domain resolution ([#514](https://github.com/microlinkhq/metascraper/issues/514)) ([98f806d](https://github.com/microlinkhq/metascraper/commit/98f806da015d87924c99045d2f8c408a188d9711))
+
 ## [5.27.3](https://github.com/microlinkhq/metascraper/compare/v5.27.2...v5.27.3) (2022-03-25)
 
 **Note:** Version bump only for package metascraper
