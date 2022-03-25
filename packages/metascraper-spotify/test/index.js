@@ -9,17 +9,18 @@ const metascraperSpotify = require('metascraper-spotify')
 
 const { isValidUrl } = metascraperSpotify
 
-const metascraper = require('metascraper')([
-  metascraperSpotify(),
-  require('metascraper-author')(),
-  require('metascraper-date')(),
-  require('metascraper-description')(),
-  require('metascraper-image')(),
-  require('metascraper-lang')(),
-  require('metascraper-publisher')(),
-  require('metascraper-title')(),
-  require('metascraper-url')()
-])
+const createMetascraper = (...args) =>
+  require('metascraper')([
+    metascraperSpotify(...args),
+    require('metascraper-author')(),
+    require('metascraper-date')(),
+    require('metascraper-description')(),
+    require('metascraper-image')(),
+    require('metascraper-lang')(),
+    require('metascraper-publisher')(),
+    require('metascraper-title')(),
+    require('metascraper-url')()
+  ])
 
 const spotifyUrls = [
   'https://open.spotify.com/album/7CjakTZxwIF8oixONe6Bpb',
@@ -44,6 +45,16 @@ const spotifyUrls = [
 ]
 
 describe('metascraper-spotify', () => {
+  it('allow to customize keyv options', async () => {
+    const url = 'https://open.spotify.com/playlist/0Lt5S4hGarhtZmtz7BNTeX'
+    const cache = new Map()
+    const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+    await metascraper({ url })
+    await metascraper({ url })
+    await metascraper({ url })
+    should(cache.size > 0).be.true()
+  })
+
   describe('.isvalidUrl', () => {
     describe('true', () => {
       spotifyUrls.forEach(url => {
@@ -52,6 +63,7 @@ describe('metascraper-spotify', () => {
         })
       })
     })
+
     describe('false', () => {
       ;[
         'https://soundcloud.com/beautybrainsp/beauty-brain-swag-bandicoot'
@@ -66,24 +78,10 @@ describe('metascraper-spotify', () => {
   describe('extract metadata', () => {
     spotifyUrls.forEach(url => {
       it(url, async () => {
+        const metascraper = createMetascraper()
         const metadata = await metascraper({ url })
         snapshot(mapValues(metadata, kindOf))
       })
     })
-  })
-
-  it('allow to customise keyv options', async () => {
-    const url = 'https://open.spotify.com/playlist/0Lt5S4hGarhtZmtz7BNTeX'
-    const cache = new Map()
-
-    const metascraper = require('metascraper')([
-      metascraperSpotify({ keyvOpts: { store: cache } })
-    ])
-
-    await metascraper({ url })
-    await metascraper({ url })
-    await metascraper({ url })
-
-    should(cache.size > 0).be.true()
   })
 })

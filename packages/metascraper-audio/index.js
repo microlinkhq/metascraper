@@ -19,7 +19,8 @@ const got = require('got')
 
 const toAudio = toRule(audio)
 
-const withContentType = (url, contentType) => (isMime(contentType, 'audio') ? url : false)
+const withContentType = (url, contentType) =>
+  isMime(contentType, 'audio') ? url : false
 
 const audioRules = [
   toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
@@ -52,7 +53,9 @@ const createGetPlayer = ({ gotOpts, keyvOpts }) => {
     if (!reachableUrl.isReachable(response)) return
     const contentType = response.headers['content-type']
     if (!contentType || !contentType.startsWith('text')) return
-    const { value: html } = await pReflect(got(playerUrl, { resolveBodyOnly: true, ...gotOpts }))
+    const { value: html } = await pReflect(
+      got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
+    )
     return html
   }
 
