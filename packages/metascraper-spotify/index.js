@@ -3,6 +3,7 @@
 const { composeRule, memoizeOne } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
 const { getDomainWithoutSuffix } = require('tldts')
+const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
 const { getPreview } = require('spotify-url-info')((url, opts) =>
@@ -11,18 +12,24 @@ const { getPreview } = require('spotify-url-info')((url, opts) =>
   }))
 )
 
-const spotify = asyncMemoizeOne(async url => {
-  try {
-    return await getPreview(url)
-  } catch (_) {
-    return {}
+const createSpotify = ({ gotOpts, keyvOpts }) => {
+  const spotify = async url => {
+    try {
+      const result = await getPreview(url, gotOpts)
+      return result
+    } catch (_) {
+      return {}
+    }
   }
-})
+
+  return asyncMemoizeOne(memoize(spotify, keyvOpts))
+}
 
 const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
 
-module.exports = ({ gotOpts } = {}) => {
-  const getSpotify = composeRule(($, url) => spotify(url, gotOpts))
+module.exports = ({ gotOpts, keyvOpts } = {}) => {
+  const spotify = createSpotify({ gotOpts, keyvOpts })
+  const getSpotify = composeRule(($, url) => spotify(url))
 
   const rules = {
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),
