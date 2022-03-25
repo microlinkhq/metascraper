@@ -1,6 +1,13 @@
 'use strict'
 
-const { $jsonld, extension, findRule, toRule, url: urlFn, video } = require('@metascraper/helpers')
+const {
+  $jsonld,
+  extension,
+  findRule,
+  toRule,
+  url: urlFn,
+  video
+} = require('@metascraper/helpers')
 
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
@@ -40,7 +47,9 @@ const createGetPlayer = ({ gotOpts, keyvOpts }) => {
     if (!reachableUrl.isReachable(response)) return
     const contentType = response.headers['content-type']
     if (!contentType || !contentType.startsWith('text')) return
-    const { value: html } = await pReflect(got(playerUrl, { resolveBodyOnly: true, ...gotOpts }))
+    const { value: html } = await pReflect(
+      got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
+    )
     return html
   }
 

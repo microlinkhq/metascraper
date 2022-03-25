@@ -3,7 +3,8 @@
 const snapshot = require('snap-shot')
 const should = require('should')
 
-const createMetascraper = (...args) => require('metascraper')([require('..')(...args)])
+const createMetascraper = (...args) =>
+  require('metascraper')([require('..')(...args)])
 
 describe('metascraper-audio', () => {
   it('allow to customize keyOpts', async () => {
@@ -18,7 +19,8 @@ describe('metascraper-audio', () => {
   })
 
   it('og:audio', async () => {
-    const html = '<meta property="og:audio" content="https://browserless.js.org/static/demo.mp3">'
+    const html =
+      '<meta property="og:audio" content="https://browserless.js.org/static/demo.mp3">'
     const url = 'https://browserless.js.org'
     const metascraper = createMetascraper()
     const metadata = await metascraper({ html, url })
@@ -61,7 +63,8 @@ describe('metascraper-audio', () => {
   })
 
   it('audio:source:src', async () => {
-    const html = '<audio><source src="https://browserless.js.org/static/demo.mp3"></source></audio>'
+    const html =
+      '<audio><source src="https://browserless.js.org/static/demo.mp3"></source></audio>'
     const url = 'https://browserless.js.org'
     const metascraper = createMetascraper()
     const metadata = await metascraper({ html, url })
@@ -69,9 +72,9 @@ describe('metascraper-audio', () => {
   })
 
   it('a:href', async () => {
-    const html = '<a href="https://browserless.js.org/static/demo.mp3?some_param=this">Download</a>'
+    const html =
+      '<a href="https://browserless.js.org/static/demo.mp3?some_param=this">Download</a>'
     const url = 'https://browserless.js.org'
-
     const metascraper = createMetascraper()
     const metadata = await metascraper({ html, url })
     snapshot(metadata)
@@ -82,7 +85,6 @@ describe('metascraper-audio', () => {
         {"@context":"http://schema.org","@type":"AudioObject","@id":"https://example.com/audio.mp3","contentUrl":"https://example.com/audio.mp3"}
       </script>`
     const url = 'https://browserless.js.org'
-
     const metascraper = createMetascraper()
     const metadata = await metascraper({ html, url })
     snapshot(metadata)
