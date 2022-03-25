@@ -23,6 +23,12 @@ Type: `object`
 
 Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
+##### keyvOpts
+
+Type: `object`
+
+Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
+
 ## License
 
 **metascraper-spotify** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
