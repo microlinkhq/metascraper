@@ -56,8 +56,8 @@ describe('metascraper-iframe', () => {
       commonProviders.forEach(url => {
         it(url, async () => {
           const metascraper = createMetascraper([createMetascraperIframe()])
-          const meta = await metascraper({ url })
-          should(meta.iframe).be.not.null()
+          const metadata = await metascraper({ url })
+          should(metadata.iframe).be.not.null()
         })
       })
     })
@@ -67,8 +67,8 @@ describe('metascraper-iframe', () => {
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
       const rules = [createMetascraperIframe()]
       const metascraper = createMetascraper(rules)
-      const meta = await metascraper({ url, html })
-      should(meta.iframe).be.not.null()
+      const metadata = await metascraper({ url, html })
+      should(metadata.iframe).be.not.null()
     })
 
     it('from twitter player', async () => {
@@ -112,9 +112,9 @@ describe('metascraper-iframe', () => {
 
       const rules = [createMetascraperIframe({ gotOpts })]
       const metascraper = createMetascraper(rules)
-      const meta = await metascraper({ url, html })
+      const metadata = await metascraper({ url, html })
 
-      should(meta.iframe).be.not.null()
+      should(metadata.iframe).be.not.null()
       should(cache.size > 0).be.true()
     })
 

@@ -56,13 +56,13 @@ it('Disable URL validation using `validateUrl`', async () => {
   </html>
   `
 
-  const meta = await metascraper({
+  const metadata = await metascraper({
     url: 'example.com',
     validateUrl: false,
     html
   })
 
-  should(meta.title).equal('Document')
+  should(metadata.title).equal('Document')
 })
 
 it('load extra `rules`', async () => {
@@ -99,8 +99,8 @@ it('load extra `rules`', async () => {
   ]
 
   const metascraper = createMetascraper([titleRules])
-  const meta = await metascraper({ url, html, rules })
-  should(meta.foo).equal('bar')
+  const metadata = await metascraper({ url, html, rules })
+  should(metadata.foo).equal('bar')
 })
 
 it('associate test function with rules', async () => {
@@ -143,7 +143,7 @@ it('associate test function with rules', async () => {
   }
 
   const metascraper = createMetascraper([rulesBundle()])
-  const meta = await metascraper({ url, html })
-  should(meta.foo).be.null()
+  const metadata = await metascraper({ url, html })
+  should(metadata.foo).be.null()
   should(isCalled).be.true()
 })

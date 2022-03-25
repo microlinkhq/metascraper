@@ -66,8 +66,8 @@ describe('metascraper-spotify', () => {
   describe('extract metadata', () => {
     spotifyUrls.forEach(url => {
       it(url, async () => {
-        const meta = await metascraper({ url })
-        snapshot(mapValues(meta, kindOf))
+        const metadata = await metascraper({ url })
+        snapshot(mapValues(metadata, kindOf))
       })
     })
   })

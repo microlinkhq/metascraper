@@ -19,8 +19,8 @@ describe('metascraper-manifest', () => {
     const html = createHtml([
       '<link rel="manifest" href="https://static-exp1.licdn.com/sc/h/8ekldmhv4d8prk5sml735t6np">'
     ])
-    const meta = await metascraper({ url, html })
-    snapshot(meta)
+    const metadata = await metascraper({ url, html })
+    snapshot(metadata)
   })
   it('does nothing if icons field at manifest is not present', async () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
@@ -28,8 +28,8 @@ describe('metascraper-manifest', () => {
     const html = createHtml([
       '<link rel="manifest" href="https://test-webmanifest.vercel.app?icons=false&name=Lumeris&short_name=Lumeris">'
     ])
-    const meta = await metascraper({ url, html })
-    snapshot(meta)
+    const metadata = await metascraper({ url, html })
+    snapshot(metadata)
   })
   it('vercel.com', async () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
@@ -37,8 +37,8 @@ describe('metascraper-manifest', () => {
     const html = createHtml([
       '<link rel="manifest" href="/site.webmanifest" importance="low">'
     ])
-    const meta = await metascraper({ url, html })
-    snapshot(meta)
+    const metadata = await metascraper({ url, html })
+    snapshot(metadata)
   })
   it('segment.com', async () => {
     const metascraper = createMetascraper([createMetascraperManifest()])
@@ -46,7 +46,7 @@ describe('metascraper-manifest', () => {
     const html = createHtml([
       '<link rel="manifest" href="/blog/manifest.webmanifest">'
     ])
-    const meta = await metascraper({ url, html })
-    snapshot(meta)
+    const metadata = await metascraper({ url, html })
+    snapshot(metadata)
   })
 })

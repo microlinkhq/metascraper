@@ -9,15 +9,15 @@ describe('metascraper-clearbit', () => {
   it('returns returns logo url if it exists', async () => {
     const metascraper = createMetascraper([createMetascraperClearbit()])
     const url = 'https://microlink.io'
-    const meta = await metascraper({ url })
-    snapshot(meta)
+    const metadata = await metascraper({ url })
+    snapshot(metadata)
   })
 
   it('returns null if no logo available', async () => {
     const metascraper = createMetascraper([createMetascraperClearbit()])
     const url = 'https://lolwerhere.com'
-    const meta = await metascraper({ url })
-    snapshot(meta)
+    const metadata = await metascraper({ url })
+    snapshot(metadata)
   })
 
   it('accept `gotOpts` options', async () => {
@@ -29,8 +29,8 @@ describe('metascraper-clearbit', () => {
       })
     ])
     const url = 'https://microlink.io'
-    const meta = await metascraper({ url })
-    snapshot(meta)
+    const metadata = await metascraper({ url })
+    snapshot(metadata)
   })
 
   it('accept `logoOpts` options', async () => {
@@ -46,7 +46,7 @@ describe('metascraper-clearbit', () => {
       })
     ])
     const url = 'https://microlink.io'
-    const meta = await metascraper({ url })
-    snapshot(meta)
+    const metadata = await metascraper({ url })
+    snapshot(metadata)
   })
 })
