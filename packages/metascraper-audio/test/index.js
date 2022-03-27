@@ -7,7 +7,7 @@ const createMetascraper = (...args) =>
   require('metascraper')([require('..')(...args)])
 
 describe('metascraper-audio', () => {
-  it('allow to customize keyOpts', async () => {
+  it('allow to customize keyv options', async () => {
     const cache = new Map()
     const html =
       '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'

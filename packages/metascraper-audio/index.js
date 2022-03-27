@@ -11,7 +11,6 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
-const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
 const cheerio = require('cheerio')
@@ -49,16 +48,11 @@ const _getIframe = async (url, { src }) => {
 
 const createGetPlayer = ({ gotOpts, keyvOpts }) => {
   const getPlayer = async playerUrl => {
-    const response = await reachableUrl(playerUrl, gotOpts)
-    if (!reachableUrl.isReachable(response)) return
+    const { value: response } = await pReflect(got(playerUrl, gotOpts))
     const contentType = response.headers['content-type']
     if (!contentType || !contentType.startsWith('text')) return
-    const { value: html } = await pReflect(
-      got(playerUrl, { resolveBodyOnly: true, ...gotOpts })
-    )
-    return html
+    return response.body
   }
-
   return memoize(getPlayer, keyvOpts)
 }
 
