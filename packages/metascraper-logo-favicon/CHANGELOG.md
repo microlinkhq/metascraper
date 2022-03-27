@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.28.3](https://github.com/microlinkhq/metascraper/compare/v5.28.2...v5.28.3) (2022-03-27)
+
+### Bug Fixes
+
+* **logo-favicon:** dedupe memoize key from input ([1e21849](https://github.com/microlinkhq/metascraper/commit/1e218490f8320a1457805efddb2615dbe62ec64d))
+
 ## [5.28.2](https://github.com/microlinkhq/metascraper/compare/v5.28.1...v5.28.2) (2022-03-27)
 
 **Note:** Version bump only for package metascraper-logo-favicon
