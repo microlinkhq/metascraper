@@ -5,23 +5,31 @@ const { forEach, get } = require('lodash')
 const pReflect = require('p-reflect')
 const got = require('got')
 
-const getOembedUrl = memoizeOne((url, $) => {
-  const oembedUrl =
-    $('link[type="application/json+oembed"]').attr('href') ||
-    $('link[type="text/xml+oembed"]').attr('href')
+const getOembedUrl = memoizeOne(
+  (url, $, iframe) => {
+    const oembedUrl =
+      $('link[type="application/json+oembed"]').attr('href') ||
+      $('link[type="text/xml+oembed"]').attr('href')
 
-  return oembedUrl === undefined ? undefined : normalizeUrl(url, oembedUrl)
-}, memoizeOne.EqualityUrlAndHtmlDom)
+    if (!oembedUrl) return
 
-const fromHTML = gotOpts => async ({ htmlDom, url, iframe }) => {
-  const oembedUrl = getOembedUrl(url, htmlDom)
+    const oembedUrlObj = new URL(normalizeUrl(url, oembedUrl))
+
+    forEach(iframe, (value, key) =>
+      oembedUrlObj.searchParams.append(key.toLowerCase(), value)
+    )
+
+    return oembedUrlObj.toString()
+  },
+  (newArgs, oldArgs) =>
+    JSON.stringify(oldArgs[2]) === JSON.stringify(newArgs[2]) &&
+    memoizeOne.EqualityUrlAndHtmlDom(newArgs, oldArgs)
+)
+
+const fromHTML = ({ gotOpts }) => async ({ htmlDom, url, iframe }) => {
+  const oembedUrl = getOembedUrl(url, htmlDom, iframe)
   if (!oembedUrl) return
-
-  const oembedUrlObj = new URL(oembedUrl)
-  forEach(iframe, (value, key) =>
-    oembedUrlObj.searchParams.append(key.toLowerCase(), value)
-  )
-  const { value } = await pReflect(got(oembedUrlObj.toString(), gotOpts).json())
+  const { value } = await pReflect(got(oembedUrl, gotOpts).json())
   return get(value, 'html')
 }
 
