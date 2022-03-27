@@ -1,10 +1,15 @@
 'use strict'
 
-const { composeRule, memoizeOne } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
 const { getDomainWithoutSuffix } = require('tldts')
 const memoize = require('@keyvhq/memoize')
 const got = require('got')
+
+const {
+  composeRule,
+  memoizeOne,
+  normalizeUrl
+} = require('@metascraper/helpers')
 
 const { getPreview } = require('spotify-url-info')((url, opts) =>
   got(url, opts).then(res => ({
@@ -29,7 +34,7 @@ const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const spotify = createSpotify({ gotOpts, keyvOpts })
-  const getSpotify = composeRule(($, url) => spotify(url))
+  const getSpotify = composeRule(($, url) => spotify(normalizeUrl(url)))
 
   const rules = {
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),

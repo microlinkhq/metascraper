@@ -80,7 +80,7 @@ module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
           $('meta[property="twitter:player"]').attr('content')
 
         if (!playerUrl) return
-        const html = await getPlayer(playerUrl)
+        const html = await getPlayer(normalizeUrl(url, playerUrl))
         if (!html) return
         const htmlDom = cheerio.load(html)
         return findRule(audioRules, { htmlDom, url })

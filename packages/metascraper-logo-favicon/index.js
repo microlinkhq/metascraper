@@ -7,9 +7,9 @@ const { getDomain } = require('tldts')
 
 const {
   logo,
-  url: urlFn,
+  normalizeUrl,
   toRule,
-  absoluteUrl
+  url: urlFn
 } = require('@metascraper/helpers')
 
 const SIZE_REGEX_BY_X = /\d+x\d+/
@@ -133,11 +133,11 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
-      async ({ url }) => castNull(await getLogo(absoluteUrl(url))),
+      async ({ url }) => castNull(await getLogo(normalizeUrl(url))),
       async ({ url }) => {
         const urlObj = new URL(url)
         urlObj.hostname = getDomain(url)
-        const result = await getLogo(absoluteUrl(urlObj))
+        const result = await getLogo(normalizeUrl(urlObj))
         return castNull(result)
       }
     ]
