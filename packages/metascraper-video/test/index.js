@@ -18,7 +18,7 @@ describe('metascraper-video', () => {
     const metascraper = createMetascraper({ keyvOpts: { store: cache } })
     const metadata = await metascraper({ html, url })
     should(metadata.video).be.not.null()
-    should(cache.size > 0).be.true()
+    should(cache.size).be.equal(1)
   })
 
   describe('image', () => {

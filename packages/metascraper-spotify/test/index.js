@@ -52,7 +52,7 @@ describe('metascraper-spotify', () => {
     await metascraper({ url })
     await metascraper({ url })
     await metascraper({ url })
-    should(cache.size > 0).be.true()
+    should(cache.size).be.equal(1)
   })
 
   describe('.isvalidUrl', () => {

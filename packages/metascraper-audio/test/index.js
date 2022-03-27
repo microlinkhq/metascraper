@@ -15,7 +15,7 @@ describe('metascraper-audio', () => {
     const metascraper = createMetascraper({ keyvOpts: { store: cache } })
     const metadata = await metascraper({ html, url })
     should(metadata.audio).be.not.null()
-    should(cache.size > 0).be.true()
+    should(cache.size).be.equal(1)
   })
 
   it('og:audio', async () => {
