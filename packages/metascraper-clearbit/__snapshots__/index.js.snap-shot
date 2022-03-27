@@ -1,4 +1,4 @@
-exports['returns returns logo url if it exists 1'] = {
+exports['returns logo url if it exists 1'] = {
   "logo": "https://logo.clearbit.com/microlink.io",
   "publisher": "Microlink"
 }
@@ -8,13 +8,13 @@ exports['returns null if no logo available 1'] = {
   "publisher": null
 }
 
-exports['gotOpts 1'] = {
-  "logo": null,
-  "publisher": null
-}
-
 exports['logoOpts 1'] = {
   "logo": "https://logo.clearbit.com/microlink.io?format=jpg&greyscale=true",
   "publisher": "Microlink"
+}
+
+exports['works fine with subdomains 1'] = {
+  "logo": "https://logo.clearbit.com/youtube.com",
+  "publisher": "YouTube"
 }
 

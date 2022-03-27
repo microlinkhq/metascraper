@@ -29,6 +29,12 @@ In addition, these options are set by default:
 }
 ```
 
+##### keyvOpts
+
+Type: `object`
+
+Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
+
 #### logoOpts
 
 Any option provided here will passed to [Clearbit Logo API](https://clearbit.com/docs#logo-api).

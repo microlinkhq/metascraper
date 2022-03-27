@@ -24,6 +24,7 @@
     "metascraper"
   ],
   "dependencies": {
+    "@keyvhq/memoize": "~1.6.6",
     "@metascraper/helpers": "^5.26.0",
     "async-memoize-one": "~1.1.0",
     "got": "~11.8.3",
