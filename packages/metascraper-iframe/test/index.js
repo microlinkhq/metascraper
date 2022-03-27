@@ -23,6 +23,42 @@ const commonProviders = [
 ]
 
 describe('metascraper-iframe', () => {
+  describe('options', () => {
+    it('gotOpts', async () => {
+      const cache = new Map()
+      const gotOpts = { cache }
+
+      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
+      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+
+      const rules = [createMetascraperIframe({ gotOpts })]
+      const metascraper = createMetascraper(rules)
+      const metadata = await metascraper({ url, html })
+
+      should(metadata.iframe).be.not.null()
+      should(cache.size).be.equal(1)
+    })
+
+    it('iframe', async () => {
+      const url = 'https://vimeo.com/135373919'
+
+      const rules = [createMetascraperIframe()]
+      const metascraper = createMetascraper(rules)
+
+      should(
+        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
+          'width="350"'
+        )
+      ).be.true()
+
+      should(
+        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
+          'width="350"'
+        )
+      ).be.true()
+    })
+  })
+
   describe('.test', () => {
     describe('from common providers', () => {
       describe('true', () => {
@@ -99,42 +135,6 @@ describe('metascraper-iframe', () => {
       ).be.equal(
         '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" width="100" height="180" maxWidth="350"></iframe>'
       )
-    })
-  })
-
-  describe('opts', () => {
-    it('pass custom got options', async () => {
-      const cache = new Map()
-      const gotOpts = { cache }
-
-      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
-      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
-
-      const rules = [createMetascraperIframe({ gotOpts })]
-      const metascraper = createMetascraper(rules)
-      const metadata = await metascraper({ url, html })
-
-      should(metadata.iframe).be.not.null()
-      should(cache.size > 0).be.true()
-    })
-
-    it('pass iframe options', async () => {
-      const url = 'https://vimeo.com/135373919'
-
-      const rules = [createMetascraperIframe()]
-      const metascraper = createMetascraper(rules)
-
-      should(
-        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
-          'width="350"'
-        )
-      ).be.true()
-
-      should(
-        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
-          'width="350"'
-        )
-      ).be.true()
     })
   })
 
