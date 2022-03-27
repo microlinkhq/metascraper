@@ -8,12 +8,12 @@ exports['returns null if no logo available 1'] = {
   "publisher": null
 }
 
-exports['accept `gotOpts` options 1'] = {
+exports['gotOpts 1'] = {
   "logo": null,
   "publisher": null
 }
 
-exports['accept `logoOpts` options 1'] = {
+exports['logoOpts 1'] = {
   "logo": "https://logo.clearbit.com/microlink.io?format=jpg&greyscale=true",
   "publisher": "Microlink"
 }
