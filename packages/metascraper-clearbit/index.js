@@ -4,6 +4,7 @@ const { composeRule } = require('@metascraper/helpers')
 const { get, isString, isObject } = require('lodash')
 const asyncMemoizeOne = require('async-memoize-one')
 const { stringify } = require('querystring')
+const memoize = require('@keyvhq/memoize')
 const { getDomain } = require('tldts')
 const got = require('got')
 
@@ -15,9 +16,8 @@ const appendQuery = (data, query) => {
   if (!isString(logoUrl)) return data
   return { ...data, logo: `${logoUrl}?${stringify(query)}` }
 }
-
-const createClearbit = ({ gotOpts, logoOpts } = {}) =>
-  asyncMemoizeOne(async url => {
+const createClearbit = ({ gotOpts, keyvOpts, logoOpts } = {}) => {
+  const clearbit = async url => {
     const domain = getDomain(url)
     try {
       const { body } = await got(ENDPOINT, {
@@ -31,7 +31,14 @@ const createClearbit = ({ gotOpts, logoOpts } = {}) =>
         logoOpts
       )
     } catch (_) {}
-  })
+  }
+
+  return asyncMemoizeOne(
+    memoize(clearbit, keyvOpts, {
+      value: value => (value === undefined ? null : value)
+    })
+  )
+}
 
 module.exports = opts => {
   const clearbit = createClearbit(opts)

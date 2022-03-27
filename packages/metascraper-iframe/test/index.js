@@ -6,11 +6,13 @@ const should = require('should')
 const cheerio = require('cheerio')
 
 const createMetascraperIframe = require('..')
-const createMetascraper = require('metascraper')
 
 const { isValidUrl } = createMetascraperIframe
 
 const { getOembedUrl } = require('../src/from-html')
+
+const createMetascraper = (...args) =>
+  require('metascraper')([createMetascraperIframe(...args)])
 
 const commonProviders = [
   'https://www.youtube.com/watch?v=Gu8X7vM3Avw',
@@ -23,6 +25,39 @@ const commonProviders = [
 ]
 
 describe('metascraper-iframe', () => {
+  describe('options', () => {
+    it('gotOpts', async () => {
+      const cache = new Map()
+      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
+      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+      const metascraper = createMetascraper({ gotOpts: { cache } })
+
+      const metadataOne = await metascraper({
+        url,
+        html,
+        iframe: { maxWidth: 350 }
+      })
+
+      should(!!metadataOne.iframe).be.true()
+
+      const metadataTwo = await metascraper({
+        url,
+        html,
+        iframe: { maxWidth: 500 }
+      })
+
+      should(!!metadataTwo.iframe).be.true()
+      should(cache.size).be.equal(4)
+    })
+
+    it('iframe', async () => {
+      const url = 'https://vimeo.com/135373919'
+      const metascraper = createMetascraper()
+      const metadata = await metascraper({ url, iframe: { maxWidth: 350 } })
+      should(metadata.iframe.includes('width="350"')).be.true()
+    })
+  })
+
   describe('.test', () => {
     describe('from common providers', () => {
       describe('true', () => {
@@ -102,42 +137,6 @@ describe('metascraper-iframe', () => {
     })
   })
 
-  describe('opts', () => {
-    it('pass custom got options', async () => {
-      const cache = new Map()
-      const gotOpts = { cache }
-
-      const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
-      const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
-
-      const rules = [createMetascraperIframe({ gotOpts })]
-      const metascraper = createMetascraper(rules)
-      const metadata = await metascraper({ url, html })
-
-      should(metadata.iframe).be.not.null()
-      should(cache.size > 0).be.true()
-    })
-
-    it('pass iframe options', async () => {
-      const url = 'https://vimeo.com/135373919'
-
-      const rules = [createMetascraperIframe()]
-      const metascraper = createMetascraper(rules)
-
-      should(
-        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
-          'width="350"'
-        )
-      ).be.true()
-
-      should(
-        (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(
-          'width="350"'
-        )
-      ).be.true()
-    })
-  })
-
   describe('.getOembedUrl', () => {
     it('detect from `application/json+oembed`', () => {
       const url = 'https://example.com'
@@ -150,21 +149,20 @@ describe('metascraper-iframe', () => {
       </html>
       `
       const jsonUrl = getOembedUrl(url, cheerio.load(html))
-      should(jsonUrl).be.equal(oembedUrl)
+      should(jsonUrl).be.equal(`${oembedUrl}/`)
     })
 
     it('detect oEmbed URL from `text/xml+oembed`', () => {
       const url = 'https://example.com/'
-      const oembedUrl = 'https://example.com'
       const html = `
       <!DOCTYPE html>
         <html lang="en">
-        <head><link rel="alternate" type="text/xml+oembed" href="${oembedUrl}"></head>
+        <head><link rel="alternate" type="text/xml+oembed" href="${url}"></head>
         <body></body>
       </html>
       `
       const jsonUrl = getOembedUrl(url, cheerio.load(html))
-      should(jsonUrl).be.equal(oembedUrl)
+      should(jsonUrl).be.equal(url)
     })
 
     it('ensure output URL is absolute', () => {

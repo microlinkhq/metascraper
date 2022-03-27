@@ -7,15 +7,33 @@ const createMetascraper = (...args) =>
   require('metascraper')([require('..')(...args)])
 
 describe('metascraper-audio', () => {
-  it('allow to customize keyv options', async () => {
-    const cache = new Map()
-    const html =
-      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
-    const url = 'https://twitter-card-player.vercel.app'
-    const metascraper = createMetascraper({ keyvOpts: { store: cache } })
-    const metadata = await metascraper({ html, url })
-    should(metadata.audio).be.not.null()
-    should(cache.size > 0).be.true()
+  describe('options', () => {
+    it('keyvOpts', async () => {
+      const cache = new Map()
+      const url = 'https://twitter-card-player.vercel.app'
+      const metascraper = createMetascraper({
+        gotOpts: { retry: 0 },
+        keyvOpts: { store: cache }
+      })
+
+      const metadataOne = await metascraper({
+        url,
+        html:
+          '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
+      })
+
+      should(!!metadataOne.audio).be.true()
+      should(cache.size).be.equal(1)
+
+      const metdataTwo = await metascraper({
+        url,
+        html:
+          '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio-fail.html">'
+      })
+
+      should(!!metdataTwo.audio).be.false()
+      should(cache.size).be.equal(2)
+    })
   })
 
   it('og:audio', async () => {

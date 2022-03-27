@@ -17,7 +17,7 @@ $ npm install metascraper-clearbit --save
 
 #### options
 
-#### gotOpts
+##### gotOpts
 
 Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
@@ -28,6 +28,12 @@ In addition, these options are set by default:
   "responseType": "json"
 }
 ```
+
+##### keyvOpts
+
+Type: `object`
+
+Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
 #### logoOpts
 

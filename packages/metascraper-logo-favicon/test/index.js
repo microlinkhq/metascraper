@@ -14,10 +14,25 @@ const createHtml = meta =>
 </html>`.trim()
 
 describe('metascraper-logo-favicon', () => {
+  describe('options', () => {
+    it('keyvOpts', async () => {
+      const cache = new Map()
+      const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+
+      const metadata = await metascraper({ url: 'https://teslahunt.io' })
+      should(!!metadata.logo).be.true()
+      should(cache.size).be.equal(1)
+
+      const metadataTwo = await metascraper({ url: 'https://lolwerhere.com' })
+      should(!!metadataTwo.logo).be.false()
+      should(cache.size).be.equal(2)
+    })
+  })
+
   it('create an absolute favicon url if the logo is not present', async () => {
     const url = 'https://www.nytimes.com'
     const metascraper = createMetascraper()
-    const metadata = await metascraper({ url, html: '' })
+    const metadata = await metascraper({ url })
     should(metadata.logo).be.equal('https://www.nytimes.com/favicon.ico')
   })
 

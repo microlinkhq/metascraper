@@ -4,6 +4,7 @@ const {
   $jsonld,
   extension,
   findRule,
+  normalizeUrl,
   toRule,
   url: urlFn,
   video
@@ -43,11 +44,14 @@ const videoRules = [
 const createGetPlayer = ({ gotOpts, keyvOpts }) => {
   const getPlayer = async playerUrl => {
     const { value: response } = await pReflect(got(playerUrl, gotOpts))
+    if (!response) return
     const contentType = response.headers['content-type']
     if (!contentType || !contentType.startsWith('text')) return
     return response.body
   }
-  return memoize(getPlayer, keyvOpts)
+  return memoize(getPlayer, keyvOpts, {
+    value: value => (value === undefined ? null : value)
+  })
 }
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
@@ -63,7 +67,7 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
           $('meta[property="twitter:player"]').attr('content')
 
         if (!playerUrl) return
-        const html = await getPlayer(playerUrl)
+        const html = await getPlayer(normalizeUrl(url, playerUrl))
         if (!html) return
         const htmlDom = cheerio.load(html)
         return findRule(videoRules, { htmlDom, url })

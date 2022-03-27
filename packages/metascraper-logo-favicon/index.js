@@ -1,10 +1,16 @@
 'use strict'
 
 const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
-const { logo, url: urlFn, toRule } = require('@metascraper/helpers')
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
 const { getDomain } = require('tldts')
+
+const {
+  logo,
+  normalizeUrl,
+  toRule,
+  url: urlFn
+} = require('@metascraper/helpers')
 
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
@@ -127,11 +133,11 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
-      async ({ url }) => castNull(await getLogo(url)),
+      async ({ url }) => castNull(await getLogo(normalizeUrl(url))),
       async ({ url }) => {
         const urlObj = new URL(url)
         urlObj.hostname = getDomain(url)
-        const result = await getLogo(urlObj.toString())
+        const result = await getLogo(normalizeUrl(urlObj))
         return castNull(result)
       }
     ]

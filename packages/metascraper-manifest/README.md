@@ -17,17 +17,17 @@ $ npm install metascraper-manifest --save
 
 #### options
 
-#### gotOpts
+##### gotOpts
+
+Type: `object`
 
 Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
-In addition, these options are set by default:
+##### keyvOpts
 
-```json
-{
-  "responseType": "json"
-}
-```
+Type: `object`
+
+Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
 ## License
 
