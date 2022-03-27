@@ -45,14 +45,16 @@ const spotifyUrls = [
 ]
 
 describe('metascraper-spotify', () => {
-  it('allow to customize keyv options', async () => {
-    const url = 'https://open.spotify.com/playlist/0Lt5S4hGarhtZmtz7BNTeX'
-    const cache = new Map()
-    const metascraper = createMetascraper({ keyvOpts: { store: cache } })
-    await metascraper({ url })
-    await metascraper({ url })
-    await metascraper({ url })
-    should(cache.size).be.equal(1)
+  describe('options', () => {
+    it('keyvOpts', async () => {
+      const url = 'https://open.spotify.com/playlist/0Lt5S4hGarhtZmtz7BNTeX'
+      const cache = new Map()
+      const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+      await metascraper({ url })
+      await metascraper({ url })
+      await metascraper({ url })
+      should(cache.size).be.equal(1)
+    })
   })
 
   describe('.isvalidUrl', () => {

@@ -7,15 +7,17 @@ const createMetascraper = (...args) =>
   require('metascraper')([require('..')(...args)])
 
 describe('metascraper-audio', () => {
-  it('allow to customize keyv options', async () => {
-    const cache = new Map()
-    const html =
-      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
-    const url = 'https://twitter-card-player.vercel.app'
-    const metascraper = createMetascraper({ keyvOpts: { store: cache } })
-    const metadata = await metascraper({ html, url })
-    should(metadata.audio).be.not.null()
-    should(cache.size).be.equal(1)
+  describe('options', () => {
+    it('keyvOpts', async () => {
+      const cache = new Map()
+      const html =
+        '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
+      const url = 'https://twitter-card-player.vercel.app'
+      const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+      const metadata = await metascraper({ html, url })
+      should(metadata.audio).be.not.null()
+      should(cache.size).be.equal(1)
+    })
   })
 
   it('og:audio', async () => {

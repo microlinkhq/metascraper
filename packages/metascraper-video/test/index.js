@@ -10,15 +10,17 @@ const createMetascraper = (...args) =>
   require('metascraper')([require('..')(...args)])
 
 describe('metascraper-video', () => {
-  it('allow to customize keyv options', async () => {
-    const cache = new Map()
-    const html =
-      '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
-    const url = 'https://twitter-card-player.vercel.app'
-    const metascraper = createMetascraper({ keyvOpts: { store: cache } })
-    const metadata = await metascraper({ html, url })
-    should(metadata.video).be.not.null()
-    should(cache.size).be.equal(1)
+  describe('options', () => {
+    it('keyvOpts', async () => {
+      const cache = new Map()
+      const html =
+        '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
+      const url = 'https://twitter-card-player.vercel.app'
+      const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+      const metadata = await metascraper({ html, url })
+      should(metadata.video).be.not.null()
+      should(cache.size).be.equal(1)
+    })
   })
 
   describe('image', () => {
