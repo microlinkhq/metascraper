@@ -436,7 +436,7 @@ exports['learnnode 1'] = {
   "logo": "https://learnnode.com/images/NODE/favicon.png",
   "publisher": "Learn Node",
   "title": "Learn Node",
-  "url": "https://learnnode.com"
+  "url": "https://learnnode.com/"
 }
 
 exports['linkedin (company) 1'] = {
