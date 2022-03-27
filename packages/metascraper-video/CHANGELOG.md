@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.28.2](https://github.com/microlinkhq/metascraper/compare/v5.28.1...v5.28.2) (2022-03-27)
+
+### Performance Improvements
+
+* remove reachable-url when is not necessary ([#516](https://github.com/microlinkhq/metascraper/issues/516)) ([3e9f58d](https://github.com/microlinkhq/metascraper/commit/3e9f58dcb90dea7b3f15440d5a055b0744184c24))
+
 ## [5.28.1](https://github.com/microlinkhq/metascraper/compare/v5.28.0...v5.28.1) (2022-03-25)
 
 **Note:** Version bump only for package metascraper-video
