@@ -7,6 +7,7 @@ const { getDomain } = require('tldts')
 
 const {
   logo,
+  memoizeOne,
   normalizeUrl,
   toRule,
   url: urlFn
@@ -107,9 +108,11 @@ const pickBiggerSize = sizes => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
+const getFaviconUrl = memoizeOne(url => logo('/favicon.ico', { url }))
+
 const createGetLogo = ({ gotOpts, keyvOpts }) => {
   const getLogo = async url => {
-    const faviconUrl = logo('/favicon.ico', { url })
+    const faviconUrl = getFaviconUrl(url)
     if (!faviconUrl) return
 
     const response = await reachableUrl(faviconUrl, gotOpts)
@@ -117,6 +120,7 @@ const createGetLogo = ({ gotOpts, keyvOpts }) => {
   }
 
   return memoize(getLogo, keyvOpts, {
+    key: getFaviconUrl,
     value: value => (value === undefined ? null : value)
   })
 }
@@ -143,3 +147,5 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
     ]
   }
 }
+
+module.exports.createGetLogo = createGetLogo

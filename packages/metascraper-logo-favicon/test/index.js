@@ -6,6 +6,8 @@ const should = require('should')
 
 const createMetascraper = opts => require('metascraper')([require('..')(opts)])
 
+const { createGetLogo } = require('..')
+
 const createHtml = meta =>
   `<!DOCTYPE html>
 <html lang="en">
@@ -29,6 +31,19 @@ describe('metascraper-logo-favicon', () => {
     })
   })
 
+  describe('.createGetLogo', () => {
+    it('dedupe key from input', async () => {
+      const cache = new Map()
+      const getLogo = createGetLogo({ keyvOpts: { store: cache } })
+
+      await getLogo('https://help.kinopio.club/about/')
+      await getLogo('https://help.kinopio.club/legal/')
+      await getLogo('https://help.kinopio.club/')
+      await getLogo('https://kinopio.club/')
+
+      should(cache.size).be.equal(2)
+    })
+  })
   it('create an absolute favicon url if the logo is not present', async () => {
     const url = 'https://www.nytimes.com'
     const metascraper = createMetascraper()
