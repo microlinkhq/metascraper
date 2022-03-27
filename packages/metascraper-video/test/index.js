@@ -13,13 +13,29 @@ describe('metascraper-video', () => {
   describe('options', () => {
     it('keyvOpts', async () => {
       const cache = new Map()
-      const html =
-        '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
       const url = 'https://twitter-card-player.vercel.app'
-      const metascraper = createMetascraper({ keyvOpts: { store: cache } })
-      const metadata = await metascraper({ html, url })
-      should(!!metadata.video).be.true()
+      const metascraper = createMetascraper({
+        gotOpts: { retry: 0 },
+        keyvOpts: { store: cache }
+      })
+
+      const metadataOne = await metascraper({
+        url,
+        html:
+          '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
+      })
+
+      should(!!metadataOne.video).be.true()
       should(cache.size).be.equal(1)
+
+      const metdataTwo = await metascraper({
+        url,
+        html:
+          '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container-fail.html">'
+      })
+
+      should(!!metdataTwo.audio).be.false()
+      should(cache.size).be.equal(2)
     })
   })
 

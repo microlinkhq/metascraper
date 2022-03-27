@@ -17,13 +17,12 @@ describe('metascraper-manifest', () => {
   describe('options', () => {
     it('keyvOpts', async () => {
       const cache = new Map()
-
       const url = 'https://test-webmanifest.vercel.app'
-
       const metascraper = createMetascraper({
         gotOpts: { retry: 0 },
         keyvOpts: { store: cache }
       })
+
       const metadataOne = await metascraper({
         url,
         html: createHtml(['<link rel="manifest" href="/" importance="low">'])

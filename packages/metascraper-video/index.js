@@ -44,11 +44,14 @@ const videoRules = [
 const createGetPlayer = ({ gotOpts, keyvOpts }) => {
   const getPlayer = async playerUrl => {
     const { value: response } = await pReflect(got(playerUrl, gotOpts))
+    if (!response) return
     const contentType = response.headers['content-type']
     if (!contentType || !contentType.startsWith('text')) return
     return response.body
   }
-  return memoize(getPlayer, keyvOpts)
+  return memoize(getPlayer, keyvOpts, {
+    value: value => (value === undefined ? null : value)
+  })
 }
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {

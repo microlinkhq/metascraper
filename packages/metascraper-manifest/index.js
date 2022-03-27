@@ -19,9 +19,7 @@ const createFetchManifest = ({ gotOpts, keyvOpts } = {}) => {
 
   return asyncMemoizeOne(
     memoize(fetchManifest, keyvOpts, {
-      value: value => {
-        return value === undefined ? null : value
-      }
+      value: value => (value === undefined ? null : value)
     })
   )
 }

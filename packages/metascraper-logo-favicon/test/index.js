@@ -17,10 +17,15 @@ describe('metascraper-logo-favicon', () => {
   describe('options', () => {
     it('keyvOpts', async () => {
       const cache = new Map()
-      const url = 'https://example.com'
       const metascraper = createMetascraper({ keyvOpts: { store: cache } })
-      await metascraper({ url })
+
+      const metadata = await metascraper({ url: 'https://teslahunt.io' })
+      should(!!metadata.logo).be.true()
       should(cache.size).be.equal(1)
+
+      const metadataTwo = await metascraper({ url: 'https://lolwerhere.com' })
+      should(!!metadataTwo.logo).be.false()
+      should(cache.size).be.equal(2)
     })
   })
 
