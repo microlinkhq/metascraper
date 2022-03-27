@@ -121,6 +121,7 @@ const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
     stripWWW: false,
     sortQueryParameters: false,
+    removeSingleSlash: false,
     removeTrailingSlash: false,
     ...opts
   })

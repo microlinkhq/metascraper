@@ -50,6 +50,10 @@ describe('metascraper-helpers', () => {
     ).be.equal(
       'https://wbez-rss.streamguys1.com/player/player21011316001810372.html'
     )
+    should(normalizeUrl('https://example.com/')).be.equal(
+      'https://example.com/'
+    )
+    should(normalizeUrl('https://example.com')).be.equal('https://example.com/')
   })
   it('.author', () => {
     should(author('By Kiko Beats')).be.equal('Kiko Beats')
