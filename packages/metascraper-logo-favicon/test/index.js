@@ -14,10 +14,18 @@ const createHtml = meta =>
 </html>`.trim()
 
 describe('metascraper-logo-favicon', () => {
+  it('allow to customize keyv options', async () => {
+    const cache = new Map()
+    const url = 'https://example.com'
+    const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+    await metascraper({ url })
+    should(cache.size).be.equal(1)
+  })
+
   it('create an absolute favicon url if the logo is not present', async () => {
     const url = 'https://www.nytimes.com'
     const metascraper = createMetascraper()
-    const metadata = await metascraper({ url, html: '' })
+    const metadata = await metascraper({ url })
     should(metadata.logo).be.equal('https://www.nytimes.com/favicon.ico')
   })
 

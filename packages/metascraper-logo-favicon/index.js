@@ -127,7 +127,7 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
-      async ({ url }) => castNull(await getLogo(url)),
+      async ({ url }) => castNull(await getLogo(new URL(url).toString())),
       async ({ url }) => {
         const urlObj = new URL(url)
         urlObj.hostname = getDomain(url)
