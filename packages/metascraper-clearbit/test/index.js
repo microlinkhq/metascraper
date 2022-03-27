@@ -18,8 +18,8 @@ describe('metascraper-clearbit', () => {
       should(cache.size).be.equal(1)
 
       const metadataTwo = await metascraper({ url: 'https://lolwerhere.com' })
-      should(metadataTwo.logo).be.null()
-      should(metadataTwo.publisher).be.null()
+      should(!!metadataTwo.logo).be.false()
+      should(!!metadataTwo.publisher).be.false()
       should(cache.size).be.equal(2)
     })
 

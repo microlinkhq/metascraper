@@ -6,11 +6,13 @@ const should = require('should')
 const cheerio = require('cheerio')
 
 const createMetascraperIframe = require('..')
-const createMetascraper = require('metascraper')
 
 const { isValidUrl } = createMetascraperIframe
 
 const { getOembedUrl } = require('../src/from-html')
+
+const createMetascraper = (...args) =>
+  require('metascraper')([createMetascraperIframe(...args)])
 
 const commonProviders = [
   'https://www.youtube.com/watch?v=Gu8X7vM3Avw',
@@ -30,20 +32,16 @@ describe('metascraper-iframe', () => {
 
       const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
       const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
-
-      const rules = [createMetascraperIframe({ gotOpts })]
-      const metascraper = createMetascraper(rules)
+      const metascraper = createMetascraper({ gotOpts })
       const metadata = await metascraper({ url, html })
 
-      should(metadata.iframe).be.not.null()
+      should(!!metadata.iframe).be.true()
       should(cache.size).be.equal(1)
     })
 
     it('iframe', async () => {
       const url = 'https://vimeo.com/135373919'
-
-      const rules = [createMetascraperIframe()]
-      const metascraper = createMetascraper(rules)
+      const metascraper = createMetascraper()
 
       should(
         (await metascraper({ url, iframe: { maxWidth: 350 } })).iframe.includes(

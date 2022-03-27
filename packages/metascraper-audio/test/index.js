@@ -15,7 +15,7 @@ describe('metascraper-audio', () => {
       const url = 'https://twitter-card-player.vercel.app'
       const metascraper = createMetascraper({ keyvOpts: { store: cache } })
       const metadata = await metascraper({ html, url })
-      should(metadata.audio).be.not.null()
+      should(!!metadata.audio).be.true()
       should(cache.size).be.equal(1)
     })
   })
