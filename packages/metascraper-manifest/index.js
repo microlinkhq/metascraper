@@ -1,15 +1,13 @@
 'use strict'
 
-const { logo, composeRule, absoluteUrl } = require('@metascraper/helpers')
+const { normalizeUrl, logo, composeRule } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
-const { first, orderBy } = require('lodash')
+const { get, first, orderBy } = require('lodash')
+const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
-const createFetchManifest = ({ gotOpts } = {}) =>
-  asyncMemoizeOne(async (url, $) => {
-    const manifest = $('link[rel="manifest"]').attr('href')
-    if (!manifest) return undefined
-    const manifestUrl = absoluteUrl(url, manifest)
+const createFetchManifest = ({ gotOpts, keyvOpts } = {}) => {
+  const fetchManifest = async manifestUrl => {
     try {
       const { body: manifest } = await got(manifestUrl, {
         ...gotOpts,
@@ -17,20 +15,36 @@ const createFetchManifest = ({ gotOpts } = {}) =>
       })
       return manifest
     } catch (_) {}
-  })
+  }
+
+  return asyncMemoizeOne(
+    memoize(fetchManifest, keyvOpts, {
+      value: value => {
+        return value === undefined ? null : value
+      }
+    })
+  )
+}
 
 module.exports = opts => {
   const fetchManifest = createFetchManifest(opts)
-  const manifest = composeRule(($, url) => fetchManifest(url, $))
+
+  const toManifest = ($, url) => {
+    const manifestUrl = $('link[rel="manifest"]').attr('href')
+    if (!manifestUrl) return undefined
+    return fetchManifest(normalizeUrl(url, manifestUrl))
+  }
+
+  const manifest = composeRule(toManifest)
 
   return {
     lang: manifest({ from: 'lang' }),
     description: manifest({ from: 'description' }),
     publisher: manifest({ from: 'short_name', to: 'publisher' }),
     logo: async ({ htmlDom, url }) => {
-      const manifest = await fetchManifest(url, htmlDom)
-      if (!manifest) return
-      const icon = first(orderBy(manifest.icons, 'sizes', 'desc')) || {}
+      const manifest = await toManifest(htmlDom, url)
+      const icons = get(manifest, 'icons')
+      const icon = first(orderBy(icons, 'sizes', 'desc')) || {}
       return logo(icon.src, { url })
     }
   }
