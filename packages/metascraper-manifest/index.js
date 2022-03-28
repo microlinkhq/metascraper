@@ -2,7 +2,7 @@
 
 const { normalizeUrl, logo, composeRule } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
-const { get, first, orderBy } = require('lodash')
+const { chain, toLower } = require('lodash')
 const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
@@ -41,9 +41,16 @@ module.exports = opts => {
     publisher: manifest({ from: 'short_name', to: 'publisher' }),
     logo: async ({ htmlDom, url }) => {
       const manifest = await toManifest(htmlDom, url)
-      const icons = get(manifest, 'icons')
-      const icon = first(orderBy(icons, 'sizes', 'desc')) || {}
-      return logo(icon.src, { url })
+
+      const iconSrc = chain(manifest)
+        .get('icons')
+        .filter(icon => toLower(icon.purpose) !== 'monochrome')
+        .orderBy('sizes', 'desc')
+        .first()
+        .get('src')
+        .value()
+
+      return logo(iconSrc, { url })
     }
   }
 }

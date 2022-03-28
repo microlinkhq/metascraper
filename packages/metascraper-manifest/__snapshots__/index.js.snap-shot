@@ -26,3 +26,17 @@ exports['does nothing if icons field at manifest is not present 1'] = {
   "logo": null
 }
 
+exports['youtube.com 1'] = {
+  "lang": null,
+  "description": null,
+  "publisher": "YouTube",
+  "logo": "https://www.gstatic.com/youtube/img/branding/favicon/favicon_192x192.png"
+}
+
+exports['twitter.com 1'] = {
+  "lang": null,
+  "description": "Get breaking news, politics, trending music, world events, sports scores, and the latest global news stories as they unfold - all with less data.",
+  "publisher": "Twitter",
+  "logo": "https://abs.twimg.com/responsive-web/client-web-legacy/icon-default-large.8e027b65.png"
+}
+

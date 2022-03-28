@@ -53,6 +53,7 @@ describe('metascraper-manifest', () => {
     const metadata = await metascraper({ url, html })
     snapshot(metadata)
   })
+
   it('does nothing if icons field at manifest is not present', async () => {
     const metascraper = createMetascraper()
     const url = 'https://www.linkedin.com/company/audiense/'
@@ -62,22 +63,46 @@ describe('metascraper-manifest', () => {
     const metadata = await metascraper({ url, html })
     snapshot(metadata)
   })
-  it('vercel.com', async () => {
-    const metascraper = createMetascraper()
-    const url = 'https://vercel.com'
-    const html = createHtml([
-      '<link rel="manifest" href="/site.webmanifest" importance="low">'
-    ])
-    const metadata = await metascraper({ url, html })
-    snapshot(metadata)
-  })
-  it('segment.com', async () => {
-    const metascraper = createMetascraper()
-    const url = 'https://segment.com/blog/scaling-nsq/'
-    const html = createHtml([
-      '<link rel="manifest" href="/blog/manifest.webmanifest">'
-    ])
-    const metadata = await metascraper({ url, html })
-    snapshot(metadata)
+
+  describe('providers', () => {
+    it('vercel.com', async () => {
+      const metascraper = createMetascraper()
+      const url = 'https://vercel.com'
+      const html = createHtml([
+        '<link rel="manifest" href="/site.webmanifest" importance="low">'
+      ])
+      const metadata = await metascraper({ url, html })
+      snapshot(metadata)
+    })
+
+    it('segment.com', async () => {
+      const metascraper = createMetascraper()
+      const url = 'https://segment.com/blog/scaling-nsq/'
+      const html = createHtml([
+        '<link rel="manifest" href="/blog/manifest.webmanifest">'
+      ])
+      const metadata = await metascraper({ url, html })
+      snapshot(metadata)
+    })
+
+    it('youtube.com', async () => {
+      const metascraper = createMetascraper()
+      const url = 'https://www.youtube.com/feed/explore'
+      const html = createHtml([
+        '<link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">'
+      ])
+      const metadata = await metascraper({ url, html })
+      snapshot(metadata)
+    })
+
+    it('twitter.com', async () => {
+      const metascraper = createMetascraper()
+      const url = 'https://twitter.com/explore'
+      const html = createHtml([
+        '<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">'
+      ])
+      const metadata = await metascraper({ url, html })
+      snapshot(metadata)
+    })
   })
 })
