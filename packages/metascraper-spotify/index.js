@@ -6,6 +6,7 @@ const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
 const {
+  sanetizeUrl,
   composeRule,
   memoizeOne,
   normalizeUrl
@@ -27,7 +28,12 @@ const createSpotify = ({ gotOpts, keyvOpts }) => {
     }
   }
 
-  return asyncMemoizeOne(memoize(spotify, keyvOpts))
+  return asyncMemoizeOne(
+    memoize(spotify, keyvOpts, {
+      key: url =>
+        sanetizeUrl(url, { removeQueryParameters: [/^utm_\w+/i, 'si'] })
+    })
+  )
 }
 
 const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
