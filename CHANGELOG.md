@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.28.6](https://github.com/microlinkhq/metascraper/compare/v5.28.5...v5.28.6) (2022-03-30)
+
+### Performance Improvements
+
+* **spotify:** remove all key query parameters ([6f25f71](https://github.com/microlinkhq/metascraper/commit/6f25f712eb9789f9108983e3cbd6fceac5f3d431))
+
 ## [5.28.5](https://github.com/microlinkhq/metascraper/compare/v5.28.4...v5.28.5) (2022-03-30)
 
 ### Performance Improvements
