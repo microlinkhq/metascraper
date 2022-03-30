@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.28.5](https://github.com/microlinkhq/metascraper/compare/v5.28.4...v5.28.5) (2022-03-30)
+
+### Performance Improvements
+
+* **spotify:** remove key query parameters ([#520](https://github.com/microlinkhq/metascraper/issues/520)) ([94e8680](https://github.com/microlinkhq/metascraper/commit/94e868031665010e304b53b5657a0330ba19b13c))
+
 ## [5.28.2](https://github.com/microlinkhq/metascraper/compare/v5.28.1...v5.28.2) (2022-03-27)
 
 **Note:** Version bump only for package metascraper-youtube
