@@ -30,8 +30,7 @@ const createSpotify = ({ gotOpts, keyvOpts }) => {
 
   return asyncMemoizeOne(
     memoize(spotify, keyvOpts, {
-      key: url =>
-        sanetizeUrl(url, { removeQueryParameters: [/^utm_\w+/i, 'si'] })
+      key: url => sanetizeUrl(url, { removeQueryParameters: true })
     })
   )
 }
