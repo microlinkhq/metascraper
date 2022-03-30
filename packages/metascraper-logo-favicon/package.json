@@ -26,8 +26,8 @@
     "@keyvhq/memoize": "~1.6.6",
     "@metascraper/helpers": "^5.28.2",
     "lodash": "~4.17.21",
-    "reachable-url": "~1.6.7",
-    "tldts": "~5.7.70"
+    "reachable-url": "~1.6.8",
+    "tldts": "~5.7.73"
   },
   "devDependencies": {
     "mocha": "latest",
