@@ -17,8 +17,7 @@ const appendQuery = (data, query) => {
   return { ...data, logo: `${logoUrl}?${stringify(query)}` }
 }
 const createClearbit = ({ gotOpts, keyvOpts, logoOpts } = {}) => {
-  const clearbit = async url => {
-    const domain = getDomain(url)
+  const clearbit = async domain => {
     try {
       const { body } = await got(ENDPOINT, {
         ...gotOpts,
@@ -33,16 +32,14 @@ const createClearbit = ({ gotOpts, keyvOpts, logoOpts } = {}) => {
     } catch (_) {}
   }
 
-  return asyncMemoizeOne(
-    memoize(clearbit, keyvOpts, {
-      value: value => (value === undefined ? null : value)
-    })
-  )
+  return memoize(clearbit, keyvOpts, {
+    value: value => (value === undefined ? null : value)
+  })
 }
 
 module.exports = opts => {
   const clearbit = createClearbit(opts)
-  const getClearbit = composeRule(($, url) => clearbit(url))
+  const getClearbit = composeRule(($, url) => clearbit(getDomain(url)))
 
   return {
     logo: getClearbit({ from: 'logo' }),
