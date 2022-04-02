@@ -32,9 +32,11 @@ const createClearbit = ({ gotOpts, keyvOpts, logoOpts } = {}) => {
     } catch (_) {}
   }
 
-  return memoize(clearbit, keyvOpts, {
-    value: value => (value === undefined ? null : value)
-  })
+  return asyncMemoizeOne(
+    memoize(clearbit, keyvOpts, {
+      value: value => (value === undefined ? null : value)
+    })
+  )
 }
 
 module.exports = opts => {
