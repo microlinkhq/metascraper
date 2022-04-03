@@ -122,3 +122,20 @@ exports['parse JSON-LD from markup if it is present 1'] = [
   }
 ]
 
+exports['normalize @graph 1'] = [
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "url": "https://bykvu.com/ru",
+    "logo": "https://bykvu.com/wp-content/themes/bykvu/img/logo.svg"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage"
+  }
+]
+
