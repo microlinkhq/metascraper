@@ -8,11 +8,11 @@ const {
   includes,
   invoke,
   isArray,
+  isBoolean,
+  isDate,
   isEmpty,
   isNumber,
-  isBoolean,
   isString,
-  isDate,
   lte,
   replace,
   size,
@@ -299,13 +299,18 @@ memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
 const jsonld = memoizeOne(
   $ =>
     $('script[type="application/ld+json"]')
-      .map((i, e) => {
+      .map(function () {
         try {
-          return JSON.parse(
-            $(e)
+          const el = $(this)
+          const json = JSON.parse(
+            $(el)
               .contents()
               .text()
           )
+
+          const { '@graph': graph, ...props } = json
+          if (!graph) return json
+          return graph.map(item => ({ ...props, ...item }))
         } catch (_) {
           return undefined
         }

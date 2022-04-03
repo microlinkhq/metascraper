@@ -1114,7 +1114,7 @@ exports['theflip 1'] = {
   "image": "https://theflip.africa/wp-content/uploads/2021/01/1600x500-EP2.jpg",
   "video": null,
   "lang": "en",
-  "logo": "https://theflip.africa/wp-content/uploads/2019/09/cropped-512-270x270.png",
+  "logo": "https://theflip.africa/wp-content/uploads/2020/07/The-Flip-scaled.jpg",
   "publisher": "The Flip Africa",
   "title": "Digitizing Healthcare with Helium Health’s Goke Olubusi | The Flip Africa",
   "url": "http://theflip.africa/podcast/digitizing-healthcare-helium-health-goke-olubusi/",
@@ -1189,15 +1189,15 @@ exports['substack 1'] = {
 }
 
 exports['vice 1'] = {
-  "author": "Madeleine Gregory",
-  "date": "2020-02-15T00:00:00.000Z",
-  "description": "Detecting ‘technosignatures’ such as hypothetical Dyson spheres in space could lead us to extraterrestrial life, and now NASA is funding the search.",
-  "image": "https://video-images.vice.com/articles/60e8874db2fd6f009b21ae19/lede/1625851941294-gettyimages-1172247312-1.jpeg?image-resize-opts=Y3JvcD0xeHc6MC45NzkyMzAxODI5MjY4MjkzeGg7Y2VudGVyLGNlbnRlciZyZXNpemU9MTIwMDoqJnJlc2l6ZT0xMjAwOio",
+  "author": "Sarah Jeong",
+  "date": "2016-05-26T20:14:00.000Z",
+  "description": "The ruling that Google’s use of APIs is a fair use will have wide-ranging ramifications for the rest of the tech industry.",
+  "image": "https://images.vice.com/motherboard/content-images/article/no-id/1464294050922700.jpg?image-resize-opts=Y3JvcD0wLjg0NzExMTExMTExMTExMXh3OjF4aDtjZW50ZXIsY2VudGVyJnJlc2l6ZT0xMjAwOiomcmVzaXplPTEyMDA6Kg",
   "video": null,
   "lang": "en",
   "logo": "https://vice-web-statics-cdn.vice.com/favicons/vice/coast-228x228.png",
   "publisher": "vice",
-  "title": "NASA Is Quietly Funding a Hunt for Alien Megastructures",
-  "url": "https://www.vice.com/en/article/pkbq7z/nasa-is-quietly-funding-a-hunt-for-alien-megastructures"
+  "title": "Google Wins Trial Against Oracle, Saves $9 Billion",
+  "url": "https://www.vice.com/en/article/kb77gv/google-wins-trial-against-oracle-saves-9-billion"
 }
 
