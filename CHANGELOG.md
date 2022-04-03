@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.28.8](https://github.com/microlinkhq/metascraper/compare/v5.28.7...v5.28.8) (2022-04-03)
+
+### Bug Fixes
+
+* **clearbit:** call memoizer ([ffe1283](https://github.com/microlinkhq/metascraper/commit/ffe128369f262052ea6225930d8c494ee055b681))
+
 ## [5.28.7](https://github.com/microlinkhq/metascraper/compare/v5.28.6...v5.28.7) (2022-04-02)
 
 **Note:** Version bump only for package metascraper
