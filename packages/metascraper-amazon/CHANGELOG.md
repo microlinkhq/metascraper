@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.29.1](https://github.com/microlinkhq/metascraper/compare/v5.29.0...v5.29.1) (2022-04-08)
+
+**Note:** Version bump only for package metascraper-amazon
+
 # [5.29.0](https://github.com/microlinkhq/metascraper/compare/v5.28.9...v5.29.0) (2022-04-03)
 
 **Note:** Version bump only for package metascraper-amazon
