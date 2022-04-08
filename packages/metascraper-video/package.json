@@ -22,7 +22,7 @@
     "video"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~1.6.6",
+    "@keyvhq/memoize": "~1.6.9",
     "@metascraper/helpers": "^5.29.0",
     "cheerio": "~1.0.0-rc.10",
     "got": "~11.8.3",
