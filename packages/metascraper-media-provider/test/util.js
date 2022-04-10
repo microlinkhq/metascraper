@@ -2,12 +2,12 @@
 
 const should = require('should')
 
-const { expirableCounter } = require('../src/get-media/util')
+const { expirableCounter, getTweetId } = require('../src/get-media/util')
 
 const TEN_MIN_MS = 10 * 60 * 1000
 const ONE_SECOND_MS = 1000
 
-describe('expirableCounter', () => {
+describe('.expirableCounter', () => {
   it('increment and access the value', () => {
     const counter = expirableCounter(0, TEN_MIN_MS)
     should(counter.val()).be.equal(0)
@@ -27,5 +27,14 @@ describe('expirableCounter', () => {
       should(counter.incr()).be.equal(1)
       cb()
     }, ONE_SECOND_MS)
+  })
+})
+
+describe('.getTweetId', () => {
+  it('remove query parameters', () => {
+    const tweetId = getTweetId(
+      'https://twitter.com/brodieseo/status/1512193631482163206?ref_src=twsrc%5Etfw'
+    )
+    should(tweetId).be.equal('1512193631482163206')
   })
 })
