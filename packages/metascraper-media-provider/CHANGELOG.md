@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.29.2](https://github.com/microlinkhq/metascraper/compare/v5.29.1...v5.29.2) (2022-04-10)
+
+### Bug Fixes
+
+* **media-provider:** tweet id without query parameters ([#531](https://github.com/microlinkhq/metascraper/issues/531)) ([8706d79](https://github.com/microlinkhq/metascraper/commit/8706d797e981c3717737997792a4bd52bac71de4))
+
 ## [5.29.1](https://github.com/microlinkhq/metascraper/compare/v5.29.0...v5.29.1) (2022-04-08)
 
 **Note:** Version bump only for package metascraper-media-provider
