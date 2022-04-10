@@ -72,7 +72,7 @@ const createGetTwitterVideo = ({ gotOpts = {}, getGuestToken }) => {
           ...gotOpts.headers,
           referer: url,
           'x-guest-token': token,
-          origin: 'https://twitter.com',
+          origin: 'https://twitter.com/',
           authorization: TWITTER_BEARER_TOKEN
         }
       })
