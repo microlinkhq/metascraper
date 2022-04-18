@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.29.4](https://github.com/microlinkhq/metascraper/compare/v5.29.3...v5.29.4) (2022-04-18)
+
+**Note:** Version bump only for package metascraper-spotify
+
 ## [5.29.3](https://github.com/microlinkhq/metascraper/compare/v5.29.2...v5.29.3) (2022-04-11)
 
 **Note:** Version bump only for package metascraper-spotify
