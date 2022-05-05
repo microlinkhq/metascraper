@@ -1,9 +1,12 @@
-# metascraper-url
-
-[![npm](https://img.shields.io/npm/v/metascraper-url.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-url)
-[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-url&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-url)
-
-> Get url property from HTML markup.
+<div align="center">
+  <br>
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+  <p align="center"><strong>metascraper-url</strong>: Get url property from HTML markup.</p>
+  <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
+  <br>
+</div>
 
 ## Install
 

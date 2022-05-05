@@ -1,9 +1,12 @@
-# metascraper-youtube
-
-[![npm](https://img.shields.io/npm/v/metascraper-youtube.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-youtube)
-[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-youtube&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-youtube)
-
-> Metascraper integration with YouTube.
+<div align="center">
+  <br>
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+  <p align="center"><strong>metascraper-youtube</strong>: Metascraper integration with YouTube.</p>
+  <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
+  <br>
+</div>
 
 ## Install
 

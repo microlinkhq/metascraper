@@ -1,9 +1,12 @@
-# metascraper-video
-
-[![npm](https://img.shields.io/npm/v/metascraper-video.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-video)
-[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-video&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-video)
-
-> Get video property from HTML markup.
+<div align="center">
+  <br>
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+  <p align="center"><strong>metascraper-video</strong>: Get video property from HTML markup.</p>
+  <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
+  <br>
+</div>
 
 ## Install
 
