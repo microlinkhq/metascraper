@@ -13,7 +13,7 @@ module.exports = {
     }
   },
 
-  timeout: timeout,
+  timeout,
   retry: 3,
   getUrl: uniqueRandomArray([
     'https://twitter.com/Tour_du_Rwanda/status/1111166645475700737',

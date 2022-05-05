@@ -24,8 +24,8 @@
   "dependencies": {
     "@metascraper/helpers": "^5.29.3",
     "async-memoize-one": "~1.1.0",
-    "css-urls": "~2.0.25",
-    "tldts": "~5.7.74"
+    "css-urls": "~2.0.26",
+    "tldts": "~5.7.77"
   },
   "devDependencies": {
     "mocha": "latest",
