@@ -3,10 +3,10 @@ name: test
 on:
   push:
     branches:
-    - master
+      - master
   pull_request:
     branches:
-    - master
+      - master
 
 env:
   CI: true
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Node.js
-        uses: actions/setup-node@v3.1.1
+        uses: actions/setup-node@v3
         with:
           node-version: lts/*
       - name: Setup PNPM

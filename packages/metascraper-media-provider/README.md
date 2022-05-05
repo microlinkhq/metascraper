@@ -1,9 +1,12 @@
-# metascraper-media-provider
-
-[![npm](https://img.shields.io/npm/v/metascraper-media-provider.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-media-provider)
-[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-media-provider&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-media-provider)
-
-> Get specific video provider url (Facebook/Twitter/Vimeo/etc).
+<div align="center">
+  <br>
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+  <p align="center"><strong>metascraper-media-provider</strong>: Get specific video provider url (Facebook/Twitter/Vimeo/etc).</p>
+  <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
+  <br>
+</div>
 
 ## Install
 
