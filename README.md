@@ -265,11 +265,11 @@ Ensure the URL provided is validated as a [WHATWG URL](https://nodejs.org/api/ur
 
 To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:
 
-| Library | [`metascraper`](https://www.npmjs.com/package/metascraper) | [`html-metadata`](https://www.npmjs.com/package/html-metadata) | [`node-metainspector`](https://www.npmjs.com/package/node-metainspector) | [`open-graph-scraper`](https://www.npmjs.com/package/open-graph-scraper) | [`unfluff`](https://www.npmjs.com/package/unfluff) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Correct | **95.54%** | **74.56%** | **61.16%** | **66.52%** | **70.90%** |
-| Incorrect | 1.79% | 1.79% | 0.89% | 6.70% | 10.27% |
-| Missed | 2.68% | 23.67% | 37.95% | 26.34% | 8.95% |
+| Library   | [`metascraper`](https://www.npmjs.com/package/metascraper) | [`html-metadata`](https://www.npmjs.com/package/html-metadata) | [`node-metainspector`](https://www.npmjs.com/package/node-metainspector) | [`open-graph-scraper`](https://www.npmjs.com/package/open-graph-scraper) | [`unfluff`](https://www.npmjs.com/package/unfluff) |
+|:----------|:-----------------------------------------------------------|:---------------------------------------------------------------|:-------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------------------------------------------|
+| Correct   | **95.54%**                                                 | **74.56%**                                                     | **61.16%**                                                               | **66.52%**                                                               | **70.90%**                                         |
+| Incorrect | 1.79%                                                      | 1.79%                                                          | 0.89%                                                                    | 6.70%                                                                    | 10.27%                                             |
+| Missed    | 2.68%                                                      | 23.67%                                                         | 37.95%                                                                   | 26.34%                                                                   | 8.95%                                              |
 
 A big part of the reason for **metascraper**'s higher accuracy is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph.
 
@@ -279,7 +279,7 @@ If you're interested in the breakdown by individual pieces of metadata, check ou
 
 ## License
 
-**metascraper** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
+**metascraper** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
 Authored and maintained by [Microlink](https://microlink.io) with help from [contributors](https://github.com/microlinkhq/metascraper/contributors).
 
-> [microlink.io](https://microlink.io) · GitHub [@microlink.io](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)
+> [microlink.io](https://microlink.io) · GitHub [microlinkhq](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)
