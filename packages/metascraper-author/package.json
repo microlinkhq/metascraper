@@ -2,7 +2,7 @@
   "name": "metascraper-author",
   "description": "Get author property from HTML markup",
   "homepage": "https://metascraper.js.org",
-  "version": "5.29.3",
+  "version": "5.29.5",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -21,7 +21,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.29.3"
+    "@metascraper/helpers": "^5.29.5"
   },
   "engines": {
     "node": ">= 12"
