@@ -5,9 +5,7 @@ const { getDomainWithoutSuffix } = require('tldts')
 const { JSDOM, VirtualConsole } = require('jsdom')
 const { keys, first, get } = require('lodash')
 
-const isValidUrl = memoizeOne(
-  url => getDomainWithoutSuffix(url) === 'instagram'
-)
+const test = memoizeOne(url => getDomainWithoutSuffix(url) === 'instagram')
 
 const getPage = sharedData => first(keys(get(sharedData, 'entry_data')))
 
@@ -79,7 +77,7 @@ module.exports = () => {
     publisher: () => 'Instagram'
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }

@@ -36,12 +36,10 @@
     "youtube-dl-exec": "~2.0.11"
   },
   "devDependencies": {
+    "ava": "latest",
     "is-ci": "latest",
-    "mocha": "latest",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
-    "should": "latest",
-    "snap-shot": "latest",
     "time-span": "4",
     "unique-random-array": "2"
   },
@@ -52,15 +50,13 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test ava --timeout 30s"
   },
   "license": "MIT",
-  "mocha": {
-    "bail": true,
-    "exit": true,
-    "recursive": true,
-    "reporter": "spec",
-    "slow": 300,
-    "timeout": "120000"
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers.js"
+    ]
   }
 }

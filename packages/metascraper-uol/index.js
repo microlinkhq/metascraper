@@ -13,7 +13,7 @@ const {
 
 const ROOT_DOMAINS = ['uol.com.br', 'torcedores.com']
 
-const isValidUrl = memoizeOne(url =>
+const test = memoizeOne(url =>
   ROOT_DOMAINS.some(domain => getDomain(url) === domain)
 )
 
@@ -30,9 +30,9 @@ module.exports = () => {
     description: [toDescription(($, url) => $jsonld('description')($, url))]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }
 
-module.exports.isValidUrl = isValidUrl
+module.exports.test = test

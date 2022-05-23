@@ -6,7 +6,7 @@ const fromProvider = require('./from-provider')
 const fromTwitter = require('./from-twitter')
 const fromHTML = require('./from-html')
 
-const isValidUrl = memoizeOne(
+const test = memoizeOne(
   (url, $) =>
     fromHTML.test(url, $) ||
     fromProvider.test(url, $) ||
@@ -23,9 +23,9 @@ module.exports = ({ gotOpts } = {}) => {
     ]
   }
 
-  rules.test = ({ url, htmlDom }) => isValidUrl(url, htmlDom)
+  rules.test = ({ url, htmlDom }) => test(url, htmlDom)
 
   return rules
 }
 
-module.exports.isValidUrl = isValidUrl
+module.exports.test = test

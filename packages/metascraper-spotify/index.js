@@ -35,7 +35,7 @@ const createSpotify = ({ gotOpts, keyvOpts }) => {
   )
 }
 
-const isValidUrl = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
+const test = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const spotify = createSpotify({ gotOpts, keyvOpts })
@@ -52,9 +52,9 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
     url: getSpotify({ from: 'link', to: 'url' })
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }
 
-module.exports.isValidUrl = isValidUrl
+module.exports.test = test

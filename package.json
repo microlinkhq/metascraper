@@ -163,10 +163,5 @@
   "simple-git-hooks": {
     "commit-msg": "npx commitlint --edit",
     "pre-commit": "npx nano-staged"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
   }
 }

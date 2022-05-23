@@ -1,8 +1,8 @@
 'use strict'
 
-const should = require('should')
+const test = require('ava')
 
-it("add a new rule from a prop that doesn't exist", async () => {
+test("add a new rule from a prop that doesn't exist", async t => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -36,10 +36,11 @@ it("add a new rule from a prop that doesn't exist", async () => {
 
   const metascraper = require('../..')([])
   const metadata = await metascraper({ url, html, rules })
-  should(metadata.foo).be.equal('bar')
+
+  t.is(metadata.foo, 'bar')
 })
 
-it('add a new rule for a prop that exists', async () => {
+test('add a new rule for a prop that exists', async t => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -68,5 +69,5 @@ it('add a new rule for a prop that exists', async () => {
   const metascraper = require('../..')([require('metascraper-image')()])
 
   const metadata = await metascraper({ url, html, rules })
-  should(metadata.image).be.equal('https://microlink.io/logo.png')
+  t.is(metadata.image, 'https://microlink.io/logo.png')
 })

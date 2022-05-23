@@ -1,15 +1,13 @@
 'use strict'
 
-const should = require('should')
+const test = require('ava')
 
 const createMetascraperDescription = require('..')
 const createMetascraper = require('metascraper')
 
-describe('metascraper-description', () => {
-  describe('options', () => {
-    it('truncateLength', async () => {
-      const url = 'https://example.com'
-      const html = `
+test('provide `truncateLength`', async t => {
+  const url = 'https://example.com'
+  const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +16,9 @@ describe('metascraper-description', () => {
 <body></body>
 </html>`
 
-      const metascraper = createMetascraper([
-        createMetascraperDescription({ truncateLength: 1 })
-      ])
-      const metadata = await metascraper({ url, html })
-      should(metadata.description).be.equal('w…')
-    })
-  })
+  const metascraper = createMetascraper([
+    createMetascraperDescription({ truncateLength: 1 })
+  ])
+  const metadata = await metascraper({ url, html })
+  t.true(metadata.description.startsWith('w…'))
 })

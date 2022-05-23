@@ -1,9 +1,8 @@
 'use strict'
 
-const snapshot = require('snap-shot')
-const { resolve } = require('path')
 const { readFile } = require('fs').promises
-const should = require('should')
+const { resolve } = require('path')
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -23,10 +22,9 @@ const metascraper = require('../../..')([
 
 const url = 'https://yandex.ru/'
 
-it('yandex', async () => {
+test('yandex', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
-  should(typeof metadata.date === 'string').be.true()
-  delete metadata.date
-  snapshot(metadata)
+  const { date, ...metadata } = await metascraper({ html, url })
+  t.is(typeof date, 'string')
+  t.snapshot(metadata)
 })

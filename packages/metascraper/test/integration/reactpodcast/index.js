@@ -1,10 +1,8 @@
 'use strict'
 
 const { readFile } = require('fs').promises
-const snapshot = require('snap-shot')
 const { resolve } = require('path')
-const { omit } = require('lodash')
-const should = require('should')
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -24,10 +22,9 @@ const metascraper = require('../../..')([
 
 const url = 'https://reactpodcast.com/episodes/117'
 
-it('reactpodcast', async () => {
+test('reactpodcast', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
-  // omit date because it is non deterministic
-  snapshot(omit(metadata, ['date']))
-  should(metadata.date).instanceOf(String)
+  const { date, ...metadata } = await metascraper({ html, url })
+  t.is(typeof date, 'string')
+  t.snapshot(metadata)
 })

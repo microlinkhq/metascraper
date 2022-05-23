@@ -27,8 +27,7 @@
     "tldts": "~5.7.77"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "snap-shot": "latest"
+    "ava": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -37,7 +36,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test ava --timeout 30s"
   },
   "license": "MIT"
 }
