@@ -36,7 +36,6 @@ exports['youtube.com 1'] = {
 exports['twitter.com 1'] = {
   "lang": null,
   "description": "Get breaking news, politics, trending music, world events, sports scores, and the latest global news stories as they unfold - all with less data.",
-  "publisher": "Twitter",
-  "logo": "https://abs.twimg.com/responsive-web/client-web-legacy/icon-default-large.8e027b66.png"
+  "publisher": "Twitter"
 }
 
