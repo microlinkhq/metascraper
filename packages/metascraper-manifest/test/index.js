@@ -1,6 +1,7 @@
 'use strict'
 
 const snapshot = require('snap-shot')
+const { omit } = require('lodash')
 const should = require('should')
 
 const createMetascraper = (...args) =>
@@ -102,7 +103,8 @@ describe('metascraper-manifest', () => {
         '<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">'
       ])
       const metadata = await metascraper({ url, html })
-      snapshot(metadata)
+      should(metadata.logo.startsWith('http')).be.true()
+      snapshot(omit(metadata, ['logo']))
     })
   })
 })
