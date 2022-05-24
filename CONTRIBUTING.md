@@ -52,10 +52,10 @@ A good practice there is to use a memoize function to prevent unnecessary CPU cy
 ```js
 const { memoizeOne } = require('@metascraper/helpers')
 
-const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube'))
+const test = memoizeOne(url => getVideoInfo(url).service === 'youtube'))
 
 const rules = []
-rules.test ({ url }) => isValidUrl(url)
+rules.test ({ url }) => test(url)
 ```
 
 ## Testing your Rules

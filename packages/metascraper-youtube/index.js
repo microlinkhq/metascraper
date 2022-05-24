@@ -36,7 +36,7 @@ const toDescription = toRule(description)
 
 const getVideoInfo = memoizeOne(getVideoId)
 
-const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
+const test = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
 module.exports = ({ gotOpts } = {}) => {
   const rules = {
@@ -55,9 +55,9 @@ module.exports = ({ gotOpts } = {}) => {
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }
 
-module.exports.isValidUrl = isValidUrl
+module.exports.test = test

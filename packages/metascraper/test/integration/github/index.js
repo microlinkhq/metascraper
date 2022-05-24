@@ -1,9 +1,8 @@
 'use strict'
 
-const snapshot = require('snap-shot')
-const { resolve } = require('path')
-const { omit } = require('lodash')
 const { readFile } = require('fs').promises
+const { resolve } = require('path')
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -23,8 +22,9 @@ const metascraper = require('../../..')([
 
 const url = 'https://github.com/microlinkhq/microlink-core'
 
-it('github', async () => {
+test('github', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
-  snapshot(omit(metadata, ['date']))
+  const { date, ...metadata } = await metascraper({ html, url })
+  t.is(typeof date, 'string')
+  t.snapshot(metadata)
 })

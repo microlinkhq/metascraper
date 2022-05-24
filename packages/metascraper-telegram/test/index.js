@@ -1,9 +1,8 @@
 'use strict'
 
 const { readFile } = require('fs').promises
-const snapshot = require('snap-shot')
 const { resolve } = require('path')
-const should = require('should')
+const test = require('ava')
 
 const metascraper = require('metascraper')([
   require('metascraper-telegram')(),
@@ -19,55 +18,44 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-describe('metascraper-telegram', () => {
-  it('avoid non allowed URLs', async () => {
-    const url = 'https://t.co/d0rwf2dLIp'
-    const metadata = await metascraper({ url })
-    should(metadata.audio).be.undefined()
-  })
+test('avoid non allowed URLs', async t => {
+  const url = 'https://t.co/d0rwf2dLIp'
+  const metadata = await metascraper({ url })
+  t.is(metadata.audio, undefined)
+})
 
-  it('avoid URLs with no iframe', async () => {
-    const url = 'https://t.me/unlimitedhangout'
-    const metadata = await metascraper({ url })
-    should(metadata.audio).be.undefined()
-  })
+test('avoid URLs with no iframe', async t => {
+  const url = 'https://t.me/unlimitedhangout'
+  const metadata = await metascraper({ url })
+  t.is(metadata.audio, undefined)
+})
 
-  it('post with little image', async () => {
-    const html = await readFile(
-      resolve(__dirname, 'fixtures/post-right-preview.html')
-    )
-    const url = 'https://t.me/teslahunt/2351'
-    const metadata = await metascraper({ html, url })
-    const image = metadata.image
+test('post with little image', async t => {
+  const html = await readFile(
+    resolve(__dirname, 'fixtures/post-right-preview.html')
+  )
+  const url = 'https://t.me/teslahunt/2351'
+  const { image, ...metadata } = await metascraper({ html, url })
+  t.true(image.startsWith('https://cdn4'))
+  t.snapshot(metadata)
+})
 
-    delete metadata.image
-    should(image.startsWith('https://cdn4')).be.true()
-    snapshot(metadata)
-  })
+test('post with big image', async t => {
+  const html = await readFile(
+    resolve(__dirname, 'fixtures/post-full-image.html')
+  )
+  const url = 'https://t.me/chollometro/28542'
+  const { image, ...metadata } = await metascraper({ html, url })
+  t.true(image.startsWith('https://cdn4'))
+  t.snapshot(metadata)
+})
 
-  it('post with big image', async () => {
-    const html = await readFile(
-      resolve(__dirname, 'fixtures/post-full-image.html')
-    )
-    const url = 'https://t.me/chollometro/28542'
-    const metadata = await metascraper({ html, url })
-    const image = metadata.image
-
-    delete metadata.image
-    should(image.startsWith('https://cdn4')).be.true()
-    snapshot(metadata)
-  })
-
-  it('post with an image inside a link', async () => {
-    const html = await readFile(
-      resolve(__dirname, 'fixtures/post-link-image.html')
-    )
-    const url = 'https://t.me/teslahunt/15513'
-    const metadata = await metascraper({ html, url })
-    const image = metadata.image
-
-    delete metadata.image
-    should(image.startsWith('https://cdn4')).be.true()
-    snapshot(metadata)
-  })
+test('post with an image inside a link', async t => {
+  const html = await readFile(
+    resolve(__dirname, 'fixtures/post-link-image.html')
+  )
+  const url = 'https://t.me/teslahunt/15513'
+  const { image, ...metadata } = await metascraper({ html, url })
+  t.true(image.startsWith('https://cdn4'))
+  t.snapshot(metadata)
 })

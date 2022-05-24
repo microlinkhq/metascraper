@@ -1,8 +1,8 @@
 'use strict'
 
-const snapshot = require('snap-shot')
-const { resolve } = require('path')
 const { readFile } = require('fs').promises
+const { resolve } = require('path')
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
@@ -20,18 +20,18 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-it('nytimes (article)', async () => {
+test('nytimes (article)', async t => {
   const url =
     'https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html'
   const html = await readFile(resolve(__dirname, 'input/article.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  t.snapshot(metadata)
 })
 
-it('nytimes (opinion)', async () => {
+test('nytimes (opinion)', async t => {
   const url =
     'https://www.nytimes.com/2020/11/19/opinion/sway-kara-swisher-raj-chetty.html'
   const html = await readFile(resolve(__dirname, 'input/opinion.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  t.snapshot(metadata)
 })

@@ -31,11 +31,9 @@
     "tldts": "~5.7.77"
   },
   "devDependencies": {
+    "ava": "latest",
     "kind-of": "latest",
-    "lodash": "latest",
-    "mocha": "latest",
-    "should": "latest",
-    "snap-shot": "latest"
+    "lodash": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -44,7 +42,13 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers.js"
+    ]
+  }
 }

@@ -45,10 +45,8 @@
     "video-extensions": "~1.2.0"
   },
   "devDependencies": {
-    "cheerio": "latest",
-    "mocha": "latest",
-    "should": "latest",
-    "snap-shot": "latest"
+    "ava": "latest",
+    "cheerio": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -57,7 +55,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test ava --timeout 30s"
   },
   "license": "MIT",
   "publishConfig": {

@@ -29,10 +29,13 @@
     "reachable-url": "~1.6.10"
   },
   "devDependencies": {
-    "lodash": "latest",
-    "mocha": "latest",
-    "should": "latest",
-    "snap-shot": "latest"
+    "ava": "latest"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers.js"
+    ]
   },
   "engines": {
     "node": ">= 12"
@@ -41,7 +44,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
   "license": "MIT"
 }

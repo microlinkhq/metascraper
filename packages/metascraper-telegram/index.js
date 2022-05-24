@@ -21,7 +21,7 @@ const toDate = toRule(date)
 
 const TELEGRAM_DOMAINS = ['telegram.me', 't.me']
 
-const isValidUrl = memoizeOne(url => TELEGRAM_DOMAINS.includes(getDomain(url)))
+const test = memoizeOne(url => TELEGRAM_DOMAINS.includes(getDomain(url)))
 
 module.exports = () => {
   const rules = {
@@ -58,7 +58,7 @@ module.exports = () => {
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }

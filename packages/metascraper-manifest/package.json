@@ -30,8 +30,7 @@
     "lodash": "~4.17.21"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "snap-shot": "latest"
+    "ava": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -40,15 +39,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
-  "license": "MIT",
-  "mocha": {
-    "bail": true,
-    "exit": true,
-    "recursive": true,
-    "reporter": "spec",
-    "slow": 300,
-    "timeout": "120000"
-  }
+  "license": "MIT"
 }

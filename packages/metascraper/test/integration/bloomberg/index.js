@@ -1,7 +1,7 @@
 'use strict'
 
 const { readFile } = require('fs').promises
-const snapshot = require('snap-shot')
+const test = require('ava')
 const { resolve } = require('path')
 
 const metascraper = require('../../..')([
@@ -23,8 +23,8 @@ const metascraper = require('../../..')([
 const url =
   'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
 
-it('bloomberg', async () => {
+test('bloomberg', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  t.snapshot(metadata)
 })

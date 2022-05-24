@@ -13,9 +13,7 @@ const {
 const toDescription = toRule(description)
 const toAuthor = toRule(author)
 
-const isValidUrl = memoizeOne(
-  url => getDomainWithoutSuffix(url) === 'soundcloud'
-)
+const test = memoizeOne(url => getDomainWithoutSuffix(url) === 'soundcloud')
 
 module.exports = () => {
   const rules = {
@@ -23,7 +21,7 @@ module.exports = () => {
     description: [toDescription($ => $filter($, $('.soundTitle__description')))]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }
