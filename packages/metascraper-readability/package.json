@@ -27,8 +27,8 @@
     "jsdom": "~19.0.0"
   },
   "devDependencies": {
-    "metascraper": "latest",
-    "ava": "latest"
+    "ava": "latest",
+    "metascraper": "latest"
   },
   "engines": {
     "node": ">= 12"

@@ -129,8 +129,8 @@
     "build": "gulp build",
     "clean": "pnpm --recursive --parallel exec -- rm -rf node_modules",
     "contributors": "npm run contributors:add && npm run contributors:commit",
-    "contributors:add": "pnpm --recursive --parallel exec -- finepack",
-    "contributors:commit": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
+    "contributors:add": "pnpm --recursive --parallel exec -- finepack --sort-ignore-object-at ava",
+    "contributors:commit": "(git-authors-cli && finepack --sort-ignore-object-at ava && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "coverage": "c8 report --reporter=text-lcov > coverage/lcov.info",
     "dev": "concurrently \"gulp\" \"npm run dev:server\"",
     "dev:server": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
@@ -157,7 +157,7 @@
       "standard-markdown"
     ],
     "package.json": [
-      "finepack"
+      "finepack --sort-ignore-object-at ava"
     ]
   },
   "simple-git-hooks": {

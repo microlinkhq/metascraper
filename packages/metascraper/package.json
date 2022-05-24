@@ -74,10 +74,10 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
+  "license": "MIT",
   "ava": {
     "failFast": true,
     "timeout": "5m",
     "workerThreads": false
-  },
-  "license": "MIT"
+  }
 }

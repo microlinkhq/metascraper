@@ -31,12 +31,6 @@
   "devDependencies": {
     "ava": "latest"
   },
-  "ava": {
-    "files": [
-      "test/**/*.js",
-      "!test/helpers.js"
-    ]
-  },
   "engines": {
     "node": ">= 12"
   },
@@ -46,5 +40,11 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers.js"
+    ]
+  }
 }

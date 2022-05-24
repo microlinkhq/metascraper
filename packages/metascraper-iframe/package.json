@@ -31,8 +31,8 @@
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {
-    "cheerio": "latest",
-    "ava": "latest"
+    "ava": "latest",
+    "cheerio": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -43,11 +43,11 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
+  "license": "MIT",
   "ava": {
     "files": [
       "test/**/*.js",
       "!test/helpers.js"
     ]
-  },
-  "license": "MIT"
+  }
 }
