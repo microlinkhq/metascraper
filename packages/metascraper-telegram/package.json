@@ -23,9 +23,9 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.29.5",
-    "async-memoize-one": "~1.1.0",
-    "css-urls": "~2.0.26",
-    "tldts": "~5.7.77"
+    "async-memoize-one": "~1.1.1",
+    "css-urls": "~2.0.27",
+    "tldts": "~5.7.80"
   },
   "devDependencies": {
     "ava": "latest"

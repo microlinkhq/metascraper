@@ -5,7 +5,7 @@ const test = require('ava')
 const { expirableCounter } = require('../../src/get-media/util')
 
 const TEN_MIN_MS = 10 * 60 * 1000
-const EXPIRATION_DELAY = 500
+const EXPIRATION_DELAY = 50
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -23,7 +23,7 @@ test('reset after ttl', async t => {
   t.is(counter.incr(), 2)
   t.is(counter.val(), 2)
 
-  await delay(EXPIRATION_DELAY)
+  await delay(EXPIRATION_DELAY * 2)
 
   t.is(counter.val(), 0)
   t.is(counter.incr(), 1)
