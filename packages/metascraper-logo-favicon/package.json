@@ -23,11 +23,11 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~1.6.9",
+    "@keyvhq/memoize": "~1.6.13",
     "@metascraper/helpers": "^5.29.5",
     "lodash": "~4.17.21",
-    "reachable-url": "~1.6.10",
-    "tldts": "~5.7.77"
+    "reachable-url": "~1.6.11",
+    "tldts": "~5.7.80"
   },
   "devDependencies": {
     "ava": "latest"

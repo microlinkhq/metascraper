@@ -24,12 +24,12 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~1.6.9",
+    "@keyvhq/memoize": "~1.6.13",
     "@metascraper/helpers": "^5.29.5",
-    "async-memoize-one": "~1.1.0",
     "got": "~11.8.3",
+    "async-memoize-one": "~1.1.1",
     "lodash": "~4.17.21",
-    "tldts": "~5.7.77"
+    "tldts": "~5.7.80"
   },
   "devDependencies": {
     "ava": "latest"
