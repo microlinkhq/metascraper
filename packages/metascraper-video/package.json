@@ -25,7 +25,7 @@
     "@keyvhq/memoize": "~1.6.13",
     "@metascraper/helpers": "^5.29.6",
     "cheerio": "~1.0.0-rc.10",
-    "got": "~11.8.3",
+    "got": "~12.1.0",
     "lodash": "~4.17.21",
     "p-reflect": "~2.1.0"
   },
