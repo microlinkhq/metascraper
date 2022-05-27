@@ -48,12 +48,16 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-const got = require('got')
+const { fetch } = require('undici')
 
-const targetUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
+const siteUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
 
 ;(async () => {
-  const { body: html, url } = await got(targetUrl)
+  const { html, url } = await fetch(siteUrl).then(async res => ({
+    url: res.url,
+    html: await res.text()
+  }))
+
   const metadata = await metascraper({ html, url })
   console.log(metadata)
 })()
