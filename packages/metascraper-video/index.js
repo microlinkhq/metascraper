@@ -13,7 +13,6 @@ const {
 const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
 const { chain } = require('lodash')
-const cheerio = require('cheerio')
 const got = require('got')
 
 const toUrl = toRule(urlFn)
@@ -69,7 +68,7 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
         if (!playerUrl) return
         const html = await getPlayer(normalizeUrl(url, playerUrl))
         if (!html) return
-        const htmlDom = cheerio.load(html)
+        const htmlDom = $.load(html)
         return findRule(videoRules, { htmlDom, url })
       }
     ]

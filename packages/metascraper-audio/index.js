@@ -13,7 +13,6 @@ const {
 
 const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
-const cheerio = require('cheerio')
 const got = require('got')
 
 const toAudio = toRule(audio)
@@ -41,10 +40,8 @@ const audioRules = [
   ({ htmlDom: $ }) => $filter($, $('a[href]'), el => audio(el.attr('href')))
 ]
 
-const _getIframe = async (url, { src }) => {
-  const iframe = await loadIframe(url, `<iframe src="${src}"></iframe>`)
-  return iframe.document.documentElement.outerHTML
-}
+const _getIframe = (url, $, { src }) =>
+  loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
 
 const createGetPlayer = ({ gotOpts, keyvOpts }) => {
   const getPlayer = async playerUrl => {
@@ -72,20 +69,21 @@ module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
         const src = $filter($, iframe, el => normalizeUrl(url, el.attr('src')))
         if (!src) return
 
-        const html = await getIframe(url, { src })
-        const htmlDom = cheerio.load(html)
-
-        return findRule(audioRules, { htmlDom, url })
+        return findRule(audioRules, {
+          htmlDom: await getIframe(url, $, { src }),
+          url
+        })
       },
       async ({ htmlDom: $, url }) => {
         const playerUrl =
           $('meta[name="twitter:player"]').attr('content') ||
           $('meta[property="twitter:player"]').attr('content')
-
         if (!playerUrl) return
+
         const html = await getPlayer(normalizeUrl(url, playerUrl))
         if (!html) return
-        const htmlDom = cheerio.load(html)
+
+        const htmlDom = $.load(html)
         return findRule(audioRules, { htmlDom, url })
       }
     ]
