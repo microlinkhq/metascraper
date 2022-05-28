@@ -237,7 +237,7 @@ const author = (value, opts) =>
   isAuthor(value) ? getAuthor(value, opts) : undefined
 
 const url = (value, { url = '' } = {}) => {
-  if (isEmpty(value)) return undefined
+  if (isEmpty(value)) return
 
   try {
     const absoluteUrl = normalizeUrl(url, value)
@@ -252,7 +252,7 @@ const getISODate = date =>
 
 const date = value => {
   if (isDate(value)) return value.toISOString()
-  if (!(isString(value) || isNumber(value))) return undefined
+  if (!(isString(value) || isNumber(value))) return
 
   // remove whitespace for easier parsing
   if (isString(value)) value = condenseWhitespace(value)
@@ -288,7 +288,7 @@ const date = value => {
 }
 
 const lang = input => {
-  if (isEmpty(input) || !isString(input)) return undefined
+  if (isEmpty(input) || !isString(input)) return
   const key = toLower(condenseWhitespace(input))
   if (input.length === 3) return iso6393[key]
   const lang = toLower(key.substring(0, 2))
@@ -429,8 +429,8 @@ const loadIframe = (url, $) =>
     const load = iframe =>
       iframe
         ? iframe.addEventListener('load', () =>
-          resolve($.load(iframe.contentDocument.documentElement.outerHTML))
-        )
+            resolve($.load(iframe.contentDocument.documentElement.outerHTML))
+          )
         : resolve($.load(''))
 
     const iframe = getIframe()
