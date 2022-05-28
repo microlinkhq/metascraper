@@ -150,9 +150,19 @@ const titleize = (src, opts = {}) => {
   return title
 }
 
-const $filter = ($, domNodes, fn = $filter.fn) => {
-  const el = domNodes.filter((i, el) => fn($(el))).first()
-  return fn(el)
+const $filter = ($, matchedEl, fn = $filter.fn) => {
+  let matched
+
+  matchedEl.each(function () {
+    const result = fn($(this))
+
+    if (result) {
+      matched = result
+      return false
+    }
+  })
+
+  return matched
 }
 
 $filter.fn = el => condenseWhitespace(el.text())
@@ -405,9 +415,9 @@ const domLoaded = dom =>
       : dom.window.document.addEventListener('DOMContentLoaded', resolve)
   )
 
-const loadIframe = (url, html) =>
+const loadIframe = (url, $) =>
   new Promise(resolve => {
-    const dom = new JSDOM(html, {
+    const dom = new JSDOM($.html(), {
       url,
       virtualConsole: new VirtualConsole(),
       runScripts: 'dangerously',
@@ -418,8 +428,10 @@ const loadIframe = (url, html) =>
 
     const load = iframe =>
       iframe
-        ? iframe.addEventListener('load', () => resolve(iframe.contentWindow))
-        : resolve()
+        ? iframe.addEventListener('load', () =>
+          resolve($.load(iframe.contentDocument.documentElement.outerHTML))
+        )
+        : resolve($.load(''))
 
     const iframe = getIframe()
     if (iframe) return load(iframe)

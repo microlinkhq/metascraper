@@ -22,6 +22,10 @@ $ npm install metascraper-audio --save
 
 ##### getIframe
 
+Type: `function`
+
+It will be called to get the HTML markup behind an iframe present into the HTML.
+
 ##### gotOpts
 
 Type: `object`

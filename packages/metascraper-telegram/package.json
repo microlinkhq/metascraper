@@ -23,8 +23,10 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.29.6",
-    "async-memoize-one": "~1.1.1",
+    "@keyvhq/memoize": "~1.6.13",
     "css-urls": "~2.0.27",
+    "got": "~11.8.3",
+    "p-reflect": "~2.1.0",
     "tldts": "~5.7.80"
   },
   "devDependencies": {

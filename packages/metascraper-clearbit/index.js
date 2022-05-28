@@ -16,6 +16,7 @@ const appendQuery = (data, query) => {
   if (!isString(logoUrl)) return data
   return { ...data, logo: `${logoUrl}?${stringify(query)}` }
 }
+
 const createClearbit = ({ gotOpts, keyvOpts, logoOpts } = {}) => {
   const clearbit = async domain => {
     try {
