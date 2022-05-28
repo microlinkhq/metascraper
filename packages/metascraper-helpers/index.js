@@ -151,8 +151,18 @@ const titleize = (src, opts = {}) => {
 }
 
 const $filter = ($, matchedEl, fn = $filter.fn) => {
-  const el = matchedEl.filter((i, el) => fn($(el))).first()
-  return fn(el)
+  let matched
+
+  matchedEl.each(function () {
+    const result = fn($(this))
+
+    if (result) {
+      matched = result
+      return false
+    }
+  })
+
+  return matched
 }
 
 $filter.fn = el => condenseWhitespace(el.text())
@@ -419,8 +429,8 @@ const loadIframe = (url, $) =>
     const load = iframe =>
       iframe
         ? iframe.addEventListener('load', () =>
-            resolve($.load(iframe.contentDocument.documentElement.outerHTML))
-          )
+          resolve($.load(iframe.contentDocument.documentElement.outerHTML))
+        )
         : resolve($.load(''))
 
     const iframe = getIframe()
