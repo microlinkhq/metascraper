@@ -6,9 +6,9 @@ const toTitle = toRule(title)
 
 module.exports = () => ({
   title: [
-    toTitle($ => $('meta[property="og:title"]').attr('content')),
-    toTitle($ => $('meta[name="twitter:title"]').attr('content')),
-    toTitle($ => $('meta[property="twitter:title"]').attr('content')),
+    toTitle($ => $('meta[property="og:title"]').prop('content')),
+    toTitle($ => $('meta[name="twitter:title"]').prop('content')),
+    toTitle($ => $('meta[property="twitter:title"]').prop('content')),
     toTitle($ => $filter($, $('title'))),
     toTitle($jsonld('headline')),
     toTitle($ => $filter($, $('.post-title'))),

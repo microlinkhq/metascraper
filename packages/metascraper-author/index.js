@@ -28,8 +28,8 @@ module.exports = () => ({
   author: [
     toAuthor($jsonld('author.name')),
     toAuthor($jsonld('brand.name')),
-    toAuthor($ => $('meta[name="author"]').attr('content')),
-    toAuthor($ => $('meta[property="article:author"]').attr('content')),
+    toAuthor($ => $('meta[name="author"]').prop('content')),
+    toAuthor($ => $('meta[property="article:author"]').prop('content')),
     toAuthor($ => $filter($, $('[itemprop*="author" i] [itemprop="name"]'))),
     toAuthor($ => $filter($, $('[itemprop*="author" i]'))),
     toAuthor($ => $filter($, $('[rel="author"]'))),

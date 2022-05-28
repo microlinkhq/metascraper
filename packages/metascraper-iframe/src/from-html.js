@@ -8,8 +8,8 @@ const got = require('got')
 const getOembedUrl = memoizeOne(
   (url, $, iframe) => {
     const oembedUrl =
-      $('link[type="application/json+oembed"]').attr('href') ||
-      $('link[type="text/xml+oembed"]').attr('href')
+      $('link[type="application/json+oembed"]').prop('href') ||
+      $('link[type="text/xml+oembed"]').prop('href')
 
     if (!oembedUrl) return
 

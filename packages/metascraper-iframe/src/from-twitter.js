@@ -5,19 +5,19 @@ const { map } = require('lodash')
 
 const getPlayerUrl = memoizeOne((url, $) => {
   const playerUrl =
-    $('meta[name="twitter:player"]').attr('content') ||
-    $('meta[property="twitter:player"]').attr('content')
+    $('meta[name="twitter:player"]').prop('content') ||
+    $('meta[property="twitter:player"]').prop('content')
 
   return playerUrl === undefined ? undefined : normalizeUrl(url, playerUrl)
 }, memoizeOne.EqualityUrlAndHtmlDom)
 
 const playerWidth = $ =>
-  $('meta[name="twitter:player:width"]').attr('content') ||
-  $('meta[property="twitter:player:width"]').attr('content')
+  $('meta[name="twitter:player:width"]').prop('content') ||
+  $('meta[property="twitter:player:width"]').prop('content')
 
 const playerHeight = $ =>
-  $('meta[name="twitter:player:height"]').attr('content') ||
-  $('meta[property="twitter:player:height"]').attr('content')
+  $('meta[name="twitter:player:height"]').prop('content') ||
+  $('meta[property="twitter:player:height"]').prop('content')
 
 const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
   const playerUrl = getPlayerUrl(url, htmlDom)

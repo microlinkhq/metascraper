@@ -25,8 +25,8 @@ const test = memoizeOne(url => TELEGRAM_DOMAINS.includes(getDomain(url)))
 
 module.exports = () => {
   const rules = {
-    author: [toAuthor($ => $('meta[property="og:title"]').attr('content'))],
-    logo: [toImage($ => $('meta[property="og:image"]').attr('content'))],
+    author: [toAuthor($ => $('meta[property="og:title"]').prop('content'))],
+    logo: [toImage($ => $('meta[property="og:image"]').prop('content'))],
     image: [
       toImage(async ($, url) => {
         const iframe = await fromIframe(url, $)

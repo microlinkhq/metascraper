@@ -22,22 +22,22 @@ const withContentType = (url, contentType) =>
   isMime(contentType, 'audio') ? url : false
 
 const audioRules = [
-  toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
-  toAudio($ => $('meta[property="og:audio"]').attr('content')),
+  toAudio($ => $('meta[property="og:audio:secure_url"]').prop('content')),
+  toAudio($ => $('meta[property="og:audio"]').prop('content')),
   toAudio($ => {
     const contentType =
-      $('meta[name="twitter:player:stream:content_type"]').attr('content') ||
-      $('meta[property="twitter:player:stream:content_type"]').attr('content')
+      $('meta[name="twitter:player:stream:content_type"]').prop('content') ||
+      $('meta[property="twitter:player:stream:content_type"]').prop('content')
 
     const streamUrl =
-      $('meta[name="twitter:player:stream"]').attr('content') ||
-      $('meta[property="twitter:player:stream"]').attr('content')
+      $('meta[name="twitter:player:stream"]').prop('content') ||
+      $('meta[property="twitter:player:stream"]').prop('content')
 
     return contentType ? withContentType(streamUrl, contentType) : streamUrl
   }),
   toAudio($jsonld('contentUrl')),
-  toAudio($ => $('audio').attr('src')),
-  toAudio($ => $('audio > source').attr('src')),
+  toAudio($ => $('audio').prop('src')),
+  toAudio($ => $('audio > source').prop('src')),
   ({ htmlDom: $ }) => $filter($, $('a[href]'), el => audio(el.attr('href')))
 ]
 
@@ -79,8 +79,8 @@ module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
       },
       async ({ htmlDom: $, url }) => {
         const playerUrl =
-          $('meta[name="twitter:player"]').attr('content') ||
-          $('meta[property="twitter:player"]').attr('content')
+          $('meta[name="twitter:player"]').prop('content') ||
+          $('meta[property="twitter:player"]').prop('content')
 
         if (!playerUrl) return
         const html = await getPlayer(normalizeUrl(url, playerUrl))

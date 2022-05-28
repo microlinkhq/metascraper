@@ -31,11 +31,11 @@ const toVideoFromDom = toRule((domNodes, opts) => {
 })
 
 const videoRules = [
-  toVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
-  toVideo($ => $('meta[property="og:video:url"]').attr('content')),
-  toVideo($ => $('meta[property="og:video"]').attr('content')),
-  toVideo($ => $('meta[name="twitter:player:stream"]').attr('content')),
-  toVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
+  toVideo($ => $('meta[property="og:video:secure_url"]').prop('content')),
+  toVideo($ => $('meta[property="og:video:url"]').prop('content')),
+  toVideo($ => $('meta[property="og:video"]').prop('content')),
+  toVideo($ => $('meta[name="twitter:player:stream"]').prop('content')),
+  toVideo($ => $('meta[property="twitter:player:stream"]').prop('content')),
   toVideo($jsonld('contentUrl')),
   toVideoFromDom($ => $('video').get()),
   toVideoFromDom($ => $('video > source').get())
@@ -58,13 +58,13 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const getPlayer = createGetPlayer({ gotOpts, keyvOpts })
 
   return {
-    image: [toUrl($ => $('video').attr('poster'))],
+    image: [toUrl($ => $('video').prop('poster'))],
     video: [
       ...videoRules,
       async ({ htmlDom: $, url }) => {
         const playerUrl =
-          $('meta[name="twitter:player"]').attr('content') ||
-          $('meta[property="twitter:player"]').attr('content')
+          $('meta[name="twitter:player"]').prop('content') ||
+          $('meta[property="twitter:player"]').prop('content')
 
         if (!playerUrl) return
         const html = await getPlayer(normalizeUrl(url, playerUrl))

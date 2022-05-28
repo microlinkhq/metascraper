@@ -28,7 +28,7 @@ module.exports = opts => {
   const fetchManifest = createFetchManifest(opts)
 
   const toManifest = ($, url) => {
-    const manifestUrl = $('link[rel="manifest"]').attr('href')
+    const manifestUrl = $('link[rel="manifest"]').prop('href')
     if (!manifestUrl) return undefined
     return fetchManifest(normalizeUrl(url, manifestUrl))
   }

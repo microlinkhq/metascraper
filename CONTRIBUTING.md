@@ -25,8 +25,8 @@ module.exports = () => {
       // They receive as parameter:
       // - `htmlDom`: the cheerio HTML instance.
       // - `url`: The input URL used for extact the content.
-      ({ htmlDom: $, url }) => $('meta[property="og:logo"]').attr('content'),
-      ({ htmlDom: $, url }) => $('meta[itemprop="logo"]').attr('content')
+      ({ htmlDom: $, url }) => $('meta[property="og:logo"]').prop('content'),
+      ({ htmlDom: $, url }) => $('meta[itemprop="logo"]').prop('content')
     ]
   }
   return rules

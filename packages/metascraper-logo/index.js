@@ -14,9 +14,9 @@ const toLogoUrl = ($, propName) => {
 
 module.exports = () => ({
   logo: [
-    toUrl($ => $('meta[property="og:logo"]').attr('content')),
-    toUrl($ => $('meta[itemprop="logo"]').attr('content')),
-    toUrl($ => $('img[itemprop="logo"]').attr('src')),
+    toUrl($ => $('meta[property="og:logo"]').prop('content')),
+    toUrl($ => $('meta[itemprop="logo"]').prop('content')),
+    toUrl($ => $('img[itemprop="logo"]').prop('src')),
     toUrl($ => toLogoUrl($, 'brand.logo')),
     toUrl($ => toLogoUrl($, 'organization.logo')),
     toUrl($ => toLogoUrl($, 'place.logo')),

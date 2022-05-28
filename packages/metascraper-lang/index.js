@@ -6,8 +6,8 @@ const toLang = toRule(lang)
 
 module.exports = () => ({
   lang: [
-    toLang($ => $('meta[property="og:locale"]').attr('content')),
-    toLang($ => $('meta[itemprop="inLanguage"]').attr('content')),
-    toLang($ => $('html').attr('lang'))
+    toLang($ => $('meta[property="og:locale"]').prop('content')),
+    toLang($ => $('meta[itemprop="inLanguage"]').prop('content')),
+    toLang($ => $('html').prop('lang'))
   ]
 })

@@ -62,7 +62,7 @@ test('add a new rule for a prop that exists', async t => {
 
   const rules = [
     {
-      image: [({ htmlDom: $ }) => $('#logo').attr('src')]
+      image: [({ htmlDom: $ }) => $('#logo').prop('src')]
     }
   ]
 

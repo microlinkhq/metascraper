@@ -150,8 +150,8 @@ const titleize = (src, opts = {}) => {
   return title
 }
 
-const $filter = ($, domNodes, fn = $filter.fn) => {
-  const el = domNodes.filter((i, el) => fn($(el))).first()
+const $filter = ($, matchedEl, fn = $filter.fn) => {
+  const el = matchedEl.filter((i, el) => fn($(el))).first()
   return fn(el)
 }
 

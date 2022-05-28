@@ -53,8 +53,8 @@ module.exports = () => {
     ],
     publisher: () => 'Amazon',
     image: [
-      toUrl($ => $('.a-dynamic-image').attr('data-old-hires')),
-      toUrl($ => $('.a-dynamic-image').attr('src'))
+      toUrl($ => $('.a-dynamic-image').prop('data-old-hires')),
+      toUrl($ => $('.a-dynamic-image').prop('src'))
     ]
   }
 
