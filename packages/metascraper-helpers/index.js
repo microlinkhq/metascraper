@@ -237,7 +237,7 @@ const author = (value, opts) =>
   isAuthor(value) ? getAuthor(value, opts) : undefined
 
 const url = (value, { url = '' } = {}) => {
-  if (isEmpty(value)) return undefined
+  if (isEmpty(value)) return
 
   try {
     const absoluteUrl = normalizeUrl(url, value)
@@ -252,7 +252,7 @@ const getISODate = date =>
 
 const date = value => {
   if (isDate(value)) return value.toISOString()
-  if (!(isString(value) || isNumber(value))) return undefined
+  if (!(isString(value) || isNumber(value))) return
 
   // remove whitespace for easier parsing
   if (isString(value)) value = condenseWhitespace(value)
@@ -288,7 +288,7 @@ const date = value => {
 }
 
 const lang = input => {
-  if (isEmpty(input) || !isString(input)) return undefined
+  if (isEmpty(input) || !isString(input)) return
   const key = toLower(condenseWhitespace(input))
   if (input.length === 3) return iso6393[key]
   const lang = toLower(key.substring(0, 2))
@@ -407,15 +407,7 @@ const composeRule = rule => ({ from, to = from, ...opts }) => async ({
 const has = value =>
   value !== undefined && !Number.isNaN(value) && hasValues(value)
 
-const domLoaded = dom =>
-  new Promise(resolve =>
-    dom.window.document.readyState === 'interactive' ||
-    dom.window.document.readyState === 'complete'
-      ? resolve()
-      : dom.window.document.addEventListener('DOMContentLoaded', resolve)
-  )
-
-const loadIframe = (url, $) =>
+const loadIframe = (url, $, { timeout = 5000 } = {}) =>
   new Promise(resolve => {
     const dom = new JSDOM($.html(), {
       url,
@@ -424,19 +416,29 @@ const loadIframe = (url, $) =>
       resources: 'usable'
     })
 
-    const getIframe = () => dom.window.document.querySelector('iframe')
+    const done = (html = '') => resolve($.load(html))
 
-    const load = iframe =>
-      iframe
-        ? iframe.addEventListener('load', () =>
-          resolve($.load(iframe.contentDocument.documentElement.outerHTML))
-        )
-        : resolve($.load(''))
+    const listen = (element, method, fn) =>
+      element[`${method}EventListener`]('load', fn, {
+        capture: true,
+        once: true,
+        passive: true
+      })
 
-    const iframe = getIframe()
-    if (iframe) return load(iframe)
+    const iframe = dom.window.document.querySelector('iframe')
+    if (!iframe) return done()
 
-    domLoaded(dom).then(() => load(getIframe()))
+    const timer = setTimeout(() => {
+      listen(iframe, 'remove', load)
+      done()
+    }, timeout)
+
+    function load () {
+      clearTimeout(timer)
+      done(iframe.contentDocument.documentElement.outerHTML)
+    }
+
+    listen(iframe, 'add', load)
   })
 
 module.exports = {

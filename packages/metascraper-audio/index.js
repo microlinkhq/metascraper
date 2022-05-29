@@ -5,6 +5,7 @@ const {
   $jsonld,
   audio,
   findRule,
+  has,
   isMime,
   loadIframe,
   normalizeUrl,
@@ -66,13 +67,30 @@ module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
         const iframe = $('iframe')
         if (iframe.length === 0) return
 
-        const src = $filter($, iframe, el => normalizeUrl(url, el.attr('src')))
-        if (!src) return
+        const srcs = []
 
-        return findRule(audioRules, {
-          htmlDom: await getIframe(url, $, { src }),
-          url
+        iframe.each(function () {
+          const src = $(this).attr('src')
+          const normalizedUrl = normalizeUrl(url, src)
+          if (normalizedUrl && srcs.indexOf(normalizedUrl) === -1) {
+            srcs.push(normalizedUrl)
+          }
         })
+
+        if (srcs.length === 0) return
+
+        const { value } = await pReflect(
+          Promise.any(
+            srcs.map(async src => {
+              const htmlDom = await getIframe(url, $, { src })
+              const result = await findRule(audioRules, { htmlDom, url })
+              if (!has(result)) throw TypeError('no result')
+              return result
+            })
+          )
+        )
+
+        return value
       },
       async ({ htmlDom: $, url }) => {
         const playerUrl =
