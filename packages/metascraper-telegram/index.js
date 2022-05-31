@@ -5,6 +5,7 @@ const {
   date,
   image,
   memoizeOne,
+  sanetizeUrl,
   toRule
 } = require('@metascraper/helpers')
 
@@ -37,7 +38,7 @@ const createGetIframe = gotOpts => async (url, $) => {
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const getIframe = memoize(createGetIframe(gotOpts), keyvOpts, {
-    key: url => url
+    key: url => sanetizeUrl(url, { removeQueryParameters: true })
   })
 
   const loadIframe = fn => async ($, url) => {
