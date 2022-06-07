@@ -78,6 +78,65 @@ The output will be something like:
 }
 ```
 
+As you can see, metascraper needs to be feed with regular HTML.
+
+Although you can use any HTTP client for getting the markup behind any URL, we recommend you to use [html-get](https://github.com/microlinkhq/html-get) that uses Headless chrome if needed:
+
+```
+const createBrowserless = require('browserless')
+const getHTML = require('html-get')
+
+// Spawn Chromium process once
+const browserlessFactory = createBrowserless()
+
+// Kill the process when Node.js exit
+process.on('exit', browserlessFactory.close)
+
+const getContent = async url => {
+  // create a browser context inside Chromium process
+  const browserContext = browserlessFactory.createContext()
+  const getBrowserless = () => browserContext
+  const result = await getHTML(url, { getBrowserless })
+  // close the browser context after it's used
+  await getBrowserless(browser => browser.destroyContext())
+  return result
+}
+
+const metascraper = require('metascraper')([
+  require('metascraper-author')(),
+  require('metascraper-date')(),
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-logo')(),
+  require('metascraper-clearbit')(),
+  require('metascraper-publisher')(),
+  require('metascraper-title')(),
+  require('metascraper-url')()
+])
+
+getContent('https://twitter.com/BytesAndHumans/status/1532772903523065858')
+  .then(metascraper)
+  .then(metadata => {
+    console.log(metadata)
+    process.exit()
+  })
+```
+
+being the output:
+
+```
+{
+  author: null,
+  date: '2022-06-07T21:42:24.000Z',
+  description: '“What a week 🐣❤️📈”',
+  image: 'https://pbs.twimg.com/media/FUWAUW7XoAAxuP_.jpg:large',
+  logo: 'https://logo.clearbit.com/twitter.com',
+  publisher: 'Twitter',
+  title: 'Elena on Twitter',
+  url: 'https://twitter.com/BytesAndHumans/status/1532772903523065858'
+}
+```
+
 ## Metadata
 
 ?> Other metadata can be defined using a custom [rule bundle](#rules-bundles).
