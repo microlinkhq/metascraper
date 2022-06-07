@@ -29,7 +29,7 @@
     "file-extension": "~4.0.5",
     "has-values": "~2.0.1",
     "image-extensions": "~1.1.0",
-    "is-relative-url": "~3.0.0",
+    "is-relative-url": "~4.0.0",
     "is-uri": "~1.2.4",
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
