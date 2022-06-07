@@ -82,7 +82,7 @@ As you can see, metascraper needs to be feed with regular HTML.
 
 Although you can use any HTTP client for getting the markup behind any URL, we recommend you to use [html-get](https://github.com/microlinkhq/html-get) that uses Headless chrome if needed:
 
-```
+```js
 const createBrowserless = require('browserless')
 const getHTML = require('html-get')
 
