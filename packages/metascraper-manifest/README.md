@@ -3,7 +3,7 @@
   <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
   <br>
   <br>
-  <p align="center"><strong>metascraper-manifest</strong>: Metascraper integration for derecting PWA Web app.</p>
+  <p align="center"><strong>metascraper-manifest</strong>: Metascraper integration for detecting PWA Web app.</p>
   <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
   <br>
 </div>
