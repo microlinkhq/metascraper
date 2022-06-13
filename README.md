@@ -258,7 +258,7 @@ const metascraper = require('metascraper')([
 - [metascraper-amazon](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) – Metascraper integration with Amazon.
 - [metascraper-clearbit](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-clearbit) – Metascraper integration with Clearbit Logo API.
 - [metascraper-instagram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-instagram) –  Metascraper integration for Instagram.
-- [metascraper-manifest](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-manifest) –  Metascraper integration for derecting PWA Web app [manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+- [metascraper-manifest](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-manifest) –  Metascraper integration for detecting PWA Web app [manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 - [metascraper-soundcloud](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) – Metascraper integration with SoundCloud.
 - [metascraper-telegram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-telegram) – Metascraper integration with Telegram.
 - [metascraper-uol](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-uol) – Metascraper integration for uol.com URLs.
