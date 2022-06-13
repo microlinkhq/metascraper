@@ -1,6 +1,6 @@
 {
   "name": "metascraper-manifest",
-  "description": "Metascraper integration for derecting PWA Web app manifest",
+  "description": "Metascraper integration for detecting PWA Web app manifest",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-manifest",
   "version": "5.29.7",
   "main": "index.js",
