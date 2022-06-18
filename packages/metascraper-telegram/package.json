@@ -22,12 +22,12 @@
     "telegram"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~1.6.13",
+    "@keyvhq/memoize": "~1.6.14",
     "@metascraper/helpers": "^5.29.7",
     "css-urls": "~2.0.27",
-    "got": "~11.8.3",
+    "got": "~11.8.5",
     "p-reflect": "~2.1.0",
-    "tldts": "~5.7.80"
+    "tldts": "~5.7.82"
   },
   "devDependencies": {
     "ava": "latest"
