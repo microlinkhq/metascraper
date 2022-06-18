@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.29.10](https://github.com/microlinkhq/metascraper/compare/v5.29.9...v5.29.10) (2022-06-18)
+
+### Bug Fixes
+
+* **telegram:** avoid non http iframe src ([#553](https://github.com/microlinkhq/metascraper/issues/553)) ([aa45d4d](https://github.com/microlinkhq/metascraper/commit/aa45d4d2678745b7a389efa190b7e81190584911))
+
 ## [5.29.9](https://github.com/microlinkhq/metascraper/compare/v5.29.8...v5.29.9) (2022-05-31)
 
 **Note:** Version bump only for package metascraper-telegram
