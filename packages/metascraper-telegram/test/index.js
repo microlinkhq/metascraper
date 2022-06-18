@@ -26,10 +26,32 @@ test('avoid non allowed URLs', async t => {
   t.is(metadata.audio, undefined)
 })
 
-test('avoid URLs with no iframe', async t => {
+test('avoid URLs with no iframe src', async t => {
   const url = 'https://t.me/unlimitedhangout'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url })
+  t.is(metadata.audio, undefined)
+})
+
+test('avoid URLs with no iframe src as http', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/no-iframe.html'))
+  const url = 'https://t.me/DiaboxApp'
+  const errors = []
+
+  const gotOpts = {
+    hooks: {
+      beforeError: [
+        error => {
+          errors.push(error)
+          return error
+        }
+      ]
+    }
+  }
+
+  const metascraper = createMetascraper({ gotOpts })
+  const metadata = await metascraper({ html, url })
+  t.is(errors.length, 0)
   t.is(metadata.audio, undefined)
 })
 

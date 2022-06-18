@@ -28,7 +28,7 @@ const createGetIframe = gotOpts => async (url, $) => {
   if (iframe.length === 0) return ''
 
   const src = iframe.attr('src')
-  if (!src) return ''
+  if (!src || !src.startsWith('http')) return ''
 
   const { value: response } = await pReflect(got(src, gotOpts))
   if (!response) return ''
