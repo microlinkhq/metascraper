@@ -40,7 +40,7 @@
     "is-ci": "latest",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
-    "time-span": "4",
+    "time-span": "5",
     "unique-random-array": "2"
   },
   "engines": {
