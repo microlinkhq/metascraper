@@ -237,7 +237,7 @@ const author = (value, opts) =>
   isAuthor(value) ? getAuthor(value, opts) : undefined
 
 const url = (value, { url = '' } = {}) => {
-  if (isEmpty(value)) return
+  if (!isString(value) || isEmpty(value)) return
 
   try {
     const absoluteUrl = normalizeUrl(url, value)
@@ -344,7 +344,9 @@ const $jsonld = propName => $ => {
 
 const image = (value, opts) => {
   const urlValue = url(value, opts)
-  return !isAudioUrl(urlValue, opts) && !isVideoUrl(urlValue, opts)
+  return urlValue !== undefined &&
+    !isAudioUrl(urlValue, opts) &&
+    !isVideoUrl(urlValue, opts)
     ? urlValue
     : undefined
 }

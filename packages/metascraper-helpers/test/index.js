@@ -11,6 +11,7 @@ const {
   date,
   description,
   extension,
+  image,
   isAudioExtension,
   isAudioUrl,
   isAuthor,
@@ -141,6 +142,21 @@ test('.isVideoUrl', t => {
   t.false(isVideoUrl('demo.mp4'))
   t.false(isVideoUrl('/demo.mp4'))
   t.true(isVideoUrl('https://microlink.io/demo.mp4'))
+})
+
+test('.image', t => {
+  t.is(image('https://microlink.io/demo.png'), 'https://microlink.io/demo.png')
+  t.is(image('/demo.png'), undefined)
+  t.is(
+    image('/demo.png', { url: 'https://microlink.io' }),
+    'https://microlink.io/demo.png'
+  )
+  t.is(image('https://microlink.io/demo.mp4'), undefined)
+  t.is(image('https://microlink.io/demo.mp3'), undefined)
+  t.is(
+    image({ '@id': 'https://www.milanocittastato.it/#/schema/logo/image/' }),
+    undefined
+  )
 })
 
 test('.isImageUrl', t => {
