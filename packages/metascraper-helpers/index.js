@@ -31,7 +31,7 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const iso6393 = require('iso-639-3/to-1')
-const mimeTypes = require('mime-types')
+const { getExtension } = require('mime')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
 const isIso = require('isostring')
@@ -299,7 +299,7 @@ const title = (value, { removeSeparator = false, ...opts } = {}) =>
   isString(value) ? titleize(value, { removeSeparator, ...opts }) : undefined
 
 const isMime = (contentType, type) => {
-  const ext = mimeTypes.extension(contentType)
+  const ext = getExtension(contentType)
   return eq(type, get(EXTENSIONS, ext))
 }
 
