@@ -8,6 +8,7 @@ const metascraper = require('../../..')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
+  require('metascraper-audio')(),
   require('metascraper-video')(),
   require('metascraper-image')(),
   require('metascraper-lang')(),
@@ -25,7 +26,5 @@ const url = 'https://www.belfusto.com/tendencia/ergowear/'
 test('belfusto', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-
-  console.log(metadata)
   t.snapshot(metadata)
 })

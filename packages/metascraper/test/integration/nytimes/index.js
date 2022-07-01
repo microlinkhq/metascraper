@@ -9,6 +9,7 @@ const metascraper = require('../../..')([
   require('metascraper-audio')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
+  require('metascraper-audio')(),
   require('metascraper-video')(),
   require('metascraper-image')(),
   require('metascraper-lang')(),
