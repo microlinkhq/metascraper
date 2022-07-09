@@ -28,7 +28,7 @@
     "async-memoize-one": "~1.1.1",
     "got": "~11.8.5",
     "spotify-url-info": "~3.1.2",
-    "tldts": "~5.7.82"
+    "tldts": "~5.7.84"
   },
   "devDependencies": {
     "ava": "latest",
