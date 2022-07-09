@@ -29,7 +29,7 @@
     "async-memoize-one": "~1.1.1",
     "got": "~11.8.5",
     "lodash": "~4.17.21",
-    "tldts": "~5.7.82"
+    "tldts": "~5.7.84"
   },
   "devDependencies": {
     "ava": "latest"
