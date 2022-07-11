@@ -11,7 +11,7 @@
 
 > A library to easily get unified metadata from websites using Open Graph, Microdata, RDFa, Twitter Cards, JSON-LD, HTML, and more.
 
-## Getting Started
+## What is it
 
 **metascraper** is library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
 
@@ -21,21 +21,38 @@ It follows a few principles:
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors.
 
-## Installation
+## Getting started
 
-```bash
-$ npm install metascraper --save
-```
+Let's extract accurate information from the following website:
 
-## Usage
+![](https://i.imgur.com/jZl0Uej.png)
 
-Let's extract accurate information from the following article:
+First, **metrascraper** expects you provide the HTML markup behind the target URL.
 
-[![](https://raw.githubusercontent.com/microlinkhq/metascraper/add-comparison/support/screenshot.png)](http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance)
-
-Then call **metascraper** with the rules bundle you want to apply for extracting content:
+There are multiple ways to get the HTML markup. In our case, we are going to run a programmatic headless browser to simulate real user navigation, so the data obtained will be close to a real-world example.
 
 ```js
+const getHTML = require('html-get')
+
+/**
+ * `browserless` will be passed to `html-get` 
+ * as driver for getting the rendered HTML.
+ */
+const browserless = require('browserless')()
+
+const getContent = async url => {
+  // create a browser context inside the main Chromium process
+  const browserContext = browserless.createContext()
+  const promise = getHTML(url, { getBrowserless: () => browserContext })
+  // close browser resources before return the result
+  promise.then(() => browserContext).then(browser => browser.destroyContext())
+  return promise
+}
+
+/**
+ * `metascraper` is a collection of tiny packages,
+ * so you can just use what you actually need.
+ */
 const metascraper = require('metascraper')([
   require('metascraper-author')(),
   require('metascraper-date')(),
@@ -48,100 +65,37 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
-const { fetch } = require('undici')
-
-const siteUrl = 'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
-
-;(async () => {
-  const { html, url } = await fetch(siteUrl).then(async res => ({
-    url: res.url,
-    html: await res.text()
-  }))
-
-  const metadata = await metascraper({ html, url })
-  console.log(metadata)
-})()
+/**
+ * The main logic
+ */
+getContent('https://microlink.io')
+  .then(metascraper)
+  .then(metadata => console.log(metadata))
+  .then(browserless.close)
+  .then(process.exit)
+  
 ```
-
 
 The output will be something like:
 
 ```json
 {
-  "author": "Ellen Huet",
-  "date": "2016-05-24T18:00:03.894Z",
-  "description": "The HR startups go to war.",
-  "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioh_yWEn8gHo/v1/-1x-1.jpg",
-  "publisher": "Bloomberg.com",
-  "title": "As Zenefits Stumbles, Gusto Goes Head-On by Selling Insurance",
-  "url": "http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance"
+  "author": "Microlink HQ",
+  "date": "2022-07-10T22:53:04.856Z",
+  "description": "Enter a URL, receive information. Normalize metadata. Get HTML markup. Take a screenshot. Identify tech stack. Generate a PDF. Automate web scraping. Run Lighthouse",
+  "image": "https://cdn.microlink.io/logo/banner.jpeg",
+  "logo": "https://cdn.microlink.io/logo/trim.png",
+  "publisher": "Microlink",
+  "title": "Turns websites into data — Microlink",
+  "url": "https://microlink.io/"
 }
 ```
 
-As you can see, metascraper needs to be feed with regular HTML.
+## What data it detects
 
-Although you can use any HTTP client for getting the markup behind any URL, we recommend you to use [html-get](https://github.com/microlinkhq/html-get) that uses Headless chrome if needed:
+?> Custom metadata detection can be defined using a [rule bundle](#rules-bundles).
 
-```js
-const createBrowserless = require('browserless')
-const getHTML = require('html-get')
-
-// Spawn Chromium process once
-const browserlessFactory = createBrowserless()
-
-// Kill the process when Node.js exit
-process.on('exit', browserlessFactory.close)
-
-const getContent = async url => {
-  // create a browser context inside Chromium process
-  const browserContext = browserlessFactory.createContext()
-  const getBrowserless = () => browserContext
-  const result = await getHTML(url, { getBrowserless })
-  // close the browser context after it's used
-  await getBrowserless(browser => browser.destroyContext())
-  return result
-}
-
-const metascraper = require('metascraper')([
-  require('metascraper-author')(),
-  require('metascraper-date')(),
-  require('metascraper-description')(),
-  require('metascraper-image')(),
-  require('metascraper-logo')(),
-  require('metascraper-clearbit')(),
-  require('metascraper-publisher')(),
-  require('metascraper-title')(),
-  require('metascraper-url')()
-])
-
-getContent('https://twitter.com/BytesAndHumans/status/1532772903523065858')
-  .then(metascraper)
-  .then(metadata => {
-    console.log(metadata)
-    process.exit()
-  })
-```
-
-being the output:
-
-```
-{
-  author: null,
-  date: '2022-06-07T21:42:24.000Z',
-  description: '“What a week 🐣❤️📈”',
-  image: 'https://pbs.twimg.com/media/FUWAUW7XoAAxuP_.jpg:large',
-  logo: 'https://logo.clearbit.com/twitter.com',
-  publisher: 'Twitter',
-  title: 'Elena on Twitter',
-  url: 'https://twitter.com/BytesAndHumans/status/1532772903523065858'
-}
-```
-
-## Metadata
-
-?> Other metadata can be defined using a custom [rule bundle](#rules-bundles).
-
-Here is an example of the metadata that **metascraper** can collect:
+Here is an example of the metadata that **metascraper** can detect:
 
 - `audio` — eg. *https://cf-media.sndcdn.com/U78RIfDPV6ok.128.mp3*<br/>
 A audio URL that best represents the article.
@@ -176,7 +130,7 @@ A audio URL that best represents the article.
 - `url` — eg. *http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*<br/>
   The URL of the article.
 
-## How It Works
+## How it works
 
 **metascraper** is built out of rules bundles.
 
@@ -196,7 +150,7 @@ Rules work as fallback between them:
 
 **metascraper** do that until finish all the rule or find the first rule that resolves the value.
 
-## Importing Rules
+## Importing rules
 
 **metascraper** exports a constructor that need to be initialized providing a collection of rules to load:
 
@@ -227,7 +181,7 @@ const metascraper = require('metascraper')([
 ])
 ```
 
-## Rules Bundles
+## Rules bundles
 
 ?> Can't find the rules bundle that you want? Let's [open an issue](https://github.com/microlinkhq/metascraper/issues/new) to create it.
 
