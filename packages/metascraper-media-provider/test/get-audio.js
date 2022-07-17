@@ -4,6 +4,10 @@ const test = require('ava')
 
 const { getAudio } = require('..')
 
+test('podcastaddict', t => {
+  t.snapshot(getAudio(require('./fixtures/provider/podcastaddict.json')))
+})
+
 test('castbox', t => {
   t.snapshot(getAudio(require('./fixtures/provider/castbox.json')))
 })
