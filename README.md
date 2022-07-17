@@ -35,7 +35,7 @@ There are multiple ways to get the HTML markup. In our case, we are going to run
 const getHTML = require('html-get')
 
 /**
- * `browserless` will be passed to `html-get` 
+ * `browserless` will be passed to `html-get`
  * as driver for getting the rendered HTML.
  */
 const browserless = require('browserless')()
@@ -73,7 +73,6 @@ getContent('https://microlink.io')
   .then(metadata => console.log(metadata))
   .then(browserless.close)
   .then(process.exit)
-  
 ```
 
 The output will be something like:

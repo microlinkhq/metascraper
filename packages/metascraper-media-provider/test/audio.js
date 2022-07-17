@@ -16,7 +16,7 @@ const { isUrl } = require('@metascraper/helpers')
   })
 })
 ;[
-  'https://www.facebook.com/afcajax/videos/1686831701364171',
+  'https://www.facebook.com/afcajax/videos/1703670770008127',
   'https://www.facebook.com/cnn/videos/10157803903591509/'
 ].forEach(url => {
   ;(isCI ? test.skip : test)(url, async t => {

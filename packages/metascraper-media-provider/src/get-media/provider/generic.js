@@ -72,3 +72,5 @@ module.exports = ({
     return pTimeout(task(), timeout, fallback)
   }
 }
+
+module.exports.getFlags = getFlags
