@@ -1,0 +1,57 @@
+{
+  "id": "204d2842-a3f7-4514-9c6d-e8ae5382775f",
+  "display_id": "caffeine",
+  "url": "https://sphinx.acast.com/saywhytodrugs/caffeine/media.mp3",
+  "title": "Caffeine",
+  "description": "Episode 11 is a return to the usual format. Scroobius Pip and Dr Suzi Gage sit down and chat caffeine. As well as this, Suzi has some exciting news in the intro.\n See acast.com/privacy for privacy and opt-out information.",
+  "thumbnail": "https://assets.pippa.io/shows/611ed6f306c05edd31f40e82/611ed70f27513b0013d09bb8.jpg",
+  "timestamp": 1476918060,
+  "duration": 2113,
+  "filesize": 50729713,
+  "season_number": null,
+  "episode": "Caffeine",
+  "episode_number": null,
+  "creator": "Suzi Gage",
+  "series": "Say Why To Drugs",
+  "webpage_url": "https://play.acast.com/s/saywhytodrugs/caffeine",
+  "original_url": "https://play.acast.com/s/saywhytodrugs/caffeine",
+  "webpage_url_basename": "caffeine",
+  "webpage_url_domain": "acast.com",
+  "extractor": "acast",
+  "extractor_key": "ACast",
+  "playlist": null,
+  "playlist_index": null,
+  "thumbnails": [
+    {
+      "url": "https://assets.pippa.io/shows/611ed6f306c05edd31f40e82/611ed70f27513b0013d09bb8.jpg",
+      "id": "0"
+    }
+  ],
+  "fulltitle": "Caffeine",
+  "duration_string": "35:13",
+  "upload_date": "20161019",
+  "requested_subtitles": null,
+  "_has_drm": null,
+  "format_id": "0",
+  "ext": "mp3",
+  "format": "0 - unknown",
+  "protocol": "https",
+  "resolution": null,
+  "dynamic_range": "SDR",
+  "http_headers": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-us,en;q=0.5",
+    "Sec-Fetch-Mode": "navigate",
+    "Referer": "https://play.acast.com/s/saywhytodrugs/caffeine"
+  },
+  "requested_downloads": [
+    {
+      "epoch": 1658092105,
+      "_filename": "Caffeine [204d2842-a3f7-4514-9c6d-e8ae5382775f].mp3",
+      "__write_download_archive": false
+    }
+  ],
+  "epoch": 1658092105,
+  "_type": "video"
+}
