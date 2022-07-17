@@ -61,7 +61,9 @@ const isDownloadable = ({ url }) =>
   new URL(url).searchParams.get('download') === '1'
 
 const getFormatUrls = ({ orderBy }) => (input, filters) => {
-  const formats = get(input, 'formats') || get(input, 'entries[0].formats')
+  const formats = get(input, 'formats') ||
+    get(input, 'entries[0].formats') || [input]
+
   const url = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
