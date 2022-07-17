@@ -1,6 +1,15 @@
 'use strict'
 
-const { chain, eq, find, isEmpty, isNil, negate, overEvery } = require('lodash')
+const {
+  chain,
+  eq,
+  find,
+  get,
+  isEmpty,
+  isNil,
+  negate,
+  overEvery
+} = require('lodash')
 
 const {
   extension: extensionFn,
@@ -51,7 +60,8 @@ const hasVideo = format =>
 const isDownloadable = ({ url }) =>
   new URL(url).searchParams.get('download') === '1'
 
-const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
+const getFormatUrls = ({ orderBy }) => (input, filters) => {
+  const formats = get(input, 'formats') || get(input, 'entries[0].formats')
   const url = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
