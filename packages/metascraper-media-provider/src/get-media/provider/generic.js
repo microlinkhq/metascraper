@@ -13,16 +13,19 @@ const RE_UNSUPORTED_URL = /Unsupported URL/
 const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
   const flags = {
     dumpSingleJson: true,
-    noCallHome: true,
-    noCheckCertificate: true,
+    noCheckCertificates: true,
     noWarnings: true,
-    preferFreeFormats: true,
-    referer: url,
-    youtubeSkipDashManifest: true
+    preferFreeFormats: true
   }
+
+  flags.addHeader = [
+    `referer:${url}`,
+    userAgent && `user-agent:${userAgent}`
+  ].filter(Boolean)
+
   if (cacheDir) flags.cacheDir = cacheDir
-  if (userAgent) flags.userAgent = userAgent
   if (proxy) flags.proxy = proxy.toString()
+
   return flags
 }
 
@@ -69,3 +72,5 @@ module.exports = ({
     return pTimeout(task(), timeout, fallback)
   }
 }
+
+module.exports.getFlags = getFlags

@@ -1,0 +1,109 @@
+{
+  "id": "Wordle,-hurdles-and-Sally’s-early-retirement-id2088851-id513537148",
+  "title": "Wordle, hurdles and Sally’s early retirement",
+  "_type": "playlist",
+  "entries": [
+    {
+      "formats": [
+        {
+          "width": null,
+          "height": null,
+          "tbr": null,
+          "format_id": "0",
+          "url": "https://locator.simplecastcdn.com/f4352096-d805-4926-a3c4-d39b725616a3/d8fa5086-6a2e-42bc-9e66-ba08ca4a801e.mp3?aid=rss_feed&feed=LDd0maWN",
+          "vcodec": "none",
+          "ext": "mp3",
+          "http_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.20 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-us,en;q=0.5",
+            "Sec-Fetch-Mode": "navigate",
+            "Referer": "https://castbox.fm/episode/Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148"
+          },
+          "protocol": "https",
+          "audio_ext": "mp3",
+          "video_ext": "none",
+          "format": "0 - audio only",
+          "resolution": "audio only"
+        }
+      ],
+      "subtitles": {},
+      "thumbnail": null,
+      "id": "Wordle,-hurdles-and-Sally’s-early-retirement-id2088851-id513537148",
+      "title": "Wordle, hurdles and Sally’s early retirement",
+      "n_entries": 1,
+      "__last_playlist_index": 1,
+      "playlist_count": 1,
+      "playlist_index": 1,
+      "playlist_autonumber": 1,
+      "playlist": "Wordle, hurdles and Sally’s early retirement",
+      "playlist_id": "Wordle,-hurdles-and-Sally’s-early-retirement-id2088851-id513537148",
+      "playlist_title": "Wordle, hurdles and Sally’s early retirement",
+      "playlist_uploader": null,
+      "playlist_uploader_id": null,
+      "extractor": "generic",
+      "webpage_url": "https://castbox.fm/episode/Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148",
+      "webpage_url_basename": "Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148",
+      "webpage_url_domain": "castbox.fm",
+      "extractor_key": "Generic",
+      "display_id": "Wordle,-hurdles-and-Sally’s-early-retirement-id2088851-id513537148",
+      "fulltitle": "Wordle, hurdles and Sally’s early retirement",
+      "requested_subtitles": null,
+      "_has_drm": null,
+      "requested_downloads": [
+        {
+          "format_id": "0",
+          "url": "https://locator.simplecastcdn.com/f4352096-d805-4926-a3c4-d39b725616a3/d8fa5086-6a2e-42bc-9e66-ba08ca4a801e.mp3?aid=rss_feed&feed=LDd0maWN",
+          "vcodec": "none",
+          "ext": "mp3",
+          "http_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.20 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-us,en;q=0.5",
+            "Sec-Fetch-Mode": "navigate",
+            "Referer": "https://castbox.fm/episode/Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148"
+          },
+          "protocol": "https",
+          "audio_ext": "mp3",
+          "video_ext": "none",
+          "format": "0 - audio only",
+          "resolution": "audio only",
+          "epoch": 1658061477,
+          "_filename": "Wordle, hurdles and Sally’s early retirement [Wordle,-hurdles-and-Sally’s-early-retirement-id2088851-id513537148].mp3",
+          "__write_download_archive": false
+        }
+      ],
+      "width": null,
+      "height": null,
+      "tbr": null,
+      "format_id": "0",
+      "url": "https://locator.simplecastcdn.com/f4352096-d805-4926-a3c4-d39b725616a3/d8fa5086-6a2e-42bc-9e66-ba08ca4a801e.mp3?aid=rss_feed&feed=LDd0maWN",
+      "vcodec": "none",
+      "ext": "mp3",
+      "http_headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.20 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-us,en;q=0.5",
+        "Sec-Fetch-Mode": "navigate",
+        "Referer": "https://castbox.fm/episode/Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148"
+      },
+      "protocol": "https",
+      "audio_ext": "mp3",
+      "video_ext": "none",
+      "format": "0 - audio only",
+      "resolution": "audio only"
+    }
+  ],
+  "webpage_url": "https://castbox.fm/episode/Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148",
+  "original_url": "https://castbox.fm/episode/Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148",
+  "webpage_url_basename": "Wordle%2C-hurdles-and-Sally%E2%80%99s-early-retirement-id2088851-id513537148",
+  "webpage_url_domain": "castbox.fm",
+  "extractor": "generic",
+  "extractor_key": "Generic",
+  "requested_entries": [
+    1
+  ],
+  "playlist_count": 1,
+  "__files_to_move": {},
+  "epoch": 1658061477
+}
