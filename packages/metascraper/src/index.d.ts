@@ -6,6 +6,7 @@ declare module 'metascraper' {
     url: string;
     html?: string;
     rules?: Rule[];
+    validateUrl: boolean;
   }
   interface Metadata {
     author: string;
