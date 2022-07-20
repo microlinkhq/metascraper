@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.29.17](https://github.com/microlinkhq/metascraper/compare/v5.29.16...v5.29.17) (2022-07-20)
+
+### Bug Fixes
+
+* **audio:** only consider http urls ([#569](https://github.com/microlinkhq/metascraper/issues/569)) ([624a776](https://github.com/microlinkhq/metascraper/commit/624a776ad915ca580f01c11a42847c9b5f0fbaf9))
+
 ## [5.29.16](https://github.com/microlinkhq/metascraper/compare/v5.29.15...v5.29.16) (2022-07-18)
 
 **Note:** Version bump only for package metascraper
