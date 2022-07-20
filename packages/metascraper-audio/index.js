@@ -72,7 +72,11 @@ module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
         iframe.each(function () {
           const src = $(this).attr('src')
           const normalizedUrl = normalizeUrl(url, src)
-          if (normalizedUrl && srcs.indexOf(normalizedUrl) === -1) {
+          if (
+            typeof normalizedUrl === 'string' &&
+            normalizedUrl.startsWith('http') &&
+            srcs.indexOf(normalizedUrl) === -1
+          ) {
             srcs.push(normalizedUrl)
           }
         })
