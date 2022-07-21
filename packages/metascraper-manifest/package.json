@@ -26,7 +26,7 @@
     "@keyvhq/memoize": "~1.6.14",
     "@metascraper/helpers": "^5.29.15",
     "async-memoize-one": "~1.1.1",
-    "data-uri-to-buffer": "~3.0.1",
+    "data-uri-to-buffer": "~4.0.0",
     "got": "~11.8.5",
     "lodash": "~4.17.21"
   },
