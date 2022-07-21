@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.30.0](https://github.com/microlinkhq/metascraper/compare/v5.29.18...v5.30.0) (2022-07-21)
+
+### Features
+
+* **manifest:** support data uris ([#572](https://github.com/microlinkhq/metascraper/issues/572)) ([91ce4aa](https://github.com/microlinkhq/metascraper/commit/91ce4aa4c6b94d51572a88567d600771c955bb94))
+
 ## [5.29.15](https://github.com/microlinkhq/metascraper/compare/v5.29.14...v5.29.15) (2022-07-09)
 
 **Note:** Version bump only for package metascraper-logo-favicon
