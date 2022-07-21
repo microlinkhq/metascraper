@@ -22,8 +22,6 @@ const toSize = (input, url) => {
 
   const [verticalSize, horizontalSize] = chain(input)
     .replace(/×/g, 'x')
-    .split(' ')
-    .first()
     .split('x')
     .value()
 
