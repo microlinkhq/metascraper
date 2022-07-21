@@ -58,6 +58,26 @@ test('does nothing if icons field at manifest is not present', async t => {
   t.snapshot(metadata)
 })
 
+test('from data uri', async t => {
+  const metascraper = createMetascraper()
+  const url = 'https://krafla-landing-g19o4bcij-trence.vercel.app/'
+  const html = createHtml([
+    '<link rel="manifest" href="data:application/json;base64,ewogIm5hbWUiOiAiQXBwIiwKICJpY29ucyI6IFsKICB7CiAgICJzcmMiOiAiXC9pY29uXC9hbmRyb2lkLWljb24tMzZ4MzYucG5nIiwKICAgInNpemVzIjogIjM2eDM2IiwKICAgInR5cGUiOiAiaW1hZ2VcL3BuZyIsCiAgICJkZW5zaXR5IjogIjAuNzUiCiAgfSwKICB7CiAgICJzcmMiOiAiXC9pY29uXC9hbmRyb2lkLWljb24tNDh4NDgucG5nIiwKICAgInNpemVzIjogIjQ4eDQ4IiwKICAgInR5cGUiOiAiaW1hZ2VcL3BuZyIsCiAgICJkZW5zaXR5IjogIjEuMCIKICB9LAogIHsKICAgInNyYyI6ICJcL2ljb25cL2FuZHJvaWQtaWNvbi03Mng3Mi5wbmciLAogICAic2l6ZXMiOiAiNzJ4NzIiLAogICAidHlwZSI6ICJpbWFnZVwvcG5nIiwKICAgImRlbnNpdHkiOiAiMS41IgogIH0sCiAgewogICAic3JjIjogIlwvaWNvblwvYW5kcm9pZC1pY29uLTk2eDk2LnBuZyIsCiAgICJzaXplcyI6ICI5Nng5NiIsCiAgICJ0eXBlIjogImltYWdlXC9wbmciLAogICAiZGVuc2l0eSI6ICIyLjAiCiAgfSwKICB7CiAgICJzcmMiOiAiXC9pY29uXC9hbmRyb2lkLWljb24tMTQ0eDE0NC5wbmciLAogICAic2l6ZXMiOiAiMTQ0eDE0NCIsCiAgICJ0eXBlIjogImltYWdlXC9wbmciLAogICAiZGVuc2l0eSI6ICIzLjAiCiAgfSwKICB7CiAgICJzcmMiOiAiXC9pY29uXC9hbmRyb2lkLWljb24tMTkyeDE5Mi5wbmciLAogICAic2l6ZXMiOiAiMTkyeDE5MiIsCiAgICJ0eXBlIjogImltYWdlXC9wbmciLAogICAiZGVuc2l0eSI6ICI0LjAiCiAgfQogXQp9">'
+  ])
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
+test('does nothing if data uri is malformed', async t => {
+  const metascraper = createMetascraper()
+  const url = 'https://krafla-landing-g19o4bcij-trence.vercel.app/'
+  const html = createHtml([
+    '<link rel="manifest" href="data:application/json;base64,ewogIm5hbWUiOi">'
+  ])
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
 test('vercel.com', async t => {
   const metascraper = createMetascraper()
   const url = 'https://vercel.com'
