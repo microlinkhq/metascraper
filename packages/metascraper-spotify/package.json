@@ -26,7 +26,7 @@
     "@keyvhq/memoize": "~1.6.14",
     "@metascraper/helpers": "^5.29.15",
     "async-memoize-one": "~1.1.1",
-    "got": "~11.8.5",
+    "got": "~12.2.0",
     "spotify-url-info": "~3.1.2",
     "tldts": "~5.7.84"
   },
