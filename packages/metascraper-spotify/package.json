@@ -25,10 +25,10 @@
   "dependencies": {
     "@keyvhq/memoize": "~1.6.14",
     "@metascraper/helpers": "^5.29.15",
-    "async-memoize-one": "~1.1.1",
+    "async-memoize-one": "~1.1.2",
     "got": "~11.8.5",
-    "spotify-url-info": "~3.1.2",
-    "tldts": "~5.7.84"
+    "spotify-url-info": "~3.1.3",
+    "tldts": "~5.7.87"
   },
   "devDependencies": {
     "ava": "latest",

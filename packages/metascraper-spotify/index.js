@@ -6,11 +6,18 @@ const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
 const {
-  sanetizeUrl,
+  $jsonld,
+  author,
   composeRule,
+  description,
   memoizeOne,
-  normalizeUrl
+  normalizeUrl,
+  sanetizeUrl,
+  toRule
 } = require('@metascraper/helpers')
+
+const toDescription = toRule(description)
+const toAuthor = toRule(author)
 
 const { getPreview } = require('spotify-url-info')((url, opts) =>
   got(url, opts).then(res => ({
@@ -43,9 +50,21 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
 
   const rules = {
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),
-    author: getSpotify({ from: 'artist', to: 'author' }),
+    author: [
+      toAuthor($jsonld('publisher')),
+      getSpotify({ from: 'artist', to: 'author' })
+    ],
     date: getSpotify({ from: 'date' }),
-    description: getSpotify({ from: 'description' }),
+    description: [
+      toDescription($ => {
+        const raw = $('meta[property="og:description"]').attr('content')
+        if (!raw) return
+        const [, description] = raw.split('on Spotify. ')
+        return description
+      }),
+
+      getSpotify({ from: 'description' })
+    ],
     image: getSpotify({ from: 'image' }),
     publisher: () => 'Spotify',
     title: getSpotify({ from: 'title' }),
