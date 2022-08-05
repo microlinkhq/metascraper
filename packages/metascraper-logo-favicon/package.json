@@ -27,7 +27,7 @@
     "@metascraper/helpers": "^5.29.15",
     "lodash": "~4.17.21",
     "reachable-url": "~1.6.11",
-    "tldts": "~5.7.84"
+    "tldts": "~5.7.87"
   },
   "devDependencies": {
     "ava": "latest"

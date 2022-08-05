@@ -26,10 +26,10 @@
   "dependencies": {
     "@keyvhq/memoize": "~1.6.14",
     "@metascraper/helpers": "^5.29.15",
-    "async-memoize-one": "~1.1.1",
+    "async-memoize-one": "~1.1.2",
     "got": "~11.8.5",
     "lodash": "~4.17.21",
-    "tldts": "~5.7.84"
+    "tldts": "~5.7.87"
   },
   "devDependencies": {
     "ava": "latest"

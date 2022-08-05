@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.29.15",
-    "tldts": "~5.7.84"
+    "tldts": "~5.7.87"
   },
   "devDependencies": {
     "ava": "latest"
