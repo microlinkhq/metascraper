@@ -60,7 +60,7 @@
     "@metascraper/helpers": "^5.29.15",
     "cheerio": "~1.0.0-rc.12",
     "lodash": "~4.17.21",
-    "whoops": "~4.1.1"
+    "whoops": "~4.1.2"
   },
   "devDependencies": {
     "ava": "latest"

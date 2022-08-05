@@ -27,7 +27,7 @@
     "css-urls": "~2.0.27",
     "got": "~11.8.5",
     "p-reflect": "~2.1.0",
-    "tldts": "~5.7.84"
+    "tldts": "~5.7.87"
   },
   "devDependencies": {
     "ava": "latest"
