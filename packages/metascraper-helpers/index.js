@@ -23,6 +23,7 @@ const {
 const memoizeOne = require('memoize-one').default || require('memoize-one')
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
+const { getExtension: mimeExtension } = require('mime')
 const capitalize = require('microsoft-capitalize')
 const { JSDOM, VirtualConsole } = require('jsdom')
 const isRelativeUrl = require('is-relative-url')
@@ -31,7 +32,6 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const iso6393 = require('iso-639-3/to-1')
-const { getExtension } = require('mime')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
 const isIso = require('isostring')
@@ -299,7 +299,7 @@ const title = (value, { removeSeparator = false, ...opts } = {}) =>
   isString(value) ? titleize(value, { removeSeparator, ...opts }) : undefined
 
 const isMime = (contentType, type) => {
-  const ext = getExtension(contentType)
+  const ext = mimeExtension(contentType)
   return eq(type, get(EXTENSIONS, ext))
 }
 
@@ -455,6 +455,7 @@ module.exports = {
   description,
   extension,
   findRule,
+  mimeExtension,
   has,
   image,
   imageExtensions,
