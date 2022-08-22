@@ -65,5 +65,5 @@ test('get `author` from HTML markup', async t => {
 
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url, html })
-  t.snapshot(metadata)
+  t.is(metadata.author, 'Wes Bos and Scott Tolinski')
 })
