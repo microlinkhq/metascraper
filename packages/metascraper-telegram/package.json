@@ -2,7 +2,7 @@
   "name": "metascraper-telegram",
   "description": "Metascraper integration with Telegram",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-telegram",
-  "version": "5.30.4",
+  "version": "5.31.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
