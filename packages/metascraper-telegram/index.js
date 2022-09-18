@@ -73,3 +73,5 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
 
   return rules
 }
+
+module.exports.test = test
