@@ -1,6 +1,6 @@
 {
   "name": "metascraper-feed",
-  "description": "Get RSS/Atom feed url from HTML markup",
+  "description": "Get RSS/Atom feed URL from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-description",
   "version": "0.0.1",
   "main": "index.js",
@@ -18,8 +18,10 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "description",
-    "metascraper"
+    "atom",
+    "feed",
+    "metascraper",
+    "rss"
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.30.4"
