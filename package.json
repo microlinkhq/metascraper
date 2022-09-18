@@ -73,6 +73,10 @@
       "email": "me@omardiab.com"
     },
     {
+      "name": "Zander Martineau",
+      "email": "mrmartineau@users.noreply.github.com"
+    },
+    {
       "name": "Nikola Ristic",
       "email": "risticn6@gmail.com"
     },
@@ -95,10 +99,6 @@
     {
       "name": "Nico Domino",
       "email": "yo@ndo.dev"
-    },
-    {
-      "name": "Zander Martineau",
-      "email": "mrmartineau@users.noreply.github.com"
     }
   ],
   "repository": {
