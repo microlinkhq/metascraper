@@ -1,0 +1,40 @@
+{
+  "name": "metascraper-feed",
+  "description": "Get RSS/Atom feed url from HTML markup",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-description",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-feed",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "description",
+    "metascraper"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.30.4"
+  },
+  "devDependencies": {
+    "ava": "latest"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}
