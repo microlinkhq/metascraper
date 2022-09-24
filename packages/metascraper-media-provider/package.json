@@ -32,7 +32,7 @@
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
-    "tldts": "~5.7.90",
+    "tldts": "~5.7.92",
     "youtube-dl-exec": "~2.1.5"
   },
   "devDependencies": {
