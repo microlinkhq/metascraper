@@ -2,7 +2,7 @@
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-lang",
-  "version": "5.30.4",
+  "version": "5.31.1",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -22,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.30.4"
+    "@metascraper/helpers": "^5.31.1"
   },
   "devDependencies": {
     "ava": "latest"
