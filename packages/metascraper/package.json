@@ -77,7 +77,6 @@
   "license": "MIT",
   "ava": {
     "failFast": true,
-    "timeout": "5m",
-    "workerThreads": false
+    "timeout": "5m"
   }
 }
