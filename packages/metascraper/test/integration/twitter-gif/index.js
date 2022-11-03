@@ -1,6 +1,6 @@
 'use strict'
 
-const { readFile } = require('fs').promises
+const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const test = require('ava')
 

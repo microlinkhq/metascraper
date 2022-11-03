@@ -1,6 +1,6 @@
 'use strict'
 
-const { readFile } = require('fs').promises
+const { readFile } = require('fs/promises')
 const { mapValues } = require('lodash')
 const { resolve } = require('path')
 const kindOf = require('kind-of')
