@@ -2,7 +2,7 @@
 
 const youtubedl = require('youtube-dl-exec')
 const path = require('path')
-const fs = require('fs').promises
+const fs = require('fs/promises')
 
 const { getFlags } = require('../../src/get-media/provider/generic')
 

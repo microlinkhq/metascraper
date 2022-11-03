@@ -108,7 +108,7 @@
 
 <p>In order to interact with the house, I paired a bluetooth soundbar to the raspberry pi.</p>
 <p>Once all of this is setup, this is the entirety of the code for the first iteration of the working soundpad (soundboard + joypad):</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
 <span class="nb">cd</span> <span class="nv">$1</span>
 stdbuf -o0 evtest /dev/input/event0<span class="p">|</span> awk -W interactive <span class="s1">&#39;</span>
 <span class="s1">/EV_KEY/ { if ( $NF == 1) { system(&quot;paplay &quot; $8 &quot;-*.wav&amp;&quot;) }}&#39;</span>
@@ -130,7 +130,7 @@ stdbuf -o0 evtest /dev/input/event0<span class="p">|</span> awk -W interactive <
 <p>That's where the music portal comes in. It's a combination of a <a href="https://en.wikipedia.org/wiki/Mir:ror">Violet Mir:ror</a> I had lying around, and a Raspberry PI with a speaker hooked up.</p>
 <p>The Mir:ror is a very simple RFID reader. It's basically plug-and-play on Linux, since it sends raw HID events, with the full ID of the tags it reads, and it has audio and visual feedback. I also evaluated using a <a href="https://en.wikipedia.org/wiki/Skylanders">Skylanders</a> portal, which also sent raw HID events, but its data was much less detailed, with only two bytes of information in the HID events, and the need to do more work to <a href="https://github.com/silicontrip/SkyReader">get the full data</a>, and has no audio or visual feedback.</p>
 <p>So here is the code of the first version:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
 sudo stdbuf -o0 hexdump -C /dev/hidraw0 <span class="p">|</span> awk -W interactive <span class="s1">&#39;</span>
 <span class="s1">/02 01 00 00 08 d0 02 1a  03 52 c1 1a 01 00 00 00/ { print &quot;file1 &quot;; play=1; file=&quot;file1.mp3&quot; ; }</span>
 <span class="s1">/02 01 00 00 08 d0 02 1a  03 52 c1 4b ad 00 00 00/ { print &quot;file2 &quot;; play=1; file=&quot;file2.mp3&quot; ; }</span>
