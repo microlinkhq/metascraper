@@ -24,7 +24,7 @@ module.exports = () => {
     logo: [
       // They receive as parameter:
       // - `htmlDom`: the cheerio HTML instance.
-      // - `url`: The input URL used for extact the content.
+      // - `url`: The input URL used for extracting the content.
       ({ htmlDom: $, url }) => $('meta[property="og:logo"]').attr('content'),
       ({ htmlDom: $, url }) => $('meta[itemprop="logo"]').attr('content')
     ]
@@ -33,9 +33,9 @@ module.exports = () => {
 }
 ```
 
-You can declare any logic you need in order to determinate the output.
+You can declare any logic you need in order to determine the output.
 
-A set of rules under the same namespace runs on series and only the value returned by the first rule that output a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value will be taken. So remember, the order is important!.
+A set of rules under the same namespace runs in series and only the value returned by the first rule that outputs a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value will be taken. So remember, the order is important!.
 
 ### Defining `test` function
 
@@ -45,9 +45,9 @@ You can associate a `test` function with your rule bundle:
 rules.test = ({ url }) => getVideoInfo(url).service === 'youtube'))
 ```
 
-The `test` function will receive the same arguments than a rule. This is useful for just skip all the rules into that doesn't target an specific URL.
+The `test` function will receive the same arguments as a rule. This is useful for skipping all rules that doesn't target a specific URL.
 
-A good practice there is to use a memoize function to prevent unnecessary CPU cycles for a previously computed value:
+A good practice is to use a memoize function to prevent unnecessary CPU cycles for a previously computed value:
 
 ```js
 const { memoizeOne } = require('@metascraper/helpers')
@@ -60,11 +60,11 @@ rules.test ({ url }) => test(url)
 
 ## Testing your Rules
 
-Since the order of the rules are important, testing it is also an important thing in order to be sure more popular rules are executed first over less popular rules.
+Since the order of the rules is important, testing it is also an important thing in order to be sure more popular rules are executed first over less popular rules.
 
 ### Writing Unitary Test
 
-Just write some HTML markup and as many tests you need in order to determinate the rules are sorted correctly:
+Just write some HTML markup and as many tests you need in order to determine the rules are sorted correctly:
 
 ```js
 /* test/unit/index.js */
@@ -76,7 +76,7 @@ const metascraper = require('metascraper')([
 
 
 describe('metascraper-logo', () => {
-  it('create an absolute favicon url if the logo is not present', async () => {
+  it('creates an absolute favicon url if the logo is not present', async () => {
     const html = `
     <!DOCTYPE html>
     <html lang="en">
@@ -98,11 +98,11 @@ describe('metascraper-logo', () => {
 })
 ```
 
-### Writing Integration Test
+### Writing Integration Tests
 
-Although unit tests are a good start to check all is working fine, the rules need to be evaluated in a real environment to demonstrate they are effective.
+Although unit tests are a good start, the rules need to be evaluated in a real environment to demonstrate their effectiveness.
 
-For doing that, first you need to get some production HTML markup.
+To do that, first you need to get some production HTML markup.
 
 You can do that easily using [html-microservice](https://microlink-html.herokuapp.com/).
 
@@ -114,7 +114,7 @@ You can save the result into a file:
 curl https://microlink-html.herokuapp.com/https://metascraper.js.org > index.html
 ```
 
-Then we are going to use the file as html in our tests:
+Then use the file as html in your tests:
 
 ```js
 /* test/integration/index.js */
