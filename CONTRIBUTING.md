@@ -64,7 +64,7 @@ Since the order of the rules is important, testing it is also an important thing
 
 ### Writing Unitary Test
 
-Just write some HTML markup and as many tests you need in order to determine the rules are sorted correctly:
+Just write some HTML markup and as many tests as you need in order to determine the rules are sorted correctly:
 
 ```js
 /* test/unit/index.js */
