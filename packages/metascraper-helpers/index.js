@@ -70,17 +70,26 @@ const IMAGE = 'image'
 
 const imageExtensions = chain(require('image-extensions'))
   .concat(['avif'])
-  .reduce((acc, ext) => ({ ...acc, [ext]: IMAGE }), {})
+  .reduce((acc, ext) => {
+    acc[ext] = IMAGE
+    return acc
+  }, {})
   .value()
 
 const audioExtensions = chain(require('audio-extensions'))
   .concat(['mpga'])
   .difference(['mp4'])
-  .reduce((acc, ext) => ({ ...acc, [ext]: AUDIO }), {})
+  .reduce((acc, ext) => {
+    acc[ext] = AUDIO
+    return acc
+  }, {})
   .value()
 
 const videoExtensions = chain(require('video-extensions'))
-  .reduce((acc, ext) => ({ ...acc, [ext]: VIDEO }), {})
+  .reduce((acc, ext) => {
+    acc[ext] = VIDEO
+    return acc
+  }, {})
   .value()
 
 const EXTENSIONS = {
