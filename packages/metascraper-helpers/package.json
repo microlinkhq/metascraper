@@ -38,7 +38,7 @@
     "memoize-one": "~6.0.0",
     "microsoft-capitalize": "~1.0.5",
     "mime": "~3.0.0",
-    "normalize-url": "~6.1.0",
+    "normalize-url": "~8.0.0",
     "re2": "~1.17.7",
     "smartquotes": "~2.3.2",
     "url-regex-safe": "~3.0.0",
