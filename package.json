@@ -110,7 +110,7 @@
     "url": "git+https://github.com/microlinkhq/metascraper.git"
   },
   "bugs": {
-    "url": "https://github.com/microlinkhq/issues"
+    "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
