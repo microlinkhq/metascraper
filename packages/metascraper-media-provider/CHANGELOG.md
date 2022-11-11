@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.31.2](https://github.com/microlinkhq/metascraper/compare/v5.31.1...v5.31.2) (2022-11-11)
+
+### Performance Improvements
+
+* unify tldts ([#596](https://github.com/microlinkhq/metascraper/issues/596)) ([00a0633](https://github.com/microlinkhq/metascraper/commit/00a0633851bd87b1dcf27c0f0795cb85457eb409))
+
 ## [5.31.1](https://github.com/microlinkhq/metascraper/compare/v5.31.0...v5.31.1) (2022-09-24)
 
 **Note:** Version bump only for package metascraper-media-provider
