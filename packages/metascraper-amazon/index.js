@@ -3,14 +3,13 @@
 const {
   $filter,
   author,
-  toRule,
   lang,
   memoizeOne,
+  parseUrl,
   title,
+  toRule,
   url
 } = require('@metascraper/helpers')
-
-const { getPublicSuffix } = require('tldts')
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 
@@ -30,7 +29,7 @@ const SUFFIX_LANGUAGES = {
   it: 'it'
 }
 
-const getDomainLanguage = url => SUFFIX_LANGUAGES[getPublicSuffix(url)]
+const getDomainLanguage = url => SUFFIX_LANGUAGES[parseUrl(url).publicSuffix]
 
 const toUrl = toRule(url)
 const toAuthor = toRule(author)

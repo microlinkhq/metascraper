@@ -1,11 +1,10 @@
 'use strict'
 
-const { composeRule } = require('@metascraper/helpers')
+const { composeRule, parseUrl } = require('@metascraper/helpers')
 const { get, isString, isObject } = require('lodash')
 const asyncMemoizeOne = require('async-memoize-one')
 const { stringify } = require('querystring')
 const memoize = require('@keyvhq/memoize')
-const { getDomain } = require('tldts')
 const got = require('got')
 
 const ENDPOINT = 'https://autocomplete.clearbit.com/v1/companies/suggest'
@@ -42,7 +41,7 @@ const createClearbit = ({ gotOpts, keyvOpts, logoOpts } = {}) => {
 
 module.exports = opts => {
   const clearbit = createClearbit(opts)
-  const getClearbit = composeRule(($, url) => clearbit(getDomain(url)))
+  const getClearbit = composeRule(($, url) => clearbit(parseUrl(url).domain))
 
   return {
     logo: getClearbit({ from: 'logo' }),

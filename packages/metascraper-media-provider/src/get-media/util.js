@@ -1,6 +1,6 @@
 'use strict'
 
-const { getDomainWithoutSuffix } = require('tldts')
+const { parseUrl } = require('@metascraper/helpers')
 const { chain } = require('lodash')
 
 const TEN_MIN_MS = 10 * 60 * 1000
@@ -8,7 +8,7 @@ const TEN_MIN_MS = 10 * 60 * 1000
 const isTweet = url => url.includes('/status/')
 
 const isTweetUrl = url =>
-  isTweet(url) && getDomainWithoutSuffix(url) === 'twitter'
+  isTweet(url) && parseUrl(url).domainWithoutSuffix === 'twitter'
 
 const getTweetId = url =>
   chain(url)

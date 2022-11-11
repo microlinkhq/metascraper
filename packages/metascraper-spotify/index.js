@@ -1,7 +1,6 @@
 'use strict'
 
 const asyncMemoizeOne = require('async-memoize-one')
-const { getDomainWithoutSuffix } = require('tldts')
 const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
@@ -12,6 +11,7 @@ const {
   description,
   memoizeOne,
   normalizeUrl,
+  parseUrl,
   sanetizeUrl,
   toRule
 } = require('@metascraper/helpers')
@@ -42,7 +42,7 @@ const createSpotify = ({ gotOpts, keyvOpts }) => {
   )
 }
 
-const test = memoizeOne(url => getDomainWithoutSuffix(url) === 'spotify')
+const test = memoizeOne(url => parseUrl(url).domainWithoutSuffix === 'spotify')
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const spotify = createSpotify({ gotOpts, keyvOpts })

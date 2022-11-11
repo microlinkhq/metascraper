@@ -1,19 +1,20 @@
 'use strict'
 
-const { getDomainWithoutSuffix } = require('tldts')
-
 const {
   $filter,
   author,
   description,
-  toRule,
-  memoizeOne
+  memoizeOne,
+  parseUrl,
+  toRule
 } = require('@metascraper/helpers')
 
 const toDescription = toRule(description)
 const toAuthor = toRule(author)
 
-const test = memoizeOne(url => getDomainWithoutSuffix(url) === 'soundcloud')
+const test = memoizeOne(
+  url => parseUrl(url).domainWithoutSuffix === 'soundcloud'
+)
 
 module.exports = () => {
   const rules = {

@@ -5,12 +5,12 @@ const {
   date,
   image,
   memoizeOne,
+  parseUrl,
   sanetizeUrl,
   toRule
 } = require('@metascraper/helpers')
 
 const memoize = require('@keyvhq/memoize')
-const { getDomain } = require('tldts')
 const pReflect = require('p-reflect')
 const cssUrls = require('css-urls')
 const got = require('got')
@@ -21,7 +21,7 @@ const toDate = toRule(date)
 
 const TELEGRAM_DOMAINS = ['telegram.me', 't.me']
 
-const test = memoizeOne(url => TELEGRAM_DOMAINS.includes(getDomain(url)))
+const test = memoizeOne(url => TELEGRAM_DOMAINS.includes(parseUrl(url).domain))
 
 const createGetIframe = gotOpts => async (url, $) => {
   const iframe = $('iframe')
