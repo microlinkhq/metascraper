@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.31.3](https://github.com/microlinkhq/metascraper/compare/v5.31.2...v5.31.3) (2022-11-11)
+
+### Bug Fixes
+
+* remove tldts import ([#597](https://github.com/microlinkhq/metascraper/issues/597)) ([be666e3](https://github.com/microlinkhq/metascraper/commit/be666e34962056d27c61ff455b053bdf8fda0a11))
+
 ## [5.31.2](https://github.com/microlinkhq/metascraper/compare/v5.31.1...v5.31.2) (2022-11-11)
 
 ### Bug Fixes
