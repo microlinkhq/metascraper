@@ -1,20 +1,19 @@
 'use strict'
 
-const { getDomain } = require('tldts')
-
 const {
-  $jsonld,
   $filter,
-  title,
+  $jsonld,
   description,
-  toRule,
-  memoizeOne
+  memoizeOne,
+  parseUrl,
+  title,
+  toRule
 } = require('@metascraper/helpers')
 
 const ROOT_DOMAINS = ['uol.com.br', 'torcedores.com']
 
 const test = memoizeOne(url =>
-  ROOT_DOMAINS.some(domain => getDomain(url) === domain)
+  ROOT_DOMAINS.some(domain => parseUrl(url).domain === domain)
 )
 
 const toTitle = toRule(title)

@@ -3,10 +3,10 @@
 const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
-const { getDomain } = require('tldts')
 
 const {
   logo,
+  parseUrl,
   memoizeOne,
   normalizeUrl,
   toRule,
@@ -138,7 +138,7 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
       async ({ url }) => castNull(await getLogo(normalizeUrl(url))),
       async ({ url }) => {
         const urlObj = new URL(url)
-        urlObj.hostname = getDomain(url)
+        urlObj.hostname = parseUrl(url).domain
         const result = await getLogo(normalizeUrl(urlObj))
         return castNull(result)
       }

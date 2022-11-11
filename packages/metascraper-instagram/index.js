@@ -1,11 +1,12 @@
 'use strict'
 
-const { memoizeOne, composeRule } = require('@metascraper/helpers')
-const { getDomainWithoutSuffix } = require('tldts')
+const { composeRule, memoizeOne, parseUrl } = require('@metascraper/helpers')
 const { JSDOM, VirtualConsole } = require('jsdom')
 const { keys, first, get } = require('lodash')
 
-const test = memoizeOne(url => getDomainWithoutSuffix(url) === 'instagram')
+const test = memoizeOne(
+  url => parseUrl(url).domainWithoutSuffix === 'instagram'
+)
 
 const getPage = sharedData => first(keys(get(sharedData, 'entry_data')))
 
@@ -64,6 +65,7 @@ const extractData = memoizeOne((url, $) => {
     }
   }
 })
+
 const getData = composeRule(($, url) => extractData(url, $))
 
 module.exports = () => {

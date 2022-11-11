@@ -22,8 +22,22 @@ const {
   isVideoUrl,
   lang,
   normalizeUrl,
+  parseUrl,
   url
 } = require('..')
+
+const measure = fn => {
+  const time = process.hrtime()
+  fn()
+  const diff = process.hrtime(time)
+  return (diff[0] * 1e9 + diff[1]) / 1e6
+}
+
+test('.parseUrl', t => {
+  const fn = () => parseUrl('https://example.com')
+  /* this assertion ensure parseUrl memoize the value */
+  t.true(measure(fn) > measure(fn)) // eslint-disable-line
+})
 
 test('.normalizeUrl', t => {
   t.is(normalizeUrl('https://example.com', 'javascript:false'), undefined)

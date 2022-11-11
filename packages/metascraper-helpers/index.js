@@ -1,25 +1,5 @@
 'use strict'
 
-const {
-  chain,
-  eq,
-  flow,
-  get,
-  includes,
-  invoke,
-  isArray,
-  isBoolean,
-  isDate,
-  isEmpty,
-  isNumber,
-  isString,
-  lte,
-  replace,
-  size,
-  toLower,
-  toString
-} = require('lodash')
-
 const memoizeOne = require('memoize-one').default || require('memoize-one')
 const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
@@ -37,8 +17,32 @@ const chrono = require('chrono-node')
 const isIso = require('isostring')
 const isUri = require('is-uri')
 const { URL } = require('url')
+const tldts = require('tldts')
+
+const {
+  chain,
+  eq,
+  flow,
+  get,
+  includes,
+  invoke,
+  isArray,
+  isBoolean,
+  isDate,
+  isEmpty,
+  isNumber,
+  isString,
+  lte,
+  memoize,
+  replace,
+  size,
+  toLower,
+  toString
+} = require('lodash')
 
 const iso6393Values = Object.values(iso6393)
+
+const parseUrl = memoize(tldts.parse)
 
 const toTitle = str =>
   capitalize(str, [
@@ -488,6 +492,7 @@ module.exports = {
   memoizeOne,
   mimeExtension,
   normalizeUrl,
+  parseUrl,
   protocol,
   publisher,
   sanetizeUrl,
