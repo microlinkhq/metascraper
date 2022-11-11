@@ -24,8 +24,7 @@
     "uol"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.31.2",
-    "tldts": "~5.7.92"
+    "@metascraper/helpers": "^5.31.2"
   },
   "devDependencies": {
     "ava": "latest",
