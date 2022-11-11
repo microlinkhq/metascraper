@@ -1,6 +1,6 @@
 'use strict'
 
-const { getDomainWithoutSuffix } = require('tldts')
+const { parseUrl } = require('@metascraper/helpers')
 const parseProxyUri = require('parse-proxy-uri')
 
 const { PROXY_PASSWORD, PROXY_USERNAME, PROXY_HOST } = process.env
@@ -18,7 +18,7 @@ const PROXY_URLS = ['https://api.twitter.com/1.1/guest/activate.json']
 const getProxy = ({ url, retryCount }) => {
   if (retryCount !== 1) return false
   if (PROXY_URLS.includes(url)) return proxy
-  if (PROXY_DOMAINS.includes(getDomainWithoutSuffix(url))) return proxy
+  if (PROXY_DOMAINS.includes(parseUrl(url).domainWithoutSuffix)) return proxy
   return false
 }
 
