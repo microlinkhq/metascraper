@@ -25,6 +25,7 @@ const url = 'http://www.siliconbeat.com/2016/04/19/time-come-woman'
 
 test('silicon-beat', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.is(typeof logo, 'string')
   t.snapshot(metadata)
 })

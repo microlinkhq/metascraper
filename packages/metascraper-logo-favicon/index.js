@@ -7,7 +7,6 @@ const memoize = require('@keyvhq/memoize')
 const {
   logo,
   parseUrl,
-  memoizeOne,
   normalizeUrl,
   toRule,
   url: urlFn
@@ -106,19 +105,23 @@ const pickBiggerSize = sizes => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const getFaviconUrl = memoizeOne(url => logo('/favicon.ico', { url }))
-
 const createGetLogo = ({ gotOpts, keyvOpts }) => {
   const getLogo = async url => {
-    const faviconUrl = getFaviconUrl(url)
+    const faviconUrl = logo('/favicon.ico', { url })
     if (!faviconUrl) return
 
-    const response = await reachableUrl(faviconUrl, gotOpts)
-    return reachableUrl.isReachable(response) ? faviconUrl : undefined
+    let response = await reachableUrl(faviconUrl, gotOpts)
+    if (reachableUrl.isReachable(response)) return faviconUrl
+
+    response = await reachableUrl(
+      `https://www.google.com/s2/favicons?domain_url=${url}&sz=128`,
+      gotOpts
+    )
+
+    return reachableUrl.isReachable(response) ? response.url : undefined
   }
 
   return memoize(getLogo, keyvOpts, {
-    key: getFaviconUrl,
     value: value => (value === undefined ? null : value)
   })
 }
@@ -145,5 +148,3 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
     ]
   }
 }
-
-module.exports.createGetLogo = createGetLogo
