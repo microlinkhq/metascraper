@@ -6,8 +6,6 @@ const test = require('ava')
 
 const createMetascraper = opts => require('metascraper')([require('..')(opts)])
 
-const { createGetLogo } = require('..')
-
 const createHtml = meta =>
   `<!DOCTYPE html>
 <html lang="en">
@@ -52,18 +50,6 @@ test('`pickFn` gets the bigger size by default', async t => {
     metadata.logo,
     'https://cdn.vox-cdn.com/uploads/chorus_asset/file/7395351/android-chrome-192x192.0.png'
   )
-})
-
-test('.createGetLogo dedupes key from input', async t => {
-  const cache = new Map()
-  const getLogo = createGetLogo({ keyvOpts: { store: cache } })
-
-  await getLogo('https://help.kinopio.club/about/')
-  await getLogo('https://help.kinopio.club/legal/')
-  await getLogo('https://help.kinopio.club/')
-  await getLogo('https://kinopio.club/')
-
-  t.is(cache.size, 2)
 })
 
 test('create an absolute favicon url if the logo is not present', async t => {
@@ -231,17 +217,16 @@ test('use non square logo as in the worst scenario', async t => {
   t.is(metadata.logo, 'https://s.yimg.com/kw/assets/eng-e-558x270.png')
 })
 
-test('returns null if logo is not detected', async t => {
-  const url = 'https://liu.edu/Brooklyn'
-  const html = await readFile(resolve(__dirname, 'fixtures/liuedu.html'))
-  const metascraper = createMetascraper()
-  const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, null)
-})
-
-test('resolve domain favicon', async t => {
+test('resolve logo using favicon associated with the domain', async t => {
   const url = 'https://cdn.teslahunt.io/foo/bar'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url })
   t.is(metadata.logo, 'https://teslahunt.io/favicon.ico')
+})
+
+test('resolve logo using from google associated with the domain', async t => {
+  const url = 'https://escritopor.elenatorro.com'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url })
+  t.true(metadata.logo.includes('gstatic'))
 })
