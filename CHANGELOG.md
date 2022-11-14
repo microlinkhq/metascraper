@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.32.0](https://github.com/microlinkhq/metascraper/compare/v5.31.3...v5.32.0) (2022-11-14)
+
+### Features
+
+* **logo:** use google logo endpoint ([#599](https://github.com/microlinkhq/metascraper/issues/599)) ([f68f93d](https://github.com/microlinkhq/metascraper/commit/f68f93d220fbbedf355b14684976aa7f77fd49cc))
+
 ## [5.31.3](https://github.com/microlinkhq/metascraper/compare/v5.31.2...v5.31.3) (2022-11-11)
 
 ### Bug Fixes
