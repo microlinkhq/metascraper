@@ -110,8 +110,14 @@ const createGetLogo = ({ gotOpts, keyvOpts }) => {
     const faviconUrl = logo('/favicon.ico', { url })
     if (!faviconUrl) return
 
-    let response = await reachableUrl(faviconUrl, gotOpts)
-    if (reachableUrl.isReachable(response)) return faviconUrl
+    let response = await reachableUrl(faviconUrl, {
+      ...gotOpts,
+      followRedirect: false
+    })
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return faviconUrl
+    }
 
     response = await reachableUrl(
       `https://www.google.com/s2/favicons?domain_url=${url}&sz=128`,
