@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.32.2](https://github.com/microlinkhq/metascraper/compare/v5.32.1...v5.32.2) (2022-11-29)
+
+### Bug Fixes
+
+* **logo-favicon:** ignore 3xx favicon url ([#602](https://github.com/microlinkhq/metascraper/issues/602)) ([d3477d9](https://github.com/microlinkhq/metascraper/commit/d3477d90d4307f6880e8d607e25f4fe520b1fdf8))
+
 ## [5.32.1](https://github.com/microlinkhq/metascraper/compare/v5.32.0...v5.32.1) (2022-11-21)
 
 **Note:** Version bump only for package metascraper
