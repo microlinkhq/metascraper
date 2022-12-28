@@ -16,7 +16,7 @@ test('provide `keyvOpts`', async t => {
   const metadataOne = await metascraper({
     url,
     html:
-      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
+      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/container/audio.html">'
   })
 
   t.truthy(metadataOne.audio)
@@ -52,8 +52,8 @@ test('og:audio:secure_url', async t => {
 
 test('twitter:player', async t => {
   const html =
-    '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio.html">'
-  const url = 'https://browserless.js.org'
+    '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/container/audio.html">'
+  const url = 'https://twitter-card-player.vercel.app'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
@@ -61,8 +61,8 @@ test('twitter:player', async t => {
 
 test('twitter:player:stream', async t => {
   const html =
-    '<meta property="twitter:player:stream" content="https://browserless.js.org/static/demo.mp3">'
-  const url = 'https://browserless.js.org'
+    '<meta property="twitter:player:stream" content="https://cdn.microlink.io/file-examples/sample.mp3">'
+  const url = 'https://twitter-card-player.vercel.app'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
