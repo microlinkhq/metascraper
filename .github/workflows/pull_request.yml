@@ -1,4 +1,4 @@
-name: test
+name: pull_request
 
 on:
   push:
@@ -8,15 +8,15 @@ on:
     branches:
       - master
 
-env:
-  CI: true
-
 jobs:
   test:
+    if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
