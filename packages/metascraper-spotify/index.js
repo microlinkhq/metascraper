@@ -56,11 +56,12 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
     ],
     date: getSpotify({ from: 'date' }),
     description: [
-      toDescription($ => {
-        const raw = $('meta[property="og:description"]').attr('content')
-        if (!raw) return
-        const [, description] = raw.split('on Spotify. ')
-        return description
+      toDescription(($, url) => {
+        const description = $('meta[property="og:description"]').attr('content')
+        if (!description) return
+        return description.includes('on Spotify. ')
+          ? description.split('on Spotify. ')[1]
+          : description
       }),
 
       getSpotify({ from: 'description' })

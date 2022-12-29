@@ -6,7 +6,7 @@ const { resolve } = require('path')
 const kindOf = require('kind-of')
 const test = require('ava')
 
-const { spotifyUrls } = require('./helpers')
+const { fixtures, allUrls } = require('./helpers')
 
 const metascraperSpotify = require('metascraper-spotify')
 
@@ -42,10 +42,11 @@ test('provide `keyvOpts`', async t => {
   t.is(cache.size, 2)
 })
 
-spotifyUrls.forEach(url => {
+allUrls.forEach(url => {
   test(url, async t => {
     const metascraper = createMetascraper()
-    const metadata = await metascraper({ url })
+    const html = fixtures[url] ? await fixtures[url]() : ''
+    const metadata = await metascraper({ url, html })
     t.snapshot(mapValues(metadata, kindOf))
   })
 })
