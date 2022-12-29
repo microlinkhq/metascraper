@@ -4,10 +4,10 @@ const test = require('ava')
 
 const { test: validator } = require('..')
 
-const { spotifyUrls } = require('./helpers')
+const { allUrls } = require('./helpers')
 
 test('true', t => {
-  spotifyUrls.forEach(url => t.true(validator(url)))
+  allUrls.forEach(url => t.true(validator(url)))
 })
 
 test('false', t => {

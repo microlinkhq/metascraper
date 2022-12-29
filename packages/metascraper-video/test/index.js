@@ -18,7 +18,7 @@ test('provide `keyvOpts`', async t => {
   const metadataOne = await metascraper({
     url,
     html:
-      '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
+      '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container/video.html">'
   })
 
   t.truthy(metadataOne.video)
@@ -105,7 +105,7 @@ test('jsonld:contentUrl', async t => {
 
 test('twitter:player', async t => {
   const html =
-    '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container.html">'
+    '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container/video.html">'
   const url = 'https://twitter-card-player.vercel.app'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
