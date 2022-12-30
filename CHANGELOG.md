@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.32.4](https://github.com/microlinkhq/metascraper/compare/v5.32.3...v5.32.4) (2022-12-30)
+
+### Bug Fixes
+
+* **build:** install dependencies for contributors ([7e0dd8b](https://github.com/microlinkhq/metascraper/commit/7e0dd8b9440454e7470e3284ecee077d42bc7e41))
+
 ## [5.32.3](https://github.com/microlinkhq/metascraper/compare/v5.32.2...v5.32.3) (2022-12-12)
 
 **Note:** Version bump only for package metascraper
