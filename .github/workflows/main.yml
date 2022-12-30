@@ -19,6 +19,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: true
       - name: Contributors
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}
