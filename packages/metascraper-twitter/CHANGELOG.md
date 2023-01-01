@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.33.1](https://github.com/microlinkhq/metascraper/compare/v5.33.0...v5.33.1) (2023-01-01)
+
+### Bug Fixes
+
+* **twitter:** check value exists ([#609](https://github.com/microlinkhq/metascraper/issues/609)) ([a8dafe7](https://github.com/microlinkhq/metascraper/commit/a8dafe79fd55c182501e4b0fe417f28d625e616b))
+
 # [5.33.0](https://github.com/microlinkhq/metascraper/compare/v5.32.4...v5.33.0) (2023-01-01)
 
 ### Features
