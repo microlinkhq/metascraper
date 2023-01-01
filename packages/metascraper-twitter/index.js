@@ -29,7 +29,7 @@ module.exports = () => {
       toAuthor($jsonld('author.givenName')),
       toAuthor($ => {
         const author = $('meta[property="og:title"]').attr('content')
-        return author.includes(' on Twitter')
+        return author?.includes(' on Twitter')
           ? author.split(' on Twitter')[0]
           : author
       })
