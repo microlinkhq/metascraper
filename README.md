@@ -217,6 +217,7 @@ const metascraper = require('metascraper')([
 - [metascraper-telegram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-telegram) – Metascraper integration with Telegram.
 - [metascraper-uol](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-uol) – Metascraper integration for uol.com URLs.
 - [metascraper-spotify](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-spotify) – Metascraper integration with Spotify.
+- [metascraper-twitter](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-twitter) – Metascraper integration with Twitter.
 - [metascraper-youtube](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) – Metascraper integration with YouTube.
 
 ### Community
