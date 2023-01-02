@@ -28,6 +28,16 @@ test('from a Twitter profile', async t => {
   t.snapshot(metadata)
 })
 
+test('from a Twitter profile with tweets with video', async t => {
+  const url = 'https://twitter.com/k4rliky'
+  const html = await readFile(resolve(__dirname, 'fixtures/profile-video.html'))
+
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+
+  t.snapshot(metadata)
+})
+
 test('from a tweet', async t => {
   const url = 'https://twitter.com/realDonaldTrump/status/1222907250383245320'
   const html = await readFile(resolve(__dirname, 'fixtures/tweet.html'))
