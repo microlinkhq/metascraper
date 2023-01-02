@@ -20,8 +20,13 @@ const toTitle = toRule(title)
 
 const test = memoizeOne(url => parseUrl(url).domainWithoutSuffix === 'twitter')
 
-const REGEX_IMG_MODIFIERS = /_(?:bigger|mini|normal)\./
+const REGEX_IMG_MODIFIERS = /_(?:bigger|mini|normal|x96)\./
 const ORIGINAL_IMG_SIZE = '_400x400'
+
+const isTweet = url => url.includes('/status/')
+
+const avatarUrl = str =>
+  str?.replace(REGEX_IMG_MODIFIERS, `${ORIGINAL_IMG_SIZE}.`)
 
 module.exports = () => {
   const rules = {
@@ -42,14 +47,11 @@ module.exports = () => {
       })
     ],
     image: [
-      toImage($jsonld('image.contentUrl')),
-      toImage($ => $('video').attr('poster')),
-      toImage($ => {
-        const avatar = $('article img[src]').attr('src')
-        return avatar?.replace(REGEX_IMG_MODIFIERS, `${ORIGINAL_IMG_SIZE}.`)
-      })
+      toImage($ => avatarUrl($jsonld('author.image.contentUrl')($))),
+      toImage(($, url) => isTweet(url) && $('video').attr('poster')),
+      toImage($ => avatarUrl($('article img[src]').attr('src')))
     ],
-    video: [toVideo($ => $('video').attr('src'))],
+    video: [toVideo(($, url) => isTweet(url) && $('video').attr('src'))],
     publisher: () => 'Twitter'
   }
 
