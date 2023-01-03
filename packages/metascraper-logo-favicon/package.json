@@ -26,7 +26,7 @@
     "@keyvhq/memoize": "~1.6.14",
     "@metascraper/helpers": "^5.32.4",
     "lodash": "~4.17.21",
-    "reachable-url": "~1.7.0"
+    "reachable-url": "~1.7.1"
   },
   "devDependencies": {
     "ava": "latest"
