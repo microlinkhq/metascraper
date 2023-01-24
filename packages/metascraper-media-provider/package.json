@@ -31,7 +31,7 @@
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
-    "p-timeout": "~4.1.0",
+    "p-timeout": "~6.1.0",
     "youtube-dl-exec": "~2.1.11"
   },
   "devDependencies": {
