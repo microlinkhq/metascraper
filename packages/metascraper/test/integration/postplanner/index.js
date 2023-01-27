@@ -25,7 +25,6 @@ const url = 'https://www.postplanner.com/get-more-likes-fans-facebook-page/'
 
 test('postplanner', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const { logo, ...metadata } = await metascraper({ html, url })
-  t.snapshot(metadata)
-  t.true(logo.includes('gstatic'))
+  const medatada = await metascraper({ html, url })
+  t.snapshot(medatada)
 })
