@@ -47,8 +47,12 @@ module.exports = () => {
       })
     ],
     image: [
-      toImage($ => avatarUrl($jsonld('author.image.contentUrl')($))),
+      toImage(
+        ($, url) =>
+          isTweet(url) && $('meta[property="og:image"]').attr('content')
+      ),
       toImage(($, url) => isTweet(url) && $('video').attr('poster')),
+      toImage($ => avatarUrl($jsonld('author.image.contentUrl')($))),
       toImage($ => avatarUrl($('article img[src]').attr('src')))
     ],
     video: [toVideo(($, url) => isTweet(url) && $('video').attr('src'))],
