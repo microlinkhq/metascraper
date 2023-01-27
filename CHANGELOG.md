@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.33.6](https://github.com/microlinkhq/metascraper/compare/v5.33.5...v5.33.6) (2023-01-27)
+
+### Bug Fixes
+
+* get tweet image when it's a tweet ([#617](https://github.com/microlinkhq/metascraper/issues/617)) ([f3540a6](https://github.com/microlinkhq/metascraper/commit/f3540a6f4a34e81a4724cdf78c51edfc2958b376))
+
 ## [5.33.5](https://github.com/microlinkhq/metascraper/compare/v5.33.4...v5.33.5) (2023-01-23)
 
 **Note:** Version bump only for package metascraper
