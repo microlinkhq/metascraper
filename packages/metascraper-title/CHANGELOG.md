@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.33.7](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-title/compare/v5.33.6...v5.33.7) (2023-01-30)
+
+**Note:** Version bump only for package metascraper-title
+
 ## [5.33.5](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-title/compare/v5.33.4...v5.33.5) (2023-01-23)
 
 **Note:** Version bump only for package metascraper-title

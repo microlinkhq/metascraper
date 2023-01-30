@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.33.5",
+  "version": "5.33.7",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
