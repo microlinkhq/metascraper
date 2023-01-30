@@ -42,3 +42,12 @@ test('youtube channel', async t => {
   t.is(typeof date, 'string')
   t.snapshot(metadata)
 })
+
+test('youtube list', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/youtube-list.html'))
+  const url =
+    'https://www.youtube.com/watch?v=EAZvxukW8kY&list=PLDB4BCE9817AE7B43&index=11'
+
+  const metadata = await metascraper({ html, url })
+  t.snapshot(metadata)
+})
