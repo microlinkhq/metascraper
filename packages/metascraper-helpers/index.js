@@ -233,14 +233,12 @@ const description = (value, opts) =>
 
 const getDescription = (
   str,
-  { truncateLength = TRUNCATE_MAX_LENGTH, ...opts } = {}
+  { truncateLength = TRUNCATE_MAX_LENGTH, ellipsis = '…', ...opts } = {}
 ) => {
-  let truncatedStr = str.slice(0, truncateLength)
-  if (truncatedStr.length < str.length) {
-    truncatedStr = truncatedStr.trim() + '…'
-  }
-  const description = removeLocation(truncatedStr)
-  return titleize(description, opts)
+  let truncated = str.slice(0, truncateLength)
+  if (truncated.length < str.length) truncated = truncated.trim() + ellipsis
+  const description = removeLocation(truncated)
+  return titleize(description, opts).replace(/\s?\.\.\.?$/, ellipsis)
 }
 
 const publisher = value =>
