@@ -224,7 +224,7 @@ test('resolve logo using favicon associated with the domain', async t => {
   t.is(metadata.logo, 'https://teslahunt.io/favicon.ico')
 })
 
-test('resolve logo using favicon should be 2xx status code', async t => {
+test('resolve logo using favicon should be an image content-type', async t => {
   const url = 'https://vercel.app'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url })
@@ -232,7 +232,7 @@ test('resolve logo using favicon should be 2xx status code', async t => {
 })
 
 test('resolve logo using from google associated with the domain', async t => {
-  const url = 'https://escritopor.elenatorro.com'
+  const url = 'https://vercel.app'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url })
   t.true(metadata.logo.includes('gstatic'))

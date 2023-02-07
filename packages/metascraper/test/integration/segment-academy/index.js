@@ -28,5 +28,4 @@ test('segment-academy', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
   t.snapshot(metadata)
-  t.true(logo.includes('gstatic'))
 })

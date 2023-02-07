@@ -110,12 +110,12 @@ const createGetLogo = ({ gotOpts, keyvOpts }) => {
     const faviconUrl = logo('/favicon.ico', { url })
     if (!faviconUrl) return
 
-    let response = await reachableUrl(faviconUrl, {
-      ...gotOpts,
-      followRedirect: false
-    })
+    let response = await reachableUrl(faviconUrl, gotOpts)
 
-    if (response.statusCode >= 200 && response.statusCode < 300) {
+    if (
+      reachableUrl.isReachable(response) &&
+      response.headers['content-type']?.startsWith('image')
+    ) {
       return faviconUrl
     }
 
