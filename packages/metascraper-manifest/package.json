@@ -27,7 +27,7 @@
     "@metascraper/helpers": "^5.33.7",
     "async-memoize-one": "~1.1.2",
     "data-uri-to-buffer": "~3.0.1",
-    "got": "~11.8.5",
+    "got": "~11.8.6",
     "lodash": "~4.17.21"
   },
   "devDependencies": {

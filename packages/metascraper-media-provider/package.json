@@ -26,13 +26,13 @@
     "@metascraper/helpers": "^5.33.7",
     "async-memoize-one": "~1.1.2",
     "debug-logfmt": "~1.0.4",
-    "got": "~11.8.5",
+    "got": "~11.8.6",
     "lodash": "~4.17.21",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
-    "youtube-dl-exec": "~2.1.11"
+    "youtube-dl-exec": "~2.2.3"
   },
   "devDependencies": {
     "ava": "latest",
