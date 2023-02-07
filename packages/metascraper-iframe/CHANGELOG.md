@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.33.8](https://github.com/microlinkhq/metascraper/compare/v5.33.7...v5.33.8) (2023-02-07)
+
+**Note:** Version bump only for package metascraper-iframe
+
 ## [5.33.7](https://github.com/microlinkhq/metascraper/compare/v5.33.6...v5.33.7) (2023-01-30)
 
 **Note:** Version bump only for package metascraper-iframe

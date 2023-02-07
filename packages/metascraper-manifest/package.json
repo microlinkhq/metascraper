@@ -2,7 +2,7 @@
   "name": "metascraper-manifest",
   "description": "Metascraper integration for detecting PWA Web app manifest",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-manifest",
-  "version": "5.33.7",
+  "version": "5.33.8",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
