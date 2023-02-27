@@ -91,9 +91,7 @@ test('vercel.com', async t => {
 test('segment.com', async t => {
   const metascraper = createMetascraper()
   const url = 'https://segment.com/blog/scaling-nsq/'
-  const html = createHtml([
-    '<link rel="manifest" href="/blog/manifest.webmanifest">'
-  ])
+  const html = createHtml(['<link rel="manifest" href="/manifest.json">'])
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
