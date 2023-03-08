@@ -1,27 +1,23 @@
 'use strict'
 
-const { getDomainWithoutSuffix } = require('tldts')
-const Agent = require('keepalive-proxy-agent')
+const { parseUrl } = require('@metascraper/helpers')
+const { chain } = require('lodash')
 
 const TEN_MIN_MS = 10 * 60 * 1000
 
 const isTweet = url => url.includes('/status/')
 
 const isTweetUrl = url =>
-  isTweet(url) && getDomainWithoutSuffix(url) === 'twitter'
+  isTweet(url) && parseUrl(url).domainWithoutSuffix === 'twitter'
 
-const getTweetId = url => url.split('/').reverse()[0]
-
-const getAgent = proxy => {
-  if (!proxy) return undefined
-  return {
-    [proxy.protocol]: new Agent({
-      keepAlive: false,
-      rejectUnauthorized: false,
-      proxy
-    })
-  }
-}
+const getTweetId = url =>
+  chain(url)
+    .split('/')
+    .reverse()
+    .first()
+    .split('?')
+    .first()
+    .value()
 
 const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
   let timestamp = Date.now()
@@ -45,7 +41,6 @@ const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
 
 module.exports = {
   expirableCounter,
-  getAgent,
   getTweetId,
   isTweet,
   isTweetUrl

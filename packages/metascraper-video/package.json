@@ -2,11 +2,17 @@
   "name": "metascraper-video",
   "description": "Get video property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-video",
-  "version": "5.18.12",
+  "version": "5.33.8",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
+    "directory": "packages/metascraper-video",
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-video"
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -16,14 +22,14 @@
     "video"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.12",
-    "lodash": "~4.17.21"
+    "@keyvhq/memoize": "~1.6.14",
+    "@metascraper/helpers": "^5.33.7",
+    "got": "~11.8.6",
+    "lodash": "~4.17.21",
+    "p-reflect": "~2.1.0"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "nyc": "latest",
-    "should": "latest",
-    "snap-shot": "latest"
+    "ava": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -32,7 +38,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
   "license": "MIT"
 }

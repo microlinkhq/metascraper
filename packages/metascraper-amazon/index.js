@@ -3,18 +3,17 @@
 const {
   $filter,
   author,
-  toRule,
   lang,
   memoizeOne,
+  parseUrl,
   title,
+  toRule,
   url
 } = require('@metascraper/helpers')
 
-const { getPublicSuffix } = require('tldts')
-
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 
-const isValidUrl = memoizeOne(url => REGEX_AMAZON_URL.test(url))
+const test = memoizeOne(url => REGEX_AMAZON_URL.test(url))
 
 const SUFFIX_LANGUAGES = {
   ca: 'en',
@@ -30,7 +29,7 @@ const SUFFIX_LANGUAGES = {
   it: 'it'
 }
 
-const getDomainLanguage = url => SUFFIX_LANGUAGES[getPublicSuffix(url)]
+const getDomainLanguage = url => SUFFIX_LANGUAGES[parseUrl(url).publicSuffix]
 
 const toUrl = toRule(url)
 const toAuthor = toRule(author)
@@ -41,15 +40,15 @@ module.exports = () => {
   const rules = {
     lang: [toLang(($, url) => getDomainLanguage(url))],
     author: [
-      toAuthor($ => $('.contributorNameID').text()),
-      toAuthor($ => $('#bylineInfo').text()),
-      toAuthor($ => $('#brand').text())
+      toAuthor($ => $filter($, $('.contributorNameID'))),
+      toAuthor($ => $filter($, $('#bylineInfo'))),
+      toAuthor($ => $filter($, $('#brand')))
     ],
     title: [
-      toTitle($ => $('#productTitle').text()),
-      toTitle($ => $('#btAsinTitle').text()),
+      toTitle($ => $filter($, $('#productTitle'))),
+      toTitle($ => $filter($, $('#btAsinTitle'))),
       toTitle($ => $filter($, $('h1.a-size-large'))),
-      toTitle($ => $('#item_name').text())
+      toTitle($ => $filter($, $('#item_name')))
     ],
     publisher: () => 'Amazon',
     image: [
@@ -58,6 +57,7 @@ module.exports = () => {
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
+
   return rules
 }

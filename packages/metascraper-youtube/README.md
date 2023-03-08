@@ -1,9 +1,12 @@
-# metascraper-youtube
-
-[![npm](https://img.shields.io/npm/v/metascraper-youtube.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-youtube)
-[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-youtube&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-youtube)
-
-> Metascraper integration with YouTube.
+<div align="center">
+  <br>
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+  <p align="center"><strong>metascraper-youtube</strong>: Metascraper integration with YouTube.</p>
+  <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
+  <br>
+</div>
 
 ## Install
 
@@ -11,9 +14,17 @@
 $ npm install metascraper-youtube --save
 ```
 
+#### options
+
+##### gotOpts
+
+Type: `object`
+
+Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
+
 ## License
 
-**metascraper-youtube** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/metascraper-youtube/blob/master/LICENSE.md) License.<br>
-Authored and maintained by microlink.io with help from [contributors](https://github.com/microlinkhq/metascraper-youtube/contributors).
+**metascraper-youtube** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
+Authored and maintained by [Microlink](https://microlink.io) with help from [contributors](https://github.com/microlinkhq/metascraper/contributors).
 
-> [microlink.io](https://microlink.io) · GitHub [@microlink.io](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)
+> [microlink.io](https://microlink.io) · GitHub [microlinkhq](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)

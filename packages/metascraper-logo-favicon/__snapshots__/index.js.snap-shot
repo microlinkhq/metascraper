@@ -1,4 +1,0 @@
-exports['create an absolute favicon url if the logo is not present 1'] = {
-  "logo": "https://www.amazon.co.uk/favicon.ico"
-}
-

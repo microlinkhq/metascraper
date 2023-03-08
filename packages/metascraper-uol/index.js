@@ -1,19 +1,19 @@
 'use strict'
 
-const { getDomain } = require('tldts')
-
 const {
+  $filter,
   $jsonld,
-  title,
   description,
-  toRule,
-  memoizeOne
+  memoizeOne,
+  parseUrl,
+  title,
+  toRule
 } = require('@metascraper/helpers')
 
 const ROOT_DOMAINS = ['uol.com.br', 'torcedores.com']
 
-const isValidUrl = memoizeOne(url =>
-  ROOT_DOMAINS.some(domain => getDomain(url) === domain)
+const test = memoizeOne(url =>
+  ROOT_DOMAINS.some(domain => parseUrl(url).domain === domain)
 )
 
 const toTitle = toRule(title)
@@ -24,14 +24,14 @@ module.exports = () => {
     title: [
       toTitle(($, url) => $jsonld('headline')($, url)),
       toTitle(($, url) => $jsonld('name')($, url)),
-      toTitle($ => $('title').text())
+      toTitle($ => $filter($, $('title')))
     ],
     description: [toDescription(($, url) => $jsonld('description')($, url))]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }
 
-module.exports.isValidUrl = isValidUrl
+module.exports.test = test

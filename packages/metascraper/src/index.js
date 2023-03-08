@@ -1,10 +1,10 @@
 'use strict'
 
 const { isUrl } = require('@metascraper/helpers')
+const { load } = require('cheerio')
 const whoops = require('whoops')
 
 const { loadRules, mergeRules } = require('./rules')
-const loadHTML = require('./load-html')
 const getData = require('./get-data')
 
 const MetascraperError = whoops('MetascraperError')
@@ -13,7 +13,7 @@ module.exports = rules => {
   const loadedRules = loadRules(rules)
   return async ({
     url,
-    html,
+    html = '',
     rules: inlineRules,
     validateUrl = true,
     ...props
@@ -27,7 +27,7 @@ module.exports = rules => {
 
     return getData({
       url,
-      htmlDom: loadHTML(html),
+      htmlDom: load(html, { baseURI: url }),
       rules: mergeRules(inlineRules, loadedRules),
       ...props
     })

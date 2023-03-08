@@ -1,0 +1,42 @@
+{
+  "name": "metascraper-instagram",
+  "description": "Metascraper integration for Instagram",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-instagram",
+  "version": "5.33.7",
+  "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-instagram",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "telegram"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.33.7",
+    "jsdom": "~21.1.0",
+    "lodash": "~4.17.21"
+  },
+  "devDependencies": {
+    "ava": "latest"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}

@@ -1,5 +1,24 @@
 'use strict'
 
+const memoizeOne = require('memoize-one').default || require('memoize-one')
+const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
+const condenseWhitespace = require('condense-whitespace')
+const { getExtension: mimeExtension } = require('mime')
+const capitalize = require('microsoft-capitalize')
+const { JSDOM, VirtualConsole } = require('jsdom')
+const isRelativeUrl = require('is-relative-url')
+const fileExtension = require('file-extension')
+const _normalizeUrl = require('normalize-url')
+const smartquotes = require('smartquotes')
+const { decodeHTML } = require('entities')
+const iso6393 = require('iso-639-3/to-1')
+const hasValues = require('has-values')
+const chrono = require('chrono-node')
+const isIso = require('isostring')
+const isUri = require('is-uri')
+const { URL } = require('url')
+const tldts = require('tldts')
+
 const {
   chain,
   eq,
@@ -8,36 +27,22 @@ const {
   includes,
   invoke,
   isArray,
+  isBoolean,
+  isDate,
   isEmpty,
   isNumber,
   isString,
   lte,
+  memoize,
   replace,
   size,
   toLower,
-  toString,
-  trim
+  toString
 } = require('lodash')
 
-const memoizeOne = require('memoize-one').default || require('memoize-one')
-const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
-const condenseWhitespace = require('condense-whitespace')
-const langs = Object.values(require('iso-639-3/to-1'))
-const capitalize = require('microsoft-capitalize')
-const { JSDOM, VirtualConsole } = require('jsdom')
-const isRelativeUrl = require('is-relative-url')
-const fileExtension = require('file-extension')
-const _normalizeUrl = require('normalize-url')
-const smartquotes = require('smartquotes')
-const { decodeHTML } = require('entities')
-const mimeTypes = require('mime-types')
-const hasValues = require('has-values')
-const chrono = require('chrono-node')
-const truncate = require('truncate')
-const isIso = require('isostring')
+const iso6393Values = Object.values(iso6393)
 
-const isUri = require('is-uri')
-const { URL } = require('url')
+const parseUrl = memoize(tldts.parse)
 
 const toTitle = str =>
   capitalize(str, [
@@ -68,17 +73,27 @@ const AUDIO = 'audio'
 const IMAGE = 'image'
 
 const imageExtensions = chain(require('image-extensions'))
-  .reduce((acc, ext) => ({ ...acc, [ext]: IMAGE }), {})
+  .concat(['avif'])
+  .reduce((acc, ext) => {
+    acc[ext] = IMAGE
+    return acc
+  }, {})
   .value()
 
 const audioExtensions = chain(require('audio-extensions'))
   .concat(['mpga'])
   .difference(['mp4'])
-  .reduce((acc, ext) => ({ ...acc, [ext]: AUDIO }), {})
+  .reduce((acc, ext) => {
+    acc[ext] = AUDIO
+    return acc
+  }, {})
   .value()
 
 const videoExtensions = chain(require('video-extensions'))
-  .reduce((acc, ext) => ({ ...acc, [ext]: VIDEO }), {})
+  .reduce((acc, ext) => {
+    acc[ext] = VIDEO
+    return acc
+  }, {})
   .value()
 
 const EXTENSIONS = {
@@ -105,7 +120,7 @@ const isUrl = (url, { relative = false } = {}) =>
 const urlObject = (...args) => {
   try {
     return new URL(...args)
-  } catch (err) {
+  } catch (_) {
     return { toString: () => '' }
   }
 }
@@ -119,6 +134,7 @@ const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
     stripWWW: false,
     sortQueryParameters: false,
+    removeSingleSlash: false,
     removeTrailingSlash: false,
     ...opts
   })
@@ -126,17 +142,16 @@ const sanetizeUrl = (url, opts) =>
 const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
     return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
-  } catch (_) {
-    return null
-  }
+  } catch (_) {}
 }
 
-const removeBy = flow([value => value.replace(REGEX_BY, ''), trim])
+const removeBy = flow([
+  value => value.replace(REGEX_BY, ''),
+  condenseWhitespace
+])
 
-const removeSeparator = title => {
-  const newTitle = (REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title
-  return newTitle.trim()
-}
+const removeSeparator = title =>
+  condenseWhitespace((REGEX_TITLE_SEPARATOR.exec(title) || [])[0] || title)
 
 const createTitle = flow([condenseWhitespace, smartquotes])
 
@@ -148,12 +163,22 @@ const titleize = (src, opts = {}) => {
   return title
 }
 
-const defaultFn = el => el.text().trim()
+const $filter = ($, matchedEl, fn = $filter.fn) => {
+  let matched
 
-const $filter = ($, domNodes, fn = defaultFn) => {
-  const el = domNodes.filter((i, el) => fn($(el))).first()
-  return fn(el)
+  matchedEl.each(function () {
+    const result = fn($(this))
+
+    if (result) {
+      matched = result
+      return false
+    }
+  })
+
+  return matched
 }
+
+$filter.fn = el => condenseWhitespace(el.text())
 
 const isAuthor = (str, opts = { relative: false }) =>
   !isUrl(str, opts) &&
@@ -161,7 +186,8 @@ const isAuthor = (str, opts = { relative: false }) =>
   isString(str) &&
   lte(size(str), AUTHOR_MAX_LENGTH)
 
-const getAuthor = (str, opts = { removeBy: true }) => titleize(str, opts)
+const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
+  titleize(str, { removeBy, ...opts })
 
 const protocol = url => {
   const { protocol = '' } = urlObject(url)
@@ -203,45 +229,49 @@ const extension = (str = '') => {
 }
 
 const description = (value, opts) =>
-  isString(value) && getDescription(value, opts)
+  isString(value) ? getDescription(value, opts) : undefined
 
 const getDescription = (
   str,
-  { truncateLength = TRUNCATE_MAX_LENGTH, ...opts } = {}
+  { truncateLength = TRUNCATE_MAX_LENGTH, ellipsis = '…', ...opts } = {}
 ) => {
-  const description = removeLocation(truncate(str, truncateLength))
-  return titleize(description, opts)
+  let truncated = str.slice(0, truncateLength)
+  if (truncated.length < str.length) truncated = truncated.trim() + ellipsis
+  const description = removeLocation(truncated)
+  return titleize(description, opts).replace(/\s?\.\.\.?$/, ellipsis)
 }
 
-const publisher = value => isString(value) && condenseWhitespace(value)
+const publisher = value =>
+  isString(value) ? condenseWhitespace(value) : undefined
 
-const author = value => isAuthor(value) && getAuthor(value)
+const author = (value, opts) =>
+  isAuthor(value) ? getAuthor(value, opts) : undefined
 
 const url = (value, { url = '' } = {}) => {
-  if (isEmpty(value)) return null
+  if (!isString(value) || isEmpty(value)) return
 
   try {
     const absoluteUrl = normalizeUrl(url, value)
     if (isUrl(absoluteUrl)) return absoluteUrl
   } catch (_) {}
 
-  return isUri(value) ? value : null
+  return isUri(value) ? value : undefined
 }
 
-const getISODate = date => date && !isNaN(date.getTime()) && date.toISOString()
+const getISODate = date =>
+  date && !Number.isNaN(date.getTime()) ? date.toISOString() : undefined
 
 const date = value => {
-  if (!(isString(value) || isNumber(value))) return undefined
+  if (isDate(value)) return value.toISOString()
+  if (!(isString(value) || isNumber(value))) return
 
   // remove whitespace for easier parsing
-  if (isString(value)) trim(value)
+  if (isString(value)) value = condenseWhitespace(value)
 
   // convert isodates to restringify, because sometimes they are truncated
   if (isIso(value)) return new Date(value).toISOString()
 
-  if (/^\d{4}$/.test(value)) {
-    return new Date(toString(value)).toISOString()
-  }
+  if (/^\d{4}$/.test(value)) return new Date(toString(value)).toISOString()
 
   let isoDate
 
@@ -252,23 +282,35 @@ const date = value => {
       if (isoDate) break
     }
   } else {
-    isoDate = getISODate(new Date(value * 1000))
+    if (value >= 1e16 || value <= -1e16) {
+      // nanoseconds
+      value = Math.floor(value / 1000000)
+    } else if (value >= 1e14 || value <= -1e14) {
+      // microseconds
+      value = Math.floor(value / 1000)
+    } else if (!(value >= 1e11) || value <= -3e10) {
+      // seconds
+      value = value * 1000
+    }
+    isoDate = getISODate(new Date(value))
   }
 
   return isoDate
 }
 
-const lang = value => {
-  if (isEmpty(value)) return undefined
-  const lang = toLower(value.trim().substring(0, 2))
-  return includes(langs, lang) ? lang : undefined
+const lang = input => {
+  if (isEmpty(input) || !isString(input)) return
+  const key = toLower(condenseWhitespace(input))
+  if (input.length === 3) return iso6393[key]
+  const lang = toLower(key.substring(0, 2))
+  return includes(iso6393Values, lang) ? lang : undefined
 }
 
-const title = (value, { removeSeparator = false } = {}) =>
-  isString(value) && titleize(value, { removeSeparator })
+const title = (value, { removeSeparator = false, ...opts } = {}) =>
+  isString(value) ? titleize(value, { removeSeparator, ...opts }) : undefined
 
 const isMime = (contentType, type) => {
-  const ext = mimeTypes.extension(contentType)
+  const ext = mimeExtension(contentType)
   return eq(type, get(EXTENSIONS, ext))
 }
 
@@ -278,14 +320,19 @@ memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
 const jsonld = memoizeOne(
   $ =>
     $('script[type="application/ld+json"]')
-      .map((i, e) => {
+      .map(function () {
         try {
-          return JSON.parse(
-            $(e)
+          const el = $(this)
+          const json = JSON.parse(
+            $(el)
               .contents()
               .text()
           )
-        } catch (err) {
+
+          const { '@graph': graph, ...props } = json
+          if (!graph) return json
+          return graph.map(item => ({ ...props, ...item }))
+        } catch (_) {
           return undefined
         }
       })
@@ -300,41 +347,60 @@ const $jsonld = propName => $ => {
 
   collection.find(item => {
     value = get(item, propName)
-    return !isEmpty(value)
+    return !isEmpty(value) || isNumber(value) || isBoolean(value)
   })
 
-  return value ? decodeHTML(value) : value
+  return isString(value) ? decodeHTML(value) : value
 }
 
 const image = (value, opts) => {
   const urlValue = url(value, opts)
-  return !isAudioUrl(urlValue, opts) && !isVideoUrl(urlValue, opts) && urlValue
+  return urlValue !== undefined &&
+    !isAudioUrl(urlValue, opts) &&
+    !isVideoUrl(urlValue, opts)
+    ? urlValue
+    : undefined
 }
 
 const logo = image
 
 const video = (value, opts) => {
   const urlValue = url(value, opts)
-  return isVideoUrl(urlValue, opts) && urlValue
+  return isVideoUrl(urlValue, opts) ? urlValue : undefined
 }
 
 const audio = (value, opts) => {
   const urlValue = url(value, opts)
-  return isAudioUrl(urlValue, opts) && urlValue
+  return isAudioUrl(urlValue, opts) ? urlValue : undefined
 }
 
 const validator = {
-  date,
   audio,
   author,
-  video,
-  title,
-  publisher,
-  image,
-  logo,
-  url,
+  date,
   description,
-  lang
+  image,
+  lang,
+  logo,
+  publisher,
+  title,
+  url,
+  video
+}
+
+const truthyTest = () => true
+
+const findRule = async (rules, args) => {
+  let index = 0
+  let value
+
+  do {
+    const rule = rules[index++]
+    const test = rule.test || truthyTest
+    if (test(args)) value = await rule(args)
+  } while (!has(value) && index < rules.length)
+
+  return value
 }
 
 const toRule = (mapper, opts) => rule => async ({ htmlDom, url }) => {
@@ -352,44 +418,40 @@ const composeRule = rule => ({ from, to = from, ...opts }) => async ({
 }
 
 const has = value =>
-  value === null || value === false || value === 0 || Number.isNaN(value)
-    ? false
-    : hasValues(value)
+  value !== undefined && !Number.isNaN(value) && hasValues(value)
 
-const domLoaded = dom =>
-  new Promise(resolve =>
-    dom.window.document.readyState === 'interactive' ||
-    dom.window.document.readyState === 'complete'
-      ? resolve()
-      : dom.window.document.addEventListener('DOMContentLoaded', resolve)
-  )
-
-const loadIframe = (url, html) =>
+const loadIframe = (url, $, { timeout = 5000 } = {}) =>
   new Promise(resolve => {
-    const dom = new JSDOM(html, {
+    const dom = new JSDOM($.html(), {
       url,
       virtualConsole: new VirtualConsole(),
       runScripts: 'dangerously',
       resources: 'usable'
     })
 
-    const getIframe = () => dom.window.document.querySelector('iframe')
+    const done = (html = '') => resolve($.load(html))
 
-    const load = iframe => {
-      if (!iframe) return resolve()
-      try {
-        iframe.addEventListener('load', () => resolve(iframe.contentWindow))
-      } catch (err) {
-        console.log('ERROR!', err.message || err)
-        console.log('ERROR!', { iframe: !!iframe, url, html: html.length })
-        resolve()
-      }
+    const listen = (element, method, fn) =>
+      element[`${method}EventListener`]('load', fn, {
+        capture: true,
+        once: true,
+        passive: true
+      })
+
+    const iframe = dom.window.document.querySelector('iframe')
+    if (!iframe) return done()
+
+    const timer = setTimeout(() => {
+      listen(iframe, 'remove', load)
+      done()
+    }, timeout)
+
+    function load () {
+      clearTimeout(timer)
+      done(iframe.contentDocument.documentElement.outerHTML)
     }
 
-    const iframe = getIframe()
-    if (iframe) return load(iframe)
-
-    domLoaded(dom).then(() => load(getIframe()))
+    listen(iframe, 'add', load)
   })
 
 module.exports = {
@@ -403,6 +465,8 @@ module.exports = {
   date,
   description,
   extension,
+  fileExtension,
+  findRule,
   has,
   image,
   imageExtensions,
@@ -424,7 +488,9 @@ module.exports = {
   loadIframe,
   logo,
   memoizeOne,
+  mimeExtension,
   normalizeUrl,
+  parseUrl,
   protocol,
   publisher,
   sanetizeUrl,

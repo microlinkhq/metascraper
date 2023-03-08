@@ -1,0 +1,87 @@
+{
+  "id": "18585115",
+  "formats": [
+    {
+      "url": "https://substackcdn.com/public/audio/d19ff570-992d-44c9-8698-fa3e2cde1e3a.mpga?post_id=18585115",
+      "protocol": "https",
+      "ext": "mpga",
+      "video_ext": "mpga",
+      "audio_ext": "none",
+      "format_id": "0",
+      "format": "0 - unknown",
+      "resolution": null,
+      "dynamic_range": "SDR",
+      "http_headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.43 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-us,en;q=0.5",
+        "Sec-Fetch-Mode": "navigate",
+        "Referer": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and"
+      }
+    }
+  ],
+  "subtitles": {},
+  "title": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity",
+  "description": "Brian has just written a NYT bestseller called \"The Immortality Key,\" which explores the pivotal role that psychedelics may have played in forming Western civilization, first with the ancient Greeks and then early Christians. This is not some kooky-ass book from some hippie who has decided that Jesus was tripping. It is a book of rigorous scholarship, textual analysis, botanical chemistry — you name it — all the skills of modern science to try to understand something that humans have always understood and has been part of humanity forever. I cannot recommend this book enough.",
+  "thumbnail": "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a6ff83e9-3ffe-4fa6-b5d8-10c6cbf1bf40_420x300.jpeg",
+  "uploader": "The Weekly Dish",
+  "uploader_id": "61371",
+  "webpage_url": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and",
+  "original_url": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and",
+  "webpage_url_basename": "brian-muraresku-on-psychedelics-and",
+  "webpage_url_domain": "substack.com",
+  "extractor": "Substack",
+  "extractor_key": "Substack",
+  "playlist": null,
+  "playlist_index": null,
+  "thumbnails": [
+    {
+      "url": "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a6ff83e9-3ffe-4fa6-b5d8-10c6cbf1bf40_420x300.jpeg",
+      "id": "0"
+    }
+  ],
+  "display_id": "18585115",
+  "fulltitle": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity",
+  "requested_subtitles": null,
+  "_has_drm": null,
+  "requested_downloads": [
+    {
+      "url": "https://substackcdn.com/public/audio/d19ff570-992d-44c9-8698-fa3e2cde1e3a.mpga?post_id=18585115",
+      "protocol": "https",
+      "ext": "mpga",
+      "video_ext": "mpga",
+      "audio_ext": "none",
+      "format_id": "0",
+      "format": "0 - unknown",
+      "dynamic_range": "SDR",
+      "http_headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.43 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-us,en;q=0.5",
+        "Sec-Fetch-Mode": "navigate",
+        "Referer": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and"
+      },
+      "epoch": 1658059621,
+      "_filename": "Brian Muraresku On Psychedelics And Bringing Enchantment Back To Christianity [18585115].mpga",
+      "__write_download_archive": false
+    }
+  ],
+  "url": "https://substackcdn.com/public/audio/d19ff570-992d-44c9-8698-fa3e2cde1e3a.mpga?post_id=18585115",
+  "protocol": "https",
+  "ext": "mpga",
+  "video_ext": "mpga",
+  "audio_ext": "none",
+  "format_id": "0",
+  "format": "0 - unknown",
+  "resolution": null,
+  "dynamic_range": "SDR",
+  "http_headers": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.43 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-us,en;q=0.5",
+    "Sec-Fetch-Mode": "navigate",
+    "Referer": "https://andrewsullivan.substack.com/p/brian-muraresku-on-psychedelics-and"
+  },
+  "epoch": 1658059621,
+  "_type": "video"
+}

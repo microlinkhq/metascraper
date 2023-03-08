@@ -1,13 +1,14 @@
 'use strict'
 
-const snapshot = require('snap-shot')
+const { readFile } = require('fs/promises')
 const { resolve } = require('path')
-const { readFile } = require('fs').promises
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
+  require('metascraper-audio')(),
   require('metascraper-video')(),
   require('metascraper-image')(),
   require('metascraper-lang')(),
@@ -22,8 +23,8 @@ const metascraper = require('../../..')([
 
 const url = 'https://www.npr.org/2020/12/23/949764249/fork-the-government'
 
-it('npr', async () => {
+test('npr', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  t.snapshot(metadata)
 })

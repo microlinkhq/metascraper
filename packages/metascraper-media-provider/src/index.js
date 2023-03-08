@@ -4,9 +4,10 @@ const {
   chain,
   eq,
   find,
+  get,
   isEmpty,
-  includes,
   isNil,
+  negate,
   overEvery
 } = require('lodash')
 
@@ -37,6 +38,10 @@ const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 const isMpga = isMIME('mpga')
 
+const isM3u8 = ({ url }) => new URL(url).pathname.endsWith('.m3u8')
+
+const isMpd = ({ url }) => new URL(url).pathname.endsWith('.mpd')
+
 const hasCodec = prop => format => format[prop] !== 'none'
 
 const hasAudioCodec = hasCodec('acodec')
@@ -52,9 +57,13 @@ const hasAudio = format =>
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
-const notDownloadable = format => !includes(format.url, 'download=1')
+const isDownloadable = ({ url }) =>
+  new URL(url).searchParams.get('download') === '1'
 
-const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
+const getFormatUrls = ({ orderBy }) => (input, filters) => {
+  const formats = get(input, 'formats') ||
+    get(input, 'entries[0].formats') || [input]
+
   const url = chain(formats)
     .filter(overEvery(filters))
     .orderBy(orderBy, 'asc')
@@ -62,29 +71,30 @@ const getFormatUrls = ({ orderBy }) => ({ formats }, filters) => {
     .last()
     .value()
 
-  return isEmpty(url) ? false : url
+  return !isEmpty(url) ? url : undefined
 }
 
 const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
 
 const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
 
-const getVideo = data => {
-  const videoFilters = [
-    hasVideo,
-    isMp4,
-    isHttps,
-    notDownloadable,
-    hasVideoCodec
-  ]
-  return (
-    getVideoUrls(data, [...videoFilters, hasAudioCodec]) ||
-    getVideoUrls(data, videoFilters)
-  )
-}
+const VIDEO_FILTERS = [
+  hasVideo,
+  isMp4,
+  isHttps,
+  negate(isDownloadable),
+  negate(isM3u8),
+  negate(isMpd),
+  hasVideoCodec
+]
 
-const getAudio = data =>
-  getAudioUrls(data, [hasAudio, isHttps, notDownloadable, hasAudioCodec])
+const AUDIO_FILTERS = [hasAudio, isHttps, negate(isDownloadable), hasAudioCodec]
+
+const getVideo = data =>
+  getVideoUrls(data, [hasAudioCodec, ...VIDEO_FILTERS]) ||
+  getVideoUrls(data, VIDEO_FILTERS)
+
+const getAudio = data => getAudioUrls(data, AUDIO_FILTERS)
 
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
@@ -99,7 +109,7 @@ const getTitle = ({ title: mainTitle, alt_title: secondaryTitle }) =>
   find([mainTitle, secondaryTitle], titleFn)
 
 const getDate = ({ timestamp }) =>
-  !isNil(timestamp) && new Date(timestamp * 1000).toISOString()
+  !isNil(timestamp) ? new Date(timestamp * 1000).toISOString() : undefined
 
 const getImage = (url, { thumbnail }) => urlFn(thumbnail, { url })
 

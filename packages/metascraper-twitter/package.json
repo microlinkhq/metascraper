@@ -1,0 +1,41 @@
+{
+  "name": "metascraper-twitter",
+  "description": "Metascraper integration with Twitter",
+  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-twitter",
+  "version": "5.33.7",
+  "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-twitter",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "audio",
+    "metascraper",
+    "spotify"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.33.7"
+  },
+  "devDependencies": {
+    "ava": "latest"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}

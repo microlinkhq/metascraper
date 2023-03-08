@@ -2,11 +2,17 @@
   "name": "metascraper-date",
   "description": "Get date property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-date",
-  "version": "5.18.12",
+  "version": "5.33.7",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
+    "directory": "packages/metascraper-date",
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-date"
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -16,7 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.12"
+    "@metascraper/helpers": "^5.33.7"
   },
   "engines": {
     "node": ">= 12"

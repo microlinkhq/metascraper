@@ -2,11 +2,17 @@
   "name": "metascraper-readability",
   "description": "A Readability connector for metascraper",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-readability",
-  "version": "5.18.12",
+  "version": "5.33.7",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
+    "directory": "packages/metascraper-readability",
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability"
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -16,15 +22,13 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.12",
-    "@mozilla/readability": "~0.4.1",
-    "jsdom": "~16.4.0"
+    "@metascraper/helpers": "^5.33.7",
+    "@mozilla/readability": "~0.4.2",
+    "jsdom": "~21.1.0"
   },
   "devDependencies": {
-    "metascraper": "latest",
-    "mocha": "latest",
-    "nyc": "latest",
-    "snap-shot": "latest"
+    "ava": "latest",
+    "metascraper": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -33,15 +37,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
-  "license": "MIT",
-  "mocha": {
-    "bail": true,
-    "exit": true,
-    "recursive": true,
-    "reporter": "spec",
-    "slow": 300,
-    "timeout": "120000"
-  }
+  "license": "MIT"
 }

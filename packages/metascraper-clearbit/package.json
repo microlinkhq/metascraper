@@ -2,8 +2,13 @@
   "name": "metascraper-clearbit",
   "description": "Metascraper integration with Clearbit Logo API",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-clearbit",
-  "version": "5.19.0",
+  "version": "5.33.8",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
     "directory": "packages/metascraper-clearbit",
     "type": "git",
@@ -19,16 +24,14 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.12",
-    "async-memoize-one": "~1.0.1",
-    "got": "~11.8.1",
-    "lodash": "~4.17.21",
-    "tldts": "~5.7.10"
+    "@keyvhq/memoize": "~1.6.14",
+    "@metascraper/helpers": "^5.33.7",
+    "async-memoize-one": "~1.1.2",
+    "got": "~11.8.6",
+    "lodash": "~4.17.21"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "nyc": "latest",
-    "snap-shot": "latest"
+    "ava": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -37,15 +40,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
-  "license": "MIT",
-  "mocha": {
-    "bail": true,
-    "exit": true,
-    "recursive": true,
-    "reporter": "spec",
-    "slow": 300,
-    "timeout": "120000"
-  }
+  "license": "MIT"
 }

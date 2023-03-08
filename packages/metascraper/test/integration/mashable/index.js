@@ -1,28 +1,30 @@
 'use strict'
 
-const snapshot = require('snap-shot')
+const { readFile } = require('fs/promises')
 const { resolve } = require('path')
-const { readFile } = require('fs').promises
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
+  require('metascraper-audio')(),
   require('metascraper-video')(),
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
   require('metascraper-logo-favicon')(),
+  require('metascraper-manifest')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
   require('metascraper-readability')()
 ])
 
-const url = 'http://mashable.com/2015/05/13/analytics-power-up-revenue'
+const url = 'https://mashable.com/article/dune-movie-hbo-review'
 
-it('mashable', async () => {
+test('mashable', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  snapshot(metadata)
+  t.snapshot(metadata)
 })

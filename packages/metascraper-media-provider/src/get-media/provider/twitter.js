@@ -9,7 +9,7 @@ const pReflect = require('p-reflect')
 const pRetry = require('p-retry')
 const got = require('got')
 
-const { expirableCounter, getAgent, getTweetId } = require('../util')
+const { expirableCounter, getTweetId } = require('../util')
 
 // twitter guest web token
 // https://github.com/soimort/you-get/blob/da8c982608c9308765e0960e08fc28cccb74b215/src/you_get/extractors/twitter.py#L72
@@ -23,8 +23,9 @@ const canRetry = proxy => !!proxy
 
 const createGuestToken = ({
   timeout,
+  getAgent = constant(undefined),
   getProxy = constant(false),
-  userAgent
+  gotOpts = {}
 }) => {
   const retry = expirableCounter()
 
@@ -38,16 +39,15 @@ const createGuestToken = ({
 
       try {
         const { body } = await got.post(TWITTER_API_URL, {
+          ...gotOpts,
           timeout,
-          https: {
-            rejectUnauthorized: false
-          },
+          https: { rejectUnauthorized: false },
           responseType: 'json',
           agent,
           headers: {
+            ...gotOpts.headers,
             authorization: TWITTER_BEARER_TOKEN,
-            origin: 'https://twitter.com',
-            'user-agent': userAgent
+            origin: 'https://twitter.com'
           }
         })
         token = get(body, 'guest_token')
@@ -62,17 +62,18 @@ const createGuestToken = ({
   }
 }
 
-const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
+const createGetTwitterVideo = ({ gotOpts = {}, getGuestToken }) => {
   const getData = async (apiUrl, url, token) => {
     const { isFulfilled, value, reason } = await pReflect(
       got(apiUrl, {
+        ...gotOpts,
         responseType: 'json',
         headers: {
+          ...gotOpts.headers,
           referer: url,
           'x-guest-token': token,
-          origin: 'https://twitter.com',
-          authorization: TWITTER_BEARER_TOKEN,
-          'user-agent': userAgent
+          origin: 'https://twitter.com/',
+          authorization: TWITTER_BEARER_TOKEN
         }
       })
     )
@@ -89,9 +90,7 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
 
     const getContent = async () => {
       const token = await getGuestToken()
-      debug(
-        `getTwitterInfo apiUrl=${apiUrl} guestToken=${token} userAgent=${userAgent}`
-      )
+      debug(`getTwitterInfo apiUrl=${apiUrl} guestToken=${token}`)
 
       const payload = await getData(apiUrl, url, token)
 
@@ -116,8 +115,8 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
 
     await pRetry(getContent, {
       retries: 3,
-      onFailedAttempt: () => {
-        debug('getTwitterInfo rotating token')
+      onFailedAttempt: error => {
+        debug('getTwitterInfo rotating token', error)
       }
     })
 
@@ -125,9 +124,9 @@ const createGetTwitterVideo = ({ userAgent, getGuestToken }) => {
   }
 }
 
-module.exports = ({ fromGeneric, userAgent, getProxy }) => {
-  const getGuestToken = createGuestToken({ getProxy, userAgent })
-  const getTwitterVideo = createGetTwitterVideo({ getGuestToken, userAgent })
+module.exports = ({ fromGeneric, getProxy, gotOpts }) => {
+  const getGuestToken = createGuestToken({ getProxy, gotOpts })
+  const getTwitterVideo = createGetTwitterVideo({ getGuestToken, gotOpts })
 
   return async url => {
     const [videoInfo, twitterVideos] = await Promise.all([

@@ -1,36 +1,37 @@
 'use strict'
 
-const should = require('should')
+const test = require('ava')
 
 const createMetascraper = require('../..')
 const titleRules = require('metascraper-title')()
 
-it('`url` is required', async () => {
+test('`url` is required', async t => {
+  t.plan(9)
   const metascraper = createMetascraper([titleRules])
   try {
     await metascraper()
   } catch (err) {
-    should(err.name).be.equal('MetascraperError')
-    should(err.code).be.equal('INVALID_URL')
-    should(err.message).be.equal('INVALID_URL, Need to provide a valid URL.')
+    t.is(err.name, 'MetascraperError')
+    t.is(err.code, 'INVALID_URL')
+    t.is(err.message, 'INVALID_URL, Need to provide a valid URL.')
   }
   try {
     await metascraper({ url: '' })
   } catch (err) {
-    should(err.name).be.equal('MetascraperError')
-    should(err.code).be.equal('INVALID_URL')
-    should(err.message).be.equal('INVALID_URL, Need to provide a valid URL.')
+    t.is(err.name, 'MetascraperError')
+    t.is(err.code, 'INVALID_URL')
+    t.is(err.message, 'INVALID_URL, Need to provide a valid URL.')
   }
   try {
     await metascraper({ url: '/foo' })
   } catch (err) {
-    should(err.name).be.equal('MetascraperError')
-    should(err.code).be.equal('INVALID_URL')
-    should(err.message).be.equal('INVALID_URL, Need to provide a valid URL.')
+    t.is(err.name, 'MetascraperError')
+    t.is(err.code, 'INVALID_URL')
+    t.is(err.message, 'INVALID_URL, Need to provide a valid URL.')
   }
 })
 
-it('Disable URL validation using `validateUrl`', async () => {
+test('Disable URL validation using `validateUrl`', async t => {
   const metascraper = createMetascraper([titleRules])
 
   const html = `
@@ -40,7 +41,7 @@ it('Disable URL validation using `validateUrl`', async () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta property="og:title" content="Document"/>
   </head>
   <body>
     <div class="logos">
@@ -56,16 +57,16 @@ it('Disable URL validation using `validateUrl`', async () => {
   </html>
   `
 
-  const meta = await metascraper({
+  const metadata = await metascraper({
     url: 'example.com',
     validateUrl: false,
     html
   })
 
-  should(meta.title).equal('Document')
+  t.is(metadata.title, 'Document')
 })
 
-it('load extra `rules`', async () => {
+test('load extra `rules`', async t => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -99,11 +100,11 @@ it('load extra `rules`', async () => {
   ]
 
   const metascraper = createMetascraper([titleRules])
-  const meta = await metascraper({ url, html, rules })
-  should(meta.foo).equal('bar')
+  const metadata = await metascraper({ url, html, rules })
+  t.is(metadata.foo, 'bar')
 })
 
-it('associate test function with rules', async () => {
+test('associate test function with rules', async t => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -143,7 +144,7 @@ it('associate test function with rules', async () => {
   }
 
   const metascraper = createMetascraper([rulesBundle()])
-  const meta = await metascraper({ url, html })
-  should(meta.foo).be.null()
-  should(isCalled).be.true()
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.foo, null)
+  t.true(isCalled)
 })

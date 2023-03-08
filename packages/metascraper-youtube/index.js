@@ -1,16 +1,9 @@
 'use strict'
 
-const isReachable = require('is-reachable')
+const { $filter, author, toRule, memoizeOne } = require('@metascraper/helpers')
+const reachableUrl = require('reachable-url')
 const getVideoId = require('get-video-id')
 const pLocate = require('p-locate')
-
-const {
-  $filter,
-  author,
-  description,
-  toRule,
-  memoizeOne
-} = require('@metascraper/helpers')
 
 const THUMBAILS_RESOLUTIONS = [
   'maxresdefault.jpg',
@@ -20,41 +13,40 @@ const THUMBAILS_RESOLUTIONS = [
   'default.jpg'
 ]
 
-const getThumbnailUrl = id => {
+const getThumbnailUrl = (id, gotOpts) => {
   const urls = THUMBAILS_RESOLUTIONS.map(
     res => `https://img.youtube.com/vi/${id}/${res}`
   )
-  return pLocate(urls, isReachable)
+
+  return pLocate(urls, async url =>
+    reachableUrl.isReachable(await reachableUrl(url, gotOpts))
+  )
 }
 
 const toAuthor = toRule(author)
 
-const toDescription = toRule(description)
-
 const getVideoInfo = memoizeOne(getVideoId)
 
-const isValidUrl = memoizeOne(url => getVideoInfo(url).service === 'youtube')
+const test = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
-module.exports = () => {
+module.exports = ({ gotOpts } = {}) => {
   const rules = {
     author: [
-      toAuthor($ => $('#owner-name').text()),
-      toAuthor($ => $('#channel-title').text()),
-      toAuthor($ => $filter($, $('[class*="user-info" i]')))
+      toAuthor($ => $filter($, $('[class*="user-info" i]'))),
+      toAuthor($ => $('[itemprop="author"] [itemprop="name"]').attr('content'))
     ],
-    description: [toDescription($ => $('#description').text())],
     publisher: () => 'YouTube',
     image: [
       ({ url }) => {
         const { id } = getVideoId(url)
-        return id && getThumbnailUrl(id)
+        return id && getThumbnailUrl(id, gotOpts)
       }
     ]
   }
 
-  rules.test = ({ url }) => isValidUrl(url)
+  rules.test = ({ url }) => test(url)
 
   return rules
 }
 
-module.exports.isValidUrl = isValidUrl
+module.exports.test = test

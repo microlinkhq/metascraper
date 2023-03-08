@@ -9,14 +9,14 @@ const findProvider = memoizeOne(url => oEmbed.findProvider(url))
 
 const { fetchProvider } = oEmbed
 
-const fromProvider = gotOpts => async ({ url, iframe }) => {
+const fromProvider = ({ gotOpts }) => async ({ url, iframe }) => {
   const provider = findProvider(url)
   const { value } = await pReflect(
     fetchProvider(provider, url, iframe, gotOpts)
   )
-  return get(value, 'html', null)
+  return get(value, 'html')
 }
 
-fromProvider.test = url => !!findProvider(url)
+fromProvider.test = url => findProvider(url) !== undefined
 
 module.exports = fromProvider

@@ -1,9 +1,12 @@
-# metascraper-media-provider
-
-[![npm](https://img.shields.io/npm/v/metascraper-media-provider.svg?style=flat-square)](https://www.npmjs.com/package/metascraper-media-provider)
-[![Dependency Status](https://david-dm.org/microlinkhq/metascraper.svg?path=packages/metascraper-media-provider&style=flat-square)](https://david-dm.org/microlinkhq/metascraper?path=packages/metascraper-media-provider)
-
-> Get specific video provider url (Facebook/Twitter/Vimeo/etc).
+<div align="center">
+  <br>
+  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  <br>
+  <br>
+  <p align="center"><strong>metascraper-media-provider</strong>: Get specific video provider url (Facebook/Twitter/Vimeo/etc).</p>
+  <p align="center">See our <a href="https://metascraper.js.org" target='_blank' rel='noopener noreferrer'>website</a> for more information.</p>
+  <br>
+</div>
 
 ## Install
 
@@ -11,7 +14,7 @@
 $ npm install metascraper-media-provider --save
 ```
 
-## Usage
+## API
 
 ### metascraper-media-provider([options])
 
@@ -23,20 +26,6 @@ Type: `string`
 
 It specifies cache based on file system to be used by [youtube-dl](youtube-dl).
 
-##### onError
-
-Type: `function`
-
-A function to be called when something wrong happens.
-
-It will receive `error` and `url`.
-
-```js
-const onError = (url, error) => {
-  console.error(`${url} failed: ${error.message}`)
-}
-```
-
 ##### getProxy
 
 Type: `function`
@@ -44,11 +33,23 @@ Type: `function`
 It will be called to determinate if a proxy should be used for resolving the next request URL.
 
 ```js
-const getProxy = ({ url, retryCount  }) => {
+const getProxy = ({ url, retryCount }) => {
   if (retryCount === 0) return false
   return 'http://user:pwd@proxy:8001'
 }
 ```
+
+##### getAgent
+
+Type: `function`
+
+It receives as input the output from `.getProxy`. The output will be passed to `.gotOpts`.
+
+##### gotOpts
+
+Type: `object`
+
+Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
 ##### retry
 
@@ -64,15 +65,9 @@ Default: `30000`
 
 The maximum time allowed to wait until considering the request as timed out.
 
-##### userAgent
-
-Type: `string`
-
-It specifies a custom user agent.
-
 ## License
 
-**metascraper-media-provider** © [microlink.io](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq//blob/master/LICENSE.md) License.<br>
-Authored and maintained by microlink.io with help from [contributors](https://github.com/microlinkhq//contributors).
+**metascraper-media-provider** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
+Authored and maintained by [Microlink](https://microlink.io) with help from [contributors](https://github.com/microlinkhq/metascraper/contributors).
 
-> [microlink.io](https://microlink.io) · GitHub [@microlink.io](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)
+> [microlink.io](https://microlink.io) · GitHub [microlinkhq](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)

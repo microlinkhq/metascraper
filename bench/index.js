@@ -65,7 +65,7 @@ function getScrapersResults (SCRAPERS, urls, htmls) {
       return getScraperResults(SCRAPER, urls, htmls).then(results => {
         return {
           name: SCRAPER.name,
-          results: results
+          results
         }
       })
     })

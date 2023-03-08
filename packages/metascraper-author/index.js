@@ -1,6 +1,12 @@
 'use strict'
 
-const { $jsonld, $filter, toRule, author } = require('@metascraper/helpers')
+const {
+  $jsonld,
+  $filter,
+  toRule,
+  date,
+  author
+} = require('@metascraper/helpers')
 
 const REGEX_STRICT = /^\S+\s+\S+/
 
@@ -23,7 +29,6 @@ module.exports = () => ({
     toAuthor($jsonld('author.name')),
     toAuthor($jsonld('brand.name')),
     toAuthor($ => $('meta[name="author"]').attr('content')),
-    toAuthor($ => $('meta[property="author"]').attr('content')),
     toAuthor($ => $('meta[property="article:author"]').attr('content')),
     toAuthor($ => $filter($, $('[itemprop*="author" i] [itemprop="name"]'))),
     toAuthor($ => $filter($, $('[itemprop*="author" i]'))),
@@ -33,6 +38,13 @@ module.exports = () => ({
     strict(toAuthor($ => $filter($, $('a[href*="/author/" i]')))),
     toAuthor($ => $filter($, $('a[class*="screenname" i]'))),
     strict(toAuthor($ => $filter($, $('[class*="author" i]')))),
-    strict(toAuthor($ => $filter($, $('[class*="byline" i]'))))
+    strict(
+      toAuthor($ =>
+        $filter($, $('[class*="byline" i]'), el => {
+          const value = $filter.fn(el)
+          return !date(value) && value
+        })
+      )
+    )
   ]
 })

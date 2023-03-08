@@ -2,11 +2,17 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-media-provider",
-  "version": "5.19.0",
+  "version": "5.33.8",
   "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
+    "directory": "packages/metascraper-media-provider",
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/"
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -17,29 +23,24 @@
     "youtube-dl"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.12",
+    "@metascraper/helpers": "^5.33.7",
+    "async-memoize-one": "~1.1.2",
     "debug-logfmt": "~1.0.4",
-    "got": "~11.8.1",
-    "keepalive-proxy-agent": "~1.2.0",
+    "got": "~11.8.6",
     "lodash": "~4.17.21",
     "p-do-whilst": "~1.1.0",
     "p-reflect": "~2.1.0",
-    "p-retry": "~4.4.0",
+    "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
-    "tldts": "~5.7.10",
-    "youtube-dl-exec": "~1.0.0"
+    "youtube-dl-exec": "~2.4.0"
   },
   "devDependencies": {
+    "ava": "latest",
     "is-ci": "latest",
-    "mocha": "latest",
-    "nyc": "latest",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
-    "should": "latest",
-    "snap-shot": "latest",
-    "time-span": "latest",
-    "ua-string": "latest",
-    "unique-random-array": "latest"
+    "time-span": "4",
+    "unique-random-array": "2"
   },
   "engines": {
     "node": ">= 12"
@@ -48,15 +49,14 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test ava --timeout 30s"
   },
   "license": "MIT",
-  "mocha": {
-    "bail": true,
-    "exit": true,
-    "recursive": true,
-    "reporter": "spec",
-    "slow": 300,
-    "timeout": "120000"
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers.js",
+      "!test/fixtures/generate.js"
+    ]
   }
 }

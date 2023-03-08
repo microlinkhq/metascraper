@@ -3,18 +3,28 @@
 const { memoizeOne } = require('@metascraper/helpers')
 
 const fromProvider = require('./from-provider')
+const fromTwitter = require('./from-twitter')
 const fromHTML = require('./from-html')
 
-const isValidUrl = memoizeOne(
-  (url, $) => fromHTML.test(url, $) || fromProvider.test(url),
+const test = memoizeOne(
+  (url, $) =>
+    fromHTML.test(url, $) ||
+    fromProvider.test(url, $) ||
+    fromTwitter.test(url, $),
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
-const test = ({ url, htmlDom }) => isValidUrl(url, htmlDom)
-
 module.exports = ({ gotOpts } = {}) => {
-  const rules = { iframe: [fromHTML(gotOpts), fromProvider(gotOpts)] }
-  rules.test = test
+  const rules = {
+    iframe: [
+      fromHTML({ gotOpts }),
+      fromProvider({ gotOpts }),
+      fromTwitter({ gotOpts })
+    ]
+  }
+
+  rules.test = ({ url, htmlDom }) => test(url, htmlDom)
+
   return rules
 }
 

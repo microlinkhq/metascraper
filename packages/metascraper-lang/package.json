@@ -2,11 +2,17 @@
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-lang",
-  "version": "5.18.12",
+  "version": "5.33.7",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
+    "directory": "packages/metascraper-lang",
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-lang"
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -16,12 +22,10 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.18.12"
+    "@metascraper/helpers": "^5.33.7"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "nyc": "latest",
-    "snap-shot": "latest"
+    "ava": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -30,7 +34,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
   "license": "MIT"
 }

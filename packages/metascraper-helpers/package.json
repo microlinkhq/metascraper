@@ -2,11 +2,17 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.18.12",
+  "version": "5.33.7",
   "main": "index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
   "repository": {
+    "directory": "packages/metascraper-helpers",
     "type": "git",
-    "url": "https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-helpers"
+    "url": "git+https://github.com/microlinkhq/metascraper.git#master"
   },
   "bugs": {
     "url": "https://github.com/microlinkhq/metascraper/issues"
@@ -17,33 +23,31 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "2.2.1",
+    "chrono-node": "~2.5.0",
     "condense-whitespace": "~2.0.0",
-    "entities": "~2.2.0",
+    "entities": "~4.4.0",
     "file-extension": "~4.0.5",
     "has-values": "~2.0.1",
     "image-extensions": "~1.1.0",
     "is-relative-url": "~3.0.0",
-    "is-uri": "~1.2.0",
+    "is-uri": "~1.2.4",
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
-    "jsdom": "~16.4.0",
+    "jsdom": "~21.1.0",
     "lodash": "~4.17.21",
-    "memoize-one": "~5.1.1",
+    "memoize-one": "~6.0.0",
     "microsoft-capitalize": "~1.0.5",
-    "mime-types": "~2.1.29",
-    "normalize-url": "~5.3.0",
+    "mime": "~3.0.0",
+    "normalize-url": "~6.1.0",
+    "re2": "~1.18.0",
     "smartquotes": "~2.3.2",
-    "truncate": "~2.1.0",
-    "url-regex-safe": "~2.0.2",
-    "video-extensions": "~1.1.0"
+    "tldts": "~5.7.103",
+    "url-regex-safe": "~3.0.0",
+    "video-extensions": "~1.2.0"
   },
   "devDependencies": {
-    "cheerio": "latest",
-    "mocha": "latest",
-    "nyc": "latest",
-    "should": "latest",
-    "snap-shot": "latest"
+    "ava": "latest",
+    "cheerio": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -52,7 +56,10 @@
     "index.js"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test nyc --silent --no-clean --temp-dir ../../.nyc_output mocha test"
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test ava --timeout 30s"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
