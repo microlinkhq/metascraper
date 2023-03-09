@@ -21,17 +21,17 @@ $ npm install metascraper-date --save
 
 ##### datePublished
 
-Type: `bool`<br>
+Type: `boolean`<br>
 Default: `false`
 
-Whether to return datePublished alongside date
+Whether to return `datePublished` alongside date.
 
 ##### dateModified
 
-Type: `bool`<br>
+Type: `boolean`<br>
 Default: `false`
 
-Whether to return dateModified alongside date
+Whether to return `dateModified` alongside date.
 
 ## License
 
