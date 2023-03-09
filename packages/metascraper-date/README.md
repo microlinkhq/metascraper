@@ -13,6 +13,25 @@
 ```bash
 $ npm install metascraper-date --save
 ```
+## API
+
+### metascraper-date([options])
+
+#### options
+
+##### datePublished
+
+Type: `bool`<br>
+Default: `false`
+
+Whether to return datePublished alongside date
+
+##### dateModified
+
+Type: `bool`<br>
+Default: `false`
+
+Whether to return dateModified alongside date
 
 ## License
 
