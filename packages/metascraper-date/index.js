@@ -62,7 +62,7 @@ module.exports = ({ datePublished, dateModified } = { datePublished: false, date
   }
 
   if (dateModified) {
-    result.datePublished = dateModifiedRules()
+    result.dateModified = dateModifiedRules()
   }
 
   return result
