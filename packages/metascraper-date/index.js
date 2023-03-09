@@ -55,7 +55,7 @@ const dateModifiedRules = () => {
 
 module.exports = ({ datePublished, dateModified } = { datePublished: false, dateModified: false }) => {
   const result = {
-    date: dateRules() || dateModifiedRules() || datePublishedRules()
+    date: dateRules().concat(dateModifiedRules(), datePublishedRules())
   }
 
   if (datePublished) {
