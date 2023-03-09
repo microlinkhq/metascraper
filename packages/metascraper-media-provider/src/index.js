@@ -100,7 +100,7 @@ const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
 
 const getPublisher = ({ extractor, extractor_key: extractorKey }) =>
-  extractor !== 'generic' && publisher(extractorKey)
+  extractor !== 'generic' ? publisher(extractorKey) : undefined
 
 const getLang = ({ language, http_headers: headers = {} }) =>
   lang(language || headers['Accept-Language'])
