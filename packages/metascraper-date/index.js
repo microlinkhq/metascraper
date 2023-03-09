@@ -27,6 +27,7 @@ const dateRules = () => {
     toDate($ => $filter($, $('[class*="time" i]')))
   ]
 }
+
 const datePublishedRules = () => {
   return [
     toDate($jsonld('datePublished')),
