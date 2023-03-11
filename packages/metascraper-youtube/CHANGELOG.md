@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.34.0](https://github.com/microlinkhq/metascraper/compare/v5.33.9...v5.34.0) (2023-03-11)
+
+### Features
+
+* **date:** add `datePublished` and `datemodified` support ([#374](https://github.com/microlinkhq/metascraper/issues/374)) ([d219b58](https://github.com/microlinkhq/metascraper/commit/d219b58015551cf5a051942e410fb840a189738d))
+
 ## [5.33.7](https://github.com/microlinkhq/metascraper/compare/v5.33.6...v5.33.7) (2023-01-30)
 
 **Note:** Version bump only for package metascraper-youtube
