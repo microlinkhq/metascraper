@@ -5,6 +5,7 @@ const { resolve } = require('path')
 const test = require('ava')
 
 const metascraper = require('../../..')([
+  require('metascraper-twitter')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
