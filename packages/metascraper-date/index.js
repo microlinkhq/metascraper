@@ -30,7 +30,6 @@ const datePublishedRules = () => {
 const dateModifiedRules = () => {
   return [
     toDate($jsonld('dateModified')),
-    toDate($ => $('meta[property*="updated_time" i]').attr('content')),
     toDate($ => $('meta[property*="modified_time" i]').attr('content')),
     toDate($ => $('[itemprop*="datemodified" i]').attr('content'))
   ]
