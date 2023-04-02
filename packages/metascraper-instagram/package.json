@@ -19,7 +19,7 @@
   },
   "keywords": [
     "metascraper",
-    "telegram"
+    "instagram"
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.34.1",
