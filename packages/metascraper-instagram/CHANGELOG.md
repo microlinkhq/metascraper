@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.34.2](https://github.com/microlinkhq/metascraper/compare/v5.34.1...v5.34.2) (2023-04-03)
+
+### Bug Fixes
+
+* **instagram:** metadata ([f7b9ca4](https://github.com/microlinkhq/metascraper/commit/f7b9ca41f9e7c009dae1b0ad33bdb7d4794af405))
+
 ## [5.34.1](https://github.com/microlinkhq/metascraper/compare/v5.34.0...v5.34.1) (2023-03-29)
 
 **Note:** Version bump only for package metascraper-instagram
