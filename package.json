@@ -116,6 +116,7 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@lerna-lite/cli": "latest",
+    "@lerna-lite/publish": "latest",
     "@lerna-lite/run": "latest",
     "browser-sync": "latest",
     "c8": "latest",
