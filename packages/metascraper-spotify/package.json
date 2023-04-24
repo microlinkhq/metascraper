@@ -23,7 +23,7 @@
     "spotify"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~1.6.28",
+    "@keyvhq/memoize": "~2.0.0",
     "@metascraper/helpers": "^5.34.2",
     "async-memoize-one": "~1.1.2",
     "got": "~11.8.6",
