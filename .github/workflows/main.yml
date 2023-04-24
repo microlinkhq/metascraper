@@ -30,10 +30,8 @@ jobs:
           git config --global user.name ${{ secrets.GIT_USERNAME }}
           npm run contributors
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: ${{ github.head_ref }}
+        run: |
+          git push origin ${{ github.head_ref }}
   test:
     if: ${{ !startsWith(github.event.head_commit.message, 'chore(release):') && !startsWith(github.event.head_commit.message, 'docs:') && !startsWith(github.event.head_commit.message, 'ci:') }} 'docs:') && !startsWith(github.event.head_commit.message, 'ci:') }}
     needs: [contributors]
