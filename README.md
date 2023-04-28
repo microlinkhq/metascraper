@@ -13,7 +13,7 @@
 
 ## What is it
 
-**metascraper** is library to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
+The **metascraper** library allows you to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
 
 It follows a few principles:
 
@@ -92,41 +92,41 @@ The output will be something like:
 
 ## What data it detects
 
-?> Custom metadata detection can be defined using a [rule bundle](#rules-bundles).
+> **Note**: Custom metadata detection can be defined using a [rule bundle](#rules-bundles).
 
 Here is an example of the metadata that **metascraper** can detect:
 
-- `audio` — eg. *https://cf-media.sndcdn.com/U78RIfDPV6ok.128.mp3*<br/>
+- `audio` — e.g. <small>*ht<span>tps://cf-media.sndcdn.com/U78RIfDPV6ok.128.mp3*</small><br/>
 A audio URL that best represents the article.
 
-- `author` — eg. *Noah Kulwin*<br/>
+- `author` — e.g. <small>*Noah Kulwin*</small><br/>
   A human-readable representation of the author's name.
 
-- `date` — eg. *2016-05-27T00:00:00.000Z*<br/>
+- `date` — e.g. <small>*2016-05-27T00:00:00.000Z*</small><br/>
   An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) representation of the date the article was published.
 
-- `description` — eg. *Venture capitalists are raising money at the fastest rate...*<br/>
+- `description` — e.g. <small>*Venture capitalists are raising money at the fastest rate...*</small><br/>
   The publisher's chosen description of the article.
 
-- `video` — eg. *https://assets.entrepreneur.com/content/preview.mp4*<br/>
+- `video` — e.g. <small>*ht<span>tps://assets.entrepreneur.com/content/preview.mp4*</small><br/>
   A video URL that best represents the article.
 
-- `image` — eg. *https://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg*<br/>
+- `image` — e.g. <small>*ht<span>tps://assets.entrepreneur.com/content/3x2/1300/20160504155601-GettyImages-174457162.jpeg*</small><br/>
   An image URL that best represents the article.
 
-- `lang` — eg. *en*<br/>
+- `lang` — e.g. <small>*en*</small><br/>
   An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) representation of the url content language.
 
-- `logo` — eg. *https://entrepreneur.com/favicon180x180.png*<br/>
+- `logo` — e.g. <small>*ht<span>tps://entrepreneur.com/favicon180x180.png*</small><br/>
   An image URL that best represents the publisher brand.
 
-- `publisher` — eg. *Fast Company*<br/>
+- `publisher` — e.g. <small>*Fast Company*</small><br/>
   A human-readable representation of the publisher's name.
 
-- `title` — eg. *Meet Wall Street's New A.I. Sheriffs*<br/>
+- `title` — e.g. <small>*Meet Wall Street's New A.I. Sheriffs*</small><br/>
   The publisher's chosen title of the article.
 
-- `url` — eg. *http://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*<br/>
+- `url` — e.g. <small>*ht<span>tp://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*</small><br/>
   The URL of the article.
 
 ## How it works
@@ -270,7 +270,7 @@ Type: `Array`
 
 You can pass additional rules to add on execution time. 
 
-These rules will be merged with your loaded [`rules`](#rules) at the beginning.
+These rules will be merged with your loaded [rules](#rules) at the beginning.
 
 #### validateUrl
 
@@ -283,7 +283,7 @@ Ensure the URL provided is validated as a [WHATWG URL](https://nodejs.org/api/ur
 
 To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:
 
-| Library   | [`metascraper`](https://www.npmjs.com/package/metascraper) | [`html-metadata`](https://www.npmjs.com/package/html-metadata) | [`node-metainspector`](https://www.npmjs.com/package/node-metainspector) | [`open-graph-scraper`](https://www.npmjs.com/package/open-graph-scraper) | [`unfluff`](https://www.npmjs.com/package/unfluff) |
+| Library   | [metascraper](https://www.npmjs.com/package/metascraper) | [html-metadata](https://www.npmjs.com/package/html-metadata) | [node-metainspector](https://www.npmjs.com/package/node-metainspector) | [open-graph-scraper](https://www.npmjs.com/package/open-graph-scraper) | [unfluff](https://www.npmjs.com/package/unfluff) |
 |:----------|:-----------------------------------------------------------|:---------------------------------------------------------------|:-------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------------------------------------------|
 | Correct   | **95.54%**                                                 | **74.56%**                                                     | **61.16%**                                                               | **66.52%**                                                               | **70.90%**                                         |
 | Incorrect | 1.79%                                                      | 1.79%                                                          | 0.89%                                                                    | 6.70%                                                                    | 10.27%                                             |
