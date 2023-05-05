@@ -1,8 +1,8 @@
 'use strict'
 
 const { normalizeUrl, logo, composeRule } = require('@metascraper/helpers')
+const { dataUriToBuffer } = require('data-uri-to-buffer')
 const asyncMemoizeOne = require('async-memoize-one')
-const dataUriToBuffer = require('data-uri-to-buffer')
 const { chain, toLower } = require('lodash')
 const memoize = require('@keyvhq/memoize')
 
