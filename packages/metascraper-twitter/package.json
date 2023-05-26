@@ -2,7 +2,7 @@
   "name": "metascraper-twitter",
   "description": "Metascraper integration with Twitter",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-twitter",
-  "version": "5.34.4",
+  "version": "5.34.6",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -23,7 +23,7 @@
     "spotify"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.34.4"
+    "@metascraper/helpers": "^5.34.6"
   },
   "devDependencies": {
     "ava": "latest"
