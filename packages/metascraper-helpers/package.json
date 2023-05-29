@@ -33,7 +33,7 @@
     "is-uri": "~1.2.4",
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
-    "jsdom": "~22.0.0",
+    "jsdom": "~22.1.0",
     "lodash": "~4.17.21",
     "memoize-one": "~6.0.0",
     "microsoft-capitalize": "~1.0.5",
