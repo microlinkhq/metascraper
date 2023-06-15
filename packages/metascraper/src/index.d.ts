@@ -1,13 +1,15 @@
 declare module 'metascraper' {
-  export default function MetaParser(rules: Rule[]): Scraper;
+  export default function MetaParser(rules: RuleSet[]): Scraper;
 
   type Scraper = (options: ScrapOptions) => Promise<Metadata>;
+
   interface ScrapOptions {
     url: string;
     html?: string;
-    rules?: Rule[];
+    rules?: RuleSet[];
     validateUrl?: boolean;
   }
+
   interface Metadata {
     author: string;
     date: string;
@@ -17,17 +19,21 @@ declare module 'metascraper' {
     title: string;
     url: string;
   }
+
   type RuleSet = {
     [C in keyof Metadata]?: Array<Check>;
-  };
+  } & {
+    test?: (options: CheckOptions) => boolean;
+  }
+
   type Check = (options: CheckOptions) => string | null | undefined;
+
   interface CheckOptions {
-    htmlDom: typeof import('cheerio');
+    htmlDom: import('cheerio').CheerioAPI;
     url: string
   }
-  type Rule = () => RuleSet;
 }
 
 declare module 'metascraper-*' {
-  export default function rules(): import('metascraper').Rule;
+  export default function rules(): import('metascraper').RuleSet;
 }
