@@ -119,6 +119,7 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
+    "@ksmithut/prettier-standard": "latest",
     "@lerna-lite/cli": "latest",
     "@lerna-lite/publish": "latest",
     "@lerna-lite/run": "latest",
@@ -137,7 +138,6 @@
     "make-dir": "latest",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
-    "prettier-standard": "latest",
     "rimraf": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
