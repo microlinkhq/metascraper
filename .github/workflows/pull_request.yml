@@ -9,41 +9,23 @@ on:
       - master
 
 jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - id: matrix
+      run: echo "matrix=$(node .github/workflows/get-matrix.mjs)" >> $GITHUB_OUTPUT
+    - run: echo ${{ steps.matrix.outputs.matrix }}
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
   test:
     if: github.ref != 'refs/heads/master'
+    needs: matrix
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        package:
-          - metascraper
-          - metascraper-amazon
-          - metascraper-audio
-          - metascraper-author
-          - metascraper-clearbit
-          - metascraper-date
-          - metascraper-description
-          - metascraper-feed
-          - "@metascraper/helper"
-          - metascraper-iframe
-          - metascraper-image
-          - metascraper-instagram
-          - metascraper-lang
-          - metascraper-logo
-          - metascraper-logo-favicon
-          - metascraper-manifest
-          - metascraper-media-provider
-          - metascraper-publisher
-          - metascraper-readability
-          - metascraper-soundcloud
-          - metascraper-spotify
-          - metascraper-telegram
-          - metascraper-title
-          - metascraper-twitter
-          - metascraper-uol
-          - metascraper-url
-          - metascraper-video
-          - metascraper-youtube
+      matrix: ${{fromJson(needs.matrix.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

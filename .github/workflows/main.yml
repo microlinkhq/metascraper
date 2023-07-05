@@ -59,6 +59,6 @@ jobs:
       - name: Coverage
         run: npm run coverage
       - name: Upload
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
