@@ -12,6 +12,38 @@ jobs:
   test:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - metascraper
+          - metascraper-amazon
+          - metascraper-audio
+          - metascraper-author
+          - metascraper-clearbit
+          - metascraper-date
+          - metascraper-description
+          - metascraper-feed
+          - "@metascraper/helper"
+          - metascraper-iframe
+          - metascraper-image
+          - metascraper-instagram
+          - metascraper-lang
+          - metascraper-logo
+          - metascraper-logo-favicon
+          - metascraper-manifest
+          - metascraper-media-provider
+          - metascraper-publisher
+          - metascraper-readability
+          - metascraper-soundcloud
+          - metascraper-spotify
+          - metascraper-telegram
+          - metascraper-title
+          - metascraper-twitter
+          - metascraper-uol
+          - metascraper-url
+          - metascraper-video
+          - metascraper-youtube
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,8 +58,10 @@ jobs:
         with:
           version: latest
           run_install: true
+      - name: Lint
+        run: npm run lint
       - name: Test
-        run: npm test
+        run: npx c8 lerna run test --scope "${{ matrix.package }}"
         env:
           PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
@@ -35,6 +69,9 @@ jobs:
       - name: Coverage
         run: npm run coverage
       - name: Upload
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@main
         with:
+          flag-name: run-${{ matrix.package }}
+          parallel: true
+          allow-empty: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
