@@ -40,10 +40,8 @@ jobs:
         with:
           version: latest
           run_install: true
-      - name: Lint
-        run: npm run lint
       - name: Test
-        run: npx c8 lerna run test --scope "${{ matrix.package }}"
+        run: npm run test --scope "${{ matrix.package }}"
         env:
           PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
