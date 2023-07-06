@@ -41,13 +41,13 @@ jobs:
           version: latest
           run_install: true
       - name: Test
-        run: npm run test --scope "${{ matrix.package }}"
+        run: pnpm run test --scope "${{ matrix.package }}"
         env:
           PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
           PROXY_HOST: ${{ secrets.PROXY_HOST }}
       - name: Coverage
-        run: npm run coverage
+        run: pnpm run coverage
       - name: Upload
         uses: coverallsapp/github-action@main
         with:
@@ -55,3 +55,11 @@ jobs:
           parallel: true
           allow-empty: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@main
+      with:
+        parallel-finished: true
