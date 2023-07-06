@@ -51,7 +51,7 @@ jobs:
       - name: Upload
         uses: coverallsapp/github-action@main
         with:
-          flag-name: run-${{ matrix.package }}
+          flag-name: ${{ matrix.package }}
           parallel: true
           allow-empty: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
