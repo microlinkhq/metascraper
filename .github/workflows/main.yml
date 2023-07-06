@@ -28,14 +28,27 @@ jobs:
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}
           git config --global user.name ${{ secrets.GIT_USERNAME }}
-          npm run contributors
+          pnpm run contributors
       - name: Push changes
         run: |
           git push origin ${{ github.head_ref }}
+  matrix:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - id: matrix
+      run: echo "matrix=$(node .github/workflows/get-matrix.mjs)" >> $GITHUB_OUTPUT
+    - run: echo ${{ steps.matrix.outputs.matrix }}
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
   test:
     if: ${{ !startsWith(github.event.head_commit.message, 'chore(release):') && !startsWith(github.event.head_commit.message, 'docs:') && !startsWith(github.event.head_commit.message, 'ci:') }} 'docs:') && !startsWith(github.event.head_commit.message, 'ci:') }}
-    needs: [contributors]
+    needs: [contributors, matrix]
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJson(needs.matrix.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,14 +64,26 @@ jobs:
           version: latest
           run_install: true
       - name: Test
-        run: npm test
+        run: pnpm run test --scope "${{ matrix.package }}"
         env:
           PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
           PROXY_HOST: ${{ secrets.PROXY_HOST }}
       - name: Coverage
-        run: npm run coverage
+        run: pnpm run coverage
       - name: Upload
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@main
         with:
+          flag-name: ${{ matrix.package }}
+          parallel: true
+          allow-empty: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@main
+      with:
+        parallel-finished: true
+

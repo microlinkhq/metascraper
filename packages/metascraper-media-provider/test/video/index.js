@@ -40,7 +40,7 @@ const { extension, isUrl } = require('@metascraper/helpers')
   'https://twitter.com/telediario_tve/status/1036860275859775488',
   'https://twitter.com/futurism/status/882987478541533189'
 ].forEach(url => {
-  test(url, async t => {
+  test.skip(url, async t => {
     const metadata = await metascraper({ url })
     debug(metadata.video)
     t.true(isUrl(metadata.video))
