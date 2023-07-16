@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "~2.6.2",
+    "chrono-node": "~2.6.4",
     "condense-whitespace": "~2.0.0",
     "entities": "~4.5.0",
     "file-extension": "~4.0.5",
@@ -39,9 +39,9 @@
     "microsoft-capitalize": "~1.0.5",
     "mime": "~3.0.0",
     "normalize-url": "~6.1.0",
-    "re2": "~1.18.3",
+    "re2": "~1.19.1",
     "smartquotes": "~2.3.2",
-    "tldts": "~6.0.1",
+    "tldts": "~6.0.11",
     "url-regex-safe": "~3.0.0",
     "video-extensions": "~1.2.0"
   },
