@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "ava": "latest",
-    "is-ci": "latest",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
     "time-span": "4",

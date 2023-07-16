@@ -1,12 +1,12 @@
 'use strict'
 
 const debug = require('debug-logfmt')('metascraper-media-provider:test')
-const isCI = require('is-ci')
+const { extension, isUrl } = require('@metascraper/helpers')
 const test = require('ava')
 
 const { metascraper } = require('../helpers')
 
-const { extension, isUrl } = require('@metascraper/helpers')
+const isCI = !!process.env.CI
 
 ;[
   // TODO: uncomment when the issue is resolved
