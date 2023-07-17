@@ -22,9 +22,9 @@
     "telegram"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.0.0",
+    "@keyvhq/memoize": "~2.0.3",
     "@metascraper/helpers": "^5.34.7",
-    "css-urls": "~2.0.31",
+    "css-urls": "~2.0.32",
     "got": "~11.8.6",
     "p-reflect": "~2.1.0"
   },

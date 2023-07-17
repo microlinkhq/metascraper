@@ -18,8 +18,8 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "metascraper",
-    "instagram"
+    "instagram",
+    "metascraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.34.7",
