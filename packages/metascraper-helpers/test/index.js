@@ -7,6 +7,7 @@ const test = require('ava')
 const {
   $jsonld,
   absoluteUrl,
+  audio,
   author,
   date,
   description,
@@ -23,7 +24,8 @@ const {
   lang,
   normalizeUrl,
   parseUrl,
-  url
+  url,
+  video
 } = require('..')
 
 const measure = fn => {
@@ -150,6 +152,52 @@ test('.isMime', t => {
   t.true(isMime('audio/x-aac', 'audio'))
   t.true(isMime('audio/x-wav', 'audio'))
   t.true(isMime('audio/mp3', 'audio'))
+})
+
+test('.audio', t => {
+  t.is(
+    audio(
+      'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16',
+      { type: 'audio/wav' }
+    ),
+    'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16'
+  )
+  t.is(
+    audio(
+      'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16',
+      { type: 'audio/wav' }
+    ),
+    'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16'
+  )
+  t.is(
+    audio(
+      'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16'
+    ),
+    undefined
+  )
+})
+
+test('.video', t => {
+  t.is(
+    video(
+      'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16',
+      { type: 'video/mp4' }
+    ),
+    'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16'
+  )
+  t.is(
+    video(
+      'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16',
+      { type: 'video/mpeg' }
+    ),
+    'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16'
+  )
+  t.is(
+    video(
+      'https://app.croct.dev/assets/workspace/customer-assets/9d97037d-64a2-4c25-b443-bfc2972f3c9e/a0442e2b-a384-4f2b-b443-9f34c2215e16'
+    ),
+    undefined
+  )
 })
 
 test('.isVideoUrl', t => {
