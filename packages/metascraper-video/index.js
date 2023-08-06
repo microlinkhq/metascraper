@@ -10,29 +10,49 @@ const {
   video
 } = require('@metascraper/helpers')
 
+const { chain, isEqual } = require('lodash')
 const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
-const { chain } = require('lodash')
 const got = require('got')
 
 const toUrl = toRule(urlFn)
+
 const toVideo = toRule(video)
 
 const toVideoFromDom = toRule((domNodes, opts) => {
-  const videoUrl = chain(domNodes)
-    .map('attribs.src')
-    .uniq()
-    .orderBy(videoUrl => extension(videoUrl) === 'mp4', ['desc'])
-    .first()
+  const values = chain(domNodes)
+    .map(domNode => ({
+      src: domNode?.attribs.src,
+      type: domNode?.attribs.type
+    }))
+    .uniqWith(isEqual)
+    .orderBy(
+      ({ src, type }) => extension(src) === 'mp4' || type?.includes('mp4'),
+      ['desc']
+    )
     .value()
 
-  return video(videoUrl, opts)
+  let result
+  values.find(
+    ({ src, type }) => (result = video(src, Object.assign({ type }, opts)))
+  )
+  return result
 })
 
 const videoRules = [
-  toVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
-  toVideo($ => $('meta[property="og:video:url"]').attr('content')),
-  toVideo($ => $('meta[property="og:video"]').attr('content')),
+  async ({ url, htmlDom: $ }) => {
+    const src =
+      $('meta[property="og:video:secure_url"]').attr('content') ||
+      $('meta[property="og:video:url"]').attr('content') ||
+      $('meta[property="og:video"]').attr('content')
+
+    return src
+      ? video(src, {
+        url,
+        type: $('meta[property="og:video:type"]').attr('content')
+      })
+      : undefined
+  },
   toVideo($ => $('meta[name="twitter:player:stream"]').attr('content')),
   toVideo($ => $('meta[property="twitter:player:stream"]').attr('content')),
   toVideo($jsonld('contentUrl')),
