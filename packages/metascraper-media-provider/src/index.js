@@ -24,12 +24,19 @@ const {
 
 const createGetMedia = require('./get-media')
 
-const isProtocol = value => ({ url }) => eq(protocolFn(url), value)
+const isProtocol =
+  value =>
+    ({ url }) =>
+      eq(protocolFn(url), value)
 
 const isHttps = isProtocol('https')
 
-const isMIME = extension => ({ ext, url }) =>
-  ext ? eq(ext, extension) : eq(extensionFn(url), extension)
+const isMIME =
+  extension =>
+    ({ ext, url, format }) =>
+      ext !== 'unknown_video'
+        ? eq(ext, extension)
+        : eq(extensionFn(url), extension) || format.includes(extension)
 
 const isMp4 = isMIME('mp4')
 const isMp3 = isMIME('mp3')
@@ -60,19 +67,21 @@ const hasVideo = format =>
 const isDownloadable = ({ url }) =>
   new URL(url).searchParams.get('download') === '1'
 
-const getFormatUrls = ({ orderBy }) => (input, filters) => {
-  const formats = get(input, 'formats') ||
-    get(input, 'entries[0].formats') || [input]
+const getFormatUrls =
+  ({ orderBy }) =>
+    (input, filters) => {
+      const formats = get(input, 'formats') ||
+      get(input, 'entries[0].formats') || [input]
 
-  const url = chain(formats)
-    .filter(overEvery(filters))
-    .orderBy(orderBy, 'asc')
-    .map('url')
-    .last()
-    .value()
+      const url = chain(formats)
+        .filter(overEvery(filters))
+        .orderBy(orderBy, 'asc')
+        .map('url')
+        .last()
+        .value()
 
-  return !isEmpty(url) ? url : undefined
-}
+      return !isEmpty(url) ? url : undefined
+    }
 
 const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
 
