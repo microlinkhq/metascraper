@@ -22,8 +22,19 @@ const withContentType = (url, contentType) =>
   isMime(contentType, 'audio') ? url : false
 
 const audioRules = [
-  toAudio($ => $('meta[property="og:audio:secure_url"]').attr('content')),
-  toAudio($ => $('meta[property="og:audio"]').attr('content')),
+  ({ url, htmlDom: $ }) => {
+    const src =
+      $('meta[property="og:audio:secure_url"]').attr('content') ||
+      $('meta[property="og:audio:url"]').attr('content') ||
+      $('meta[property="og:audio"]').attr('content')
+
+    return src
+      ? audio(src, {
+        url,
+        type: $('meta[property="og:audio:type"]').attr('content')
+      })
+      : undefined
+  },
   toAudio($ => {
     const contentType =
       $('meta[name="twitter:player:stream:content_type"]').attr('content') ||

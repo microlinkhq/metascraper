@@ -77,6 +77,8 @@ test('jsonld:contentUrl', async t => {
   t.snapshot(metadata)
 })
 
+test.todo('twitter:player:stream')
+
 test('twitter:player', async t => {
   const html =
     '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container/video.html">'

@@ -40,7 +40,7 @@ const toVideoFromDom = toRule((domNodes, opts) => {
 })
 
 const videoRules = [
-  async ({ url, htmlDom: $ }) => {
+  ({ url, htmlDom: $ }) => {
     const src =
       $('meta[property="og:video:secure_url"]').attr('content') ||
       $('meta[property="og:video:url"]').attr('content') ||
