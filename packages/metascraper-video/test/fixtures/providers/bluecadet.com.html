@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-US" class=" js"><div id="dd7cbe74-092b-4f64-8229-2548b567d1b6" style="display: none;">{"method":"get","path":"self.navigator.appVersion","level":"info","category":"navigator","jsContextId":"3f4ebda4-3a9e-4521-a55e-d43ff8abf0c6","url":"https://www.bluecadet.com/","stack":[{"functionName":"HTMLDocument.t","fileName":"https://www.bluecadet.com/wp-includes/js/wp-embed.min.js?ver=5.6","lineNumber":"2","columnNumber":"1001"}]}</div><!--<![endif]--><head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><script src="https://js-agent.newrelic.com/nr-1184.min.js"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"55fbb68b9c",applicationID:"18732051"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
-	<title>Homepage - Bluecadet</title>
-	<meta name="description" content="">
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-	<meta http-equiv="cleartype" content="on">
+<html lang="en-US" class=" js">
+<div id="dd7cbe74-092b-4f64-8229-2548b567d1b6" style="display: none;">{"method":"get","path":"self.navigator.appVersion","level":"info","category":"navigator","jsContextId":"3f4ebda4-3a9e-4521-a55e-d43ff8abf0c6","url":"https://www.bluecadet.com/","stack":[{"functionName":"HTMLDocument.t","fileName":"https://www.bluecadet.com/wp-includes/js/wp-embed.min.js?ver=5.6","lineNumber":"2","columnNumber":"1001"}]}</div><!--<![endif]-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://js-agent.newrelic.com/nr-1184.min.js"></script>
+  <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+  <script
+    type="text/javascript">(window.NREUM || (NREUM = {})).loader_config = { licenseKey: "55fbb68b9c", applicationID: "18732051" }; window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) { function r(n) { if (!t[n]) { var i = t[n] = { exports: {} }; e[n][0].call(i.exports, function (t) { var i = e[n][1][t]; return r(i || t) }, i, i.exports) } return t[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var i = 0; i < n.length; i++)r(n[i]); return r }({ 1: [function (e, t, n) { function r() { } function i(e, t, n) { return function () { return o(e, [u.now()].concat(c(arguments)), t ? null : this, n), t ? void 0 : this } } var o = e("handle"), a = e(6), c = e(7), f = e("ee").get("tracer"), u = e("loader"), s = NREUM; "undefined" == typeof window.newrelic && (newrelic = s); var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"], p = "api-", l = p + "ixn-"; a(d, function (e, t) { s[t] = i(p + t, !0, "api") }), s.addPageAction = i(p + "addPageAction", !0), s.setCurrentRouteName = i(p + "routeName", !0), t.exports = newrelic, s.interaction = function () { return (new r).get() }; var m = r.prototype = { createTracer: function (e, t) { var n = {}, r = this, i = "function" == typeof t; return o(l + "tracer", [u.now(), e, n], r), function () { if (f.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try { return t.apply(this, arguments) } catch (e) { throw f.emit("fn-err", [arguments, this, e], n), e } finally { f.emit("fn-end", [u.now()], n) } } } }; a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (e, t) { m[t] = i(l + t) }), newrelic.noticeError = function (e, t) { "string" == typeof e && (e = new Error(e)), o("err", [e, u.now(), !1, t]) } }, {}], 2: [function (e, t, n) { function r() { return c.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a } function i() { return o } var o = (new Date).getTime(), a = o, c = e(8); t.exports = r, t.exports.offset = a, t.exports.getLastTimestamp = i }, {}], 3: [function (e, t, n) { function r(e, t) { var n = e.getEntries(); n.forEach(function (e) { "first-paint" === e.name ? d("timing", ["fp", Math.floor(e.startTime)]) : "first-contentful-paint" === e.name && d("timing", ["fcp", Math.floor(e.startTime)]) }) } function i(e, t) { var n = e.getEntries(); n.length > 0 && d("lcp", [n[n.length - 1]]) } function o(e) { e.getEntries().forEach(function (e) { e.hadRecentInput || d("cls", [e]) }) } function a(e) { if (e instanceof m && !g) { var t = Math.round(e.timeStamp), n = { type: e.type }; t <= p.now() ? n.fid = p.now() - t : t > p.offset && t <= Date.now() ? (t -= p.offset, n.fid = p.now() - t) : t = p.now(), g = !0, d("timing", ["fi", t, n]) } } function c(e) { d("pageHide", [p.now(), e]) } if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) { var f, u, s, d = e("handle"), p = e("loader"), l = e(5), m = NREUM.o.EV; if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) { f = new PerformanceObserver(r); try { f.observe({ entryTypes: ["paint"] }) } catch (v) { } u = new PerformanceObserver(i); try { u.observe({ entryTypes: ["largest-contentful-paint"] }) } catch (v) { } s = new PerformanceObserver(o); try { s.observe({ type: "layout-shift", buffered: !0 }) } catch (v) { } } if ("addEventListener" in document) { var g = !1, y = ["click", "keydown", "mousedown", "pointerdown", "touchstart"]; y.forEach(function (e) { document.addEventListener(e, a, !1) }) } l(c) } }, {}], 4: [function (e, t, n) { function r(e, t) { if (!i) return !1; if (e !== i) return !1; if (!t) return !0; if (!o) return !1; for (var n = o.split("."), r = t.split("."), a = 0; a < r.length; a++)if (r[a] !== n[a]) return !1; return !0 } var i = null, o = null, a = /Version\/(\S+)\s+Safari/; if (navigator.userAgent) { var c = navigator.userAgent, f = c.match(a); f && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (i = "Safari", o = f[1]) } t.exports = { agent: i, version: o, match: r } }, {}], 5: [function (e, t, n) { function r(e) { function t() { e(a && document[a] ? document[a] : document[i] ? "hidden" : "visible") } "addEventListener" in document && o && document.addEventListener(o, t, !1) } t.exports = r; var i, o, a; "undefined" != typeof document.hidden ? (i = "hidden", o = "visibilitychange", a = "visibilityState") : "undefined" != typeof document.msHidden ? (i = "msHidden", o = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (i = "webkitHidden", o = "webkitvisibilitychange", a = "webkitVisibilityState") }, {}], 6: [function (e, t, n) { function r(e, t) { var n = [], r = "", o = 0; for (r in e) i.call(e, r) && (n[o] = t(r, e[r]), o += 1); return n } var i = Object.prototype.hasOwnProperty; t.exports = r }, {}], 7: [function (e, t, n) { function r(e, t, n) { t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0); for (var r = -1, i = n - t || 0, o = Array(i < 0 ? 0 : i); ++r < i;)o[r] = e[t + r]; return o } t.exports = r }, {}], 8: [function (e, t, n) { t.exports = { exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart } }, {}], ee: [function (e, t, n) { function r() { } function i(e) { function t(e) { return e && e instanceof r ? e : e ? f(e, c, o) : o() } function n(n, r, i, o) { if (!p.aborted || o) { e && e(n, r, i); for (var a = t(i), c = v(n), f = c.length, u = 0; u < f; u++)c[u].apply(a, r); var d = s[w[n]]; return d && d.push([b, n, r, a]), a } } function l(e, t) { h[e] = v(e).concat(t) } function m(e, t) { var n = h[e]; if (n) for (var r = 0; r < n.length; r++)n[r] === t && n.splice(r, 1) } function v(e) { return h[e] || [] } function g(e) { return d[e] = d[e] || i(n) } function y(e, t) { u(e, function (e, n) { t = t || "feature", w[n] = t, t in s || (s[t] = []) }) } var h = {}, w = {}, b = { on: l, addEventListener: l, removeEventListener: m, emit: n, get: g, listeners: v, context: t, buffer: y, abort: a, aborted: !1 }; return b } function o() { return new r } function a() { (s.api || s.feature) && (p.aborted = !0, s = p.backlog = {}) } var c = "nr@context", f = e("gos"), u = e(6), s = {}, d = {}, p = t.exports = i(); p.backlog = s }, {}], gos: [function (e, t, n) { function r(e, t, n) { if (i.call(e, t)) return e[t]; var r = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(e, t, { value: r, writable: !0, enumerable: !1 }), r } catch (o) { } return e[t] = r, r } var i = Object.prototype.hasOwnProperty; t.exports = r }, {}], handle: [function (e, t, n) { function r(e, t, n, r) { i.buffer([e], r), i.emit(e, t, n) } var i = e("ee").get("handle"); t.exports = r, r.ee = i }, {}], id: [function (e, t, n) { function r(e) { var t = typeof e; return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, o, function () { return i++ }) } var i = 1, o = "nr@id", a = e("gos"); t.exports = r }, {}], loader: [function (e, t, n) { function r() { if (!E++) { var e = b.info = NREUM.info, t = p.getElementsByTagName("script")[0]; if (setTimeout(u.abort, 3e4), !(e && e.licenseKey && e.applicationID && t)) return u.abort(); f(h, function (t, n) { e[t] || (e[t] = n) }); var n = a(); c("mark", ["onload", n + b.offset], null, "api"), c("timing", ["load", n]); var r = p.createElement("script"); r.src = "https://" + e.agent, t.parentNode.insertBefore(r, t) } } function i() { "complete" === p.readyState && o() } function o() { c("mark", ["domContent", a() + b.offset], null, "api") } var a = e(2), c = e("handle"), f = e(6), u = e("ee"), s = e(4), d = window, p = d.document, l = "addEventListener", m = "attachEvent", v = d.XMLHttpRequest, g = v && v.prototype; NREUM.o = { ST: setTimeout, SI: d.setImmediate, CT: clearTimeout, XHR: v, REQ: d.Request, EV: d.Event, PR: d.Promise, MO: d.MutationObserver }; var y = "" + location, h = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-1184.min.js" }, w = v && g && g[l] && !/CriOS/.test(navigator.userAgent), b = t.exports = { offset: a.getLastTimestamp(), now: a, origin: y, features: {}, xhrWrappable: w, userAgent: s }; e(1), e(3), p[l] ? (p[l]("DOMContentLoaded", o, !1), d[l]("load", r, !1)) : (p[m]("onreadystatechange", i), d[m]("onload", r)), c("mark", ["firstbyte", a.getLastTimestamp()], null, "api"); var E = 0 }, {}], "wrap-function": [function (e, t, n) { function r(e) { return !(e && e instanceof Function && e.apply && !e[a]) } var i = e("ee"), o = e(7), a = "nr@original", c = Object.prototype.hasOwnProperty, f = !1; t.exports = function (e, t) { function n(e, t, n, i) { function nrWrapper() { var r, a, c, f; try { a = this, r = o(arguments), c = "function" == typeof n ? n(r, a) : n || {} } catch (u) { p([u, "", [r, a, i], c]) } s(t + "start", [r, a, i], c); try { return f = e.apply(a, r) } catch (d) { throw s(t + "err", [r, a, d], c), d } finally { s(t + "end", [r, a, f], c) } } return r(e) ? e : (t || (t = ""), nrWrapper[a] = e, d(e, nrWrapper), nrWrapper) } function u(e, t, i, o) { i || (i = ""); var a, c, f, u = "-" === i.charAt(0); for (f = 0; f < t.length; f++)c = t[f], a = e[c], r(a) || (e[c] = n(a, u ? c + i : i, o, c)) } function s(n, r, i) { if (!f || t) { var o = f; f = !0; try { e.emit(n, r, i, t) } catch (a) { p([a, n, r, i]) } f = o } } function d(e, t) { if (Object.defineProperty && Object.keys) try { var n = Object.keys(e); return n.forEach(function (n) { Object.defineProperty(t, n, { get: function () { return e[n] }, set: function (t) { return e[n] = t, t } }) }), t } catch (r) { p([r]) } for (var i in e) c.call(e, i) && (t[i] = e[i]); return t } function p(t) { try { e.emit("internal-error", t) } catch (n) { } } return e || (e = i), n.inPlace = u, n.flag = a, n } }, {}] }, {}, ["loader"]);</script>
+  <title>Homepage - Bluecadet</title>
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="cleartype" content="on">
   <meta name="format-detection" content="telephone=no">
 
   <link rel="apple-touch-icon" sizes="57x57" href="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/favicons/apple-icon-57x57.png">
@@ -31,106 +38,109 @@
   <meta name="application-name" content="Bluecadet">
   <meta name="theme-color" content="#f7f9fc">
 
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="https://www.bluecadet.com/xmlrpc.php">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="pingback" href="https://www.bluecadet.com/xmlrpc.php">
 
-	<link rel="stylesheet" href="https://use.typekit.net/epx4mur.css">
-	<script>try{Typekit.load({ async: false });}catch(e){}</script>
+  <link rel="stylesheet" href="https://use.typekit.net/epx4mur.css">
+  <script>try { Typekit.load({ async: false }); } catch (e) { }</script>
 
-	<!-- This site is optimized with the Yoast SEO plugin v15.5 - https://yoast.com/wordpress/plugins/seo/ -->
-	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-	<link rel="canonical" href="https://www.bluecadet.com/">
-	<meta property="og:locale" content="en_US">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Homepage - Bluecadet">
-	<meta property="og:url" content="https://www.bluecadet.com/">
-	<meta property="og:site_name" content="Bluecadet">
-	<meta property="article:modified_time" content="2020-11-18T16:12:51+00:00">
-	<meta name="twitter:card" content="summary">
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.bluecadet.com/#website","url":"https://www.bluecadet.com/","name":"Bluecadet","description":"Inspired Design for the Digital Age","potentialAction":[{"@type":"SearchAction","target":"https://www.bluecadet.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.bluecadet.com/#webpage","url":"https://www.bluecadet.com/","name":"Homepage - Bluecadet","isPartOf":{"@id":"https://www.bluecadet.com/#website"},"datePublished":"2017-02-14T17:29:33+00:00","dateModified":"2020-11-18T16:12:51+00:00","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.bluecadet.com/"]}]}]}</script>
-	<!-- / Yoast SEO plugin. -->
+  <!-- This site is optimized with the Yoast SEO plugin v15.5 - https://yoast.com/wordpress/plugins/seo/ -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.bluecadet.com/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Homepage - Bluecadet">
+  <meta property="og:url" content="https://www.bluecadet.com/">
+  <meta property="og:site_name" content="Bluecadet">
+  <meta property="article:modified_time" content="2020-11-18T16:12:51+00:00">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.bluecadet.com/#website","url":"https://www.bluecadet.com/","name":"Bluecadet","description":"Inspired Design for the Digital Age","potentialAction":[{"@type":"SearchAction","target":"https://www.bluecadet.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.bluecadet.com/#webpage","url":"https://www.bluecadet.com/","name":"Homepage - Bluecadet","isPartOf":{"@id":"https://www.bluecadet.com/#website"},"datePublished":"2017-02-14T17:29:33+00:00","dateModified":"2020-11-18T16:12:51+00:00","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.bluecadet.com/"]}]}]}</script>
+  <!-- / Yoast SEO plugin. -->
 
 
-<link rel="dns-prefetch" href="//www.bluecadet.com">
-<link rel="dns-prefetch" href="//s.w.org">
-<link rel="alternate" type="application/rss+xml" title="" href="https://www.bluecadet.com/feed/">
-		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.bluecadet.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
-			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script><script src="https://www.bluecadet.com/wp-includes/js/wp-emoji-release.min.js?ver=5.6" type="text/javascript" defer=""></script>
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-	<link rel="stylesheet" id="wp-block-library-css" href="https://www.bluecadet.com/wp-includes/css/dist/block-library/style.min.css?ver=5.6" type="text/css" media="all">
-<link rel="stylesheet" id="contact-form-7-css" href="https://www.bluecadet.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2" type="text/css" media="all">
-<link rel="stylesheet" id="wpcf7-redirect-script-frontend-css" href="https://www.bluecadet.com/wp-content/plugins/wpcf7-redirect/build/css/wpcf7-redirect-frontend.min.css?ver=5.6" type="text/css" media="all">
-<link rel="stylesheet" id="bluecadet-style-css" href="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/css/style.css?ver=2.6" type="text/css" media="">
-<link rel="stylesheet" id="cf7cf-style-css" href="https://www.bluecadet.com/wp-content/plugins/cf7-conditional-fields/style.css?ver=1.9.14" type="text/css" media="all">
-<script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/js/plugins.min.js?ver=1.0" id="bluecadet_plugins-js"></script>
-<script type="text/javascript" id="bluecadet_script-js-extra">
-/* <![CDATA[ */
-var bluecadet_vars = {"bluecadet_nonce":"d8c26c3960","bluecadet_ajax_url":"https:\/\/www.bluecadet.com\/wp-admin\/admin-ajax.php"};
+  <link rel="dns-prefetch" href="//www.bluecadet.com">
+  <link rel="dns-prefetch" href="//s.w.org">
+  <link rel="alternate" type="application/rss+xml" title="" href="https://www.bluecadet.com/feed/">
+  <script type="text/javascript">
+    window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/www.bluecadet.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6" } };
+    !function (e, a, t) { var r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d"); function c(e, t) { var a = String.fromCharCode; s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, e), 0, 0); var r = p.toDataURL(); return s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, t), 0, 0), r === p.toDataURL() } function l(e) { if (!s || !s.fillText) return !1; switch (s.textBaseline = "top", s.font = "600 32px Arial", e) { case "flag": return !c([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) && (!c([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !c([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447])); case "emoji": return !c([55357, 56424, 8205, 55356, 57212], [55357, 56424, 8203, 55356, 57212]) }return !1 } function d(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (i = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, o = 0; o < i.length; o++)t.supports[i[o]] = l(i[o]), t.supports.everything = t.supports.everything && t.supports[i[o]], "flag" !== i[o] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[i[o]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji))) }(window, document, window._wpemojiSettings);
+  </script>
+  <script src="https://www.bluecadet.com/wp-includes/js/wp-emoji-release.min.js?ver=5.6" type="text/javascript" defer=""></script>
+  <style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+      display: inline !important;
+      border: none !important;
+      box-shadow: none !important;
+      height: 1em !important;
+      width: 1em !important;
+      margin: 0 .07em !important;
+      vertical-align: -0.1em !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+  </style>
+  <link rel="stylesheet" id="wp-block-library-css" href="https://www.bluecadet.com/wp-includes/css/dist/block-library/style.min.css?ver=5.6" type="text/css" media="all">
+  <link rel="stylesheet" id="contact-form-7-css" href="https://www.bluecadet.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2" type="text/css" media="all">
+  <link rel="stylesheet" id="wpcf7-redirect-script-frontend-css" href="https://www.bluecadet.com/wp-content/plugins/wpcf7-redirect/build/css/wpcf7-redirect-frontend.min.css?ver=5.6" type="text/css" media="all">
+  <link rel="stylesheet" id="bluecadet-style-css" href="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/css/style.css?ver=2.6" type="text/css" media="">
+  <link rel="stylesheet" id="cf7cf-style-css" href="https://www.bluecadet.com/wp-content/plugins/cf7-conditional-fields/style.css?ver=1.9.14" type="text/css" media="all">
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/js/plugins.min.js?ver=1.0" id="bluecadet_plugins-js"></script>
+  <script type="text/javascript" id="bluecadet_script-js-extra">
+    /* <![CDATA[ */
+    var bluecadet_vars = { "bluecadet_nonce": "d8c26c3960", "bluecadet_ajax_url": "https:\/\/www.bluecadet.com\/wp-admin\/admin-ajax.php" };
 /* ]]> */
-</script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/js/functionality.min.js?ver=2.1" id="bluecadet_script-js"></script>
-<link rel="https://api.w.org/" href="https://www.bluecadet.com/wp-json/"><link rel="alternate" type="application/json" href="https://www.bluecadet.com/wp-json/wp/v2/pages/1016"><link rel="EditURI" type="application/rsd+xml" title="" href="https://www.bluecadet.com/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.bluecadet.com/wp-includes/wlwmanifest.xml">
-<meta name="generator" content="WordPress 5.6">
-<link rel="shortlink" href="https://www.bluecadet.com/">
-<link rel="alternate" type="application/json+oembed" href="https://www.bluecadet.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bluecadet.com%2F">
-<link rel="alternate" type="text/xml+oembed" href="https://www.bluecadet.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bluecadet.com%2F&amp;format=xml">
+  </script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/js/functionality.min.js?ver=2.1" id="bluecadet_script-js"></script>
+  <link rel="https://api.w.org/" href="https://www.bluecadet.com/wp-json/">
+  <link rel="alternate" type="application/json" href="https://www.bluecadet.com/wp-json/wp/v2/pages/1016">
+  <link rel="EditURI" type="application/rsd+xml" title="" href="https://www.bluecadet.com/xmlrpc.php?rsd">
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.bluecadet.com/wp-includes/wlwmanifest.xml">
+  <meta name="generator" content="WordPress 5.6">
+  <link rel="shortlink" href="https://www.bluecadet.com/">
+  <link rel="alternate" type="application/json+oembed" href="https://www.bluecadet.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bluecadet.com%2F">
+  <link rel="alternate" type="text/xml+oembed" href="https://www.bluecadet.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bluecadet.com%2F&amp;format=xml">
 
-	<!--[if lt IE 9]>
+  <!--[if lt IE 9]>
 		<link type="text/css" rel="stylesheet" href="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/css/ie.css" media="all" />
 	<![endif]-->
 
-    <!-- Google Analytics -->
+  <!-- Google Analytics -->
   <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20017410-1']);
     _gaq.push(['_trackPageview']);
 
-    (function($) {
+    (function ($) {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 
-      $(document).ready(function() {
+      $(document).ready(function () {
         //link clicks
-        $("._google-analytics-click a").click(function(event) {
+        $("._google-analytics-click a").click(function (event) {
 
-            var clickContainer = $(this).parent();
-            //var categoryContainer = $(clickContainer).parents("[class*='_google-analytics']");
-            var gaCategory = "";
+          var clickContainer = $(this).parent();
+          //var categoryContainer = $(clickContainer).parents("[class*='_google-analytics']");
+          var gaCategory = "";
 
-            if ($(clickContainer).hasClass("_google-analytics-social"))
-                gaCategory = "Social Media";
-            else if ($(clickContainer).hasClass("_google-analytics-newsletter"))
-                gaCategory = "Newsletter";
+          if ($(clickContainer).hasClass("_google-analytics-social"))
+            gaCategory = "Social Media";
+          else if ($(clickContainer).hasClass("_google-analytics-newsletter"))
+            gaCategory = "Newsletter";
 
-            if (gaCategory == "")
-                return;
-            var gaAction = "Clicked link at " + window.location.pathname;
-            if ( $("#footer").has($(this)).length > 0 ) gaAction = "Clicked Footer Link";
-            else if ( $("#nav").has($(this)).length > 0 ) gaAction = "Clicked Navigation Link";
+          if (gaCategory == "")
+            return;
+          var gaAction = "Clicked link at " + window.location.pathname;
+          if ($("#footer").has($(this)).length > 0) gaAction = "Clicked Footer Link";
+          else if ($("#nav").has($(this)).length > 0) gaAction = "Clicked Navigation Link";
 
-            var gaLabel = $.trim( $(this).text() );
+          var gaLabel = $.trim($(this).text());
 
-            var gaEvent = ["_trackEvent", gaCategory, gaAction, gaLabel];
-            _gaq.push(gaEvent);
+          var gaEvent = ["_trackEvent", gaCategory, gaAction, gaLabel];
+          _gaq.push(gaEvent);
         });
 
       })
@@ -140,598 +150,635 @@ var bluecadet_vars = {"bluecadet_nonce":"d8c26c3960","bluecadet_ajax_url":"https
 
 
 
-<style type="text/css">#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }</style></head>
+  <style type="text/css">
+    #mc_embed_signup input.mce_inline_error {
+      border-color: #6B0505;
+    }
+
+    #mc_embed_signup div.mce_inline_error {
+      margin: 0 0 1em 0;
+      padding: 5px 10px;
+      background-color: #6B0505;
+      font-weight: bold;
+      z-index: 1;
+      color: #fff;
+    }
+  </style>
+</head>
 
 <body style="zoom: 1;" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed="" cz-shortcut-listen="true">
 
 
-<a href="#main" class="sr-only skip-content">Skip to Main Content</a>
+  <a href="#main" class="sr-only skip-content">Skip to Main Content</a>
 
-<div id="page-transition"></div>
-<div id="page" page-color="secondary" post-type="page" class="initial-load">
-	<header id="header" class="site-header" role="banner">
-		<div class="header-inner">
-			<div class="container">
-        <div class="flex-row-auto">
-          <div class="site-logo">
-            <a href="https://www.bluecadet.com/" rel="home">
-              <span class="sr-only">Home</span>
-              <img class="dark" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo-solid.svg" alt="Bluecadet">
-              <img class="light" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo.svg" alt="Bluecadet">
-              <img class="black" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo-solid-black.svg" alt="Bluecadet">
-              Bluecadet              <div class="line"></div>
-            </a>
-          </div>
-
-          <button class="nav-trigger" type="button" aria-label="Site Navigation">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-
-          <div class="nav nav--desktop">
-            <div class="navigation-wrapper">
-              <nav>
-                <div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu-primary"><li id="menu-item-8262" class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-8262"><a href="https://www.bluecadet.com/work/">Work</a></li>
-<li id="menu-item-415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-415"><a href="https://www.bluecadet.com/about/">About</a></li>
-<li id="menu-item-16563" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16563"><a href="https://www.bluecadet.com/approach/">Approach</a></li>
-<li id="menu-item-19713" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19713"><a href="https://www.bluecadet.com/insights/">Insights</a></li>
-<li id="menu-item-456" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-456"><a href="https://www.bluecadet.com/contact/">Contact</a></li>
-</ul></div>              </nav>
-            </div>
-          </div>
-        </div>
-			</div>
-		</div>
-
-		<div id="nav" class="nav nav--mobile" role="dialog" aria-modal="false">
-			<div class="navigation-wrapper container">
-				<nav>
-					<div class="menu-main-menu-container"><ul id="menu-main-menu-1" class="menu-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-8262"><a href="https://www.bluecadet.com/work/">Work</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-415"><a href="https://www.bluecadet.com/about/">About</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16563"><a href="https://www.bluecadet.com/approach/">Approach</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19713"><a href="https://www.bluecadet.com/insights/">Insights</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-456"><a href="https://www.bluecadet.com/contact/">Contact</a></li>
-</ul></div>					<div class="menu-utility-menu-container"><ul id="menu-utility-menu" class="menu-utility"><li id="menu-item-6564" class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-6564"><a href="https://www.bluecadet.com/?page_id=1683">People</a></li>
-<li id="menu-item-6563" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-6563"><a href="https://www.bluecadet.com/contact/careers/">Careers</a></li>
-</ul></div>       			</nav>
-		  	</div>
-		</div>
-	</header><!-- #masthead -->
-
-	<div id="content" class="content-loaded">
-	<main id="main" class="site-main" role="main" post-type="page">
-        			<h1 class="sr-only">Homepage</h1>
-<article id="post-1016" class="Homepage post-1016 page type-page status-publish hentry" page-color="secondary">
-
-<!-- no page heading for news landing -->
-
-  <header class="container page-heading Homepage">
-    <div class="flex-row">
-      <div class="page-heading__line callout-line _scroll-animate line-wrapper _scroll-animated" aria-hidden="true">
-        <div class="line"></div>
-      </div>
-
-      <div class="page-heading__text _scroll-animate _scroll-animated">
-                  <h5 class="_scroll-text _split-text h5 page-heading__text-subtitle" style="">Hello, we're Bluecadet. </h5>
-                <h2 class="_scroll-text _split-text h1 page-heading__text-headline" style="">We concept and create meaningful human-centered experiences
-</h2>
-                      </div>
-    </div>
-  </header>
-
-
-			<div class="page-modules">
-
-
-    <section id="post-callout-grid-1" class="page-module post-callout-grid  ">
-
-
-			<div class="container">
-        <h2 class="sr-only">Featured Work</h2>
-														<div class="flex-row full-width-callout ">
-
-<div class="teaser-tile teaser-tile-project _scroll-animate _scroll-stagger _scroll-animated">
-  <a class="teaser-tile-project__inner" href="https://www.bluecadet.com/work/wl-gore/" title="">
-    <h3 class="sr-only">W. L. Gore Case Study</h3>
-    <span class="title h3">W. L. Gore &amp; Assoc. Brand Experience Center</span>
-          <div class="teaser-tile-project__client-name label"><span class="sr-only">Client Name: </span>W. L. Gore &amp; Associates</div>
-
-
-		<div class="teaser-image-wrapper">
-			<div class="teaser-image-inner">
-        <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__16_9 b-loaded-parent">
-
-            <picture>
-
-                <source media="(max-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-640x360.jpg">
-                                    <source media="(min-width: 1024px)" srcset="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-1500x845.jpg">
-
-                <source media="(min-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-1024x576.jpg">
-                <img class="b-lazy b-loaded hoverZoomLink" src="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-640x360.jpg" alt="Gore work/home thumbnail">
-            </picture>
-
+  <div id="page-transition"></div>
+  <div id="page" page-color="secondary" post-type="page" class="initial-load">
+    <header id="header" class="site-header" role="banner">
+      <div class="header-inner">
+        <div class="container">
+          <div class="flex-row-auto">
+            <div class="site-logo">
+              <a href="https://www.bluecadet.com/" rel="home">
+                <span class="sr-only">Home</span>
+                <img class="dark" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo-solid.svg" alt="Bluecadet">
+                <img class="light" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo.svg" alt="Bluecadet">
+                <img class="black" src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo-solid-black.svg" alt="Bluecadet">
+                Bluecadet <div class="line"></div>
+              </a>
             </div>
 
-    </figure>			</div>
-		</div>
-	</a>
-</div>
+            <button class="nav-trigger" type="button" aria-label="Site Navigation">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </button>
 
-
-				  </div>
-	      										<div class="flex-row two-callouts-no-focus ">
-
-<div class="teaser-tile teaser-tile-project _scroll-animate _scroll-stagger _scroll-animated">
-  <a class="teaser-tile-project__inner" href="https://www.bluecadet.com/work/the-henry-ford-connect/" title="">
-    <h3 class="sr-only">The Henry Ford Connect</h3>
-    <span class="title h3">THF Connect</span>
-          <div class="teaser-tile-project__client-name label"><span class="sr-only">Client Name: </span>The Henry Ford</div>
-
-
-		<div class="teaser-image-wrapper">
-			<div class="teaser-image-inner">
-        <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__6_4 b-loaded-parent">
-
-
-
-
-              <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video b-loaded-ish b-loaded" src="https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&amp;profile_id=175" aria-describedby="desc-https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&amp;profile_id=175" data-alt="alt" data-img="https://www.bluecadet.com/wp-content/uploads/2019/05/THF_AR-mockup-800x532.jpg">
-              </video>
-
-
-            <p id="desc-https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&amp;profile_id=175" class="sr-only">alt</p>
-
-            </div>
-
-    </figure>			</div>
-		</div>
-	</a>
-</div>
-
-
-<div class="teaser-tile teaser-tile-project _scroll-animate _scroll-stagger">
-  <a class="teaser-tile-project__inner" href="https://www.bluecadet.com/work/wizard-school-dropout-2/" title="">
-    <h3 class="sr-only">eko</h3>
-    <span class="title h3">Wizard School Dropout, Interactive Film</span>
-          <div class="teaser-tile-project__client-name label"><span class="sr-only">Client Name: </span>eko</div>
-
-
-		<div class="teaser-image-wrapper">
-			<div class="teaser-image-inner">
-        <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__16_9 b-loaded-parent">
-
-            <picture>
-
-                <source media="(max-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2020/06/EKO-mobile_thumbnail-640x360.jpg">
-
-                <source media="(min-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2020/06/EKO-mobile_thumbnail-1024x576.jpg">
-                <img class="b-lazy b-loaded" src="https://www.bluecadet.com/wp-content/uploads/2020/06/EKO-mobile_thumbnail-640x360.jpg" alt="Swiping in Wizard School Dropout">
-            </picture>
-
-            </div>
-
-    </figure>			</div>
-		</div>
-	</a>
-</div>
-
-				  </div>
-
-                  <div class="row _scroll-animate page-module__large-ctas">
-            	<div class="cta-links">
-                    			   		 		<span><a class="animated  _scroll-animate-step" href="https://www.bluecadet.com/work/">See more of our work</a></span>
-
-			</div>
-          </div>
-              </div>
-
-
-
-		</section>
-
-
-    <section id="headline-callout-2" class="page-module headline-callout  ">
-
-
-								<div class="container">
-					<div class="flex-row">
-						<div class="headline-callout__line callout-line _scroll-animate line-wrapper" aria-hidden="true">
-							<div class="line"></div>
-						</div>
-						<div class="headline-callout__text _scroll-animate">
-														<h2 class="_scroll-text _split-text h2 headline-callout__text-headline" style="">It always begins in strategy.</h2>
-													</div>
-					</div>
-        </div>
-
-
-
-		</section>
-
-
-    <section id="post-callout-3" class="page-module post-callout  ">
-
-
-
-		    <div class="container _scroll-animate">
-	    		          <div class="post-callout _scroll-animate _scroll-stagger">
-                          <a class="post-callout__inner right_align" href="https://www.bluecadet.com/approach/">
-                          <div class="post-callout__content">
-                                  <h3 class="sr-only">Our team is collaborative, optimistic, and ambitious.</h3>
-                  <span class="title h3">Our team is collaborative, optimistic, and ambitious.</span>
-
-                                  <p class="desc">We leverage strategy, design, and innovation to create exceptional visitor experiences, working alongside our clients to go from brainstorm to prototype to finished product.</p>
-
-                                    <div class="cta-links page-module__large-ctas flex-row">
-                      <span class="faux-link animated">Our Approach</span>
+            <div class="nav nav--desktop">
+              <div class="navigation-wrapper">
+                <nav>
+                  <div class="menu-main-menu-container">
+                    <ul id="menu-main-menu" class="menu-primary">
+                      <li id="menu-item-8262" class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-8262"><a href="https://www.bluecadet.com/work/">Work</a></li>
+                      <li id="menu-item-415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-415"><a href="https://www.bluecadet.com/about/">About</a></li>
+                      <li id="menu-item-16563" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16563"><a href="https://www.bluecadet.com/approach/">Approach</a></li>
+                      <li id="menu-item-19713" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19713"><a href="https://www.bluecadet.com/insights/">Insights</a></li>
+                      <li id="menu-item-456" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-456"><a href="https://www.bluecadet.com/contact/">Contact</a></li>
+                    </ul>
                   </div>
-                                </div>
-
-              <div class="post-callout__image-wrapper">
-                <div class="post-callout__image-inner">
-                  <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__6_4">
-
-
-
-
-              <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video" src="//:0" aria-describedby="desc-https://player.vimeo.com/external/321510991.hd.mp4?s=4054c387dba019e40f989fc8fd57bde9089002d5&amp;profile_id=175" data-alt="Experiential Masterplan" data-img="https://www.bluecadet.com/wp-content/uploads/2018/10/20170927_northwest_gallery-800x532.jpeg" data-src="https://player.vimeo.com/external/321510991.hd.mp4?s=4054c387dba019e40f989fc8fd57bde9089002d5&amp;profile_id=175">
-              </video>
-
-
-            <p id="desc-https://player.vimeo.com/external/321510991.hd.mp4?s=4054c387dba019e40f989fc8fd57bde9089002d5&amp;profile_id=175" class="sr-only">Experiential Masterplan</p>
-
-            </div>
-
-    </figure>                </div>
+                </nav>
               </div>
-                        </a>
-                      </div>
+            </div>
+          </div>
         </div>
-
-
-
-		</section>
-
-
-    <section id="three-post-callout-4" class="page-module three-post-callout  ">
-
-
-	    	<div class="container  _scroll-animate">
-	    		<div class="three-post-callout-inner">
-		    				    			<h2 class="page-module-label h3">Insights</h2>
-
-					  <div class="flex-row">
-
-<div class="teaser-tile teaser-tile-news _scroll-animate _scroll-stagger">
-      <a class="teaser-tile-news__inner" href="https://www.bluecadet.com/news/designing-with-gesture-experiments-for-a-low-touch-future/" title="">
-
-          <span class="teaser-tile-news__subheading">news</span>
-
-    <div class="teaser-image-wrapper _scroll-animate">
-      <div class="teaser-image-inner">
-        <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__6_4">
-
-
-
-
-              <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video" src="//:0" aria-describedby="desc-https://player.vimeo.com/external/469902035.hd.mp4?s=c5df03859947efce208d1a3f654e14bc388ccf06&amp;profile_id=174" data-alt="Designing touchless interactive experiences" data-img="https://www.bluecadet.com/wp-content/uploads/2020/10/LandSlice_Still-800x532.png" data-src="https://player.vimeo.com/external/469902035.hd.mp4?s=c5df03859947efce208d1a3f654e14bc388ccf06&amp;profile_id=174">
-              </video>
-
-
-            <p id="desc-https://player.vimeo.com/external/469902035.hd.mp4?s=c5df03859947efce208d1a3f654e14bc388ccf06&amp;profile_id=174" class="sr-only">Designing touchless interactive experiences</p>
-
-            </div>
-
-    </figure>      </div>
-    </div>
-
-    <div class="teaser-content-wrapper _scroll-animate">
-      <h3 class="sr-only">Designing With Gesture, Experiments for a Low-Touch Future</h3>
-      <span class="teaser-tile-news__type label">
-      October 22, 2020</span>
-
-
-
-
-
-      <span class="title h4 _scroll-text">Designing With Gesture, Experiments for a Low-Touch Future</span>
-
-
       </div>
-    </a>
-</div>
 
-
-
-
-<div class="teaser-tile teaser-tile-news _scroll-animate _scroll-stagger">
-      <a class="teaser-tile-news__inner" href="https://www.bluecadet.com/news/prototyping-playful-ai/" title="">
-
-          <span class="teaser-tile-news__subheading">news</span>
-
-    <div class="teaser-image-wrapper _scroll-animate">
-      <div class="teaser-image-inner">
-        <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__6_4">
-
-            <picture>
-
-                <source media="(max-width: 640px)" data-srcset="https://www.bluecadet.com/wp-content/uploads/2020/08/image20-640x424.jpg">
-
-                <source media="(min-width: 640px)" data-srcset="https://www.bluecadet.com/wp-content/uploads/2020/08/image20-800x532.jpg">
-                <img class="b-lazy" src="//:0" data-src="https://www.bluecadet.com/wp-content/uploads/2020/08/image20-640x424.jpg" alt="alt">
-            </picture>
-
+      <div id="nav" class="nav nav--mobile" role="dialog" aria-modal="false">
+        <div class="navigation-wrapper container">
+          <nav>
+            <div class="menu-main-menu-container">
+              <ul id="menu-main-menu-1" class="menu-primary">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-8262"><a href="https://www.bluecadet.com/work/">Work</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-415"><a href="https://www.bluecadet.com/about/">About</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16563"><a href="https://www.bluecadet.com/approach/">Approach</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19713"><a href="https://www.bluecadet.com/insights/">Insights</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-456"><a href="https://www.bluecadet.com/contact/">Contact</a></li>
+              </ul>
             </div>
-
-    </figure>      </div>
-    </div>
-
-    <div class="teaser-content-wrapper _scroll-animate">
-      <h3 class="sr-only">Playful Prototyping with Machine Learning</h3>
-      <span class="teaser-tile-news__type label">
-      August 25, 2020</span>
-
-
-
-
-
-      <span class="title h4 _scroll-text">Playful Prototyping with Machine Learning</span>
-
-
-      </div>
-    </a>
-</div>
-
-
-
-
-<div class="teaser-tile teaser-tile-news _scroll-animate _scroll-stagger _scroll-animated" style="">
-      <a class="teaser-tile-news__inner" href="https://www.bluecadet.com/news/virtual-events-are-experiences-why-arent-they-designed-that-way-2/" title="">
-
-          <span class="teaser-tile-news__subheading">news</span>
-
-    <div class="teaser-image-wrapper _scroll-animate">
-      <div class="teaser-image-inner">
-        <figure class="no-mobile-content">
-
-    <div class="image-wrapper image-wrapper__6_4">
-
-
-
-
-              <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video" src="//:0" aria-describedby="desc-https://player.vimeo.com/external/456233977.hd.mp4?s=e3dcaccbaa948e1b3005044bd46f7d4c84830d62&amp;profile_id=175" data-alt="Re-imagined virtual event venues" data-img="https://www.bluecadet.com/wp-content/uploads/2020/09/tele-featured-800x532.png" data-src="https://player.vimeo.com/external/456233977.hd.mp4?s=e3dcaccbaa948e1b3005044bd46f7d4c84830d62&amp;profile_id=175">
-              </video>
-
-
-            <p id="desc-https://player.vimeo.com/external/456233977.hd.mp4?s=e3dcaccbaa948e1b3005044bd46f7d4c84830d62&amp;profile_id=175" class="sr-only">Re-imagined virtual event venues</p>
-
+            <div class="menu-utility-menu-container">
+              <ul id="menu-utility-menu" class="menu-utility">
+                <li id="menu-item-6564" class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-6564"><a href="https://www.bluecadet.com/?page_id=1683">People</a></li>
+                <li id="menu-item-6563" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-6563"><a href="https://www.bluecadet.com/contact/careers/">Careers</a></li>
+              </ul>
             </div>
-
-    </figure>      </div>
-    </div>
-
-    <div class="teaser-content-wrapper _scroll-animate">
-      <h3 class="sr-only">Virtual Events Are Experiences. Why Aren’t They Designed That Way?</h3>
-      <span class="teaser-tile-news__type label">
-      September 9, 2020</span>
-
-
-
-
-
-      <span class="title h4 _scroll-text">Virtual Events Are Experiences. Why Aren’t They Designed That Way?</span>
-
-
+          </nav>
+        </div>
       </div>
-    </a>
-</div>
+    </header><!-- #masthead -->
 
+    <div id="content" class="content-loaded">
+      <main id="main" class="site-main" role="main" post-type="page">
+        <h1 class="sr-only">Homepage</h1>
+        <article id="post-1016" class="Homepage post-1016 page type-page status-publish hentry" page-color="secondary">
 
+          <!-- no page heading for news landing -->
 
-                                          </div>
-
-                          <div class="row _scroll-animate page-module__large-ctas">
-                	<div class="cta-links">
-                    			   		 		<span><a class="animated  _scroll-animate-step" href="https://www.bluecadet.com/insights/">More Insights</a></span>
-
-			</div>
+          <header class="container page-heading Homepage">
+            <div class="flex-row">
+              <div class="page-heading__line callout-line _scroll-animate line-wrapper _scroll-animated" aria-hidden="true">
+                <div class="line"></div>
               </div>
-            		      </div>
-        </div>
+
+              <div class="page-heading__text _scroll-animate _scroll-animated">
+                <h5 class="_scroll-text _split-text h5 page-heading__text-subtitle" style="">Hello, we're Bluecadet. </h5>
+                <h2 class="_scroll-text _split-text h1 page-heading__text-headline" style="">We concept and create meaningful human-centered experiences
+                </h2>
+              </div>
+            </div>
+          </header>
 
 
-
-		</section>
-      </div>
+          <div class="page-modules">
 
 
-	<!-- approach/capabilities/services -->
+            <section id="post-callout-grid-1" class="page-module post-callout-grid  ">
 
 
-	<!-- careers -->
-
-</article><!-- #post-## -->
-
-
-			</main><!-- #main -->
-
-
-	<footer id="footer" role="contentinfo">
-    <h2 class="sr-only">Site Footer</h2>
-
-
-                              <section class="footer-module newsletter page-module background-color background-white">
               <div class="container">
-                <div class="flex-row">
-                  <div class="newsletter__content _scroll-animate">
-                    <h3 class="_scroll-text newsletter__content-heading h3">Never miss an insight!</h3>
-                                          <p class="_scroll-text newsletter__content-subheading">Subscribe to our newsletter.</p>
-                                      </div>
-                  <div class="newsletter__input">
+                <h2 class="sr-only">Featured Work</h2>
+                <div class="flex-row full-width-callout ">
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup">
-    <form action="https://bluecadet.us4.list-manage.com/subscribe/post?u=88204069c4a6c00753643b0bf&amp;id=d0dab77db2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
-        <legend class="sr-only">Sign up for our newsletter:</legend>
-    	<div id="mc_embed_signup_scroll">
-			<div class="mc-field-group text">
-				<label for="mce-EMAIL" class="sr-only">Email Address  <span class="asterisk">*</span></label>
-				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="email address" aria-required="true">
-			</div>
-			<div id="mce-responses" class="clear">
-				<div class="response" id="mce-error-response" style="display:none"></div>
-				<div class="response" id="mce-success-response" style="display:none"></div>
-			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-	    	<div style="position: absolute; left: -5000px;" aria-hidden="true">
-	    		<input type="text" name="b_88204069c4a6c00753643b0bf_0b6c54b5e5" tabindex="-1" value="">
-	    	</div>
-	   		<div class="clear form-actions">
-	   			<div class="submit icon-arrow">
-	   				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="text-indent: -9999px">
-	   			</div>
-	   		</div>
-    	</div>
-	</form>
-</div>
-<!-- MailChimp -->
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js" async=""></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+                  <div class="teaser-tile teaser-tile-project _scroll-animate _scroll-stagger _scroll-animated">
+                    <a class="teaser-tile-project__inner" href="https://www.bluecadet.com/work/wl-gore/" title="">
+                      <h3 class="sr-only">W. L. Gore Case Study</h3>
+                      <span class="title h3">W. L. Gore &amp; Assoc. Brand Experience Center</span>
+                      <div class="teaser-tile-project__client-name label"><span class="sr-only">Client Name: </span>W. L. Gore &amp; Associates</div>
 
-<!--End mc_embed_signup-->                  </div>
+
+                      <div class="teaser-image-wrapper">
+                        <div class="teaser-image-inner">
+                          <figure class="no-mobile-content">
+
+                            <div class="image-wrapper image-wrapper__16_9 b-loaded-parent">
+
+                              <picture>
+
+                                <source media="(max-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-640x360.jpg">
+                                <source media="(min-width: 1024px)" srcset="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-1500x845.jpg">
+
+                                <source media="(min-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-1024x576.jpg">
+                                <img class="b-lazy b-loaded hoverZoomLink" src="https://www.bluecadet.com/wp-content/uploads/2019/10/Gore_Proofs_17-640x360.jpg" alt="Gore work/home thumbnail">
+                              </picture>
+
+                            </div>
+
+                          </figure>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+
+                </div>
+                <div class="flex-row two-callouts-no-focus ">
+
+                  <div class="teaser-tile teaser-tile-project _scroll-animate _scroll-stagger _scroll-animated">
+                    <a class="teaser-tile-project__inner" href="https://www.bluecadet.com/work/the-henry-ford-connect/" title="">
+                      <h3 class="sr-only">The Henry Ford Connect</h3>
+                      <span class="title h3">THF Connect</span>
+                      <div class="teaser-tile-project__client-name label"><span class="sr-only">Client Name: </span>The Henry Ford</div>
+
+
+                      <div class="teaser-image-wrapper">
+                        <div class="teaser-image-inner">
+                          <figure class="no-mobile-content">
+
+                            <div class="image-wrapper image-wrapper__6_4 b-loaded-parent">
+
+
+
+
+                              <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video b-loaded-ish b-loaded" src="https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&amp;profile_id=175" aria-describedby="desc-https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&amp;profile_id=175" data-alt="alt" data-img="https://www.bluecadet.com/wp-content/uploads/2019/05/THF_AR-mockup-800x532.jpg">
+                              </video>
+
+
+                              <p id="desc-https://player.vimeo.com/external/339440208.hd.mp4?s=58a130628077c53fb48a2cd8ee2c9af24c4e39ec&amp;profile_id=175" class="sr-only">alt</p>
+
+                            </div>
+
+                          </figure>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+
+                  <div class="teaser-tile teaser-tile-project _scroll-animate _scroll-stagger">
+                    <a class="teaser-tile-project__inner" href="https://www.bluecadet.com/work/wizard-school-dropout-2/" title="">
+                      <h3 class="sr-only">eko</h3>
+                      <span class="title h3">Wizard School Dropout, Interactive Film</span>
+                      <div class="teaser-tile-project__client-name label"><span class="sr-only">Client Name: </span>eko</div>
+
+
+                      <div class="teaser-image-wrapper">
+                        <div class="teaser-image-inner">
+                          <figure class="no-mobile-content">
+
+                            <div class="image-wrapper image-wrapper__16_9 b-loaded-parent">
+
+                              <picture>
+
+                                <source media="(max-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2020/06/EKO-mobile_thumbnail-640x360.jpg">
+
+                                <source media="(min-width: 640px)" srcset="https://www.bluecadet.com/wp-content/uploads/2020/06/EKO-mobile_thumbnail-1024x576.jpg">
+                                <img class="b-lazy b-loaded" src="https://www.bluecadet.com/wp-content/uploads/2020/06/EKO-mobile_thumbnail-640x360.jpg" alt="Swiping in Wizard School Dropout">
+                              </picture>
+
+                            </div>
+
+                          </figure>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                </div>
+
+                <div class="row _scroll-animate page-module__large-ctas">
+                  <div class="cta-links">
+                    <span><a class="animated  _scroll-animate-step" href="https://www.bluecadet.com/work/">See more of our work</a></span>
+
+                  </div>
                 </div>
               </div>
+
+
+
             </section>
 
 
+            <section id="headline-callout-2" class="page-module headline-callout  ">
 
-                      <section class="footer-module contact page-module background-color background-secondary">
+
               <div class="container">
                 <div class="flex-row">
-                  <div class="contact__line callout-line _scroll-animate line-wrapper" aria-hidden="true">
+                  <div class="headline-callout__line callout-line _scroll-animate line-wrapper" aria-hidden="true">
                     <div class="line"></div>
                   </div>
-                  <div class="contact__content _scroll-animate">
-                    <h3 class="_scroll-text contact__content-text h2">
-                      Let’s make something amazing together.                    </h3>
-                    <div class="contact__content-cta">
-                      <div class="flex-row _scroll-animate page-module__small-ctas">
-                                                <div class="cta-links">
-                          <span><a class="animated  _scroll-animate-step" href="https://www.bluecadet.com/contact/">Get in touch</a></span>
-                        </div>
+                  <div class="headline-callout__text _scroll-animate">
+                    <h2 class="_scroll-text _split-text h2 headline-callout__text-headline" style="">It always begins in strategy.</h2>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </section>
+
+
+            <section id="post-callout-3" class="page-module post-callout  ">
+
+
+
+              <div class="container _scroll-animate">
+                <div class="post-callout _scroll-animate _scroll-stagger">
+                  <a class="post-callout__inner right_align" href="https://www.bluecadet.com/approach/">
+                    <div class="post-callout__content">
+                      <h3 class="sr-only">Our team is collaborative, optimistic, and ambitious.</h3>
+                      <span class="title h3">Our team is collaborative, optimistic, and ambitious.</span>
+
+                      <p class="desc">We leverage strategy, design, and innovation to create exceptional visitor experiences, working alongside our clients to go from brainstorm to prototype to finished product.</p>
+
+                      <div class="cta-links page-module__large-ctas flex-row">
+                        <span class="faux-link animated">Our Approach</span>
                       </div>
+                    </div>
+
+                    <div class="post-callout__image-wrapper">
+                      <div class="post-callout__image-inner">
+                        <figure class="no-mobile-content">
+
+                          <div class="image-wrapper image-wrapper__6_4">
+
+
+
+
+                            <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video" src="//:0" aria-describedby="desc-https://player.vimeo.com/external/321510991.hd.mp4?s=4054c387dba019e40f989fc8fd57bde9089002d5&amp;profile_id=175" data-alt="Experiential Masterplan" data-img="https://www.bluecadet.com/wp-content/uploads/2018/10/20170927_northwest_gallery-800x532.jpeg" data-src="https://player.vimeo.com/external/321510991.hd.mp4?s=4054c387dba019e40f989fc8fd57bde9089002d5&amp;profile_id=175">
+                            </video>
+
+
+                            <p id="desc-https://player.vimeo.com/external/321510991.hd.mp4?s=4054c387dba019e40f989fc8fd57bde9089002d5&amp;profile_id=175" class="sr-only">Experiential Masterplan</p>
+
+                          </div>
+
+                        </figure>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+
+
+            </section>
+
+
+            <section id="three-post-callout-4" class="page-module three-post-callout  ">
+
+
+              <div class="container  _scroll-animate">
+                <div class="three-post-callout-inner">
+                  <h2 class="page-module-label h3">Insights</h2>
+
+                  <div class="flex-row">
+
+                    <div class="teaser-tile teaser-tile-news _scroll-animate _scroll-stagger">
+                      <a class="teaser-tile-news__inner" href="https://www.bluecadet.com/news/designing-with-gesture-experiments-for-a-low-touch-future/" title="">
+
+                        <span class="teaser-tile-news__subheading">news</span>
+
+                        <div class="teaser-image-wrapper _scroll-animate">
+                          <div class="teaser-image-inner">
+                            <figure class="no-mobile-content">
+
+                              <div class="image-wrapper image-wrapper__6_4">
+
+
+
+
+                                <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video" src="//:0" aria-describedby="desc-https://player.vimeo.com/external/469902035.hd.mp4?s=c5df03859947efce208d1a3f654e14bc388ccf06&amp;profile_id=174" data-alt="Designing touchless interactive experiences" data-img="https://www.bluecadet.com/wp-content/uploads/2020/10/LandSlice_Still-800x532.png" data-src="https://player.vimeo.com/external/469902035.hd.mp4?s=c5df03859947efce208d1a3f654e14bc388ccf06&amp;profile_id=174">
+                                </video>
+
+
+                                <p id="desc-https://player.vimeo.com/external/469902035.hd.mp4?s=c5df03859947efce208d1a3f654e14bc388ccf06&amp;profile_id=174" class="sr-only">Designing touchless interactive experiences</p>
+
+                              </div>
+
+                            </figure>
+                          </div>
+                        </div>
+
+                        <div class="teaser-content-wrapper _scroll-animate">
+                          <h3 class="sr-only">Designing With Gesture, Experiments for a Low-Touch Future</h3>
+                          <span class="teaser-tile-news__type label">
+                            October 22, 2020</span>
+
+
+
+
+
+                          <span class="title h4 _scroll-text">Designing With Gesture, Experiments for a Low-Touch Future</span>
+
+
+                        </div>
+                      </a>
+                    </div>
+
+
+
+
+                    <div class="teaser-tile teaser-tile-news _scroll-animate _scroll-stagger">
+                      <a class="teaser-tile-news__inner" href="https://www.bluecadet.com/news/prototyping-playful-ai/" title="">
+
+                        <span class="teaser-tile-news__subheading">news</span>
+
+                        <div class="teaser-image-wrapper _scroll-animate">
+                          <div class="teaser-image-inner">
+                            <figure class="no-mobile-content">
+
+                              <div class="image-wrapper image-wrapper__6_4">
+
+                                <picture>
+
+                                  <source media="(max-width: 640px)" data-srcset="https://www.bluecadet.com/wp-content/uploads/2020/08/image20-640x424.jpg">
+
+                                  <source media="(min-width: 640px)" data-srcset="https://www.bluecadet.com/wp-content/uploads/2020/08/image20-800x532.jpg">
+                                  <img class="b-lazy" src="//:0" data-src="https://www.bluecadet.com/wp-content/uploads/2020/08/image20-640x424.jpg" alt="alt">
+                                </picture>
+
+                              </div>
+
+                            </figure>
+                          </div>
+                        </div>
+
+                        <div class="teaser-content-wrapper _scroll-animate">
+                          <h3 class="sr-only">Playful Prototyping with Machine Learning</h3>
+                          <span class="teaser-tile-news__type label">
+                            August 25, 2020</span>
+
+
+
+
+
+                          <span class="title h4 _scroll-text">Playful Prototyping with Machine Learning</span>
+
+
+                        </div>
+                      </a>
+                    </div>
+
+
+
+
+                    <div class="teaser-tile teaser-tile-news _scroll-animate _scroll-stagger _scroll-animated" style="">
+                      <a class="teaser-tile-news__inner" href="https://www.bluecadet.com/news/virtual-events-are-experiences-why-arent-they-designed-that-way-2/" title="">
+
+                        <span class="teaser-tile-news__subheading">news</span>
+
+                        <div class="teaser-image-wrapper _scroll-animate">
+                          <div class="teaser-image-inner">
+                            <figure class="no-mobile-content">
+
+                              <div class="image-wrapper image-wrapper__6_4">
+
+
+
+
+                                <video muted="" autoplay="" loop="" preload="none" playsinline="" webkit-playsinline="" class="b-lazy-video" src="//:0" aria-describedby="desc-https://player.vimeo.com/external/456233977.hd.mp4?s=e3dcaccbaa948e1b3005044bd46f7d4c84830d62&amp;profile_id=175" data-alt="Re-imagined virtual event venues" data-img="https://www.bluecadet.com/wp-content/uploads/2020/09/tele-featured-800x532.png" data-src="https://player.vimeo.com/external/456233977.hd.mp4?s=e3dcaccbaa948e1b3005044bd46f7d4c84830d62&amp;profile_id=175">
+                                </video>
+
+
+                                <p id="desc-https://player.vimeo.com/external/456233977.hd.mp4?s=e3dcaccbaa948e1b3005044bd46f7d4c84830d62&amp;profile_id=175" class="sr-only">Re-imagined virtual event venues</p>
+
+                              </div>
+
+                            </figure>
+                          </div>
+                        </div>
+
+                        <div class="teaser-content-wrapper _scroll-animate">
+                          <h3 class="sr-only">Virtual Events Are Experiences. Why Aren’t They Designed That Way?</h3>
+                          <span class="teaser-tile-news__type label">
+                            September 9, 2020</span>
+
+
+
+
+
+                          <span class="title h4 _scroll-text">Virtual Events Are Experiences. Why Aren’t They Designed That Way?</span>
+
+
+                        </div>
+                      </a>
+                    </div>
+
+
+
+                  </div>
+
+                  <div class="row _scroll-animate page-module__large-ctas">
+                    <div class="cta-links">
+                      <span><a class="animated  _scroll-animate-step" href="https://www.bluecadet.com/insights/">More Insights</a></span>
+
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
 
-    <!-- MAIN FOOTER -->
-    <div class="footer-columns page-module background-color background-dark">
-      <div class="container">
-        <div class="flex-row">
-            <div class="footer-column menu__container">
-              <div class="footer-column__inner">
-                <nav>
-                  <ul class="make-columns footer-menu" aria-labelledby="footer-column__Menu">
-                      <li id="menu-item-12303" class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-12303"><a href="https://www.bluecadet.com/work/">Work</a></li>
-<li id="menu-item-12304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12304"><a href="https://www.bluecadet.com/about/">About</a></li>
-<li id="menu-item-17001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17001"><a href="https://www.bluecadet.com/approach/">Approach</a></li>
-<li id="menu-item-17000" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17000"><a href="https://www.bluecadet.com/insights/">Insights</a></li>
-<li id="menu-item-12307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12307"><a href="https://www.bluecadet.com/contact/">Contact</a></li>
-<li id="menu-item-12306" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-12306"><a href="https://www.bluecadet.com/contact/careers/">Careers</a></li>
-                  </ul>
-                </nav>
+
+
+            </section>
+          </div>
+
+
+          <!-- approach/capabilities/services -->
+
+
+          <!-- careers -->
+
+        </article><!-- #post-## -->
+
+
+      </main><!-- #main -->
+
+
+      <footer id="footer" role="contentinfo">
+        <h2 class="sr-only">Site Footer</h2>
+
+
+        <section class="footer-module newsletter page-module background-color background-white">
+          <div class="container">
+            <div class="flex-row">
+              <div class="newsletter__content _scroll-animate">
+                <h3 class="_scroll-text newsletter__content-heading h3">Never miss an insight!</h3>
+                <p class="_scroll-text newsletter__content-subheading">Subscribe to our newsletter.</p>
+              </div>
+              <div class="newsletter__input">
+
+                <!-- Begin MailChimp Signup Form -->
+                <div id="mc_embed_signup">
+                  <form action="https://bluecadet.us4.list-manage.com/subscribe/post?u=88204069c4a6c00753643b0bf&amp;id=d0dab77db2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                    <legend class="sr-only">Sign up for our newsletter:</legend>
+                    <div id="mc_embed_signup_scroll">
+                      <div class="mc-field-group text">
+                        <label for="mce-EMAIL" class="sr-only">Email Address <span class="asterisk">*</span></label>
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="email address" aria-required="true">
+                      </div>
+                      <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                      </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                      <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_88204069c4a6c00753643b0bf_0b6c54b5e5" tabindex="-1" value="">
+                      </div>
+                      <div class="clear form-actions">
+                        <div class="submit icon-arrow">
+                          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="text-indent: -9999px">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- MailChimp -->
+                <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js" async=""></script>
+                <script type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+
+                <!--End mc_embed_signup-->
               </div>
             </div>
-            <div class="footer-column locations__container">
-              <div class="footer-column__inner">
-                                  <h3 id="footer-locations-label" class="sr-only">Locations</h3>
-                  <ul class="footer-locations make-columns" aria-labelledby="footer-locations-label">
-                                          <li>
-                        <div class="location">
-                          <p class="label location-short">PHL</p>
-                        </div>
+          </div>
+        </section>
 
-                                                <div class="address" id="copy-Philadelphia">
-                          1526 Frankford Ave<br>
-                          Philadelphia, PA 19125                        </div>
-                        <p class="phone">(267) 639-9956</p>
-                      </li>
-                                          <li>
-                        <div class="location">
-                          <p class="label location-short">NYC</p>
-                        </div>
 
-                                                <div class="address" id="copy-New York City">
-                          40 Exchange Place, Suite #1104<br>
-                          11th FL, New York, NY 10005                        </div>
-                        <p class="phone">(646) 360-4252</p>
-                      </li>
-                                      </ul>
-                              </div>
+
+        <section class="footer-module contact page-module background-color background-secondary">
+          <div class="container">
+            <div class="flex-row">
+              <div class="contact__line callout-line _scroll-animate line-wrapper" aria-hidden="true">
+                <div class="line"></div>
+              </div>
+              <div class="contact__content _scroll-animate">
+                <h3 class="_scroll-text contact__content-text h2">
+                  Let’s make something amazing together. </h3>
+                <div class="contact__content-cta">
+                  <div class="flex-row _scroll-animate page-module__small-ctas">
+                    <div class="cta-links">
+                      <span><a class="animated  _scroll-animate-step" href="https://www.bluecadet.com/contact/">Get in touch</a></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom background-color background-black">
-      <div class="container">
-        <div class="flex-row">
-          <ul class="footer-social">
-            <li id="menu-item-12649" class="icon-instagram _google-analytics-click menu-item menu-item-type-custom menu-item-object-custom first menu-item-12649"><a href="https://www.instagram.com/bluecadet/">Instagram</a></li>
-<li id="menu-item-12650" class="icon-linkedin _google-analytics-click menu-item menu-item-type-custom menu-item-object-custom last menu-item-12650"><a href="https://www.linkedin.com/company/bluecadet-interactive">LinkedIn</a></li>
-          </ul>
-          <div class="footer-soda">
-            <span class="soda-text">Proud member of</span>
-            <figure class="image-wrapper">
-              <img src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo-soda.png" alt="Soda">
-            </figure>
+          </div>
+        </section>
+
+        <!-- MAIN FOOTER -->
+        <div class="footer-columns page-module background-color background-dark">
+          <div class="container">
+            <div class="flex-row">
+              <div class="footer-column menu__container">
+                <div class="footer-column__inner">
+                  <nav>
+                    <ul class="make-columns footer-menu" aria-labelledby="footer-column__Menu">
+                      <li id="menu-item-12303" class="menu-item menu-item-type-post_type menu-item-object-page first menu-item-12303"><a href="https://www.bluecadet.com/work/">Work</a></li>
+                      <li id="menu-item-12304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12304"><a href="https://www.bluecadet.com/about/">About</a></li>
+                      <li id="menu-item-17001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17001"><a href="https://www.bluecadet.com/approach/">Approach</a></li>
+                      <li id="menu-item-17000" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17000"><a href="https://www.bluecadet.com/insights/">Insights</a></li>
+                      <li id="menu-item-12307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12307"><a href="https://www.bluecadet.com/contact/">Contact</a></li>
+                      <li id="menu-item-12306" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-12306"><a href="https://www.bluecadet.com/contact/careers/">Careers</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <div class="footer-column locations__container">
+                <div class="footer-column__inner">
+                  <h3 id="footer-locations-label" class="sr-only">Locations</h3>
+                  <ul class="footer-locations make-columns" aria-labelledby="footer-locations-label">
+                    <li>
+                      <div class="location">
+                        <p class="label location-short">PHL</p>
+                      </div>
+
+                      <div class="address" id="copy-Philadelphia">
+                        1526 Frankford Ave<br>
+                        Philadelphia, PA 19125 </div>
+                      <p class="phone">(267) 639-9956</p>
+                    </li>
+                    <li>
+                      <div class="location">
+                        <p class="label location-short">NYC</p>
+                      </div>
+
+                      <div class="address" id="copy-New York City">
+                        40 Exchange Place, Suite #1104<br>
+                        11th FL, New York, NY 10005 </div>
+                      <p class="phone">(646) 360-4252</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+        <div class="footer-bottom background-color background-black">
+          <div class="container">
+            <div class="flex-row">
+              <ul class="footer-social">
+                <li id="menu-item-12649" class="icon-instagram _google-analytics-click menu-item menu-item-type-custom menu-item-object-custom first menu-item-12649"><a href="https://www.instagram.com/bluecadet/">Instagram</a></li>
+                <li id="menu-item-12650" class="icon-linkedin _google-analytics-click menu-item menu-item-type-custom menu-item-object-custom last menu-item-12650"><a href="https://www.linkedin.com/company/bluecadet-interactive">LinkedIn</a></li>
+              </ul>
+              <div class="footer-soda">
+                <span class="soda-text">Proud member of</span>
+                <figure class="image-wrapper">
+                  <img src="https://www.bluecadet.com/wp-content/themes/bluecadet-2018/images/logo/logo-soda.png" alt="Soda">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
 
-	</footer><!-- #footer -->
-	</div><!-- #content -->
-</div><!-- #page -->
+      </footer><!-- #footer -->
+    </div><!-- #content -->
+  </div><!-- #page -->
 
-<div id="js-mediaquery-reference"></div>
-<script type="text/javascript" id="contact-form-7-js-extra">
-/* <![CDATA[ */
-var wpcf7 = {"apiSettings":{"root":"https:\/\/www.bluecadet.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+  <div id="js-mediaquery-reference"></div>
+  <script type="text/javascript" id="contact-form-7-js-extra">
+    /* <![CDATA[ */
+    var wpcf7 = { "apiSettings": { "root": "https:\/\/www.bluecadet.com\/wp-json\/contact-form-7\/v1", "namespace": "contact-form-7\/v1" } };
 /* ]]> */
-</script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.2" id="contact-form-7-js"></script>
-<script type="text/javascript" id="wpcf7-redirect-script-js-extra">
-/* <![CDATA[ */
-var wpcf7r = {"ajax_url":"https:\/\/www.bluecadet.com\/wp-admin\/admin-ajax.php"};
+  </script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.2" id="contact-form-7-js"></script>
+  <script type="text/javascript" id="wpcf7-redirect-script-js-extra">
+    /* <![CDATA[ */
+    var wpcf7r = { "ajax_url": "https:\/\/www.bluecadet.com\/wp-admin\/admin-ajax.php" };
 /* ]]> */
-</script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-content/plugins/wpcf7-redirect/build/js/wpcf7-redirect-frontend-script.js?ver=1.1" id="wpcf7-redirect-script-js"></script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id="jquery-ui-core-js"></script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1" id="jquery-ui-datepicker-js"></script>
-<script type="text/javascript" id="jquery-ui-datepicker-js-after">
-jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
-</script>
-<script type="text/javascript" id="wpcf7cf-scripts-js-extra">
-/* <![CDATA[ */
-var wpcf7cf_global_settings = {"ajaxurl":"https:\/\/www.bluecadet.com\/wp-admin\/admin-ajax.php"};
+  </script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-content/plugins/wpcf7-redirect/build/js/wpcf7-redirect-frontend-script.js?ver=1.1" id="wpcf7-redirect-script-js"></script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id="jquery-ui-core-js"></script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1" id="jquery-ui-datepicker-js"></script>
+  <script type="text/javascript" id="jquery-ui-datepicker-js-after">
+    jQuery(document).ready(function (jQuery) { jQuery.datepicker.setDefaults({ "closeText": "Close", "currentText": "Today", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Previous", "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "dateFormat": "MM d, yy", "firstDay": 1, "isRTL": false }); });
+  </script>
+  <script type="text/javascript" id="wpcf7cf-scripts-js-extra">
+    /* <![CDATA[ */
+    var wpcf7cf_global_settings = { "ajaxurl": "https:\/\/www.bluecadet.com\/wp-admin\/admin-ajax.php" };
 /* ]]> */
-</script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=1.9.14" id="wpcf7cf-scripts-js"></script>
-<script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/wp-embed.min.js?ver=5.6" id="wp-embed-js"></script>
+  </script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=1.9.14" id="wpcf7cf-scripts-js"></script>
+  <script type="text/javascript" src="https://www.bluecadet.com/wp-includes/js/wp-embed.min.js?ver=5.6" id="wp-embed-js"></script>
 
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"55fbb68b9c","applicationID":"18732051","transactionName":"blxVNxdQWEZRABBcDFcWdgARWFlbHwoKUQZB","queueTime":0,"applicationTime":530,"atts":"QhtWQV9KS0g=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+  <script type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam.nr-data.net", "licenseKey": "55fbb68b9c", "applicationID": "18732051", "transactionName": "blxVNxdQWEZRABBcDFcWdgARWFlbHwoKUQZB", "queueTime": 0, "applicationTime": 530, "atts": "QhtWQV9KS0g=", "errorBeacon": "bam.nr-data.net", "agent": "" }</script>
 
-</body></html>
+</body>
+
+</html>

@@ -218,6 +218,15 @@ const isAudioExtension = url => isMediaTypeExtension(url, AUDIO)
 
 const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
 
+const isContentType =
+  extensions =>
+    ({ type = '' } = {}) =>
+      extensions.some(extension => type.endsWith(extension))
+
+const isVideoContentType = isContentType(Object.keys(videoExtensions))
+
+const isAudioContentType = isContentType(Object.keys(audioExtensions))
+
 const extension = (str = '') => {
   const url = urlObject(
     str,
@@ -323,11 +332,7 @@ const jsonld = memoizeOne(
       .map(function () {
         try {
           const el = $(this)
-          const json = JSON.parse(
-            $(el)
-              .contents()
-              .text()
-          )
+          const json = JSON.parse($(el).contents().text())
 
           const { '@graph': graph, ...props } = json
           if (!graph) return json
@@ -364,15 +369,16 @@ const image = (value, opts) => {
 
 const logo = image
 
-const video = (value, opts) => {
+const media = (urlValidator, contentTypeValidator) => (value, opts) => {
   const urlValue = url(value, opts)
-  return isVideoUrl(urlValue, opts) ? urlValue : undefined
+  return urlValidator(urlValue, opts) || contentTypeValidator(opts)
+    ? urlValue
+    : undefined
 }
 
-const audio = (value, opts) => {
-  const urlValue = url(value, opts)
-  return isAudioUrl(urlValue, opts) ? urlValue : undefined
-}
+const video = media(isVideoUrl, isVideoContentType)
+
+const audio = media(isAudioUrl, isAudioContentType)
 
 const validator = {
   audio,
@@ -403,19 +409,22 @@ const findRule = async (rules, args) => {
   return value
 }
 
-const toRule = (mapper, opts) => rule => async ({ htmlDom, url }) => {
-  const value = await rule(htmlDom, url)
-  return mapper(value, { url, ...opts })
-}
+const toRule =
+  (mapper, opts) =>
+    rule =>
+      async ({ htmlDom, url }) => {
+        const value = await rule(htmlDom, url)
+        return mapper(value, { url, ...opts })
+      }
 
-const composeRule = rule => ({ from, to = from, ...opts }) => async ({
-  htmlDom,
-  url
-}) => {
-  const data = await rule(htmlDom, url)
-  const value = get(data, from)
-  return invoke(validator, to, value, { url, ...opts })
-}
+const composeRule =
+  rule =>
+    ({ from, to = from, ...opts }) =>
+      async ({ htmlDom, url }) => {
+        const data = await rule(htmlDom, url)
+        const value = get(data, from)
+        return invoke(validator, to, value, { url, ...opts })
+      }
 
 const has = value =>
   value !== undefined && !Number.isNaN(value) && hasValues(value)

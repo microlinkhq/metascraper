@@ -15,8 +15,7 @@ test('provide `keyvOpts`', async t => {
 
   const metadataOne = await metascraper({
     url,
-    html:
-      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/container/audio.html">'
+    html: '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/container/audio.html">'
   })
 
   t.truthy(metadataOne.audio)
@@ -24,8 +23,7 @@ test('provide `keyvOpts`', async t => {
 
   const metadataTwo = await metascraper({
     url,
-    html:
-      '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio-fail.html">'
+    html: '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio-fail.html">'
   })
 
   t.falsy(metadataTwo.audio)
@@ -34,20 +32,29 @@ test('provide `keyvOpts`', async t => {
 
 test('og:audio', async t => {
   const html =
-    '<meta property="og:audio" content="https://browserless.js.org/static/demo.mp3">'
-  const url = 'https://browserless.js.org'
+    '<meta property="og:audio" content="https://cdn.microlink.io/file-examples/sample.mp3">'
+  const url = 'https://metascraper.js.org'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
-  t.snapshot(metadata)
+  t.is(metadata.audio, 'https://cdn.microlink.io/file-examples/sample.mp3')
+})
+
+test('og:audio:url', async t => {
+  const html =
+    '<meta property="og:audio:url" content="https://cdn.microlink.io/file-examples/sample.mp3">'
+  const url = 'https://metascraper.js.org'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.is(metadata.audio, 'https://cdn.microlink.io/file-examples/sample.mp3')
 })
 
 test('og:audio:secure_url', async t => {
   const html =
-    '<meta property="og:audio:secure_url" content="https://browserless.js.org/static/demo.mp3">'
-  const url = 'https://browserless.js.org'
+    '<meta property="og:audio:secure_url" content="https://cdn.microlink.io/file-examples/sample.mp3">'
+  const url = 'https://metascraper.js.org'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
-  t.snapshot(metadata)
+  t.is(metadata.audio, 'https://cdn.microlink.io/file-examples/sample.mp3')
 })
 
 test('twitter:player', async t => {
@@ -69,17 +76,17 @@ test('twitter:player:stream', async t => {
 })
 
 test('audio:src', async t => {
-  const html = '<audio src="https://browserless.js.org/static/demo.mp3">'
-  const url = 'https://browserless.js.org'
+  const html = '<audio src="https://cdn.microlink.io/file-examples/sample.mp3">'
+  const url = 'https://metascraper.js.org'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
 })
 
-test('audio:source:src', async t => {
+test('audio > source:src', async t => {
   const html =
-    '<audio><source src="https://browserless.js.org/static/demo.mp3"></source></audio>'
-  const url = 'https://browserless.js.org'
+    '<audio><source src="https://cdn.microlink.io/file-examples/sample.mp3"></source></audio>'
+  const url = 'https://metascraper.js.org'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
@@ -87,19 +94,24 @@ test('audio:source:src', async t => {
 
 test('a:href', async t => {
   const html =
-    '<a href="https://browserless.js.org/static/demo.mp3?some_param=this">Download</a>'
-  const url = 'https://browserless.js.org'
+    '<a href="https://cdn.microlink.io/file-examples/sample.mp3?some_param=this">Download</a>'
+  const url = 'https://metascraper.js.org'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
 })
 
-test('jsld:contentUrl', async t => {
+test('jsonld:contentUrl', async t => {
   const html = `<script type="application/ld+json">
         {"@context":"http://schema.org","@type":"AudioObject","@id":"https://example.com/audio.mp3","contentUrl":"https://example.com/audio.mp3"}
       </script>`
-  const url = 'https://browserless.js.org'
+  const url = 'https://metascraper.js.org'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
 })
+
+test.todo('multiple `audio > source:src`')
+test.todo('multiple `audio > source:src` with invalid video values')
+test.todo('`audio > source:src` with content type')
+test.todo('`audio > source:src` with content type and relative src')
