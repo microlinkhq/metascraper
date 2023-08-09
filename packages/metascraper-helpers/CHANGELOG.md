@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.35.0](https://github.com/microlinkhq/metascraper/compare/v5.34.10...v5.35.0) (2023-08-09)
+
+### Features
+
+* **helpers:** infer audio/video from content type ([#651](https://github.com/microlinkhq/metascraper/issues/651)) ([d6eed13](https://github.com/microlinkhq/metascraper/commit/d6eed1331a56794b7a38ee94b5c68b32b0b12deb))
+
 ## [5.34.10](https://github.com/microlinkhq/metascraper/compare/v5.34.9...v5.34.10) (2023-07-29)
 
 **Note:** Version bump only for package @metascraper/helpers

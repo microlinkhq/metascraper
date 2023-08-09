@@ -2,7 +2,7 @@
   "name": "metascraper-feed",
   "description": "Get RSS/Atom feed URL from HTML markup",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-description",
-  "version": "5.34.10",
+  "version": "5.35.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -24,7 +24,7 @@
     "rss"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.34.10"
+    "@metascraper/helpers": "^5.35.0"
   },
   "devDependencies": {
     "ava": "latest"
