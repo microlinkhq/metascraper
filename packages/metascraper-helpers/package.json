@@ -50,7 +50,7 @@
     "cheerio": "latest"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 16"
   },
   "files": [
     "index.js"
