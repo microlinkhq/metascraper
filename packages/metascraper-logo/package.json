@@ -26,7 +26,7 @@
     "lodash": "~4.17.21"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 16"
   },
   "files": [
     "index.js"

@@ -144,7 +144,7 @@
     "standard-markdown": "latest"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 16"
   },
   "scripts": {
     "build": "gulp build",
