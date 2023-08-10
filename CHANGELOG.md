@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.35.1](https://github.com/microlinkhq/metascraper/compare/v5.35.0...v5.35.1) (2023-08-10)
+
+### Bug Fixes
+
+* use node16 or above ([#653](https://github.com/microlinkhq/metascraper/issues/653)) ([a1ad033](https://github.com/microlinkhq/metascraper/commit/a1ad0332cc74164f40ea7e39a76e811bcfb51c7a))
+
 # [5.35.0](https://github.com/microlinkhq/metascraper/compare/v5.34.10...v5.35.0) (2023-08-09)
 
 ### Features
