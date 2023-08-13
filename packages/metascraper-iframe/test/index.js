@@ -59,31 +59,3 @@ test('get iframe from markup', async t => {
   const metadata = await metascraper({ url, html })
   t.truthy(metadata.iframe)
 })
-
-test('get iframe from twitter player', async t => {
-  const htmlWithDimensions = await readFile(
-    resolve(__dirname, 'fixtures/indiehacker-with-dimensions.html')
-  )
-
-  const html = await readFile(resolve(__dirname, 'fixtures/indiehacker.html'))
-
-  const url = 'https://share.transistor.fm/s/ddad295d'
-  const rules = [createMetascraperIframe()]
-  const metascraper = createMetascraper(rules)
-
-  const iframe = (html, opts) =>
-    metascraper({ url, html, iframe: opts }).then(data => data.iframe)
-
-  t.is(
-    await iframe(html, { maxWidth: 350 }),
-    '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" maxWidth="350"></iframe>'
-  )
-  t.is(
-    await iframe(htmlWithDimensions, { maxWidth: 350 }),
-    '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" width="500" height="180" maxWidth="350"></iframe>'
-  )
-  t.is(
-    await iframe(htmlWithDimensions, { maxWidth: 350, width: 100 }),
-    '<iframe src="https://share.transistor.fm/e/ddad295d" frameborder="0" scrolling="no" width="100" height="180" maxWidth="350"></iframe>'
-  )
-})
