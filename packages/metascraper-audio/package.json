@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.35.1",
+    "lodash": "~4.17.21",
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {

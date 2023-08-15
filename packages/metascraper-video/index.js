@@ -26,8 +26,6 @@ const toVideoFromDom = toRule((domNodes, opts) => {
         .get(0)
         .split('/')
         .get(1)
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
-        .replace('mpeg', 'mp3')
         .value()
     }))
     .uniqWith(isEqual)
