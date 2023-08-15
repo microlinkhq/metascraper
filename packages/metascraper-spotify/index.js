@@ -10,7 +10,6 @@ const {
   composeRule,
   description,
   memoizeOne,
-  normalizeUrl,
   parseUrl,
   sanetizeUrl,
   toRule
@@ -46,7 +45,7 @@ const test = memoizeOne(url => parseUrl(url).domainWithoutSuffix === 'spotify')
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const spotify = createSpotify({ gotOpts, keyvOpts })
-  const getSpotify = composeRule(($, url) => spotify(normalizeUrl(url)))
+  const getSpotify = composeRule((_, url) => spotify(url))
 
   const rules = {
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),

@@ -1,14 +1,10 @@
 'use strict'
 
-const { $twitter, normalizeUrl, memoizeOne } = require('@metascraper/helpers')
+const { $twitter, memoizeOne } = require('@metascraper/helpers')
 const { map } = require('lodash')
 
 const getPlayerUrl = memoizeOne(
-  (url, $) => {
-    const playerUrl = $twitter($, 'twitter:player')
-    return playerUrl === undefined ? undefined : normalizeUrl(url, playerUrl)
-  },
-
+  (_, $) => $twitter($, 'twitter:player'),
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
