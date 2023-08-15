@@ -73,13 +73,13 @@ test('video:src', async t => {
 
 test('multiple `video > source:src`', async t => {
   const html = `
-        <video controls>
-          <source src="video-small.mp4" type="video/mp4" media="all and (max-width: 480px)">
-          <source src="video-small.webm" type="video/webm" media="all and (max-width: 480px)">
-          <source src="video.mp4" type="video/mp4">
-          <source src="video.webm" type="video/webm">
-        </video>
-        `
+  <video controls>
+    <source src="video-small.mp4" type="video/mp4" media="all and (max-width: 480px)">
+    <source src="video-small.webm" type="video/webm" media="all and (max-width: 480px)">
+    <source src="video.mp4" type="video/mp4">
+    <source src="video.webm" type="video/webm">
+  </video>
+  `
   const url =
     'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
   const metascraper = createMetascraper()
