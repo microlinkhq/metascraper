@@ -1,37 +1,36 @@
 'use strict'
 
-const { normalizeUrl, memoizeOne } = require('@metascraper/helpers')
+const { $twitter, normalizeUrl, memoizeOne } = require('@metascraper/helpers')
 const { map } = require('lodash')
 
-const getPlayerUrl = memoizeOne((url, $) => {
-  const playerUrl =
-    $('meta[name="twitter:player"]').attr('content') ||
-    $('meta[property="twitter:player"]').attr('content')
+const getPlayerUrl = memoizeOne(
+  (url, $) => {
+    const playerUrl = $twitter($, 'twitter:player')
+    return playerUrl === undefined ? undefined : normalizeUrl(url, playerUrl)
+  },
 
-  return playerUrl === undefined ? undefined : normalizeUrl(url, playerUrl)
-}, memoizeOne.EqualityUrlAndHtmlDom)
+  memoizeOne.EqualityUrlAndHtmlDom
+)
 
-const playerWidth = $ =>
-  $('meta[name="twitter:player:width"]').attr('content') ||
-  $('meta[property="twitter:player:width"]').attr('content')
+const playerWidth = $ => $twitter($, 'twitter:player:width')
 
-const playerHeight = $ =>
-  $('meta[name="twitter:player:height"]').attr('content') ||
-  $('meta[property="twitter:player:height"]').attr('content')
+const playerHeight = $ => $twitter($, 'twitter:player:height')
 
-const fromTwitter = () => async ({ htmlDom, url, iframe }) => {
-  const playerUrl = getPlayerUrl(url, htmlDom)
-  if (!playerUrl) return
+const fromTwitter =
+  () =>
+    async ({ htmlDom, url, iframe }) => {
+      const playerUrl = getPlayerUrl(url, htmlDom)
+      if (!playerUrl) return
 
-  const props = map(
-    { width: playerWidth(htmlDom), height: playerHeight(htmlDom), ...iframe },
-    (value, key) => (value === undefined ? value : `${key}="${value}"`)
-  )
-    .filter(Boolean)
-    .join(' ')
+      const props = map(
+        { width: playerWidth(htmlDom), height: playerHeight(htmlDom), ...iframe },
+        (value, key) => (value === undefined ? value : `${key}="${value}"`)
+      )
+        .filter(Boolean)
+        .join(' ')
 
-  return `<iframe src="${playerUrl}" frameborder="0" scrolling="no" ${props}></iframe>`
-}
+      return `<iframe src="${playerUrl}" frameborder="0" scrolling="no" ${props}></iframe>`
+    }
 
 fromTwitter.test = (url, $) => getPlayerUrl(url, $) !== undefined
 
