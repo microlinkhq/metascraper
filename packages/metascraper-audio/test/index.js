@@ -106,7 +106,7 @@ test('multiple `audio > source:src`', async t => {
 test('`audio > source:src` with content type', async t => {
   const html = `
     <audio controls>
-      <source src="https://www.theverge.com/audio-small" type="audio/mpeg" media="all and (max-width: 480px)">
+      <source src="https://www.theverge.com/audio-small" type="audio/mpeg; codecs="vorbis"" media="all and (max-width: 480px)">
     </audio>
     `
   const url =
