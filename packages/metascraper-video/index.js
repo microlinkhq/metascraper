@@ -3,7 +3,6 @@
 const {
   $jsonld,
   $twitter,
-  extension,
   loadIframe,
   findRule,
   toRule,
@@ -11,7 +10,7 @@ const {
   video
 } = require('@metascraper/helpers')
 
-const { chain, isEqual } = require('lodash')
+const { chain, find, isEqual } = require('lodash')
 
 const toUrl = toRule(urlFn)
 
@@ -21,17 +20,22 @@ const toVideoFromDom = toRule((domNodes, opts) => {
   const values = chain(domNodes)
     .map(domNode => ({
       src: domNode?.attribs.src,
-      type: domNode?.attribs.type
+      type: chain(domNode)
+        .get('attribs.type')
+        .split(';')
+        .get(0)
+        .split('/')
+        .get(1)
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+        .replace('mpeg', 'mp3')
+        .value()
     }))
     .uniqWith(isEqual)
-    .orderBy(
-      ({ src, type }) => extension(src) === 'mp4' || type?.includes('mp4'),
-      ['desc']
-    )
     .value()
 
   let result
-  values.find(
+  find(
+    values,
     ({ src, type }) => (result = video(src, Object.assign({ type }, opts)))
   )
   return result
