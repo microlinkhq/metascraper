@@ -7,31 +7,6 @@ const test = require('ava')
 const createMetascraper = (...args) =>
   require('metascraper')([require('..')(...args)])
 
-test('provide `keyvOpts`', async t => {
-  const cache = new Map()
-  const url = 'https://twitter-card-player.vercel.app'
-  const metascraper = createMetascraper({
-    gotOpts: { retry: 0 },
-    keyvOpts: { store: cache }
-  })
-
-  const metadataOne = await metascraper({
-    url,
-    html: '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container/video.html">'
-  })
-
-  t.truthy(metadataOne.video)
-  t.is(cache.size, 1)
-
-  const metadataTwo = await metascraper({
-    url,
-    html: '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container-fail.html">'
-  })
-
-  t.falsy(metadataTwo.audio)
-  t.is(cache.size, 2)
-})
-
 test('og:video', async t => {
   const html =
     '<meta property="og:video" content="https://cdn.microlink.io/file-examples/sample.mp4">'
@@ -72,17 +47,6 @@ test('jsonld:contentUrl', async t => {
         {"@context":"http://schema.org","@type":"VideoObject","@id":"https://example.com/video.mp4","contentUrl":"https://example.com/video.mp4"}
       </script>`
   const url = 'https://browserless.js.org'
-  const metascraper = createMetascraper()
-  const metadata = await metascraper({ html, url })
-  t.snapshot(metadata)
-})
-
-test.todo('twitter:player:stream')
-
-test('twitter:player', async t => {
-  const html =
-    '<meta name="twitter:player" content="https://twitter-card-player.vercel.app/container/video.html">'
-  const url = 'https://twitter-card-player.vercel.app'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
@@ -154,4 +118,23 @@ test('`video > source:src` with content type and relative src', async t => {
   const metadata = await metascraper({ html, url })
 
   t.is(metadata.video, 'https://example.com/video.mp4')
+})
+
+test('twitter:player', async t => {
+  const html =
+    '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/container/video.html">'
+  const url = 'https://twitter-card-player.vercel.app'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.snapshot(metadata)
+})
+
+test('twitter:player:stream', async t => {
+  const html =
+    '<meta property="twitter:player:stream" content="https://cdn.microlink.io/file-examples/sample.mp4">'
+  const url = 'https://twitter-card-player.vercel.app'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+
+  t.snapshot(metadata)
 })

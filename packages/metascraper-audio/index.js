@@ -50,8 +50,7 @@ const _getIframe = (url, $, { src }) =>
 
 module.exports = ({ getIframe = _getIframe } = {}) => {
   return {
-    audio: [
-      ...audioRules,
+    audio: audioRules.concat(
       async ({ htmlDom: $, url }) => {
         const iframe = $('iframe')
         if (iframe.length === 0) return
@@ -92,6 +91,6 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
           })
           : undefined
       }
-    ]
+    )
   }
 }
