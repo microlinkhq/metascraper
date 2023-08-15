@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.35.2](https://github.com/microlinkhq/metascraper/compare/v5.35.1...v5.35.2) (2023-08-15)
+
+### Bug Fixes
+
+* **audio,video:** load twitter:player as iframe ([#655](https://github.com/microlinkhq/metascraper/issues/655)) ([1bda60a](https://github.com/microlinkhq/metascraper/commit/1bda60a8920e1d9ec6d287843b3ea243feae962e))
+
 ## [5.35.1](https://github.com/microlinkhq/metascraper/compare/v5.35.0...v5.35.1) (2023-08-10)
 
 ### Bug Fixes
