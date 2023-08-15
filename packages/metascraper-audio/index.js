@@ -48,7 +48,7 @@ const audioRules = [
 const _getIframe = (url, $, { src }) =>
   loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
 
-module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
+module.exports = ({ getIframe = _getIframe } = {}) => {
   return {
     audio: [
       ...audioRules,

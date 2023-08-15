@@ -55,14 +55,13 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
     ],
     date: getSpotify({ from: 'date' }),
     description: [
-      toDescription(($, url) => {
+      toDescription($ => {
         const description = $('meta[property="og:description"]').attr('content')
         if (!description) return
         return description.includes('on Spotify. ')
           ? description.split('on Spotify. ')[1]
           : description
       }),
-
       getSpotify({ from: 'description' })
     ],
     image: getSpotify({ from: 'image' }),
