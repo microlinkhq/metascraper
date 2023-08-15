@@ -12,9 +12,33 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
+const { find, chain, isEqual } = require('lodash')
 const pReflect = require('p-reflect')
 
 const toAudio = toRule(audio)
+
+const toAudioFromDom = toRule((domNodes, opts) => {
+  const values = chain(domNodes)
+    .map(domNode => ({
+      src: domNode?.attribs.src,
+      type: chain(domNode)
+        .get('attribs.type')
+        .split('/')
+        .get(1)
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+        .replace('mpeg', 'mp3')
+        .value()
+    }))
+    .uniqWith(isEqual)
+    .value()
+
+  let result
+  find(
+    values,
+    ({ src, type }) => (result = audio(src, Object.assign({ type }, opts)))
+  )
+  return result
+})
 
 const audioRules = [
   ({ url, htmlDom: $ }) => {
@@ -40,8 +64,8 @@ const audioRules = [
       : undefined
   },
   toAudio($jsonld('contentUrl')),
-  toAudio($ => $('audio').attr('src')),
-  toAudio($ => $('audio > source').attr('src')),
+  toAudioFromDom($ => $('audio').get()),
+  toAudioFromDom($ => $('audio > source').get()),
   ({ htmlDom: $ }) => $filter($, $('a[href]'), el => audio(el.attr('href')))
 ]
 

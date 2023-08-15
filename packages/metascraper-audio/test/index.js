@@ -86,7 +86,65 @@ test('jsonld:contentUrl', async t => {
   t.snapshot(metadata)
 })
 
-test.todo('multiple `audio > source:src`')
-test.todo('multiple `audio > source:src` with invalid audio values')
-test.todo('`audio > source:src` with content type')
-test.todo('`audio > source:src` with content type and relative src')
+test('multiple `audio > source:src`', async t => {
+  const html = `
+    <audio controls>
+      <source src="audio-small.wav" media="all and (max-width: 480px)">
+      <source src="audio-small.mp3" media="all and (max-width: 480px)">
+    </audio>
+    `
+  const url =
+    'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.is(
+    metadata.audio,
+    'https://www.theverge.com/2018/1/22/16921092/audio-small.wav'
+  )
+})
+
+test('`audio > source:src` with content type', async t => {
+  const html = `
+    <audio controls>
+      <source src="https://www.theverge.com/audio-small" type="audio/mpeg" media="all and (max-width: 480px)">
+    </audio>
+    `
+  const url =
+    'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.is(metadata.audio, 'https://www.theverge.com/audio-small')
+})
+
+test('multiple `audio > source:src` with invalid audio values', async t => {
+  const html = `
+    <audio controls>
+      <source src="0" media="all and (max-width: 480px)">
+      <source src="audio-small.mp3" media="all and (max-width: 480px)">
+    </audio>
+    `
+  const url =
+    'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.is(
+    metadata.audio,
+    'https://www.theverge.com/2018/1/22/16921092/audio-small.mp3'
+  )
+})
+
+test('`audio > source:src` with content type and relative src', async t => {
+  const html = `
+    <audio controls>
+      <source src="audio-small" type="audio/mpeg" media="all and (max-width: 480px)">
+    </audio>
+    `
+  const url =
+    'https://www.theverge.com/2018/1/22/16921092/pentagon-secret-nuclear-bunker-reconstruction-minecraft-cns-miis-model'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.is(
+    metadata.audio,
+    'https://www.theverge.com/2018/1/22/16921092/audio-small'
+  )
+})
