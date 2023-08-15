@@ -163,6 +163,10 @@ const titleize = (src, opts = {}) => {
   return title
 }
 
+const $twitter = ($, selector) =>
+  $(`meta[name="${selector}"]`).attr('content') ||
+  $(`meta[property="${selector}"]`).attr('content')
+
 const $filter = ($, matchedEl, fn = $filter.fn) => {
   let matched
 
@@ -220,8 +224,8 @@ const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
 
 const isContentType =
   extensions =>
-    ({ type = '' } = {}) =>
-      extensions.some(extension => type.endsWith(extension))
+  ({ type = '' } = {}) =>
+    extensions.some(extension => type.endsWith(extension))
 
 const isVideoContentType = isContentType(Object.keys(videoExtensions))
 
@@ -411,20 +415,20 @@ const findRule = async (rules, args) => {
 
 const toRule =
   (mapper, opts) =>
-    rule =>
-      async ({ htmlDom, url }) => {
-        const value = await rule(htmlDom, url)
-        return mapper(value, { url, ...opts })
-      }
+  rule =>
+  async ({ htmlDom, url }) => {
+    const value = await rule(htmlDom, url)
+    return mapper(value, { url, ...opts })
+  }
 
 const composeRule =
   rule =>
-    ({ from, to = from, ...opts }) =>
-      async ({ htmlDom, url }) => {
-        const data = await rule(htmlDom, url)
-        const value = get(data, from)
-        return invoke(validator, to, value, { url, ...opts })
-      }
+  ({ from, to = from, ...opts }) =>
+  async ({ htmlDom, url }) => {
+    const data = await rule(htmlDom, url)
+    const value = get(data, from)
+    return invoke(validator, to, value, { url, ...opts })
+  }
 
 const has = value =>
   value !== undefined && !Number.isNaN(value) && hasValues(value)
@@ -466,6 +470,7 @@ const loadIframe = (url, $, { timeout = 5000 } = {}) =>
 module.exports = {
   $filter,
   $jsonld,
+  $twitter,
   absoluteUrl,
   audio,
   audioExtensions,

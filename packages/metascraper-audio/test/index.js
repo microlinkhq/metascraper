@@ -5,31 +5,6 @@ const test = require('ava')
 const createMetascraper = (...args) =>
   require('metascraper')([require('..')(...args)])
 
-test('provide `keyvOpts`', async t => {
-  const cache = new Map()
-  const url = 'https://twitter-card-player.vercel.app'
-  const metascraper = createMetascraper({
-    gotOpts: { retry: 0 },
-    keyvOpts: { store: cache }
-  })
-
-  const metadataOne = await metascraper({
-    url,
-    html: '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/container/audio.html">'
-  })
-
-  t.truthy(metadataOne.audio)
-  t.is(cache.size, 1)
-
-  const metadataTwo = await metascraper({
-    url,
-    html: '<meta property="twitter:player" content="https://twitter-card-player.vercel.app/audio-fail.html">'
-  })
-
-  t.falsy(metadataTwo.audio)
-  t.is(cache.size, 2)
-})
-
 test('og:audio', async t => {
   const html =
     '<meta property="og:audio" content="https://cdn.microlink.io/file-examples/sample.mp3">'
@@ -112,6 +87,6 @@ test('jsonld:contentUrl', async t => {
 })
 
 test.todo('multiple `audio > source:src`')
-test.todo('multiple `audio > source:src` with invalid video values')
+test.todo('multiple `audio > source:src` with invalid audio values')
 test.todo('`audio > source:src` with content type')
 test.todo('`audio > source:src` with content type and relative src')

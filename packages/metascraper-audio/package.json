@@ -22,9 +22,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.0.3",
     "@metascraper/helpers": "^5.35.1",
-    "got": "~11.8.6",
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {

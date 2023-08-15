@@ -6,20 +6,15 @@ const {
   audio,
   findRule,
   has,
-  isMime,
+  $twitter,
   loadIframe,
   normalizeUrl,
   toRule
 } = require('@metascraper/helpers')
 
-const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect')
-const got = require('got')
 
 const toAudio = toRule(audio)
-
-const withContentType = (url, contentType) =>
-  isMime(contentType, 'audio') ? url : false
 
 const audioRules = [
   ({ url, htmlDom: $ }) => {
@@ -30,22 +25,20 @@ const audioRules = [
 
     return src
       ? audio(src, {
-        url,
-        type: $('meta[property="og:audio:type"]').attr('content')
-      })
+          url,
+          type: $('meta[property="og:audio:type"]').attr('content')
+        })
       : undefined
   },
-  toAudio($ => {
-    const contentType =
-      $('meta[name="twitter:player:stream:content_type"]').attr('content') ||
-      $('meta[property="twitter:player:stream:content_type"]').attr('content')
-
-    const streamUrl =
-      $('meta[name="twitter:player:stream"]').attr('content') ||
-      $('meta[property="twitter:player:stream"]').attr('content')
-
-    return contentType ? withContentType(streamUrl, contentType) : streamUrl
-  }),
+  ({ url, htmlDom: $ }) => {
+    const src = $twitter($, 'twitter:player:stream')
+    return src
+      ? audio(src, {
+          url,
+          type: $twitter($, 'twitter:player:stream:content_type')
+        })
+      : undefined
+  },
   toAudio($jsonld('contentUrl')),
   toAudio($ => $('audio').attr('src')),
   toAudio($ => $('audio > source').attr('src')),
@@ -55,22 +48,7 @@ const audioRules = [
 const _getIframe = (url, $, { src }) =>
   loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
 
-const createGetPlayer = ({ gotOpts, keyvOpts }) => {
-  const getPlayer = async playerUrl => {
-    const { value: response } = await pReflect(got(playerUrl, gotOpts))
-    if (!response) return
-    const contentType = response.headers['content-type']
-    if (!contentType || !contentType.startsWith('text')) return
-    return response.body
-  }
-  return memoize(getPlayer, keyvOpts, {
-    value: value => (value === undefined ? null : value)
-  })
-}
-
 module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
-  const getPlayer = createGetPlayer({ gotOpts, keyvOpts })
-
   return {
     audio: [
       ...audioRules,
@@ -92,32 +70,27 @@ module.exports = ({ getIframe = _getIframe, gotOpts, keyvOpts } = {}) => {
           }
         })
 
-        if (srcs.length === 0) return
-
-        const { value } = await pReflect(
-          Promise.any(
-            srcs.map(async src => {
-              const htmlDom = await getIframe(url, $, { src })
-              const result = await findRule(audioRules, { htmlDom, url })
-              if (!has(result)) throw TypeError('no result')
-              return result
-            })
-          )
-        )
-
-        return value
+        return srcs.length > 0
+          ? pReflect(
+              Promise.any(
+                srcs.map(async src => {
+                  const htmlDom = await getIframe(url, $, { src })
+                  const result = await findRule(audioRules, { htmlDom, url })
+                  if (!has(result)) throw TypeError('no result')
+                  return result
+                })
+              )
+            ).then(({ value }) => value)
+          : undefined
       },
       async ({ htmlDom: $, url }) => {
-        const playerUrl =
-          $('meta[name="twitter:player"]').attr('content') ||
-          $('meta[property="twitter:player"]').attr('content')
-        if (!playerUrl) return
-
-        const html = await getPlayer(normalizeUrl(url, playerUrl))
-        if (!html) return
-
-        const htmlDom = $.load(html)
-        return findRule(audioRules, { htmlDom, url })
+        const src = $twitter($, 'twitter:player')
+        return src
+          ? findRule(audioRules, {
+              htmlDom: await getIframe(url, $, { src }),
+              url
+            })
+          : undefined
       }
     ]
   }
