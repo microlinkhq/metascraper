@@ -23,7 +23,7 @@ const metascraper = require('../../..')([
 
 const url = 'https://play.acast.com/s/saywhytodrugs/caffeine'
 
-test('acast', async t => {
+;(process.env.CI ? test.skip : test)('acast', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)

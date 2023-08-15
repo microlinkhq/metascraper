@@ -10,7 +10,6 @@ const {
   composeRule,
   description,
   memoizeOne,
-  normalizeUrl,
   parseUrl,
   sanetizeUrl,
   toRule
@@ -46,7 +45,7 @@ const test = memoizeOne(url => parseUrl(url).domainWithoutSuffix === 'spotify')
 
 module.exports = ({ gotOpts, keyvOpts } = {}) => {
   const spotify = createSpotify({ gotOpts, keyvOpts })
-  const getSpotify = composeRule(($, url) => spotify(normalizeUrl(url)))
+  const getSpotify = composeRule((_, url) => spotify(url))
 
   const rules = {
     audio: getSpotify({ from: 'audio', ext: 'mp3' }),
@@ -56,14 +55,13 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
     ],
     date: getSpotify({ from: 'date' }),
     description: [
-      toDescription(($, url) => {
+      toDescription($ => {
         const description = $('meta[property="og:description"]').attr('content')
         if (!description) return
         return description.includes('on Spotify. ')
           ? description.split('on Spotify. ')[1]
           : description
       }),
-
       getSpotify({ from: 'description' })
     ],
     image: getSpotify({ from: 'image' }),

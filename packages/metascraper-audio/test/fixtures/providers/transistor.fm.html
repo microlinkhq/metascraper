@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style type="text/css">
+    .turbo-progress-bar {
+      position: fixed;
+      display: block;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #0076ff;
+      z-index: 2147483647;
+      transition:
+        width 300ms ease-out,
+        opacity 150ms 150ms ease-in;
+      transform: translate3d(0, 0, 0);
+    }
+  </style>
+  <script src="https://saas.transistor.fm/theme-assets/theme-graphite-1691593444.js" data-turbo-track="reload"></script>
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="0bS0kCliT3blX06c5vI7bep-cWgSneJIoH2hgc1JRSm2ljejHGK7zfKJ9gzaWJ_p8ZkTs3N8VUVoksraaGeTuw">
+  <meta name="transistor-theme" content="graphite"><!-- Fathom - simple website analytics - https://usefathom.com -->
+  <script src="https://cdn.usefathom.com/script.js" data-site="GWOYPWRQ" defer=""></script>
+  <!-- / Fathom -->
+
+
+  <link rel="shortcut icon" type="image/png" href="https://images.transistor.fm/file/transistor/images/favicons/site/6/x16_1541522941-favicon.png" sizes="16x16">
+
+
+  <link rel="shortcut icon" type="image/png" href="https://images.transistor.fm/file/transistor/images/favicons/site/6/x32_1541522941-favicon.png" sizes="32x32">
+
+
+  <link rel="shortcut icon" type="image/png" href="https://images.transistor.fm/file/transistor/images/favicons/site/6/x64_1541522941-favicon.png" sizes="64x54">
+
+
+  <link rel="shortcut icon" type="image/png" href="https://images.transistor.fm/file/transistor/images/favicons/site/6/x256_1541522941-favicon.png" sizes="256x256">
+
+  <link rel="apple-touch-icon" type="image/png" href="https://images.transistor.fm/file/transistor/images/favicons/site/6/x256_1541522941-favicon.png">
+
+
+
+
+  <!-- Twitter -->
+  <meta name="twitter:site" content="@TransistorFM">
+  <meta name="twitter:title" content="Build Your SaaS | Paul Jarvis: gaining freedom by building an indie business">
+  <meta name="twitter:description" content="Interested in building your own SaaS company? Follow the journey of Transistor.fm as they bootstrap a podcast hosting startup.">
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:image" content="https://images.transistor.fm/file/transistor/images/social_images/site/6/social.jpg">
+  <meta name="twitter:player" content="https://share.transistor.fm/e/e83b42d0">
+  <meta name="twitter:player:width" content="500">
+  <meta name="twitter:player:height" content="180">
+  <meta name="twitter:image:alt" content="Build Your SaaS | Paul Jarvis: gaining freedom by building an indie business">
+  <meta name="twitter:player:stream" content="https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site">
+  <meta name="twitter:player:stream:content_type" content="audio/mpeg">
+  <!-- /Twitter -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://share.transistor.fm/s/e83b42d0">
+
+  <meta property="og:image" content="https://images.transistor.fm/file/transistor/images/episode/1443021/medium_1690922977-artwork.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Build Your SaaS">
+  <meta property="og:description" content="Interested in building your own SaaS company? Follow the journey of Transistor.fm as they bootstrap a podcast hosting startup.">
+  <meta property="og:title" content="Build Your SaaS | Paul Jarvis: gaining freedom by building an indie business">
+  <!-- /Facebook -->
+
+  <meta content="Interested in building your own SaaS company? Follow the journey of Transistor.fm as they bootstrap a podcast hosting startup." name="description">
+  <meta content="technology, podcasting, business, saas, software, marketing, bootstrap, bootstrapping, rails, ruby on rails" name="keywords">
+
+  <!-- iTunes Banner -->
+  <meta content="app-id=1357295850" name="apple-itunes-app">
+  <!-- /iTunes Banner -->
+
+  <link rel="alternate" type="application/rss+xml" title="Build Your SaaS" href="https://feeds.transistor.fm/build-your-saas">
+  <script src="https://assets.transistor.fm/assets/sites-76643fe34652460c0cb51427d5d93e9d8e75ca2a2646bc9c95bfc3db84d224e2.js" defer="" data-turbo-track="reload"></script>
+
+  <title>Build Your SaaS | Paul Jarvis: gaining freedom by building an indie business</title>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes" name="viewport">
+  <style>
+    :root {
+      --color-header: #0C1824;
+      --color-secondary: #FCC853;
+      --color-background: #E0E8F0;
+      --color-header-text: #FFFFFF;
+      --color-link: #0C1824;
+      --color-player: #1C3D5D;
+      --color-transistor: #111827;
+      --color-text-secondary: #111827;
+    }
+  </style>
+  <link rel="stylesheet" media="all" href="https://saas.transistor.fm/theme-assets/theme-graphite-1691593444.css" type="text/css" data-turbo-track="reload">
+
+
+</head>
+
+<body x-data="{ mobileNavOpen: false }" class="episode">
+
+  <header class="site-header">
+    <div class="site-container">
+      <div class="site-header-intro">
+
+        <a href="/" class="site-header-logo" title="Home"><img src="https://images.transistor.fm/file/transistor/images/logos/site/6/medium_build-your-saas-logo.png" alt="Build Your SaaS"></a>
+
+        <hgroup>
+
+          <nav class="site-nav">
+
+            <a title="Home" class="" href="/">Home</a>
+            <a title="Episodes" class="current" href="/episodes">Episodes</a>
+            <a title="People" class="" href="/people">People</a>
+            <a title="About" class="" href="/about">About</a>
+            <a title="Subscribe" class="" href="/subscribe">Subscribe</a>
+
+          </nav>
+        </hgroup>
+      </div>
+    </div>
+    <span x-show="!mobileNavOpen" class="site-mobile-nav-trigger" @click="mobileNavOpen = true">
+      <svg role="img" class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <title>menu</title>
+        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+      </svg>
+
+    </span>
+    <span x-show="mobileNavOpen" class="site-mobile-nav-trigger" @click="mobileNavOpen = false" data-alpine-was-cloaked="" style="display: none;">
+      <svg role="img" class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <title>close</title>
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+      </svg>
+
+    </span>
+  </header>
+  <nav @click.outside="mobileNavOpen = false" class="site-mobile-nav" x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" data-alpine-was-cloaked="" style="display: none;">
+
+    <a title="Home" class="" href="/">Home</a>
+    <a title="Episodes" class="current" href="/episodes">Episodes</a>
+    <a title="People" class="" href="/people">People</a>
+    <a title="About" class="" href="/about">About</a>
+    <a title="Subscribe" class="" href="/subscribe">Subscribe</a>
+
+  </nav>
+
+  <main class="site-container site-container-main">
+    <section class="site-content-main">
+      <section class="site-content">
+        <div class="site-episode">
+          <header class="site-episode-header">
+            <button x-show="!($store.player.playing &amp;&amp; $store.player.audio_url === 'https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site')" data-url="https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site" data-title="Paul Jarvis: gaining freedom by building an indie business" data-duration="4309" title="Play Episode" role="button" @click.prevent="$dispatch('play-episode', $event.currentTarget.dataset); $store.player.audio_url = $el.dataset.url; $store.player.playing = true" class="player-button site-episode-play">
+
+              <svg role="img" class="icon-play" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <title>play</title>
+                <path fill-rule="evenodd" d="M8,16 C12.4183,16 16,12.4183 16,8 C16,3.58172 12.4183,0 8,0 C3.58172,0 0,3.58172 0,8 C0,12.4183 3.58172,16 8,16 Z M7.5547,5.16795 C7.24784,4.96338 6.8533,4.94431 6.52814,5.11833 C6.20298,5.29235 6,5.63121 6,6.00000106 L6,10.0000011 C6,10.3688 6.20298,10.7077 6.52814,10.8817 C6.8533,11.0557 7.24784,11.0366 7.5547,10.8321 L10.5547,8.8321 C10.8329,8.6466 11,8.3344 11,8.00000106 C11,7.66565 10.8329,7.35342 10.5547,7.16795 L7.5547,5.16795 Z"></path>
+              </svg>
+
+
+            </button>
+            <button x-show="$store.player.playing &amp;&amp; $store.player.audio_url == 'https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site'" title="Pause Episode" role="button" @click.prevent="$dispatch('pause-episode')" class="player-button site-episode-play" style="display: none;">
+
+              <svg role="img" class="icon-pause" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <title>pause</title>
+                <path fill-rule="evenodd" d="M16,8 C16,12.4183 12.4183,16 8,16 C3.58172,16 0,12.4183 0,8 C0,3.58172 3.58172,0 8,0 C12.4183,0 16,3.58172 16,8 Z M5,6 C5,5.44772 5.44772,5 6,5 C6.55228,5 7,5.44772 7,6 L7,10 C7,10.5523 6.55228,11 6,11 C5.44772,11 5,10.5523 5,10 L5,6 Z M10,5 C9.4477,5 9,5.44772 9,6 L9,10 C9,10.5523 9.4477,11 10,11 C10.5523,11 11,10.5523 11,10 L11,6 C11,5.44772 10.5523,5 10,5 Z"></path>
+              </svg>
+
+
+            </button>
+
+            <hgroup>
+              <h2 class="site-episode-title">Paul Jarvis: gaining freedom by building an indie business</h2>
+              <span class="site-episode-metadata">
+                <time>August 1, 2023</time>
+                <span>/</span>
+                <span>01:11:49</span><span>/</span><span>E155</span>
+              </span>
+
+            </hgroup>
+          </header>
+
+          <div class="site-two-col-grid">
+            <div class="site-episode-grid-content">
+
+
+
+              <nav class="site-episode-nav">
+                <a href="/episodes/paul-jarvis-gaining-freedom-by-building-an-indie-business" class="site-episode-notes-link" title="View episode details">Show Notes</a> <span>/</span>
+                <a href="/episodes/paul-jarvis-gaining-freedom-by-building-an-indie-business/transcript" class="site-episode-transcript-link" title="View episode transcript">Transcript</a>
+              </nav>
+
+
+              <div class="site-content-text site-episode-show-notes">
+
+                <div>Justin catches up with his old internet friend Paul Jarvis. Today, Paul co-founded <a href="https://usefathom.com/">Fathom Analytics</a> with <a href="https://twitter.com/JackEllis">Jack Ellis</a>: a simple alternative to Google Analytics. Paul is also the author of the book "<a href="https://www.amazon.com/Company-One-Staying-Small-Business/dp/1328972356/">Company of One</a>," which has influenced a whole generation of indie entrepreneurs (and has been reviewed by Cal Newport, Chris Guillebeau, Ben Chestnut, Tiago Forte, and more). Previously, Justin and Paul did a <a href="https://justinjackson.ca/mastermind">weekly mastermind</a>, where they supported and encouraged each other around our indie businesses. They decided to do a catch-up call and recorded it so you could listen in. 👍<br><br>
+                  <div><em>📺 Learn </em><a href="https://transistor.fm/how-to-start-a-podcast/"><em>how to start your own podcast</em></a><em>!</em></div><br><br><strong>Highlights:</strong><br>
+                  <ul>
+                    <li>(<a href="#t=0m10s" data-turbo="false" title="Jump to 00:10 in this episode">00:10</a>) - Intro</li>
+                    <li>(<a href="#t=2m26s" data-turbo="false" title="Jump to 02:26 in this episode">02:26</a>) - Being off the internet</li>
+                    <li>(<a href="#t=4m4s" data-turbo="false" title="Jump to 04:04 in this episode">04:04</a>) - What's a typical day for Paul?</li>
+                    <li>(<a href="#t=6m27s" data-turbo="false" title="Jump to 06:27 in this episode">06:27</a>) - Looking back at our Mastermind call</li>
+                    <li>(<a href="#t=8m14s" data-turbo="false" title="Jump to 08:14 in this episode">08:14</a>) - There's no beginning and no end</li>
+                    <li>(<a href="#t=10m42s" data-turbo="false" title="Jump to 10:42 in this episode">10:42</a>) - Things that are out of your control affect your business</li>
+                    <li>(<a href="#t=13m14s" data-turbo="false" title="Jump to 13:14 in this episode">13:14</a>) - Does Justin's surfing metaphor make sense to a surfer?</li>
+                    <li>(<a href="#t=16m17s" data-turbo="false" title="Jump to 16:17 in this episode">16:17</a>) - How would you start an indie business in 2023?</li>
+                    <li>(<a href="#t=22m11s" data-turbo="false" title="Jump to 22:11 in this episode">22:11</a>) - You've got to get in motion</li>
+                    <li>(<a href="#t=25m14s" data-turbo="false" title="Jump to 25:14 in this episode">25:14</a>) - Using products in your category for a long time</li>
+                    <li>(<a href="#t=27m59s" data-turbo="false" title="Jump to 27:59 in this episode">27:59</a>) - Is there still any room in Saas?</li>
+                    <li>(<a href="#t=32m2s" data-turbo="false" title="Jump to 32:02 in this episode">32:02</a>) - The act of making the bet</li>
+                    <li>(<a href="#t=38m51s" data-turbo="false" title="Jump to 38:51 in this episode">38:51</a>) - Is freelancing still viable in 2023?</li>
+                    <li>(<a href="#t=43m1s" data-turbo="false" title="Jump to 43:01 in this episode">43:01</a>) - Company design is lifestyle design</li>
+                    <li>(<a href="#t=45m6s" data-turbo="false" title="Jump to 45:06 in this episode">45:06</a>) - Worrying about being stagnant</li>
+                    <li>(<a href="#t=47m26s" data-turbo="false" title="Jump to 47:26 in this episode">47:26</a>) - How do you handle customer feature requests?</li>
+                    <li>(<a href="#t=52m14s" data-turbo="false" title="Jump to 52:14 in this episode">52:14</a>) - It's ok to be late to a shift in the market</li>
+                    <li>(<a href="#t=58m30s" data-turbo="false" title="Jump to 58:30 in this episode">58:30</a>) - Caring is an indie advantage</li>
+                    <li>(<a href="#t=1h5m11s" data-turbo="false" title="Jump to 01:05:11 in this episode">01:05:11</a>) - Collaboration is what gets us anywhere</li>
+                  </ul><br><br>
+                  <div>🎙️ <em>Podcast hosting is provided by</em> <a href="https://transistor.fm/"><em>Transistor.fm</em></a><em>.</em></div><br><strong>Links:</strong>
+                </div>
+                <ul>
+                  <li><a href="https://usefathom.com/ref/EJPZOB">Fathom Analytics</a> (get $10 off)</li>
+                  <li>Book: <a href="https://www.amazon.com/Company-One-Staying-Small-Business/dp/1328972356">Company of One</a></li>
+                  <li>Article: <a href="https://justinjackson.ca/mastermind">How to Start a Mastermind</a></li>
+                  <li>Wayback Machine: <a href="https://web.archive.org/web/20061101221801/http://haveamint.com/">Mint Analytics</a></li>
+                  <li>Article: <a href="https://justinjackson.ca/new-saas">Why we moved from courses to SaaS</a></li>
+                  <li><a href="https://justinjackson.ca/self-publishing-hangout">Self-Publishing Hangout</a>: Paul Jarvis, Nathan Barry, Sacha Greif, Justin Jackson</li>
+                </ul>
+                <strong>Thanks to our <a href="/supporters">monthly supporters</a></strong>
+                <ul>
+                  <li>Pascal from sharpen.page</li>
+                  <li>Rewardful.com</li>
+                  <li>Greg Park</li>
+                  <li>Mitchell Davis from RecruitKit.com.au</li>
+                  <li>Marcel Fahle, wearebold.af</li>
+                  <li>Ethan Gunderson</li>
+                  <li>Anton Zorin from ProdCamp.com</li>
+                  <li>Bill Condo (@mavrck)</li>
+                  <li>Ward from MemberSpace.com</li>
+                  <li>Russell Brown from Photivo.com</li>
+                  <li>Evandro Sasse</li>
+                  <li>Austin Loveless</li>
+                  <li>Michael Sitver</li>
+                  <li>Fathom Analytics</li>
+                  <li>Dan Buda</li>
+                  <li>Colin Gray</li>
+                  <li>Dave Giunta</li>
+                </ul>
+                <strong>
+                  <a href="https://www.patreon.com/jonjustin" target="_donate" rel="payment" title="★ Support this podcast on Patreon ★">★ Support this podcast on Patreon ★</a>
+                </strong>
+
+
+
+                <iframe class="site-video-embed" src="https://www.youtube-nocookie.com/embed/J9UEOkBLZ_o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+
+
+
+              </div>
+
+
+              <div class="site-episode-people">
+                <h3>Creators and Guests</h3>
+
+                <div class="site-people">
+
+                  <div class="site-person">
+                    <a href="/people/justin-jackson" title="Justin Jackson" class="site-person-avatar">
+
+                      <img src="https://images.transistor.fm/file/transistor/images/person/b6081cc9-cffb-4ab3-8c5c-d5def204ff82/thumb_1664465872-image.jpg" alt="Justin Jackson" class="site-person-image">
+
+                      <div class="site-person-role">Host</div>
+                    </a>
+
+                    <div class="site-person-details">
+                      <a class="site-person-name" href="/people/justin-jackson" title="Justin Jackson">Justin Jackson</a>
+
+                      <div class="site-person-bio">Co-founder of Transistor.fm</div>
+
+
+                      <div class="site-person-links">
+
+                        <a href="https://twitter.com/mijustin" title="Twitter" target="_twitter">
+
+                          <svg role="img" class="icon-twitter" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <title>Twitter</title>
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                          </svg>
+
+
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/justinijackson/" title="LinkedIn" target="_linkedIn">
+
+                          <svg role="img" class="icon-linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <title>LinkedIn</title>
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                          </svg>
+
+
+                        </a>
+
+                        <a href="https://mastodon.social/@mijustin" title="Mastodon" target="_mastodon">
+
+                          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <title>Mastodon</title>
+                            <path
+                              d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z">
+                            </path>
+                          </svg>
+
+
+                        </a>
+
+                        <a href="https://instagram.com/mijustin" title="Instagram" target="_instagram">
+
+                          <svg role="img" class="icon-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <title>Instagram</title>
+                            <path
+                              d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z">
+                            </path>
+                          </svg>
+
+
+                        </a>
+
+                        <a href="https://justinjackson.ca" title="Website" target="_website">
+
+                          <svg role="img" viewBox="0 0 20 20">
+                            <title>Website Link</title>
+                            <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
+                          </svg>
+
+
+                        </a>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="site-person">
+                    <a href="/people/chris-enns" title="Chris Enns" class="site-person-avatar">
+
+                      <img src="https://images.transistor.fm/file/transistor/images/person/95bfd816-216d-44ac-9518-97fe81ecff42/thumb_1664479153-image.jpg" alt="Chris Enns" class="site-person-image">
+
+                      <div class="site-person-role">Editor</div>
+                    </a>
+
+                    <div class="site-person-details">
+                      <a class="site-person-name" href="/people/chris-enns" title="Chris Enns">Chris Enns</a>
+
+                      <div class="site-person-bio">Owner of Lemon Productions</div>
+
+
+                      <div class="site-person-links">
+
+                        <a href="https://twitter.com/ichris" title="Twitter" target="_twitter">
+
+                          <svg role="img" class="icon-twitter" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <title>Twitter</title>
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                          </svg>
+
+
+                        </a>
+
+                        <a href="https://www.instagram.com/lemonpodcasting/" title="Instagram" target="_instagram">
+
+                          <svg role="img" class="icon-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <title>Instagram</title>
+                            <path
+                              d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z">
+                            </path>
+                          </svg>
+
+
+                        </a>
+
+                        <a href="https://www.lemonproductions.ca/" title="Website" target="_website">
+
+                          <svg role="img" viewBox="0 0 20 20">
+                            <title>Website Link</title>
+                            <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
+                          </svg>
+
+
+                        </a>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="site-person">
+                    <a href="/people/paul-jarvis" title="Paul Jarvis" class="site-person-avatar">
+
+                      <img src="https://images.transistor.fm/file/transistor/images/person/223665f9-c96e-4ef3-b5f3-60ffae4780f3/thumb_1690921879-image.jpg" alt="Paul Jarvis" class="site-person-image">
+
+                      <div class="site-person-role">Guest</div>
+                    </a>
+
+                    <div class="site-person-details">
+                      <a class="site-person-name" href="/people/paul-jarvis" title="Paul Jarvis">Paul Jarvis</a>
+
+                      <div class="site-person-bio">Co-founder of Fathom Analytics, author of Company of One</div>
+
+
+                      <div class="site-person-links">
+
+                        <a href="https://usefathom.com/pjrvs" title="Website" target="_website">
+
+                          <svg role="img" viewBox="0 0 20 20">
+                            <title>Website Link</title>
+                            <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
+                          </svg>
+
+
+                        </a>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="site-episode-grid-artwork">
+              <img src="https://images.transistor.fm/file/transistor/images/episode/1443021/medium_1690922977-artwork.jpg" alt="Paul Jarvis: gaining freedom by building an indie business">
+            </div>
+
+            <div class="site-episode-grid-subscribe">
+              <h2 class="site-content-subheader">
+
+                <svg role="img" class="icon-headphones" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <title>headphones</title>
+                  <g>
+                    <path d="M7,12a3,3,0,0,0-3,3v6a3,3,0,0,0,6,0V15A3,3,0,0,0,7,12Zm10,0a3,3,0,0,0-3,3v6a3,3,0,0,0,6,0V15A3,3,0,0,0,17,12ZM12,0A12,12,0,0,0,0,12v5a1,1,0,0,0,2,0V12a10,10,0,0,1,20,0v5a1,1,0,0,0,2,0V12A12,12,0,0,0,12,0Z"></path>
+                  </g>
+                </svg>
+
+
+                <span>Listen Anywhere</span>
+              </h2>
+              <nav class="site-subscribe">
+                <a href="https://podcasts.apple.com/us/podcast/build-your-saas/id1357295850 " class="site-subscribe-link apple_podcasts" target="_apple_podcasts" title="Listen to Build Your SaaS on Apple Podcasts">
+                  <svg role="img" fill="#9933CC" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Apple Podcasts</title>
+                    <path
+                      d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.272 1.912 2.619 2.264 4.392.12.59.12 2.2.007 2.864a8.506 8.506 0 01-3.24 5.296c-.608.46-2.096 1.261-2.336 1.261-.088 0-.096-.091-.056-.46.072-.592.144-.715.48-.856.536-.224 1.448-.874 2.008-1.435a7.644 7.644 0 002.008-3.536c.208-.824.184-2.656-.048-3.504-.728-2.696-2.928-4.792-5.624-5.352-.784-.16-2.208-.16-3 0-2.728.56-4.984 2.76-5.672 5.528-.184.752-.184 2.584 0 3.336.456 1.832 1.64 3.512 3.192 4.512.304.2.672.408.824.472.336.144.408.264.472.856.04.36.03.464-.056.464-.056 0-.464-.176-.896-.384l-.04-.03c-2.472-1.216-4.056-3.274-4.632-6.012-.144-.706-.168-2.392-.03-3.04.36-1.74 1.048-3.1 2.192-4.304 1.648-1.737 3.768-2.656 6.128-2.656zm.134 2.81c.409.004.803.04 1.106.106 2.784.62 4.76 3.408 4.376 6.174-.152 1.114-.536 2.03-1.216 2.88-.336.43-1.152 1.15-1.296 1.15-.023 0-.048-.272-.048-.603v-.605l.416-.496c1.568-1.878 1.456-4.502-.256-6.224-.664-.67-1.432-1.064-2.424-1.246-.64-.118-.776-.118-1.448-.008-1.02.167-1.81.562-2.512 1.256-1.72 1.704-1.832 4.342-.264 6.222l.413.496v.608c0 .336-.027.608-.06.608-.03 0-.264-.16-.512-.36l-.034-.011c-.832-.664-1.568-1.842-1.872-2.997-.184-.698-.184-2.024.008-2.72.504-1.878 1.888-3.335 3.808-4.019.41-.145 1.133-.22 1.814-.211zm-.13 2.99c.31 0 .62.06.844.178.488.253.888.745 1.04 1.259.464 1.578-1.208 2.96-2.72 2.254h-.015c-.712-.331-1.096-.956-1.104-1.77 0-.733.408-1.371 1.112-1.745.224-.117.534-.176.844-.176zm-.011 4.728c.988-.004 1.706.349 1.97.97.198.464.124 1.932-.218 4.302-.232 1.656-.36 2.074-.68 2.356-.44.39-1.064.498-1.656.288h-.003c-.716-.257-.87-.605-1.164-2.644-.341-2.37-.416-3.838-.218-4.302.262-.616.974-.966 1.97-.97z">
+                    </path>
+                  </svg>
+
+                  <label>
+                    <span>Listen On</span>
+                    <b>Apple Podcasts</b>
+                  </label>
+                </a><a href="https://open.spotify.com/show/5VxoFJobBSu0yWo2r891ec" class="site-subscribe-link spotify" target="_spotify" title="Listen to Build Your SaaS on Spotify">
+                  <svg role="img" fill="#1DB954" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Spotify</title>
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"></path>
+                  </svg>
+
+                  <label>
+                    <span>Listen On</span>
+                    <b>Spotify</b>
+                  </label>
+                </a><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy50cmFuc2lzdG9yLmZtL2J1aWxkLXlvdXItc2Fhcw==" class="site-subscribe-link google_podcasts" target="_google_podcasts" title="Listen to Build Your SaaS on Google Podcasts">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <title>Google Podcasts</title>
+                    <g fill="none">
+                      <path d="M64 238.545v34.91c0 17.673-14.327 32-32 32s-32-14.327-32-32v-34.91c0-17.673 14.327-32 32-32s32 14.327 32 32z" fill="#0066d9"></path>
+                      <path d="M448.013 239.455a32.6 32.6 0 0 1-.013-.91c0-17.673 14.327-32 32-32s32 14.327 32 32c0 .304-.004.608-.013.91H512v34.909h-.013c-.48 17.252-14.618 31.09-31.987 31.09s-31.506-13.838-31.987-31.09H448v-34.91h.013z" fill="#4285f4"></path>
+                      <path d="M174.545 343.273v34.909c0 17.673-14.326 32-32 32s-32-14.327-32-32v-34.91c0-17.672 14.327-32 32-32s32 14.328 32 32zM174.545 133.818V248h-.008c-.386 17.337-14.562 31.273-31.992 31.273S110.94 265.337 110.554 248h-.009V133.818c0-17.673 14.327-32 32-32s32 14.327 32 32z" fill="#ea4335"></path>
+                      <path d="M337.455 168.727c0 17.673 14.326 32 32 32s32-14.327 32-32v-34.909c0-17.673-14.327-32-32-32s-32 14.327-32 32z" fill="#34a853"></path>
+                      <path d="M224 66.91c0 17.672 14.327 32 32 32s32-14.328 32-32V32c0-17.673-14.327-32-32-32s-32 14.327-32 32zM224 445.09c0-17.672 14.327-32 32-32s32 14.328 32 32V480c0 17.673-14.327 32-32 32s-32-14.327-32-32z" fill="#fab908"></path>
+                      <path d="M337.455 264.727c0-17.673 14.326-32 32-32s32 14.327 32 32v113.455c0 17.673-14.327 32-32 32s-32-14.327-32-32z" fill="#34a853"></path>
+                      <path d="M288 162.91v186.18c0 17.674-14.327 32-32 32s-32-14.326-32-32V162.91c0-17.674 14.327-32 32-32s32 14.326 32 32z" fill="#fab908"></path>
+                    </g>
+                  </svg>
+
+                  <label>
+                    <span>Listen On</span>
+                    <b>Google Podcasts</b>
+                  </label>
+                </a><a href="https://overcast.fm/itunes1357295850/build-your-saas" class="site-subscribe-link overcast" target="_overcast" title="Listen to Build Your SaaS on Overcast">
+                  <svg role="img" fill="#FC7E0F" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Overcast</title>
+                    <path
+                      d="M12 24C5.389 24.018.017 18.671 0 12.061V12C0 5.35 5.351 0 12 0s12 5.35 12 12c0 6.649-5.351 12-12 12zm0-4.751l.9-.899-.9-3.45-.9 3.45.9.899zm-1.15-.05L10.4 20.9l1.05-1.052-.6-.649zm2.3 0l-.6.601 1.05 1.051-.45-1.652zm.85 3.102L12 20.3l-2 2.001c.65.1 1.3.199 2 .199s1.35-.05 2-.199zM12 1.5C6.201 1.5 1.5 6.201 1.5 12c-.008 4.468 2.825 8.446 7.051 9.899l2.25-8.35c-.511-.372-.809-.968-.801-1.6 0-1.101.9-2.001 2-2.001s2 .9 2 2.001c0 .649-.301 1.2-.801 1.6l2.25 8.35c4.227-1.453 7.06-5.432 7.051-9.899 0-5.799-4.701-10.5-10.5-10.5zm6.85 15.7c-.255.319-.714.385-1.049.15-.313-.207-.4-.628-.194-.941.014-.021.028-.04.044-.06 0 0 1.35-1.799 1.35-4.35s-1.35-4.35-1.35-4.35c-.239-.289-.198-.719.091-.957.02-.016.039-.031.06-.044.335-.235.794-.169 1.049.15.1.101 1.65 2.15 1.65 5.2S18.949 17.1 18.85 17.2zm-3.651-1.95c-.3-.3-.249-.85.051-1.15 0 0 .75-.799.75-2.1s-.75-2.051-.75-2.1c-.3-.301-.3-.801-.051-1.15.232-.303.666-.357.969-.125.029.022.056.047.082.074C16.301 8.75 17.5 10 17.5 12s-1.199 3.25-1.25 3.301c-.301.299-.75.25-1.051-.051zm-6.398 0c-.301.301-.75.35-1.051.051C7.699 15.199 6.5 14 6.5 12s1.199-3.199 1.25-3.301c.301-.299.801-.299 1.051.051.3.3.249.85-.051 1.15 0 .049-.75.799-.75 2.1s.75 2.1.75 2.1c.3.3.351.799.051 1.15zm-2.602 2.101c-.335.234-.794.169-1.05-.15C5.051 17.1 3.5 15.05 3.5 12s1.551-5.1 1.649-5.2c.256-.319.715-.386 1.05-.15.313.206.4.628.194.941-.013.02-.028.04-.043.059C6.35 7.65 5 9.449 5 12s1.35 4.35 1.35 4.35c.25.3.15.75-.151 1.001z">
+                    </path>
+                  </svg>
+
+                  <label>
+                    <span>Listen On</span>
+                    <b>Overcast</b>
+                  </label>
+                </a><a href="http://pca.st/gHig" class="site-subscribe-link pocket_casts" target="_pocket_casts" title="Listen to Build Your SaaS on Pocket Casts">
+                  <svg role="img" fill="#F43E37" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Pocket Casts</title>
+                    <path d="M12,0C5.372,0,0,5.372,0,12c0,6.628,5.372,12,12,12c6.628,0,12-5.372,12-12 C24,5.372,18.628,0,12,0z M15.564,12c0-1.968-1.596-3.564-3.564-3.564c-1.968,0-3.564,1.595-3.564,3.564 c0,1.968,1.595,3.564,3.564,3.564V17.6c-3.093,0-5.6-2.507-5.6-5.6c0-3.093,2.507-5.6,5.6-5.6c3.093,0,5.6,2.507,5.6,5.6H15.564z M19,12c0-3.866-3.134-7-7-7c-3.866,0-7,3.134-7,7c0,3.866,3.134,7,7,7v2.333c-5.155,0-9.333-4.179-9.333-9.333 c0-5.155,4.179-9.333,9.333-9.333c5.155,0,9.333,4.179,9.333,9.333H19z"></path>
+                  </svg>
+
+                  <label>
+                    <span>Listen On</span>
+                    <b>Pocket Casts</b>
+                  </label>
+                </a><a href="https://music.amazon.com/podcasts/a0aa8069-39d8-4995-8ec7-96cecf669b79/Build-Your-SaaS-bootstrap-in-2020" class="site-subscribe-link amazon_music" target="_amazon_music" title="Listen to Build Your SaaS on Amazon Music">
+                  <svg role="img" viewBox="2.167 .438 251.038 259.969" xmlns="http://www.w3.org/2000/svg">
+                    <title>Amazon Music</title>
+                    <g fill="none" fill-rule="evenodd">
+                      <path d="m221.503 210.324c-105.235 50.083-170.545 8.18-212.352-17.271-2.587-1.604-6.984.375-3.169 4.757 13.928 16.888 59.573 57.593 119.153 57.593 59.621 0 95.09-32.532 99.527-38.207 4.407-5.627 1.294-8.731-3.16-6.872zm29.555-16.322c-2.826-3.68-17.184-4.366-26.22-3.256-9.05 1.078-22.634 6.609-21.453 9.93.606 1.244 1.843.686 8.06.127 6.234-.622 23.698-2.826 27.337 1.931 3.656 4.79-5.57 27.608-7.255 31.288-1.628 3.68.622 4.629 3.68 2.178 3.016-2.45 8.476-8.795 12.14-17.774 3.639-9.028 5.858-21.622 3.71-24.424z" fill="#4BA5DC" fill-rule="nonzero"></path>
+                      <path d="m150.744 108.13c0 13.141.332 24.1-6.31 35.77-5.361 9.489-13.853 15.324-23.341 15.324-12.952 0-20.495-9.868-20.495-24.432 0-28.75 25.76-33.968 50.146-33.968zm34.015 82.216c-2.23 1.992-5.456 2.135-7.97.806-11.196-9.298-13.189-13.615-19.356-22.487-18.502 18.882-31.596 24.527-55.601 24.527-28.37 0-50.478-17.506-50.478-52.565 0-27.373 14.85-46.018 35.96-55.126 18.313-8.066 43.884-9.489 63.43-11.718v-4.365c0-8.018.616-17.506-4.08-24.432-4.128-6.215-12.003-8.777-18.93-8.777-12.856 0-24.337 6.594-27.136 20.257-.57 3.037-2.799 6.026-5.835 6.168l-32.735-3.51c-2.751-.618-5.787-2.847-5.028-7.07 7.543-39.66 43.36-51.616 75.43-51.616 16.415 0 37.858 4.365 50.81 16.795 16.415 15.323 14.849 35.77 14.849 58.02v52.565c0 15.798 6.547 22.724 12.714 31.264 2.182 3.036 2.657 6.69-.095 8.966-6.879 5.74-19.119 16.415-25.855 22.393l-.095-.095" fill="#000"></path>
+                      <path d="m221.503 210.324c-105.235 50.083-170.545 8.18-212.352-17.271-2.587-1.604-6.984.375-3.169 4.757 13.928 16.888 59.573 57.593 119.153 57.593 59.621 0 95.09-32.532 99.527-38.207 4.407-5.627 1.294-8.731-3.16-6.872zm29.555-16.322c-2.826-3.68-17.184-4.366-26.22-3.256-9.05 1.078-22.634 6.609-21.453 9.93.606 1.244 1.843.686 8.06.127 6.234-.622 23.698-2.826 27.337 1.931 3.656 4.79-5.57 27.608-7.255 31.288-1.628 3.68.622 4.629 3.68 2.178 3.016-2.45 8.476-8.795 12.14-17.774 3.639-9.028 5.858-21.622 3.71-24.424z" fill="#4BA5DC" fill-rule="nonzero"></path>
+                      <path d="m150.744 108.13c0 13.141.332 24.1-6.31 35.77-5.361 9.489-13.853 15.324-23.341 15.324-12.952 0-20.495-9.868-20.495-24.432 0-28.75 25.76-33.968 50.146-33.968zm34.015 82.216c-2.23 1.992-5.456 2.135-7.97.806-11.196-9.298-13.189-13.615-19.356-22.487-18.502 18.882-31.596 24.527-55.601 24.527-28.37 0-50.478-17.506-50.478-52.565 0-27.373 14.85-46.018 35.96-55.126 18.313-8.066 43.884-9.489 63.43-11.718v-4.365c0-8.018.616-17.506-4.08-24.432-4.128-6.215-12.003-8.777-18.93-8.777-12.856 0-24.337 6.594-27.136 20.257-.57 3.037-2.799 6.026-5.835 6.168l-32.735-3.51c-2.751-.618-5.787-2.847-5.028-7.07 7.543-39.66 43.36-51.616 75.43-51.616 16.415 0 37.858 4.365 50.81 16.795 16.415 15.323 14.849 35.77 14.849 58.02v52.565c0 15.798 6.547 22.724 12.714 31.264 2.182 3.036 2.657 6.69-.095 8.966-6.879 5.74-19.119 16.415-25.855 22.393l-.095-.095" fill="#000"></path>
+                    </g>
+                  </svg>
+
+                  <label>
+                    <span>Listen On</span>
+                    <b>Amazon Music</b>
+                  </label>
+                </a>
+              </nav>
+              <a href="/subscribe" class="site-simple-link">More Options »</a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <footer class="site-footer">
+        <div class="site-footer-container">
+          <div class="site-social-credits">
+
+            <div class="site-supporters-widget">
+              <a href="/supporters" title="Supporters of the Podcast">
+                <div class="site-supporters-widget-images">
+
+                  <img src="https://images.transistor.fm/file/transistor/images/supporter/f89c7f51-9f8a-4ba1-805b-2b69b8a9610a/thumb_1679411593-image.jpg" alt="image of podcast supporter">
+
+                  <img src="https://images.transistor.fm/file/transistor/images/supporter/0fb46e2b-0133-4c27-8492-e1db282a3236/thumb_1677240790-image.jpg" alt="image of podcast supporter">
+
+                  <img src="https://images.transistor.fm/file/transistor/images/supporter/de841e49-e3ee-4f7c-80a9-6f07d1c53cfc/thumb_1676583013-image.jpg" alt="image of podcast supporter">
+
+                  <img src="https://images.transistor.fm/file/transistor/images/supporter/efc8824e-12da-4583-a7a8-d12dbe5344ab/thumb_1676583010-image.jpg" alt="image of podcast supporter">
+
+                  <img src="https://images.transistor.fm/file/transistor/images/supporter/fbd94b1a-c199-43c4-83d0-a38040e14d87/thumb_1676583017-image.jpg" alt="image of podcast supporter">
+
+                </div>
+                <span>Join 17 supporters</span>
+              </a>
+            </div>
+
+
+
+            <nav class="site-social">
+
+
+
+
+
+              <a href="mailto:%73%68%6f%77%73@%74%72%61%6e%73%69%73%74%6f%72.%66%6d" class="site-social-link site-social-email" title="Email Us">
+
+                <svg role="img" class="icon-email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <title>Email</title>
+                  <path d="M384 32H64C28.63 32 0 60.63 0 96v320c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V96C448 60.63 419.4 32 384 32zM384 336c0 17.67-14.33 32-32 32H96c-17.67 0-32-14.33-32-32V225.9l138.5 69.27C209.3 298.5 216.6 300.2 224 300.2s14.75-1.688 21.47-5.047L384 225.9V336zM384 190.1l-152.8 76.42c-4.5 2.25-9.812 2.25-14.31 0L64 190.1V176c0-17.67 14.33-32 32-32h256c17.67 0 32 14.33 32 32V190.1z"></path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+
+              <a href="https://twitter.com/transistorfm" class="site-social-link site-social-twitter" target="_twitter" title="View Build Your SaaS on Twitter">
+
+                <svg role="img" class="icon-twitter" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Twitter</title>
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+
+              <a href="https://facebook.com/transistor.fm" class="site-social-link site-social-facebook" target="_facebook" title="View Build Your SaaS on Facebook">
+
+                <svg role="img" class="icon-facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 -58.125 30 30">
+                  <title>Facebook</title>
+                  <path d="M28.3594,-58.125h-26.7188q-0.673828,0 -1.15723,0.483398q-0.483398,0.483398 -0.483398,1.15723v26.7188q0,0.673828 0.483398,1.15723q0.483398,0.483398 1.15723,0.483398h14.3848v-11.6309h-3.92578v-4.51172h3.92578v-3.33984q0,-2.90039 1.61133,-4.43848q1.61133,-1.53809 4.21875,-1.53809q1.23047,0 2.19727,0.0585938q0.966797,0.0585938 1.28906,0.117188v4.04297h-2.40234q-1.40625,0 -1.81641,0.615234q-0.410156,0.615234 -0.410156,1.58203v2.90039h4.45312l-0.556641,4.54102h-3.89648v11.6016h7.61719q0.703125,0 1.18652,-0.483398q0.483398,-0.483398 0.483398,-1.15723v-26.7188q0,-0.673828 -0.483398,-1.15723q-0.483398,-0.483398 -1.15723,-0.483398Z"></path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+
+              <a href="https://www.instagram.com/transistor.fm/" class="site-social-link site-social-instagram" target="_instagram" title="View Build Your SaaS on Instagram">
+
+                <svg role="img" class="icon-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Instagram</title>
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z">
+                  </path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+
+              <a href="https://www.linkedin.com/company/transistor-fm/" class="site-social-link site-social-linkedIn" target="_linkedIn" title="View Build Your SaaS on LinkedIn">
+
+                <svg role="img" class="icon-linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>LinkedIn</title>
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+
+              <a href="https://podcastindex.social/@transistor" class="site-social-link site-social-mastodon" target="_mastodon" title="View Build Your SaaS on Mastodon">
+
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Mastodon</title>
+                  <path
+                    d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z">
+                  </path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+
+              <a href="https://www.youtube.com/channel/UCY-RAM94RTpFuXvcYnRDqCA" class="site-social-link site-social-youtube" target="_youtube" title="View Build Your SaaS on Youtube">
+
+                <svg role="img" fill="#FF0000" class="icon-youtube" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>YouTube</title>
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                </svg>
+
+
+              </a>
+
+
+
+
+
+              <a href="https://www.patreon.com/jonjustin" class="site-social-link site-social-donate" title="Support this podcast!" rel="payment" target="_donate">
+
+                <svg role="img" class="icon-donate" xmlns="http://www.w3.org/2000/svg" viewBox="0 -58.125 30 30">
+                  <title>Donate</title>
+                  <path
+                    d="M15,-58.125q-3.10547,0 -5.83008,1.17188q-2.75391,1.17188 -4.79004,3.20801q-2.03613,2.03613 -3.20801,4.79004q-1.17188,2.72461 -1.17188,5.83008q0,3.10547 1.17188,5.83008q1.17188,2.75391 3.20801,4.79004q2.03613,2.03613 4.79004,3.20801q2.72461,1.17188 5.83008,1.17188q3.10547,0 5.83008,-1.17188q2.75391,-1.17188 4.79004,-3.20801q2.03613,-2.03613 3.20801,-4.79004q1.17188,-2.72461 1.17188,-5.83008q0,-3.10547 -1.17188,-5.83008q-1.17188,-2.75391 -3.20801,-4.79004q-2.03613,-2.03613 -4.79004,-3.20801q-2.72461,-1.17188 -5.83008,-1.17188Zm1.25977,21.2402v1.25977q0,0.527344 -0.366211,0.893555q-0.366211,0.366211 -0.893555,0.366211q-0.527344,0 -0.893555,-0.366211q-0.366211,-0.366211 -0.366211,-0.893555v-1.25977h-1.875q-0.498047,0 -0.864258,-0.366211q-0.366211,-0.366211 -0.366211,-0.864258q0,-0.527344 0.366211,-0.893555q0.366211,-0.366211 0.864258,-0.366211h4.16016q0.556641,0.0292969 0.996094,-0.322266q0.439453,-0.351562 0.46875,-0.9375q-0.0292969,-0.556641 -0.46875,-0.922852q-0.439453,-0.366211 -0.996094,-0.307617h-2.05078q-1.61133,0.0292969 -2.76855,-1.06934q-1.15723,-1.09863 -1.21582,-2.68066q0.0585938,-1.55273 1.14258,-2.63672q1.08398,-1.08398 2.60742,-1.11328v-1.25977q0,-0.527344 0.366211,-0.893555q0.366211,-0.366211 0.893555,-0.366211q0.527344,0 0.893555,0.366211q0.366211,0.366211 0.366211,0.893555q0,0 0,0v1.25977h1.23047q0.527344,0 0.893555,0.366211q0.366211,0.366211 0.366211,0.864258q0,0.527344 -0.366211,0.893555q-0.366211,0.366211 -0.893555,0.366211h-3.51562q-0.556641,-0.0292969 -0.996094,0.322266q-0.439453,0.351562 -0.46875,0.9375q0.0292969,0.556641 0.46875,0.922852q0.439453,0.366211 0.996094,0.307617h2.05078q1.61133,-0.0292969 2.76855,1.06934q1.15723,1.09863 1.21582,2.68066q-0.0585938,1.55273 -1.14258,2.63672q-1.08398,1.08398 -2.60742,1.11328Z">
+                  </path>
+                </svg>
+
+
+              </a>
+
+
+
+
+            </nav>
+
+            <section class="site-credits">
+
+              <span class="site-copyright">© 2023 Transistor, Inc.</span>
+            </section>
+          </div>
+          <div class="site-newsletter">
+            <h3>
+
+              Join our newsletter
+
+            </h3>
+
+            <form id="site-newsletter-form" class="site-newsletter-form" x-data="transistor.newsletterForm('/mailinglist')" :class="{ 'subscribed': subscribed }" @submit.prevent="submit()">
+              <input placeholder="Your email address" class="site-newsletter-input" required="required" type="email" name="email" x-model="email" @keyup.stop="">
+              <button type="submit" class="site-button" :disabled="submitting">Subscribe</button>
+            </form>
+            <div class="site-newsletter-success">
+
+              <svg role="img" class="icon-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>checkmark</title>
+                <path d="M21.28,4.46a2,2,0,0,0-2.82.26L9.61,15.34l-4.5-3a2,2,0,0,0-2.22,3.32l7.5,5L21.54,7.28A2,2,0,0,0,21.28,4.46Z"></path>
+              </svg>
+
+              <span>Got it. You're on the list!</span>
+            </div>
+
+          </div>
+        </div>
+        <nav class="site-footer-nav">
+
+          <a title="Home" class="" href="/">Home</a>
+          <a title="Episodes" class="current" href="/episodes">Episodes</a>
+          <a title="People" class="" href="/people">People</a>
+          <a title="About" class="" href="/about">About</a>
+          <a title="Subscribe" class="" href="/subscribe">Subscribe</a>
+
+        </nav>
+      </footer>
+    </section>
+
+    <div class="site-powered-by">
+      <a href="https://transistor.fm" target="_transistor" title="Transistor.fm - Podcast Hosting and Analytics">
+
+        <span>Broadcast by</span>
+
+
+        <svg class="transistor-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 547 144">
+          <title>transistor logo</title>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="transistor-horizontal-logo" fill-rule="nonzero" fill="#FFFFFF">
+              <g transform="translate(191.000000, 42.000000)">
+                <polygon points="0.7 10.4 0.7 1.8 38.6 1.8 38.6 10.4 24.5 10.4 24.5 58.3 14.7 58.3 14.7 10.4"></polygon>
+                <path d="M63.3,26.2 C62.1,26 60.7,25.8 58.7,25.8 C52.4,25.8 48.7,29.9 48.7,38.2 L48.7,58.2 L39.4,58.2 L39.4,18.6 L48.5,18.6 L48.5,24.2 L48.7,24.2 C50.5,20.8 54.5,17.3 59.8,17.3 C61.3,17.3 62.3,17.4 63.3,17.5 L63.3,26.2 L63.3,26.2 Z"></path>
+                <path d="M107.8,58.2 L98.8,58.2 L98.8,53.2 L98.6,53.2 C95.9,56.6 91.6,59.7 85,59.7 C76.1,59.7 66,52.6 66,38.4 C66,25.8 74.9,17.4 85.7,17.4 C92.3,17.4 96.3,20.9 98.7,24 L98.9,24 L98.9,18.6 L107.9,18.6 L107.9,58.2 L107.8,58.2 Z M87.4,51.5 C93.5,51.5 99.2,46.2 99.2,38.6 C99.2,30.6 94,25.3 87.5,25.3 C79.3,25.3 75.4,31.9 75.4,38.4 C75.4,45 79.2,51.5 87.4,51.5 Z"></path>
+                <path d="M118.6,18.6 L127.8,18.6 L127.8,23.6 L128,23.6 C131.1,19.1 135.7,17.3 140.1,17.3 C148.3,17.3 155.5,22.7 155.5,35.4 L155.5,58.2 L146.2,58.2 L146.2,35.9 C146.2,29.1 143,25.5 137.7,25.5 C131.9,25.5 127.9,29.6 127.9,37.3 L127.9,58.3 L118.6,58.3 L118.6,18.6 L118.6,18.6 Z"></path>
+                <path d="M183.6,28.8 C183.2,25.9 181,24 178.3,24 C175.1,24 173.3,26 173.3,28.2 C173.3,30.6 174.5,32.3 181.4,34.6 C189.9,37.3 192.9,41.7 192.9,47.3 C192.9,54.6 187.4,59.7 178.3,59.7 C168.8,59.7 164.1,54.5 163.4,47.1 L172,47.1 C172.4,50.4 174.4,52.9 178.5,52.9 C182,52.9 184,50.7 184,48 C184,45 182.3,43.1 175.7,40.9 C168.3,38.5 164.5,34.8 164.5,28.6 C164.5,22.1 169.6,17.3 178,17.3 C186.5,17.3 191,22.3 192,28.8 L183.6,28.8 L183.6,28.8 Z"></path>
+                <path d="M201,0.4 L211.3,0.4 L211.3,9.8 L201,9.8 L201,0.4 Z M201.5,18.6 L210.8,18.6 L210.8,58.3 L201.5,58.3 L201.5,18.6 Z"></path>
+                <path d="M239.5,28.8 C239.1,25.9 236.9,24 234.2,24 C231,24 229.2,26 229.2,28.2 C229.2,30.6 230.4,32.3 237.3,34.6 C245.8,37.3 248.8,41.7 248.8,47.3 C248.8,54.6 243.3,59.7 234.2,59.7 C224.7,59.7 220,54.5 219.3,47.1 L227.9,47.1 C228.3,50.4 230.3,52.9 234.4,52.9 C237.9,52.9 239.9,50.7 239.9,48 C239.9,45 238.2,43.1 231.6,40.9 C224.2,38.5 220.4,34.8 220.4,28.6 C220.4,22.1 225.5,17.3 233.9,17.3 C242.4,17.3 246.9,22.3 247.9,28.8 L239.5,28.8 L239.5,28.8 Z"></path>
+                <path d="M252.8,18.6 L257.8,18.6 L257.8,5.9 L267.1,5.9 L267.1,18.6 L277,18.6 L277,26.4 L267,26.4 L267,44.1 C267,49.5 268.7,51 272.5,51 C274.1,51 275.9,50.7 277.3,50.3 L277.3,57.8 C275.2,58.4 272.6,58.7 270.3,58.7 C260.4,58.7 257.8,52.7 257.8,44.6 L257.8,26.4 L252.8,26.4 L252.8,18.6 Z"></path>
+                <path d="M302.3,17.3 C314.7,17.3 323.5,26.4 323.5,38.4 C323.5,50.1 314.6,59.7 302.3,59.7 C290.2,59.7 281.1,50.4 281.1,38.4 C281.1,26.1 290.3,17.3 302.3,17.3 Z M302.3,51.4 C309.3,51.4 314.1,45.8 314.1,38.4 C314.1,31.4 309.6,25.5 302.3,25.5 C295.2,25.5 290.5,31 290.5,38.4 C290.5,46 295.9,51.4 302.3,51.4 Z"></path>
+                <path d="M350.9,25.8 C344.6,25.8 340.9,29.9 340.9,38.2 L340.9,58.2 L331.6,58.2 L331.6,18.6 L340.7,18.6 L340.7,24.2 L340.9,24.2 C342.7,20.8 346.7,17.3 352,17.3 C353.5,17.3 354.5,17.4 355.5,17.5 L355.5,26.2 C354.3,26 352.9,25.8 350.9,25.8 Z"></path>
+              </g>
+              <g>
+                <g transform="translate(24.000000, 24.000000)">
+                  <path d="M48,95.9 C45.4,95.9 43.2,93.8 43.2,91.1 L43.2,4.9 C43.2,2.3 45.3,0.1 48,0.1 C50.6,0.1 52.8,2.2 52.8,4.9 L52.8,91.1 C52.8,93.7 50.6,95.9 48,95.9 Z"></path>
+                  <path d="M28,52.8 L5,52.8 C2.4,52.8 0.2,50.7 0.2,48 C0.2,45.3 2.3,43.2 5,43.2 L28,43.2 C30.6,43.2 32.8,45.3 32.8,48 C32.8,50.7 30.6,52.8 28,52.8 Z"></path>
+                  <path d="M91.1,52.8 L68,52.8 C65.4,52.8 63.2,50.7 63.2,48 C63.2,45.3 65.3,43.2 68,43.2 L91,43.2 C93.6,43.2 95.8,45.3 95.8,48 C95.8,50.7 93.7,52.8 91.1,52.8 Z"></path>
+                </g>
+                <path d="M72,144 C32.3,144 0,111.7 0,72 C0,32.3 32.3,0 72,0 C111.7,0 144,32.3 144,72 C144,111.7 111.7,144 72,144 Z M72,9.6 C37.6,9.6 9.6,37.6 9.6,72 C9.6,106.4 37.6,134.4 72,134.4 C106.4,134.4 134.4,106.4 134.4,72 C134.4,37.6 106.4,9.6 72,9.6 Z"></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+
+
+      </a>
+    </div>
+
+
+  </main>
+  <span id="default-audio" data-default-audio-url="https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site" data-default-audio-title="Paul Jarvis: gaining freedom by building an indie business" data-default-audio-duration="4309"></span>
+  <footer data-turbo-permanent="" id="site-sticky-player" class="site-sticky-player" aria-label="Audio Player" tabindex="0" x-data="transistor.audioPlayer()" @play-episode.window="playEpisode($event.detail)" @pause-episode.window="pause; $store.player.playing = false" @timejump.window="seekToSeconds($event.detail.timestamp); active = true" :class="{ 'open': active }">
+    <audio x-ref="audio" preload="none" @volumechange="updateVolume" @waiting="waiting" @canplaythrough="canPlayThrough = true" @ended="reset; $store.player.playing = false" @loadedmetadata="init; $store.player.audio_url = $refs.audio.src" @keyup.document.right="seekBySeconds(30)" @keyup.document.left="seekBySeconds(-10)" @keyup.document.m="toggleMute" @keyup.document.s="toggleSpeed"></audio>
+    <nav class="site-sticky-player-buttons">
+      <button x-show="!playing &amp;&amp; !loading" title="Play" @click="play; $store.player.playing = true" class="player-button site-sticky-player-play">
+
+        <svg role="img" class="icon-play" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <title>play</title>
+          <path fill-rule="evenodd" d="M8,16 C12.4183,16 16,12.4183 16,8 C16,3.58172 12.4183,0 8,0 C3.58172,0 0,3.58172 0,8 C0,12.4183 3.58172,16 8,16 Z M7.5547,5.16795 C7.24784,4.96338 6.8533,4.94431 6.52814,5.11833 C6.20298,5.29235 6,5.63121 6,6.00000106 L6,10.0000011 C6,10.3688 6.20298,10.7077 6.52814,10.8817 C6.8533,11.0557 7.24784,11.0366 7.5547,10.8321 L10.5547,8.8321 C10.8329,8.6466 11,8.3344 11,8.00000106 C11,7.66565 10.8329,7.35342 10.5547,7.16795 L7.5547,5.16795 Z"></path>
+        </svg>
+
+
+      </button>
+      <button x-show="playing &amp;&amp; !loading" @click="pause; $store.player.playing = false" title="Pause" class="player-button site-sticky-player-pause" style="display: none;">
+
+        <svg role="img" class="icon-pause" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <title>pause</title>
+          <path fill-rule="evenodd" d="M16,8 C16,12.4183 12.4183,16 8,16 C3.58172,16 0,12.4183 0,8 C0,3.58172 3.58172,0 8,0 C12.4183,0 16,3.58172 16,8 Z M5,6 C5,5.44772 5.44772,5 6,5 C6.55228,5 7,5.44772 7,6 L7,10 C7,10.5523 6.55228,11 6,11 C5.44772,11 5,10.5523 5,10 L5,6 Z M10,5 C9.4477,5 9,5.44772 9,6 L9,10 C9,10.5523 9.4477,11 10,11 C10.5523,11 11,10.5523 11,10 L11,6 C11,5.44772 10.5523,5 10,5 Z"></path>
+        </svg>
+
+
+      </button>
+      <span x-show="loading" class="site-sticky-player-loading" style="display: none;">
+        <svg class="site-sticky-player-spinner-background" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8,16 C12.4183,16 16,12.4183 16,8 C16,3.58172 12.4183,0 8,0 C3.58172,0 0,3.58172 0,8 C0,12.4183 3.58172,16 8,16 Z"></path>
+        </svg>
+        <span class="site-sticky-player-spinner">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </span>
+      </span>
+    </nav>
+
+    <div class="site-sticky-player-progress-controls">
+      <div class="site-sticky-player-currently-playing">
+        <div class="site-sticky-player-title" x-text="title"></div>
+      </div>
+      <div class="site-sticky-player-progress" title="Seek within Episode" @click="seekTo">
+        <div class="site-sticky-player-progress-bar" :style="`width: ${progressPercentage()}%`" role="progressbar" aria-label="Audio player progress" style="width: NaN%"></div>
+      </div>
+      <div class="site-sticky-player-controls-duration">
+        <div class="site-sticky-player-controls">
+          <button @click="seekBySeconds(-10)" title="Rewind 10 seconds" class="site-sticky-player-rewind">
+
+            <svg role="img" class="icon-rewind" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>rewind</title>
+              <path
+                d="M19.419962,2.57 L20.789962,1.21 L20.789962,1.20999999 C21.066111,0.931608989 21.064293,0.482064989 20.7859019,0.205919989 C20.6539209,0.0750019893 20.4758579,0.00106998926 20.2899619,2.98926377e-06 L14.9999619,2.98926377e-06 L14.9999619,5.29000299 L14.9999619,5.2900038 C15.0022111,5.6821198 15.3219069,5.9981688 15.7140229,5.9959198 C15.8999189,5.99485348 16.0779819,5.9209207 16.2099629,5.7900028 L17.9999629,4.00000299 L17.9999633,4.00000299 C22.4115033,7.32267305 23.2942133,13.5924931 19.9715433,18.0040031 C16.6488733,22.4155431 10.3790533,23.2982531 5.96754326,19.9755831 C1.55600326,16.6529131 0.67329326,10.3830931 3.99596326,5.97158305 C5.50733326,3.96493305 7.71859326,2.60063305 10.1899933,2.15000305 L10.1899934,2.15000303 C10.7422784,2.05059173 11.1094044,1.52228803 11.0099934,0.970003035 C10.9105821,0.417718035 10.3822784,0.0505920346 9.82999335,0.150003035 L9.82999275,0.150003146 C3.31278275,1.35360315 -0.994707248,7.61255315 0.208852752,14.1298031 C1.41245275,20.6470131 7.67140275,24.9545031 14.1886528,23.7509431 C20.7058628,22.5473431 25.0133528,16.2883931 23.8097928,9.77114315 C23.2799238,6.90203315 21.7229128,4.32424315 19.4300328,2.52000315 L19.419962,2.57 Z M8.99996191,16 L8.99996191,16 C9.55224696,16 9.99996191,15.552285 9.99996191,15 L9.99996191,8 L6.99996191,8 L6.99996191,8 C6.44767691,8 5.99996191,8.447715 5.99996191,9 C5.99996191,9.552285 6.44767691,10 6.99996191,10 L7.99996191,10 L7.99996191,15 L7.99996191,15 C7.99996191,15.5522848 8.44767691,16 8.99996191,16 C8.99996191,16 8.99996191,16 8.99996191,16 L8.99996191,16 Z M13.9999619,16 L13.9999619,16 C15.6568119,16 16.9999619,14.65685 16.9999619,13 L16.9999619,11 L16.9999619,11 C16.9999619,9.34315 15.6568119,8 13.9999619,8 C12.3431119,8 10.9999619,9.34315 10.9999619,11 L10.9999619,13 L10.9999619,13 C10.9999619,14.6568505 12.3431119,16 13.9999619,16 C13.9999619,16 13.9999619,16 13.9999619,16 L13.9999619,16 Z M12.999962,11.0000002 L12.999962,11.0000002 C12.999962,10.4477152 13.447677,10.0000002 13.999962,10.0000002 C14.552247,10.0000002 14.999962,10.4477152 14.999962,11.0000002 C14.999962,11.0000002 14.999962,11.0000002 14.999962,11.0000002 L14.999962,13.0000002 L14.999962,13.0000002 C14.999962,13.5522852 14.552247,14.0000002 13.999962,14.0000002 C13.447677,14.0000002 12.999962,13.5522852 12.999962,13.0000002 L12.999962,11.0000002 Z">
+              </path>
+            </svg>
+
+
+          </button>
+          <button @click="toggleSpeed" title="Change Playback Speed" class="site-sticky-player-speed" x-text="`${displaySpeed}x`">1x</button>
+          <button @click="seekBySeconds(30)" title="Fast Forward 30 seconds" class="site-sticky-player-fastforward">
+
+            <svg role="img" class="icon-fastforward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>fast forward</title>
+              <path
+                d="M15.0000099,16 L15.0000099,16 C16.6568599,16 18.0000099,14.65685 18.0000099,13 L18.0000099,11 L18.0000099,11 C18.0000099,9.34315 16.6568599,8 15.0000099,8 C13.3431599,8 12.0000099,9.34315 12.0000099,11 L12.0000099,13 L12.0000099,13 C12.0000099,14.6568505 13.3431599,16 15.0000099,16 C15.0000099,16 15.0000099,16 15.0000099,16 L15.0000099,16 Z M14.00001,11.0000002 L14.00001,11.0000002 C14.00001,10.4477152 14.447725,10.0000002 15.00001,10.0000002 C15.552295,10.0000002 16.00001,10.4477152 16.00001,11.0000002 C16.00001,11.0000002 16.00001,11.0000002 16.00001,11.0000002 L16.00001,13.0000002 L16.00001,13.0000002 C16.00001,13.5522852 15.552295,14.0000002 15.00001,14.0000002 C14.447725,14.0000002 14.00001,13.5522852 14.00001,13.0000002 L14.00001,11.0000002 Z M7.00000983,7.99999762 L7.00000983,7.99999762 C6.44772496,7.99999762 6.00000983,8.447715 6.00000983,8.99999762 C6.00000983,9.552285 6.44772496,9.99999762 7.00000983,9.99999762 L8.50000983,9.99999762 L8.50000983,9.99999762 C8.77615193,9.99999762 9.00000983,10.223858 9.00000983,10.4999976 C9.00000983,10.776142 8.77615193,10.9999976 8.50000983,10.9999976 L7.00000983,10.9999976 L7.00000983,10.9999976 C6.44772489,10.9999976 6.00000983,11.447715 6.00000983,11.9999976 C6.00000983,12.552285 6.44772489,12.9999976 7.00000983,12.9999976 L8.50000983,12.9999976 L8.50000983,12.9999976 C8.77615187,12.9999976 9.00000983,13.223858 9.00000983,13.4999976 C9.00000983,13.776142 8.77615187,13.9999976 8.50000983,13.9999976 L7.00000983,13.9999976 L7.00000983,13.9999976 C6.44772483,13.9999976 6.00000983,14.447715 6.00000983,14.9999976 C6.00000983,15.552285 6.44772483,15.9999976 7.00000983,15.9999976 L8.50000983,15.9999976 L8.50000983,15.9999976 C9.88071972,15.9999976 11.0000098,14.88071 11.0000098,13.4999976 L11.0000098,13.5000078 C10.9949875,12.9583018 10.8162208,12.4325078 10.4900148,12.0000078 L10.4900147,12.0000079 C10.8162217,11.5675019 10.9949887,11.0417099 11.0000098,10.4999976 L11.0000098,10.4999976 C11.0000098,9.11928762 9.88071974,7.99999762 8.50000983,7.99999762 C8.50000983,7.99999762 8.50000983,7.99999762 8.50000983,7.99999762 L7.00000983,7.99999762 Z M14.18001,0.2 L14.1800101,0.200000017 C13.6277251,0.100588717 13.0994201,0.467715017 13.0000101,1.02000002 C12.9005988,1.57228502 13.2677251,2.10059002 13.8200101,2.20000002 L13.8200112,2.20000022 C19.2469712,3.22467022 22.8157312,8.45476022 21.7910512,13.8817002 C20.7663812,19.3086602 15.5362912,22.8774202 10.1093512,21.8527402 C4.68239119,20.8280702 1.11363119,15.5979802 2.13831119,10.1710402 C2.60451319,7.70190022 3.98319119,5.49877022 6.00003119,4.00000013 L7.79003119,5.79000022 L7.79003121,5.79000024 C8.06842221,6.06614924 8.51796621,6.06433124 8.79411121,5.78594013 C8.92502921,5.65395913 8.99896121,5.47589613 9.00002821,5.29000013 L9.00002821,1.31893483e-07 L3.71002821,1.31893483e-07 L3.71002824,1.31893483e-07 C3.31791224,0.00224888189 3.00186324,0.321944132 3.00411124,0.714060132 C3.00517734,0.899956132 3.07910994,1.07801913 3.21002824,1.21000013 L4.58002824,2.57000013 L4.58002779,2.57000049 C-0.628262215,6.66833049 -1.52806221,14.2128005 2.57026779,19.4211005 C6.66859779,24.6293905 14.2130678,25.5291905 19.4213678,21.4308605 C24.6296578,17.3325305 25.5294578,9.78806049 21.4311278,4.57976049 C19.6268878,2.28688049 17.0490978,0.729870486 14.1799878,0.200000486 L14.18001,0.2 Z">
+              </path>
+            </svg>
+
+
+          </button>
+        </div>
+        <div class="site-sticky-player-duration">
+          <div x-text="formatTime(currentTime)">00:00</div>
+          <div>|</div>
+          <div :datetime="formatTime(duration)" x-text="formatTime(duration)" datetime="00:00">00:00</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>

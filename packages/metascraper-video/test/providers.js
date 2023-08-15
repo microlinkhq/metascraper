@@ -45,5 +45,9 @@ test('9gag.com', async t => {
   const url = 'https://9gag.com/gag/abY5Mm9'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
-  t.true(metadata.video.endsWith('.mp4'))
+
+  t.is(
+    metadata.video,
+    'https://img-9gag-fun.9cache.com/photo/abY5Mm9_460svvp9.webm'
+  )
 })

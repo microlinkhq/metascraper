@@ -96,3 +96,45 @@ test('deezer.com', async t => {
     'https://cdns-preview-f.dzcdn.net/stream/c-fd483edcc271cabd1a307132ebda8cef-5.mp3'
   )
 })
+
+test('transistor.fm (twitter:player:stream)', async t => {
+  const html = await readFile(
+    resolve(__dirname, 'fixtures/providers/transistor.fm.html')
+  )
+  const url =
+    'https://saas.transistor.fm/episodes/paul-jarvis-gaining-freedom-by-building-an-indie-business'
+
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+
+  t.is(
+    metadata.audio,
+    'https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site'
+  )
+})
+
+test('transistor.fm (twitter:player)', async t => {
+  const html = (
+    await readFile(resolve(__dirname, 'fixtures/providers/transistor.fm.html'))
+  )
+    .toString()
+    .replace(
+      '<meta name="twitter:player:stream" content="https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=site">',
+      ''
+    )
+    .replace(
+      '<meta name="twitter:player:stream:content_type" content="audio/mpeg">',
+      ''
+    )
+
+  const url =
+    'https://saas.transistor.fm/episodes/paul-jarvis-gaining-freedom-by-building-an-indie-business'
+
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+
+  t.is(
+    metadata.audio,
+    'https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=player'
+  )
+})
