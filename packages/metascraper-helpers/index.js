@@ -1,7 +1,6 @@
 'use strict'
 
 const memoizeOne = require('memoize-one').default || require('memoize-one')
-const urlRegex = require('url-regex-safe')({ exact: true, parens: true })
 const condenseWhitespace = require('condense-whitespace')
 const { getExtension: mimeExtension } = require('mime')
 const capitalize = require('microsoft-capitalize')
@@ -18,6 +17,14 @@ const isIso = require('isostring')
 const isUri = require('is-uri')
 const { URL } = require('url')
 const tldts = require('tldts')
+
+const urlRegex = require('url-regex-safe')({
+  exact: true,
+  parens: true,
+  re2: process.env.METASCRAPER_RE2
+    ? process.env.METASCRAPER_RE2 === 'true'
+    : undefined
+})
 
 const {
   chain,
