@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.36.0](https://github.com/microlinkhq/metascraper/compare/v5.35.2...v5.36.0) (2023-08-16)
+
+### Features
+
+* be possible to skip re2 ([#656](https://github.com/microlinkhq/metascraper/issues/656)) ([7dd62e7](https://github.com/microlinkhq/metascraper/commit/7dd62e7e5343fb8a52b8908529f83803a4b71088))
+
 ## [5.35.2](https://github.com/microlinkhq/metascraper/compare/v5.35.1...v5.35.2) (2023-08-15)
 
 ### Bug Fixes
