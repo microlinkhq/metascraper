@@ -22,6 +22,8 @@ $ npm install metascraper-clearbit --save
 
 ##### gotOpts
 
+Type: `object`
+
 Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
 In addition, these options are set by default:
