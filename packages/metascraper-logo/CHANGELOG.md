@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.37.0](https://github.com/microlinkhq/metascraper/compare/v5.36.0...v5.37.0) (2023-08-30)
+
+### Features
+
+* **logo:** support filter method ([#659](https://github.com/microlinkhq/metascraper/issues/659)) ([b53b726](https://github.com/microlinkhq/metascraper/commit/b53b726528049a069079346bca66c309d093a276))
+
 # [5.36.0](https://github.com/microlinkhq/metascraper/compare/v5.35.2...v5.36.0) (2023-08-16)
 
 **Note:** Version bump only for package metascraper-logo
