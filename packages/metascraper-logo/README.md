@@ -14,6 +14,26 @@
 $ npm install metascraper-logo --save
 ```
 
+## API
+
+### metascraper-logo([options])
+
+#### options
+
+##### filter
+
+Type: `function`
+
+A function to filter results in case it passes a test implemented by the provided function. It is the `url` as the first parameter:
+
+```js
+const metascraper = require('metascraper')([
+  require('metascraper-logo')({
+    filter: url => url.endsWith('.png')
+  })
+])
+```
+
 ## License
 
 **metascraper-logo** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
