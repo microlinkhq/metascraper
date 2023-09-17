@@ -170,7 +170,7 @@
     ]
   },
   "nano-staged": {
-    "*.js,!*.min.js,": [
+    "*.js,!*.min.js": [
       "prettier-standard",
       "standard --fix"
     ],
