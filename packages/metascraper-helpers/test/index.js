@@ -58,7 +58,6 @@ test('.normalizeUrl', t => {
   )
   t.is(normalizeUrl('https://example.com/'), 'https://example.com/')
   t.is(normalizeUrl('https://example.com'), 'https://example.com/')
-
   t.is(normalizeUrl('https://www.example.com', 'https://www.example.com/foo'), 'https://www.example.com/foo')
   t.is(normalizeUrl('https://www.example.com', '/foo'), 'https://www.example.com/foo')
   t.is(normalizeUrl('https://www.example.com', 'file.html'), 'https://www.example.com/file.html')
