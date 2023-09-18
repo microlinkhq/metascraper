@@ -78,35 +78,18 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
   return {
     audio: audioRules.concat(
       async ({ htmlDom: $, url }) => {
-        const iframe = $('iframe')
-        if (iframe.length === 0) return
-
-        const srcs = []
-
-        iframe.each(function () {
-          const src = $(this).attr('src')
-          const normalizedUrl = normalizeUrl(url, src)
-          if (
-            typeof normalizedUrl === 'string' &&
-            normalizedUrl.startsWith('http') &&
-            srcs.indexOf(normalizedUrl) === -1
-          ) {
-            srcs.push(normalizedUrl)
-          }
-        })
-
-        return srcs.length > 0
-          ? pReflect(
-            Promise.any(
-              srcs.map(async src => {
-                const htmlDom = await getIframe(url, $, { src })
-                const result = await findRule(audioRules, { htmlDom, url })
-                if (!has(result)) throw TypeError('no result')
-                return result
-              })
-            )
-          ).then(({ value }) => value)
-          : undefined
+        const srcs = [...new $('iframe').map((_, element) => $(element).attr('src')).get().map(src => normalizeUrl(url, src))]
+        if (srcs.length === 0) return
+        return pReflect(
+          Promise.any(
+            srcs.map(async src => {
+              const htmlDom = await getIframe(url, $, { src })
+              const result = await findRule(audioRules, { htmlDom, url })
+              if (!has(result)) throw TypeError('no result')
+              return result
+            })
+          )
+        ).then(({ value }) => value)
       },
       async ({ htmlDom: $, url }) => {
         const src = $twitter($, 'twitter:player')
