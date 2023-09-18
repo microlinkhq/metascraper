@@ -2,7 +2,7 @@
   "name": "metascraper-iframe",
   "description": "Embed a representation of an URL on third party sites",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-iframe",
-  "version": "5.36.0",
+  "version": "5.37.1",
   "main": "src/index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -24,7 +24,7 @@
     "oembed"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.36.0",
+    "@metascraper/helpers": "^5.37.1",
     "got": "~11.8.6",
     "lodash": "~4.17.21",
     "oembed-spec": "~1.3.29",

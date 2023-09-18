@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.37.1](https://github.com/microlinkhq/metascraper/compare/v5.37.0...v5.37.1) (2023-09-18)
+
+### Bug Fixes
+
+* **audio:** don't consider iframe referencing itself ([#663](https://github.com/microlinkhq/metascraper/issues/663)) ([134ec60](https://github.com/microlinkhq/metascraper/commit/134ec60adb29d415f4156059d8f576ce4294a9ab))
+
 # [5.37.0](https://github.com/microlinkhq/metascraper/compare/v5.36.0...v5.37.0) (2023-08-30)
 
 ### Features
