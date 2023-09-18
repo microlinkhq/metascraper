@@ -24,6 +24,8 @@ const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
   ].filter(Boolean)
 
   if (cacheDir) flags.cacheDir = cacheDir
+  else flags.noCacheDir = true
+
   if (proxy) flags.proxy = proxy.toString()
 
   return flags
