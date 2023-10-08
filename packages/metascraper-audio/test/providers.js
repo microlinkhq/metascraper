@@ -135,6 +135,6 @@ test('transistor.fm (twitter:player)', async t => {
 
   t.is(
     metadata.audio,
-    'https://media.transistor.fm/e83b42d0/9e93424b.mp3?src=player'
+    'https://chrt.fm/track/637E/2.gum.fm/op3.dev/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e83b42d0/9e93424b.mp3?src=player'
   )
 })

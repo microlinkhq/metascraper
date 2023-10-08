@@ -340,11 +340,10 @@ memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
 const jsonld = memoizeOne(
   $ =>
     $('script[type="application/ld+json"]')
-      .map(function () {
+      .map((_, element) => {
         try {
-          const el = $(this)
+          const el = $(element)
           const json = JSON.parse($(el).contents().text())
-
           const { '@graph': graph, ...props } = json
           if (!graph) return json
           return graph.map(item => ({ ...props, ...item }))
