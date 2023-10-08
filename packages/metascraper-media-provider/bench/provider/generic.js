@@ -1,10 +1,11 @@
 'use strict'
 
+const timeSpan = require('@kikobeats/time-span')({
+  format: require('pretty-ms')
+})
 const debug = require('debug-logfmt')(
   'metascraper-media-provider:bench:generic'
 )
-const timeSpan = require('time-span')
-const prettyMs = require('pretty-ms')
 
 const createFromGeneric = require('../../src/get-media/provider/generic')
 const { getUrl, ...opts } = require('../constants')
@@ -17,12 +18,12 @@ const mainLoop = async () => {
   let error = false
   while (!error) {
     try {
-      const end = timeSpan()
+      const duration = timeSpan()
       const url = getUrl()
       const media = await fromGeneric(getUrl())
       const hasMedia = !!media && !!media.extractor
 
-      debug({ n: n++, hasMedia, time: prettyMs(end()) })
+      debug({ n: n++, hasMedia, duration: duration() })
 
       if (!hasMedia) {
         const err = new Error(`No media detected for '${url}'`)

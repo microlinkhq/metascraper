@@ -1,10 +1,11 @@
 'use strict'
 
+const timeSpan = require('@kikobeats/time-span')({
+  format: require('pretty-ms')
+})
 const debug = require('debug-logfmt')(
   'metascraper-media-provider:bench:twitter'
 )
-const prettyMs = require('pretty-ms')
-const timeSpan = require('time-span')
 
 const {
   createGuestToken,
@@ -21,11 +22,11 @@ const mainLoop = async () => {
   let error = false
   while (!error) {
     try {
-      const end = timeSpan()
+      const duration = timeSpan()
       const data = await twitterVideo(getUrl())
       const hasVideo = data && data.formats && data.formats.length > 0
 
-      debug({ n: n++, hasVideo, time: prettyMs(end()) })
+      debug({ n: n++, hasVideo, duration: duration() })
 
       if (!hasVideo) {
         const err = new Error('No video detected!')

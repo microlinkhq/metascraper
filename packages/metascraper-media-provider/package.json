@@ -35,10 +35,10 @@
     "youtube-dl-exec": "~2.4.12"
   },
   "devDependencies": {
+    "@kikobeats/time-span": "latest",
     "ava": "latest",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
-    "time-span": "4",
     "unique-random-array": "2"
   },
   "engines": {
