@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.38.0](https://github.com/microlinkhq/metascraper/compare/v5.37.2...v5.38.0) (2023-11-09)
+
+### Features
+
+* **logo-favicon:** granular control ([#667](https://github.com/microlinkhq/metascraper/issues/667)) ([5a22fc3](https://github.com/microlinkhq/metascraper/commit/5a22fc33f68b73d990bc7027baad03e138b50a69))
+
 ## [5.37.2](https://github.com/microlinkhq/metascraper/compare/v5.37.1...v5.37.2) (2023-09-18)
 
 **Note:** Version bump only for package metascraper
