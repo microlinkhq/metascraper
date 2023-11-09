@@ -20,6 +20,27 @@ $ npm install metascraper-logo-favicon --save
 
 #### options
 
+##### google
+
+Type: `boolean`<br>
+Default: `true`
+
+It enables logo resolution using Google API.
+
+##### favicon
+
+Type: `boolean`<br>
+Default: `true`
+
+It tries to resolve `favicon.ico` of the url.
+
+##### rootFavicon
+
+Type: `boolean`|`regexp`<br>
+Default: `true`
+
+It tries to resolve `favicon.ico` of the url when the URL is a subdomain.
+
 ##### pickFn
 
 Type: `function`
