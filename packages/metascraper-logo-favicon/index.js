@@ -135,16 +135,17 @@ const createGetLogo = ({ withGoogle, withFavicon, gotOpts, keyvOpts }) => {
     }
   }
 
-  return memoize(getLogo, keyvOpts, {
+  const fn = memoize(getLogo, keyvOpts, {
     value: value => (value === undefined ? null : value)
   })
-}
 
-const castNull = value => (value === null ? undefined : value)
+  return (...args) =>
+    fn(...args).then(value => (value === null ? undefined : value))
+}
 
 const createRootFavicon = ({ getLogo, withRootFavicon = true } = {}) => {
   if (withRootFavicon === false) return undefined
-  return async ({ url }) => {
+  return ({ url }) => {
     const urlObj = new URL(url)
     const domain = parseUrl(url).domain
 
@@ -153,8 +154,7 @@ const createRootFavicon = ({ getLogo, withRootFavicon = true } = {}) => {
     }
 
     urlObj.hostname = domain
-    const result = await getLogo(normalizeUrl(urlObj))
-    return castNull(result)
+    return getLogo(normalizeUrl(urlObj))
   }
 }
 
@@ -175,7 +175,7 @@ module.exports = ({
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
-      async ({ url }) => castNull(await getLogo(normalizeUrl(url))),
+      ({ url }) => getLogo(normalizeUrl(url)),
       rootFavicon
     ].filter(Boolean)
   }
