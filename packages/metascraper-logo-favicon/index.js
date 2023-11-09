@@ -105,38 +105,69 @@ const pickBiggerSize = sizes => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const createGetLogo = ({ gotOpts, keyvOpts }) => {
-  const getLogo = async url => {
-    const faviconUrl = logo('/favicon.ico', { url })
-    if (!faviconUrl) return
-
-    let response = await reachableUrl(faviconUrl, gotOpts)
-
-    if (
-      reachableUrl.isReachable(response) &&
-      response.headers['content-type']?.startsWith('image')
-    ) {
-      return faviconUrl
-    }
-
-    response = await reachableUrl(
-      `https://www.google.com/s2/favicons?domain_url=${url}&sz=128`,
-      gotOpts
-    )
-
-    return reachableUrl.isReachable(response) ? response.url : undefined
-  }
-
-  return memoize(getLogo, keyvOpts, {
-    value: value => (value === undefined ? null : value)
-  })
+const favicon = async (url, { gotOpts } = {}) => {
+  const faviconUrl = logo('/favicon.ico', { url })
+  if (!faviconUrl) return undefined
+  const response = await reachableUrl(faviconUrl, gotOpts)
+  return reachableUrl.isReachable(response) &&
+    response.headers['content-type']?.startsWith('image')
+    ? faviconUrl
+    : undefined
 }
 
-const castNull = value => (value === null ? undefined : value)
+const google = async (url, { gotOpts } = {}) => {
+  const response = await reachableUrl(google.url(url), gotOpts)
+  return reachableUrl.isReachable(response) ? response.url : undefined
+}
 
-module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
-  const getLogo = createGetLogo({ gotOpts, keyvOpts })
+google.url = (url, size = 128) =>
+  `https://www.google.com/s2/favicons?domain_url=${url}&sz=${size}`
 
+const createGetLogo = ({ withGoogle, withFavicon, gotOpts, keyvOpts }) => {
+  const getLogo = async url => {
+    const providers = [withFavicon && favicon, withGoogle && google].filter(
+      Boolean
+    )
+
+    for (const provider of providers) {
+      const logoUrl = await provider(url, { gotOpts })
+      if (logoUrl) return logoUrl
+    }
+  }
+
+  const fn = memoize(getLogo, keyvOpts, {
+    value: value => (value === undefined ? null : value)
+  })
+
+  return (...args) =>
+    fn(...args).then(value => (value === null ? undefined : value))
+}
+
+const createRootFavicon = ({ getLogo, withRootFavicon = true } = {}) => {
+  if (withRootFavicon === false) return undefined
+  return ({ url }) => {
+    const urlObj = new URL(url)
+    const domain = parseUrl(url).domain
+
+    if (withRootFavicon instanceof RegExp && withRootFavicon.test(domain)) {
+      return undefined
+    }
+
+    urlObj.hostname = domain
+    return getLogo(normalizeUrl(urlObj))
+  }
+}
+
+module.exports = ({
+  google: withGoogle = true,
+  favicon: withFavicon = true,
+  rootFavicon: withRootFavicon = true,
+  gotOpts,
+  keyvOpts,
+  pickFn = pickBiggerSize
+} = {}) => {
+  const getLogo = createGetLogo({ withGoogle, withFavicon, gotOpts, keyvOpts })
+  const rootFavicon = createRootFavicon({ getLogo, withRootFavicon })
   return {
     logo: [
       toUrl($ => {
@@ -144,13 +175,13 @@ module.exports = ({ gotOpts, keyvOpts, pickFn = pickBiggerSize } = {}) => {
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')
       }),
-      async ({ url }) => castNull(await getLogo(normalizeUrl(url))),
-      async ({ url }) => {
-        const urlObj = new URL(url)
-        urlObj.hostname = parseUrl(url).domain
-        const result = await getLogo(normalizeUrl(urlObj))
-        return castNull(result)
-      }
-    ]
+      ({ url }) => getLogo(normalizeUrl(url)),
+      rootFavicon
+    ].filter(Boolean)
   }
 }
+
+module.exports.favicon = favicon
+module.exports.google = google
+module.exports.createRootFavicon = createRootFavicon
+module.exports.createGetLogo = createGetLogo
