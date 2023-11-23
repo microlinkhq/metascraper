@@ -115,8 +115,6 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const REGEX_TITLE_SEPARATOR = /^[^|\-/•—]+/
 
-const TRUNCATE_MAX_LENGTH = 300
-
 const AUTHOR_MAX_LENGTH = 128
 
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
@@ -253,7 +251,7 @@ const description = (value, opts) =>
 
 const getDescription = (
   str,
-  { truncateLength = TRUNCATE_MAX_LENGTH, ellipsis = '…', ...opts } = {}
+  { truncateLength = Number.MAX_SAFE_INTEGER, ellipsis = '…', ...opts } = {}
 ) => {
   let truncated = str.slice(0, truncateLength)
   if (truncated.length < str.length) truncated = truncated.trim() + ellipsis
