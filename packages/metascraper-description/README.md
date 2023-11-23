@@ -23,7 +23,7 @@ $ npm install metascraper-description --save
 ##### truncateLength
 
 Type: `number`<br>
-Default: `300`
+Default: `Number.MAX_SAFE_INTEGER`
 
 Truncate the value extracted to a maximum size.
 
