@@ -68,42 +68,51 @@ const isDownloadable = ({ url }) =>
   new URL(url).searchParams.get('download') === '1'
 
 const getFormatUrls =
-  ({ orderBy }) =>
-    (input, filters) => {
+  (basicFilters, { orderBy }) =>
+    (input, extraFilters, { isStream }) => {
+      const filters = extraFilters.concat(basicFilters({ isStream }))
+
       const formats = get(input, 'formats') ||
       get(input, 'entries[0].formats') || [input]
 
       const url = chain(formats)
         .filter(overEvery(filters))
         .orderBy(orderBy, 'asc')
-        .map('url')
+        .map(isStream ? 'manifest_url' : 'url')
         .last()
         .value()
 
       return !isEmpty(url) ? url : undefined
     }
 
-const getVideoUrls = getFormatUrls({ orderBy: 'tbr' })
+const VIDEO_FILTERS = ({ isStream }) =>
+  [
+    isStream ? undefined : hasVideo,
+    isMp4,
+    isHttps,
+    negate(isDownloadable),
+    isStream ? undefined : negate(isM3u8),
+    negate(isMpd),
+    isStream ? undefined : hasVideoCodec
+  ].filter(Boolean)
 
-const getAudioUrls = getFormatUrls({ orderBy: 'abr' })
-
-const VIDEO_FILTERS = [
-  hasVideo,
-  isMp4,
+const AUDIO_FILTERS = () => [
+  hasAudio,
   isHttps,
   negate(isDownloadable),
-  negate(isM3u8),
-  negate(isMpd),
-  hasVideoCodec
+  hasAudioCodec
 ]
 
-const AUDIO_FILTERS = [hasAudio, isHttps, negate(isDownloadable), hasAudioCodec]
+const getVideoUrls = getFormatUrls(VIDEO_FILTERS, { orderBy: 'tbr' })
+
+const getAudioUrls = getFormatUrls(AUDIO_FILTERS, { orderBy: 'abr' })
 
 const getVideo = data =>
-  getVideoUrls(data, [hasAudioCodec, ...VIDEO_FILTERS]) ||
-  getVideoUrls(data, VIDEO_FILTERS)
+  getVideoUrls(data, [hasAudioCodec], { isStream: false }) ||
+  getVideoUrls(data, [], { isStream: false }) ||
+  getVideoUrls(data, [], { isStream: true })
 
-const getAudio = data => getAudioUrls(data, AUDIO_FILTERS)
+const getAudio = data => getAudioUrls(data, [], { isStream: false })
 
 const getAuthor = ({ uploader, creator, uploader_id: uploaderId }) =>
   find([creator, uploader, uploaderId], str => authorFn(str))
