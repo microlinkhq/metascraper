@@ -25,7 +25,7 @@
     "@metascraper/helpers": "^5.40.0"
   },
   "devDependencies": {
-    "ava": "5"
+    "ava": "latest"
   },
   "engines": {
     "node": ">= 16"

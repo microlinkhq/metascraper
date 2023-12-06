@@ -30,7 +30,7 @@
     "spotify-url-info": "~3.2.6"
   },
   "devDependencies": {
-    "ava": "5",
+    "ava": "latest",
     "kind-of": "latest",
     "lodash": "latest"
   },
