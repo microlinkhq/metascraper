@@ -63,7 +63,7 @@
     "whoops": "~4.1.4"
   },
   "devDependencies": {
-    "ava": "latest"
+    "ava": "5"
   },
   "engines": {
     "node": ">= 16"

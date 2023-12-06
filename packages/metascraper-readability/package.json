@@ -27,7 +27,7 @@
     "jsdom": "~22.1.0"
   },
   "devDependencies": {
-    "ava": "latest",
+    "ava": "5",
     "metascraper": "latest"
   },
   "engines": {

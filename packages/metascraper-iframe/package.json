@@ -31,7 +31,8 @@
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {
-    "ava": "latest",
+    "ava": "5",
+    "cacheable-lookup": "6",
     "cheerio": "latest"
   },
   "engines": {

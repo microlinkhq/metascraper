@@ -29,7 +29,7 @@
     "reachable-url": "~1.7.1"
   },
   "devDependencies": {
-    "ava": "latest"
+    "ava": "5"
   },
   "engines": {
     "node": ">= 16"

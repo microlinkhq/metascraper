@@ -31,7 +31,7 @@
     "lodash": "~4.17.21"
   },
   "devDependencies": {
-    "ava": "latest"
+    "ava": "5"
   },
   "engines": {
     "node": ">= 16"

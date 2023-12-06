@@ -46,7 +46,7 @@
     "video-extensions": "~1.2.0"
   },
   "devDependencies": {
-    "ava": "latest",
+    "ava": "5",
     "cheerio": "latest"
   },
   "engines": {
