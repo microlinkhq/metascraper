@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",
-    "ava": "latest",
+    "ava": "5",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
     "unique-random-array": "2"

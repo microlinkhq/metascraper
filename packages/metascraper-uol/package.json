@@ -27,7 +27,7 @@
     "@metascraper/helpers": "^5.39.0"
   },
   "devDependencies": {
-    "ava": "latest",
+    "ava": "5",
     "word-slug": "latest"
   },
   "engines": {
