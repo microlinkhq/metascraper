@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.40.0](https://github.com/microlinkhq/metascraper/compare/v5.38.0...v5.40.0) (2023-12-06)
+
+### Features
+
+* **description:** don't truncate by default ([#668](https://github.com/microlinkhq/metascraper/issues/668)) ([383d1b3](https://github.com/microlinkhq/metascraper/commit/383d1b3b2437470d8ac54877b782a1fbcb8cea13))
+* **media-provider:** stream support ([#671](https://github.com/microlinkhq/metascraper/issues/671)) ([fec73f8](https://github.com/microlinkhq/metascraper/commit/fec73f80af0541ba00ecaafecd03e823c79856fc))
+
 # [5.39.0](https://github.com/microlinkhq/metascraper/compare/v5.38.0...v5.39.0) (2023-11-23)
 
 ### Features
