@@ -1,5 +1,6 @@
 'use strict'
 
+const CacheableLookup = require('cacheable-lookup')
 const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const test = require('ava')
@@ -12,19 +13,20 @@ const createMetascraper = (...args) =>
   require('metascraper')([createMetascraperIframe(...args)])
 
 test('provide `gotOpts`', async t => {
-  const cache = new Map()
+  console.log('running')
+  const dnsCache = new CacheableLookup()
   const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
   const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
-  const metascraper = createMetascraper({ gotOpts: { cache } })
+  const metascraper = createMetascraper({ gotOpts: { dnsCache } })
 
   const metadataOne = await metascraper({
     url,
     html,
     iframe: { maxWidth: 350 }
   })
-
   t.truthy(metadataOne.iframe)
-  t.is(cache.size, 2)
+
+  t.is(dnsCache._cache.size, 2)
 
   const metadataTwo = await metascraper({
     url,
@@ -33,7 +35,7 @@ test('provide `gotOpts`', async t => {
   })
 
   t.truthy(metadataTwo.iframe)
-  t.is(cache.size, 4)
+  t.is(dnsCache._cache.size, 2)
 })
 
 test('provide `iframe`', async t => {
