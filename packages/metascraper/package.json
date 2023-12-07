@@ -4,6 +4,7 @@
   "homepage": "https://metascraper.js.org",
   "version": "5.40.0",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/microlinkhq/metascraper.git"
@@ -63,7 +64,8 @@
     "whoops": "~4.1.4"
   },
   "devDependencies": {
-    "ava": "5"
+    "ava": "5",
+    "tsd": "latest"
   },
   "engines": {
     "node": ">= 16"
@@ -72,11 +74,16 @@
     "src"
   ],
   "scripts": {
+    "lint": "tsd",
+    "pretest": "npm run lint",
     "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
   "license": "MIT",
   "ava": {
     "failFast": true,
     "timeout": "5m"
+  },
+  "tsd": {
+    "directory": "test/types"
   }
 }
