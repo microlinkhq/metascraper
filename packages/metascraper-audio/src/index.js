@@ -78,7 +78,12 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
   return {
     audio: audioRules.concat(
       async ({ htmlDom: $, url }) => {
-        const srcs = [...new $('iframe').map((_, element) => $(element).attr('src')).get().map(src => normalizeUrl(url, src))]
+        const srcs = [
+          ...new $('iframe')
+            .map((_, element) => $(element).attr('src'))
+            .get()
+            .map(src => normalizeUrl(url, src))
+        ]
         if (srcs.length === 0) return
         return pReflect(
           Promise.any(

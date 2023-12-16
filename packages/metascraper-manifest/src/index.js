@@ -9,12 +9,7 @@ const memoize = require('@keyvhq/memoize')
 const got = require('got')
 
 const parseSize = str => {
-  const parse = Number(
-    chain(str)
-      .split('x')
-      .first()
-      .value()
-  )
+  const parse = Number(chain(str).split('x').first().value())
   return Number.isNaN(parse) ? 0 : parse
 }
 

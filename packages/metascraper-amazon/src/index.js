@@ -11,7 +11,8 @@ const {
   url
 } = require('@metascraper/helpers')
 
-const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
+const REGEX_AMAZON_URL =
+  /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 
 const test = memoizeOne(url => REGEX_AMAZON_URL.test(url))
 
