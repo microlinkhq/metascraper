@@ -31,4 +31,5 @@ type Options = {
   gotOpts: import('got').Options;
 } & import('youtube-dl-exec').Flags;
 
-export default function rules(options?: Options): import('metascraper').Rules
+declare function rules(options?: Options): import('metascraper').Rules
+export = rules;

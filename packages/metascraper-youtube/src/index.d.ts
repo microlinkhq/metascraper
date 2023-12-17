@@ -5,4 +5,5 @@ type Options = {
   gotOpts?: import('got').Options,
 }
 
-export default function rules(Option?): import('metascraper').Rules;
+declare function rules(Option?): import('metascraper').Rules;
+export = rules;

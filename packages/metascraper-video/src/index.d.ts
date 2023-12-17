@@ -6,4 +6,5 @@ type Options = {
   getIframe?: (url: string, htmlDom: import('cheerio').CheerioAPI, iframeAttributes: IframeAttributes) => string;
 }
 
-export default function rules(options?: Options): import('metascraper').Rules;
+declare function rules(options?: Options): import('metascraper').Rules;
+export = rules;

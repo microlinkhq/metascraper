@@ -1,1 +1,2 @@
-export default function rules(): import('metascraper').Rules;
+declare function rules(): import('metascraper').Rules;
+export = rules;
