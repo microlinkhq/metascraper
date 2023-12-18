@@ -79,7 +79,7 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
     audio: audioRules.concat(
       async ({ htmlDom: $, url }) => {
         const srcs = [
-          ...new $('iframe')
+          ...new $('iframe[src^="http"], iframe[src^="/"]')
             .map((_, element) => $(element).attr('src'))
             .get()
             .map(src => normalizeUrl(url, src))
