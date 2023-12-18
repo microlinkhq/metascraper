@@ -6,7 +6,6 @@ const debug = require('debug-logfmt')(
 const { serializeError } = require('serialize-error')
 const youtubedl = require('youtube-dl-exec')
 const { get, constant } = require('lodash')
-const pDoWhilst = require('p-do-whilst')
 const pTimeout = require('p-timeout')
 
 const RE_UNSUPORTED_URL = /Unsupported URL/
@@ -53,16 +52,19 @@ module.exports = ({
     const userAgent = get(gotOpts, 'headers.user-agent')
 
     const task = async () => {
-      await pDoWhilst(async () => {
+      do {
         try {
           const proxy = getProxy({ url, retryCount: retryCount++ })
           const flags = getFlags({ url, proxy, userAgent, cacheDir })
           data = await youtubedl(url, flags, { timeout, ...props })
         } catch (error) {
-          if (condition()) { debug('getInfo:error', { retryCount }, serializeError(error)) }
+          if (condition()) {
+            debug('getInfo:error', { retryCount }, serializeError(error))
+          }
           isSupportedURL = !RE_UNSUPORTED_URL.test(error.stderr)
+          console.log('catch', { isSupportedURL })
         }
-      }, condition)
+      } while (condition())
 
       return data
     }
