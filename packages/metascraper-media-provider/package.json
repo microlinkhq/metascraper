@@ -33,6 +33,7 @@
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
+    "serialize-error": "~8.1.0",
     "youtube-dl-exec": "~2.5.2"
   },
   "devDependencies": {

@@ -3,6 +3,7 @@
 const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
+const { serializeError } = require('serialize-error')
 const youtubedl = require('youtube-dl-exec')
 const { get, constant } = require('lodash')
 const pDoWhilst = require('p-do-whilst')
@@ -58,7 +59,7 @@ module.exports = ({
           const flags = getFlags({ url, proxy, userAgent, cacheDir })
           data = await youtubedl(url, flags, { timeout, ...props })
         } catch (error) {
-          if (condition()) debug('getInfo:error', { retryCount }, error)
+          if (condition()) { debug('getInfo:error', { retryCount }, serializeError(error)) }
           isSupportedURL = !RE_UNSUPORTED_URL.test(error.stderr)
         }
       }, condition)
