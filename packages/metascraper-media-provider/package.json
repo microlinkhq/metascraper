@@ -4,6 +4,7 @@
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-media-provider",
   "version": "5.40.0",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
@@ -32,7 +33,7 @@
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
-    "youtube-dl-exec": "~2.4.12"
+    "youtube-dl-exec": "~2.5.2"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",

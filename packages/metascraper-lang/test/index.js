@@ -4,7 +4,7 @@ const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const test = require('ava')
 
-const metascraper = require('metascraper')([require('..')()])
+const metascraper = require('metascraper')([require('../src')()])
 
 test('html lang property', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/html-lang.html'))

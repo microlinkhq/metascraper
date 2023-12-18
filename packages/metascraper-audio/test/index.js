@@ -3,7 +3,7 @@
 const test = require('ava')
 
 const createMetascraper = (...args) =>
-  require('metascraper')([require('..')(...args)])
+  require('metascraper')([require('../src')(...args)])
 
 test('og:audio', async t => {
   const html =

@@ -3,7 +3,8 @@
   "description": "Metascraper integration with SoundCloud",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-soundcloud",
   "version": "5.40.0",
-  "main": "index.js",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
