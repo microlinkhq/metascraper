@@ -2,7 +2,7 @@
   "name": "metascraper-uol",
   "description": "metascraper integration for website under Universo Online group",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-uol",
-  "version": "5.40.0",
+  "version": "5.42.0",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "author": {

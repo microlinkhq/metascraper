@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.42.0](https://github.com/microlinkhq/metascraper/compare/v5.41.0...v5.42.0) (2023-12-18)
+
+### Features
+
+* add types for packages ([#677](https://github.com/microlinkhq/metascraper/issues/677)) ([8b8339c](https://github.com/microlinkhq/metascraper/commit/8b8339c4bf9793df17244d2ce7aacc7224540437)), closes [#676](https://github.com/microlinkhq/metascraper/issues/676)
+
 # [5.40.0](https://github.com/microlinkhq/metascraper/compare/v5.38.0...v5.40.0) (2023-12-06)
 
 **Note:** Version bump only for package metascraper-image
