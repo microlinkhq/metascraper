@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.42.1](https://github.com/microlinkhq/metascraper/compare/v5.42.0...v5.42.1) (2023-12-18)
+
+### Bug Fixes
+
+* **media-provider:** serialize error to be printed ([c5c40bd](https://github.com/microlinkhq/metascraper/commit/c5c40bd88c0fff2ec3125891cf730dba9845276e))
+
 # [5.42.0](https://github.com/microlinkhq/metascraper/compare/v5.41.0...v5.42.0) (2023-12-18)
 
 ### Features
