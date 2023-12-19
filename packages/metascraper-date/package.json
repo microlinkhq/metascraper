@@ -4,7 +4,7 @@
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-date",
   "version": "5.42.2",
   "main": "src/index.js",
-  "types": "scripts/index.d.ts",
+  "types": "src/index.d.ts",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
