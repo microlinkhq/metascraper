@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.42.4](https://github.com/microlinkhq/metascraper/compare/v5.42.3...v5.42.4) (2023-12-19)
+
+### Bug Fixes
+
+* **metascraper-logo-favicon:** types reference in package.json ([#680](https://github.com/microlinkhq/metascraper/issues/680)) ([ea74174](https://github.com/microlinkhq/metascraper/commit/ea74174fde394248d55263a14a2b38577e5d01f4))
+
 ## [5.42.2](https://github.com/microlinkhq/metascraper/compare/v5.42.1...v5.42.2) (2023-12-19)
 
 ### Bug Fixes
