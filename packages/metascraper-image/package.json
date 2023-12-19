@@ -29,7 +29,7 @@
     "node": ">= 16"
   },
   "files": [
-    "index.js"
+    "src"
   ],
   "scripts": {
     "test": "exit 0"

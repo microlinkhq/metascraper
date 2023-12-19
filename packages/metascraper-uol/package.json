@@ -35,7 +35,7 @@
     "node": ">= 16"
   },
   "files": [
-    "index.js"
+    "src"
   ],
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
