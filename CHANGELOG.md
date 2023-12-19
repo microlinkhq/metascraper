@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.42.3](https://github.com/microlinkhq/metascraper/compare/v5.42.2...v5.42.3) (2023-12-19)
+
+### Bug Fixes
+
+* types ([0977767](https://github.com/microlinkhq/metascraper/commit/09777671126255c27027701991e1762a6e1fc2ca))
+
 ## [5.42.2](https://github.com/microlinkhq/metascraper/compare/v5.42.1...v5.42.2) (2023-12-19)
 
 ### Bug Fixes
