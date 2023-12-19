@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.42.2](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/compare/v5.42.1...v5.42.2) (2023-12-19)
+
+### Bug Fixes
+
+* **types:** use src folder ([#679](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/issues/679)) ([bbdf735](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/commits/bbdf735f8c5ab6fcfa0db39728c018e94f289812))
+
 # [5.42.0](https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-author/compare/v5.41.0...v5.42.0) (2023-12-18)
 
 ### Features

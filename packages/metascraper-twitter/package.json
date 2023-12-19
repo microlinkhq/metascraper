@@ -2,7 +2,7 @@
   "name": "metascraper-twitter",
   "description": "Metascraper integration with Twitter",
   "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-twitter",
-  "version": "5.42.0",
+  "version": "5.42.2",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "author": {
