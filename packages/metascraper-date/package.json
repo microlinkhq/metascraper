@@ -2,7 +2,7 @@
   "name": "metascraper-date",
   "description": "Get date property from HTML markup",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-date",
-  "version": "5.42.3",
+  "version": "5.42.5",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "author": {
@@ -23,7 +23,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.40.0"
+    "@metascraper/helpers": "^5.42.5"
   },
   "engines": {
     "node": ">= 16"
