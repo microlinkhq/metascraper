@@ -28,6 +28,7 @@
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {
+    "async-listen": "latest",
     "ava": "5"
   },
   "engines": {
