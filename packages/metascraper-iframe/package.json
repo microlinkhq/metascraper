@@ -1,7 +1,7 @@
 {
   "name": "metascraper-iframe",
   "description": "Embed a representation of an URL on third party sites",
-  "homepage": "https://nicedoc.io/microlinkhq/metascraper/packages/metascraper-iframe",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-iframe",
   "version": "5.42.0",
   "main": "src/index.js",
   "types": "src/index.d.ts",
