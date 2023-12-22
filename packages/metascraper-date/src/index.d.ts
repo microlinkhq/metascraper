@@ -11,5 +11,5 @@ type Options = {
   dateModified?: boolean
 }
 
-declare function rules(options?: Options = defaultOptions): import('metascraper').Rules;
+declare function rules(options?: Options): import('metascraper').Rules;
 export = rules;
