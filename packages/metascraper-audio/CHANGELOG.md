@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.42.6](https://github.com/microlinkhq/metascraper/compare/v5.42.5...v5.42.6) (2023-12-22)
+
+### Bug Fixes
+
+* **audio:** only consider http URLs ([#678](https://github.com/microlinkhq/metascraper/issues/678)) ([3f03005](https://github.com/microlinkhq/metascraper/commit/3f030056af3b9f3c4f7bd53ef654b92a1809da26))
+
 ## [5.42.5](https://github.com/microlinkhq/metascraper/compare/v5.42.4...v5.42.5) (2023-12-20)
 
 **Note:** Version bump only for package metascraper-audio
