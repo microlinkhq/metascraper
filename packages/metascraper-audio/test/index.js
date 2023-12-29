@@ -148,3 +148,18 @@ test('`audio > source:src` with content type and relative src', async t => {
     'https://www.theverge.com/2018/1/22/16921092/audio-small'
   )
 })
+
+test('`audio > source:src` with mp4 mime type', async t => {
+  const html = `
+    <audio controls>
+      <source type="audio/mp4" src="https://cdn.microlink.io/file-examples/sample-audio.mp4">
+    </audio>
+    `
+  const url = 'https://metascraper.js.org'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ html, url })
+  t.is(
+    metadata.audio,
+    'https://cdn.microlink.io/file-examples/sample-audio.mp4'
+  )
+})
