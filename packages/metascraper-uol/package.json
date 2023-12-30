@@ -2,7 +2,7 @@
   "name": "metascraper-uol",
   "description": "metascraper integration for website under Universo Online group",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-uol",
-  "version": "5.42.5",
+  "version": "5.43.0",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "author": {
@@ -25,7 +25,7 @@
     "uol"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.42.5"
+    "@metascraper/helpers": "^5.43.0"
   },
   "devDependencies": {
     "ava": "5",

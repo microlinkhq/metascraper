@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.43.0](https://github.com/microlinkhq/metascraper/compare/v5.42.6...v5.43.0) (2023-12-30)
+
+### Features
+
+* **video:** improve iframe detection ([#683](https://github.com/microlinkhq/metascraper/issues/683)) ([49a37e5](https://github.com/microlinkhq/metascraper/commit/49a37e551f0c6aa36d746906dfdd45559f103f11))
+
 ## [5.42.5](https://github.com/microlinkhq/metascraper/compare/v5.42.4...v5.42.5) (2023-12-20)
 
 **Note:** Version bump only for package metascraper-video
