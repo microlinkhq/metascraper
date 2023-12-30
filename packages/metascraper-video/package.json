@@ -3,8 +3,8 @@
   "description": "Get video property from HTML markup",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-video",
   "version": "5.42.5",
-  "main": "src/index.js",
   "types": "src/index.d.ts",
+  "main": "src/index.js",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
@@ -27,6 +27,7 @@
     "lodash": "~4.17.21"
   },
   "devDependencies": {
+    "async-listen": "latest",
     "ava": "5"
   },
   "engines": {

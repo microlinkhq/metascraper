@@ -3,12 +3,16 @@
 const {
   $jsonld,
   $twitter,
-  loadIframe,
   findRule,
+  has,
+  loadIframe,
+  normalizeUrl,
   toRule,
   url: urlFn,
   video
 } = require('@metascraper/helpers')
+
+const pReflect = require('p-reflect')
 
 const { chain, find, isEqual } = require('lodash')
 
@@ -74,26 +78,25 @@ const _getIframe = (url, $, { src }) =>
 
 const withIframe = (rules, getIframe) =>
   rules.concat(
-    //   async ({ htmlDom: $, url }) => {
-    //   // TODO: write a test embedding a youtube video as iframe
-    //   const srcs = [
-    //     ...new $('iframe[src^="http"], iframe[src^="/"]')
-    //       .map((_, element) => $(element).attr('src'))
-    //       .get()
-    //       .map(src => normalizeUrl(url, src))
-    //   ]
-    //   if (srcs.length === 0) return
-    //   return pReflect(
-    //     Promise.any(
-    //       srcs.map(async src => {
-    //         const htmlDom = await getIframe(url, $, { src })
-    //         const result = await findRule(audioRules, { htmlDom, url })
-    //         if (!has(result)) throw TypeError('no result')
-    //         return result
-    //       })
-    //     )
-    //   ).then(({ value }) => value)
-    // },
+    async ({ htmlDom: $, url }) => {
+      const srcs = [
+        ...new $('iframe[src^="http"], iframe[src^="/"]')
+          .map((_, element) => $(element).attr('src'))
+          .get()
+          .map(src => normalizeUrl(url, src))
+      ]
+      if (srcs.length === 0) return
+      return pReflect(
+        Promise.any(
+          srcs.map(async src => {
+            const htmlDom = await getIframe(url, $, { src })
+            const result = await findRule(rules, { htmlDom, url })
+            if (!has(result)) throw TypeError('no result')
+            return result
+          })
+        )
+      ).then(({ value }) => value)
+    },
     async ({ htmlDom: $, url }) => {
       const src = $twitter($, 'twitter:player')
       return src

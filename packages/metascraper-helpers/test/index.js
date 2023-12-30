@@ -354,7 +354,7 @@ test('.date', t => {
   t.is(date(undefined), undefined)
   t.is(date(null), undefined)
   t.is(date('null'), undefined)
-  t.is(date('Jun 20'), '2023-06-20T12:00:00.000Z')
+  t.is(date('Jun 20'), '2024-06-20T12:00:00.000Z')
   t.is(date('Jun 20 2018'), '2018-06-20T12:00:00.000Z')
   t.is(date('Jun 2018'), '2018-06-01T12:00:00.000Z')
   t.is(date(2010), '2010-01-01T00:00:00.000Z')

@@ -29,6 +29,8 @@ const toAudioFromDom = toRule((domNodes, opts) => {
         .get(1)
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
         .replace('mpeg', 'mp3')
+        /* mp4 is commonly used for video */
+        .replace('mp4', 'mp3')
         .value()
     }))
     .uniqWith(isEqual)
