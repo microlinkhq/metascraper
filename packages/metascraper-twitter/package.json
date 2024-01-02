@@ -2,7 +2,7 @@
   "name": "metascraper-twitter",
   "description": "Metascraper integration with Twitter",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-twitter",
-  "version": "5.43.0",
+  "version": "5.43.1",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
@@ -24,7 +24,7 @@
     "spotify"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.43.0"
+    "@metascraper/helpers": "^5.43.1"
   },
   "devDependencies": {
     "ava": "5"
