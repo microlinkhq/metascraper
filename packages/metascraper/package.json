@@ -3,8 +3,8 @@
   "description": "A library to easily scrape metadata from an article on the web using Open Graph, JSON+LD, regular HTML metadata, and series of fallbacks.",
   "homepage": "https://metascraper.js.org",
   "version": "5.43.0",
-  "main": "src/index.js",
   "types": "src/index.d.ts",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/microlinkhq/metascraper.git"
@@ -61,7 +61,7 @@
     "@metascraper/helpers": "^5.43.0",
     "cheerio": "~1.0.0-rc.12",
     "lodash": "~4.17.21",
-    "whoops": "~4.1.4"
+    "whoops": "~4.1.7"
   },
   "devDependencies": {
     "ava": "5",

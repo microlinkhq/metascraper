@@ -3,8 +3,8 @@
   "description": "metascraper logo favicon fallback",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-logo-favicon",
   "version": "5.43.0",
-  "main": "src/index.js",
   "types": "src/index.d.ts",
+  "main": "src/index.js",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
@@ -24,10 +24,10 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.0.3",
+    "@keyvhq/memoize": "~2.1.0",
     "@metascraper/helpers": "^5.43.0",
     "lodash": "~4.17.21",
-    "reachable-url": "~1.7.1"
+    "reachable-url": "~1.7.2"
   },
   "devDependencies": {
     "ava": "5"
