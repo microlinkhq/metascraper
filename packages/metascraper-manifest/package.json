@@ -3,8 +3,8 @@
   "description": "Metascraper integration for detecting PWA Web app manifest",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-manifest",
   "version": "5.43.0",
-  "main": "src/index.js",
   "types": "src/index.d.ts",
+  "main": "src/index.js",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
@@ -24,9 +24,9 @@
     "pwa"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.0.3",
+    "@keyvhq/memoize": "~2.1.0",
     "@metascraper/helpers": "^5.43.0",
-    "async-memoize-one": "~1.1.3",
+    "async-memoize-one": "~1.1.6",
     "data-uri-to-buffer": "~5.0.1",
     "got": "~11.8.6",
     "lodash": "~4.17.21"

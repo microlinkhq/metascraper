@@ -3,8 +3,8 @@
   "description": "Get author property from HTML markup",
   "homepage": "https://metascraper.js.org",
   "version": "5.43.0",
-  "main": "src/index.js",
   "types": "src/index.d.ts",
+  "main": "src/index.js",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
