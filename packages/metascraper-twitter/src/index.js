@@ -34,12 +34,10 @@ module.exports = () => {
       toAuthor($jsonld('author.givenName')),
       toAuthor($ => {
         const author = $('meta[property="og:title"]').attr('content')
-        return author?.includes(' on Twitter')
-          ? author.split(' on Twitter')[0]
-          : author
+        return author?.includes(' on X') ? author.split(' on X')[0] : author
       })
     ],
-    title: [toTitle(($, url) => `@${url.split('/')[3]} on Twitter`)],
+    title: [toTitle(($, url) => `@${url.split('/')[3]} on X`)],
     date: [
       toDate(($, url) => {
         const id = url.replace('https://twitter.com', '')
@@ -56,7 +54,7 @@ module.exports = () => {
       toImage($ => avatarUrl($('article img[src]').attr('src')))
     ],
     video: [toVideo(($, url) => isTweet(url) && $('video').attr('src'))],
-    publisher: () => 'Twitter'
+    publisher: () => 'X'
   }
 
   rules.test = ({ url }) => test(url)
