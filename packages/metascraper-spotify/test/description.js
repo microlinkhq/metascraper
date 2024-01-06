@@ -42,7 +42,7 @@ test('artist', async t => {
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url: artistUrl, html })
 
-  t.is(metadata.description, 'Artist · 2.5M monthly listeners.')
+  t.is(metadata.description, 'Artist · 2M monthly listeners.')
 })
 
 test('album', async t => {
@@ -60,5 +60,5 @@ test('track', async t => {
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url: trackUrl, html })
 
-  t.is(metadata.description, 'Justice · Song · 2012')
+  t.is(metadata.description, 'Justice · Song · 2013')
 })
