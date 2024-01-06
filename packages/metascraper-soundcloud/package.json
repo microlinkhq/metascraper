@@ -2,7 +2,7 @@
   "name": "metascraper-soundcloud",
   "description": "Metascraper integration with SoundCloud",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-soundcloud",
-  "version": "5.43.1",
+  "version": "5.43.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

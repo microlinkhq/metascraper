@@ -2,7 +2,7 @@
   "name": "metascraper-twitter",
   "description": "Metascraper integration with Twitter",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-twitter",
-  "version": "5.43.1",
+  "version": "5.43.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
