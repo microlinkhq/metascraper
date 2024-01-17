@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.43.3](https://github.com/microlinkhq/metascraper/compare/v5.43.2...v5.43.3) (2024-01-17)
+
+### Performance Improvements
+
+* memoize isMediaUrl ([#688](https://github.com/microlinkhq/metascraper/issues/688)) ([7f577b9](https://github.com/microlinkhq/metascraper/commit/7f577b9afb46c1938e68e14d316ec6fc3c68b14a))
+
 ## [5.43.1](https://github.com/microlinkhq/metascraper/compare/v5.43.0...v5.43.1) (2024-01-02)
 
 **Note:** Version bump only for package @metascraper/helpers
