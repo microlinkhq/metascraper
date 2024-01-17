@@ -209,8 +209,10 @@ const isMediaTypeUrl = (url, type, { ext, ...opts } = {}) =>
 const isMediaTypeExtension = (url, type, ext) =>
   eq(type, get(EXTENSIONS, ext || extension(url)))
 
-const isMediaUrl = (url, opts) =>
-  isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
+const isMediaUrl = memoizeOne(
+  (url, opts) =>
+    isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
+)
 
 const isVideoUrl = (url, opts) => isMediaTypeUrl(url, VIDEO, opts)
 
