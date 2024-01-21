@@ -19,6 +19,8 @@ const {
   isImageExtension,
   isImageUrl,
   isMime,
+  isPdfExtension,
+  isPdfUrl,
   isVideoExtension,
   isVideoUrl,
   lang,
@@ -267,6 +269,12 @@ test('.isAudioUrl', t => {
   t.true(isAudioUrl('https://microlink.io/demo.m4a'))
 })
 
+test('.isPdfUrl', t => {
+  t.false(isAudioUrl('demo.pdf'))
+  t.false(isPdfUrl('/demo.pdf'))
+  t.true(isPdfUrl('https://microlink.io/demo.pdf'))
+})
+
 test('.isAuthor', t => {
   t.false(isAuthor(''))
   t.true(isAuthor('Kiko'))
@@ -293,6 +301,11 @@ test('.isImageExtension', t => {
   t.true(isImageExtension('demo.jpg'))
   t.true(isImageExtension('demo.jpeg'))
   t.true(isImageExtension('demo.gif'))
+})
+
+test('.isPdfExtension', t => {
+  t.true(isPdfExtension('https://microlink.io/demo.pdf'))
+  t.true(isPdfExtension('demo.pdf'))
 })
 
 test('.description', t => {

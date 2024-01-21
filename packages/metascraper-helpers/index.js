@@ -78,6 +78,7 @@ const toTitle = str =>
 const VIDEO = 'video'
 const AUDIO = 'audio'
 const IMAGE = 'image'
+const PDF = 'pdf'
 
 const imageExtensions = chain(require('image-extensions'))
   .concat(['avif'])
@@ -106,7 +107,8 @@ const videoExtensions = chain(require('video-extensions'))
 const EXTENSIONS = {
   ...imageExtensions,
   ...audioExtensions,
-  ...videoExtensions
+  ...videoExtensions,
+  [PDF]: PDF
 }
 
 const REGEX_BY = /^[\s\n]*by[\s\n]+|@[\s\n]*/i
@@ -203,31 +205,39 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaTypeUrl = (url, type, { ext, ...opts } = {}) =>
-  isUrl(url, opts) && isMediaTypeExtension(url, type, ext)
-
-const isMediaTypeExtension = (url, type, ext) =>
+const isExtension = (url, type, ext) =>
   eq(type, get(EXTENSIONS, ext || extension(url)))
+
+const isExtensionUrl = (url, type, { ext, ...opts } = {}) =>
+  isUrl(url, opts) && isExtension(url, type, ext)
+
+const createIsUrl = type => (url, opts) => isExtensionUrl(url, type, opts)
+
+const isVideoUrl = createIsUrl(VIDEO)
+
+const isAudioUrl = createIsUrl(AUDIO)
+
+const isImageUrl = createIsUrl(IMAGE)
+
+const isPdfUrl = createIsUrl(PDF)
 
 const isMediaUrl = memoizeOne(
   (url, opts) =>
     isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
 )
 
-const isVideoUrl = (url, opts) => isMediaTypeUrl(url, VIDEO, opts)
-
-const isAudioUrl = (url, opts) => isMediaTypeUrl(url, AUDIO, opts)
-
-const isImageUrl = (url, opts) => isMediaTypeUrl(url, IMAGE, opts)
-
 const isMediaExtension = url =>
   isImageExtension(url) || isVideoExtension(url) || isAudioExtension(url)
 
-const isVideoExtension = url => isMediaTypeExtension(url, VIDEO)
+const createIsExtension = type => url => isExtension(url, type)
 
-const isAudioExtension = url => isMediaTypeExtension(url, AUDIO)
+const isVideoExtension = createIsExtension(VIDEO)
 
-const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
+const isAudioExtension = createIsExtension(AUDIO)
+
+const isImageExtension = createIsExtension(IMAGE)
+
+const isPdfExtension = createIsExtension(PDF)
 
 const isContentType =
   extensions =>
@@ -499,6 +509,8 @@ module.exports = {
   isMediaExtension,
   isMediaUrl,
   isMime,
+  isPdfExtension,
+  isPdfUrl,
   isString,
   isUrl,
   isVideoExtension,
