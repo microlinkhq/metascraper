@@ -2,7 +2,7 @@
   "name": "metascraper-instagram",
   "description": "Metascraper integration for Instagram",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-instagram",
-  "version": "5.43.3",
+  "version": "5.43.4",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
@@ -23,7 +23,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.43.3",
+    "@metascraper/helpers": "^5.43.4",
     "jsdom": "~23.0.1",
     "lodash": "~4.17.21"
   },

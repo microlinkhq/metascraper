@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.43.4](https://github.com/microlinkhq/metascraper/compare/v5.43.3...v5.43.4) (2024-01-23)
+
+**Note:** Version bump only for package metascraper-twitter
+
 ## [5.43.3](https://github.com/microlinkhq/metascraper/compare/v5.43.2...v5.43.3) (2024-01-17)
 
 **Note:** Version bump only for package metascraper-twitter
