@@ -28,12 +28,9 @@ const urlRegex = require('url-regex-safe')({
 
 const {
   chain,
-  eq,
   flow,
   get,
-  includes,
   invoke,
-  isArray,
   isBoolean,
   isDate,
   isEmpty,
@@ -205,8 +202,8 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isExtension = (url, type, ext) =>
-  eq(type, get(EXTENSIONS, ext || extension(url)))
+const isExtension = (url, type, ext = extension(url)) =>
+  type === EXTENSIONS[ext]
 
 const isExtensionUrl = (url, type, { ext, ...opts } = {}) =>
   isUrl(url, opts) && isExtension(url, type, ext)
@@ -333,16 +330,14 @@ const lang = input => {
   const key = toLower(condenseWhitespace(input))
   if (input.length === 3) return iso6393[key]
   const lang = toLower(key.substring(0, 2))
-  return includes(iso6393Values, lang) ? lang : undefined
+  return iso6393Values.includes(lang) ? lang : undefined
 }
 
 const title = (value, { removeSeparator = false, ...opts } = {}) =>
   isString(value) ? titleize(value, { removeSeparator, ...opts }) : undefined
 
-const isMime = (contentType, type) => {
-  const ext = mimeExtension(contentType)
-  return eq(type, get(EXTENSIONS, ext))
-}
+const isMime = (contentType, type) =>
+  type === get(EXTENSIONS, mimeExtension(contentType))
 
 memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
   newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
@@ -500,7 +495,6 @@ module.exports = {
   has,
   image,
   imageExtensions,
-  isArray,
   isAudioExtension,
   isAudioUrl,
   isAuthor,
