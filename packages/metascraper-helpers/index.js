@@ -28,12 +28,9 @@ const urlRegex = require('url-regex-safe')({
 
 const {
   chain,
-  eq,
   flow,
   get,
-  includes,
   invoke,
-  isArray,
   isBoolean,
   isDate,
   isEmpty,
@@ -78,6 +75,7 @@ const toTitle = str =>
 const VIDEO = 'video'
 const AUDIO = 'audio'
 const IMAGE = 'image'
+const PDF = 'pdf'
 
 const imageExtensions = chain(require('image-extensions'))
   .concat(['avif'])
@@ -106,7 +104,8 @@ const videoExtensions = chain(require('video-extensions'))
 const EXTENSIONS = {
   ...imageExtensions,
   ...audioExtensions,
-  ...videoExtensions
+  ...videoExtensions,
+  [PDF]: PDF
 }
 
 const REGEX_BY = /^[\s\n]*by[\s\n]+|@[\s\n]*/i
@@ -203,31 +202,39 @@ const protocol = url => {
   return protocol.replace(':', '')
 }
 
-const isMediaTypeUrl = (url, type, { ext, ...opts } = {}) =>
-  isUrl(url, opts) && isMediaTypeExtension(url, type, ext)
+const isExtension = (url, type, ext = extension(url)) =>
+  type === EXTENSIONS[ext]
 
-const isMediaTypeExtension = (url, type, ext) =>
-  eq(type, get(EXTENSIONS, ext || extension(url)))
+const isExtensionUrl = (url, type, { ext, ...opts } = {}) =>
+  isUrl(url, opts) && isExtension(url, type, ext)
+
+const createIsUrl = type => (url, opts) => isExtensionUrl(url, type, opts)
+
+const isVideoUrl = createIsUrl(VIDEO)
+
+const isAudioUrl = createIsUrl(AUDIO)
+
+const isImageUrl = createIsUrl(IMAGE)
+
+const isPdfUrl = createIsUrl(PDF)
 
 const isMediaUrl = memoizeOne(
   (url, opts) =>
     isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
 )
 
-const isVideoUrl = (url, opts) => isMediaTypeUrl(url, VIDEO, opts)
-
-const isAudioUrl = (url, opts) => isMediaTypeUrl(url, AUDIO, opts)
-
-const isImageUrl = (url, opts) => isMediaTypeUrl(url, IMAGE, opts)
-
 const isMediaExtension = url =>
   isImageExtension(url) || isVideoExtension(url) || isAudioExtension(url)
 
-const isVideoExtension = url => isMediaTypeExtension(url, VIDEO)
+const createIsExtension = type => url => isExtension(url, type)
 
-const isAudioExtension = url => isMediaTypeExtension(url, AUDIO)
+const isVideoExtension = createIsExtension(VIDEO)
 
-const isImageExtension = url => isMediaTypeExtension(url, IMAGE)
+const isAudioExtension = createIsExtension(AUDIO)
+
+const isImageExtension = createIsExtension(IMAGE)
+
+const isPdfExtension = createIsExtension(PDF)
 
 const isContentType =
   extensions =>
@@ -323,16 +330,14 @@ const lang = input => {
   const key = toLower(condenseWhitespace(input))
   if (input.length === 3) return iso6393[key]
   const lang = toLower(key.substring(0, 2))
-  return includes(iso6393Values, lang) ? lang : undefined
+  return iso6393Values.includes(lang) ? lang : undefined
 }
 
 const title = (value, { removeSeparator = false, ...opts } = {}) =>
   isString(value) ? titleize(value, { removeSeparator, ...opts }) : undefined
 
-const isMime = (contentType, type) => {
-  const ext = mimeExtension(contentType)
-  return eq(type, get(EXTENSIONS, ext))
-}
+const isMime = (contentType, type) =>
+  type === get(EXTENSIONS, mimeExtension(contentType))
 
 memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
   newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
@@ -490,7 +495,6 @@ module.exports = {
   has,
   image,
   imageExtensions,
-  isArray,
   isAudioExtension,
   isAudioUrl,
   isAuthor,
@@ -499,6 +503,8 @@ module.exports = {
   isMediaExtension,
   isMediaUrl,
   isMime,
+  isPdfExtension,
+  isPdfUrl,
   isString,
   isUrl,
   isVideoExtension,
