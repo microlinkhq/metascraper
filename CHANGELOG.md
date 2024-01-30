@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.43.5](https://github.com/microlinkhq/metascraper/compare/v5.43.4...v5.43.5) (2024-01-30)
+
+### Bug Fixes
+
+* **media-provider:** remove debug log ([a5f4e42](https://github.com/microlinkhq/metascraper/commit/a5f4e42c6ff611fc87571c639846ff60d0198530))
+
 ## [5.43.4](https://github.com/microlinkhq/metascraper/compare/v5.43.3...v5.43.4) (2024-01-23)
 
 **Note:** Version bump only for package metascraper
