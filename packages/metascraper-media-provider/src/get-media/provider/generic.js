@@ -62,7 +62,6 @@ module.exports = ({
             debug('getInfo:error', { retryCount }, serializeError(error))
           }
           isSupportedURL = !RE_UNSUPORTED_URL.test(error.stderr)
-          console.log('catch', { isSupportedURL })
         }
       } while (condition())
 
