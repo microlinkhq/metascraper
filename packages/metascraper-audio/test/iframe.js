@@ -2,10 +2,10 @@
 
 const { default: listen } = require('async-listen')
 const { createServer } = require('http')
-const { promisify } = require('util')
 const test = require('ava')
 
-const closeServer = server => promisify(server.close)
+const closeServer = server =>
+  require('util').promisify(server.close.bind(server))()
 
 const createMetascraper = (...args) =>
   require('metascraper')([require('../src')(...args)])
