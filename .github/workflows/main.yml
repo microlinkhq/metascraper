@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: latest
           run_install: true
@@ -62,7 +62,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: latest
           run_install: true
