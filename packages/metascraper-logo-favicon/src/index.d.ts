@@ -23,7 +23,7 @@ type Options = {
   /**
    * https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions
    */
-  keyvOpts?: import('@keyvhq/core').Options,
+  keyvOpts?: import('@keyvhq/core').Options<any>,
   /**
    * The function to pick the favicon from the list of favicons.
    */
