@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.43.6](https://github.com/microlinkhq/metascraper/compare/v5.43.5...v5.43.6) (2024-02-09)
+
+### Bug Fixes
+
+* pass any for keyv types ([711424c](https://github.com/microlinkhq/metascraper/commit/711424c5716fc05567f1cb3fe669750871c7a7c6)), closes [#686](https://github.com/microlinkhq/metascraper/issues/686)
+
 ## [5.43.5](https://github.com/microlinkhq/metascraper/compare/v5.43.4...v5.43.5) (2024-01-30)
 
 ### Bug Fixes
