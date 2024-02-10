@@ -5,7 +5,7 @@ const got = require('got')
 
 const { google } = require('..')
 
-test('return undefined under no logo', async t => {
+test('return undefined if favicon is not reachable', async t => {
   const url = 'https://idontexist.lol'
   t.is(await google(url), undefined)
 })

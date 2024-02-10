@@ -48,9 +48,9 @@ Type: `function`
 It will be used for picking the value to extract from a set of favicon detected on the markup.
 
 ```js
-const pickFn = (sizes, pickDefault) => {
+const pickFn = (sizes, { pickDefault }) => {
   const appleTouchIcon = sizes.find((item) => item.rel.includes('apple'))
-  return appleTouchIcon || pickDefault(sizes)
+  return (appleTouchIcon || pickDefault(sizes)).url
 }
 
 const metascraper = require('metascraper')([
