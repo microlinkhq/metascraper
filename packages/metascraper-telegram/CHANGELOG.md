@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.43.7](https://github.com/microlinkhq/metascraper/compare/v5.43.6...v5.43.7) (2024-02-10)
+
+### Bug Fixes
+
+* **logo:** avoid data uri with no length ([e4f7eed](https://github.com/microlinkhq/metascraper/commit/e4f7eed5b6ab34ea02d075241ebf16ed4823256a))
+
 ## [5.43.6](https://github.com/microlinkhq/metascraper/compare/v5.43.5...v5.43.6) (2024-02-09)
 
 ### Bug Fixes
