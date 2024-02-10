@@ -11,6 +11,7 @@ const _normalizeUrl = require('normalize-url')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const iso6393 = require('iso-639-3/to-1')
+const dataUri = require('data-uri-utils')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
 const isIso = require('isostring')
@@ -375,11 +376,17 @@ const $jsonld = propName => $ => {
 
 const image = (value, opts) => {
   const urlValue = url(value, opts)
-  return urlValue !== undefined &&
+
+  const result =
+    urlValue !== undefined &&
     !isAudioUrl(urlValue, opts) &&
     !isVideoUrl(urlValue, opts)
-    ? urlValue
-    : undefined
+      ? urlValue
+      : undefined
+
+  if (!dataUri.test(result)) return result
+  const buffer = dataUri.toBuffer(dataUri.normalize(result))
+  return buffer.length ? result : undefined
 }
 
 const logo = image

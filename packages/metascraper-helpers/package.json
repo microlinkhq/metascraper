@@ -25,6 +25,7 @@
     "audio-extensions": "0.0.0",
     "chrono-node": "~2.7.4",
     "condense-whitespace": "~2.0.0",
+    "data-uri-utils": "~1.0.7",
     "entities": "~4.5.0",
     "file-extension": "~4.0.5",
     "has-values": "~2.0.1",

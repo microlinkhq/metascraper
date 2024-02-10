@@ -9,12 +9,12 @@ const {
   parseUrl,
   normalizeUrl,
   toRule,
-  url: urlFn
+  logo: logoFn
 } = require('@metascraper/helpers')
 
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
-const toUrl = toRule(urlFn)
+const toLogo = toRule(logoFn)
 
 const toSize = (input, url) => {
   if (isEmpty(input)) return
@@ -170,7 +170,7 @@ module.exports = ({
   const rootFavicon = createRootFavicon({ getLogo, withRootFavicon })
   return {
     logo: [
-      toUrl($ => {
+      toLogo($ => {
         const sizes = getSizes($, sizeSelectors)
         const size = pickFn(sizes, pickBiggerSize)
         return get(size, 'url')

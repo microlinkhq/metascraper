@@ -4,6 +4,7 @@ const {
   author,
   date,
   image,
+  logo,
   memoizeOne,
   parseUrl,
   sanetizeUrl,
@@ -17,6 +18,7 @@ const got = require('got')
 
 const toAuthor = toRule(author)
 const toImage = toRule(image)
+const toLogo = toRule(logo)
 const toDate = toRule(date)
 
 const TELEGRAM_DOMAINS = ['telegram.me', 't.me']
@@ -48,7 +50,7 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
 
   const rules = {
     author: [toAuthor($ => $('meta[property="og:title"]').attr('content'))],
-    logo: [toImage($ => $('meta[property="og:image"]').attr('content'))],
+    logo: [toLogo($ => $('meta[property="og:image"]').attr('content'))],
     image: [
       toImage(
         loadIframe(($iframe, url) => {
