@@ -237,3 +237,11 @@ test('resolve logo using from google associated with the domain', async t => {
   const metadata = await metascraper({ url })
   t.true(metadata.logo.includes('gstatic'))
 })
+
+test('avoid data URI when data length is 0', async t => {
+  const url = 'https://www.adobe.com/'
+  const html = '<link rel="icon" href="data:,">'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, 'https://www.adobe.com/favicon.ico')
+})

@@ -248,6 +248,7 @@ test('.image', t => {
     image({ '@id': 'https://www.milanocittastato.it/#/schema/logo/image/' }),
     undefined
   )
+  t.is(image('data:,'), undefined)
 })
 
 test('.isImageUrl', t => {

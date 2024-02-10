@@ -1,6 +1,6 @@
 'use strict'
 
-const { $jsonld, url: urlFn, toRule } = require('@metascraper/helpers')
+const { $jsonld, logo: logoFn, toRule } = require('@metascraper/helpers')
 const { eq, get } = require('lodash')
 
 const toLogoUrl = ($, propName) => {
@@ -13,26 +13,26 @@ const toLogoUrl = ($, propName) => {
 module.exports = ({ filter } = {}) => {
   const mapper = filter
     ? async value => {
-      const result = urlFn(value)
+      const result = logoFn(value)
       return typeof result === 'string' ? await filter(result) : result
     }
-    : urlFn
+    : logoFn
 
-  const toUrl = toRule(mapper)
+  const toLogo = toRule(mapper)
 
   return {
     logo: [
-      toUrl($ => $('meta[property="og:logo"]').attr('content')),
-      toUrl($ => $('meta[itemprop="logo"]').attr('content')),
-      toUrl($ => $('img[itemprop="logo"]').attr('src')),
-      toUrl($ => toLogoUrl($, 'brand.logo')),
-      toUrl($ => toLogoUrl($, 'organization.logo')),
-      toUrl($ => toLogoUrl($, 'place.logo')),
-      toUrl($ => toLogoUrl($, 'product.logo')),
-      toUrl($ => toLogoUrl($, 'service.logo')),
-      toUrl($ => toLogoUrl($, 'publisher.logo')),
-      toUrl($ => toLogoUrl($, 'logo.url')),
-      toUrl($ => toLogoUrl($, 'logo'))
+      toLogo($ => $('meta[property="og:logo"]').attr('content')),
+      toLogo($ => $('meta[itemprop="logo"]').attr('content')),
+      toLogo($ => $('img[itemprop="logo"]').attr('src')),
+      toLogo($ => toLogoUrl($, 'brand.logo')),
+      toLogo($ => toLogoUrl($, 'organization.logo')),
+      toLogo($ => toLogoUrl($, 'place.logo')),
+      toLogo($ => toLogoUrl($, 'product.logo')),
+      toLogo($ => toLogoUrl($, 'service.logo')),
+      toLogo($ => toLogoUrl($, 'publisher.logo')),
+      toLogo($ => toLogoUrl($, 'logo.url')),
+      toLogo($ => toLogoUrl($, 'logo'))
     ]
   }
 }
