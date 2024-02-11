@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round'
+  'https://jewishbusinessnews.com/2016/01/20/israeli-startup-jfrog-raises-50-million-in-c-round/'
 
 test('jewish-business-news', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

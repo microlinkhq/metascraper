@@ -21,8 +21,7 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url =
-  'http://www.eweek.com/developer/microsoft-hackerrank-launch-bing-search-tool-for-programmers.html'
+const url = 'https://www.eweek.com/artificial-intelligence/robotics-companies/'
 
 test('eweek', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

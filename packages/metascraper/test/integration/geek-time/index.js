@@ -21,8 +21,7 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url =
-  'http://www.geektime.com/2016/04/21/fraud-solutions-forter-secures-payment-of-32m-in-series-c'
+const url = 'https://www.geektime.com/gaming-market-2023/'
 
 test('geek-time', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

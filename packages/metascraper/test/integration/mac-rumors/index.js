@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor'
+  'https://www.macrumors.com/2016/05/24/apple-siri-sdk-amazon-echo-competitor/'
 
 test('mac-rumors', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

@@ -1,20 +1,13 @@
 'use strict'
 
-const { isEmpty, first, toNumber, chain, get, orderBy } = require('lodash')
+const { logo, parseUrl, normalizeUrl, toRule } = require('@metascraper/helpers')
+const { isEmpty, first, toNumber, chain, orderBy } = require('lodash')
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
 
-const {
-  logo,
-  parseUrl,
-  normalizeUrl,
-  toRule,
-  logo: logoFn
-} = require('@metascraper/helpers')
-
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
-const toLogo = toRule(logoFn)
+const toLogo = toRule(logo)
 
 const toSize = (input, url) => {
   if (isEmpty(input)) return
@@ -58,27 +51,27 @@ const getSize = (url, sizes) =>
   toSize(first(url.match(SIZE_REGEX_BY_X)), url) ||
   toSize.fallback(url)
 
-const getDomNodeSizes = (domNodes, attr) =>
+const getDomNodeSizes = (domNodes, attr, url) =>
   chain(domNodes)
     .reduce((acc, domNode) => {
-      const url = domNode.attribs[attr]
-      if (!url) return acc
+      const relativeUrl = domNode.attribs[attr]
+      if (!relativeUrl) return acc
       return [
         ...acc,
         {
           ...domNode.attribs,
-          url,
+          url: normalizeUrl(url, relativeUrl),
           size: getSize(url, domNode.attribs.sizes)
         }
       ]
     }, [])
     .value()
 
-const getSizes = ($, collection) =>
+const getSizes = ($, collection, url) =>
   chain(collection)
     .reduce((acc, { tag, attr }) => {
       const domNodes = $(tag).get()
-      return [...acc, ...getDomNodeSizes(domNodes, attr)]
+      return [...acc, ...getDomNodeSizes(domNodes, attr, url)]
     }, [])
     .value()
 
@@ -87,7 +80,16 @@ const sizeSelectors = [
   { tag: 'meta[name*="msapplication" i]', attr: 'content' } // Windows 8, Internet Explorer 11 Tiles
 ]
 
-const pickBiggerSize = sizes => {
+const firstReachable = async (domNodeSizes, gotOpts) => {
+  for (const { url } of domNodeSizes) {
+    const response = await reachableUrl(url, gotOpts)
+    if (reachableUrl.isReachable(response)) {
+      return response.url
+    }
+  }
+}
+
+const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
   const sorted = sizes.reduce(
     (acc, item) => {
       acc[item.size.square ? 'square' : 'nonSquare'].push(item)
@@ -97,8 +99,8 @@ const pickBiggerSize = sizes => {
   )
 
   return (
-    first(pickBiggerSize.sortBySize(sorted.square)) ||
-    first(pickBiggerSize.sortBySize(sorted.nonSquare))
+    (await firstReachable(pickBiggerSize.sortBySize(sorted.square), gotOpts)) ||
+    (await firstReachable(pickBiggerSize.sortBySize(sorted.nonSquare), gotOpts))
   )
 }
 
@@ -170,10 +172,9 @@ module.exports = ({
   const rootFavicon = createRootFavicon({ getLogo, withRootFavicon })
   return {
     logo: [
-      toLogo($ => {
-        const sizes = getSizes($, sizeSelectors)
-        const size = pickFn(sizes, pickBiggerSize)
-        return get(size, 'url')
+      toLogo(async ($, url) => {
+        const sizes = getSizes($, sizeSelectors, url)
+        return await pickFn(sizes, { gotOpts, pickBiggerSize })
       }),
       ({ url }) => getLogo(normalizeUrl(url)),
       rootFavicon
@@ -185,3 +186,4 @@ module.exports.favicon = favicon
 module.exports.google = google
 module.exports.createRootFavicon = createRootFavicon
 module.exports.createGetLogo = createGetLogo
+module.exports.pickBiggerSize = pickBiggerSize

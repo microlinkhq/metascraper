@@ -21,7 +21,7 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url = 'http://fortune.com/2015/10/05/hackerrank-recruiting-tool'
+const url = 'https://fortune.com/2015/10/05/hackerrank-recruiting-tool/'
 
 test('fortune', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

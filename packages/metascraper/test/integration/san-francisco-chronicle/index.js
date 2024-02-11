@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.sfchronicle.com/business/article/Nasdaq-center-in-SF-offers-free-classes-for-7338290.php'
+  'https://www.sfchronicle.com/business/article/Nasdaq-center-in-SF-offers-free-classes-for-7338290.php'
 
 test('san-francisco-chronicle', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

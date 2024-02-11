@@ -29,10 +29,12 @@ test('provide `keyvOpts`', async t => {
 test('provide `pickFn`', async t => {
   const url = 'https://www.theverge.com'
   const html = await readFile(resolve(__dirname, 'fixtures/theverge.html'))
-  const pickFn = (sizes, pickDefault) => {
+
+  const pickFn = (sizes, { pickDefault }) => {
     const appleTouchIcon = sizes.find(item => item.rel.includes('apple'))
-    return appleTouchIcon || pickDefault(sizes)
+    return (appleTouchIcon || pickDefault(sizes)).url
   }
+
   const metascraper = createMetascraper({ pickFn })
   const metadata = await metascraper({ url, html })
   t.is(
@@ -60,31 +62,27 @@ test('create an absolute favicon url if the logo is not present', async t => {
 })
 
 test('get the biggest icon possible', async t => {
-  const url = 'https://www.microsoft.com/design/fluent'
+  const url = 'https://cdn.microlink.io'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="apple-touch-icon" href="assets/favicons/favicon-57.png">',
-    '<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/favicon-114.png">',
-    '<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/favicon-72.png">',
-    '<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/favicon-144.png">',
-    '<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/favicon-60.png">',
-    '<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/favicon-120.png">',
-    '<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/favicon-76.png">',
-    '<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/favicon-152.png">',
-    '<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-180.png"></link>',
-    '<link rel="shortcut icon" href="assets/favicons/favicon.ico">',
-    '<link rel="icon" sizes="16x16 32x32 64x64" href="assets/favicons/favicon.ico">',
-    '<link rel="icon" type="image/png" sizes="196x196" href="assets/favicons/favicon-192.png">',
-    '<link rel="icon" type="image/png" sizes="160x160" href="assets/favicons/favicon-160.png">',
-    '<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96.png">',
-    '<link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64.png">',
-    '<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32.png">',
-    '<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16.png">'
+    '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/logo/apple-touch-icon-57x57.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/logo/apple-touch-icon-114x114.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/logo/apple-touch-icon-72x72.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/logo/apple-touch-icon-144x144.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/logo/apple-touch-icon-60x60.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/logo/apple-touch-icon-120x120.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/logo/apple-touch-icon-76x76.png">',
+    '<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/logo/apple-touch-icon-152x152.png">',
+    '<link rel="icon" type="image/png" href="/logo/favicon-196x196.png" sizes="196x196">',
+    '<link rel="icon" type="image/png" href="/logo/favicon-96x96.png" sizes="96x96">',
+    '<link rel="icon" type="image/png" href="/logo/favicon-32x32.png" sizes="32x32">',
+    '<link rel="icon" type="image/png" href="/logo/favicon-16x16.png" sizes="16x16">',
+    '<link rel="icon" type="image/png" href="/logo/favicon-128.png" sizes="128x128">'
   ])
   const metadata = await metascraper({ url, html })
   t.is(
     metadata.logo,
-    'https://www.microsoft.com/design/assets/favicons/favicon-192.png'
+    'https://cdn.microlink.io/logo/favicon-196x196.png'
   )
 })
 
@@ -135,35 +133,35 @@ test('detect `rel="icon"`', async t => {
 })
 
 test('detect `rel="apple-touch-icon-precomposed"`', async t => {
-  const url = 'https://github.com'
+  const url = 'https://cdn.microlink.io/'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicons/favicon-114.png">'
+    '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo/apple-touch-icon-144x144.png">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, 'https://github.com/assets/favicons/favicon-114.png')
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png')
 })
 
 test('detect `rel="apple-touch-icon"`', async t => {
-  const url = 'https://github.com'
+  const url = 'https://cdn.microlink.io/'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/favicon-114.png">'
+    '<link rel="apple-touch-icon" sizes="144x144" href="logo/apple-touch-icon-144x144.png">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, 'https://github.com/assets/favicons/favicon-114.png')
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png')
 })
 
 test('detect `rel="shortcut icon"`', async t => {
-  const url = 'https://www.microsoft.com/design/fluent'
+  const url = 'https://cdn.microlink.io/'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="shortcut icon" href="assets/favicons/favicon.ico">'
+    '<link rel="shortcut icon" href="logo/favicon.ico">'
   ])
   const metadata = await metascraper({ url, html })
   t.is(
     metadata.logo,
-    'https://www.microsoft.com/design/assets/favicons/favicon.ico'
+    'https://cdn.microlink.io/logo/favicon.ico'
   )
 })
 
@@ -186,23 +184,23 @@ test('square logos has priority', async t => {
   const metascraper = createMetascraper()
   const html = createHtml([
     '<meta name="msapplication-wide310x150logo" content="https://s.yimg.com/kw/assets/eng-e-558x270.png">',
-    '<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/favicon-114.png">'
+    '<link rel="apple-touch-icon" sizes="114x114" href="https://s.yimg.com/kw/assets/apple-touch-icon-152x152.png">'
   ])
   const metadata = await metascraper({ url, html })
   t.is(
     metadata.logo,
-    'https://www.engadget.com/assets/favicons/favicon-114.png'
+    'https://s.yimg.com/kw/assets/apple-touch-icon-152x152.png'
   )
 })
 
 test('detect size from `sizes`', async t => {
-  const url = 'https://example.com'
+  const url = 'https://cdn.microlink.io/'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="icon" sizes="16x16 32x32 64x64" href="assets/favicons/favicon.ico">'
+    '<link rel="icon" sizes="16x16 32x32 64x64" href="logo/favicon.ico">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, 'https://example.com/assets/favicons/favicon.ico')
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon.ico')
 })
 
 test('use non square logo as in the worst scenario', async t => {

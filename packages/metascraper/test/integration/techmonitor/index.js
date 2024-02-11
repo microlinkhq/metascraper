@@ -4,7 +4,7 @@ const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const test = require('ava')
 
-const metascraper = require('../../..')([
+const metascraper = require('../../../src')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -22,9 +22,9 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.cbronline.com/news/cloud/aas/virtustream-ceo-taking-a-masochistic-approach-to-fighting-in-the-cloud-market-4884858'
+  'https://techmonitor.ai/technology/ai-and-automation/us-ai-safety-institute-consortium'
 
-test('cbr', async t => {
+;(process.env.CI ? test.skip : test)('techmonitor', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)

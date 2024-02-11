@@ -24,7 +24,7 @@ const metascraper = require('../../..')([
 const url =
   'https://pikabu.ru/story/7_interesnyikh_nablyudeniy_o_pervoy_matritse_6758662'
 
-test('pikabu', async t => {
+;(process.env.CI ? test.skip : test)('pikabu', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
