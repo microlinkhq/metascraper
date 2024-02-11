@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.theverge.com/2016/5/24/11763836/apple-siri-speaker-amazon-echo-alexa-google-home-ai'
+  'https://www.theverge.com/2016/5/24/11763836/apple-siri-speaker-amazon-echo-alexa-google-home-ai'
 
 test('the-verge', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
