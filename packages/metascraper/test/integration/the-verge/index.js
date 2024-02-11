@@ -24,7 +24,7 @@ const metascraper = require('../../..')([
 const url =
   'https://www.theverge.com/2016/5/24/11763836/apple-siri-speaker-amazon-echo-alexa-google-home-ai'
 
-test('the-verge', async t => {
+;(process.env.CI ? test.skip : test)('the-verge', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)

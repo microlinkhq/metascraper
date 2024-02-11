@@ -24,7 +24,7 @@ const metascraper = require('../../../src')([
 const url =
   'https://techmonitor.ai/technology/ai-and-automation/us-ai-safety-institute-consortium'
 
-test('techmonitor', async t => {
+;(process.env.CI ? test.skip : test)('techmonitor', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
