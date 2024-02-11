@@ -26,9 +26,9 @@
   "dependencies": {
     "@keyvhq/memoize": "~2.1.0",
     "@metascraper/helpers": "^5.43.7",
-    "async-memoize-one": "~1.1.6",
     "data-uri-to-buffer": "~5.0.1",
     "got": "~11.8.6",
+    "async-memoize-one": "~1.1.7",
     "lodash": "~4.17.21"
   },
   "devDependencies": {

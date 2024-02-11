@@ -25,15 +25,15 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.43.7",
-    "async-memoize-one": "~1.1.6",
-    "debug-logfmt": "~1.2.0",
     "got": "~11.8.6",
+    "async-memoize-one": "~1.1.7",
+    "debug-logfmt": "~1.2.2",
     "lodash": "~4.17.21",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
     "serialize-error": "~8.1.0",
-    "youtube-dl-exec": "~2.5.4"
+    "youtube-dl-exec": "~2.5.7"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",
