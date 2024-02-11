@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.43.7",
+  "version": "5.44.0",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
@@ -23,8 +23,8 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "condense-whitespace": "~2.0.0",
     "chrono-node": "~2.7.5",
+    "condense-whitespace": "~2.0.0",
     "data-uri-utils": "~1.0.7",
     "entities": "~4.5.0",
     "file-extension": "~4.0.5",

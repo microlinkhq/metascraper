@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.44.0](https://github.com/microlinkhq/metascraper/compare/v5.43.7...v5.44.0) (2024-02-11)
+
+### Features
+
+* **logo:** ensure logo from markup is reachable ([9f81b91](https://github.com/microlinkhq/metascraper/commit/9f81b91b64d55c47e2d0a8821b72202cefdf554d))
+
 ## [5.43.7](https://github.com/microlinkhq/metascraper/compare/v5.43.6...v5.43.7) (2024-02-10)
 
 ### Bug Fixes

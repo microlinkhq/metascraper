@@ -2,7 +2,7 @@
   "name": "metascraper-clearbit",
   "description": "Metascraper integration with Clearbit Logo API",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-clearbit",
-  "version": "5.43.7",
+  "version": "5.44.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
@@ -26,9 +26,9 @@
   ],
   "dependencies": {
     "@keyvhq/memoize": "~2.1.0",
-    "@metascraper/helpers": "^5.43.7",
-    "got": "~11.8.6",
+    "@metascraper/helpers": "^5.44.0",
     "async-memoize-one": "~1.1.7",
+    "got": "~11.8.6",
     "lodash": "~4.17.21"
   },
   "devDependencies": {
