@@ -1,0 +1,42 @@
+{
+  "name": "metascraper-semanticscholar",
+  "description": "Metascraper integration with Semantic Scholar",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-semanticscholar",
+  "version": "5.44.0",
+  "types": "src/index.d.ts",
+  "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-semanticscholar",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "text",
+    "metascraper",
+    "semanticscholar"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "^5.44.0"
+  },
+  "devDependencies": {
+    "ava": "5"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC NODE_ENV=test ava --timeout 30s"
+  },
+  "license": "MIT"
+}
