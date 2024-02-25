@@ -26,6 +26,5 @@ const url = 'https://segment.com/blog/scaling-nsq'
 test('segment', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
-  metadata.logo.replace('t3.gstatic.com', 't1.gstatic.com')
   t.snapshot(metadata)
 })
