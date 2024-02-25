@@ -40,5 +40,11 @@
   "scripts": {
     "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers.js"
+    ]
+  }
 }
