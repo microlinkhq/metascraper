@@ -107,23 +107,22 @@ const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const favicon = async (url, { gotOpts } = {}) => {
-  const faviconUrl = logo('/favicon.ico', { url })
-  if (!faviconUrl) return undefined
+const createFavicon =
+  ({ ext, contentTypes }) =>
+    async (url, { gotOpts } = {}) => {
+      const faviconUrl = logo(`/favicon.${ext}`, { url })
+      if (!faviconUrl) return undefined
 
-  const response = await reachableUrl(faviconUrl, gotOpts)
-  const contentType = response.headers['content-type']
+      const response = await reachableUrl(faviconUrl, gotOpts)
+      const contentType = response.headers['content-type']
 
-  const isValidContenType =
-    contentType &&
-    ['image/vnd.microsoft.icon', 'image/x-icon'].some(ct =>
-      contentType.includes(ct)
-    )
+      const isValidContenType =
+      contentType && contentTypes.some(ct => contentType.includes(ct))
 
-  return isValidContenType && reachableUrl.isReachable(response)
-    ? response.url
-    : undefined
-}
+      return isValidContenType && reachableUrl.isReachable(response)
+        ? response.url
+        : undefined
+    }
 
 const google = async (url, { gotOpts } = {}) => {
   const response = await reachableUrl(google.url(url), gotOpts)
@@ -135,9 +134,19 @@ google.url = (url, size = 128) =>
 
 const createGetLogo = ({ withGoogle, withFavicon, gotOpts, keyvOpts }) => {
   const getLogo = async url => {
-    const providers = [withFavicon && favicon, withGoogle && google].filter(
-      Boolean
-    )
+    const providers = [
+      withFavicon &&
+        createFavicon({
+          ext: 'png',
+          contentTypes: ['image/png']
+        }),
+      withFavicon &&
+        createFavicon({
+          ext: 'ico',
+          contentTypes: ['image/vnd.microsoft.icon', 'image/x-icon']
+        }),
+      withGoogle && google
+    ].filter(Boolean)
 
     for (const provider of providers) {
       const logoUrl = await provider(url, { gotOpts })
@@ -190,8 +199,8 @@ module.exports = ({
   }
 }
 
-module.exports.favicon = favicon
 module.exports.google = google
+module.exports.createFavicon = createFavicon
 module.exports.createRootFavicon = createRootFavicon
 module.exports.createGetLogo = createGetLogo
 module.exports.pickBiggerSize = pickBiggerSize
