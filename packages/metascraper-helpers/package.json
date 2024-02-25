@@ -42,7 +42,7 @@
     "normalize-url": "~6.1.0",
     "re2": "~1.20.9",
     "smartquotes": "~2.3.2",
-    "tldts": "~6.1.10",
+    "tldts": "~6.1.11",
     "url-regex-safe": "~4.0.0",
     "video-extensions": "~1.2.0"
   },

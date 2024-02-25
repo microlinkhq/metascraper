@@ -1,13 +1,12 @@
 {
   "name": "@metascraper/cheerio-repl",
-  "private": true,
+  "version": "",
   "bin": {
     "cheerio": "bin/index.mjs"
   },
   "devDependencies": {
     "@metascraper/helpers": "workspace:*",
-    "cheerio": "latest",
-    "meow": "latest",
-    "picocolors": "latest"
-  }
+    "cheerio": "latest"
+  },
+  "private": true
 }
