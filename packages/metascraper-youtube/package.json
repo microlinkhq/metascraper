@@ -2,7 +2,7 @@
   "name": "metascraper-youtube",
   "description": "Metascraper integration with YouTube",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-youtube",
-  "version": "5.45.0",
+  "version": "5.45.1",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
