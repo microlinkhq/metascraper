@@ -110,10 +110,18 @@ pickBiggerSize.sortBySize = collection =>
 const favicon = async (url, { gotOpts } = {}) => {
   const faviconUrl = logo('/favicon.ico', { url })
   if (!faviconUrl) return undefined
+
   const response = await reachableUrl(faviconUrl, gotOpts)
-  return reachableUrl.isReachable(response) &&
-    response.headers['content-type']?.startsWith('image')
-    ? faviconUrl
+  const contentType = response.headers['content-type']
+
+  const isValidContenType =
+    contentType &&
+    ['image/vnd.microsoft.icon', 'image/x-icon'].some(ct =>
+      contentType.includes(ct)
+    )
+
+  return isValidContenType && reachableUrl.isReachable(response)
+    ? response.url
     : undefined
 }
 
