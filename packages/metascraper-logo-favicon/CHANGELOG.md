@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.45.0](https://github.com/microlinkhq/metascraper/compare/v5.44.0...v5.45.0) (2024-02-25)
+
+### Bug Fixes
+
+* **logo-favicon:** favicon.ico with valid content-type ([4c7007d](https://github.com/microlinkhq/metascraper/commit/4c7007d0b6ac76a24d9bf7b2fc8dd5fb31cf0906))
+
+### Features
+
+* **logo-favicon:** add favicon.png support ([8f68b3e](https://github.com/microlinkhq/metascraper/commit/8f68b3e496abf016b1fa472d0e11453246f52b27))
+
 # [5.44.0](https://github.com/microlinkhq/metascraper/compare/v5.43.7...v5.44.0) (2024-02-11)
 
 ### Features

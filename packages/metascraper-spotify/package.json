@@ -2,7 +2,7 @@
   "name": "metascraper-spotify",
   "description": "Metascraper integration with Spotify",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-spotify",
-  "version": "5.44.0",
+  "version": "5.45.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@keyvhq/memoize": "~2.1.0",
-    "@metascraper/helpers": "^5.44.0",
+    "@metascraper/helpers": "^5.45.0",
     "async-memoize-one": "~1.1.7",
     "got": "~11.8.6",
     "spotify-url-info": "~3.2.13"
