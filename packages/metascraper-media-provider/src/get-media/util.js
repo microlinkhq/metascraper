@@ -11,13 +11,7 @@ const isTweetUrl = url =>
   isTweet(url) && parseUrl(url).domainWithoutSuffix === 'twitter'
 
 const getTweetId = url =>
-  chain(url)
-    .split('/')
-    .reverse()
-    .first()
-    .split('?')
-    .first()
-    .value()
+  chain(url).split('/').reverse().first().split('?').first().value()
 
 const expirableCounter = (value = 0, ttl = TEN_MIN_MS) => {
   let timestamp = Date.now()

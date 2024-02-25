@@ -8,7 +8,7 @@ const { PROXY_PASSWORD, PROXY_USERNAME, PROXY_HOST } = process.env
 const proxy =
   PROXY_PASSWORD && PROXY_USERNAME && PROXY_HOST
     ? parseProxyUri(
-        `socks5://${PROXY_USERNAME}:${PROXY_PASSWORD}@${PROXY_HOST}`
+      `socks5://${PROXY_USERNAME}:${PROXY_PASSWORD}@${PROXY_HOST}`
     )
     : undefined
 
