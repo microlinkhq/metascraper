@@ -16,7 +16,7 @@ const runServer = async (t, handler, opts) => {
       res.end()
     }
   })
-  const url = await listen(server, { port: 0, host: '0.0.0.0', ...opts })
+  const url = await listen(server, { port: 0, host: '127.0.0.1', ...opts })
   t.teardown(() => closeServer(server))
   return url.toString()
 }
