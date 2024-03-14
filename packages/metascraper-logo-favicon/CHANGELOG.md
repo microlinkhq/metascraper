@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.2](https://github.com/microlinkhq/metascraper/compare/v5.45.1...v5.45.2) (2024-03-14)
+
+### Bug Fixes
+
+* **logo-favicon:** ensure url exists ([989448e](https://github.com/microlinkhq/metascraper/commit/989448e37d1ef5839ca8cd123ca09029988ea1e7))
+
 # [5.45.0](https://github.com/microlinkhq/metascraper/compare/v5.44.0...v5.45.0) (2024-02-25)
 
 ### Bug Fixes
