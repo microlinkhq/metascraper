@@ -80,10 +80,7 @@ test('get the biggest icon possible', async t => {
     '<link rel="icon" type="image/png" href="/logo/favicon-128.png" sizes="128x128">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(
-    metadata.logo,
-    'https://cdn.microlink.io/logo/favicon-196x196.png'
-  )
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon-196x196.png')
 })
 
 test('detect `rel="fluid-icon"`', async t => {
@@ -139,7 +136,10 @@ test('detect `rel="apple-touch-icon-precomposed"`', async t => {
     '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo/apple-touch-icon-144x144.png">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, 'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png')
+  t.is(
+    metadata.logo,
+    'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png'
+  )
 })
 
 test('detect `rel="apple-touch-icon"`', async t => {
@@ -149,7 +149,10 @@ test('detect `rel="apple-touch-icon"`', async t => {
     '<link rel="apple-touch-icon" sizes="144x144" href="logo/apple-touch-icon-144x144.png">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, 'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png')
+  t.is(
+    metadata.logo,
+    'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png'
+  )
 })
 
 test('detect `rel="shortcut icon"`', async t => {
@@ -159,10 +162,7 @@ test('detect `rel="shortcut icon"`', async t => {
     '<link rel="shortcut icon" href="logo/favicon.ico">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(
-    metadata.logo,
-    'https://cdn.microlink.io/logo/favicon.ico'
-  )
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon.ico')
 })
 
 test('detect `rel="mask icon"`', async t => {
@@ -236,9 +236,17 @@ test('resolve logo using from google associated with the domain', async t => {
   t.true(metadata.logo.includes('gstatic'))
 })
 
-test('avoid data URI when data length is 0', async t => {
+test('avoid empty data URI', async t => {
   const url = 'https://www.adobe.com/'
   const html = '<link rel="icon" href="data:,">'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, 'https://www.adobe.com/favicon.ico')
+})
+
+test('avoid wrong data URI', async t => {
+  const url = 'https://www.adobe.com/'
+  const html = '<link rel="icon" href="data:">'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url, html })
   t.is(metadata.logo, 'https://www.adobe.com/favicon.ico')
