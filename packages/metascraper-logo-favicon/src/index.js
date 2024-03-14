@@ -56,11 +56,13 @@ const getDomNodeSizes = (domNodes, attr, url) =>
     .reduce((acc, domNode) => {
       const relativeUrl = domNode.attribs[attr]
       if (!relativeUrl) return acc
+      const normalizedUrl = normalizeUrl(url, relativeUrl)
+      if (!normalizedUrl) return acc
       return [
         ...acc,
         {
           ...domNode.attribs,
-          url: normalizeUrl(url, relativeUrl),
+          url: normalizedUrl,
           size: getSize(url, domNode.attribs.sizes)
         }
       ]
