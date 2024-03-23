@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.3](https://github.com/microlinkhq/metascraper/compare/v5.45.2...v5.45.3) (2024-03-23)
+
+### Bug Fixes
+
+* work with tsconfig `module: node16` in ESM ([7e11ac8](https://github.com/microlinkhq/metascraper/commit/7e11ac8fddb738d1764386d4e59455594f8df2b4))
+
 ## [5.45.2](https://github.com/microlinkhq/metascraper/compare/v5.45.1...v5.45.2) (2024-03-14)
 
 **Note:** Version bump only for package metascraper
