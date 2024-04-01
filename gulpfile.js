@@ -1,10 +1,8 @@
 'use strict'
 
-const strip = require('gulp-strip-css-comments')
-const prefix = require('gulp-autoprefixer')
-const cssnano = require('gulp-cssnano')
-const uglify = require('gulp-uglify')
+const postcss = require('gulp-postcss')
 const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
 const gulp = require('gulp')
 
 const src = {
@@ -24,9 +22,14 @@ const styles = () =>
   gulp
     .src(src.css)
     .pipe(concat(`${dist.name.css}.min.css`))
-    .pipe(prefix())
-    .pipe(strip({ all: true }))
-    .pipe(cssnano())
+    .pipe(
+      postcss([
+        require('postcss-focus'),
+        require('cssnano')({
+          preset: require('cssnano-preset-advanced')
+        })
+      ])
+    )
     .pipe(gulp.dest(dist.path))
 
 const scripts = () =>
