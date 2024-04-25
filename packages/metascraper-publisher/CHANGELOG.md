@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.5](https://github.com/microlinkhq/metascraper/compare/v5.45.4...v5.45.5) (2024-04-25)
+
+### Bug Fixes
+
+* **publisher:** remove too generic rule ([592309e](https://github.com/microlinkhq/metascraper/commit/592309ed428b681880dc415f2ac18d60029fec66))
+
 # [5.45.0](https://github.com/microlinkhq/metascraper/compare/v5.44.0...v5.45.0) (2024-02-25)
 
 **Note:** Version bump only for package metascraper-publisher
