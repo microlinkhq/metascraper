@@ -39,7 +39,6 @@ module.exports = () => ({
     toPublisher($ => $filter($, $('#logo'))),
     toPublisher($ => $filter($, $('.logo'))),
     toPublisher($ => $filter($, $('a[class*="brand" i]'))),
-    toPublisher($ => $filter($, $('[class*="brand" i]'))),
     toPublisher($ => $('[class*="logo" i] a img[alt]').attr('alt')),
     toPublisher($ => $('[class*="logo" i] img[alt]').attr('alt')),
     toPublisher($ => $filter($, $('title'), el => getFromTitle($filter.fn(el))))
