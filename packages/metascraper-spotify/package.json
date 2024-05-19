@@ -24,11 +24,11 @@
     "spotify"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.1.0",
+    "@keyvhq/memoize": "~2.1.1",
     "@metascraper/helpers": "^5.45.0",
-    "async-memoize-one": "~1.1.7",
+    "async-memoize-one": "~1.1.8",
     "got": "~11.8.6",
-    "spotify-url-info": "~3.2.13"
+    "spotify-url-info": "~3.2.14"
   },
   "devDependencies": {
     "ava": "5",

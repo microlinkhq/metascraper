@@ -13,10 +13,9 @@ const createMetascraper = (...args) =>
   require('metascraper')([createMetascraperIframe(...args)])
 
 test('provide `gotOpts`', async t => {
-  console.log('running')
   const dnsCache = new CacheableLookup()
   const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
-  const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+  const url = 'https://view.genially.com/5dc53cfa759d2a0f4c7db5f4'
   const metascraper = createMetascraper({ gotOpts: { dnsCache } })
 
   const metadataOne = await metascraper({
@@ -26,7 +25,7 @@ test('provide `gotOpts`', async t => {
   })
   t.truthy(metadataOne.iframe)
 
-  t.is(dnsCache._cache.size, 2)
+  t.is(dnsCache._cache.size, 1)
 
   const metadataTwo = await metascraper({
     url,
@@ -35,7 +34,7 @@ test('provide `gotOpts`', async t => {
   })
 
   t.truthy(metadataTwo.iframe)
-  t.is(dnsCache._cache.size, 2)
+  t.is(dnsCache._cache.size, 1)
 })
 
 test('provide `iframe`', async t => {
@@ -55,7 +54,7 @@ commonProviders.forEach(url => {
 
 test('get iframe from markup', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
-  const url = 'https://view.genial.ly/5dc53cfa759d2a0f4c7db5f4'
+  const url = 'https://view.genially.com/5dc53cfa759d2a0f4c7db5f4'
   const rules = [createMetascraperIframe()]
   const metascraper = createMetascraper(rules)
   const metadata = await metascraper({ url, html })

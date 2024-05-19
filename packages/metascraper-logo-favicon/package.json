@@ -24,10 +24,10 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.1.0",
+    "@keyvhq/memoize": "~2.1.1",
     "@metascraper/helpers": "^5.45.0",
     "lodash": "~4.17.21",
-    "reachable-url": "~1.8.0"
+    "reachable-url": "~1.8.1"
   },
   "devDependencies": {
     "async-listen": "latest",
