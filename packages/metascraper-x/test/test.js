@@ -5,9 +5,7 @@ const test = require('ava')
 const { test: validator } = require('..')
 
 test('true', t => {
-  t.true(
-    validator('https://twitter.com/realDonaldTrump/status/1222907250383245320')
-  )
+  t.true(validator('https://x.com/realDonaldTrump/status/1222907250383245320'))
 })
 
 test('false', t => {

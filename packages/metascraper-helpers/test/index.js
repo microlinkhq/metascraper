@@ -12,6 +12,7 @@ const {
   date,
   description,
   extension,
+  getUrls,
   image,
   isAudioExtension,
   isAudioUrl,
@@ -36,6 +37,26 @@ const measure = fn => {
   const diff = process.hrtime(time)
   return (diff[0] * 1e9 + diff[1]) / 1e6
 }
+
+test('.getUrls', t => {
+  t.deepEqual(getUrls(undefined), [])
+  t.deepEqual(getUrls(null), [])
+  t.deepEqual(getUrls(''), [])
+  t.deepEqual(
+    getUrls(
+      'engineering ▲ @vercel; founder of https://t.co/4PQvCsVNsA https://t.co/fpiHwbEPBv https://t.co/IG8Qq0IDKi https://t.co/gblDRx1P9D https://t.co/SmoZi3hAhb https://t.co/Y0Uk1XU3Eu https://t.co/PAq3eTEhmI'
+    ),
+    [
+      'https://t.co/4PQvCsVNsA',
+      'https://t.co/fpiHwbEPBv',
+      'https://t.co/IG8Qq0IDKi',
+      'https://t.co/gblDRx1P9D',
+      'https://t.co/SmoZi3hAhb',
+      'https://t.co/Y0Uk1XU3Eu',
+      'https://t.co/PAq3eTEhmI'
+    ]
+  )
+})
 
 test('.parseUrl', t => {
   const fn = () => parseUrl('https://example.com')

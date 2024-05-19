@@ -1,7 +1,7 @@
 {
-  "name": "metascraper-twitter",
-  "description": "Metascraper integration with Twitter",
-  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-twitter",
+  "name": "metascraper-x",
+  "description": "Metascraper integration for x.com",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-x",
   "version": "5.45.6",
   "types": "src/index.d.ts",
   "main": "src/index.js",
@@ -11,7 +11,7 @@
     "url": "https://microlink.io"
   },
   "repository": {
-    "directory": "packages/metascraper-twitter",
+    "directory": "packages/metascraper-x",
     "type": "git",
     "url": "git+https://github.com/microlinkhq/metascraper.git"
   },
