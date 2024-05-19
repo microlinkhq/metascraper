@@ -184,7 +184,7 @@
       "@commitlint/config-conventional"
     ],
     "rules": {
-      "body-max-length": [
+      "body-max-line-length": [
         0
       ]
     }
