@@ -19,12 +19,18 @@ const isUri = require('is-uri')
 const { URL } = require('url')
 const tldts = require('tldts')
 
-const urlRegex = require('url-regex-safe')({
+const METASCRAPER_RE2 = process.env.METASCRAPER_RE2
+  ? process.env.METASCRAPER_RE2 === 'true'
+  : undefined
+
+const urlRegexForTest = require('url-regex-safe')({
   exact: true,
   parens: true,
-  re2: process.env.METASCRAPER_RE2
-    ? process.env.METASCRAPER_RE2 === 'true'
-    : undefined
+  re2: METASCRAPER_RE2
+})
+
+const urlRegexForMatch = require('url-regex-safe')({
+  re2: METASCRAPER_RE2
 })
 
 const {
@@ -120,7 +126,7 @@ const AUTHOR_MAX_LENGTH = 128
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
 const isUrl = (url, { relative = false } = {}) =>
-  relative ? isRelativeUrl(url) : urlRegex.test(url)
+  relative ? isRelativeUrl(url) : urlRegexForTest.test(url)
 
 const urlObject = (...args) => {
   try {
@@ -485,6 +491,8 @@ const loadIframe = (url, $, { timeout = 5000 } = {}) =>
     listen(iframe, 'add', load)
   })
 
+const getUrls = input => String(input).match(urlRegexForMatch) ?? []
+
 module.exports = {
   $filter,
   $jsonld,
@@ -499,6 +507,7 @@ module.exports = {
   extension,
   fileExtension,
   findRule,
+  getUrls,
   has,
   image,
   imageExtensions,

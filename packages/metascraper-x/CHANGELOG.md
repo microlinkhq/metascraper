@@ -5,43 +5,43 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [5.45.6](https://github.com/microlinkhq/metascraper/compare/v5.45.5...v5.45.6) (2024-05-19)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 # [5.45.0](https://github.com/microlinkhq/metascraper/compare/v5.44.0...v5.45.0) (2024-02-25)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 # [5.44.0](https://github.com/microlinkhq/metascraper/compare/v5.43.7...v5.44.0) (2024-02-11)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.43.7](https://github.com/microlinkhq/metascraper/compare/v5.43.6...v5.43.7) (2024-02-10)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.43.4](https://github.com/microlinkhq/metascraper/compare/v5.43.3...v5.43.4) (2024-01-23)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.43.3](https://github.com/microlinkhq/metascraper/compare/v5.43.2...v5.43.3) (2024-01-17)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.43.2](https://github.com/microlinkhq/metascraper/compare/v5.43.1...v5.43.2) (2024-01-06)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.43.1](https://github.com/microlinkhq/metascraper/compare/v5.43.0...v5.43.1) (2024-01-02)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 # [5.43.0](https://github.com/microlinkhq/metascraper/compare/v5.42.6...v5.43.0) (2023-12-30)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.42.5](https://github.com/microlinkhq/metascraper/compare/v5.42.4...v5.42.5) (2023-12-20)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.42.2](https://github.com/microlinkhq/metascraper/compare/v5.42.1...v5.42.2) (2023-12-19)
 
@@ -63,23 +63,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [5.39.0](https://github.com/microlinkhq/metascraper/compare/v5.38.0...v5.39.0) (2023-11-23)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 # [5.38.0](https://github.com/microlinkhq/metascraper/compare/v5.37.2...v5.38.0) (2023-11-09)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.37.1](https://github.com/microlinkhq/metascraper/compare/v5.37.0...v5.37.1) (2023-09-18)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 # [5.36.0](https://github.com/microlinkhq/metascraper/compare/v5.35.2...v5.36.0) (2023-08-16)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.35.2](https://github.com/microlinkhq/metascraper/compare/v5.35.1...v5.35.2) (2023-08-15)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.35.1](https://github.com/microlinkhq/metascraper/compare/v5.35.0...v5.35.1) (2023-08-10)
 
@@ -89,43 +89,43 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [5.35.0](https://github.com/microlinkhq/metascraper/compare/v5.34.10...v5.35.0) (2023-08-09)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.10](https://github.com/microlinkhq/metascraper/compare/v5.34.9...v5.34.10) (2023-07-29)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.9](https://github.com/microlinkhq/metascraper/compare/v5.34.8...v5.34.9) (2023-07-17)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.7](https://github.com/microlinkhq/metascraper/compare/v5.34.6...v5.34.7) (2023-05-29)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.6](https://github.com/microlinkhq/metascraper/compare/v5.34.5...v5.34.6) (2023-05-26)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.4](https://github.com/microlinkhq/metascraper/compare/v5.34.3...v5.34.4) (2023-05-03)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.3](https://github.com/microlinkhq/metascraper/compare/v5.34.2...v5.34.3) (2023-04-24)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.2](https://github.com/microlinkhq/metascraper/compare/v5.34.1...v5.34.2) (2023-04-03)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.34.1](https://github.com/microlinkhq/metascraper/compare/v5.34.0...v5.34.1) (2023-03-29)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.33.7](https://github.com/microlinkhq/metascraper/compare/v5.33.6...v5.33.7) (2023-01-30)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.33.6](https://github.com/microlinkhq/metascraper/compare/v5.33.5...v5.33.6) (2023-01-27)
 
@@ -135,19 +135,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [5.33.5](https://github.com/microlinkhq/metascraper/compare/v5.33.4...v5.33.5) (2023-01-23)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.33.4](https://github.com/microlinkhq/metascraper/compare/v5.33.3...v5.33.4) (2023-01-09)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.33.3](https://github.com/microlinkhq/metascraper/compare/v5.33.2...v5.33.3) (2023-01-03)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.33.2](https://github.com/microlinkhq/metascraper/compare/v5.33.1...v5.33.2) (2023-01-02)
 
-**Note:** Version bump only for package metascraper-twitter
+**Note:** Version bump only for package metascraper-x
 
 ## [5.33.1](https://github.com/microlinkhq/metascraper/compare/v5.33.0...v5.33.1) (2023-01-01)
 
@@ -159,4 +159,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* add metascraper-twitter ([#608](https://github.com/microlinkhq/metascraper/issues/608)) ([075c0ab](https://github.com/microlinkhq/metascraper/commit/075c0ab1141f9104b21a3496c43fe5c6b3bf17c0)), closes [#260](https://github.com/microlinkhq/metascraper/issues/260)
+* add metascraper-x ([#608](https://github.com/microlinkhq/metascraper/issues/608)) ([075c0ab](https://github.com/microlinkhq/metascraper/commit/075c0ab1141f9104b21a3496c43fe5c6b3bf17c0)), closes [#260](https://github.com/microlinkhq/metascraper/issues/260)
