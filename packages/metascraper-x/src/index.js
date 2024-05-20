@@ -38,7 +38,7 @@ module.exports = ({
     title: [toTitle(($, url) => `@${url.split('/')[3]} on X`)],
     url: [
       toUrl($ =>
-        $('link[rel="canonical"]').attr('href').replace('twitter.com', 'x.com')
+        $('link[rel="canonical"]').attr('href')?.replace('twitter.com', 'x.com')
       )
     ],
     description: [

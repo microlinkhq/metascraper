@@ -1,6 +1,6 @@
 {
   "name": "metascraper-x",
-  "description": "Metascraper integration for x.com",
+  "description": "Metascraper integration with x.com",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-x",
   "version": "5.45.7",
   "types": "src/index.d.ts",

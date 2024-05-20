@@ -5,7 +5,7 @@ const { resolve } = require('path')
 const test = require('ava')
 
 const metascraper = require('../../..')([
-  require('metascraper-twitter')(),
+  require('metascraper-x')(),
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
@@ -22,9 +22,9 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url = 'https://twitter.com/Kikobeats/status/880139124791029763'
+const url = 'https://x.com/Kikobeats/status/880139124791029763'
 
-test('twitter (tweet with gif)', async t => {
+test('x.com (tweet with gif)', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
