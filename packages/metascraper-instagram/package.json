@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "^5.45.7",
-    "jsdom": "~24.0.0",
+    "jsdom": "~24.1.0",
     "lodash": "~4.17.21"
   },
   "devDependencies": {
