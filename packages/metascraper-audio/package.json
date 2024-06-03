@@ -2,7 +2,7 @@
   "name": "metascraper-audio",
   "description": "Get audio property from HTML markup",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-audio",
-  "version": "5.45.9",
+  "version": "5.45.10",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
@@ -23,7 +23,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.9",
+    "@metascraper/helpers": "^5.45.10",
     "lodash": "~4.17.21",
     "p-reflect": "~2.1.0"
   },
