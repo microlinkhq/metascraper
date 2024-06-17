@@ -6,11 +6,11 @@ const { createFavicon } = require('..')
 
 const { runServer } = require('./helpers')
 
-const faviconPNG = createFavicon({ ext: 'png', contentTypes: ['image/png'] })
-const faviconICO = createFavicon({
-  ext: 'ico',
-  contentTypes: ['image/vnd.microsoft.icon', 'image/x-icon']
-})
+const faviconPNG = createFavicon(['png', ['image/png']])
+const faviconICO = createFavicon([
+  'ico',
+  ['image/vnd.microsoft.icon', 'image/x-icon']
+])
 
 test('return undefined if favicon is not reachable', async t => {
   const url = 'https://idontexist.lol'
@@ -36,7 +36,7 @@ test("don't resolve favicon.ico with no valid content-type", async t => {
     res.setHeader('content-type', 'image/svg+xml; charset=utf-8')
     res.end('<svg></svg>')
   })
-  t.is(await faviconICO(url), undefined)
+  t.is(await faviconICO(url), false)
 })
 
 test("favicon.png with 'image/png' content-type", async t => {
