@@ -26,6 +26,8 @@ const url =
 
 test('fast-company', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
   t.snapshot(metadata)
+  t.is(typeof logo, 'string')
+  t.true(new URL(logo).hostname.endsWith('.gstatic.com'), logo)
 })

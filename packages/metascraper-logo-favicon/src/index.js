@@ -1,13 +1,29 @@
 'use strict'
 
-const { logo, parseUrl, normalizeUrl, toRule } = require('@metascraper/helpers')
 const { isEmpty, first, toNumber, chain, orderBy } = require('lodash')
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
 
+const {
+  logo,
+  parseUrl,
+  normalizeUrl,
+  toRule,
+  extension
+} = require('@metascraper/helpers')
+
+const ALLOWED_EXTENSION_CONTENT_TYPES = [
+  ['ico', ['image/vnd.microsoft.icon', 'image/x-icon']],
+  ['png', ['image/png']]
+]
+
 const SIZE_REGEX_BY_X = /\d+x\d+/
 
 const toLogo = toRule(logo)
+
+const isValidContenType = (contentType, contentTypes) => {
+  return contentType && contentTypes.some(ct => contentType.includes(ct))
+}
 
 const toSize = (input, url) => {
   if (isEmpty(input)) return
@@ -85,9 +101,19 @@ const sizeSelectors = [
 const firstReachable = async (domNodeSizes, gotOpts) => {
   for (const { url } of domNodeSizes) {
     const response = await reachableUrl(url, gotOpts)
-    if (reachableUrl.isReachable(response)) {
-      return response.url
+    if (!reachableUrl.isReachable(response)) continue
+    const contentType = response.headers['content-type']
+
+    const urlExtension = extension(url)
+    const contentTypes = ALLOWED_EXTENSION_CONTENT_TYPES.find(
+      ([ext]) => ext === urlExtension
+    )
+
+    if (contentTypes && !isValidContenType(contentType, contentTypes[1])) {
+      continue
     }
+
+    return response.url
   }
 }
 
@@ -109,22 +135,16 @@ const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const createFavicon =
-  ({ ext, contentTypes }) =>
-    async (url, { gotOpts } = {}) => {
-      const faviconUrl = logo(`/favicon.${ext}`, { url })
-      if (!faviconUrl) return undefined
-
-      const response = await reachableUrl(faviconUrl, gotOpts)
-      const contentType = response.headers['content-type']
-
-      const isValidContenType =
-      contentType && contentTypes.some(ct => contentType.includes(ct))
-
-      return isValidContenType && reachableUrl.isReachable(response)
-        ? response.url
-        : undefined
-    }
+const createFavicon = ([ext, contentTypes]) => {
+  return async (url, { gotOpts } = {}) => {
+    const faviconUrl = logo(`/favicon.${ext}`, { url })
+    if (!faviconUrl) return undefined
+    const response = await reachableUrl(faviconUrl, gotOpts)
+    if (!reachableUrl.isReachable(response)) return undefined
+    const contentType = response.headers['content-type']
+    return isValidContenType(contentType, contentTypes) && response.url
+  }
+}
 
 const google = async (url, { gotOpts } = {}) => {
   const response = await reachableUrl(google.url(url), gotOpts)
@@ -136,19 +156,11 @@ google.url = (url, size = 128) =>
 
 const createGetLogo = ({ withGoogle, withFavicon, gotOpts, keyvOpts }) => {
   const getLogo = async url => {
-    const providers = [
-      withFavicon &&
-        createFavicon({
-          ext: 'png',
-          contentTypes: ['image/png']
-        }),
-      withFavicon &&
-        createFavicon({
-          ext: 'ico',
-          contentTypes: ['image/vnd.microsoft.icon', 'image/x-icon']
-        }),
-      withGoogle && google
-    ].filter(Boolean)
+    const providers = ALLOWED_EXTENSION_CONTENT_TYPES.map(
+      ext => withFavicon && createFavicon(ext)
+    )
+      .concat(withGoogle && google)
+      .filter(Boolean)
 
     for (const provider of providers) {
       const logoUrl = await provider(url, { gotOpts })
