@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.11](https://github.com/microlinkhq/metascraper/compare/v5.45.10...v5.45.11) (2024-06-17)
+
+### Bug Fixes
+
+* ensure favicon detect in markup is expected content-type ([e366887](https://github.com/microlinkhq/metascraper/commit/e3668875f56dd6264615fe084c4df73acdd679d3))
+
 ## [5.45.10](https://github.com/microlinkhq/metascraper/compare/v5.45.9...v5.45.10) (2024-06-03)
 
 **Note:** Version bump only for package metascraper-logo-favicon
