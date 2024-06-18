@@ -36,7 +36,7 @@ test("don't resolve favicon.ico with no valid content-type", async t => {
     res.setHeader('content-type', 'image/svg+xml; charset=utf-8')
     res.end('<svg></svg>')
   })
-  t.is(await faviconICO(url), false)
+  t.is(await faviconICO(url), undefined)
 })
 
 test("favicon.png with 'image/png' content-type", async t => {

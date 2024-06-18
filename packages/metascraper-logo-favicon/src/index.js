@@ -21,9 +21,8 @@ const SIZE_REGEX_BY_X = /\d+x\d+/
 
 const toLogo = toRule(logo)
 
-const isValidContenType = (contentType, contentTypes) => {
-  return contentType && contentTypes.some(ct => contentType.includes(ct))
-}
+const isValidContenType = (contentType, contentTypes) =>
+  contentType && contentTypes.some(ct => contentType.includes(ct))
 
 const toSize = (input, url) => {
   if (isEmpty(input)) return
@@ -105,13 +104,16 @@ const firstReachable = async (domNodeSizes, gotOpts) => {
     const contentType = response.headers['content-type']
 
     const urlExtension = extension(url)
+
     const contentTypes = ALLOWED_EXTENSION_CONTENT_TYPES.find(
       ([ext]) => ext === urlExtension
     )
 
-    if (contentTypes && !isValidContenType(contentType, contentTypes[1])) {
-      continue
-    }
+    if (
+      contentTypes &&
+      (!isValidContenType(contentType, contentTypes[1]) ||
+        response.body.toString()[0] === '<')
+    ) { continue }
 
     return response.url
   }
@@ -142,7 +144,14 @@ const createFavicon = ([ext, contentTypes]) => {
     const response = await reachableUrl(faviconUrl, gotOpts)
     if (!reachableUrl.isReachable(response)) return undefined
     const contentType = response.headers['content-type']
-    return isValidContenType(contentType, contentTypes) && response.url
+
+    if (
+      contentTypes &&
+      (!isValidContenType(contentType, contentTypes) ||
+        response.body.toString()[0] === '<')
+    ) { return undefined }
+
+    return response.url
   }
 }
 

@@ -267,6 +267,19 @@ test("favicon.ico detected in HTML markup can't be random content-type", async t
   t.is(metadata.logo, null)
 })
 
+test("don't trust in favicon.ico content-type", async t => {
+  const url = await runServer(t, async ({ res }) => {
+    res.setHeader('content-type', 'image/x-icon')
+    res.end('<svg></svg>')
+  })
+
+  const html =
+    '<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="120x116">'
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, null)
+})
+
 test('favicon.ico detected in HTML markup can be `image/x-icon` content-type', async t => {
   const url = await runServer(t, async ({ res }) => {
     res.setHeader('content-type', 'image/x-icon')

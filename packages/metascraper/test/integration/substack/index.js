@@ -26,7 +26,8 @@ const url =
 
 test('substack', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const { date, ...metadata } = await metascraper({ html, url })
-  t.is(typeof date, 'string')
+  const { date, logo, ...metadata } = await metascraper({ html, url })
   t.snapshot(metadata)
+  t.is(typeof date, 'string')
+  t.true(logo.includes('gstatic'))
 })
