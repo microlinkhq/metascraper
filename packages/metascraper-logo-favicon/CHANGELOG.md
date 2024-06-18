@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.12](https://github.com/microlinkhq/metascraper/compare/v5.45.11...v5.45.12) (2024-06-18)
+
+### Bug Fixes
+
+* **logo-favicon:** verify body first character ([a3665f4](https://github.com/microlinkhq/metascraper/commit/a3665f4fd2e2ccfb16020ecebbeed23f95e66715))
+
 ## [5.45.11](https://github.com/microlinkhq/metascraper/compare/v5.45.10...v5.45.11) (2024-06-17)
 
 ### Bug Fixes
