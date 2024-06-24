@@ -22,6 +22,10 @@ declare namespace createMetascraper {
      */
     html?: string;
     /**
+     * The Cheerio instance for extracting the content.
+     */
+    htmlDom?: import("cheerio").CheerioAPI;
+    /**
      * You can pass additional rules to add on execution time.
      * These rules will be merged with your loaded rules at the beginning.
      */
