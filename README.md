@@ -264,6 +264,12 @@ Type: `String`
 
 The HTML markup for extracting the content.
 
+##### htmlDom
+
+Type: `object`
+
+The DOM representation of the HTML markup. When it's not provided, it's get from the `html` parameter.
+
 #### rules
 
 Type: `Array`
