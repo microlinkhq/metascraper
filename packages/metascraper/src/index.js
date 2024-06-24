@@ -14,7 +14,7 @@ module.exports = rules => {
   return async ({
     url,
     html = '',
-    dom,
+    htmlDom,
     rules: inlineRules,
     validateUrl = true,
     ...props
@@ -25,11 +25,10 @@ module.exports = rules => {
         code: 'INVALID_URL'
       })
     }
-    const htmlDom = dom || load(html, { baseURI: url })
 
     return getData({
       url,
-      htmlDom,
+      htmlDom: htmlDom ?? load(html, { baseURI: url }),
       rules: mergeRules(inlineRules, loadedRules),
       ...props
     })

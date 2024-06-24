@@ -4,6 +4,7 @@ const test = require('ava')
 
 const createMetascraper = require('../..')
 const titleRules = require('metascraper-title')()
+const { load } = require('cheerio')
 
 test('`url` is required', async t => {
   t.plan(9)
@@ -31,7 +32,7 @@ test('`url` is required', async t => {
   }
 })
 
-test('Disable URL validation using `validateUrl`', async t => {
+test('passing `{ validateUrl: false }`', async t => {
   const metascraper = createMetascraper([titleRules])
 
   const html = `
@@ -66,7 +67,7 @@ test('Disable URL validation using `validateUrl`', async t => {
   t.is(metadata.title, 'Document')
 })
 
-test('load extra `rules`', async t => {
+test('passing `rules`', async t => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -104,7 +105,7 @@ test('load extra `rules`', async t => {
   t.is(metadata.foo, 'bar')
 })
 
-test('associate test function with rules', async t => {
+test('skip `rules` via `test` function', async t => {
   const url = 'https://microlink.io'
 
   const html = `
@@ -147,4 +148,13 @@ test('associate test function with rules', async t => {
   const metadata = await metascraper({ url, html })
   t.is(metadata.foo, null)
   t.true(isCalled)
+})
+
+test('passing `htmlDom`', async t => {
+  const url = 'https://microlink.io'
+  const htmlDom = load('<title>htmlDom</title>')
+  const html = '<title>Original HTML</title>'
+  const metascraper = createMetascraper([titleRules])
+  const metadata = await metascraper({ url, htmlDom, html })
+  t.is(metadata.title, 'htmlDom')
 })
