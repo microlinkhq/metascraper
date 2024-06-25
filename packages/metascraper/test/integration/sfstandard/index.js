@@ -8,6 +8,7 @@ const metascraper = require('../../..')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
+  require('metascraper-audio')(),
   require('metascraper-video')(),
   require('metascraper-image')(),
   require('metascraper-lang')(),
@@ -21,9 +22,9 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.bloomberg.com/news/articles/2016-05-24/as-zenefits-stumbles-gusto-goes-head-on-by-selling-insurance'
+  'https://sfstandard.com/2024/06/24/service-fee-restaurants-san-francisco/'
 
-;(process.env.CI ? test.skip : test)('bloomberg', async t => {
+;(process.env.CI ? test.skip : test)('sfstandard', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
