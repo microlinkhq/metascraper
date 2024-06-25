@@ -1,8 +1,8 @@
 'use strict'
 
 const { readFile } = require('fs/promises')
-const test = require('ava')
 const { resolve } = require('path')
+const test = require('ava')
 
 const metascraper = require('../../..')([
   require('metascraper-author')(),

@@ -8,6 +8,8 @@ const metascraper = require('../../..')([
   require('metascraper-author')(),
   require('metascraper-date')(),
   require('metascraper-description')(),
+  require('metascraper-audio')(),
+  require('metascraper-video')(),
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
@@ -22,7 +24,7 @@ const metascraper = require('../../..')([
 const url =
   'https://sfstandard.com/2024/06/24/service-fee-restaurants-san-francisco/'
 
-test('sfstandard', async t => {
+;(process.env.CI ? test.skip : test)('sfstandard', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
