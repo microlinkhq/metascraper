@@ -20,12 +20,6 @@ $ npm install metascraper-x --save
 
 #### options
 
-##### gotOpts
-
-Type: `object`
-
-Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
-
 ##### resolveUrls
 
 Type: `boolean`
@@ -36,7 +30,7 @@ Set to `true` if you want to resolve `t.co` URLs into the final URL.
 
 Type: `function`
 
-A decorator to be called after `t.co` is resolved. It doesn't do anything by default.
+The function implementation that resolves `t.co` into a the final URL.
 
 ## License
 
