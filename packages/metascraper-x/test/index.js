@@ -21,7 +21,7 @@ const createMetascraper = (...args) =>
   ])
 
 test('from a X profile', async t => {
-  const url = 'https://x.com/Kikobeats'
+  const url = 'https://x.com/kikobeats?mx=2'
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url, html })

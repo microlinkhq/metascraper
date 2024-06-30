@@ -30,7 +30,11 @@ module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
         return author?.includes(' on X') ? author.split(' on X')[0] : author
       })
     ],
-    title: [toTitle(($, url) => `@${url.split('/')[3]} on X`)],
+    title: [
+      toTitle(
+        ($, url) => `@${new URL(url).pathname.toString().split('/')[1]} on X`
+      )
+    ],
     url: [
       toUrl($ =>
         $('link[rel="canonical"]').attr('href')?.replace('twitter.com', 'x.com')
