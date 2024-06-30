@@ -32,7 +32,8 @@ test('from a X profile resolving URLs', async t => {
   const url = 'https://x.com/Kikobeats'
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
 
-  const resolveUrl = url => {
+  const resolveUrl = async shortUrl => {
+    const { url } = await fetch(shortUrl, { method: 'HEAD' })
     const urlObj = new URL(url)
     urlObj.search = ''
     return urlObj.toString().replace('https://', '').replace('/', '')

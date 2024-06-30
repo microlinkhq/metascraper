@@ -1,6 +1,5 @@
 'use strict'
 
-const reachableUrl = require('reachable-url')
 const {
   getUrls,
   author,
@@ -23,11 +22,7 @@ const test = memoizeOne(url =>
   ['twitter.com', 'x.com'].includes(parseUrl(url).domain)
 )
 
-module.exports = ({
-  gotOpts,
-  resolveUrls = false,
-  resolveUrl = url => url
-} = {}) => {
+module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
   const rules = {
     author: [
       toAuthor($ => {
@@ -45,18 +40,8 @@ module.exports = ({
       toDescription(async $ => {
         let description = $('meta[property="og:description"]').attr('content')
         if (!resolveUrls) return description
-
         const urls = getUrls(description)
-
-        const resolvedUrls = await Promise.all(
-          urls.map(async url => {
-            const response = await reachableUrl(url, gotOpts)
-            if (reachableUrl.isReachable(response)) {
-              return resolveUrl(response.url)
-            }
-            return url
-          })
-        )
+        const resolvedUrls = await Promise.all(urls.map(resolveUrl))
 
         for (const [index, url] of resolvedUrls.entries()) {
           const original = urls[index]
