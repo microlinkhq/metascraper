@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.16](https://github.com/microlinkhq/metascraper/compare/v5.45.15...v5.45.16) (2024-06-30)
+
+### Bug Fixes
+
+* **x:** strip query parameter from title ([9fcf3d7](https://github.com/microlinkhq/metascraper/commit/9fcf3d7b1b72978748d47dd94da0380af9815d22))
+
 ## [5.45.15](https://github.com/microlinkhq/metascraper/compare/v5.45.14...v5.45.15) (2024-06-30)
 
 **Note:** Version bump only for package metascraper
