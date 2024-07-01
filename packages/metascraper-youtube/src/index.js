@@ -1,9 +1,16 @@
 'use strict'
 
-const { $filter, author, toRule, memoizeOne } = require('@metascraper/helpers')
 const reachableUrl = require('reachable-url')
 const getVideoId = require('get-video-id')
 const pLocate = require('p-locate')
+
+const {
+  $filter,
+  author,
+  memoizeOne,
+  title,
+  toRule
+} = require('@metascraper/helpers')
 
 const THUMBAILS_RESOLUTIONS = [
   'maxresdefault.jpg',
@@ -25,12 +32,15 @@ const getThumbnailUrl = (id, gotOpts) => {
 
 const toAuthor = toRule(author)
 
+const toTitle = toRule(title)
+
 const getVideoInfo = memoizeOne(getVideoId)
 
 const test = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
 module.exports = ({ gotOpts } = {}) => {
   const rules = {
+    title: [toTitle($ => $('title').text().replace(' - YouTube', ''))],
     author: [
       toAuthor($ => $filter($, $('[class*="user-info" i]'))),
       toAuthor($ => $('[itemprop="author"] [itemprop="name"]').attr('content'))
