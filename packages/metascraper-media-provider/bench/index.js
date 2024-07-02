@@ -8,7 +8,7 @@ const debug = require('debug-logfmt')(
 )
 
 const createFromGeneric = require('../../src/get-media/provider/generic')
-const { getUrl, ...opts } = require('../constants')
+const { getUrl, ...opts } = require('./constants')
 
 const fromGeneric = createFromGeneric(opts)
 

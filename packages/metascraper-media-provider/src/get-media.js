@@ -4,6 +4,7 @@ const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
 const { serializeError } = require('serialize-error')
+const asyncMemoizeOne = require('async-memoize-one')
 const youtubedl = require('youtube-dl-exec')
 const { get, constant } = require('lodash')
 const pTimeout = require('p-timeout')
@@ -39,8 +40,8 @@ module.exports = ({
   retry = 2,
   gotOpts,
   ...props
-}) => {
-  return async url => {
+}) =>
+  asyncMemoizeOne(async url => {
     let retryCount = 0
     let isTimeout = false
     let isSupportedURL = true
@@ -73,8 +74,7 @@ module.exports = ({
       return data
     }
 
-    return pTimeout(task(), timeout, fallback)
-  }
-}
+    return pTimeout(task(), timeout, fallback).then(data => data ?? {})
+  })
 
 module.exports.getFlags = getFlags
