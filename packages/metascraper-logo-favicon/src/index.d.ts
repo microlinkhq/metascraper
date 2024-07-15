@@ -31,7 +31,7 @@ type Options = {
   /**
    * It will be used to determine if a favicon URL is valid.
    */
-  resolveFaviconUrl?: (faviconUrl: string, contentTypes: string[], gotOpts: import('got').Options) => boolean,
+  resolveFaviconUrl?: (faviconUrl: string, contentTypes: string[], gotOpts: import('got').Options) => string | undefined,
 
   /**
    * Enable favicon.ico using the root domain for subdomains

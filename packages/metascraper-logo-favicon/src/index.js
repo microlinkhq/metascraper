@@ -145,15 +145,11 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
 
   const contentType = response.headers['content-type']
 
-  if (
-    contentTypes &&
-    (!isValidContenType(contentType, contentTypes) ||
-      response.body.toString()[0] === '<')
-  ) {
+  if (contentTypes && !isValidContenType(contentType, contentTypes)) {
     return undefined
   }
 
-  if (contentTypes && !isValidContenType(contentType, contentTypes)) {
+  if (response.body.toString()[0] === '<') {
     return undefined
   }
 
