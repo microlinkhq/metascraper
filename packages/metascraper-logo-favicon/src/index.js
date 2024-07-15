@@ -97,31 +97,22 @@ const sizeSelectors = [
   { tag: 'meta[name*="msapplication" i]', attr: 'content' } // Windows 8, Internet Explorer 11 Tiles
 ]
 
-const firstReachable = async (domNodeSizes, gotOpts) => {
+const firstReachable = async (domNodeSizes, resolveFaviconUrl, gotOpts) => {
   for (const { url } of domNodeSizes) {
-    const response = await reachableUrl(url, gotOpts)
-    if (!reachableUrl.isReachable(response)) continue
-    const contentType = response.headers['content-type']
-
     const urlExtension = extension(url)
-
     const contentTypes = ALLOWED_EXTENSION_CONTENT_TYPES.find(
       ([ext]) => ext === urlExtension
     )
 
-    if (
-      contentTypes &&
-      (!isValidContenType(contentType, contentTypes[1]) ||
-        response.body.toString()[0] === '<')
-    ) {
-      continue
-    }
-
-    return response.url
+    const faviconUrl = await resolveFaviconUrl(url, contentTypes, gotOpts)
+    if (faviconUrl !== undefined) return faviconUrl
   }
 }
 
-const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
+const pickBiggerSize = async (
+  sizes,
+  { resolveFaviconUrl = defaultResolveFaviconUrl, gotOpts } = {}
+) => {
   const sorted = sizes.reduce(
     (acc, item) => {
       acc[item.size.square ? 'square' : 'nonSquare'].push(item)
@@ -131,8 +122,16 @@ const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
   )
 
   return (
-    (await firstReachable(pickBiggerSize.sortBySize(sorted.square), gotOpts)) ||
-    (await firstReachable(pickBiggerSize.sortBySize(sorted.nonSquare), gotOpts))
+    (await firstReachable(
+      pickBiggerSize.sortBySize(sorted.square),
+      resolveFaviconUrl,
+      gotOpts
+    )) ||
+    (await firstReachable(
+      pickBiggerSize.sortBySize(sorted.nonSquare),
+      resolveFaviconUrl,
+      gotOpts
+    ))
   )
 }
 
@@ -149,14 +148,17 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
     return undefined
   }
 
-  if (response.body.toString()[0] === '<') {
+  if (contentTypes && response.body.toString()[0] === '<') {
     return undefined
   }
 
   return response.url
 }
 
-const createFavicon = ([ext, contentTypes], resolveFaviconUrl) => {
+const createFavicon = (
+  [ext, contentTypes],
+  resolveFaviconUrl = defaultResolveFaviconUrl
+) => {
   return async (url, { gotOpts } = {}) => {
     const faviconUrl = logo(`/favicon.${ext}`, { url })
     return faviconUrl
