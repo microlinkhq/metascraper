@@ -62,6 +62,12 @@ const metascraper = require('metascraper')([
 
 If you don't specific it, the favicon with the bigger size will be picked.
 
+##### resolveFaviconUrl
+
+Type: `function`
+
+It will be used to determine if a favicon URL is valid.
+
 ##### gotOpts
 
 Type: `object`

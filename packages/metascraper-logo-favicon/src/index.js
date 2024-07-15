@@ -113,7 +113,9 @@ const firstReachable = async (domNodeSizes, gotOpts) => {
       contentTypes &&
       (!isValidContenType(contentType, contentTypes[1]) ||
         response.body.toString()[0] === '<')
-    ) { continue }
+    ) {
+      continue
+    }
 
     return response.url
   }
@@ -137,21 +139,36 @@ const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
 pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
-const createFavicon = ([ext, contentTypes]) => {
+const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
+  const response = await reachableUrl(faviconUrl, gotOpts)
+  if (!reachableUrl.isReachable(response)) return undefined
+
+  const contentType = response.headers['content-type']
+
+  if (
+    contentTypes &&
+    (!isValidContenType(contentType, contentTypes) ||
+      response.body.toString()[0] === '<')
+  ) {
+    return undefined
+  }
+
+  if (contentTypes && !isValidContenType(contentType, contentTypes)) {
+    return undefined
+  }
+
+  return response.url
+}
+
+const createFavicon = (
+  [ext, contentTypes],
+  resolveFaviconUrl = defaultResolveFaviconUrl
+) => {
   return async (url, { gotOpts } = {}) => {
     const faviconUrl = logo(`/favicon.${ext}`, { url })
-    if (!faviconUrl) return undefined
-    const response = await reachableUrl(faviconUrl, gotOpts)
-    if (!reachableUrl.isReachable(response)) return undefined
-    const contentType = response.headers['content-type']
-
-    if (
-      contentTypes &&
-      (!isValidContenType(contentType, contentTypes) ||
-        response.body.toString()[0] === '<')
-    ) { return undefined }
-
-    return response.url
+    return faviconUrl
+      ? resolveFaviconUrl(faviconUrl, contentTypes, gotOpts)
+      : undefined
   }
 }
 
@@ -163,10 +180,16 @@ const google = async (url, { gotOpts } = {}) => {
 google.url = (url, size = 128) =>
   `https://www.google.com/s2/favicons?domain_url=${url}&sz=${size}`
 
-const createGetLogo = ({ withGoogle, withFavicon, gotOpts, keyvOpts }) => {
+const createGetLogo = ({
+  gotOpts,
+  keyvOpts,
+  resolveFaviconUrl,
+  withFavicon,
+  withGoogle
+}) => {
   const getLogo = async url => {
     const providers = ALLOWED_EXTENSION_CONTENT_TYPES.map(
-      ext => withFavicon && createFavicon(ext)
+      ext => withFavicon && createFavicon(ext, resolveFaviconUrl)
     )
       .concat(withGoogle && google)
       .filter(Boolean)
