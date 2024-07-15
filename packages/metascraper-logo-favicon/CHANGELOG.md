@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.20](https://github.com/microlinkhq/metascraper/compare/v5.45.19...v5.45.20) (2024-07-15)
+
+**Note:** Version bump only for package metascraper-logo-favicon
+
 ## [5.45.12](https://github.com/microlinkhq/metascraper/compare/v5.45.11...v5.45.12) (2024-06-18)
 
 ### Bug Fixes
