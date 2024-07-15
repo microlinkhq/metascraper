@@ -104,8 +104,8 @@ const firstReachable = async (domNodeSizes, resolveFaviconUrl, gotOpts) => {
       ([ext]) => ext === urlExtension
     )
 
-    const faviconUrl = await resolveFaviconUrl(url, contentTypes, gotOpts)
-    if (faviconUrl !== undefined) return faviconUrl
+    const response = await resolveFaviconUrl(url, contentTypes, gotOpts)
+    if (response !== undefined) return response.url
   }
 }
 
@@ -152,7 +152,7 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
     return undefined
   }
 
-  return response.url
+  return response
 }
 
 const createFavicon = (
@@ -162,7 +162,9 @@ const createFavicon = (
   return async (url, { gotOpts } = {}) => {
     const faviconUrl = logo(`/favicon.${ext}`, { url })
     return faviconUrl
-      ? resolveFaviconUrl(faviconUrl, contentTypes, gotOpts)
+      ? resolveFaviconUrl(faviconUrl, contentTypes, gotOpts).then(
+        response => response?.url
+      )
       : undefined
   }
 }
