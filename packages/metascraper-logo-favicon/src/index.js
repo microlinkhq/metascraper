@@ -160,10 +160,7 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
   return response.url
 }
 
-const createFavicon = (
-  [ext, contentTypes],
-  resolveFaviconUrl = defaultResolveFaviconUrl
-) => {
+const createFavicon = ([ext, contentTypes], resolveFaviconUrl) => {
   return async (url, { gotOpts } = {}) => {
     const faviconUrl = logo(`/favicon.${ext}`, { url })
     return faviconUrl
@@ -224,14 +221,21 @@ const createRootFavicon = ({ getLogo, withRootFavicon = true } = {}) => {
 }
 
 module.exports = ({
-  google: withGoogle = true,
   favicon: withFavicon = true,
-  rootFavicon: withRootFavicon = true,
+  google: withGoogle = true,
   gotOpts,
   keyvOpts,
-  pickFn = pickBiggerSize
+  pickFn = pickBiggerSize,
+  resolveFaviconUrl = defaultResolveFaviconUrl,
+  rootFavicon: withRootFavicon = true
 } = {}) => {
-  const getLogo = createGetLogo({ withGoogle, withFavicon, gotOpts, keyvOpts })
+  const getLogo = createGetLogo({
+    gotOpts,
+    keyvOpts,
+    resolveFaviconUrl,
+    withFavicon,
+    withGoogle
+  })
   const rootFavicon = createRootFavicon({ getLogo, withRootFavicon })
   return {
     logo: [
@@ -250,3 +254,4 @@ module.exports.createFavicon = createFavicon
 module.exports.createRootFavicon = createRootFavicon
 module.exports.createGetLogo = createGetLogo
 module.exports.pickBiggerSize = pickBiggerSize
+module.exports.resolveFaviconUrl = defaultResolveFaviconUrl
