@@ -97,31 +97,22 @@ const sizeSelectors = [
   { tag: 'meta[name*="msapplication" i]', attr: 'content' } // Windows 8, Internet Explorer 11 Tiles
 ]
 
-const firstReachable = async (domNodeSizes, gotOpts) => {
+const firstReachable = async (domNodeSizes, resolveFaviconUrl, gotOpts) => {
   for (const { url } of domNodeSizes) {
-    const response = await reachableUrl(url, gotOpts)
-    if (!reachableUrl.isReachable(response)) continue
-    const contentType = response.headers['content-type']
-
     const urlExtension = extension(url)
-
     const contentTypes = ALLOWED_EXTENSION_CONTENT_TYPES.find(
       ([ext]) => ext === urlExtension
     )
 
-    if (
-      contentTypes &&
-      (!isValidContenType(contentType, contentTypes[1]) ||
-        response.body.toString()[0] === '<')
-    ) {
-      continue
-    }
-
-    return response.url
+    const response = await resolveFaviconUrl(url, contentTypes, gotOpts)
+    if (response !== undefined) return response.url
   }
 }
 
-const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
+const pickBiggerSize = async (
+  sizes,
+  { resolveFaviconUrl = defaultResolveFaviconUrl, gotOpts } = {}
+) => {
   const sorted = sizes.reduce(
     (acc, item) => {
       acc[item.size.square ? 'square' : 'nonSquare'].push(item)
@@ -131,8 +122,16 @@ const pickBiggerSize = async (sizes, { gotOpts } = {}) => {
   )
 
   return (
-    (await firstReachable(pickBiggerSize.sortBySize(sorted.square), gotOpts)) ||
-    (await firstReachable(pickBiggerSize.sortBySize(sorted.nonSquare), gotOpts))
+    (await firstReachable(
+      pickBiggerSize.sortBySize(sorted.square),
+      resolveFaviconUrl,
+      gotOpts
+    )) ||
+    (await firstReachable(
+      pickBiggerSize.sortBySize(sorted.nonSquare),
+      resolveFaviconUrl,
+      gotOpts
+    ))
   )
 }
 
@@ -145,19 +144,15 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
 
   const contentType = response.headers['content-type']
 
-  if (
-    contentTypes &&
-    (!isValidContenType(contentType, contentTypes) ||
-      response.body.toString()[0] === '<')
-  ) {
-    return undefined
-  }
-
   if (contentTypes && !isValidContenType(contentType, contentTypes)) {
     return undefined
   }
 
-  return response.url
+  if (contentTypes && response.body.toString()[0] === '<') {
+    return undefined
+  }
+
+  return response
 }
 
 const createFavicon = (
@@ -167,7 +162,9 @@ const createFavicon = (
   return async (url, { gotOpts } = {}) => {
     const faviconUrl = logo(`/favicon.${ext}`, { url })
     return faviconUrl
-      ? resolveFaviconUrl(faviconUrl, contentTypes, gotOpts)
+      ? resolveFaviconUrl(faviconUrl, contentTypes, gotOpts).then(
+        response => response?.url
+      )
       : undefined
   }
 }
@@ -224,14 +221,21 @@ const createRootFavicon = ({ getLogo, withRootFavicon = true } = {}) => {
 }
 
 module.exports = ({
-  google: withGoogle = true,
   favicon: withFavicon = true,
-  rootFavicon: withRootFavicon = true,
+  google: withGoogle = true,
   gotOpts,
   keyvOpts,
-  pickFn = pickBiggerSize
+  pickFn = pickBiggerSize,
+  resolveFaviconUrl = defaultResolveFaviconUrl,
+  rootFavicon: withRootFavicon = true
 } = {}) => {
-  const getLogo = createGetLogo({ withGoogle, withFavicon, gotOpts, keyvOpts })
+  const getLogo = createGetLogo({
+    gotOpts,
+    keyvOpts,
+    resolveFaviconUrl,
+    withFavicon,
+    withGoogle
+  })
   const rootFavicon = createRootFavicon({ getLogo, withRootFavicon })
   return {
     logo: [
@@ -250,3 +254,4 @@ module.exports.createFavicon = createFavicon
 module.exports.createRootFavicon = createRootFavicon
 module.exports.createGetLogo = createGetLogo
 module.exports.pickBiggerSize = pickBiggerSize
+module.exports.resolveFaviconUrl = defaultResolveFaviconUrl

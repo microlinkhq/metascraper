@@ -20,13 +20,6 @@ $ npm install metascraper-logo-favicon --save
 
 #### options
 
-##### google
-
-Type: `boolean`<br>
-Default: `true`
-
-It enables logo resolution using Google API.
-
 ##### favicon
 
 Type: `boolean`<br>
@@ -34,12 +27,24 @@ Default: `true`
 
 It tries to resolve `favicon.ico` of the url.
 
-##### rootFavicon
+##### google
 
-Type: `boolean`|`regexp`<br>
+Type: `boolean`<br>
 Default: `true`
 
-It tries to resolve `favicon.ico` of the url when the URL is a subdomain.
+It enables logo resolution using Google API.
+
+##### gotOpts
+
+Type: `object`
+
+Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
+
+##### keyvOpts
+
+Type: `object`
+
+Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
 ##### pickFn
 
@@ -68,17 +73,12 @@ Type: `function`
 
 It will be used to determine if a favicon URL is valid.
 
-##### gotOpts
+##### rootFavicon
 
-Type: `object`
+Type: `boolean`|`regexp`<br>
+Default: `true`
 
-Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
-
-##### keyvOpts
-
-Type: `object`
-
-Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
+It tries to resolve `favicon.ico` of the url when the URL is a subdomain.
 
 ## License
 
