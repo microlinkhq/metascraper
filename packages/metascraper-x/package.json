@@ -2,7 +2,7 @@
   "name": "metascraper-x",
   "description": "Metascraper integration with x.com",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-x",
-  "version": "5.45.16",
+  "version": "5.45.22",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
@@ -24,7 +24,7 @@
     "spotify"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.10"
+    "@metascraper/helpers": "^5.45.22"
   },
   "devDependencies": {
     "ava": "5"
