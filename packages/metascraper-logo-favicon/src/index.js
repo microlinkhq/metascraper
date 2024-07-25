@@ -241,7 +241,11 @@ module.exports = ({
     logo: [
       toLogo(async ($, url) => {
         const sizes = getSizes($, sizeSelectors, url)
-        return await pickFn(sizes, { gotOpts, pickBiggerSize })
+        return await pickFn(sizes, {
+          resolveFaviconUrl,
+          gotOpts,
+          pickBiggerSize
+        })
       }),
       ({ url }) => getLogo(normalizeUrl(url)),
       rootFavicon
