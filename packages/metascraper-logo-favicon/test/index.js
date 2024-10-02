@@ -85,6 +85,17 @@ test('get the biggest icon possible', async t => {
   t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon-196x196.png')
 })
 
+test('prefers small png over large ico', async t => {
+  const url = 'https://github.com'
+  const metascraper = createMetascraper()
+  const html = createHtml([
+    '<link rel="icon" type="image/png" href="/fluidicon.png" sizes="96x96">',
+    '<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="128x128">'
+  ])
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, 'https://github.com/fluidicon.png')
+})
+
 test('detect `rel="fluid-icon"`', async t => {
   const url = 'https://github.com'
   const metascraper = createMetascraper()
