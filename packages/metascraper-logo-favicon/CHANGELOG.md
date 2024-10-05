@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.24](https://github.com/microlinkhq/metascraper/compare/v5.45.23...v5.45.24) (2024-10-05)
+
+### Bug Fixes
+
+* linter ([05c4d30](https://github.com/microlinkhq/metascraper/commit/05c4d305fb3468c493e4e8f48262f20e399b9e9b))
+* **metascraper-logo-favicon:** allow URL input and apply priority. closes [#724](https://github.com/microlinkhq/metascraper/issues/724) ([cfe41bb](https://github.com/microlinkhq/metascraper/commit/cfe41bb4ef30ce7d4e6dee418270057706db937c))
+
 ## [5.45.22](https://github.com/microlinkhq/metascraper/compare/v5.45.21...v5.45.22) (2024-07-25)
 
 ### Bug Fixes
