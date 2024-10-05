@@ -78,7 +78,7 @@ const getDomNodeSizes = (domNodes, attr, url) =>
         {
           ...domNode.attribs,
           url: normalizedUrl,
-          size: getSize(url, domNode.attribs.sizes)
+          size: getSize(normalizedUrl, domNode.attribs.sizes)
         }
       ]
     }, [])
