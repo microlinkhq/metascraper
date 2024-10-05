@@ -85,7 +85,7 @@ test('get the biggest icon possible', async t => {
   t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon-196x196.png')
 })
 
-test('prefers small png over large ico', async t => {
+test('get the biggest respecting the format', async t => {
   const url = 'https://github.com'
   const metascraper = createMetascraper()
   const html = createHtml([
