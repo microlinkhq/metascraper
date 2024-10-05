@@ -163,8 +163,8 @@ const createFavicon = (
     const faviconUrl = logo(`/favicon.${ext}`, { url })
     return faviconUrl
       ? resolveFaviconUrl(faviconUrl, contentTypes, gotOpts).then(
-          response => response?.url
-        )
+        response => response?.url
+      )
       : undefined
   }
 }
