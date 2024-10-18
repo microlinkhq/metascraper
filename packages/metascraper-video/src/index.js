@@ -2,7 +2,6 @@
 
 const {
   $jsonld,
-  $twitter,
   findRule,
   has,
   loadIframe,
@@ -58,11 +57,13 @@ const videoRules = [
       : undefined
   },
   ({ url, htmlDom: $ }) => {
-    const src = $twitter($, 'twitter:player:stream')
+    const src = $('meta[name="twitter:player:stream"]').attr('content')
     return src
       ? video(src, {
         url,
-        type: $twitter($, 'twitter:player:stream:content_type')
+        type: $('meta[name="twitter:player:stream:content_type"]').attr(
+          'content'
+        )
       })
       : undefined
   },
@@ -98,7 +99,7 @@ const withIframe = (rules, getIframe) =>
       ).then(({ value }) => value)
     },
     async ({ htmlDom: $, url }) => {
-      const src = $twitter($, 'twitter:player')
+      const src = $('meta[name="twitter:player"]').attr('content')
       return src
         ? findRule(rules, {
           htmlDom: await getIframe(url, $, { src }),
