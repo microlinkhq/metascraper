@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.25](https://github.com/microlinkhq/metascraper/compare/v5.45.24...v5.45.25) (2024-10-18)
+
+**Note:** Version bump only for package metascraper-date
+
 ## [5.45.22](https://github.com/microlinkhq/metascraper/compare/v5.45.21...v5.45.22) (2024-07-25)
 
 **Note:** Version bump only for package metascraper-date
