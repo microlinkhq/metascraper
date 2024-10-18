@@ -174,10 +174,6 @@ const titleize = (src, opts = {}) => {
   return title
 }
 
-const $twitter = ($, selector) =>
-  $(`meta[name="${selector}"]`).attr('content') ||
-  $(`meta[property="${selector}"]`).attr('content')
-
 const $filter = ($, matchedEl, fn = $filter.fn) => {
   let matched
 
@@ -496,7 +492,6 @@ const getUrls = input => String(input).match(urlRegexForMatch) ?? []
 module.exports = {
   $filter,
   $jsonld,
-  $twitter,
   absoluteUrl,
   audio,
   audioExtensions,

@@ -6,7 +6,6 @@ const {
   audio,
   findRule,
   has,
-  $twitter,
   loadIframe,
   normalizeUrl,
   toRule
@@ -59,11 +58,13 @@ const audioRules = [
       : undefined
   },
   ({ url, htmlDom: $ }) => {
-    const src = $twitter($, 'twitter:player:stream')
+    const src = $('meta[name="twitter:player:stream"]').attr('content')
     return src
       ? audio(src, {
         url,
-        type: $twitter($, 'twitter:player:stream:content_type')
+        type: $('meta[name="twitter:player:stream:content_type"]').attr(
+          'content'
+        )
       })
       : undefined
   },
@@ -99,7 +100,7 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
         ).then(({ value }) => value)
       },
       async ({ htmlDom: $, url }) => {
-        const src = $twitter($, 'twitter:player')
+        const src = $('meta[name="twitter:player"]').attr('content')
         return src
           ? findRule(audioRules, {
             htmlDom: await getIframe(url, $, { src }),
