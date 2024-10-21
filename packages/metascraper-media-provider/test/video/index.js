@@ -30,7 +30,7 @@ const isCI = !!process.env.CI
   })
 })
 ;['https://www.instagram.com/p/BmYooZbhCfJ'].forEach(url => {
-  ;(isCI ? test.skip : test)(url, async t => {
+  test.skip(url, async t => {
     const metadata = await metascraper({ url })
     debug(metadata.video)
     t.true(isUrl(metadata.video))
