@@ -27,7 +27,7 @@ Let's extract accurate information from the following website:
 
 ![](https://i.imgur.com/jZl0Uej.png)
 
-First, **metrascraper** expects you provide the HTML markup behind the target URL.
+First, **metascraper** expects you provide the HTML markup behind the target URL.
 
 There are multiple ways to get the HTML markup. In our case, we are going to run a programmatic headless browser to simulate real user navigation, so the data obtained will be close to a real-world example.
 
