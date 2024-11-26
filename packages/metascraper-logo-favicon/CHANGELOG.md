@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.26](https://github.com/microlinkhq/metascraper/compare/v5.45.25...v5.45.26) (2024-11-26)
+
+### Bug Fixes
+
+* **logo-favicon:** don't resolve roo path as logo ([16cff65](https://github.com/microlinkhq/metascraper/commit/16cff653f1f920b62e3d5ca2ff5fb4ecf230bb0c))
+
 ## [5.45.25](https://github.com/microlinkhq/metascraper/compare/v5.45.24...v5.45.25) (2024-10-18)
 
 **Note:** Version bump only for package metascraper-logo-favicon
