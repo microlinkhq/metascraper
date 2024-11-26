@@ -85,6 +85,19 @@ test('get the biggest icon possible', async t => {
   t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon-196x196.png')
 })
 
+test("don't resolve root path as logo", async t => {
+  const url = 'https://thisurldoesnotexist.com'
+  const metascraper = createMetascraper()
+  const html = createHtml([
+    '<link rel="icon" type="image/x-icon">',
+    '<link rel="icon" type="image/x-icon" href="">',
+    `<link rel="icon" type="image/x-icon" href="${url}">`,
+    '<link rel="icon" type="image/x-icon" href>'
+  ])
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, null)
+})
+
 test('get the biggest respecting the format', async t => {
   const url = 'https://github.com'
   const metascraper = createMetascraper()
