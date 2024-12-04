@@ -18,7 +18,6 @@ module.exports = () => ({
     toImage($ => $('meta[itemprop="image"]').attr('content')),
     toImage($jsonld('image.0.url')),
     toImage($jsonld('image.url')),
-    toImage($jsonld('image.url')),
     toImage($jsonld('image')),
     toImage($ => $filter($, $('article img[src]'), getSrc)),
     toImage($ => $filter($, $('#content img[src]'), getSrc)),
