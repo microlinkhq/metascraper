@@ -23,9 +23,8 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25",
-    "jsdom": "~24.1.0",
-    "lodash": "~4.17.21"
+    "franc": "~5.0.0",
+    "@metascraper/helpers": "^5.45.25"
   },
   "devDependencies": {
     "ava": "5"

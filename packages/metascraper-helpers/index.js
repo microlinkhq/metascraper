@@ -520,6 +520,7 @@ module.exports = {
   isUrl,
   isVideoExtension,
   isVideoUrl,
+  iso6393,
   jsonld,
   lang,
   loadIframe,
