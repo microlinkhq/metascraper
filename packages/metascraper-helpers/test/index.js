@@ -136,7 +136,9 @@ test('.url', t => {
   t.is(
     url(
       'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-      { url: 'https://kikobeats.com/' }
+      {
+        url: 'https://kikobeats.com/'
+      }
     ),
     'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
   )
@@ -149,7 +151,9 @@ test('.url', t => {
   t.is(
     url(
       'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29//handshake_0.jpg',
-      { url: 'http://www.cloudpro.co.uk/go/6024' }
+      {
+        url: 'http://www.cloudpro.co.uk/go/6024'
+      }
     ),
     'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg'
   )
@@ -389,7 +393,7 @@ test('.date', t => {
   t.is(date(undefined), undefined)
   t.is(date(null), undefined)
   t.is(date('null'), undefined)
-  t.is(date('Jun 20'), '2024-06-20T12:00:00.000Z')
+  t.is(date('Jun 20'), '2025-06-20T12:00:00.000Z')
   t.is(date('Jun 20 2018'), '2018-06-20T12:00:00.000Z')
   t.is(date('Jun 2018'), '2018-06-01T12:00:00.000Z')
   t.is(date(2010), '2010-01-01T00:00:00.000Z')
