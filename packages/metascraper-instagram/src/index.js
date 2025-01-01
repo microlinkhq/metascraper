@@ -1,82 +1,51 @@
 'use strict'
 
-const { composeRule, memoizeOne, parseUrl } = require('@metascraper/helpers')
-const { JSDOM, VirtualConsole } = require('jsdom')
-const { keys, first, get } = require('lodash')
+const franc = require('franc')
+
+const {
+  author,
+  date,
+  iso6393,
+  lang,
+  memoizeOne,
+  parseUrl,
+  title
+} = require('@metascraper/helpers')
+
+console.log('iso6393', iso6393)
+
+const detectLang = input => lang(iso6393[franc(input)])
 
 const test = memoizeOne(
   url => parseUrl(url).domainWithoutSuffix === 'instagram'
 )
 
-const getPage = sharedData => first(keys(get(sharedData, 'entry_data')))
-
-const extractData = memoizeOne((url, $) => {
-  const dom = new JSDOM($.html(), {
-    url,
-    virtualConsole: new VirtualConsole(),
-    runScripts: 'dangerously'
-  })
-  const sharedData = get(dom, 'window._sharedData')
-
-  const page = getPage(sharedData)
-
-  const getTitle = ({ author, username }) =>
-    author
-      ? `${author} (@${username}) on Instagram`
-      : `@${username} on Instagram`
-
-  switch (page) {
-    case 'PostPage': {
-      const media = get(
-        sharedData,
-        `entry_data.${page}[0].graphql.shortcode_media`
-      )
-
-      const author = get(media, 'owner.full_name')
-      const username = get(media, 'owner.username')
-
-      return {
-        author,
-        video: get(media, 'video_url'),
-        image: get(media, 'display_url'),
-        date: get(media, 'taken_at_timestamp'),
-        title: getTitle({ author, username }),
-        description: get(media, 'edge_media_to_caption.edges[0].node.text')
-      }
-    }
-    case 'ProfilePage': {
-      const user = get(sharedData, `entry_data.${page}[0].graphql.user`)
-      const author = get(user, 'full_name')
-      const username = get(user, 'username')
-
-      return {
-        author,
-        title: getTitle({ author, username }),
-        description: get(user, 'biography')
-      }
-    }
-    case 'StoriesPage': {
-      const user = get(sharedData, `entry_data.${page}[0].user`)
-      const username = get(user, 'username')
-
-      return {
-        title: getTitle({ username })
-      }
-    }
-  }
-})
-
-const getData = composeRule(($, url) => extractData(url, $))
+const getDescription = memoizeOne(
+  (_, $) => $('meta[property="og:description"]').attr('content'),
+  memoizeOne.EqualityFirstArgument
+)
 
 module.exports = () => {
   const rules = {
-    author: getData({ from: 'author' }),
-    video: getData({ from: 'video' }),
-    title: getData({ from: 'title' }),
-    date: getData({ from: 'date' }),
-    image: getData({ from: 'image' }),
-    description: getData({ from: 'description' }),
-    publisher: () => 'Instagram'
+    author: ({ htmlDom: $ }) => {
+      const title = $('meta[property="og:title"]').attr('content')
+      const value = title.split(' on Instagram')[0]
+      return author(value)
+    },
+    date: ({ htmlDom: $, url }) => {
+      const description = getDescription(url, $)
+      const dateMatch = description.match(/on ([^,]+, \d{4})/)
+      if (dateMatch === null) return
+      const dateString = `${dateMatch[1]} GMT`
+      return date(new Date(dateString))
+    },
+    lang: ({ htmlDom: $, url }) => {
+      const description = getDescription(url, $)
+      const input = description.split(': ').pop().split(' - ').pop()
+      return detectLang(input)
+    },
+    title: ({ htmlDom: $ }) =>
+      title($('meta[name="twitter:title"]').attr('content'))
   }
 
   rules.test = ({ url }) => test(url)

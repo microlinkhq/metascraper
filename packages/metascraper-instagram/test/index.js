@@ -26,6 +26,7 @@ test('from photo post', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
 test('from multi photo post', async t => {
   const url = 'https://www.instagram.com/p/COn3M4TnRi1/'
   const html = await readFile(
@@ -34,6 +35,7 @@ test('from multi photo post', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
 test('from video post', async t => {
   const url = 'https://www.instagram.com/p/CPQjO5RIIO9/'
   const html = await readFile(
@@ -42,6 +44,7 @@ test('from video post', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
 test('from clip post', async t => {
   const url = 'https://www.instagram.com/p/CN2VQ1yI_MA/'
   const html = await readFile(
@@ -50,6 +53,7 @@ test('from clip post', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
 test('from igtv', async t => {
   const url = 'https://www.instagram.com/p/CIoLRFIIL50/'
   const html = await readFile(
@@ -58,12 +62,14 @@ test('from igtv', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
 test('from profile', async t => {
   const url = 'https://www.instagram.com/pluto__travel/'
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
 test('from story', async t => {
   const url =
     'https://www.instagram.com/stories/jaimelorentelo/2591639087680304855/'
