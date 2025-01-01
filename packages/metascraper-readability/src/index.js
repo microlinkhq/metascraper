@@ -17,7 +17,7 @@ const readability = memoizeOne((url, html) => {
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
   const reader = new Readability(dom.window.document)
   return parseReader(reader)
-})
+}, memoizeOne.EqualityFirstArgument)
 
 const getReadbility = composeRule(($, url) => readability(url, $.html()))
 
