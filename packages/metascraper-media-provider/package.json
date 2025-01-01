@@ -24,16 +24,16 @@
     "youtube-dl"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25",
+    "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.1.8",
-    "debug-logfmt": "~1.2.2",
     "got": "~11.8.6",
+    "debug-logfmt": "~1.2.3",
     "lodash": "~4.17.21",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
     "serialize-error": "~8.1.0",
-    "youtube-dl-exec": "~3.0.2"
+    "youtube-dl-exec": "~3.0.12"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",

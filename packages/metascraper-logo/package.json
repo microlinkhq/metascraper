@@ -23,7 +23,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25",
+    "@metascraper/helpers": "workspace:*",
     "lodash": "~4.17.21"
   },
   "engines": {
