@@ -23,7 +23,7 @@
     "url"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25",
+    "@metascraper/helpers": "workspace:*",
     "@mozilla/readability": "~0.5.0",
     "jsdom": "~25.0.1"
   },

@@ -58,7 +58,7 @@
     "website"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25",
+    "@metascraper/helpers": "workspace:*",
     "cheerio": "~1.0.0",
     "lodash": "~4.17.21",
     "whoops": "~4.1.7"

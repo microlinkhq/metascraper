@@ -25,7 +25,7 @@
     "rss"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25"
+    "@metascraper/helpers": "workspace:*"
   },
   "devDependencies": {
     "ava": "5"

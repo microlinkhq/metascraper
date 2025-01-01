@@ -23,7 +23,7 @@
     "video"
   ],
   "dependencies": {
-    "@metascraper/helpers": "^5.45.25",
+    "@metascraper/helpers": "workspace:*",
     "lodash": "~4.17.21",
     "p-reflect": "~2.1.0"
   },

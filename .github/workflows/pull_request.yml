@@ -45,7 +45,7 @@ jobs:
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
           PROXY_HOST: ${{ secrets.PROXY_HOST }}
       - name: Test
-        run: pnpm --filter "${{ matrix.package }}" run test
+        run: pnpm run test --scope "${{ matrix.package }}"
         env:
           PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}

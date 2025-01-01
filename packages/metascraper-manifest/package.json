@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@keyvhq/memoize": "~2.1.5",
-    "@metascraper/helpers": "^5.45.25",
+    "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.1.8",
     "data-uri-to-buffer": "~5.0.1",
     "got": "~11.8.6",
