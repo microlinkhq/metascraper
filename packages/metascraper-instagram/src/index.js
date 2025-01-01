@@ -12,6 +12,8 @@ const {
   title
 } = require('@metascraper/helpers')
 
+console.log('iso6393', iso6393)
+
 const detectLang = input => lang(iso6393[franc(input)])
 
 const test = memoizeOne(
