@@ -76,12 +76,11 @@
   "scripts": {
     "lint": "tsd",
     "pretest": "npm run lint",
-    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+    "test": "NODE_PATH=.. TZ=UTC ava"
   },
   "license": "MIT",
   "ava": {
-    "failFast": true,
-    "timeout": "5m"
+    "failFast": true
   },
   "tsd": {
     "directory": "test/types"
