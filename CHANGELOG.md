@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.45.29](https://github.com/microlinkhq/metascraper/compare/v5.45.28...v5.45.29) (2025-01-07)
+
+### Bug Fixes
+
+* **instagram:** remove debug log ([835e5fd](https://github.com/microlinkhq/metascraper/commit/835e5fd4d3460fc9784fbc2b2b25e0358239d12d))
+
 ## [5.45.28](https://github.com/microlinkhq/metascraper/compare/v5.45.27...v5.45.28) (2025-01-01)
 
 ### Bug Fixes
