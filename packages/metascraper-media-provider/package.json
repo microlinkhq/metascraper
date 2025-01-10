@@ -49,7 +49,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC DEBUG=metascraper*,-metascraper-media-provider:provider* NODE_ENV=test ava --timeout 30s"
+    "test": "NODE_PATH=.. TZ=UTC DEBUG='metascraper-media-provider*,-metascraper-media-provider:provider*' NODE_ENV=test ava --timeout 30s"
   },
   "license": "MIT",
   "ava": {
