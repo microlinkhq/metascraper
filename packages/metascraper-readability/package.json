@@ -28,8 +28,7 @@
     "happy-dom": "~16.5.3"
   },
   "devDependencies": {
-    "ava": "5",
-    "metascraper": "latest"
+    "ava": "5"
   },
   "engines": {
     "node": ">= 16"
