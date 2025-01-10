@@ -52,7 +52,7 @@ module.exports = opts => {
 
   const manifest = composeRule(toManifest)
 
-  return {
+  const rules = {
     lang: manifest({ from: 'lang' }),
     description: manifest({ from: 'description' }),
     publisher: manifest({ from: 'short_name', to: 'publisher' }),
@@ -72,6 +72,10 @@ module.exports = opts => {
       return logo(iconSrc, { url })
     }
   }
+
+  rules.pkgName = 'metascraper-manifest'
+
+  return rules
 }
 
 module.exports.parseSize = parseSize
