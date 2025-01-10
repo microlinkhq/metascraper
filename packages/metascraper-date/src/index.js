@@ -43,17 +43,19 @@ module.exports = (
     dateModified: false
   }
 ) => {
-  const result = {
+  const rules = {
     date: dateModifiedRules().concat(datePublishedRules(), dateRules())
   }
 
   if (datePublished) {
-    result.datePublished = datePublishedRules()
+    rules.datePublished = datePublishedRules()
   }
 
   if (dateModified) {
-    result.dateModified = dateModifiedRules()
+    rules.dateModified = dateModifiedRules()
   }
 
-  return result
+  rules.pkgName = 'metascraper-date'
+
+  return rules
 }

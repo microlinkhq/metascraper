@@ -109,7 +109,13 @@ const withIframe = (rules, getIframe) =>
     }
   )
 
-module.exports = ({ getIframe = _getIframe } = {}) => ({
-  image: withIframe(imageRules, getIframe),
-  video: withIframe(videoRules, getIframe)
-})
+module.exports = ({ getIframe = _getIframe } = {}) => {
+  const rules = {
+    image: withIframe(imageRules, getIframe),
+    video: withIframe(videoRules, getIframe)
+  }
+
+  rules.pkgName = 'metascraper-video'
+
+  return rules
+}

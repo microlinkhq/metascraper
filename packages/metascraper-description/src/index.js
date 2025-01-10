@@ -5,7 +5,7 @@ const { $jsonld, toRule, description } = require('@metascraper/helpers')
 module.exports = opts => {
   const toDescription = toRule(description, opts)
 
-  return {
+  const rules = {
     description: [
       toDescription($ => $('meta[property="og:description"]').attr('content')),
       toDescription($ => $('meta[name="twitter:description"]').attr('content')),
@@ -18,4 +18,8 @@ module.exports = opts => {
       toDescription($jsonld('description'))
     ]
   }
+
+  rules.pkgName = 'metascraper-description'
+
+  return rules
 }

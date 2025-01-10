@@ -20,7 +20,7 @@ module.exports = ({ filter } = {}) => {
 
   const toLogo = toRule(mapper)
 
-  return {
+  const rules = {
     logo: [
       toLogo($ => $('meta[property="og:logo"]').attr('content')),
       toLogo($ => $('meta[itemprop="logo"]').attr('content')),
@@ -35,4 +35,8 @@ module.exports = ({ filter } = {}) => {
       toLogo($ => toLogoUrl($, 'logo'))
     ]
   }
+
+  rules.pkgName = 'metascraper-logo'
+
+  return rules
 }

@@ -69,6 +69,8 @@ module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
 
   rules.test = ({ url }) => test(url)
 
+  rules.pkgName = 'metascraper-x'
+
   return rules
 }
 
