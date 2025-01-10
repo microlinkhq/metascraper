@@ -16,9 +16,12 @@ const forEachRule = (collection, fn) => forEach(castArray(collection), fn)
 
 const loadRules = rulesBundle =>
   chain(rulesBundle)
-    .reduce((acc, { test, ...rules }) => {
+    .reduce((acc, { test, pkgName, ...rules }) => {
       forEach(rules, (innerRules, propName) => {
-        if (test) forEachRule(innerRules, rule => (rule.test = test))
+        forEachRule(innerRules, rule => {
+          if (test) rule.test = test
+          rule.pkgName = pkgName ?? 'uknown'
+        })
 
         set(
           acc,
