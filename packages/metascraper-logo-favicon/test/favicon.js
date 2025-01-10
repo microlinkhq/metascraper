@@ -41,7 +41,7 @@ test("don't resolve favicon.ico with no valid content-type", async t => {
 
 test("favicon.png with 'image/png' content-type", async t => {
   const url = 'https://adroll.com/'
-  t.is(await faviconPNG(url), 'https://adroll.com/favicon.png')
+  t.is(await faviconPNG(url), 'https://www.adroll.com/favicon.png')
 })
 
 test("favicon.ico with 'image/vnd.microsoft.icon' content-type", async t => {
