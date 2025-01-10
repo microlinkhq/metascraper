@@ -136,7 +136,7 @@ const getDescription = ({ description }) => descriptionFn(description)
 module.exports = (opts = {}) => {
   const getMedia = createGetMedia(opts)
 
-  return {
+  const rules = {
     audio: async ({ url }) => getAudio(await getMedia(url)),
     author: async ({ url }) => getAuthor(await getMedia(url)),
     date: async ({ url }) => getDate(await getMedia(url)),
@@ -147,6 +147,10 @@ module.exports = (opts = {}) => {
     title: async ({ url }) => getTitle(await getMedia(url)),
     video: async ({ url }) => getVideo(await getMedia(url))
   }
+
+  rules.pkgName = 'metascraper-media-provider'
+
+  return rules
 }
 
 module.exports.getAudio = getAudio

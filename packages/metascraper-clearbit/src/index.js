@@ -43,8 +43,12 @@ module.exports = opts => {
   const clearbit = createClearbit(opts)
   const getClearbit = composeRule(($, url) => clearbit(parseUrl(url).domain))
 
-  return {
+  const rules = {
     logo: getClearbit({ from: 'logo' }),
     publisher: getClearbit({ from: 'name', to: 'publisher' })
   }
+
+  rules.pkgName = 'metascraper-clearbit'
+
+  return rules
 }

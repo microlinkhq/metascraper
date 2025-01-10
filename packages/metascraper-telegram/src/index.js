@@ -73,6 +73,8 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
 
   rules.test = ({ url }) => test(url)
 
+  rules.pkgName = 'metascraper-telegram'
+
   return rules
 }
 
