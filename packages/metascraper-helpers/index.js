@@ -1,6 +1,7 @@
 'use strict'
 
 const memoizeOne = require('memoize-one').default || require('memoize-one')
+const debug = require('debug-logfmt')('metascraper:find-rule')
 const condenseWhitespace = require('condense-whitespace')
 const { getExtension: mimeExtension } = require('mime')
 const capitalize = require('microsoft-capitalize')
@@ -420,14 +421,18 @@ const validator = {
 
 const truthyTest = () => true
 
-const findRule = async (rules, args) => {
+const findRule = async (rules, args, propName) => {
   let index = 0
   let value
 
   do {
     const rule = rules[index++]
     const test = rule.test || truthyTest
-    if (test(args)) value = await rule(args)
+    if (test(args)) {
+      const duration = debug.duration()
+      value = await rule(args)
+      duration(`${rule.pkgName}:${propName}:${index - 1}:${has(value)}`)
+    }
   } while (!has(value) && index < rules.length)
 
   return value
