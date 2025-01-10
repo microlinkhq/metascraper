@@ -28,8 +28,7 @@
     "jsdom": "~25.0.1"
   },
   "devDependencies": {
-    "ava": "5",
-    "metascraper": "latest"
+    "ava": "5"
   },
   "engines": {
     "node": ">= 16"
