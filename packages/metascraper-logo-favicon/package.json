@@ -31,7 +31,8 @@
   },
   "devDependencies": {
     "async-listen": "latest",
-    "ava": "5"
+    "ava": "5",
+    "got": "11"
   },
   "engines": {
     "node": ">= 16"
