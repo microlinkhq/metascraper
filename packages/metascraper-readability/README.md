@@ -14,6 +14,19 @@
 $ npm install metascraper-readability --save
 ```
 
+## API
+
+### metascraper-readability([options])
+
+#### options
+
+##### getDocument
+
+Type: `function`<br>
+Default: [source code](https://github.com/microlinkhq/metascraper/blob/master/packages/metascraper-readability/src/index.js#L14-L20)
+
+The function to be called to serialized html into a DOM document.
+
 ## License
 
 **metascraper-readability** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
