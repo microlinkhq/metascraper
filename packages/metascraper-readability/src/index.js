@@ -1,9 +1,7 @@
 'use strict'
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
-
 const { Readability } = require('@mozilla/readability')
-const { JSDOM, VirtualConsole } = require('jsdom')
 
 const parseReader = reader => {
   try {
@@ -13,24 +11,36 @@ const parseReader = reader => {
   }
 }
 
-const readability = memoizeOne((url, html) => {
-  const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
-  const reader = new Readability(dom.window.document)
-  return parseReader(reader)
-}, memoizeOne.EqualityFirstArgument)
+const defaultGetDocument = ({ url, html }) => {
+  const { Window } = require('happy-dom')
+  const window = new Window({ url })
+  const document = window.document
+  document.documentElement.innerHTML = html
+  return document
+}
 
-const getReadbility = composeRule(($, url) => readability(url, $.html()))
+module.exports = ({ getDocument = defaultGetDocument } = {}) => {
+  const readability = memoizeOne((url, html, getDocument) => {
+    const document = getDocument({ url, html })
+    const reader = new Readability(document)
+    return parseReader(reader)
+  }, memoizeOne.EqualityFirstArgument)
 
-module.exports = () => {
-  const rules = {
-    author: getReadbility({ from: 'byline', to: 'author' }),
-    description: getReadbility({ from: 'excerpt', to: 'description' }),
-    lang: getReadbility({ from: 'lang' }),
-    publisher: getReadbility({ from: 'siteName', to: 'publisher' }),
-    title: getReadbility({ from: 'title' })
+  const getReadbility = composeRule(($, url) =>
+    readability(url, $.html(), getDocument)
+  )
+
+  module.exports = () => {
+    const rules = {
+      author: getReadbility({ from: 'byline', to: 'author' }),
+      description: getReadbility({ from: 'excerpt', to: 'description' }),
+      lang: getReadbility({ from: 'lang' }),
+      publisher: getReadbility({ from: 'siteName', to: 'publisher' }),
+      title: getReadbility({ from: 'title' })
+    }
+
+    rules.pkgName = 'metascraper-readability'
+
+    return rules
   }
-
-  rules.pkgName = 'metascraper-readability'
-
-  return rules
 }
