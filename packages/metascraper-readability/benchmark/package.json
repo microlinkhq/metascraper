@@ -1,0 +1,9 @@
+{
+  "name": "@metascraper-readability/benchmark",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "dom-parser": "latest",
+    "happy-dom": "latest"
+  }
+}

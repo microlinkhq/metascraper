@@ -25,7 +25,7 @@
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "@mozilla/readability": "~0.5.0",
-    "jsdom": "~25.0.1"
+    "happy-dom": "~16.5.3"
   },
   "devDependencies": {
     "ava": "5",
