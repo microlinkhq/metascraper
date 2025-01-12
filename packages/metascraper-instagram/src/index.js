@@ -27,19 +27,19 @@ module.exports = () => {
   const rules = {
     author: ({ htmlDom: $ }) => {
       const title = $('meta[property="og:title"]').attr('content')
-      const value = title.split(' on Instagram')[0]
+      const value = title?.split(' on Instagram')[0]
       return author(value)
     },
     date: ({ htmlDom: $, url }) => {
       const description = getDescription(url, $)
-      const dateMatch = description.match(/on ([^,]+, \d{4})/)
-      if (dateMatch === null) return
+      const dateMatch = description?.match(/on ([^,]+, \d{4})/)
+      if (dateMatch === null || dateMatch === undefined) return
       const dateString = `${dateMatch[1]} GMT`
       return date(new Date(dateString))
     },
     lang: ({ htmlDom: $, url }) => {
       const description = getDescription(url, $)
-      const input = description.split(': ').pop().split(' - ').pop()
+      const input = description?.split(': ').pop()?.split(' - ').pop()
       return detectLang(input)
     },
     title: ({ htmlDom: $ }) =>
