@@ -24,5 +24,7 @@ module.exports = () => {
 
   rules.test = ({ url }) => test(url)
 
+  rules.pkgName = 'metascraper-soundcloud'
+
   return rules
 }

@@ -42,7 +42,7 @@ A set of rules under the same namespace runs in series and only the value return
 You can associate a `test` function with your rule bundle:
 
 ```js
-rules.test = ({ url }) => getVideoInfo(url).service === 'youtube'))
+rules.test = ({ url }) => getVideoInfo(url).service === 'youtube'
 ```
 
 The `test` function will receive the same arguments as a rule. This is useful for skipping all rules that doesn't target a specific URL.
@@ -52,11 +52,30 @@ A good practice is to use a memoize function to prevent unnecessary CPU cycles f
 ```js
 const { memoizeOne } = require('@metascraper/helpers')
 
-const test = memoizeOne(url => getVideoInfo(url).service === 'youtube'))
+const test = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
 const rules = []
-rules.test ({ url }) => test(url)
+rules.test = ({ url }) => test(url)
 ```
+
+### Defining `pkgName` property
+
+Additionally you can define `pkgName` property associated with your rules:
+
+```js
+const { memoizeOne } = require('@metascraper/helpers')
+
+const rules = []
+rules.pkgName = 'metascraper-module'
+```
+
+This is using for printing debug logs, see debugging section to know how to use it.
+
+## Debugging your Rules
+
+In case you need to see what's happening under the hood, you can set `DEBUG='metascraper*'.
+
+This is useful for verifying rule precedence and detecting slow rules.
 
 ## Testing your Rules
 
@@ -73,7 +92,6 @@ const metascraper = require('metascraper')([
   // loading our rules!
   require('metascraper-logo')()
 ])
-
 
 describe('metascraper-logo', () => {
   it('creates an absolute favicon url if the logo is not present', async () => {
@@ -92,8 +110,8 @@ describe('metascraper-logo', () => {
     </body>
     </html>
     `
-    const meta = await metascraper({ html, url }))
-    should(meta.log).be.equal("open graph value")
+    const meta = await metascraper({ html, url })
+    should(meta.log).be.equal('open graph value')
   })
 })
 ```
@@ -129,8 +147,8 @@ const metascraper = require('metascraper')([
 describe('metascraper-logo', () => {
   it('it resolves logo value', async () => {
     const html = fs.readFileSync('index.html', 'utf-8')
-    const meta = await metascraper({ html, url }))
-    should(meta.logo).be.equal("https://metascraper.js.org/static/logo.png")
+    const meta = await metascraper({ html, url })
+    should(meta.logo).be.equal('https://metascraper.js.org/static/logo.png')
   })
 })
 ```

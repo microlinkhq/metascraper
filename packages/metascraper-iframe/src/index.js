@@ -25,6 +25,8 @@ module.exports = ({ gotOpts } = {}) => {
 
   rules.test = ({ url, htmlDom }) => test(url, htmlDom)
 
+  rules.pkgName = 'metascraper-iframe'
+
   return rules
 }
 

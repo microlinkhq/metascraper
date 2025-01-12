@@ -56,6 +56,8 @@ module.exports = ({ gotOpts } = {}) => {
 
   rules.test = ({ url }) => test(url)
 
+  rules.pkgName = 'metascraper-youtube'
+
   return rules
 }
 

@@ -31,6 +31,8 @@ module.exports = () => {
 
   rules.test = ({ url }) => test(url)
 
+  rules.pkgName = 'metascraper-uol'
+
   return rules
 }
 

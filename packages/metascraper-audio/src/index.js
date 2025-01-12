@@ -78,7 +78,7 @@ const _getIframe = (url, $, { src }) =>
   loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
 
 module.exports = ({ getIframe = _getIframe } = {}) => {
-  return {
+  const rules = {
     audio: audioRules.concat(
       async ({ htmlDom: $, url }) => {
         const srcs = [
@@ -110,4 +110,8 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
       }
     )
   }
+
+  rules.pkgName = 'metascraper-audio'
+
+  return rules
 }

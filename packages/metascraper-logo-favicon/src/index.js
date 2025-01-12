@@ -237,7 +237,7 @@ module.exports = ({
     withGoogle
   })
   const rootFavicon = createRootFavicon({ getLogo, withRootFavicon })
-  return {
+  const rules = {
     logo: [
       toLogo(async ($, url) => {
         const sizes = getSizes($, sizeSelectors, url)
@@ -251,6 +251,10 @@ module.exports = ({
       rootFavicon
     ].filter(Boolean)
   }
+
+  rules.pkgName = 'metascraper-logo-favicon'
+
+  return rules
 }
 
 module.exports.google = google

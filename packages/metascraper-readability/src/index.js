@@ -30,11 +30,15 @@ module.exports = ({ getDocument = defaultGetDocument } = {}) => {
     readability(url, $.html(), getDocument)
   )
 
-  return {
+  const rules = {
     author: getReadbility({ from: 'byline', to: 'author' }),
     description: getReadbility({ from: 'excerpt', to: 'description' }),
     lang: getReadbility({ from: 'lang' }),
     publisher: getReadbility({ from: 'siteName', to: 'publisher' }),
     title: getReadbility({ from: 'title' })
   }
+
+  rules.pkgName = 'metascraper-readability'
+
+  return rules
 }

@@ -14,35 +14,45 @@ const getFromTitle = (text, regex = REGEX_TITLE) => {
   return result
 }
 
-module.exports = () => ({
-  publisher: [
-    toPublisher($jsonld('publisher.name')),
-    toPublisher($ => $('meta[property="og:site_name"]').attr('content')),
-    toPublisher($ => $('meta[name*="application-name" i]').attr('content')),
-    toPublisher($ => $('meta[name*="app-title" i]').attr('content')),
-    toPublisher($ => $('meta[property*="app_name" i]').attr('content')),
-    toPublisher($ => $('meta[name="publisher" i]').attr('content')),
-    toPublisher($ => $('meta[name="twitter:app:name:iphone"]').attr('content')),
-    toPublisher($ =>
-      $('meta[property="twitter:app:name:iphone"]').attr('content')
-    ),
-    toPublisher($ => $('meta[name="twitter:app:name:ipad"]').attr('content')),
-    toPublisher($ =>
-      $('meta[property="twitter:app:name:ipad"]').attr('content')
-    ),
-    toPublisher($ =>
-      $('meta[name="twitter:app:name:googleplay"]').attr('content')
-    ),
-    toPublisher($ =>
-      $('meta[property="twitter:app:name:googleplay"]').attr('content')
-    ),
-    toPublisher($ => $filter($, $('#logo'))),
-    toPublisher($ => $filter($, $('.logo'))),
-    toPublisher($ => $filter($, $('a[class*="brand" i]'))),
-    toPublisher($ => $('[class*="logo" i] a img[alt]').attr('alt')),
-    toPublisher($ => $('[class*="logo" i] img[alt]').attr('alt')),
-    toPublisher($ => $filter($, $('title'), el => getFromTitle($filter.fn(el))))
-  ]
-})
+module.exports = () => {
+  const rules = {
+    publisher: [
+      toPublisher($jsonld('publisher.name')),
+      toPublisher($ => $('meta[property="og:site_name"]').attr('content')),
+      toPublisher($ => $('meta[name*="application-name" i]').attr('content')),
+      toPublisher($ => $('meta[name*="app-title" i]').attr('content')),
+      toPublisher($ => $('meta[property*="app_name" i]').attr('content')),
+      toPublisher($ => $('meta[name="publisher" i]').attr('content')),
+      toPublisher($ =>
+        $('meta[name="twitter:app:name:iphone"]').attr('content')
+      ),
+      toPublisher($ =>
+        $('meta[property="twitter:app:name:iphone"]').attr('content')
+      ),
+      toPublisher($ => $('meta[name="twitter:app:name:ipad"]').attr('content')),
+      toPublisher($ =>
+        $('meta[property="twitter:app:name:ipad"]').attr('content')
+      ),
+      toPublisher($ =>
+        $('meta[name="twitter:app:name:googleplay"]').attr('content')
+      ),
+      toPublisher($ =>
+        $('meta[property="twitter:app:name:googleplay"]').attr('content')
+      ),
+      toPublisher($ => $filter($, $('#logo'))),
+      toPublisher($ => $filter($, $('.logo'))),
+      toPublisher($ => $filter($, $('a[class*="brand" i]'))),
+      toPublisher($ => $('[class*="logo" i] a img[alt]').attr('alt')),
+      toPublisher($ => $('[class*="logo" i] img[alt]').attr('alt')),
+      toPublisher($ =>
+        $filter($, $('title'), el => getFromTitle($filter.fn(el)))
+      )
+    ]
+  }
+
+  rules.pkgName = 'metascraper-publisher'
+
+  return rules
+}
 
 module.exports.getFromTitle = getFromTitle

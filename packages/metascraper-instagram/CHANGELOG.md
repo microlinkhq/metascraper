@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.46.0-beta.0](https://github.com/microlinkhq/metascraper/compare/v5.45.29...v5.46.0-beta.0) (2025-01-10)
+
+**Note:** Version bump only for package metascraper-instagram
+
 ## [5.45.29](https://github.com/microlinkhq/metascraper/compare/v5.45.28...v5.45.29) (2025-01-07)
 
 ### Bug Fixes
