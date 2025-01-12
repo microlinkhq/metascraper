@@ -2,7 +2,7 @@
   "name": "metascraper-clearbit",
   "description": "Metascraper integration with Clearbit Logo API",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-clearbit",
-  "version": "5.46.0-beta.2",
+  "version": "5.46.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
