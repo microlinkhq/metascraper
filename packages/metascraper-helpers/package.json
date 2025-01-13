@@ -26,6 +26,7 @@
     "chrono-node": "~2.7.7",
     "condense-whitespace": "~2.0.0",
     "data-uri-utils": "~1.0.8",
+    "debug-logfmt": "~1.2.3",
     "entities": "~6.0.0",
     "file-extension": "~4.0.5",
     "has-values": "~2.0.1",
