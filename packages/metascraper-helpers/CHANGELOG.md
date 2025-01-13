@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.1](https://github.com/microlinkhq/metascraper/compare/v5.46.0...v5.46.1) (2025-01-13)
+
+### Bug Fixes
+
+* add missing dependency ([c044771](https://github.com/microlinkhq/metascraper/commit/c0447715e3b57db39adfeb541558bb22ec4851d3))
+
 # [5.46.0-beta.0](https://github.com/microlinkhq/metascraper/compare/v5.45.29...v5.46.0-beta.0) (2025-01-10)
 
 ### Features
