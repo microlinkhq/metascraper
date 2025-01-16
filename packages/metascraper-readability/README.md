@@ -27,6 +27,18 @@ Default: [source code](https://github.com/microlinkhq/metascraper/blob/master/pa
 
 The function to be called to serialized html into a DOM document.
 
+##### readabilityOpts
+
+Type: `object`
+
+Any option provided here will passed to [Readability#options](https://github.com/mozilla/readability#new-readabilitydocument-options).
+
+```json
+{
+  "responseType": "json"
+}
+```
+
 ## License
 
 **metascraper-readability** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>

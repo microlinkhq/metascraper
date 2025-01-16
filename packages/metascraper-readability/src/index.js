@@ -19,10 +19,13 @@ const defaultGetDocument = ({ url, html }) => {
   return document
 }
 
-module.exports = ({ getDocument = defaultGetDocument } = {}) => {
+module.exports = ({
+  getDocument = defaultGetDocument,
+  readabilityOpts
+} = {}) => {
   const readability = memoizeOne((url, html, getDocument) => {
     const document = getDocument({ url, html })
-    const reader = new Readability(document)
+    const reader = new Readability(document, readabilityOpts)
     return parseReader(reader)
   }, memoizeOne.EqualityFirstArgument)
 
