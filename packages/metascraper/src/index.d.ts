@@ -98,7 +98,14 @@ declare namespace createMetascraper {
   export type Rules = {
     [C in keyof Metadata]?: Array<RulesOptions> | RulesOptions;
   } & {
+    /**
+     * The test function to be executed for skipping rules that doesn't return `true`.
+     */
     test?: (options: RulesTestOptions) => boolean;
+    /**
+     * The package name associated with the rule, used for debugging purposes.
+     */
+    pkgName?: string;
   };
 
   export type RulesOptions = (
