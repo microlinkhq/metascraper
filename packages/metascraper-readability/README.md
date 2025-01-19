@@ -20,13 +20,6 @@ $ npm install metascraper-readability --save
 
 #### options
 
-##### getDocument
-
-Type: `function`<br>
-Default: [source code](https://github.com/microlinkhq/metascraper/blob/master/packages/metascraper-readability/src/index.js#L14-L20)
-
-The function to be called to serialized html into a DOM document.
-
 ##### readabilityOpts
 
 Type: `object`
