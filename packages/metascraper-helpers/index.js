@@ -222,10 +222,8 @@ const isImageUrl = createIsUrl(IMAGE)
 
 const isPdfUrl = createIsUrl(PDF)
 
-const isMediaUrl = memoizeOne(
-  (url, opts) =>
-    isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
-)
+const isMediaUrl = (url, opts) =>
+  isImageUrl(url, opts) || isVideoUrl(url, opts) || isAudioUrl(url, opts)
 
 const isMediaExtension = url =>
   isImageExtension(url) || isVideoExtension(url) || isAudioExtension(url)
