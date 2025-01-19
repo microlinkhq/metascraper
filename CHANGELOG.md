@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.3](https://github.com/microlinkhq/metascraper/compare/v5.46.2...v5.46.3) (2025-01-19)
+
+### Bug Fixes
+
+* **metrascraper:** add pkgName type ([8b8b9d0](https://github.com/microlinkhq/metascraper/commit/8b8b9d06c8c053a844e764ed6ab5c90ab49da0ee))
+
+### Performance Improvements
+
+* **readability:** add document-write benchmark ([18fdbdd](https://github.com/microlinkhq/metascraper/commit/18fdbddfbd0757ef6c8018b3764e9328c5512dab))
+
 ## [5.46.2](https://github.com/microlinkhq/metascraper/compare/v5.46.1...v5.46.2) (2025-01-16)
 
 **Note:** Version bump only for package metascraper
