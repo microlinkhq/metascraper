@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.5](https://github.com/microlinkhq/metascraper/compare/v5.46.4...v5.46.5) (2025-01-19)
+
+### Performance Improvements
+
+* **helpers:** remove isMediaUrl memoize ([91b1fe6](https://github.com/microlinkhq/metascraper/commit/91b1fe6f2d9c8932d162dfd0d650cd69be8625d7))
+
 ## [5.46.4](https://github.com/microlinkhq/metascraper/compare/v5.46.3...v5.46.4) (2025-01-19)
 
 ### Bug Fixes

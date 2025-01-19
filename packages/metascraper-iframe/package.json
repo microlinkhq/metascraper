@@ -2,7 +2,7 @@
   "name": "metascraper-iframe",
   "description": "Embed a representation of an URL on third party sites",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-iframe",
-  "version": "5.46.4",
+  "version": "5.46.5",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

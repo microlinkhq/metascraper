@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Collection of helper functions used by metascraper",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.46.4",
+  "version": "5.46.5",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
