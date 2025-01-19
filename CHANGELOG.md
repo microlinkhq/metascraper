@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.4](https://github.com/microlinkhq/metascraper/compare/v5.46.3...v5.46.4) (2025-01-19)
+
+### Bug Fixes
+
+* **helpers:** add missing memoize.EqualityFirstArgument ([d350837](https://github.com/microlinkhq/metascraper/commit/d3508376409dc80f280b8489fb4f16ba0015b30a))
+
 ## [5.46.3](https://github.com/microlinkhq/metascraper/compare/v5.46.2...v5.46.3) (2025-01-19)
 
 ### Bug Fixes
