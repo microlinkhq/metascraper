@@ -346,6 +346,9 @@ const isMime = (contentType, type) =>
 memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
   newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
 
+memoizeOne.EqualityFirstArgument = (newArgs, oldArgs) =>
+  newArgs[0] === oldArgs[0]
+
 const jsonld = memoizeOne(
   $ =>
     $('script[type="application/ld+json"]')
