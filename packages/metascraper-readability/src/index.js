@@ -1,36 +1,25 @@
 'use strict'
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
-const { Readability } = require('@mozilla/readability')
+const asyncMemoizeOne = require('async-memoize-one')
+const { Worker } = require('worker_threads')
+const path = require('path')
 
-const parseReader = reader => {
-  try {
-    return reader.parse()
-  } catch (_) {
-    return {}
-  }
-}
+const SCRIPT_PATH = path.resolve(__dirname, 'worker.js')
 
-const defaultGetDocument = ({ url, html }) => {
-  const { Window } = require('happy-dom')
-  const window = new Window({ url })
-  const document = window.document
-  document.documentElement.innerHTML = html
-  return document
-}
+const readability = asyncMemoizeOne((url, html, readabilityOpts) => {
+  const worker = new Worker(SCRIPT_PATH, {
+    workerData: { url, html, readabilityOpts }
+  })
+  const { promise, resolve, reject } = Promise.withResolvers()
+  worker.on('message', message => resolve(JSON.parse(message)))
+  worker.on('error', reject)
+  return promise
+}, memoizeOne.EqualityFirstArgument)
 
-module.exports = ({
-  getDocument = defaultGetDocument,
-  readabilityOpts
-} = {}) => {
-  const readability = memoizeOne((url, html, getDocument) => {
-    const document = getDocument({ url, html })
-    const reader = new Readability(document, readabilityOpts)
-    return parseReader(reader)
-  }, memoizeOne.EqualityFirstArgument)
-
+module.exports = ({ readabilityOpts } = {}) => {
   const getReadbility = composeRule(($, url) =>
-    readability(url, $.html(), getDocument)
+    readability(url, $.html(), readabilityOpts)
   )
 
   const rules = {
