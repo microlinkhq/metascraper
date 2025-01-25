@@ -35,7 +35,6 @@ const getFlags = ({ proxy, url, userAgent, cacheDir }) => {
 module.exports = ({
   cacheDir,
   getProxy = constant(false),
-  getAgent, // destructure to don't pass it
   timeout = 30000,
   retry = 2,
   gotOpts,

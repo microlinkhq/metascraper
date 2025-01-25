@@ -39,12 +39,6 @@ const getProxy = ({ url, retryCount }) => {
 }
 ```
 
-##### getAgent
-
-Type: `function`
-
-It receives as input the output from `.getProxy`. The output will be passed to `.gotOpts`.
-
 ##### gotOpts
 
 Type: `object`
