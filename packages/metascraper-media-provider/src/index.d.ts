@@ -10,11 +10,6 @@ type Options = {
    */
   getProxy?: boolean;
   /**
-   * Get the agent from the proxy.
-   * @default () => undefined
-   */
-  getAgent?: (proxy: string) => object | undefined;
-  /**
    * The timeout in milliseconds.
    * @default 30000
    */
