@@ -88,25 +88,25 @@ img {
   }
 }
 
+a.github-corner  {
+  z-index: 1;
+}
+
 .github-corner svg {
   border-bottom: 0;
+  color: #fff;
+  fill: var(--secondary-color);
+  height: 80px;
   position: fixed;
   right: 0;
   text-decoration: none;
   top: 0;
-  z-index: 1;
+  width: 80px;
 }
 
 .github-corner:hover svg .octo-arm {
   opacity: 1;
   animation: b 560ms ease-in-out;
-}
-
-.github-corner svg {
-  color: #fff;
-  fill: var(--secondary-color);
-  height: 80px;
-  width: 80px;
 }
 
 main {
