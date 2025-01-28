@@ -62,7 +62,7 @@
     "cheerio": "~1.0.0",
     "debug-logfmt": "~1.2.3",
     "lodash": "~4.17.21",
-    "whoops": "~4.1.7"
+    "whoops": "~5.0.1"
   },
   "devDependencies": {
     "ava": "5",
