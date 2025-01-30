@@ -88,20 +88,21 @@ img {
   }
 }
 
-a.github-corner  {
+a.github-corner {
   z-index: 1;
 }
 
 .github-corner svg {
   border-bottom: 0;
-  color: #fff;
-  fill: var(--secondary-color);
-  height: 80px;
   position: fixed;
   right: 0;
   text-decoration: none;
   top: 0;
+  color: white;
+  fill: var(--secondary-color);
+  height: 80px;
   width: 80px;
+  z-index: 1;
 }
 
 .github-corner:hover svg .octo-arm {
