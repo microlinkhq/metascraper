@@ -148,7 +148,8 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
     return undefined
   }
 
-  if (contentTypes && (!response.body || response.body.toString()[0] === '<')) {
+  // 60 is the ASCII code for '<'
+  if (contentTypes && (!response.body || response.body[0] === 60)) {
     return undefined
   }
 
