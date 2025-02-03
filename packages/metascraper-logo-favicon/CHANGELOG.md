@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.8](https://github.com/microlinkhq/metascraper/compare/v5.46.7...v5.46.8) (2025-02-03)
+
+### Bug Fixes
+
+* **logo-favicon:** ensure body is present ([ae909c5](https://github.com/microlinkhq/metascraper/commit/ae909c5309c49c9b64310dacc9a51c385dabdf6c))
+
+### Performance Improvements
+
+* **logo-favicon:** use raw comparison ([a2ecb27](https://github.com/microlinkhq/metascraper/commit/a2ecb278a8f80a3a7fa67bd21d02149b2a833374))
+
 ## [5.46.5](https://github.com/microlinkhq/metascraper/compare/v5.46.4...v5.46.5) (2025-01-19)
 
 **Note:** Version bump only for package metascraper-logo-favicon

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.8](https://github.com/microlinkhq/metascraper/compare/v5.46.7...v5.46.8) (2025-02-03)
+
+### Bug Fixes
+
+* **docs:** corner github link ([d64004a](https://github.com/microlinkhq/metascraper/commit/d64004a588ed81bb89dae39233d456d50e180968))
+* **logo-favicon:** ensure body is present ([ae909c5](https://github.com/microlinkhq/metascraper/commit/ae909c5309c49c9b64310dacc9a51c385dabdf6c))
+
+### Performance Improvements
+
+* **logo-favicon:** use raw comparison ([a2ecb27](https://github.com/microlinkhq/metascraper/commit/a2ecb278a8f80a3a7fa67bd21d02149b2a833374))
+
 ## [5.46.7](https://github.com/microlinkhq/metascraper/compare/v5.46.6...v5.46.7) (2025-01-28)
 
 ### Bug Fixes
