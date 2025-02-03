@@ -148,7 +148,7 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
     return undefined
   }
 
-  if (contentTypes && response.body.toString()[0] === '<') {
+  if (contentTypes && (!response.body || response.body.toString()[0] === '<')) {
     return undefined
   }
 

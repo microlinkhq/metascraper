@@ -1,6 +1,7 @@
 'use strict'
 
 const test = require('ava')
+const got = require('got')
 
 const { resolveFaviconUrl } = require('..')
 const { runServer } = require('./helpers')
@@ -22,6 +23,21 @@ test('undefined if content type is not expected', async t => {
     res.end()
   })
   t.is(await resolveFaviconUrl(toUrl(url, 'favicon.ico'), []), undefined)
+})
+
+test('undefined if body is not present', async t => {
+  const url = await runServer(t, async ({ res }) => {
+    const stream = got.stream(
+      'https://cdn.microlink.io/file-examples/sample-big.jpg'
+    )
+    stream.pipe(res)
+    setTimeout(() => res.destroy(), 100)
+  })
+
+  t.is(
+    await resolveFaviconUrl(url, ['jpg', ['image/jpeg']], { retry: 0 }),
+    undefined
+  )
 })
 
 test('undefined if body is not the expected according to content type', async t => {
