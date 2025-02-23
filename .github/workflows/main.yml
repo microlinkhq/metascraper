@@ -14,7 +14,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -35,11 +34,11 @@ jobs:
   matrix:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-    - id: matrix
-      run: echo "matrix=$(node .github/workflows/get-matrix.mjs)" >> $GITHUB_OUTPUT
-    - run: echo ${{ steps.matrix.outputs.matrix }}
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - id: matrix
+        run: echo "matrix=$(node .github/workflows/get-matrix.mjs)" >> $GITHUB_OUTPUT
+      - run: echo ${{ steps.matrix.outputs.matrix }}
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
   test:
@@ -55,8 +54,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -67,26 +64,21 @@ jobs:
           version: latest
           run_install: true
       - name: Test
-        run: pnpm run test --scope "${{ matrix.package }}"
-        env:
-          PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
-          PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
-          PROXY_HOST: ${{ secrets.PROXY_HOST }}
+        run: pnpm --filter "${{ matrix.package }}" exec c8 pnpm test
       - name: Coverage
-        run: pnpm run coverage
+        run: pnpm --filter "${{ matrix.package }}" exec c8 report --reporter=lcov --report-dir=coverage
       - name: Upload
         uses: coverallsapp/github-action@main
         with:
           flag-name: ${{ matrix.package }}
           parallel: true
-          allow-empty: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          file: $(pnpm --filter "${{ matrix.package }}" exec pwd)/coverage/lcov.info
+
   finish:
     needs: test
     runs-on: ubuntu-latest
     steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@main
-      with:
-        parallel-finished: true
-
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@main
+        with:
+          parallel-finished: true
