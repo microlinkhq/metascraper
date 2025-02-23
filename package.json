@@ -154,7 +154,6 @@
     "@ksmithut/prettier-standard": "latest",
     "@lerna-lite/cli": "latest",
     "@lerna-lite/publish": "latest",
-    "@lerna-lite/run": "latest",
     "browser-sync": "latest",
     "c8": "latest",
     "concurrently": "latest",
@@ -189,7 +188,7 @@
     "lint": "standard-markdown README.md && standard",
     "pretest": "npm run lint",
     "release": "lerna publish --yes --sort --conventional-commits -m \"chore(release): %s\" --create-release github",
-    "test": "c8 lerna run test",
+    "test": "c8 pnpm --recursive test",
     "update": "pnpm --recursive --parallel exec ncu -u",
     "update:check": "pnpm --recursive --parallel exec ncu -errorLevel 2"
   },
