@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.9](https://github.com/microlinkhq/metascraper/compare/v5.46.8...v5.46.9) (2025-03-08)
+
+### Bug Fixes
+
+* **logo-favicon:** check content-type correctly ([e98c1ca](https://github.com/microlinkhq/metascraper/commit/e98c1cafb2c691b0ba51361ddcf5698d5550452a))
+
 ## [5.46.8](https://github.com/microlinkhq/metascraper/compare/v5.46.7...v5.46.8) (2025-02-03)
 
 ### Bug Fixes
