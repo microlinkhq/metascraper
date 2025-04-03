@@ -284,14 +284,14 @@ const url = (value, { url = '' } = {}) => {
     if (isUrl(absoluteUrl)) return absoluteUrl
   } catch (_) {}
 
-  let sanetizedValue = value
+  let sanitizedValue = value
   if (value.startsWith('data:')) {
     const [header, data] = value.split(',')
     const cleanData = data.replace(/\s+/g, '')
-    sanetizedValue = `${header},${cleanData}`
+    sanitizedValue = `${header},${cleanData}`
   }
 
-  return isUri(sanetizedValue) ? sanetizedValue : undefined
+  return isUri(sanitizedValue) ? sanitizedValue : undefined
 }
 
 const getISODate = date =>
