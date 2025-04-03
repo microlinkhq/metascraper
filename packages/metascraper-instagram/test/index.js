@@ -20,8 +20,7 @@ const metascraper = require('metascraper')([
 
 test('code is resilient', async t => {
   const url = 'https://www.instagram.com/p/CPeC-Eenc8l/'
-  const html = ''
-  const metadata = await metascraper({ url, html })
+  const metadata = await metascraper({ url })
   t.snapshot(metadata)
 })
 
