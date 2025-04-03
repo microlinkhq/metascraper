@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.10](https://github.com/microlinkhq/metascraper/compare/v5.46.9...v5.46.10) (2025-04-03)
+
+### Bug Fixes
+
+* **helpers:** is-uri take ride of whitespaces ([1c058b6](https://github.com/microlinkhq/metascraper/commit/1c058b65009555ad9a11b6c48e63f3c190faa044))
+* typo ([cb2d6f6](https://github.com/microlinkhq/metascraper/commit/cb2d6f67ed300ef0f78f52e888ab2c954b991284))
+
 ## [5.46.5](https://github.com/microlinkhq/metascraper/compare/v5.46.4...v5.46.5) (2025-01-19)
 
 ### Performance Improvements
