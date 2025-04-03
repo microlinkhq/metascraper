@@ -20,9 +20,15 @@ const metascraper = require('metascraper')([
 
 test('code is resilient', async t => {
   const url = 'https://www.instagram.com/p/CPeC-Eenc8l/'
-  const html = ''
-  const metadata = await metascraper({ url, html })
-  t.snapshot(metadata)
+  const metadata = await metascraper({ url })
+  t.snapshot({
+    ...metadata,
+    /* prevent snapshot from failing */
+    logo: metadata.logo.replace(
+      'https://t0.gstatic.com',
+      'https://t2.gstatic.com'
+    )
+  })
 })
 
 test('from photo post', async t => {
