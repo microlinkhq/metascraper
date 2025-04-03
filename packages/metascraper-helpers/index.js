@@ -284,7 +284,14 @@ const url = (value, { url = '' } = {}) => {
     if (isUrl(absoluteUrl)) return absoluteUrl
   } catch (_) {}
 
-  return isUri(value) ? value : undefined
+  let sanetizedValue = value
+  if (value.startsWith('data:')) {
+    const [header, data] = value.split(',')
+    const cleanData = data.replace(/\s+/g, '')
+    sanetizedValue = `${header},${cleanData}`
+  }
+
+  return isUri(sanetizedValue) ? sanetizedValue : undefined
 }
 
 const getISODate = date =>
