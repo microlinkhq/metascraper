@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://venturebeat.com/2016/04/21/forter-raises-32-million-to-automate-retailers-battle-against-online-fraud'
+  'https://venturebeat.com/commerce/forter-raises-32-million-to-automate-retailers-battle-against-online-fraud/'
 
 test('venture-beat', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
