@@ -24,7 +24,7 @@
     "pwa"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.1.5",
+    "@keyvhq/memoize": "~2.1.7",
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.1.8",
     "data-uri-to-buffer": "~5.0.1",
