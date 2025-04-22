@@ -95,9 +95,11 @@ declare namespace createMetascraper {
     [key: string]: string | undefined;
   }
 
-  export type Rules = {
-    [C in keyof Metadata]?: Array<RulesOptions> | RulesOptions;
-  } & {
+  type NamedRules = {
+    [C in keyof Metadata as string extends C ? never : C]?: Array<RulesOptions> | RulesOptions;
+  };
+
+  export interface Rules extends NamedRules {
     /**
      * The test function to be executed for skipping rules that doesn't return `true`.
      */
@@ -106,7 +108,18 @@ declare namespace createMetascraper {
      * The package name associated with the rule, used for debugging purposes.
      */
     pkgName?: string;
-  };
+    /**
+     * allow any other string key to be
+     * a rule-function (for ad-hoc metadata),
+     * or the two special keys above.
+     **/
+    [key: string]:
+      | Array<RulesOptions>
+      | RulesOptions
+      | ((options: RulesTestOptions) => boolean)
+      | string
+      | undefined;
+  }
 
   export type RulesOptions = (
     options: RulesTestOptions
