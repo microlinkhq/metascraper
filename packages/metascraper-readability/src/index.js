@@ -34,3 +34,5 @@ module.exports = ({ readabilityOpts } = {}) => {
 
   return rules
 }
+
+module.exports.readability = readability
