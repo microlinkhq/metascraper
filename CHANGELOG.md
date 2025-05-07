@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.13](https://github.com/microlinkhq/metascraper/compare/v5.46.12...v5.46.13) (2025-05-07)
+
+### Bug Fixes
+
+* **types:** allow pkgName and test properties on Rules ([1b386cc](https://github.com/microlinkhq/metascraper/commit/1b386cc234113e78c5bf6092da113fbdad61c98d))
+
 ## [5.46.12](https://github.com/microlinkhq/metascraper/compare/v5.46.11...v5.46.12) (2025-04-27)
 
 **Note:** Version bump only for package metascraper
