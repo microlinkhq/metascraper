@@ -26,7 +26,7 @@
     "@metascraper/helpers": "workspace:*",
     "@mozilla/readability": "~0.6.0",
     "async-memoize-one": "~1.1.8",
-    "happy-dom": "~17.4.4"
+    "happy-dom": "~17.4.6"
   },
   "devDependencies": {
     "ava": "5"

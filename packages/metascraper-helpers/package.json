@@ -23,8 +23,8 @@
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",
-    "chrono-node": "~2.7.9",
     "condense-whitespace": "~2.0.0",
+    "chrono-node": "~2.8.0",
     "data-uri-utils": "~1.0.8",
     "debug-logfmt": "~1.2.3",
     "entities": "~6.0.0",
@@ -35,7 +35,7 @@
     "is-uri": "~1.2.7",
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
-    "jsdom": "~26.0.0",
+    "jsdom": "~26.1.0",
     "lodash": "~4.17.21",
     "memoize-one": "~6.0.0",
     "microsoft-capitalize": "~1.0.5",
@@ -43,7 +43,7 @@
     "normalize-url": "~6.1.0",
     "re2": "~1.21.4",
     "smartquotes": "~2.3.2",
-    "tldts": "~6.1.85",
+    "tldts": "~7.0.6",
     "url-regex-safe": "~4.0.0",
     "video-extensions": "1"
   },
