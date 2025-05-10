@@ -21,7 +21,7 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url = 'https://vimeo.com/200104989'
+const url = 'https://vimeo.com/311983548'
 
 test('vimeo', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

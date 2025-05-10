@@ -33,7 +33,7 @@
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
     "serialize-error": "~8.1.0",
-    "youtube-dl-exec": "~3.0.20"
+    "youtube-dl-exec": "~3.0.21"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",
