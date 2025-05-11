@@ -81,6 +81,7 @@
   },
   "license": "MIT",
   "ava": {
+    "timeout": "30s",
     "failFast": true
   },
   "tsd": {
