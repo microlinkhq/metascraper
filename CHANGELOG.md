@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.46.15](https://github.com/microlinkhq/metascraper/compare/v5.46.14...v5.46.15) (2025-05-11)
+
+### Bug Fixes
+
+* **helpers:** publish folder ([7cd9469](https://github.com/microlinkhq/metascraper/commit/7cd9469c3c8ee8c1a2c1d968b7381f472a513f17))
+
 ## [5.46.14](https://github.com/microlinkhq/metascraper/compare/v5.46.13...v5.46.14) (2025-05-11)
 
 ### Bug Fixes

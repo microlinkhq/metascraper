@@ -2,7 +2,7 @@
   "name": "metascraper-spotify",
   "description": "Metascraper integration with Spotify",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-spotify",
-  "version": "5.46.14",
+  "version": "5.46.15",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Get video property from HTML markup",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-media-provider",
-  "version": "5.46.14",
+  "version": "5.46.15",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
