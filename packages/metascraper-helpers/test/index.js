@@ -29,7 +29,7 @@ const {
   parseUrl,
   url,
   video
-} = require('..')
+} = require('../src')
 
 const measure = fn => {
   const time = process.hrtime()

@@ -5,7 +5,6 @@ const debug = require('debug-logfmt')('metascraper:find-rule')
 const condenseWhitespace = require('condense-whitespace')
 const { getExtension: mimeExtension } = require('mime')
 const capitalize = require('microsoft-capitalize')
-const { JSDOM, VirtualConsole } = require('jsdom')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
@@ -466,40 +465,6 @@ const composeRule =
 const has = value =>
   value !== undefined && !Number.isNaN(value) && hasValues(value)
 
-const loadIframe = (url, $, { timeout = 5000 } = {}) =>
-  new Promise(resolve => {
-    const dom = new JSDOM($.html(), {
-      url,
-      virtualConsole: new VirtualConsole(),
-      runScripts: 'dangerously',
-      resources: 'usable'
-    })
-
-    const done = (html = '') => resolve($.load(html))
-
-    const listen = (element, method, fn) =>
-      element[`${method}EventListener`]('load', fn, {
-        capture: true,
-        once: true,
-        passive: true
-      })
-
-    const iframe = dom.window.document.querySelector('iframe')
-    if (!iframe) return done()
-
-    const timer = setTimeout(() => {
-      listen(iframe, 'remove', load)
-      done()
-    }, timeout)
-
-    function load () {
-      clearTimeout(timer)
-      done(iframe.contentDocument.documentElement.outerHTML)
-    }
-
-    listen(iframe, 'add', load)
-  })
-
 const getUrls = input => String(input).match(urlRegexForMatch) ?? []
 
 module.exports = {
@@ -536,7 +501,7 @@ module.exports = {
   iso6393,
   jsonld,
   lang,
-  loadIframe,
+  loadIframe: require('./load-iframe'),
   logo,
   memoizeOne,
   mimeExtension,
