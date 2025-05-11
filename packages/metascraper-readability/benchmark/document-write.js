@@ -2,9 +2,10 @@
 
 const { Window } = require('happy-dom')
 const { readFileSync } = require('fs')
+const path = require('path')
 
 const url = 'https://arxiv.org/pdf/2412.06592'
-const html = readFileSync('./fixture.html', 'utf8')
+const html = readFileSync(path.resolve(__dirname, './fixture.html'), 'utf8')
 
 const isEqual = (value1, value2) =>
   JSON.stringify(value1) === JSON.stringify(value2)
@@ -20,7 +21,7 @@ const cases = {
     const window = new Window({ url })
     const document = window.document
     document.write(html)
-    await window.happyDOM.waitUntilComplete()
+    // await window.happyDOM.waitUntilComplete()
     return document
   }
 }
