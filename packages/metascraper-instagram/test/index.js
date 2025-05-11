@@ -25,7 +25,7 @@ test('code is resilient', async t => {
     ...metadata,
     /* prevent snapshot from failing */
     logo: metadata.logo.replace(
-      'https://t0.gstatic.com',
+      /^https:\/\/t[01]\.gstatic\.com/,
       'https://t2.gstatic.com'
     )
   })
