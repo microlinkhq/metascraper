@@ -9,7 +9,9 @@ const SCRIPT_PATH = path.resolve(__dirname, 'worker.js')
 
 const readability = asyncMemoizeOne((url, html, readabilityOpts) => {
   const worker = new Worker(SCRIPT_PATH, {
-    workerData: { url, html, readabilityOpts }
+    workerData: { url, html, readabilityOpts },
+    stdout: true,
+    stderr: true
   })
   const { promise, resolve, reject } = Promise.withResolvers()
   worker.on('message', message => resolve(JSON.parse(message)))

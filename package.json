@@ -174,8 +174,7 @@
     "postcss": "latest",
     "postcss-focus": "latest",
     "simple-git-hooks": "latest",
-    "standard": "latest",
-    "standard-markdown": "latest"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 16"
@@ -189,7 +188,7 @@
     "coverage": "c8 report --reporter=text-lcov > coverage/lcov.info",
     "dev": "concurrently \"gulp\" \"npm run dev:server\"",
     "dev:server": "browser-sync start --server --files \"index.html, README.md, static/**/*.(css|js)\"",
-    "lint": "standard-markdown README.md && standard",
+    "lint": "standard",
     "pretest": "npm run lint",
     "release": "lerna publish --yes --sort --conventional-commits -m \"chore(release): %s\" --create-release github",
     "test": "c8 pnpm --recursive test",
@@ -212,9 +211,6 @@
     "*.js": [
       "prettier-standard",
       "standard --fix"
-    ],
-    "*.md": [
-      "standard-markdown"
     ],
     "package.json": [
       "finepack"
