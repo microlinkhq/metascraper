@@ -26,24 +26,6 @@ Type: `string`
 
 It specifies cache based on file system to be used by [youtube-dl](youtube-dl).
 
-##### getProxy
-
-Type: `function`
-
-It will be called to determinate if a proxy should be used for resolving the next request URL.
-
-```js
-const getProxy = ({ url, retryCount }) => {
-  if (retryCount === 0) return false
-  return 'http://user:pwd@proxy:8001'
-}
-```
-
-##### gotOpts
-
-Type: `object`
-
-Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
 
 ##### retry
 
@@ -58,6 +40,20 @@ Type: `number`<br>
 Default: `30000`
 
 The maximum time allowed to wait until considering the request as timed out.
+
+##### flags
+
+Type: `function`<br>
+Default: `object`
+
+It defines a function that will determine the flags to be passed to [youtube-dl](youtube-dl):
+
+```js
+const getFlags = ({ flags, url, retryCount }) => {
+  flags.addHeader = [`referer:${url}`]
+  return flags
+}
+```
 
 ## License
 
