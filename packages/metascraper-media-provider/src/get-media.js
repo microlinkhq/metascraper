@@ -35,7 +35,11 @@ module.exports = ({
     const task = async () => {
       do {
         try {
-          const flags = getFlags({ url, retryCount, flags: DEFAULT_FLAGS })
+          const flags = await getFlags({
+            url,
+            retryCount,
+            flags: DEFAULT_FLAGS
+          })
           data = await youtubedl(url, flags, { timeout, ...props })
         } catch (error) {
           if (condition()) {
