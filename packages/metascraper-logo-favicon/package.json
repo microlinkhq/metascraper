@@ -2,7 +2,7 @@
   "name": "metascraper-logo-favicon",
   "description": "metascraper logo favicon fallback",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-logo-favicon",
-  "version": "5.46.17",
+  "version": "5.46.18",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
