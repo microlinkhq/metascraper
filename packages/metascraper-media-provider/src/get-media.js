@@ -4,11 +4,12 @@ const debug = require('debug-logfmt')(
   'metascraper-media-provider:provider:generic'
 )
 const { serializeError } = require('serialize-error')
+const { parseUrl } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
 const youtubedl = require('youtube-dl-exec')
 const pTimeout = require('p-timeout')
 
-const RE_UNSUPORTED_URL = /Unsupported URL/
+const RE_UNSUPPORTED_URL = /Unsupported URL/
 
 const DEFAULT_FLAGS = {
   dumpSingleJson: true,
@@ -20,10 +21,10 @@ const DEFAULT_FLAGS = {
 module.exports = ({
   timeout = 30000,
   retry = 2,
-  flags: getFlags = ({ flags }) => flags,
+  args: getArgs = ({ url, flags }) => ({ url, flags }),
   ...props
 }) =>
-  asyncMemoizeOne(async url => {
+  asyncMemoizeOne(async targetUrl => {
     const retryCount = 0
     let isTimeout = false
     let isSupportedURL = true
@@ -35,17 +36,21 @@ module.exports = ({
     const task = async () => {
       do {
         try {
-          const flags = await getFlags({
-            url,
+          const { url, flags } = await getArgs({
+            url: targetUrl,
             retryCount,
             flags: DEFAULT_FLAGS
           })
+
           data = await youtubedl(url, flags, { timeout, ...props })
         } catch (error) {
           if (condition()) {
             debug('getInfo:error', { retryCount }, serializeError(error))
           }
-          isSupportedURL = !RE_UNSUPORTED_URL.test(error.stderr)
+
+          const isYoutube = parseUrl(targetUrl).domain === 'youtube.com'
+          const isUnsupported = RE_UNSUPPORTED_URL.test(error.stderr)
+          isSupportedURL = isYoutube ? isUnsupported : !isUnsupported
         }
       } while (condition())
 

@@ -41,17 +41,17 @@ Default: `30000`
 
 The maximum time allowed to wait until considering the request as timed out.
 
-##### flags
+##### args
 
 Type: `function`<br>
-Default: `object`
+Default: `({ url, flags }) => ({ url, flags })`
 
-It defines a function that will determine the flags to be passed to [youtube-dl](youtube-dl):
+It defines a function that will determine the arguments to be passed to [youtube-dl](youtube-dl):
 
 ```js
-const getFlags = ({ flags, url, retryCount }) => {
+const args = ({ flags, url, retryCount }) => {
   flags.addHeader = [`referer:${url}`]
-  return flags
+  return { url, flags }
 }
 ```
 
