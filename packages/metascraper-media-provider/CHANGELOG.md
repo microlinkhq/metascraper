@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.47.0](https://github.com/microlinkhq/metascraper/compare/v5.46.19...v5.47.0) (2025-05-26)
+
+### Features
+
+* **media-provider:** flags → args ([2f1f9e2](https://github.com/microlinkhq/metascraper/commit/2f1f9e2633520094ef413f9f95cd4dd3245b520c))
+
 ## [5.46.19](https://github.com/microlinkhq/metascraper/compare/v5.46.18...v5.46.19) (2025-05-25)
 
 **Note:** Version bump only for package metascraper-media-provider
