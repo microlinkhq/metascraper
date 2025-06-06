@@ -3,10 +3,13 @@
 const { Worker } = require('worker_threads')
 const path = require('path')
 
-const SCRIPT_PATH = path.resolve(__dirname, 'worker.js')
+const SCRIPT_PATH = (
+  v => () =>
+    v ?? (v = path.resolve(__dirname, 'worker.js'))
+)()
 
 module.exports = (url, $, { timeout = 5000 } = {}) => {
-  const worker = new Worker(SCRIPT_PATH, {
+  const worker = new Worker(SCRIPT_PATH(), {
     workerData: { url, html: $.html(), timeout },
     stdout: true,
     stderr: true
