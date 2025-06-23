@@ -56,7 +56,12 @@ test('get `description` from HTML markup', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/episode.html'))
 
   const metascraper = createMetascraper()
-  const metadata = await metascraper({ url, html })
+  const { image, ...metadata } = await metascraper({ url, html })
+
+  t.regex(
+    image,
+    /^https:\/\/image-cdn-[a-z]{2}\.spotifycdn\.com\/image\/[a-f0-9]+$/
+  )
   t.snapshot(metadata)
 })
 
