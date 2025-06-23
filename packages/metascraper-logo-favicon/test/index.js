@@ -64,25 +64,25 @@ test('create an absolute favicon url if the logo is not present', async t => {
 })
 
 test('get the biggest icon possible', async t => {
-  const url = 'https://cdn.microlink.io'
+  const url = 'https://assets.vercel.com'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/logo/apple-touch-icon-57x57.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/logo/apple-touch-icon-114x114.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/logo/apple-touch-icon-72x72.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/logo/apple-touch-icon-144x144.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/logo/apple-touch-icon-60x60.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/logo/apple-touch-icon-120x120.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/logo/apple-touch-icon-76x76.png">',
-    '<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/logo/apple-touch-icon-152x152.png">',
-    '<link rel="icon" type="image/png" href="/logo/favicon-196x196.png" sizes="196x196">',
-    '<link rel="icon" type="image/png" href="/logo/favicon-96x96.png" sizes="96x96">',
-    '<link rel="icon" type="image/png" href="/logo/favicon-32x32.png" sizes="32x32">',
-    '<link rel="icon" type="image/png" href="/logo/favicon-16x16.png" sizes="16x16">',
-    '<link rel="icon" type="image/png" href="/logo/favicon-128.png" sizes="128x128">'
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-57x57.png" sizes="57x57"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-60x60.png" sizes="60x60"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-72x72.png" sizes="72x72"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-76x76.png" sizes="76x76"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-114x114.png" sizes="114x114"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-120x120.png" sizes="120x120"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-144x144.png" sizes="144x144"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-152x152.png" sizes="152x152"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-180x180.png" sizes="180x180"/>',
+    '<link rel="apple-touch-icon" href="/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-256x256.png" sizes="256x256"/>'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(metadata.logo, 'https://cdn.microlink.io/logo/favicon-196x196.png')
+  t.is(
+    metadata.logo,
+    'https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-256x256.png'
+  )
 })
 
 test("don't resolve root path as logo", async t => {
@@ -159,26 +159,20 @@ test('detect `rel="apple-touch-icon-precomposed"`', async t => {
   const url = 'https://cdn.microlink.io/'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo/apple-touch-icon-144x144.png">'
+    '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo/apple-touch-icon.png">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(
-    metadata.logo,
-    'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png'
-  )
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/apple-touch-icon.png')
 })
 
 test('detect `rel="apple-touch-icon"`', async t => {
   const url = 'https://cdn.microlink.io/'
   const metascraper = createMetascraper()
   const html = createHtml([
-    '<link rel="apple-touch-icon" sizes="144x144" href="logo/apple-touch-icon-144x144.png">'
+    '<link rel="apple-touch-icon" sizes="144x144" href="logo/apple-touch-icon.png">'
   ])
   const metadata = await metascraper({ url, html })
-  t.is(
-    metadata.logo,
-    'https://cdn.microlink.io/logo/apple-touch-icon-144x144.png'
-  )
+  t.is(metadata.logo, 'https://cdn.microlink.io/logo/apple-touch-icon.png')
 })
 
 test('detect `rel="shortcut icon"`', async t => {
