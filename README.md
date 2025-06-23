@@ -83,7 +83,7 @@ The output will be something like:
   "date": "2022-07-10T22:53:04.856Z",
   "description": "Enter a URL, receive information. Normalize metadata. Get HTML markup. Take a screenshot. Identify tech stack. Generate a PDF. Automate web scraping. Run Lighthouse",
   "image": "https://cdn.microlink.io/logo/banner.jpeg",
-  "logo": "https://cdn.microlink.io/logo/trim.png",
+  "logo": "https://cdn.microlink.io/logo/logo.png",
   "publisher": "Microlink",
   "title": "Turns websites into data — Microlink",
   "url": "https://microlink.io/"
