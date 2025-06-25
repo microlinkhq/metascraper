@@ -3,8 +3,6 @@
 const {
   cloneDeep,
   concat,
-  first,
-  findIndex,
   forEach,
   chain,
   castArray,
@@ -38,20 +36,26 @@ const loadRules = rulesBundle =>
     .toPairs()
     .value()
 
-const mergeRules = (rules, baseRules) =>
-  chain(rules)
+const mergeRules = (rules, baseRules, omitProps = new Set()) => {
+  const filteredBaseRules = baseRules.filter(
+    ([propName]) => !omitProps.has(propName)
+  )
+  const rulesMap = new Map(cloneDeep(filteredBaseRules))
+  return chain(rules)
     .reduce((acc, { test, ...rules }) => {
       forEach(rules, (innerRules, propName) => {
+        if (omitProps.has(propName)) return
         if (test) forEachRule(innerRules, rule => (rule.test = test))
-        // find the rules associated with `propName`
-        const index = findIndex(acc, item => first(item) === propName)
-        // if `propName` has more rule, add the new rule from the end
-        if (index !== -1) acc[index][1] = concat(innerRules, ...acc[index][1])
-        // otherwise, create an array of rules
-        else acc.push([propName, castArray(innerRules)])
+        if (rulesMap.has(propName)) {
+          rulesMap.set(propName, concat(innerRules, rulesMap.get(propName)))
+        } else {
+          rulesMap.set(propName, castArray(innerRules))
+        }
       })
       return acc
-    }, cloneDeep(baseRules))
+    }, rulesMap)
+    .thru(map => Array.from(map.entries()))
     .value()
+}
 
 module.exports = { mergeRules, loadRules }
