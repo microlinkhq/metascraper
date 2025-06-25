@@ -1,16 +1,10 @@
 'use strict'
 
-const { cloneDeep, concat, castArray, chain, forEach } = require('lodash')
-
-const forEachRule = (collection, fn) => {
-  const rules = castArray(collection)
-  for (const rule of rules) {
-    fn(rule)
-  }
-}
+const castArray = value => (Array.isArray(value) ? value : [value])
 
 const loadRules = rulesBundle => {
   const acc = {}
+
   for (const { test, pkgName, ...rules } of rulesBundle) {
     for (const [propName, innerRules] of Object.entries(rules)) {
       const processedRules = castArray(innerRules)
@@ -24,7 +18,7 @@ const loadRules = rulesBundle => {
       if (acc[propName]) {
         acc[propName].push(...processedRules)
       } else {
-        acc[propName] = [...processedRules]
+        acc[propName] = processedRules
       }
     }
   }
@@ -32,25 +26,44 @@ const loadRules = rulesBundle => {
 }
 
 const mergeRules = (rules, baseRules, omitProps = new Set()) => {
-  const filteredBaseRules = baseRules.filter(
-    ([propName]) => !omitProps.has(propName)
-  )
-  const rulesMap = new Map(cloneDeep(filteredBaseRules))
-  return chain(rules)
-    .reduce((acc, { test, ...rules }) => {
-      forEach(rules, (innerRules, propName) => {
-        if (omitProps.has(propName)) return
-        if (test) forEachRule(innerRules, rule => (rule.test = test))
-        if (rulesMap.has(propName)) {
-          rulesMap.set(propName, concat(innerRules, rulesMap.get(propName)))
-        } else {
-          rulesMap.set(propName, castArray(innerRules))
+  const result = {}
+
+  // Process base rules first (shallow clone arrays only)
+  for (const [propName, ruleArray] of baseRules) {
+    if (!omitProps.has(propName)) {
+      result[propName] = [...ruleArray] // Shallow clone array
+    }
+  }
+
+  // Handle case where rules might be null/undefined or not an array
+  if (!rules || !Array.isArray(rules)) {
+    return Object.entries(result)
+  }
+
+  // Process inline rules
+  for (const { test, ...ruleSet } of rules) {
+    for (const [propName, innerRules] of Object.entries(ruleSet)) {
+      if (omitProps.has(propName)) continue
+
+      const processedRules = Array.isArray(innerRules)
+        ? [...innerRules]
+        : [innerRules]
+      if (test) {
+        for (const rule of processedRules) {
+          rule.test = test
         }
-      })
-      return acc
-    }, rulesMap)
-    .thru(map => Array.from(map.entries()))
-    .value()
+      }
+
+      if (result[propName]) {
+        // Prepend new rules to match original concat(innerRules, existing) behavior
+        result[propName] = [...processedRules, ...result[propName]]
+      } else {
+        result[propName] = processedRules
+      }
+    }
+  }
+
+  return Object.entries(result)
 }
 
 module.exports = { mergeRules, loadRules }

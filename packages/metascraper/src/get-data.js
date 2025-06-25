@@ -3,7 +3,6 @@
 const debug = require('debug-logfmt')('metascraper:get-data')
 const { findRule, has } = require('@metascraper/helpers')
 const { map, fromPairs } = require('lodash')
-
 const normalizeValue = value => (has(value) ? value : null)
 
 const getData = async ({ rules, name, ...props }) => {
