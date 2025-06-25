@@ -57,7 +57,10 @@ test('selective rules', async t => {
 
   const metascraper = createMetascraper([rules])
   const url = 'https://example.com'
-  const metadata = await metascraper({ url, omitProps: new Set(['author']) })
+  const metadata = await metascraper({
+    url,
+    omitPropNames: new Set(['author'])
+  })
 
   t.deepEqual(
     Object.keys(metadata),

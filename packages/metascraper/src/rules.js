@@ -25,12 +25,12 @@ const loadRules = rulesBundle => {
   return Object.entries(acc)
 }
 
-const mergeRules = (rules, baseRules, omitProps = new Set()) => {
+const mergeRules = (rules, baseRules, omitPropNames = new Set()) => {
   const result = {}
 
   // Process base rules first (shallow clone arrays only)
   for (const [propName, ruleArray] of baseRules) {
-    if (!omitProps.has(propName)) {
+    if (!omitPropNames.has(propName)) {
       result[propName] = [...ruleArray] // Shallow clone array
     }
   }
@@ -43,7 +43,7 @@ const mergeRules = (rules, baseRules, omitProps = new Set()) => {
   // Process inline rules
   for (const { test, ...ruleSet } of rules) {
     for (const [propName, innerRules] of Object.entries(ruleSet)) {
-      if (omitProps.has(propName)) continue
+      if (omitPropNames.has(propName)) continue
 
       const processedRules = Array.isArray(innerRules)
         ? [...innerRules]
