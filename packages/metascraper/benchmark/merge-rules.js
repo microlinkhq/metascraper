@@ -52,7 +52,7 @@ const benchmark = (fn, iterations = CONFIG.BENCHMARK_ITERATIONS) => {
 }
 
 console.log('┌────────────────────────────────────────────────┐')
-console.log('│            MergeRules Benchmark                │')
+console.log('│           MergeRules Benchmark                 │')
 console.log('└────────────────────────────────────────────────┘\n')
 
 // Large comprehensive test case
