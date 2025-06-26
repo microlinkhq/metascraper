@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.49.0](https://github.com/microlinkhq/metascraper/compare/v5.48.0...v5.49.0) (2025-06-26)
+
+### Features
+
+* add `pickPropNames` ([010125e](https://github.com/microlinkhq/metascraper/commit/010125e4b04a3ffb6307a4f7c3515dbec33f7f27))
+
 # [5.48.0](https://github.com/microlinkhq/metascraper/compare/v5.47.2...v5.48.0) (2025-06-26)
 
 ### Features
