@@ -285,6 +285,31 @@ Default: `true`
 
 Ensure the URL provided is validated as a [WHATWG URL](https://nodejs.org/api/url.html#url_the_whatwg_url_api) API compliant.
 
+#### omitPropNames
+
+Type: `Set`<br>
+Default: `undefined`
+
+A set of property names that should be omitted. When specified, these properties will be missing in the returned metadata objects, and rules related to that will not be computed.
+
+```js
+const metascraper = require('metascraper')([
+  require('metascraper-title')(),
+  require('metascraper-image')(),
+  require('metascraper-description')()
+])
+
+const html = '<title>Example</title><meta property="og:image" content="image.jpg">'
+const url = 'https://example.com'
+
+// Omit the image property
+const omitPropNames = new Set(['image'])
+const metadata = await metascraper({ url, html, omitPropNames })
+
+console.log(metadata)
+// Output: { title: 'Example', image: null, description: null }
+```
+
 ## Environment Variables
 
 #### METASCRAPER_RE2

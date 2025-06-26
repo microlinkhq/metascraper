@@ -1,57 +1,69 @@
 'use strict'
 
-const {
-  cloneDeep,
-  concat,
-  first,
-  findIndex,
-  forEach,
-  chain,
-  castArray,
-  has,
-  set
-} = require('lodash')
+const castArray = value => (Array.isArray(value) ? value : [value])
 
-const forEachRule = (collection, fn) => forEach(castArray(collection), fn)
+const loadRules = rulesBundle => {
+  const acc = {}
 
-const loadRules = rulesBundle =>
-  chain(rulesBundle)
-    .reduce((acc, { test, pkgName, ...rules }) => {
-      forEach(rules, (innerRules, propName) => {
-        forEachRule(innerRules, rule => {
+  for (const { test, pkgName, ...rules } of rulesBundle) {
+    for (const [propName, innerRules] of Object.entries(rules)) {
+      const processedRules = castArray(innerRules)
+      if (test || pkgName) {
+        for (const rule of processedRules) {
           if (test) rule.test = test
-          rule.pkgName = pkgName ?? 'uknown'
-        })
+          if (pkgName) rule.pkgName = pkgName ?? 'unknown'
+        }
+      }
 
-        set(
-          acc,
-          propName,
-          has(acc, propName)
-            ? concat(acc[propName], innerRules)
-            : concat(innerRules)
-        )
+      if (acc[propName]) {
+        acc[propName].push(...processedRules)
+      } else {
+        acc[propName] = processedRules
+      }
+    }
+  }
+  return Object.entries(acc)
+}
 
-        return acc
-      })
-      return acc
-    }, {})
-    .toPairs()
-    .value()
+const mergeRules = (rules, baseRules, omitPropNames = new Set()) => {
+  const result = {}
 
-const mergeRules = (rules, baseRules) =>
-  chain(rules)
-    .reduce((acc, { test, ...rules }) => {
-      forEach(rules, (innerRules, propName) => {
-        if (test) forEachRule(innerRules, rule => (rule.test = test))
-        // find the rules associated with `propName`
-        const index = findIndex(acc, item => first(item) === propName)
-        // if `propName` has more rule, add the new rule from the end
-        if (index !== -1) acc[index][1] = concat(innerRules, ...acc[index][1])
-        // otherwise, create an array of rules
-        else acc.push([propName, castArray(innerRules)])
-      })
-      return acc
-    }, cloneDeep(baseRules))
-    .value()
+  // Process base rules first (shallow clone arrays only)
+  for (const [propName, ruleArray] of baseRules) {
+    if (!omitPropNames.has(propName)) {
+      result[propName] = [...ruleArray] // Shallow clone array
+    }
+  }
+
+  // Handle case where rules might be null/undefined or not an array
+  if (!rules || !Array.isArray(rules)) {
+    return Object.entries(result)
+  }
+
+  // Process inline rules
+  for (const { test, ...ruleSet } of rules) {
+    for (const [propName, innerRules] of Object.entries(ruleSet)) {
+      if (omitPropNames.has(propName)) continue
+
+      const processedRules = Array.isArray(innerRules)
+        ? [...innerRules]
+        : [innerRules]
+      if (test) {
+        for (const rule of processedRules) {
+          rule.test = test
+        }
+      }
+
+      if (result[propName]) {
+        // Prepend new rules to match original concat(innerRules, existing) behavior
+        result[propName] = [...processedRules, ...result[propName]]
+      } else {
+        result[propName] = processedRules
+      }
+    }
+  }
+
+  return Object.entries(result)
+}
 
 module.exports = { mergeRules, loadRules }

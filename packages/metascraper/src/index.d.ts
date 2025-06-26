@@ -34,6 +34,11 @@ declare namespace createMetascraper {
      * Ensure the URL provided is validated as a WHATWG URL API compliant.
      */
     validateUrl?: boolean;
+    /**
+     * A Set of property names to omit from the metadata extraction process.
+     * These properties will be filtered out before processing the rules.
+     */
+    omitPropNames?: Set<string>;
   }
 
   export interface Metadata {
