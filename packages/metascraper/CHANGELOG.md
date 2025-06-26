@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.48.0](https://github.com/microlinkhq/metascraper/compare/v5.47.2...v5.48.0) (2025-06-26)
+
+### Features
+
+* omit rules names ([e2d2fa1](https://github.com/microlinkhq/metascraper/commit/e2d2fa186a3f9dcf932f9d854209b56a639533fa))
+
+### Performance Improvements
+
+* optimize loadRules ([31b11f0](https://github.com/microlinkhq/metascraper/commit/31b11f0b397c132510092c4af13f7f61663e0c54))
+
 ## [5.47.2](https://github.com/microlinkhq/metascraper/compare/v5.47.1...v5.47.2) (2025-06-23)
 
 **Note:** Version bump only for package metascraper
