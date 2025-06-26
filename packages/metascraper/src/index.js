@@ -18,6 +18,7 @@ module.exports = rules => {
     rules: inlineRules,
     validateUrl = true,
     omitPropNames = new Set(),
+    pickPropNames,
     ...props
   } = {}) => {
     if (validateUrl && !isUrl(url)) {
@@ -30,7 +31,7 @@ module.exports = rules => {
     return getData({
       url,
       htmlDom: htmlDom ?? load(html, { baseURI: url }),
-      rules: mergeRules(inlineRules, loadedRules, omitPropNames),
+      rules: mergeRules(inlineRules, loadedRules, omitPropNames, pickPropNames),
       ...props
     })
   }

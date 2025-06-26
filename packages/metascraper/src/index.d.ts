@@ -39,6 +39,12 @@ declare namespace createMetascraper {
      * These properties will be filtered out before processing the rules.
      */
     omitPropNames?: Set<string>;
+    /**
+     * A Set of property names to pick for the metadata extraction process.
+     * When provided, only rules for these properties will be executed.
+     * Takes precedence over omitPropNames when both are specified.
+     */
+    pickPropNames?: Set<string>;
   }
 
   export interface Metadata {

@@ -25,12 +25,25 @@ const loadRules = rulesBundle => {
   return Object.entries(acc)
 }
 
-const mergeRules = (rules, baseRules, omitPropNames = new Set()) => {
+const mergeRules = (
+  rules,
+  baseRules,
+  omitPropNames = new Set(),
+  pickPropNames
+) => {
   const result = {}
+
+  // Helper function to determine if a property should be included
+  const shouldIncludeProp = propName => {
+    if (pickPropNames && pickPropNames.size > 0) {
+      return pickPropNames.has(propName)
+    }
+    return !omitPropNames.has(propName)
+  }
 
   // Process base rules first (shallow clone arrays only)
   for (const [propName, ruleArray] of baseRules) {
-    if (!omitPropNames.has(propName)) {
+    if (shouldIncludeProp(propName)) {
       result[propName] = [...ruleArray] // Shallow clone array
     }
   }
@@ -43,7 +56,7 @@ const mergeRules = (rules, baseRules, omitPropNames = new Set()) => {
   // Process inline rules
   for (const { test, ...ruleSet } of rules) {
     for (const [propName, innerRules] of Object.entries(ruleSet)) {
-      if (omitPropNames.has(propName)) continue
+      if (!shouldIncludeProp(propName)) continue
 
       const processedRules = Array.isArray(innerRules)
         ? [...innerRules]
