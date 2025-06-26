@@ -247,6 +247,40 @@ Call the instance for extracting content based on rules bundle provided at the c
 
 #### options
 
+#### html
+
+Type: `String`
+
+The HTML markup for extracting the content.
+
+#### htmlDom
+
+Type: `object`
+
+The DOM representation of the HTML markup. When it's not provided, it's get from the `html` parameter.
+
+#### omitPropNames
+
+Type: `Set`<br>
+Default: `[]`
+
+A set of property names that should be omitted. When specified, these properties will be missing in the returned metadata objects, and rules related to that will not be computed.
+
+#### pickPropNames
+
+Type: `Set`<br>
+Default: `undefined`
+
+A set of property names to pick for the metadata extraction process. When specified, only rules for these properties will be executed, and all other properties will be omitted. Takes precedence over `omitPropNames` when both are specified.
+
+#### rules
+
+Type: `Array`
+
+You can pass additional rules to add on execution time. 
+
+These rules will be merged with your loaded [rules](#rules) at the beginning.
+
 #### url
 
 *Required*<br>
@@ -258,39 +292,12 @@ It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
 
-##### html
-
-Type: `String`
-
-The HTML markup for extracting the content.
-
-##### htmlDom
-
-Type: `object`
-
-The DOM representation of the HTML markup. When it's not provided, it's get from the `html` parameter.
-
-#### rules
-
-Type: `Array`
-
-You can pass additional rules to add on execution time. 
-
-These rules will be merged with your loaded [rules](#rules) at the beginning.
-
 #### validateUrl
 
 Type: `boolean`<br>
 Default: `true`
 
 Ensure the URL provided is validated as a [WHATWG URL](https://nodejs.org/api/url.html#url_the_whatwg_url_api) API compliant.
-
-#### omitPropNames
-
-Type: `Set`<br>
-Default: `undefined`
-
-A set of property names that should be omitted. When specified, these properties will be missing in the returned metadata objects, and rules related to that will not be computed.
 
 ```js
 const metascraper = require('metascraper')([
