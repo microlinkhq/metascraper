@@ -27,7 +27,7 @@
     "@keyvhq/memoize": "~2.1.9",
     "@metascraper/helpers": "workspace:*",
     "lodash": "~4.17.21",
-    "reachable-url": "~1.8.1"
+    "reachable-url": "~1.8.2"
   },
   "devDependencies": {
     "async-listen": "latest",

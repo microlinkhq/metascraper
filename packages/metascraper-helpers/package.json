@@ -32,7 +32,7 @@
     "has-values": "~2.0.1",
     "image-extensions": "~1.1.0",
     "is-relative-url": "~3.0.0",
-    "is-uri": "~1.2.7",
+    "is-uri": "~1.2.8",
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
     "jsdom": "~26.1.0",
