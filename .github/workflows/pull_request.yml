@@ -13,7 +13,7 @@ jobs:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
       - id: matrix
         run: echo "matrix=$(node .github/workflows/get-matrix.mjs)" >> $GITHUB_OUTPUT
@@ -28,7 +28,7 @@ jobs:
       matrix: ${{fromJson(needs.matrix.outputs.matrix)}}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
