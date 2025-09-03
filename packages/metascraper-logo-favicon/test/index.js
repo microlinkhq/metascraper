@@ -86,7 +86,7 @@ test('get the biggest icon possible', async t => {
 })
 
 test("don't resolve root path as logo", async t => {
-  const url = 'https://thisurldoesnotexist.com'
+  const url = 'https://thisurldoesnotexist1337.com'
   const metascraper = createMetascraper()
   const html = createHtml([
     '<link rel="icon" type="image/x-icon">',
