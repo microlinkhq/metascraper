@@ -88,9 +88,26 @@ test('vercel.com', async t => {
   t.snapshot(metadata)
 })
 
-test('segment.com', async t => {
+test('linkedin.com', async t => {
   const metascraper = createMetascraper()
-  const url = 'https://segment.com/blog/scaling-nsq/'
+  const url = 'https://linkedin.com/Kikobeats/'
+  const html = createHtml(['<link rel="manifest" href="/manifest.json">'])
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
+test('medium.com', async t => {
+  const metascraper = createMetascraper()
+  const url =
+    'https://medium.com/in-fitness-and-in-health/20-hard-won-fitness-lessons-from-my-20-year-fitness-journey-9971a8a8f0e1'
+  const html = createHtml(['<link rel="manifest" href="/manifest.json">'])
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
+test('github.com', async t => {
+  const metascraper = createMetascraper()
+  const url = 'https://github.com/Kikobeats/'
   const html = createHtml(['<link rel="manifest" href="/manifest.json">'])
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
@@ -103,17 +120,5 @@ test('youtube.com', async t => {
     '<link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">'
   ])
   const metadata = await metascraper({ url, html })
-  t.snapshot(metadata)
-})
-
-test('twitter.com', async t => {
-  const metascraper = createMetascraper()
-  const url = 'https://twitter.com/explore'
-  const html = createHtml([
-    '<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">'
-  ])
-  const { logo, ...metadata } = await metascraper({ url, html })
-
-  t.true(logo.startsWith('http'))
   t.snapshot(metadata)
 })
