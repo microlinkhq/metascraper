@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.computerworld.com/article/3057179/data-analytics/healthcare-data-protection-and-privacy-prognosis-still-critical-but-new-treatment-is-available.html'
+  'https://www.computerworld.com/article/4049928/top-ai-certifications-that-will-get-you-hired-and-promoted.html'
 
 test('computerworld', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

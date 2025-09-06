@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.cio.com/article/2929788/cloud-computing/20-ways-to-measure-the-success-of-your-growing-cloud-investment.html'
+  'https://www.cio.com/article/4049199/the-partnership-enabling-pegasystems-to-maximize-open-source-potential.html'
 
 test('cio', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
