@@ -13,7 +13,12 @@ const parseReader = reader => {
 
 const getDocument = ({ url, html }) => {
   const { Window } = require('happy-dom')
-  const window = new Window({ url })
+  const window = new Window({
+    url,
+    settings: {
+      errorCapture: 'processLevel'
+    }
+  })
   const document = window.document
   document.write(html)
   return document
