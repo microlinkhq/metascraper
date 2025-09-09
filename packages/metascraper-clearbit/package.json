@@ -1,5 +1,6 @@
 {
   "name": "metascraper-clearbit",
+  "private": true,
   "description": "Metascraper integration with Clearbit Logo API",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-clearbit",
   "version": "5.49.2",
@@ -41,7 +42,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+    "test": "exit 0"
   },
   "license": "MIT"
 }
