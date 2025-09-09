@@ -11,13 +11,14 @@ const parseReader = reader => {
   }
 }
 
+const errorCapture =
+  process.env.NODE_ENV === 'test' ? 'tryAndCatch' : 'processLevel'
+
 const getDocument = ({ url, html }) => {
   const { Window } = require('happy-dom')
   const window = new Window({
     url,
-    settings: {
-      errorCapture: 'processLevel'
-    }
+    settings: { errorCapture }
   })
   const document = window.document
   document.write(html)
