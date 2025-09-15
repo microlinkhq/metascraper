@@ -1,22 +1,44 @@
 'use strict'
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
+const { Readability } = require('@mozilla/readability')
 const asyncMemoizeOne = require('async-memoize-one')
-const { Worker } = require('worker_threads')
-const path = require('path')
+const { Browser } = require('happy-dom')
 
-const SCRIPT_PATH = path.resolve(__dirname, 'worker.js')
+const parseReader = reader => {
+  const parsed = reader.parse()
+  return parsed || {}
+}
 
-const readability = asyncMemoizeOne((url, html, readabilityOpts) => {
-  const worker = new Worker(SCRIPT_PATH, {
-    workerData: { url, html, readabilityOpts },
-    stdout: true,
-    stderr: true
+const getDocument = ({ url, html }) => {
+  const browser = new Browser({
+    settings: {
+      disableComputedStyleRendering: true,
+      disableCSSFileLoading: true,
+      disableIframePageLoading: true,
+      disableJavaScriptEvaluation: true,
+      disableJavaScriptFileLoading: true
+    }
   })
-  const { promise, resolve, reject } = Promise.withResolvers()
-  worker.on('message', message => resolve(JSON.parse(message)))
-  worker.on('error', reject)
-  return promise
+
+  const page = browser.newPage()
+  page.url = url
+  page.content = html
+  return {
+    document: page.mainFrame.document,
+    teardown: () => browser.close()
+  }
+}
+
+const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
+  const { document, teardown } = getDocument({ url, html })
+  try {
+    const reader = new Readability(document, readabilityOpts)
+    const result = parseReader(reader)
+    return result
+  } finally {
+    await teardown()
+  }
 }, memoizeOne.EqualityFirstArgument)
 
 module.exports = ({ readabilityOpts } = {}) => {
