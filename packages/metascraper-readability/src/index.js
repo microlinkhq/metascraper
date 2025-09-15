@@ -24,10 +24,10 @@ const getDocument = ({ url, html }) => {
   const page = browser.newPage()
   page.url = url
   page.content = html
-
-  const teardown = () => browser.close()
-
-  return { document, teardown }
+  return {
+    document: page.mainFrame.document,
+    teardown: () => browser.close()
+  }
 }
 
 const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
