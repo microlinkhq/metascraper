@@ -2,21 +2,32 @@
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
-const { Worker } = require('worker_threads')
-const path = require('path')
+const { Readability } = require('@mozilla/readability')
 
-const SCRIPT_PATH = path.resolve(__dirname, 'worker.js')
+const errorCapture =
+  process.env.NODE_ENV === 'test' ? 'tryAndCatch' : 'processLevel'
+
+const parseReader = (reader) => {
+  const parsed = reader.parse()
+  return parsed || {}
+}
+
+
+const getDocument = ({ url, html }) => {
+  const { Window } = require('happy-dom')
+  const window = new Window({
+    url,
+    settings: { errorCapture }
+  })
+  const document = window.document
+  document.write(html)
+  return document
+}
 
 const readability = asyncMemoizeOne((url, html, readabilityOpts) => {
-  const worker = new Worker(SCRIPT_PATH, {
-    workerData: { url, html, readabilityOpts },
-    stdout: true,
-    stderr: true
-  })
-  const { promise, resolve, reject } = Promise.withResolvers()
-  worker.on('message', message => resolve(JSON.parse(message)))
-  worker.on('error', reject)
-  return promise
+  const document = getDocument({ url, html })
+  const reader = new Readability(document, readabilityOpts)
+  return parseReader(reader)
 }, memoizeOne.EqualityFirstArgument)
 
 module.exports = ({ readabilityOpts } = {}) => {
