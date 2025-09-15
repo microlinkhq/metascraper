@@ -1,33 +1,44 @@
 'use strict'
 
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
-const asyncMemoizeOne = require('async-memoize-one')
 const { Readability } = require('@mozilla/readability')
+const asyncMemoizeOne = require('async-memoize-one')
+const { Browser } = require('happy-dom')
 
-const errorCapture =
-  process.env.NODE_ENV === 'test' ? 'tryAndCatch' : 'processLevel'
-
-const parseReader = (reader) => {
+const parseReader = reader => {
   const parsed = reader.parse()
   return parsed || {}
 }
 
-
 const getDocument = ({ url, html }) => {
-  const { Window } = require('happy-dom')
-  const window = new Window({
-    url,
-    settings: { errorCapture }
+  const browser = new Browser({
+    settings: {
+      disableComputedStyleRendering: true,
+      disableCSSFileLoading: true,
+      disableIframePageLoading: true,
+      disableJavaScriptEvaluation: true,
+      disableJavaScriptFileLoading: true
+    }
   })
-  const document = window.document
-  document.write(html)
-  return document
+
+  const page = browser.newPage()
+  page.url = url
+  page.content = html
+
+  const teardown = () => browser.close()
+
+  return { document, teardown }
 }
 
-const readability = asyncMemoizeOne((url, html, readabilityOpts) => {
-  const document = getDocument({ url, html })
-  const reader = new Readability(document, readabilityOpts)
-  return parseReader(reader)
+const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
+  const { document, teardown } = getDocument({ url, html })
+  try {
+    const reader = new Readability(document, readabilityOpts)
+    const result = parseReader(reader)
+    return result
+  } finally {
+    await teardown()
+  }
 }, memoizeOne.EqualityFirstArgument)
 
 module.exports = ({ readabilityOpts } = {}) => {
