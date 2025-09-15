@@ -21,7 +21,7 @@ const metascraper = require('../../..')([
   require('metascraper-readability')()
 ])
 
-const url = 'http://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire'
+const url = 'https://www.atlasobscura.com/articles/ikea-bowl-blanda-blank-fire'
 
 test('atlasobscura', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
