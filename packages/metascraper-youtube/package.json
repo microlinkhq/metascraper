@@ -27,7 +27,7 @@
     "@metascraper/helpers": "workspace:*",
     "get-video-id": "3",
     "p-locate": "~5.0.0",
-    "reachable-url": "~1.8.2"
+    "reachable-url": "~1.8.3"
   },
   "devDependencies": {
     "ava": "5"
