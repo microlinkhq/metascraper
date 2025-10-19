@@ -1,6 +1,5 @@
 {
   "name": "metascraper-clearbit",
-  "private": true,
   "description": "Metascraper integration with Clearbit Logo API",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-clearbit",
   "version": "5.49.3",
@@ -26,7 +25,7 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.1.9",
+    "@keyvhq/memoize": "~2.1.11",
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.1.9",
     "got": "~11.8.6",
@@ -44,5 +43,6 @@
   "scripts": {
     "test": "exit 0"
   },
+  "private": true,
   "license": "MIT"
 }

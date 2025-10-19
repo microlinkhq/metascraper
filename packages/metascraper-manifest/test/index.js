@@ -82,7 +82,7 @@ test('vercel.com', async t => {
   const metascraper = createMetascraper()
   const url = 'https://vercel.com'
   const html = createHtml([
-    '<link rel="manifest" href="/site.webmanifest" importance="low">'
+    '<link rel="manifest" href="/manifest.webmanifest">'
   ])
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
