@@ -2,7 +2,7 @@
   "name": "metascraper-readability",
   "description": "A Readability connector for metascraper",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-readability",
-  "version": "5.49.4",
+  "version": "5.49.5",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

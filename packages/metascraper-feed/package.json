@@ -2,7 +2,7 @@
   "name": "metascraper-feed",
   "description": "Get RSS/Atom feed URL from HTML markup",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-description",
-  "version": "5.49.2",
+  "version": "5.49.5",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
