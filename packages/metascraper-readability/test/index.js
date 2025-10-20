@@ -49,3 +49,13 @@ test('handle malformed HTML', async t => {
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
 })
+
+test('chowhanandsons.com', async t => {
+  const url = 'https://chowhanandsons.com'
+  const html = fs.readFileSync(
+    path.resolve(__dirname, 'fixtures/chowhanandsons.com.html'),
+    'utf-8'
+  )
+  const metadata = await metascraper({ html, url })
+  t.snapshot(metadata)
+})
