@@ -6,8 +6,11 @@ const asyncMemoizeOne = require('async-memoize-one')
 const { Browser } = require('happy-dom')
 
 const parseReader = reader => {
-  const parsed = reader.parse()
-  return parsed || {}
+  let parsed = {}
+  try {
+    parsed = reader.parse()
+  } catch (_) {}
+  return parsed
 }
 
 const getDocument = ({ url, html }) => {
