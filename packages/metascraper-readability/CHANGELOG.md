@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.6](https://github.com/microlinkhq/metascraper/compare/v5.49.5...v5.49.6) (2025-10-20)
+
+### Bug Fixes
+
+* **readability:** don't throw under parsing error ([2c11db1](https://github.com/microlinkhq/metascraper/commit/2c11db14fae656d796d2dfb5c5966fc16c9118c2))
+
 ## [5.49.5](https://github.com/microlinkhq/metascraper/compare/v5.49.4...v5.49.5) (2025-10-19)
 
 **Note:** Version bump only for package metascraper-readability
