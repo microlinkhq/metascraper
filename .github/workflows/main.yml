@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup Node.js
@@ -34,7 +34,7 @@ jobs:
   matrix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
       - id: matrix
         run: echo "matrix=$(node .github/workflows/get-matrix.mjs)" >> $GITHUB_OUTPUT
@@ -53,7 +53,7 @@ jobs:
       matrix: ${{fromJson(needs.matrix.outputs.matrix)}}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
