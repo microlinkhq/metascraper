@@ -22,7 +22,7 @@ test('false', t => {
   })
 })
 
-test('from markup', async t => {
+test('from html', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
   const url = 'https://view.genially.com/5dc53cfa759d2a0f4c7db5f4'
   const htmlDom = cheerio.load(html)

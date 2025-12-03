@@ -52,9 +52,18 @@ commonProviders.forEach(url => {
   })
 })
 
-test('get iframe from markup', async t => {
+test('get iframe from html (Genially)', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/genially.html'))
   const url = 'https://view.genially.com/5dc53cfa759d2a0f4c7db5f4'
+  const rules = [createMetascraperIframe()]
+  const metascraper = createMetascraper(rules)
+  const metadata = await metascraper({ url, html })
+  t.truthy(metadata.iframe)
+})
+
+test('get iframefrom html (YouTube)', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/youtube.html'))
+  const url = 'https://www.youtube.com/watch?v=fJ9rUzIMcZQ'
   const rules = [createMetascraperIframe()]
   const metascraper = createMetascraper(rules)
   const metadata = await metascraper({ url, html })
