@@ -96,7 +96,8 @@ test('linkedin.com', async t => {
   t.snapshot(metadata)
 })
 
-test('medium.com', async t => {
+// CloudFlare Captcha is enabled
+test.skip('medium.com', async t => {
   const metascraper = createMetascraper()
   const url =
     'https://medium.com/in-fitness-and-in-health/20-hard-won-fitness-lessons-from-my-20-year-fitness-journey-9971a8a8f0e1'
