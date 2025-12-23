@@ -1,24 +1,24 @@
 'use strict'
 
 const {
-  getUrls,
   $jsonld,
   author,
+  date,
+  description,
+  getUrls,
   image,
   memoizeOne,
   parseUrl,
   title,
   toRule,
-  description,
   url
 } = require('@metascraper/helpers')
 
+const toDescription = toRule(description)
 const toAuthor = toRule(author)
 const toImage = toRule(image)
 const toTitle = toRule(title)
-
-const toDescription = toRule(description)
-
+const toDate = toRule(date)
 const toUrl = toRule(url)
 
 const test = memoizeOne(url =>
@@ -71,6 +71,33 @@ module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
           imageUrl = imageUrl.replace('_200x200.jpg', '_400x400.jpg')
         }
         return imageUrl
+      })
+    ],
+    date: [
+      toDate(($, url) => {
+        const { pathname } = new URL(url)
+        const parts = pathname.split('/')
+        const username = parts[1].toLowerCase()
+        const isStatus = parts[2] === 'status'
+
+        if (isStatus) {
+          const statusId = parts[3]
+          return (
+            $(`a[href*="/status/${statusId}"] time`).attr('datetime') ||
+            $('article time').attr('datetime') ||
+            $('time').attr('datetime')
+          )
+        }
+
+        return $(`a[href*="/${username}/status/" i] time`)
+          .get()
+          .reduce((acc, el) => {
+            const datetime = $(el).attr('datetime')
+            if (datetime && (!acc || datetime > acc)) {
+              acc = datetime
+            }
+            return acc
+          }, undefined)
       })
     ],
     publisher: () => 'X'
