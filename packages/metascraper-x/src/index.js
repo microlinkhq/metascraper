@@ -30,7 +30,7 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
     author: [
       toAuthor($ => {
         const author = $('meta[property="og:title"]').attr('content')
-        return author?.includes(' on X') ? author.split(' on X')[0] : author
+        return author?.includes(' / X') ? author.split(' / X')[0] : author
       })
     ],
     title: [
