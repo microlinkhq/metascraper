@@ -25,29 +25,50 @@ const test = memoizeOne(url =>
   ['twitter.com', 'x.com'].includes(parseUrl(url).domain)
 )
 
+const getAuthorName = memoizeOne(ogTitle =>
+  ogTitle?.split(' on X:')[0].split(' (@')[0].trim()
+)
+
 module.exports = ({ resolveUrl = url => url } = {}) => {
   const rules = {
     author: [
-      toAuthor($ => {
-        const author = $('meta[property="og:title"]').attr('content')
-        return author?.includes(' on X') ? author.split(' on X')[0] : author
-      })
+      toAuthor($ =>
+        getAuthorName($('meta[property="og:title"]').attr('content'))
+      )
     ],
     title: [
-      toTitle(
-        ($, url) => `@${new URL(url).pathname.toString().split('/')[1]} on X`
-      )
+      toTitle(($, url) => {
+        const username = new URL(url).pathname.split('/')[1]
+        const authorName = getAuthorName(
+          $('meta[property="og:title"]').attr('content')
+        )
+        return authorName
+          ? `${authorName} (@${username}) on X`
+          : `@${username} on X`
+      })
     ],
-    url: [
-      toUrl($ =>
-        $('link[rel="canonical"]').attr('href')?.replace('twitter.com', 'x.com')
-      )
-    ],
+    url: [toUrl($ => $('link[rel="canonical"]').attr('href'))],
     description: [
       toDescription(async $ => {
         let description =
           $jsonld('mainEntity.description')($) ||
           $('meta[property="og:description"]').attr('content')
+
+        if (!description) {
+          const ogTitle = $('meta[property="og:title"]').attr('content')
+          if (ogTitle?.includes(' on X: "')) {
+            description = ogTitle.split(' on X: "')[1].split('" / X')[0]
+            const urls = getUrls(description)
+            if (urls.length > 1) {
+              const lastUrl = urls[urls.length - 1]
+              if (description.endsWith(lastUrl)) {
+                description = description.replace(lastUrl, '').trim()
+              }
+            }
+          }
+        }
+
+        if (!description) return
 
         const urls = getUrls(description)
         const resolvedUrls = await Promise.all(urls.map(resolveUrl))

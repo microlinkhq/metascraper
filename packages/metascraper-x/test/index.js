@@ -133,3 +133,11 @@ test('from a post with an image from og:image', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
+test('from a post with a name containing "on X"', async t => {
+  const url = 'https://x.com/elonx/status/1234567890'
+  const html = await readFile(resolve(__dirname, 'fixtures/post-on-x.html'))
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
