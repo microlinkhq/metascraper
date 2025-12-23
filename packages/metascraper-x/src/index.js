@@ -2,6 +2,7 @@
 
 const {
   getUrls,
+  $jsonld,
   author,
   image,
   memoizeOne,
@@ -15,7 +16,9 @@ const {
 const toAuthor = toRule(author)
 const toImage = toRule(image)
 const toTitle = toRule(title)
+
 const toDescription = toRule(description)
+
 const toUrl = toRule(url)
 
 const test = memoizeOne(url =>
@@ -42,7 +45,10 @@ module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
     ],
     description: [
       toDescription(async $ => {
-        let description = $('meta[property="og:description"]').attr('content')
+        let description =
+          $jsonld('mainEntity.description')($) ||
+          $('meta[property="og:description"]').attr('content')
+
         if (!resolveUrls) return description
         const urls = getUrls(description)
         const resolvedUrls = await Promise.all(urls.map(resolveUrl))
@@ -57,7 +63,10 @@ module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
     ],
     image: [
       toImage($ => {
-        let imageUrl = $('meta[property="og:image"]').attr('content')
+        let imageUrl =
+          $jsonld('mainEntity.image.contentUrl')($) ||
+          $('meta[property="og:image"]').attr('content')
+
         if (imageUrl?.endsWith('_200x200.jpg')) {
           imageUrl = imageUrl.replace('_200x200.jpg', '_400x400.jpg')
         }
