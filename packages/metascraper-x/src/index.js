@@ -83,14 +83,14 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
     ],
     image: [
       toImage($ => {
-        let imageUrl =
+        const imageUrl =
           $jsonld('mainEntity.image.contentUrl')($) ||
+          $('video').attr('poster') ||
           $('meta[property="og:image"]').attr('content')
 
-        if (imageUrl?.endsWith('_200x200.jpg')) {
-          imageUrl = imageUrl.replace('_200x200.jpg', '_400x400.jpg')
-        }
-        return imageUrl
+        return imageUrl?.endsWith('_200x200.jpg')
+          ? imageUrl.replace('_200x200.jpg', '_400x400.jpg')
+          : imageUrl
       })
     ],
     date: [
