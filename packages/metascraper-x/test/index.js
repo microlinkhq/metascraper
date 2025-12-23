@@ -47,7 +47,7 @@ test('from a X profile resolving URLs', async t => {
     return urlObj.toString().replace('https://', '').replace('/', '')
   }
 
-  const metascraper = createMetascraper({ resolveUrls: true, resolveUrl })
+  const metascraper = createMetascraper({ resolveUrl })
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
@@ -63,7 +63,7 @@ test('from a X profile from og:image resolving URLs', async t => {
     return urlObj.toString().replace('https://', '').replace('/', '')
   }
 
-  const metascraper = createMetascraper({ resolveUrls: true, resolveUrl })
+  const metascraper = createMetascraper({ resolveUrl })
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })

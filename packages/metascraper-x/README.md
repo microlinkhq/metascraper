@@ -20,17 +20,11 @@ $ npm install metascraper-x --save
 
 #### options
 
-##### resolveUrls
-
-Type: `boolean`
-
-Set to `true` if you want to resolve `t.co` URLs into the final URL.
-
 ##### resolveUrl
 
 Type: `function`
 
-The function implementation that resolves `t.co` into a the final URL.
+The function implementation that resolves URLs (e.g., `t.co`) into the final URL.
 
 ## License
 
