@@ -134,6 +134,22 @@ test('from a post with an image from og:image', async t => {
   t.snapshot(metadata)
 })
 
+test('from a post with a video', async t => {
+  const url = 'https://x.com/verge/status/957383241714970624'
+  const html = await readFile(resolve(__dirname, 'fixtures/post-video.html'))
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
+test('from a post with a video from og:image', async t => {
+  const url = 'https://x.com/verge/status/957383241714970624'
+  const html = await readFile(resolve(__dirname, 'fixtures/post-video-og.html'))
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
 test('from a post with a name containing "on X"', async t => {
   const url = 'https://x.com/elonx/status/1234567890'
   const html = await readFile(resolve(__dirname, 'fixtures/post-on-x.html'))
