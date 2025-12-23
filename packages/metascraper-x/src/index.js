@@ -25,7 +25,7 @@ const test = memoizeOne(url =>
   ['twitter.com', 'x.com'].includes(parseUrl(url).domain)
 )
 
-module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
+module.exports = ({ resolveUrl = url => url } = {}) => {
   const rules = {
     author: [
       toAuthor($ => {
@@ -49,7 +49,6 @@ module.exports = ({ resolveUrls = false, resolveUrl = url => url } = {}) => {
           $jsonld('mainEntity.description')($) ||
           $('meta[property="og:description"]').attr('content')
 
-        if (!resolveUrls) return description
         const urls = getUrls(description)
         const resolvedUrls = await Promise.all(urls.map(resolveUrl))
 
