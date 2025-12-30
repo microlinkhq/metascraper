@@ -20,9 +20,17 @@ const createMetascraper = () =>
     require('metascraper-url')()
   ])
 
-test('from post', async t => {
+test('from video post', async t => {
   const url = 'https://www.tiktok.com/@illojuan/video/7571863205253778710'
   const html = await readFile(resolve(__dirname, 'fixtures/video.html'))
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
+test('from profile', async t => {
+  const url = 'https://www.tiktok.com/@illojuan'
+  const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url, html })
   console.log(metadata)

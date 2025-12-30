@@ -23,7 +23,11 @@ const getTimestampFromId = id => {
 
 const getAuthorAndUsername = memoizeOne((url, $) => {
   const ogTitle = $('meta[property="og:title"]').attr('content')
-  const authorName = ogTitle?.split(' on TikTok')[0]
+  const authorName = ogTitle
+    ?.split(' on TikTok')[0]
+    ?.split(' (@')[0]
+    ?.split(' | TikTok')[0]
+    ?.trim()
   const username = url.split('@')[1]?.split('/')[0]
   return { authorName, username }
 }, memoizeOne.EqualityFirstArgument)
@@ -39,12 +43,32 @@ module.exports = () => {
     title: [
       toTitle(($, url) => {
         const { authorName, username } = getAuthorAndUsername(url, $)
-        return `${authorName} (@${username}) on TikTok`
+        return authorName && username
+          ? `${authorName} (@${username}) on TikTok`
+          : authorName
       })
     ],
-    date: toDate((_, url) =>
-      getTimestampFromId(url.split('/video/')[1]?.split('?')[0])
-    )
+    date: [
+      toDate((_, url) => {
+        const id = url.split('/video/')[1]?.split('?')[0]
+        return id ? getTimestampFromId(id) : undefined
+      }),
+      toDate($ => {
+        const content = $(
+          'script[id="__UNIVERSAL_DATA_FOR_REHYDRATION__"]'
+        ).text()
+        if (!content) return
+        try {
+          const json = JSON.parse(content)
+          const createTime =
+            json.__DEFAULT_SCOPE__?.['webapp.user-detail']?.userInfo?.user
+              ?.createTime
+          return createTime
+            ? new Date(createTime * 1000).toISOString()
+            : undefined
+        } catch (_) {}
+      })
+    ]
   }
 
   rules.test = ({ url }) => test(url)
