@@ -59,7 +59,6 @@ const metascraper = require('metascraper')([
   require('metascraper-description')(),
   require('metascraper-image')(),
   require('metascraper-logo')(),
-  require('metascraper-clearbit')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')()
@@ -160,7 +159,6 @@ const metascraper = require('metascraper')([
   require('metascraper-description')(),
   require('metascraper-image')(),
   require('metascraper-logo')(),
-  require('metascraper-clearbit')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')()
@@ -173,9 +171,8 @@ Use the first parameter to pass custom options specific per each rules bundle:
 
 ```js
 const metascraper = require('metascraper')([
-  require('metascraper-clearbit')({
-    size: 256,
-    format: 'jpg'
+  require('metascraper-logo')({
+    filter: url => url.endsWith('.png')
   })
 ])
 ```
@@ -213,7 +210,6 @@ const metascraper = require('metascraper')([
 **Vendor specific**
 
 - [metascraper-amazon](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) – Metascraper integration with Amazon.
-- [metascraper-clearbit](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-clearbit) – Metascraper integration with Clearbit Logo API.
 - [metascraper-instagram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-instagram) –  Metascraper integration for Instagram.
 - [metascraper-soundcloud](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) – Metascraper integration with SoundCloud.
 - [metascraper-spotify](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-spotify) – Metascraper integration with Spotify.
