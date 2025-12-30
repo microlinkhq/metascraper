@@ -2,7 +2,7 @@
   "name": "metascraper-amazon",
   "description": "Metascraper integration with Amazon",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-amazon",
-  "version": "5.49.14",
+  "version": "5.49.15",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
