@@ -20,8 +20,7 @@
   },
   "keywords": [
     "metascraper",
-    "tiktok",
-    "video"
+    "tiktok"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

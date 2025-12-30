@@ -20,7 +20,7 @@
   },
   "keywords": [
     "metascraper",
-    "url"
+    "readability"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",

@@ -19,9 +19,9 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "audio",
     "metascraper",
-    "spotify"
+    "twitter",
+    "x"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"
