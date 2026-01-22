@@ -123,6 +123,11 @@ test('.url', t => {
   t.is(url('paco'), undefined)
   t.is(url(NaN, { url: 'https://kikobeats.com' }), undefined)
   t.is(url('http://<foo>', { url: 'https://kikobeats.com' }), undefined)
+
+  t.is(
+    url('data:::/img/appstore.svg', { url: 'https://kikobeats.com/' }),
+    undefined
+  )
   t.is(
     url('blog', { url: 'https://kikobeats.com/' }),
     'https://kikobeats.com/blog'
