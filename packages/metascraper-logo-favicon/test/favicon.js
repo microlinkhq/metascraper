@@ -6,7 +6,7 @@ const { createFavicon } = require('..')
 
 const { runServer } = require('./helpers')
 
-const stripWWW = str => str.replace(/^https?:\/\/(www\.)?/, 'https://')
+const stripWWW = str => str?.replace(/^https?:\/\/(www\.)?/, 'https://')
 
 const faviconPNG = createFavicon(['png', ['image/png']])
 const faviconICO = createFavicon([
@@ -41,12 +41,19 @@ test("don't resolve favicon.ico with no valid content-type", async t => {
   t.is(await faviconICO(url), undefined)
 })
 
-test("favicon.png with 'image/png' content-type", async t => {
+test("don't resolve favicon.png with unmatched content-type", async t => {
+  /**
+   * headers https://www.ywcapiercecounty.org/favicon.png
+     HTTP/2 200
+     content-type: image/jpeg
+   */
   const url = 'https://www.ywcapiercecounty.org/'
-  t.is(
-    stripWWW(await faviconPNG(url)),
-    'https://ywcapiercecounty.org/favicon.png'
-  )
+  t.is(stripWWW(await faviconPNG(url)), undefined)
+})
+
+test("favicon.png with 'image/png' content-type", async t => {
+  const url = 'https://www.kikobeats.com/'
+  t.is(stripWWW(await faviconPNG(url)), 'https://kikobeats.com/favicon.png')
 })
 
 test("favicon.ico with 'image/vnd.microsoft.icon' content-type", async t => {
