@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "franc": "~5.0.0"
+    "franc": "~6.2.0"
   },
   "devDependencies": {
     "ava": "5"

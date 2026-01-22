@@ -1,6 +1,6 @@
 'use strict'
 
-const franc = require('franc')
+const { franc } = require('franc')
 
 const {
   author,
