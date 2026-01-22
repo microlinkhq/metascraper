@@ -285,6 +285,7 @@ const url = (value, { url = '' } = {}) => {
 
   let sanitizedValue = value
   if (value.startsWith('data:')) {
+    if (!dataUri.test(value)) return undefined
     const [header, data] = value.split(',')
     const cleanData = data.replace(/\s+/g, '')
     sanitizedValue = `${header},${cleanData}`
