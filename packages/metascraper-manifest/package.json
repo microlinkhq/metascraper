@@ -29,7 +29,7 @@
     "async-memoize-one": "~1.1.9",
     "data-uri-to-buffer": "~5.0.1",
     "got": "~11.8.6",
-    "lodash": "~4.17.21"
+    "lodash": "~4.17.23"
   },
   "devDependencies": {
     "ava": "5"

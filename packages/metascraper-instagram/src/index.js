@@ -1,18 +1,12 @@
 'use strict'
 
-const franc = require('franc')
-
 const {
   author,
   date,
-  iso6393,
-  lang,
   memoizeOne,
   parseUrl,
   title
 } = require('@metascraper/helpers')
-
-const detectLang = input => lang(iso6393[franc(input)])
 
 const test = memoizeOne(
   url => parseUrl(url).domainWithoutSuffix === 'instagram'
@@ -36,11 +30,6 @@ module.exports = () => {
       if (dateMatch === null || dateMatch === undefined) return
       const dateString = `${dateMatch[1]} GMT`
       return date(new Date(dateString))
-    },
-    lang: ({ htmlDom: $, url }) => {
-      const description = getDescription(url, $)
-      const input = description?.split(': ').pop()?.split(' - ').pop()
-      return detectLang(input)
     },
     title: ({ htmlDom: $ }) =>
       title($('meta[name="twitter:title"]').attr('content'))

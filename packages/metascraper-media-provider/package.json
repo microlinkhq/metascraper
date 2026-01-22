@@ -28,12 +28,12 @@
     "async-memoize-one": "~1.1.9",
     "debug-logfmt": "~1.4.7",
     "got": "~11.8.6",
-    "lodash": "~4.17.21",
+    "lodash": "~4.17.23",
     "p-reflect": "~2.1.0",
     "p-retry": "~4.6.1",
     "p-timeout": "~4.1.0",
     "serialize-error": "~8.1.0",
-    "youtube-dl-exec": "~3.0.27"
+    "youtube-dl-exec": "~3.0.29"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",
