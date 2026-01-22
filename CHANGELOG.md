@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.16](https://github.com/microlinkhq/metascraper/compare/v5.49.15...v5.49.16) (2026-01-22)
+
+### Bug Fixes
+
+* **helpers:** handle invalid data uris ([#788](https://github.com/microlinkhq/metascraper/issues/788)) ([ccad74d](https://github.com/microlinkhq/metascraper/commit/ccad74db0ab4013e8c37dd2eec5ce02218f75b47))
+
 ## [5.49.15](https://github.com/microlinkhq/metascraper/compare/v5.49.14...v5.49.15) (2025-12-30)
 
 **Note:** Version bump only for package metascraper
