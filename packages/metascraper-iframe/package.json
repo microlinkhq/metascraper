@@ -28,7 +28,7 @@
     "@metascraper/helpers": "workspace:*",
     "got": "~11.8.6",
     "lodash": "~4.17.23",
-    "oembed-spec": "~1.3.32",
+    "oembed-spec": "~1.3.33",
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {
