@@ -2,7 +2,7 @@
   "name": "metascraper-tiktok",
   "description": "Metascraper integration with tiktok.com",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-tiktok",
-  "version": "5.49.17",
+  "version": "5.49.19",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
