@@ -348,7 +348,7 @@ It attemptt to load re2 to use instead of RegExp.
 
 ## Benchmark
 
-To demonstrate **metascraper's** exceptional accuracy, here is how it outperforms similar libraries:
+To demonstrate **metascraper**'s exceptional accuracy, here is how it outperforms similar libraries:
 
 | Library   | [metascraper](https://www.npmjs.com/package/metascraper) | [html-metadata](https://www.npmjs.com/package/html-metadata) | [node-metainspector](https://www.npmjs.com/package/node-metainspector) | [open-graph-scraper](https://www.npmjs.com/package/open-graph-scraper) | [unfluff](https://www.npmjs.com/package/unfluff) |
 |:----------|:-----------------------------------------------------------|:---------------------------------------------------------------|:-------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------------------------------------------|
