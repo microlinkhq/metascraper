@@ -1,35 +1,38 @@
-<h1 align="center">
-  <br>
-  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
-  <br>
-  <br>
-</h1>
+<div align="center">
+  <a href="https://metascraper.js.org">
+    <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  </a>
+  <br><br>
+  <a href="https://microlink.io"><img alt="Made by Microlink" src="https://img.shields.io/badge/🔗%20MADE%20BY%20Microlink-c03fa2.svg?style=for-the-badge&labelColor=000"></a>
+  <a href="https://www.npmjs.com/package/metascraper"><img alt="NPM version" src="https://img.shields.io/npm/v/metascraper.svg?style=for-the-badge&labelColor=000000"></a>
+  <a href="https://coveralls.io/github/microlinkhq/metascraper"><img alt="Coverage" src="https://img.shields.io/coveralls/microlinkhq/metascraper.svg?style=for-the-badge&labelColor=000000"></a>
+  <a href="https://metascraper.js.org"><img alt="Metascraper docs" src="https://img.shields.io/badge/📖%20Dev%20Docs-8c1bab.svg?style=for-the-badge&labelColor=000000"></a>
+  <br><br>
+</div>
 
-![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper.svg?style=flat-square)
-[![Coverage Status](https://img.shields.io/coveralls/microlinkhq/metascraper.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/metascraper)
-[![NPM Status](https://img.shields.io/npm/dm/metascraper.svg?style=flat-square)](https://www.npmjs.org/package/metascraper)
-
-> A library to easily get unified metadata from websites using Open Graph, Microdata, RDFa, Twitter Cards, JSON-LD, HTML, and more.
+> A library to easily extract unified metadata from websites using Open Graph, Microdata, RDFa, Twitter Cards, JSON-LD, HTML, and more.
 
 ## What is it
 
-The **metascraper** library allows you to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
+The **metascraper** library allows you to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and a series of fallbacks.
 
 It follows a few principles:
 
-- Have a high accuracy for online articles by default.
+- Ensure a high accuracy for online articles by default.
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors.
 
+You can run it locally ([managing your own headless browser](https://github.com/microlinkhq/browserless)) or use the [Microlink API](https://microlink.io/meta) (zero-config & scalable).
+
 ## Getting started
 
-Let's extract accurate information from the following website:
+Let's see an example of how to extract accurate information from our website, [microlink.io](https://microlink.io).
 
-![](https://i.imgur.com/jZl0Uej.png)
+### Option A: Do It Yourself
 
 First, **metascraper** expects you provide the HTML markup behind the target URL.
 
-There are multiple ways to get the HTML markup. In our case, we are going to run a programmatic headless browser to simulate real user navigation, so the data obtained will be close to a real-world example.
+There are multiple ways to retrieve HTML markup. In our case, we will use a headless browser to simulate real user navigation, ensuring the data accurately reflects a real-world scenario.
 
 ```js
 const getHTML = require('html-get')
@@ -89,6 +92,24 @@ The output will be something like:
 }
 ```
 
+### Option B: The easy way
+
+If you don't want to manage Headless Chrome, proxies, or parser maintenance, [use the API](https://microlink.io/docs/api/parameters/meta). It runs **metascraper** in our cloud.
+
+```bash
+curl -G "https://api.microlink.io" -d "url=https://microlink.io" -d "meta=true"
+```
+
+Or using our Node.js library:
+
+```javascript
+import mql from '@microlink/mql'
+
+const { data } = await mql('https://microlink.io', { meta: true })
+```
+
+[Microlink](https://microlink.io) automatically handles all edge cases, including bypassing complex bot detection.
+
 ## What data it detects
 
 > **Note**: Custom metadata detection can be defined using a [rule bundle](#rules-bundles).
@@ -132,21 +153,21 @@ A audio URL that best represents the article.
 
 **metascraper** is built out of rules bundles.
 
-It was designed to be easy to adapt. You can compose your own transformation pipeline using existing rules or write your own.
+It is designed to be extensible. You can compose your own transformation pipeline using existing rules or create your own.
 
-Rules bundles are a collection of HTML selectors around a determinate property. When you load the library, implicitly it is loading [core rules](#core-rules).
+Rule bundles are collections of HTML selectors targeting a specific property. When you load the library, it implicitly loads the [core rules](#core-rules).
 
-Each set of rules load a set of selectors in order to get a determinate value.
+Each set of rules loads a set of selectors to extract a specific value.
 
-These rules are sorted with priority: The first rule that resolve the value successfully, stop the rest of rules for get the property. Rules are sorted intentionally from specific to more generic.
+Rules are ordered by priority. The first rule to successfully resolve the value stops the process. The order goes from most specific to most generic.
 
-Rules work as fallback between them:
+Rules work as fallbacks for one another:
 
-- If the first rule fails, then it fallback in the second rule.
-- If the second rule fails, time to third rule.
-- etc
+- If the first rule fails, then it falls back on the second rule.
+- If the second rule fails, it is time for the third rule.
+- Etc.
 
-**metascraper** do that until finish all the rule or find the first rule that resolves the value.
+**metascraper** does this until it finishes all the rules or finds the first rule that resolves the value.
 
 ## Importing rules
 
@@ -226,7 +247,7 @@ const metascraper = require('metascraper')([
 - [metascraper-address](https://github.com/goodhood-eu/metascraper-address) – Get schema.org formatted address.
 - [metascraper-shopping](https://github.com/samirrayani/metascraper-shopping) – Get product information from HTML markup on merchant websites.
 
-See [CONTRIBUTING](/CONTRIBUTING.md) for adding your own module!
+See [CONTRIBUTING](/CONTRIBUTING.md) to add your own module!
 
 ## API
 
@@ -327,7 +348,7 @@ It attemptt to load re2 to use instead of RegExp.
 
 ## Benchmark
 
-To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:
+To demonstrate **metascraper's** exceptional accuracy, here is how it outperforms similar libraries:
 
 | Library   | [metascraper](https://www.npmjs.com/package/metascraper) | [html-metadata](https://www.npmjs.com/package/html-metadata) | [node-metainspector](https://www.npmjs.com/package/node-metainspector) | [open-graph-scraper](https://www.npmjs.com/package/open-graph-scraper) | [unfluff](https://www.npmjs.com/package/unfluff) |
 |:----------|:-----------------------------------------------------------|:---------------------------------------------------------------|:-------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------------------------------------------|
