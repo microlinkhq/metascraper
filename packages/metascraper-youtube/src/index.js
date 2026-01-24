@@ -40,7 +40,7 @@ const test = memoizeOne(url => getVideoInfo(url).service === 'youtube')
 
 module.exports = ({ gotOpts } = {}) => {
   const rules = {
-    title: [toTitle($ => $('title').text().replace(' - YouTube', ''))],
+    title: [toTitle($ => $('title:first').text().replace(' - YouTube', ''))],
     author: [
       toAuthor($ => $filter($, $('[class*="user-info" i]'))),
       toAuthor($ => $('[itemprop="author"] [itemprop="name"]').attr('content'))

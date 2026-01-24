@@ -50,3 +50,11 @@ test('youtube list', async t => {
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
 })
+
+test('dedupe youtube title', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/youtube-title.html'))
+  const url = 'https://www.youtube.com/watch?v=hwMkbaS_M_c'
+
+  const metadata = await metascraper({ html, url })
+  t.snapshot(metadata)
+})
