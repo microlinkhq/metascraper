@@ -23,6 +23,12 @@ test('wait `load` event', async t => {
   t.true($iframe.html().includes('twitter:player'))
 })
 
+const normalizeTransistorAssetUrls = html =>
+  html.replace(
+    /(https:\/\/assets\.transistor\.fm\/assets\/[a-z-]+)-[a-f0-9]{64}(\.[a-z]+)/g,
+    '$1-[cache-busting-hash]$2'
+  )
+
 test('markup is correct', async t => {
   const url =
     'https://saas.transistor.fm/episodes/paul-jarvis-gaining-freedom-by-building-an-indie-business'
@@ -31,5 +37,5 @@ test('markup is correct', async t => {
     url,
     cheerio.load(`<iframe src="${src}"></iframe>`)
   )
-  t.snapshot($.html())
+  t.snapshot(normalizeTransistorAssetUrls($.html()))
 })

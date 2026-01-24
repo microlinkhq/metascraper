@@ -40,6 +40,7 @@
     "memoize-one": "~6.0.0",
     "microsoft-capitalize": "~1.0.6",
     "mime": "3",
+    "normalize-url": "6",
     "re2": "~1.23.0",
     "smartquotes": "~2.3.2",
     "tldts": "~7.0.19",
