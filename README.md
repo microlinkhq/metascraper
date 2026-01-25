@@ -22,13 +22,9 @@ It follows a few principles:
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors.
 
-You can run it locally ([managing your own headless browser](https://github.com/microlinkhq/browserless)) or use the [Microlink API](https://microlink.io/meta) (zero-config & scalable).
-
 ## Getting started
 
 Let's see an example of how to extract accurate information from our website, [microlink.io](https://microlink.io).
-
-### Option A: Do It Yourself
 
 First, **metascraper** expects you provide the HTML markup behind the target URL.
 
@@ -92,24 +88,6 @@ The output will be something like:
 }
 ```
 
-### Option B: The easy way
-
-If you don't want to manage Headless Chrome, proxies, or parser maintenance, [use the API](https://microlink.io/docs/api/parameters/meta). It runs **metascraper** in our cloud.
-
-```bash
-curl -G "https://api.microlink.io" -d "url=https://microlink.io" -d "meta=true"
-```
-
-Or using our Node.js library:
-
-```javascript
-import mql from '@microlink/mql'
-
-const { data } = await mql('https://microlink.io', { meta: true })
-```
-
-[Microlink](https://microlink.io) automatically handles all edge cases, including bypassing complex bot detection.
-
 ## What data it detects
 
 > **Note**: Custom metadata detection can be defined using a [rule bundle](#rules-bundles).
@@ -148,6 +126,14 @@ A audio URL that best represents the article.
 
 - `url` — e.g. <small>*ht<span>tp://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*</small><br/>
   The URL of the article.
+
+## The Cloud API
+
+If you don't want to manage Headless Chrome, proxies, or parser maintenance, [use the API](https://microlink.io/docs/api/parameters/meta) to run **metascraper** in our cloud.
+
+For advanced needs, [Microlink](https://microlink.io) includes automatic proxy resolution to seamlessly bypass paywalls and complex bot detection. It automatically handles all edge cases, including popular social networks that restrict scraping.
+
+It's a fully managed, auto-scaling solution with a flexible pay-as-you-go model that [starts for free](https://microlink.io/#pricing).
 
 ## How it works
 
