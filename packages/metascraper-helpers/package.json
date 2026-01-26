@@ -36,6 +36,7 @@
     "iso-639-3": "~2.2.0",
     "isostring": "0.0.1",
     "jsdom": "~27.4.0",
+    "jsonrepair": "~3.13.2",
     "lodash": "~4.17.23",
     "memoize-one": "~6.0.0",
     "microsoft-capitalize": "~1.0.6",
