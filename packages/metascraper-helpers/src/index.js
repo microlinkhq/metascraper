@@ -8,6 +8,7 @@ const capitalize = require('microsoft-capitalize')
 const isRelativeUrl = require('is-relative-url')
 const fileExtension = require('file-extension')
 const _normalizeUrl = require('normalize-url')
+const { jsonrepair } = require('jsonrepair')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
 const iso6393 = require('iso-639-3/to-1')
@@ -354,19 +355,29 @@ memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
 memoizeOne.EqualityFirstArgument = (newArgs, oldArgs) =>
   newArgs[0] === oldArgs[0]
 
+const parseJSON = text => {
+  try {
+    return JSON.parse(text)
+  } catch {
+    try {
+      return JSON.parse(jsonrepair(text))
+    } catch {
+      return undefined
+    }
+  }
+}
+
 const jsonld = memoizeOne(
   $ =>
     $('script[type="application/ld+json"]')
       .map((_, element) => {
-        try {
-          const el = $(element)
-          const json = JSON.parse($(el).contents().text())
-          const { '@graph': graph, ...props } = json
-          if (!graph) return json
-          return graph.map(item => ({ ...props, ...item }))
-        } catch (_) {
-          return undefined
-        }
+        const el = $(element)
+        const text = $(el).contents().text()
+        const json = parseJSON(text)
+        if (!json) return undefined
+        const { '@graph': graph, ...props } = json
+        if (!graph) return json
+        return graph.map(item => ({ ...props, ...item }))
       })
       .get()
       .filter(Boolean),

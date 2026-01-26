@@ -29,5 +29,8 @@ test('substack', async t => {
   const { date, logo, ...metadata } = await metascraper({ html, url })
   t.snapshot(metadata)
   t.is(typeof date, 'string')
-  t.true(logo.includes('gstatic'))
+  t.true(
+    typeof logo === 'string' && new URL(logo).hostname.endsWith('.gstatic.com'),
+    logo
+  )
 })

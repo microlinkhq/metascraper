@@ -42,6 +42,7 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
   test:
+    name: Test ${{ matrix.package.name }}
     if: |
       !startsWith(github.event.head_commit.message, 'chore(release):') &&
       !startsWith(github.event.head_commit.message, 'docs:') &&
@@ -64,15 +65,15 @@ jobs:
           version: latest
           run_install: true
       - name: Test
-        run: pnpm --filter "${{ matrix.package }}" exec c8 pnpm test
+        run: pnpm --filter "${{ matrix.package.filter }}" exec c8 pnpm test
       - name: Coverage
-        run: pnpm --filter "${{ matrix.package }}" exec c8 report --reporter=lcov --report-dir=coverage
+        run: pnpm --filter "${{ matrix.package.filter }}" exec c8 report --reporter=lcov --report-dir=coverage
       - name: Upload
         uses: coverallsapp/github-action@main
         with:
-          flag-name: ${{ matrix.package }}
+          flag-name: ${{ matrix.package.name }}
           parallel: true
-          file: $(pnpm --filter "${{ matrix.package }}" exec pwd)/coverage/lcov.info
+          file: $(pnpm --filter "${{ matrix.package.filter }}" exec pwd)/coverage/lcov.info
 
   finish:
     needs: test

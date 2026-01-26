@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'http://www.prnewswire.com/news-releases/hackerrank--cybermedia-technologies-partner-to-help-close-the-stem-skills-gap-in-federal-government-300256929.html'
+  'https://www.prnewswire.com/news-releases/hackerrank--cybermedia-technologies-partner-to-help-close-the-stem-skills-gap-in-federal-government-300256929.html'
 
 test('pr-newswire', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))

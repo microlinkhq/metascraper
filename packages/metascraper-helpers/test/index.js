@@ -381,12 +381,32 @@ test('.description', t => {
 })
 
 test('.$jsonld', t => {
-  const $ = cheerio.load(`
+  {
+    const $ = cheerio.load(`
       <script type="application/ld+json">{ "offers": { "price": 119.99 }}</script>
       <script type="application/ld+json">{ "offers": { "price": "" }}</script>
       `)
-  const value = $jsonld('offers.price')($)
-  t.is(value, 119.99)
+    const value = $jsonld('offers.price')($)
+    t.is(value, 119.99)
+  }
+  {
+    const $ = cheerio.load('<script type="application/ld+json">{{</script>')
+    const value = $jsonld('offers.price')($)
+    t.is(value, undefined)
+  }
+  {
+    const $ =
+      cheerio.load(`<script type="application/ld+json">{"@context":"https://schema.org","mainEntity":{"description":"This is an example
+
+🌐 of a multiline description
+📬 to see how it is parsed
+📧 and how it is decoded"}}</script>`)
+    const value = $jsonld('mainEntity.description')($)
+    t.is(
+      value,
+      'This is an example\n\n🌐 of a multiline description\n📬 to see how it is parsed\n📧 and how it is decoded'
+    )
+  }
 })
 
 test('.lang', t => {
