@@ -26,6 +26,16 @@ const url =
 
 test('lean-data', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+
+  const { logo, ...metadata } = await metascraper({ html, url })
+
+  t.true(
+    [
+      'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.leandatainc.com/account-based-sales-marketing/the-winds-of-change&size=128',
+      'http://www.leandata.com/wp-content/uploads/2015/11/favicon.ico'
+    ].includes(logo),
+    `Logo is not in the list: ${logo}`
+  )
+
   t.snapshot(metadata)
 })
