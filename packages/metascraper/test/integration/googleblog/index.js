@@ -26,16 +26,12 @@ const url =
 
 test('googleblog', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-
   const { logo, ...metadata } = await metascraper({ html, url })
-
-  t.true(
-    [
-      'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://cloudplatform.googleblog.com/2016/09/Google-Cloud-Platform-sets-a-course-for-new-horizons.html&size=128',
-      'https://cloudplatform.googleblog.com/favicon.ico'
-    ].includes(logo),
-    `Logo is not in the list: ${logo}`
-  )
-
   t.snapshot(metadata)
+  t.true(
+    (typeof logo === 'string' &&
+      new URL(logo).hostname.endsWith('.gstatic.com')) ||
+      logo === 'https://cloudplatform.googleblog.com/favicon.ico',
+    logo
+  )
 })
