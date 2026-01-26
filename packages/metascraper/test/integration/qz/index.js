@@ -25,6 +25,10 @@ const url = 'https://qz.com/on/beyond-silicon-valley/'
 
 test('qz', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
   t.snapshot(metadata)
+  t.true(
+    typeof logo === 'string' && new URL(logo).hostname.endsWith('.gstatic.com'),
+    logo
+  )
 })
