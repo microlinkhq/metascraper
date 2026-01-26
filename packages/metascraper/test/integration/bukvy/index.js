@@ -22,7 +22,7 @@ const metascraper = require('../../..')([
 ])
 
 const url =
-  'https://bykvu.com/ru/bukvy/107312-ukraina-budet-uvazhat-religioznyj-vybor-kazhdogo-grazhdanina-poroshenko/'
+  'https://bukvy.org/en/poroshenko-accuses-authorities-of-falsifying-sanctions-decree-supreme-court-demands-evidence-from-the-government/'
 
 test('bukvy', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
