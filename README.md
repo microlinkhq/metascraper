@@ -3,6 +3,7 @@
     <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
   </a>
   <br><br>
+  <a href="https://microlink.io"><img src="https://img.shields.io/badge/powered_by-microlink.io-blue?style=flat-square&color=%23EA407B" alt="Powered by microlink.io"></a>
   <img alt="Last version" src="https://img.shields.io/github/tag/microlinkhq/metascraper.svg?style=flat-square">
   <a href="https://coveralls.io/github/microlinkhq/metascraper"><img alt="Coverage Status" src="https://img.shields.io/coveralls/microlinkhq/metascraper.svg?style=flat-square"></a>
   <a href="https://www.npmjs.org/package/metascraper"><img alt="NPM Status" src="https://img.shields.io/npm/dm/metascraper.svg?style=flat-square"></a>
