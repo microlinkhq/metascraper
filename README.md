@@ -258,15 +258,17 @@ const metascraper = require('metascraper')([
 
 **Vendor specific**
 
-- [metascraper-amazon](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) – Metascraper integration with Amazon.
-- [metascraper-instagram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-instagram) –  Metascraper integration for Instagram.
-- [metascraper-soundcloud](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) – Metascraper integration with SoundCloud.
-- [metascraper-spotify](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-spotify) – Metascraper integration with Spotify.
-- [metascraper-telegram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-telegram) – Metascraper integration with Telegram.
-- [metascraper-tiktok](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-tiktok) – Get TikTok metadata from HTML markup.
-- [metascraper-uol](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-uol) – Metascraper integration for uol.com URLs.
-- [metascraper-x](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-x) – Metascraper integration with x.com.
-- [metascraper-youtube](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) – Metascraper integration with YouTube.
+- [metascraper-amazon](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) – Metascraper integration for Amazon.
+- [metascraper-bluesky](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-bluesky) – Metascraper integration for Bluesky.
+- [metascraper-instagram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-instagram) – Metascraper integration for Instagram.
+- [metascraper-soundcloud](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) – Metascraper integration for SoundCloud.
+- [metascraper-spotify](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-spotify) – Metascraper integration for Spotify.
+- [metascraper-telegram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-telegram) – Metascraper integration for Telegram.
+- [metascraper-tiktok](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-tiktok) – Metascraper integration for TikTok.
+- [metascraper-uol](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-uol) – Metascraper integration for UOL URLs.
+- [metascraper-x](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-x) – Metascraper integration for X (formerly Twitter)
+- [metascraper-youtube](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) – Metascraper integration for YouTube.
+
 
 ### Community
 

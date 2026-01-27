@@ -1,0 +1,42 @@
+{
+  "name": "metascraper-bluesky",
+  "description": "Metascraper integration with Bluesky",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-bluesky",
+  "version": "5.49.19",
+  "types": "src/index.d.ts",
+  "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-bluesky",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "bluesky",
+    "bsky"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "workspace:*"
+  },
+  "devDependencies": {
+    "ava": "5"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}
