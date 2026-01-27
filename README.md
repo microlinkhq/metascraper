@@ -1,35 +1,72 @@
-<h1 align="center">
-  <br>
-  <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
-  <br>
-  <br>
-</h1>
+<div align="center">
+  <a href="https://metascraper.js.org">
+    <img style="width: 500px; margin:3rem 0 1.5rem;" src="https://metascraper.js.org/static/logo-banner.png" alt="metascraper">
+  </a>
+  <br><br>
+  <a href="https://microlink.io"><img src="https://img.shields.io/badge/powered_by-microlink.io-blue?style=flat-square&color=%23EA407B" alt="Powered by microlink.io"></a>
+  <img alt="Last version" src="https://img.shields.io/github/tag/microlinkhq/metascraper.svg?style=flat-square">
+  <a href="https://coveralls.io/github/microlinkhq/metascraper"><img alt="Coverage Status" src="https://img.shields.io/coveralls/microlinkhq/metascraper.svg?style=flat-square"></a>
+  <a href="https://www.npmjs.org/package/metascraper"><img alt="NPM Status" src="https://img.shields.io/npm/dm/metascraper.svg?style=flat-square"></a>
+  <br><br>
+</div>
 
-![Last version](https://img.shields.io/github/tag/microlinkhq/metascraper.svg?style=flat-square)
-[![Coverage Status](https://img.shields.io/coveralls/microlinkhq/metascraper.svg?style=flat-square)](https://coveralls.io/github/microlinkhq/metascraper)
-[![NPM Status](https://img.shields.io/npm/dm/metascraper.svg?style=flat-square)](https://www.npmjs.org/package/metascraper)
+> A library to easily extract unified metadata from websites using Open Graph, Microdata, RDFa, Twitter Cards, JSON-LD, HTML, and more.
 
-> A library to easily get unified metadata from websites using Open Graph, Microdata, RDFa, Twitter Cards, JSON-LD, HTML, and more.
+- [What is it](#what-is-it)
+- [Getting started](#getting-started)
+- [What data it detects](#what-data-it-detects)
+- [The cloud API solution](#the-cloud-api-solution)
+- [How it works](#how-it-works)
+- [Importing rules](#importing-rules)
+- [Rules bundles](#rules-bundles)
+  - [Official](#official)
+  - [Community](#community)
+- [API](#api)
+  - [constructor(rules)](#constructorrules)
+    - [rules](#rules)
+  - [metascraper(options)](#metascraperoptions)
+    - [options](#options)
+    - [html](#html)
+    - [htmlDom](#htmldom)
+    - [omitPropNames](#omitpropnames)
+    - [pickPropNames](#pickpropnames)
+    - [rules](#rules-1)
+    - [url](#url)
+    - [validateUrl](#validateurl)
+- [Environment Variables](#environment-variables)
+    - [METASCRAPER\_RE2](#metascraper_re2)
+- [Benchmark](#benchmark)
+- [License](#license)
+
+---
 
 ## What is it
 
-The **metascraper** library allows you to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and series of fallbacks.
+The **metascraper** library allows you to easily scrape metadata from an article on the web using Open Graph metadata, regular HTML metadata, and a series of fallbacks.
 
 It follows a few principles:
 
-- Have a high accuracy for online articles by default.
+- Ensure a high accuracy for online articles by default.
 - Make it simple to add new rules or override existing ones.
 - Don't restrict rules to CSS selectors or text accessors.
 
 ## Getting started
 
-Let's extract accurate information from the following website:
+Below is a real example of extracting metadata from a live website. The same logic shown here is running online and can be tested directly at [microlink.io/meta](https://microlink.io/meta):
 
-![](https://i.imgur.com/jZl0Uej.png)
+<div align="center">
+  <a href="https://microlink.io/meta" target="_blank" rel="noopener">
+    <img align="center" src="/static/demo1.jpeg" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+  </a>
+  <br><br>
+</div>
 
-First, **metascraper** expects you provide the HTML markup behind the target URL.
+**metascraper** requires two inputs: The target URL and the HTML markup behind that URL.
 
-There are multiple ways to get the HTML markup. In our case, we are going to run a programmatic headless browser to simulate real user navigation, so the data obtained will be close to a real-world example.
+There are multiple ways to retrieve the HTML markup, but it needs to be as accurate as possible.
+
+For that reason, we developed [html-get](https://github.com/microlinkhq/html-get), which uses a headless browser to retrieve HTML in a way that works seamlessly with metascraper.
+
 
 ```js
 const getHTML = require('html-get')
@@ -128,25 +165,37 @@ A audio URL that best represents the article.
 - `url` — e.g. <small>*ht<span>tp://motherboard.vice.com/read/google-wins-trial-against-oracle-saves-9-billion*</small><br/>
   The URL of the article.
 
+## The cloud API solution
+
+Running this at scale means operating headless browsers, proxies, and antibot workarounds.
+
+If you don’t want to manage that infrastructure, you can use the fully managed
+[Microlink API](https://microlink.io/docs/api/getting-started/overview).
+
+It automatically handles proxy rotation, paywalls, bot detection, and restricted platforms such as major social networks, while scaling on demand.
+
+Pricing is pay-as-you-go and [starts for free](https://microlink.io/#pricing).
+
+
 ## How it works
 
 **metascraper** is built out of rules bundles.
 
-It was designed to be easy to adapt. You can compose your own transformation pipeline using existing rules or write your own.
+It is designed to be extensible. You can compose your own transformation pipeline using existing rules or create your own.
 
-Rules bundles are a collection of HTML selectors around a determinate property. When you load the library, implicitly it is loading [core rules](#core-rules).
+Rule bundles are collections of HTML selectors targeting a specific property. When you load the library, it implicitly loads the [core rules](#core-rules).
 
-Each set of rules load a set of selectors in order to get a determinate value.
+Each set of rules loads a set of selectors to extract a specific value.
 
-These rules are sorted with priority: The first rule that resolve the value successfully, stop the rest of rules for get the property. Rules are sorted intentionally from specific to more generic.
+Rules are ordered by priority. The first rule to successfully resolve the value stops the process. The order goes from most specific to most generic.
 
-Rules work as fallback between them:
+Rules work as fallbacks for one another:
 
-- If the first rule fails, then it fallback in the second rule.
-- If the second rule fails, time to third rule.
-- etc
+- If the first rule fails, then it falls back on the second rule.
+- If the second rule fails, it is time for the third rule.
+- Etc.
 
-**metascraper** do that until finish all the rule or find the first rule that resolves the value.
+**metascraper** does this until it finishes all the rules or finds the first rule that resolves the value.
 
 ## Importing rules
 
@@ -226,7 +275,7 @@ const metascraper = require('metascraper')([
 - [metascraper-address](https://github.com/goodhood-eu/metascraper-address) – Get schema.org formatted address.
 - [metascraper-shopping](https://github.com/samirrayani/metascraper-shopping) – Get product information from HTML markup on merchant websites.
 
-See [CONTRIBUTING](/CONTRIBUTING.md) for adding your own module!
+See [CONTRIBUTING](/CONTRIBUTING.md) to add your own module!
 
 ## API
 
@@ -327,13 +376,13 @@ It attemptt to load re2 to use instead of RegExp.
 
 ## Benchmark
 
-To give you an idea of how accurate **metascraper** is, here is a comparison of similar libraries:
+To demonstrate **metascraper**'s exceptional accuracy, here is how it outperforms similar libraries:
 
 | Library   | [metascraper](https://www.npmjs.com/package/metascraper) | [html-metadata](https://www.npmjs.com/package/html-metadata) | [node-metainspector](https://www.npmjs.com/package/node-metainspector) | [open-graph-scraper](https://www.npmjs.com/package/open-graph-scraper) | [unfluff](https://www.npmjs.com/package/unfluff) |
-|:----------|:-----------------------------------------------------------|:---------------------------------------------------------------|:-------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------------------------------------------|
-| Correct   | **95.54%**                                                 | **74.56%**                                                     | **61.16%**                                                               | **66.52%**                                                               | **70.90%**                                         |
-| Incorrect | 1.79%                                                      | 1.79%                                                          | 0.89%                                                                    | 6.70%                                                                    | 10.27%                                             |
-| Missed    | 2.68%                                                      | 23.67%                                                         | 37.95%                                                                   | 26.34%                                                                   | 8.95%                                              |
+| :-------- | :------------------------------------------------------- | :----------------------------------------------------------- | :--------------------------------------------------------------------- | :--------------------------------------------------------------------- | :----------------------------------------------- |
+| Correct   | **95.54%**                                               | **74.56%**                                                   | **61.16%**                                                             | **66.52%**                                                             | **70.90%**                                       |
+| Incorrect | 1.79%                                                    | 1.79%                                                        | 0.89%                                                                  | 6.70%                                                                  | 10.27%                                           |
+| Missed    | 2.68%                                                    | 23.67%                                                       | 37.95%                                                                 | 26.34%                                                                 | 8.95%                                            |
 
 A big part of the reason for **metascraper**'s higher accuracy is that it relies on a series of fallbacks for each piece of metadata, instead of just looking for the most commonly-used, spec-compliant pieces of metadata, like Open Graph.
 

@@ -49,6 +49,12 @@
   box-sizing: border-box;
 }
 
+/* Hide the TOC and hr in the main content since it's already in the sidebar */
+.markdown-section > blockquote + ul,
+.markdown-section > blockquote + ul + hr {
+  display: none;
+}
+
 body,
 html {
   height: 100%;
