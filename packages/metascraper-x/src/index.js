@@ -86,6 +86,10 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
         const imageUrl =
           $jsonld('mainEntity.image.contentUrl')($) ||
           $('video').attr('poster') ||
+          /* embedded image from a post */
+          $('[data-testid="tweetPhoto"] img').attr('src') ||
+          /* embebbed image from a link */
+          $('[data-testid="card.layoutLarge.media"] img').attr('src') ||
           $('meta[property="og:image"]').attr('content')
 
         return imageUrl?.endsWith('_200x200.jpg')

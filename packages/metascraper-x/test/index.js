@@ -118,6 +118,14 @@ test('from a post with a gif from og:image', async t => {
   t.snapshot(metadata)
 })
 
+test('from a post with a link', async t => {
+  const url = 'https://x.com/Forbes/status/2016058596782670275'
+  const html = await readFile(resolve(__dirname, 'fixtures/post-link.html'))
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
 test('from a post with an image', async t => {
   const url = 'https://x.com/UaSmart/status/934106870834454529'
   const html = await readFile(resolve(__dirname, 'fixtures/post-image.html'))
