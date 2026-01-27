@@ -12,7 +12,6 @@ const createMetascraper = (...args) =>
     require('metascraper-author')(),
     require('metascraper-date')(),
     require('metascraper-image')(),
-    require('metascraper-video')(),
     require('metascraper-description')(),
     require('metascraper-lang')(),
     require('metascraper-publisher')(),

@@ -19,16 +19,20 @@ const getHandle = url => new URL(url).pathname.split('/')[2]
 module.exports = () => {
   const rules = {
     image: [
-      toImage(
-        ($, url) =>
-          $(
-            `[data-testid="postThreadItem-by-${getHandle(
-              url
-            )}"] img[src*="feed_thumbnail"]`
-          ).attr('src') || $('meta[property="og:image"]').attr('content')
-      )
+      toImage(($, url) =>
+        $(
+          `[data-testid="postThreadItem-by-${getHandle(
+            url
+          )}"] img[src*="feed_thumbnail"]`
+        ).attr('src')
+      ),
+      toImage($jsonld('mainEntity.image')),
+      toImage($ => $('meta[property="og:image"]').attr('content'))
     ],
-    author: [toAuthor($jsonld('mainEntity.name'))],
+    author: [
+      toAuthor($jsonld('author.name')),
+      toAuthor($jsonld('mainEntity.name'))
+    ],
     publisher: () => 'Bluesky'
   }
 
