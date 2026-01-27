@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.21](https://github.com/microlinkhq/metascraper/compare/v5.49.20...v5.49.21) (2026-01-27)
+
+### Bug Fixes
+
+* **x:** detect embedded image in a post ([#794](https://github.com/microlinkhq/metascraper/issues/794)) ([225e362](https://github.com/microlinkhq/metascraper/commit/225e362728fc6c60e86ea61c1a7d42d14b0e0ce9))
+
 ## [5.49.20](https://github.com/microlinkhq/metascraper/compare/v5.49.19...v5.49.20) (2026-01-24)
 
 **Note:** Version bump only for package metascraper

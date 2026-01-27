@@ -2,7 +2,7 @@
   "name": "metascraper-lang",
   "description": "Get lang property from HTML markup",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-lang",
-  "version": "5.49.19",
+  "version": "5.49.21",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
