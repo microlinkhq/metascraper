@@ -14,23 +14,19 @@ const toAuthor = toRule(author)
 
 const test = memoizeOne(url => parseUrl(url).domain === 'bsky.app')
 
-const getHandle = url => {
-  const { pathname } = new URL(url)
-  const parts = pathname.split('/')
-  return parts[2]
-}
+const getHandle = url => new URL(url).pathname.split('/')[2]
 
 module.exports = () => {
   const rules = {
     image: [
-      toImage(($, url) => {
-        const handle = getHandle(url)
-        return (
+      toImage(
+        ($, url) =>
           $(
-            `[data-testid="postThreadItem-by-${handle}"] img[src*="feed_thumbnail"]`
+            `[data-testid="postThreadItem-by-${getHandle(
+              url
+            )}"] img[src*="feed_thumbnail"]`
           ).attr('src') || $('meta[property="og:image"]').attr('content')
-        )
-      })
+      )
     ],
     author: [toAuthor($jsonld('mainEntity.name'))],
     publisher: () => 'Bluesky'

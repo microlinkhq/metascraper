@@ -264,9 +264,9 @@ const metascraper = require('metascraper')([
 - [metascraper-soundcloud](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) – Metascraper integration for SoundCloud.
 - [metascraper-spotify](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-spotify) – Metascraper integration for Spotify.
 - [metascraper-telegram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-telegram) – Metascraper integration for Telegram.
-- [metascraper-tiktok](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-tiktok) – Extracts TikTok metadata from HTML markup.
+- [metascraper-tiktok](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-tiktok) – Metascraper integration for TikTok.
 - [metascraper-uol](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-uol) – Metascraper integration for UOL URLs.
-- [metascraper-x](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-x) – Metascraper integration for X (x.com).
+- [metascraper-x](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-x) – Metascraper integration for X (formerly Twitter)
 - [metascraper-youtube](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-youtube) – Metascraper integration for YouTube.
 
 
