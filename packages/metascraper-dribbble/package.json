@@ -2,7 +2,7 @@
   "name": "metascraper-dribbble",
   "description": "Metascraper integration for Dribbble",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-dribbble",
-  "version": "5.49.21",
+  "version": "5.49.22",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
