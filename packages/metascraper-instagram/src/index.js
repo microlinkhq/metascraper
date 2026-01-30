@@ -41,3 +41,5 @@ module.exports = () => {
 
   return rules
 }
+
+module.exports.test = test
