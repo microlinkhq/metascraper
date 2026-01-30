@@ -1,0 +1,41 @@
+{
+  "name": "metascraper-dribbble",
+  "description": "Metascraper integration for Dribbble",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-dribbble",
+  "version": "5.49.21",
+  "types": "src/index.d.ts",
+  "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-dribbble",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "dribbble"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "workspace:*"
+  },
+  "devDependencies": {
+    "ava": "5"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}
