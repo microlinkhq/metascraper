@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.23](https://github.com/microlinkhq/metascraper/compare/v5.49.22...v5.49.23) (2026-02-17)
+
+### Bug Fixes
+
+* **helpers:** [@graph](https://github.com/graph) must be an array ([#798](https://github.com/microlinkhq/metascraper/issues/798)) ([9d58749](https://github.com/microlinkhq/metascraper/commit/9d587491ca9073f653d2bdb0eeb3fab241fe2041))
+
 ## [5.49.21](https://github.com/microlinkhq/metascraper/compare/v5.49.20...v5.49.21) (2026-01-27)
 
 **Note:** Version bump only for package @metascraper/helpers
