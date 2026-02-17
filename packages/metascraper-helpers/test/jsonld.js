@@ -106,6 +106,16 @@ test('ignore @graph if it is not an array', t => {
   t.deepEqual(jsonld($), [{ '@context': 'http://schema.org' }])
 })
 
+test('respect root nodes under no @graph', t => {
+  const $ = cheerio.load(
+    '<script type="application/ld+json">[{"@type":"NewsArticle"},{"@type":"BreadcrumbList"}]</script>'
+  )
+  t.deepEqual(jsonld($), [
+    { '@type': 'NewsArticle' },
+    { '@type': 'BreadcrumbList' }
+  ])
+})
+
 test('group all properties of the same node together', t => {
   const $ = cheerio.load(`
     <script type="application/ld+json">

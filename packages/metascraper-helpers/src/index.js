@@ -378,7 +378,9 @@ const jsonld = memoizeOne(
         const { '@graph': graph, ...props } = json
         return Array.isArray(graph)
           ? graph.map(item => ({ ...props, ...item }))
-          : props
+          : graph
+            ? props
+            : json
       })
       .get()
       .filter(Boolean),
