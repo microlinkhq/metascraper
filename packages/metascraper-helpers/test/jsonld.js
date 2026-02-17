@@ -97,3 +97,56 @@ test('returns empty array if JSON-LD is invalid', t => {
   const $ = cheerio.load('<script type="application/ld+json">{{</script>')
   t.deepEqual(jsonld($), [])
 })
+
+test('ignore @graph if it is not an array', t => {
+  const $ = cheerio.load(
+    '<script type="application/ld+json">{"@context":"http://schema.org","@graph":{"1":{"@id":"https://www.mobeforlife.com/#identity","@type":"MedicalOrganization","sameAs":["https://www.facebook.com/mobeforlife/","https://www.linkedin.com/company/mob%C4%93-llc","https://www.instagram.com/mobeforlife/"]},"2":{"@id":"#creator","@type":"Organization"},"3":{"@type":"BreadcrumbList","description":"Breadcrumbs list","itemListElement":[{"@type":"ListItem","item":"https://www.mobeforlife.com/","name":"Home","position":1},{"@type":"ListItem","item":"https://www.mobeforlife.com/blog/smart-goals-put-your-goals-within-reach","name":"SMART Goals: Put your goals within reach.","position":2}],"name":"Breadcrumbs"}}}</script>'
+  )
+
+  t.deepEqual(jsonld($), [{ '@context': 'http://schema.org' }])
+})
+
+test('group all properties of the same node together', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Acme Inc"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "name": "Breadcrumbs"
+    },
+    {
+      "@type": "Article",
+      "headline": "Hello World"
+    }
+  ]
+}
+</script>`)
+
+  t.deepEqual(jsonld($), [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Acme Inc'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      name: 'Breadcrumbs'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Hello World'
+    }
+  ])
+})

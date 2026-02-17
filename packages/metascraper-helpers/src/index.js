@@ -374,10 +374,11 @@ const jsonld = memoizeOne(
         const el = $(element)
         const text = $(el).contents().text()
         const json = parseJSON(text)
-        if (!json) return undefined
+        if (!json) return false
         const { '@graph': graph, ...props } = json
-        if (!graph) return json
-        return graph.map(item => ({ ...props, ...item }))
+        return Array.isArray(graph)
+          ? graph.map(item => ({ ...props, ...item }))
+          : props
       })
       .get()
       .filter(Boolean),
@@ -387,7 +388,6 @@ const jsonld = memoizeOne(
 const $jsonld = propName => $ => {
   const collection = jsonld($)
   let value
-
   collection.find(item => {
     value = get(item, propName)
     return !isEmpty(value) || isNumber(value) || isBoolean(value)
