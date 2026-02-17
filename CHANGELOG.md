@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
+
+### Bug Fixes
+
+* **jsonld:** respect root nodes ([#799](https://github.com/microlinkhq/metascraper/issues/799)) ([b60173a](https://github.com/microlinkhq/metascraper/commit/b60173aa1e06966ac08b16d52c1ed4ae82bc7f33))
+
 ## [5.49.23](https://github.com/microlinkhq/metascraper/compare/v5.49.22...v5.49.23) (2026-02-17)
 
 ### Bug Fixes

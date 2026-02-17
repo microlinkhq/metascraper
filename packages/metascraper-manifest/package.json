@@ -2,7 +2,7 @@
   "name": "metascraper-manifest",
   "description": "Metascraper integration for detecting PWA Web app manifest",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-manifest",
-  "version": "5.49.23",
+  "version": "5.49.24",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
