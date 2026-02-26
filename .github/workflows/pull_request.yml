@@ -44,6 +44,7 @@ jobs:
       - name: Coverage
         run: pnpm --filter "${{ matrix.package.filter }}" exec c8 report --reporter=lcov --report-dir=coverage
       - name: Upload
+        continue-on-error: true
         uses: coverallsapp/github-action@main
         with:
           flag-name: ${{ matrix.package.name }}
@@ -55,6 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls Finished
+        continue-on-error: true
         uses: coverallsapp/github-action@main
         with:
           parallel-finished: true
