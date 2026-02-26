@@ -32,7 +32,7 @@
     "ava": "5"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 22"
   },
   "files": [
     "src"

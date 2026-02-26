@@ -35,7 +35,7 @@
     "got": "11"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 22"
   },
   "files": [
     "src"
