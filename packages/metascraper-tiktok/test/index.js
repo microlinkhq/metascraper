@@ -36,3 +36,15 @@ test('from profile', async t => {
   console.log(metadata)
   t.snapshot(metadata)
 })
+
+test('fallback date extraction when video id is invalid', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/video.html'))
+  const metascraper = createMetascraper()
+
+  const metadata = await metascraper({
+    url: 'https://www.tiktok.com/@illojuan/video/not-a-number',
+    html
+  })
+
+  t.truthy(metadata.date)
+})
