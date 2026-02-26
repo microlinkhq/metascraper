@@ -14,8 +14,8 @@ module.exports = (url, $, { timeout = 5000 } = {}) => {
     stdout: true,
     stderr: true
   })
-  return new Promise((resolve, reject) => {
-    worker.on('message', html => resolve($.load(html || '')))
-    worker.on('error', reject)
-  })
+  const { promise, resolve, reject } = Promise.withResolvers()
+  worker.on('message', html => resolve($.load(html || '')))
+  worker.on('error', reject)
+  return promise
 }
