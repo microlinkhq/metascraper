@@ -158,3 +158,24 @@ test('passing `htmlDom`', async t => {
   const metadata = await metascraper({ url, htmlDom, html })
   t.is(metadata.title, 'htmlDom')
 })
+
+test('rule errors do not reject extraction', async t => {
+  const metascraper = createMetascraper([
+    {
+      title: [
+        () => {
+          throw new Error('boom')
+        }
+      ],
+      description: [() => 'safe']
+    }
+  ])
+
+  const metadata = await metascraper({
+    url: 'https://microlink.io',
+    html: '<html><head><title>Document</title></head></html>'
+  })
+
+  t.is(metadata.title, null)
+  t.is(metadata.description, 'safe')
+})
