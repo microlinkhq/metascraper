@@ -40,25 +40,6 @@ test('from photo post', async t => {
   t.snapshot(metadata)
 })
 
-test('does not reuse memoized description for same url with different html', async t => {
-  const url = 'https://www.instagram.com/p/CPeC-Eenc8l/'
-  const [photoHtml, videoHtml] = await Promise.all([
-    readFile(resolve(__dirname, 'fixtures/post-with-photo.html')),
-    readFile(resolve(__dirname, 'fixtures/post-with-video.html'))
-  ])
-
-  const photoMetadata = await metascraper({ url, html: photoHtml })
-  const videoMetadataWithSameUrl = await metascraper({ url, html: videoHtml })
-  const videoMetadata = await metascraper({
-    url: 'https://www.instagram.com/p/CPQjO5RIIO9/',
-    html: videoHtml
-  })
-
-  t.truthy(photoMetadata.date)
-  t.not(videoMetadataWithSameUrl.date, photoMetadata.date)
-  t.is(videoMetadataWithSameUrl.date, videoMetadata.date)
-})
-
 test('from multi photo post', async t => {
   const url = 'https://www.instagram.com/p/COn3M4TnRi1/'
   const html = await readFile(

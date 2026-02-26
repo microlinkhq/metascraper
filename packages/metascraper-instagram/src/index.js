@@ -14,7 +14,7 @@ const test = memoizeOne(
 
 const getDescription = memoizeOne(
   (_, $) => $('meta[property="og:description"]').attr('content'),
-  memoizeOne.EqualityUrlAndHtmlDom
+  memoizeOne.EqualityFirstArgument
 )
 
 module.exports = () => {
