@@ -12,9 +12,12 @@ const test = memoizeOne(
   url => parseUrl(url).domainWithoutSuffix === 'instagram'
 )
 
+const isSameUrlAndHtmlDom = (newArgs, oldArgs) =>
+  newArgs[0] === oldArgs[0] && newArgs[1] === oldArgs[1]
+
 const getDescription = memoizeOne(
   (_, $) => $('meta[property="og:description"]').attr('content'),
-  memoizeOne.EqualityUrlAndHtmlDom
+  isSameUrlAndHtmlDom
 )
 
 module.exports = () => {
