@@ -51,7 +51,8 @@ module.exports = () => {
     date: [
       toDate((_, url) => {
         const id = url.split('/video/')[1]?.split('?')[0]
-        return id ? getTimestampFromId(id) : undefined
+        if (!id || !/^\d+$/.test(id)) return
+        return getTimestampFromId(id)
       }),
       toDate($ => {
         const content = $(
