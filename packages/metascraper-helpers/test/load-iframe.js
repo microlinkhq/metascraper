@@ -1,6 +1,8 @@
 'use strict'
 
 const cheerio = require('cheerio')
+const { spawn } = require('child_process')
+const path = require('path')
 const test = require('ava')
 
 const { loadIframe } = require('..')
@@ -38,4 +40,46 @@ test('markup is correct', async t => {
     cheerio.load(`<iframe src="${src}"></iframe>`)
   )
   t.snapshot(normalizeTransistorAssetUrls($.html()))
+})
+
+test('worker does not keep process alive after resolving', async t => {
+  const script = `
+    const cheerio = require('cheerio')
+    const { loadIframe } = require('./src')
+    ;(async () => {
+      const src = 'data:text/html,<html><body><script>setInterval(() => {}, 1000)<\\\\/script></body></html>'
+      const $ = cheerio.load(\`<iframe src="\${src}"></iframe>\`)
+      await loadIframe('https://example.com', $, { timeout: 200 })
+    })().catch(error => {
+      console.error(error)
+      process.exit(1)
+    })
+  `
+
+  await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, ['-e', script], {
+      cwd: path.resolve(__dirname, '..'),
+      stdio: ['ignore', 'ignore', 'pipe']
+    })
+
+    let stderr = ''
+    child.stderr.on('data', chunk => {
+      stderr += String(chunk)
+    })
+
+    const timeoutId = setTimeout(() => {
+      child.kill('SIGKILL')
+      reject(
+        new Error('Child process did not exit in time after loadIframe resolve')
+      )
+    }, 3000)
+
+    child.once('exit', code => {
+      clearTimeout(timeoutId)
+      if (code === 0) return resolve()
+      reject(new Error(`Child process failed with code ${code}: ${stderr}`))
+    })
+  })
+
+  t.pass()
 })
