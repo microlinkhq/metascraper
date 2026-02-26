@@ -43,7 +43,7 @@
     "unique-random-array": "2"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 20"
   },
   "files": [
     "src"
