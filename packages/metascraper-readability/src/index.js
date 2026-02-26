@@ -1,6 +1,6 @@
 'use strict'
 
-const { memoizeOne, composeRule } = require('@metascraper/helpers')
+const { composeRule } = require('@metascraper/helpers')
 const { Readability } = require('@mozilla/readability')
 const asyncMemoizeOne = require('async-memoize-one')
 const { Browser } = require('happy-dom')
@@ -42,7 +42,7 @@ const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
   } finally {
     await teardown()
   }
-}, memoizeOne.EqualityFirstArgument)
+})
 
 module.exports = ({ readabilityOpts } = {}) => {
   const getReadbility = composeRule(($, url) =>
