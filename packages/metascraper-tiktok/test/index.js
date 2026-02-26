@@ -33,6 +33,5 @@ test('from profile', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url, html })
-  console.log(metadata)
   t.snapshot(metadata)
 })
