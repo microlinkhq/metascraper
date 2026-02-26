@@ -64,6 +64,17 @@ test('.parseUrl', t => {
   t.true(measure(fn) > measure(fn)) // eslint-disable-line
 })
 
+test('.parseUrl cache is bounded', t => {
+  parseUrl.cache.clear()
+  const cacheLimit = parseUrl.MAX_CACHE_SIZE
+
+  for (let index = 0; index <= cacheLimit + 10; index++) {
+    parseUrl(`https://example-${index}.com`)
+  }
+
+  t.true(parseUrl.cache.size <= cacheLimit)
+})
+
 test('.normalizeUrl', t => {
   t.is(normalizeUrl('https://example.com', 'javascript:false'), undefined)
   t.is(

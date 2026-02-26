@@ -54,7 +54,22 @@ const {
 
 const iso6393Values = Object.values(iso6393)
 
-const parseUrl = memoize(tldts.parse)
+const MAX_PARSE_URL_CACHE_SIZE = 10_000
+
+const _parseUrl = memoize(tldts.parse)
+
+const parseUrl = url => {
+  if (
+    _parseUrl.cache.size >= MAX_PARSE_URL_CACHE_SIZE &&
+    !_parseUrl.cache.has(url)
+  ) {
+    _parseUrl.cache.clear()
+  }
+  return _parseUrl(url)
+}
+
+parseUrl.cache = _parseUrl.cache
+parseUrl.MAX_CACHE_SIZE = MAX_PARSE_URL_CACHE_SIZE
 
 const toTitle = str =>
   capitalize(str, [
