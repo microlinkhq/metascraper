@@ -1,15 +1,6 @@
 'use strict'
 
-const {
-  chain,
-  eq,
-  find,
-  get,
-  isEmpty,
-  isNil,
-  negate,
-  overEvery
-} = require('lodash')
+const { eq, find, get, isEmpty, isNil, negate } = require('lodash')
 
 const {
   extension: extensionFn,
@@ -67,6 +58,26 @@ const hasVideo = format =>
 const isDownloadable = ({ url }) =>
   new URL(url).searchParams.get('download') === '1'
 
+const getOrderByRank = value => {
+  if (Number.isNaN(value)) return 4
+  if (value === undefined) return 3
+  if (value === null) return 2
+  return 1
+}
+
+const compareOrderByAsc = (left, right) => {
+  const leftRank = getOrderByRank(left)
+  const rightRank = getOrderByRank(right)
+
+  if (leftRank !== rightRank) return leftRank - rightRank
+
+  if (leftRank !== 1) return 0
+
+  if (left > right) return 1
+  if (left < right) return -1
+  return 0
+}
+
 const getFormatUrls =
   (basicFilters, { orderBy }) =>
     (input, extraFilters, { isStream }) => {
@@ -75,14 +86,33 @@ const getFormatUrls =
       const formats = get(input, 'formats') ||
       get(input, 'entries[0].formats') || [input]
 
-      const url = chain(formats)
-        .filter(overEvery(filters))
-        .orderBy(orderBy, 'asc')
-        .map(isStream ? 'manifest_url' : 'url')
-        .last()
-        .value()
+      const urlProp = isStream ? 'manifest_url' : 'url'
+      let lastUrl
+      let lastOrderByValue
+      let hasLast = false
 
-      return !isEmpty(url) ? url : undefined
+      for (const format of formats) {
+        let isMatch = true
+        for (const filter of filters) {
+          if (!filter(format)) {
+            isMatch = false
+            break
+          }
+        }
+        if (!isMatch) continue
+
+        const currentOrderByValue = format?.[orderBy]
+        if (
+          !hasLast ||
+        compareOrderByAsc(currentOrderByValue, lastOrderByValue) >= 0
+        ) {
+          lastUrl = format?.[urlProp]
+          lastOrderByValue = currentOrderByValue
+          hasLast = true
+        }
+      }
+
+      return !isEmpty(lastUrl) ? lastUrl : undefined
     }
 
 const VIDEO_FILTERS = ({ isStream }) =>
