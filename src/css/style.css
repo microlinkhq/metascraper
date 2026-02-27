@@ -126,9 +126,15 @@ main {
 
 .sidebar {
   font-family: var(--sans-serif-font);
-  padding: 40px;
+  padding-top: 72px;
+  padding-bottom: 40px;
+  padding-left: 36px;
+  padding-right: 0;
   width: 300px;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.3s ease-out;
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
 }
 
 .sidebar .sidebar-nav {
@@ -188,10 +194,8 @@ main {
   background: hsla(0, 0%, 53%, 0.1);
 }
 
-body.sticky .sidebar,
-body.sticky .sidebar-toggle {
-  cursor: pointer;
-  position: fixed;
+.sidebar-toggle {
+  display: none;
 }
 
 .content {
@@ -248,14 +252,56 @@ body.sticky .sidebar-toggle {
 }
 
 @media screen and (max-width: 768px) {
-  .github-corner,
   .sidebar {
     position: fixed;
   }
 
-  .sidebar,
+  .github-corner svg {
+    height: 62px !important;
+    width: 62px !important;
+  }
+
+  .sidebar {
+    left: -300px;
+  }
+
   .sidebar-toggle {
+    cursor: pointer;
+    display: inherit;
+    border: 0;
+    outline: none;
+    padding: 0 10px;
+    left: 6px;
+    transition: opacity 0.3s;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    height: 62px;
+    width: 100%;
+    background: var(--bg-color);
+  }
+
+  .sidebar-toggle span {
+    background-color: rgb(62, 84, 255);
+    display: block;
+    margin-bottom: 5px;
+    width: 24px;
+    height: 3px;
+  }
+
+  body.sidebar-toggle {
     display: none;
+  }
+
+  body.close .sidebar,
+  body.close .content {
+    transform: translateX(280px);
+  }
+
+  body.close .sidebar-toggle {
+    background: var(--bg-color);
+    transition: background-color 0.3s;
+    width: 284px;
   }
 
   main {
@@ -268,7 +314,7 @@ body.sticky .sidebar-toggle {
     max-width: 100vw;
     position: static;
     padding-top: 20px;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease;
   }
 
   .github-corner:hover .octo-arm {
