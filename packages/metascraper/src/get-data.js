@@ -4,33 +4,43 @@ const debug = require('debug-logfmt')('metascraper:get-data')
 const { findRule, has } = require('@metascraper/helpers')
 
 const getData = async ({ rules, ...props }) => {
-  const data = await Promise.all(
-    rules.map(async ([propName, innerRules]) => {
-      const duration = debug.duration()
-      let normalizedValue = null
-      let status = 'ok'
+  const data = {}
+  const tasks = []
 
-      try {
-        const value = await findRule(innerRules, props, propName)
-        normalizedValue = has(value) ? value : null
-      } catch (error) {
-        status = 'error'
-        debug('rule:error', {
-          propName,
-          rules: innerRules.length,
-          errorName: error?.name,
-          errorMessage: error?.message
-        })
-      }
+  for (const [propName, innerRules] of rules) {
+    // Predeclare keys to preserve deterministic insertion order.
+    data[propName] = null
 
-      duration(
-        `${propName}=${normalizedValue} rules=${innerRules.length} status=${status}`
-      )
-      return [propName, normalizedValue]
-    })
-  )
+    tasks.push(
+      (async () => {
+        const duration = debug.duration()
+        let normalizedValue = null
+        let status = 'ok'
 
-  return Object.fromEntries(data)
+        try {
+          const value = await findRule(innerRules, props, propName)
+          normalizedValue = has(value) ? value : null
+        } catch (error) {
+          status = 'error'
+          debug('rule:error', {
+            propName,
+            rules: innerRules.length,
+            errorName: error?.name,
+            errorMessage: error?.message
+          })
+        }
+
+        duration(
+          `${propName}=${normalizedValue} rules=${innerRules.length} status=${status}`
+        )
+        data[propName] = normalizedValue
+      })()
+    )
+  }
+
+  await Promise.all(tasks)
+
+  return data
 }
 
 module.exports = getData
