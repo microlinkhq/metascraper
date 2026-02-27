@@ -2,6 +2,7 @@
 
 const test = require('ava')
 
+const createGetMedia = require('../src/get-media')
 const { getMedia } = require('../src/get-media')
 
 test('retry count increments for each attempt', async t => {
@@ -74,4 +75,47 @@ test('keep retrying youtube unsupported errors until retry limit', async t => {
 
   t.deepEqual(result, {})
   t.deepEqual(retryCounts, [0, 1])
+})
+
+test('dedupe in-flight requests per url under interleaved calls', async t => {
+  const calls = []
+
+  const getMediaByUrl = createGetMedia({
+    retry: 0,
+    timeout: 1000,
+    args: ({ url, flags }) => ({ url, flags }),
+    run: async url => {
+      const { promise, resolve } = Promise.withResolvers()
+      const call = { url, id: calls.length + 1, resolve }
+      calls.push(call)
+      return promise
+    }
+  })
+
+  const aUrl = 'https://example.com/a'
+  const bUrl = 'https://example.com/b'
+
+  const aOnePromise = getMediaByUrl(aUrl)
+  const bOnePromise = getMediaByUrl(bUrl)
+  const aTwoPromise = getMediaByUrl(aUrl)
+
+  t.is(aOnePromise, aTwoPromise)
+
+  await Promise.resolve()
+
+  t.is(calls.filter(call => call.url === aUrl).length, 1)
+  t.is(calls.filter(call => call.url === bUrl).length, 1)
+
+  for (const call of calls) {
+    call.resolve({ id: call.id, url: call.url })
+  }
+
+  const [aOne, bOne, aTwo] = await Promise.all([
+    aOnePromise,
+    bOnePromise,
+    aTwoPromise
+  ])
+
+  t.is(aOne.id, aTwo.id)
+  t.not(aOne.id, bOne.id)
 })

@@ -5,7 +5,6 @@ const debug = require('debug-logfmt')(
 )
 const { serializeError } = require('serialize-error')
 const { parseUrl } = require('@metascraper/helpers')
-const asyncMemoizeOne = require('async-memoize-one')
 const youtubedl = require('youtube-dl-exec')
 
 const RE_UNSUPPORTED_URL = /Unsupported URL/
@@ -70,17 +69,42 @@ module.exports = ({
   timeout = 30000,
   retry = 2,
   args: getArgs = ({ url, flags }) => ({ url, flags }),
+  run = youtubedl,
   ...props
-}) =>
-  asyncMemoizeOne(targetUrl =>
-    getMedia({
+}) => {
+  const inFlightByUrl = new Map()
+  let lastUrl
+  let lastValue
+
+  return targetUrl => {
+    if (targetUrl === lastUrl) {
+      return Promise.resolve(lastValue)
+    }
+
+    const inFlight = inFlightByUrl.get(targetUrl)
+    if (inFlight) return inFlight
+
+    const request = getMedia({
       targetUrl,
       getArgs,
       retry,
       timeout,
-      props
+      props,
+      run
     })
-  )
+      .then(value => {
+        lastUrl = targetUrl
+        lastValue = value
+        return value
+      })
+      .finally(() => {
+        inFlightByUrl.delete(targetUrl)
+      })
+
+    inFlightByUrl.set(targetUrl, request)
+    return request
+  }
+}
 
 module.exports.DEFAULT_FLAGS = DEFAULT_FLAGS
 module.exports.getMedia = getMedia
