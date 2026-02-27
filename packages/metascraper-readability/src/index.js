@@ -26,7 +26,7 @@ const getDocument = ({ url, html }) => {
   window.document.documentElement.innerHTML = html
   return {
     document: window.document,
-    teardown: () => window.close()
+    teardown: () => window.happyDOM.close()
   }
 }
 
