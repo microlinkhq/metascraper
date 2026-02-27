@@ -8,9 +8,19 @@ const SCRIPT_PATH = (
     v ?? (v = path.resolve(__dirname, 'worker.js'))
 )()
 
+const htmlCache = new WeakMap()
+
+const getHtml = $ => {
+  if (!htmlCache.has($)) {
+    htmlCache.set($, $.html())
+  }
+
+  return htmlCache.get($)
+}
+
 module.exports = (url, $, { timeout = 5000 } = {}) => {
   const worker = new Worker(SCRIPT_PATH(), {
-    workerData: { url, html: $.html(), timeout }
+    workerData: { url, html: getHtml($), timeout }
   })
   const { promise, resolve, reject } = Promise.withResolvers()
   let settled = false

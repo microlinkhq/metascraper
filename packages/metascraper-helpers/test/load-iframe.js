@@ -83,3 +83,20 @@ test('worker does not keep process alive after resolving', async t => {
 
   t.pass()
 })
+
+test('serializes html once for the same htmlDom across calls', async t => {
+  const src = 'data:text/html,<html><body>ok</body></html>'
+  const $ = cheerio.load(`<iframe src="${src}"></iframe>`)
+  const originalHtml = $.html.bind($)
+  let htmlCalls = 0
+
+  $.html = (...args) => {
+    if (args.length === 0) htmlCalls += 1
+    return originalHtml(...args)
+  }
+
+  await loadIframe('https://example.com', $, { timeout: 200 })
+  await loadIframe('https://example.com', $, { timeout: 200 })
+
+  t.is(htmlCalls, 1)
+})
