@@ -73,3 +73,40 @@ test('support uppercase https protocol urls', t => {
 
   t.is(videoUrl, 'HTTPS://example.com/video.mp4')
 })
+
+test('scan formats once when selecting stream fallback', t => {
+  const formats = [
+    {
+      ext: 'mp4',
+      format: 'mp4',
+      url: 'https://example.com/video-1.mp4',
+      manifest_url: 'https://example.com/video-1.m3u8',
+      tbr: 100,
+      acodec: 'none',
+      vcodec: 'none'
+    },
+    {
+      ext: 'mp4',
+      format: 'mp4',
+      url: 'https://example.com/video-2.mp4',
+      manifest_url: 'https://example.com/video-2.m3u8',
+      tbr: 200,
+      acodec: 'none',
+      vcodec: 'none'
+    }
+  ]
+
+  let iterationCount = 0
+  const iterableFormats = {
+    [Symbol.iterator]: function * () {
+      for (const format of formats) {
+        iterationCount += 1
+        yield format
+      }
+    }
+  }
+
+  const videoUrl = getVideo({ formats: iterableFormats })
+  t.is(videoUrl, 'https://example.com/video-2.m3u8')
+  t.is(iterationCount, formats.length)
+})

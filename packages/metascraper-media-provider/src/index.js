@@ -76,13 +76,15 @@ const compareOrderByAsc = (left, right) => {
   return 0
 }
 
+const getFormats = input =>
+  get(input, 'formats') || get(input, 'entries[0].formats') || [input]
+
 const getFormatUrls =
   (basicFilters, { orderBy }) =>
     (input, extraFilters, { isStream }) => {
       const filters = extraFilters.concat(basicFilters({ isStream }))
 
-      const formats = get(input, 'formats') ||
-      get(input, 'entries[0].formats') || [input]
+      const formats = getFormats(input)
 
       const urlProp = isStream ? 'manifest_url' : 'url'
       let lastUrl
@@ -113,17 +115,6 @@ const getFormatUrls =
       return !isEmpty(lastUrl) ? lastUrl : undefined
     }
 
-const VIDEO_FILTERS = ({ isStream }) =>
-  [
-    isStream ? undefined : hasVideo,
-    isMp4,
-    isHttps,
-    negate(isDownloadable),
-    isStream ? undefined : negate(isM3u8),
-    negate(isMpd),
-    isStream ? undefined : hasVideoCodec
-  ].filter(Boolean)
-
 const AUDIO_FILTERS = () => [
   hasAudio,
   isHttps,
@@ -131,14 +122,71 @@ const AUDIO_FILTERS = () => [
   hasAudioCodec
 ]
 
-const getVideoUrls = getFormatUrls(VIDEO_FILTERS, { orderBy: 'tbr' })
-
 const getAudioUrls = getFormatUrls(AUDIO_FILTERS, { orderBy: 'abr' })
 
-const getVideo = data =>
-  getVideoUrls(data, [hasAudioCodec], { isStream: false }) ||
-  getVideoUrls(data, [], { isStream: false }) ||
-  getVideoUrls(data, [], { isStream: true })
+const getVideo = data => {
+  const formats = getFormats(data)
+
+  let selectedVideoWithAudioUrl
+  let selectedVideoWithAudioOrderBy
+  let hasSelectedVideoWithAudio = false
+
+  let selectedVideoUrl
+  let selectedVideoOrderBy
+  let hasSelectedVideo = false
+
+  let selectedStreamUrl
+  let selectedStreamOrderBy
+  let hasSelectedStream = false
+
+  for (const format of formats) {
+    if (
+      !isMp4(format) ||
+      !isHttps(format) ||
+      isDownloadable(format) ||
+      isMpd(format)
+    ) {
+      continue
+    }
+
+    const currentOrderByValue = format?.tbr
+
+    if (
+      !hasSelectedStream ||
+      compareOrderByAsc(currentOrderByValue, selectedStreamOrderBy) >= 0
+    ) {
+      selectedStreamUrl = format?.manifest_url
+      selectedStreamOrderBy = currentOrderByValue
+      hasSelectedStream = true
+    }
+
+    if (!hasVideo(format) || isM3u8(format) || !hasVideoCodec(format)) continue
+
+    if (
+      !hasSelectedVideo ||
+      compareOrderByAsc(currentOrderByValue, selectedVideoOrderBy) >= 0
+    ) {
+      selectedVideoUrl = format?.url
+      selectedVideoOrderBy = currentOrderByValue
+      hasSelectedVideo = true
+    }
+
+    if (
+      hasAudioCodec(format) &&
+      (!hasSelectedVideoWithAudio ||
+        compareOrderByAsc(currentOrderByValue, selectedVideoWithAudioOrderBy) >=
+          0)
+    ) {
+      selectedVideoWithAudioUrl = format?.url
+      selectedVideoWithAudioOrderBy = currentOrderByValue
+      hasSelectedVideoWithAudio = true
+    }
+  }
+
+  if (!isEmpty(selectedVideoWithAudioUrl)) return selectedVideoWithAudioUrl
+  if (!isEmpty(selectedVideoUrl)) return selectedVideoUrl
+  return !isEmpty(selectedStreamUrl) ? selectedStreamUrl : undefined
+}
 
 const getAudio = data => getAudioUrls(data, [], { isStream: false })
 
