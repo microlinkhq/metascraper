@@ -1,6 +1,6 @@
 'use strict'
 
-const { isEmpty, first, toNumber, chain, orderBy } = require('lodash')
+const { isEmpty, first, toNumber, orderBy } = require('lodash')
 const reachableUrl = require('reachable-url')
 const memoize = require('@keyvhq/memoize')
 
@@ -27,10 +27,7 @@ const isValidContenType = (contentType, contentTypes) =>
 const toSize = (input, url) => {
   if (isEmpty(input)) return
 
-  const [verticalSize, horizontalSize] = chain(input)
-    .replace(/×/g, 'x')
-    .split('x')
-    .value()
+  const [verticalSize, horizontalSize] = input.replace(/×/g, 'x').split('x')
 
   const height = toNumber(verticalSize) || 0
   const width = toNumber(horizontalSize) || 0
@@ -67,30 +64,31 @@ const getSize = (url, sizes) =>
   toSize.fallback(url)
 
 const getDomNodeSizes = (domNodes, attr, url) =>
-  chain(domNodes)
-    .reduce((acc, domNode) => {
-      const relativeUrl = domNode.attribs[attr]
-      if (!relativeUrl || relativeUrl === url) return acc
-      const normalizedUrl = normalizeUrl(url, relativeUrl)
-      if (!normalizedUrl) return acc
-      return [
-        ...acc,
-        {
-          ...domNode.attribs,
-          url: normalizedUrl,
-          size: getSize(normalizedUrl, domNode.attribs.sizes)
-        }
-      ]
-    }, [])
-    .value()
+  domNodes.reduce((acc, domNode) => {
+    const relativeUrl = domNode.attribs[attr]
+    if (!relativeUrl || relativeUrl === url) return acc
+
+    const normalizedUrl = normalizeUrl(url, relativeUrl)
+    if (!normalizedUrl) return acc
+
+    acc.push({
+      ...domNode.attribs,
+      url: normalizedUrl,
+      size: getSize(normalizedUrl, domNode.attribs.sizes)
+    })
+
+    return acc
+  }, [])
 
 const getSizes = ($, collection, url) =>
-  chain(collection)
-    .reduce((acc, { tag, attr }) => {
-      const domNodes = $(tag).get()
-      return [...acc, ...getDomNodeSizes(domNodes, attr, url)]
-    }, [])
-    .value()
+  collection.reduce((acc, { tag, attr }) => {
+    const domNodes = $(tag).get()
+    const domNodeSizes = getDomNodeSizes(domNodes, attr, url)
+
+    for (const size of domNodeSizes) acc.push(size)
+
+    return acc
+  }, [])
 
 const sizeSelectors = [
   { tag: 'link[rel*="icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
@@ -187,13 +185,17 @@ const createGetLogo = ({
   withFavicon,
   withGoogle
 }) => {
-  const getLogo = async url => {
-    const providers = ALLOWED_EXTENSION_CONTENT_TYPES.map(
-      ext => withFavicon && createFavicon(ext, resolveFaviconUrl)
-    )
-      .concat(withGoogle && google)
-      .filter(Boolean)
+  const providers = []
 
+  if (withFavicon) {
+    for (const extensionAndTypes of ALLOWED_EXTENSION_CONTENT_TYPES) {
+      providers.push(createFavicon(extensionAndTypes, resolveFaviconUrl))
+    }
+  }
+
+  if (withGoogle) providers.push(google)
+
+  const getLogo = async url => {
     for (const provider of providers) {
       const logoUrl = await provider(url, { gotOpts })
       if (logoUrl) return logoUrl
