@@ -73,18 +73,10 @@ module.exports = ({
   ...props
 }) => {
   const inFlightByUrl = new Map()
-  let lastUrl
-  let lastValue
+  let lastResult
 
-  return targetUrl => {
-    if (targetUrl === lastUrl) {
-      return Promise.resolve(lastValue)
-    }
-
-    const inFlight = inFlightByUrl.get(targetUrl)
-    if (inFlight) return inFlight
-
-    const request = getMedia({
+  const createRequest = targetUrl =>
+    getMedia({
       targetUrl,
       getArgs,
       retry,
@@ -92,9 +84,18 @@ module.exports = ({
       props,
       run
     })
+
+  return targetUrl => {
+    if (lastResult?.url === targetUrl) {
+      return Promise.resolve(lastResult.value)
+    }
+
+    const inFlight = inFlightByUrl.get(targetUrl)
+    if (inFlight) return inFlight
+
+    const request = createRequest(targetUrl)
       .then(value => {
-        lastUrl = targetUrl
-        lastValue = value
+        lastResult = { url: targetUrl, value }
         return value
       })
       .finally(() => {
