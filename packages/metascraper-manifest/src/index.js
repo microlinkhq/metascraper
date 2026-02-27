@@ -55,10 +55,7 @@ module.exports = opts => {
   const rules = {
     lang: manifest({ from: 'lang' }),
     description: manifest({ from: 'description' }),
-    publisher: [
-      manifest({ from: 'name', to: 'publisher' }),
-      manifest({ from: 'short_name', to: 'publisher' })
-    ],
+    publisher: [manifest({ from: 'short_name', to: 'publisher' })],
     logo: async ({ htmlDom, url }) => {
       const manifest = await toManifest(htmlDom, url)
       if (!manifest) return
