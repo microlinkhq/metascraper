@@ -67,3 +67,22 @@ test('stop iframe probing after first audio match', async t => {
   t.is(metadata.audio, 'https://cdn.microlink.io/file-examples/sample.mp3')
   t.deepEqual(calls, ['https://example.com/ok'])
 })
+
+test('dedupe normalized iframe urls while probing', async t => {
+  let calls = 0
+  const metascraper = createMetascraper({
+    getIframe: async (url, $, { src }) => {
+      calls += 1
+      t.is(src, 'https://example.com/dup')
+      return cheerio.load('<meta property="og:title" content="No audio">')
+    }
+  })
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<iframe src="/dup"></iframe><iframe src="https://example.com/dup"></iframe>'
+  })
+
+  t.is(metadata.audio, null)
+  t.is(calls, 1)
+})
