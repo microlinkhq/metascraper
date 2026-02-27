@@ -70,7 +70,31 @@ const audioRules = [
 const _getIframe = (url, $, { src }) =>
   loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
 
+const createGetIframeCached = getIframe => {
+  const cacheByHtmlDom = new WeakMap()
+
+  return async (url, $, src) => {
+    let cacheBySrc = cacheByHtmlDom.get($)
+    if (!cacheBySrc) {
+      cacheBySrc = new Map()
+      cacheByHtmlDom.set($, cacheBySrc)
+    }
+
+    const cachedHtmlDom = cacheBySrc.get(src)
+    if (cachedHtmlDom) return cachedHtmlDom
+
+    const pendingHtmlDom = getIframe(url, $, { src }).catch(error => {
+      cacheBySrc.delete(src)
+      throw error
+    })
+
+    cacheBySrc.set(src, pendingHtmlDom)
+    return pendingHtmlDom
+  }
+}
+
 module.exports = ({ getIframe = _getIframe } = {}) => {
+  const getIframeCached = createGetIframeCached(getIframe)
   const rules = {
     audio: audioRules.concat(
       async ({ htmlDom: $, url }) => {
@@ -78,11 +102,15 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
           .map((_, element) => $(element).attr('src'))
           .get()
         if (srcs.length === 0) return
+        const seenSrcs = new Set()
         for (const src of srcs) {
           try {
             const normalizedSrc = normalizeUrl(url, src)
             if (!normalizedSrc) continue
-            const htmlDom = await getIframe(url, $, { src: normalizedSrc })
+            if (seenSrcs.has(normalizedSrc)) continue
+            seenSrcs.add(normalizedSrc)
+
+            const htmlDom = await getIframeCached(url, $, normalizedSrc)
             const result = await findRule(audioRules, { htmlDom, url })
             if (has(result)) return result
           } catch (_) {}
@@ -92,7 +120,7 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
         const src = $('meta[name="twitter:player"]').attr('content')
         return src
           ? findRule(audioRules, {
-            htmlDom: await getIframe(url, $, { src }),
+            htmlDom: await getIframeCached(url, $, src),
             url
           })
           : undefined
