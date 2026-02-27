@@ -349,8 +349,10 @@ const title = (value, { removeSeparator = false, ...opts } = {}) =>
 const isMime = (contentType, type) =>
   type === get(EXTENSIONS, mimeExtension(contentType))
 
+const isSameHtmlDom = (newHtmlDom, oldHtmlDom) => newHtmlDom === oldHtmlDom
+
 memoizeOne.EqualityUrlAndHtmlDom = (newArgs, oldArgs) =>
-  newArgs[0] === oldArgs[0] && newArgs[1].html() === oldArgs[1].html()
+  newArgs[0] === oldArgs[0] && isSameHtmlDom(newArgs[1], oldArgs[1])
 
 memoizeOne.EqualityFirstArgument = (newArgs, oldArgs) =>
   newArgs[0] === oldArgs[0]
@@ -384,7 +386,7 @@ const jsonld = memoizeOne(
       })
       .get()
       .filter(Boolean),
-  (newArgs, oldArgs) => newArgs[0].html() === oldArgs[0].html()
+  (newArgs, oldArgs) => isSameHtmlDom(newArgs[0], oldArgs[0])
 )
 
 const $jsonld = propName => $ => {
