@@ -3,7 +3,7 @@
 const { memoizeOne, composeRule } = require('@metascraper/helpers')
 const { Readability } = require('@mozilla/readability')
 const asyncMemoizeOne = require('async-memoize-one')
-const { Browser } = require('happy-dom')
+const { Window } = require('happy-dom')
 
 const parseReader = reader => {
   let parsed = {}
@@ -13,23 +13,20 @@ const parseReader = reader => {
   return parsed
 }
 
-const getDocument = ({ url, html }) => {
-  const browser = new Browser({
-    settings: {
-      disableComputedStyleRendering: true,
-      disableCSSFileLoading: true,
-      disableIframePageLoading: true,
-      disableJavaScriptEvaluation: true,
-      disableJavaScriptFileLoading: true
-    }
-  })
+const DOCUMENT_SETTINGS = {
+  disableComputedStyleRendering: true,
+  disableCSSFileLoading: true,
+  disableIframePageLoading: true,
+  disableJavaScriptEvaluation: true,
+  disableJavaScriptFileLoading: true
+}
 
-  const page = browser.newPage()
-  page.url = url
-  page.content = html
+const getDocument = ({ url, html }) => {
+  const window = new Window({ url, settings: DOCUMENT_SETTINGS })
+  window.document.documentElement.innerHTML = html
   return {
-    document: page.mainFrame.document,
-    teardown: () => browser.close()
+    document: window.document,
+    teardown: () => window.close()
   }
 }
 
