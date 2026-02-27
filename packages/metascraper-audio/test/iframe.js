@@ -1,5 +1,6 @@
 'use strict'
 
+const cheerio = require('cheerio')
 const test = require('ava')
 
 const { runServer } = require('./helpers')
@@ -42,4 +43,27 @@ test('ignore non http urls', async t => {
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.is(metadata.audio, null)
+})
+
+test('stop iframe probing after first audio match', async t => {
+  const calls = []
+  const metascraper = createMetascraper({
+    getIframe: async (url, $, { src }) => {
+      calls.push(src)
+      if (src.endsWith('/ok')) {
+        return cheerio.load(
+          '<meta property="og:audio" content="https://cdn.microlink.io/file-examples/sample.mp3">'
+        )
+      }
+      throw new Error('should not be called')
+    }
+  })
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<iframe src="/ok"></iframe><iframe src="/skip"></iframe>'
+  })
+
+  t.is(metadata.audio, 'https://cdn.microlink.io/file-examples/sample.mp3')
+  t.deepEqual(calls, ['https://example.com/ok'])
 })

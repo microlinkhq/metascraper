@@ -12,7 +12,6 @@ const {
 } = require('@metascraper/helpers')
 
 const { find, chain, isEqual } = require('lodash')
-const pReflect = require('p-reflect')
 
 const toAudio = toRule(audio)
 
@@ -88,16 +87,13 @@ module.exports = ({ getIframe = _getIframe } = {}) => {
             .map(src => normalizeUrl(url, src))
         ]
         if (srcs.length === 0) return
-        return pReflect(
-          Promise.any(
-            srcs.map(async src => {
-              const htmlDom = await getIframe(url, $, { src })
-              const result = await findRule(audioRules, { htmlDom, url })
-              if (!has(result)) throw TypeError('no result')
-              return result
-            })
-          )
-        ).then(({ value }) => value)
+        for (const src of srcs) {
+          try {
+            const htmlDom = await getIframe(url, $, { src })
+            const result = await findRule(audioRules, { htmlDom, url })
+            if (has(result)) return result
+          } catch (_) {}
+        }
       },
       async ({ htmlDom: $, url }) => {
         const src = $('meta[name="twitter:player"]').attr('content')
