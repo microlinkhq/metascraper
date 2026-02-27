@@ -11,8 +11,6 @@ const {
   video
 } = require('@metascraper/helpers')
 
-const pReflect = require('p-reflect')
-
 const { chain, find, isEqual } = require('lodash')
 
 const toUrl = toRule(urlFn)
@@ -87,16 +85,13 @@ const withIframe = (rules, getIframe) =>
           .map(src => normalizeUrl(url, src))
       ]
       if (srcs.length === 0) return
-      return pReflect(
-        Promise.any(
-          srcs.map(async src => {
-            const htmlDom = await getIframe(url, $, { src })
-            const result = await findRule(rules, { htmlDom, url })
-            if (!has(result)) throw TypeError('no result')
-            return result
-          })
-        )
-      ).then(({ value }) => value)
+      for (const src of srcs) {
+        try {
+          const htmlDom = await getIframe(url, $, { src })
+          const result = await findRule(rules, { htmlDom, url })
+          if (has(result)) return result
+        } catch (_) {}
+      }
     },
     async ({ htmlDom: $, url }) => {
       const src = $('meta[name="twitter:player"]').attr('content')

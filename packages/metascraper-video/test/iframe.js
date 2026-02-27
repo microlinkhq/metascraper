@@ -1,5 +1,6 @@
 'use strict'
 
+const cheerio = require('cheerio')
 const test = require('ava')
 
 const { runServer } = require('./helpers')
@@ -42,4 +43,28 @@ test('ignore non http urls', async t => {
   const metascraper = createMetascraper()
   const metadata = await metascraper({ html, url })
   t.is(metadata.video, null)
+})
+
+test('stop iframe probing after first video match', async t => {
+  const calls = []
+  const metascraper = createMetascraper({
+    getIframe: async (url, $, { src }) => {
+      calls.push(src)
+      if (src.endsWith('/ok')) {
+        return cheerio.load(
+          '<meta property="og:video" content="https://cdn.microlink.io/file-examples/sample.mp4">'
+        )
+      }
+      throw new Error('should not be called')
+    }
+  })
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<iframe src="/ok"></iframe><iframe src="/skip"></iframe>',
+    pickPropNames: new Set(['video'])
+  })
+
+  t.is(metadata.video, 'https://cdn.microlink.io/file-examples/sample.mp4')
+  t.deepEqual(calls, ['https://example.com/ok'])
 })
