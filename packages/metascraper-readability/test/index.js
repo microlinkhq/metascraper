@@ -80,3 +80,15 @@ test('serializes html once per invocation', async t => {
   await metascraper({ htmlDom: $, url })
   t.is(htmlCalls, 1)
 })
+
+test('extracts lang from <html lang> attribute', async t => {
+  const url = 'https://example.com'
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head><title>Test</title></head>
+<body><p>Content</p></body>
+</html>`
+
+  const metadata = await metascraper({ html, url })
+  t.is(metadata.lang, 'en')
+})
