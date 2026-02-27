@@ -7,6 +7,8 @@ const { serializeError } = require('serialize-error')
 const { parseUrl } = require('@metascraper/helpers')
 const youtubedl = require('youtube-dl-exec')
 
+const createLastAndInFlightCache = require('./create-last-and-inflight-cache')
+
 const RE_UNSUPPORTED_URL = /Unsupported URL/
 
 const DEFAULT_FLAGS = {
@@ -71,11 +73,8 @@ module.exports = ({
   args: getArgs = ({ url, flags }) => ({ url, flags }),
   run = youtubedl,
   ...props
-}) => {
-  const inFlightByUrl = new Map()
-  let lastResult
-
-  const createRequest = targetUrl =>
+}) =>
+  createLastAndInFlightCache(targetUrl =>
     getMedia({
       targetUrl,
       getArgs,
@@ -84,28 +83,7 @@ module.exports = ({
       props,
       run
     })
-
-  return targetUrl => {
-    if (lastResult?.url === targetUrl) {
-      return Promise.resolve(lastResult.value)
-    }
-
-    const inFlight = inFlightByUrl.get(targetUrl)
-    if (inFlight) return inFlight
-
-    const request = createRequest(targetUrl)
-      .then(value => {
-        lastResult = { url: targetUrl, value }
-        return value
-      })
-      .finally(() => {
-        inFlightByUrl.delete(targetUrl)
-      })
-
-    inFlightByUrl.set(targetUrl, request)
-    return request
-  }
-}
+  )
 
 module.exports.DEFAULT_FLAGS = DEFAULT_FLAGS
 module.exports.getMedia = getMedia

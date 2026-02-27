@@ -102,6 +102,7 @@ test('dedupe in-flight requests per url under interleaved calls', async t => {
   t.is(aOnePromise, aTwoPromise)
 
   await Promise.resolve()
+  await Promise.resolve()
 
   t.is(calls.filter(call => call.url === aUrl).length, 1)
   t.is(calls.filter(call => call.url === bUrl).length, 1)
