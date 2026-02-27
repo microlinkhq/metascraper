@@ -56,8 +56,8 @@ module.exports = opts => {
     lang: manifest({ from: 'lang' }),
     description: manifest({ from: 'description' }),
     publisher: [
-      manifest({ from: 'short_name', to: 'publisher' }),
-      manifest({ from: 'name', to: 'publisher' })
+      manifest({ from: 'name', to: 'publisher' }),
+      manifest({ from: 'short_name', to: 'publisher' })
     ],
     logo: async ({ htmlDom, url }) => {
       const manifest = await toManifest(htmlDom, url)
