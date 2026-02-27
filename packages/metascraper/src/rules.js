@@ -31,36 +31,38 @@ const mergeRules = (
   omitPropNames = new Set(),
   pickPropNames
 ) => {
+  const hasPickProps = Boolean(pickPropNames && pickPropNames.size > 0)
+  const hasOmittedProps = Boolean(omitPropNames && omitPropNames.size > 0)
+  const hasInlineRules = Array.isArray(rules) && rules.length > 0
+
+  if (!hasPickProps && !hasOmittedProps && !hasInlineRules) {
+    return baseRules
+  }
+
   const result = {}
 
-  // Helper function to determine if a property should be included
   const shouldIncludeProp = propName => {
-    if (pickPropNames && pickPropNames.size > 0) {
+    if (hasPickProps) {
       return pickPropNames.has(propName)
     }
     return !omitPropNames.has(propName)
   }
 
-  // Process base rules first (shallow clone arrays only)
   for (const [propName, ruleArray] of baseRules) {
     if (shouldIncludeProp(propName)) {
-      result[propName] = [...ruleArray] // Shallow clone array
+      result[propName] = ruleArray
     }
   }
 
-  // Handle case where rules might be null/undefined or not an array
-  if (!rules || !Array.isArray(rules)) {
+  if (!hasInlineRules) {
     return Object.entries(result)
   }
 
-  // Process inline rules
   for (const { test, ...ruleSet } of rules) {
     for (const [propName, innerRules] of Object.entries(ruleSet)) {
       if (!shouldIncludeProp(propName)) continue
 
-      const processedRules = Array.isArray(innerRules)
-        ? [...innerRules]
-        : [innerRules]
+      const processedRules = castArray(innerRules)
       if (test) {
         for (const rule of processedRules) {
           rule.test = test
@@ -68,8 +70,7 @@ const mergeRules = (
       }
 
       if (result[propName]) {
-        // Prepend new rules to match original concat(innerRules, existing) behavior
-        result[propName] = [...processedRules, ...result[propName]]
+        result[propName] = processedRules.concat(result[propName])
       } else {
         result[propName] = processedRules
       }

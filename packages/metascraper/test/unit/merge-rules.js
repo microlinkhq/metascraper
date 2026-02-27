@@ -1,6 +1,15 @@
 'use strict'
 
 const test = require('ava')
+const { mergeRules } = require('../../src/rules')
+
+const getRuleIdsByProp = merged =>
+  Object.fromEntries(
+    merged.map(([propName, rules]) => [propName, rules.map(rule => rule.id)])
+  )
+
+const findRules = (merged, propName) =>
+  merged.find(([name]) => name === propName)?.[1] ?? []
 
 test("add a new rule from a prop that doesn't exist", async t => {
   const url = 'https://microlink.io'
@@ -72,20 +81,89 @@ test('add a new rule for a prop that exists', async t => {
   t.is(metadata.image, 'https://microlink.io/logo.png')
 })
 
-test('does not mutate original rule objects', t => {
-  const { mergeRules } = require('../../src/rules')
+test('merge inline rules before base rules preserving rule-set order', t => {
+  const baseRules = [
+    ['title', [{ id: 'base-title-1' }, { id: 'base-title-2' }]],
+    ['description', [{ id: 'base-description-1' }]]
+  ]
 
-  // Create original rule objects that we'll check for mutation
+  const inlineRules = [
+    {
+      title: [{ id: 'inline-title-1' }, { id: 'inline-title-2' }]
+    },
+    {
+      title: [{ id: 'inline-title-3' }],
+      description: [{ id: 'inline-description-1' }]
+    }
+  ]
+
+  const merged = mergeRules(inlineRules, baseRules)
+  const ruleIdsByProp = getRuleIdsByProp(merged)
+
+  t.deepEqual(ruleIdsByProp.title, [
+    'inline-title-3',
+    'inline-title-1',
+    'inline-title-2',
+    'base-title-1',
+    'base-title-2'
+  ])
+  t.deepEqual(ruleIdsByProp.description, [
+    'inline-description-1',
+    'base-description-1'
+  ])
+})
+
+test('accept non-array inline rule values', t => {
+  const baseRules = [['title', [{ id: 'base-title-1' }]]]
+  const inlineRules = [{ title: { id: 'inline-title-1' } }]
+
+  const merged = mergeRules(inlineRules, baseRules)
+
+  t.deepEqual(getRuleIdsByProp(merged).title, [
+    'inline-title-1',
+    'base-title-1'
+  ])
+})
+
+test('propagate inline test function only to inline rules', t => {
+  const baseRule = { id: 'base-title-1' }
+  const inlineOne = { id: 'inline-title-1' }
+  const inlineTwo = { id: 'inline-title-2' }
+  const inlineDescription = { id: 'inline-description-1' }
+  const testFn = () => true
+
+  const baseRules = [
+    ['title', [baseRule]],
+    ['description', []]
+  ]
+
+  const inlineRules = [
+    {
+      test: testFn,
+      title: [inlineOne, inlineTwo],
+      description: inlineDescription
+    }
+  ]
+
+  const merged = mergeRules(inlineRules, baseRules)
+  const titleRules = findRules(merged, 'title')
+  const descriptionRules = findRules(merged, 'description')
+
+  t.is(titleRules[0].test, testFn)
+  t.is(titleRules[1].test, testFn)
+  t.is(descriptionRules[0].test, testFn)
+  t.is(baseRule.test, undefined)
+})
+
+test('does not mutate original rule objects', t => {
   const originalRule1 = { fn: () => 'value1', originalProp: 'unchanged' }
   const originalRule2 = { fn: () => 'value2', originalProp: 'unchanged' }
 
-  // Base rules with references to original rule objects
   const baseRules = [
     ['prop1', [originalRule1]],
     ['prop2', [originalRule2]]
   ]
 
-  // Inline rules with a test property that would cause mutation
   const inlineRules = [
     {
       test: url => url.includes('example'),
@@ -94,14 +172,11 @@ test('does not mutate original rule objects', t => {
     }
   ]
 
-  // Store original state for comparison
   const originalRule1Copy = { ...originalRule1 }
   const originalRule2Copy = { ...originalRule2 }
 
-  // Call mergeRules - this should not mutate the original rule objects
   mergeRules(inlineRules, baseRules)
 
-  // Verify original rule objects are not mutated
   t.deepEqual(
     originalRule1,
     originalRule1Copy,
@@ -112,8 +187,6 @@ test('does not mutate original rule objects', t => {
     originalRule2Copy,
     'originalRule2 should not be mutated'
   )
-
-  // Verify original rules don't have the test property added
   t.is(
     originalRule1.test,
     undefined,
@@ -127,32 +200,25 @@ test('does not mutate original rule objects', t => {
 })
 
 test('baseRules array should not be mutated (fails without cloneDeep)', t => {
-  const { mergeRules } = require('../../src/rules')
-
-  // Create original baseRules array
   const originalBaseRules = [
     ['title', [() => 'original title']],
     ['description', [() => 'original description']]
   ]
 
-  // Store original length and structure for comparison
   const originalLength = originalBaseRules.length
   const originalKeys = originalBaseRules.map(([key]) => key)
   const originalTitleRulesLength = originalBaseRules[0][1].length
 
-  // Inline rules that will add new properties and merge with existing ones
   const inlineRules = [
     {
-      title: [() => 'new title'], // This will merge with existing title
-      author: [() => 'new author'], // This will add a new property
-      test: url => url.includes('test') // This adds a test property
+      title: [() => 'new title'],
+      author: [() => 'new author'],
+      test: url => url.includes('test')
     }
   ]
 
-  // Call mergeRules - this should NOT mutate originalBaseRules
   const result = mergeRules(inlineRules, originalBaseRules)
 
-  // Verify the original baseRules array structure was not mutated
   t.is(
     originalBaseRules.length,
     originalLength,
@@ -169,24 +235,101 @@ test('baseRules array should not be mutated (fails without cloneDeep)', t => {
     'Original title rules array should not be modified'
   )
 
-  // Verify the result is different from the original (proving it's a new array)
   t.not(
     result,
     originalBaseRules,
     'Result should be a different array reference'
   )
 
-  // Verify the result contains the expected merged rules
   t.true(
     result.length >= originalLength,
     'Result should contain at least the original rules'
   )
 
-  // Find the title rule in the result and verify it was merged
   const titleRule = result.find(([propName]) => propName === 'title')
   t.truthy(titleRule, 'Title rule should exist in result')
   t.true(
     titleRule[1].length > originalTitleRulesLength,
     'Title rule should have more rules after merging'
   )
+})
+
+test('omit filters both base and inline rules', t => {
+  const baseRules = [
+    ['title', [{ id: 'base-title-1' }]],
+    ['description', [{ id: 'base-description-1' }]]
+  ]
+
+  const inlineRules = [
+    {
+      title: [{ id: 'inline-title-1' }],
+      description: [{ id: 'inline-description-1' }],
+      image: [{ id: 'inline-image-1' }]
+    }
+  ]
+
+  const merged = mergeRules(
+    inlineRules,
+    baseRules,
+    new Set(['description', 'image'])
+  )
+
+  t.deepEqual(Object.keys(getRuleIdsByProp(merged)), ['title'])
+  t.deepEqual(getRuleIdsByProp(merged).title, [
+    'inline-title-1',
+    'base-title-1'
+  ])
+})
+
+test('pick filters both base and inline rules', t => {
+  const baseRules = [
+    ['title', [{ id: 'base-title-1' }]],
+    ['description', [{ id: 'base-description-1' }]]
+  ]
+
+  const inlineRules = [
+    {
+      title: [{ id: 'inline-title-1' }],
+      description: [{ id: 'inline-description-1' }],
+      image: [{ id: 'inline-image-1' }]
+    }
+  ]
+
+  const merged = mergeRules(
+    inlineRules,
+    baseRules,
+    new Set(),
+    new Set(['title', 'image'])
+  )
+
+  const ruleIdsByProp = getRuleIdsByProp(merged)
+  t.deepEqual(Object.keys(ruleIdsByProp), ['title', 'image'])
+  t.deepEqual(ruleIdsByProp.title, ['inline-title-1', 'base-title-1'])
+  t.deepEqual(ruleIdsByProp.image, ['inline-image-1'])
+})
+
+test('pick has priority over omit', t => {
+  const baseRules = [
+    ['title', [{ id: 'base-title-1' }]],
+    ['description', [{ id: 'base-description-1' }]]
+  ]
+
+  const inlineRules = [
+    {
+      title: [{ id: 'inline-title-1' }],
+      image: [{ id: 'inline-image-1' }]
+    }
+  ]
+
+  const merged = mergeRules(
+    inlineRules,
+    baseRules,
+    new Set(['title', 'image']),
+    new Set(['title', 'image'])
+  )
+
+  const ruleIdsByProp = getRuleIdsByProp(merged)
+  t.deepEqual(Object.keys(ruleIdsByProp), ['title', 'image'])
+  t.deepEqual(ruleIdsByProp.title, ['inline-title-1', 'base-title-1'])
+  t.deepEqual(ruleIdsByProp.image, ['inline-image-1'])
 })
