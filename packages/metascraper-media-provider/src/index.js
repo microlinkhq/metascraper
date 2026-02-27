@@ -165,17 +165,18 @@ const getDescription = ({ description }) => descriptionFn(description)
 
 module.exports = (opts = {}) => {
   const getMedia = createGetMedia(opts)
+  const getMediaByArgs = args => getMedia(args.url, args)
 
   const rules = {
-    audio: async ({ url }) => getAudio(await getMedia(url)),
-    author: async ({ url }) => getAuthor(await getMedia(url)),
-    date: async ({ url }) => getDate(await getMedia(url)),
-    description: async ({ url }) => getDescription(await getMedia(url)),
-    image: async ({ url }) => getImage(url, await getMedia(url)),
-    lang: async ({ url }) => getLang(await getMedia(url)),
-    publisher: async ({ url }) => getPublisher(await getMedia(url)),
-    title: async ({ url }) => getTitle(await getMedia(url)),
-    video: async ({ url }) => getVideo(await getMedia(url))
+    audio: async args => getAudio(await getMediaByArgs(args)),
+    author: async args => getAuthor(await getMediaByArgs(args)),
+    date: async args => getDate(await getMediaByArgs(args)),
+    description: async args => getDescription(await getMediaByArgs(args)),
+    image: async args => getImage(args.url, await getMediaByArgs(args)),
+    lang: async args => getLang(await getMediaByArgs(args)),
+    publisher: async args => getPublisher(await getMediaByArgs(args)),
+    title: async args => getTitle(await getMediaByArgs(args)),
+    video: async args => getVideo(await getMediaByArgs(args))
   }
 
   rules.pkgName = 'metascraper-media-provider'

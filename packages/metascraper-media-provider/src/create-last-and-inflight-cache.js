@@ -1,28 +1,35 @@
 'use strict'
 
 module.exports = createFn => {
-  const inFlightByKey = new Map()
-  let lastResult
+  const cacheByContext = new WeakMap()
+  const defaultContext = {}
 
-  return key => {
-    if (lastResult?.key === key) {
-      return Promise.resolve(lastResult.value)
+  const getCacheFor = context => {
+    let cache = cacheByContext.get(context)
+    if (!cache) {
+      cache = new Map()
+      cacheByContext.set(context, cache)
     }
+    return cache
+  }
 
-    const inFlight = inFlightByKey.get(key)
-    if (inFlight) return inFlight
+  return (key, rawContext = defaultContext) => {
+    const context =
+      rawContext !== null &&
+      (typeof rawContext === 'object' || typeof rawContext === 'function')
+        ? rawContext
+        : defaultContext
 
-    const request = Promise.resolve()
-      .then(() => createFn(key))
-      .then(value => {
-        lastResult = { key, value }
-        return value
-      })
-      .finally(() => {
-        inFlightByKey.delete(key)
-      })
+    const cache = getCacheFor(context)
+    const cached = cache.get(key)
+    if (cached) return cached
 
-    inFlightByKey.set(key, request)
+    const request = createFn(key).catch(error => {
+      cache.delete(key)
+      throw error
+    })
+
+    cache.set(key, request)
     return request
   }
 }

@@ -120,3 +120,24 @@ test('dedupe in-flight requests per url under interleaved calls', async t => {
   t.is(aOne.id, aTwo.id)
   t.not(aOne.id, bOne.id)
 })
+
+test('do not share cached value across different contexts', async t => {
+  let runCalls = 0
+
+  const getMediaByUrl = createGetMedia({
+    retry: 0,
+    timeout: 1000,
+    args: ({ url, flags }) => ({ url, flags }),
+    run: async () => {
+      runCalls += 1
+      return { id: runCalls }
+    }
+  })
+
+  const first = await getMediaByUrl('https://example.com/a', {})
+  const second = await getMediaByUrl('https://example.com/a', {})
+
+  t.is(first.id, 1)
+  t.is(second.id, 2)
+  t.is(runCalls, 2)
+})
