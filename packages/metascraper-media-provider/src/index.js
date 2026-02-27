@@ -9,15 +9,18 @@ const {
   title: titleFn,
   url: urlFn,
   lang,
-  publisher
+  publisher,
+  protocol: protocolFn
 } = require('@metascraper/helpers')
 
 const createGetMedia = require('./get-media')
 
-const RE_HTTPS = /^https:\/\//i
-const RE_DOWNLOAD = /[?&]download=1(?:[&#]|$)/i
+const isProtocol =
+  value =>
+    ({ url }) =>
+      eq(protocolFn(url), value)
 
-const isHttps = ({ url = '' }) => RE_HTTPS.test(url)
+const isHttps = isProtocol('https')
 
 const hasPathSuffix = (url = '', suffixCodes = []) => {
   const queryIndex = url.indexOf('?')
@@ -76,7 +79,37 @@ const hasAudio = format =>
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
-const isDownloadable = ({ url = '' }) => RE_DOWNLOAD.test(url)
+const hasQueryParamValue = (url = '', name, value) => {
+  const queryStart = url.indexOf('?')
+  if (queryStart === -1) return false
+
+  const hashStart = url.indexOf('#', queryStart + 1)
+  const query =
+    hashStart === -1
+      ? url.slice(queryStart + 1)
+      : url.slice(queryStart + 1, hashStart)
+
+  if (!query) return false
+
+  const params = query.split('&')
+  for (const param of params) {
+    if (!param) continue
+
+    const separatorIndex = param.indexOf('=')
+    if (separatorIndex === -1) {
+      if (param === name && value === '') return true
+      continue
+    }
+
+    if (param.slice(0, separatorIndex) !== name) continue
+    if (param.slice(separatorIndex + 1) === value) return true
+  }
+
+  return false
+}
+
+const isDownloadable = ({ url = '' }) =>
+  hasQueryParamValue(url, 'download', '1')
 
 const getOrderByRank = value => {
   if (Number.isNaN(value)) return 4
