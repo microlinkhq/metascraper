@@ -9,18 +9,17 @@ const {
   title: titleFn,
   url: urlFn,
   lang,
-  publisher,
-  protocol: protocolFn
+  publisher
 } = require('@metascraper/helpers')
 
 const createGetMedia = require('./get-media')
 
-const isProtocol =
-  value =>
-    ({ url }) =>
-      eq(protocolFn(url), value)
+const RE_HTTPS = /^https:\/\//i
+const RE_M3U8 = /\.m3u8(?:[?#]|$)/i
+const RE_MPD = /\.mpd(?:[?#]|$)/i
+const RE_DOWNLOAD = /[?&]download=1(?:[&#]|$)/i
 
-const isHttps = isProtocol('https')
+const isHttps = ({ url = '' }) => RE_HTTPS.test(url)
 
 const isMIME =
   extension =>
@@ -36,9 +35,9 @@ const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 const isMpga = isMIME('mpga')
 
-const isM3u8 = ({ url }) => new URL(url).pathname.endsWith('.m3u8')
+const isM3u8 = ({ url = '' }) => RE_M3U8.test(url)
 
-const isMpd = ({ url }) => new URL(url).pathname.endsWith('.mpd')
+const isMpd = ({ url = '' }) => RE_MPD.test(url)
 
 const hasCodec = prop => format => format[prop] !== 'none'
 
@@ -55,8 +54,7 @@ const hasAudio = format =>
 const hasVideo = format =>
   isNil(format.format_note) || !isNil(format.height) || !isNil(format.width)
 
-const isDownloadable = ({ url }) =>
-  new URL(url).searchParams.get('download') === '1'
+const isDownloadable = ({ url = '' }) => RE_DOWNLOAD.test(url)
 
 const getOrderByRank = value => {
   if (Number.isNaN(value)) return 4
