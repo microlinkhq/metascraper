@@ -15,11 +15,18 @@ const {
 const createGetMedia = require('./get-media')
 
 const RE_HTTPS = /^https:\/\//i
-const RE_M3U8 = /\.m3u8(?:[?#]|$)/i
-const RE_MPD = /\.mpd(?:[?#]|$)/i
 const RE_DOWNLOAD = /[?&]download=1(?:[&#]|$)/i
 
 const isHttps = ({ url = '' }) => RE_HTTPS.test(url)
+
+const getPathname = (url = '') => {
+  const queryIndex = url.indexOf('?')
+  const hashIndex = url.indexOf('#')
+  let end = url.length
+  if (queryIndex !== -1 && queryIndex < end) end = queryIndex
+  if (hashIndex !== -1 && hashIndex < end) end = hashIndex
+  return end === url.length ? url : url.slice(0, end)
+}
 
 const isMIME =
   extension =>
@@ -35,9 +42,10 @@ const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 const isMpga = isMIME('mpga')
 
-const isM3u8 = ({ url = '' }) => RE_M3U8.test(url)
+const isM3u8 = ({ url = '' }) =>
+  getPathname(url).toLowerCase().endsWith('.m3u8')
 
-const isMpd = ({ url = '' }) => RE_MPD.test(url)
+const isMpd = ({ url = '' }) => getPathname(url).toLowerCase().endsWith('.mpd')
 
 const hasCodec = prop => format => format[prop] !== 'none'
 

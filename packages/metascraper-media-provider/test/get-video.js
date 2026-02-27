@@ -110,3 +110,37 @@ test('scan formats once when selecting stream fallback', t => {
   t.is(videoUrl, 'https://example.com/video-2.m3u8')
   t.is(iterationCount, formats.length)
 })
+
+test('do not treat mp4 url as m3u8 when .m3u8 appears only in query string', t => {
+  const videoUrl = getVideo({
+    formats: [
+      {
+        ext: 'mp4',
+        format: 'mp4',
+        url: 'https://cdn.example.com/video.mp4?fallback=stream.m3u8',
+        tbr: 500,
+        acodec: 'aac',
+        vcodec: 'avc1'
+      }
+    ]
+  })
+
+  t.is(videoUrl, 'https://cdn.example.com/video.mp4?fallback=stream.m3u8')
+})
+
+test('do not treat mp4 url as mpd when .mpd appears only in query string', t => {
+  const videoUrl = getVideo({
+    formats: [
+      {
+        ext: 'mp4',
+        format: 'mp4',
+        url: 'https://cdn.example.com/video.mp4?manifest=playlist.mpd',
+        tbr: 500,
+        acodec: 'aac',
+        vcodec: 'avc1'
+      }
+    ]
+  })
+
+  t.is(videoUrl, 'https://cdn.example.com/video.mp4?manifest=playlist.mpd')
+})
