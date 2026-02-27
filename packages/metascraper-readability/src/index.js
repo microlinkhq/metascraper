@@ -44,9 +44,19 @@ const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
   }
 }, memoizeOne.EqualityFirstArgument)
 
+const htmlCache = new WeakMap()
+
+const getHtml = htmlDom => {
+  if (!htmlCache.has(htmlDom)) {
+    htmlCache.set(htmlDom, htmlDom.html())
+  }
+
+  return htmlCache.get(htmlDom)
+}
+
 module.exports = ({ readabilityOpts } = {}) => {
   const getReadbility = composeRule(($, url) =>
-    readability(url, $.html(), readabilityOpts)
+    readability(url, getHtml($), readabilityOpts)
   )
 
   const rules = {
