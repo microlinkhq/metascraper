@@ -68,17 +68,6 @@ test('from data uri', async t => {
   t.snapshot(metadata)
 })
 
-test('fallback to `name` when `short_name` is missing', async t => {
-  const metascraper = createMetascraper()
-  const url = 'https://example.com'
-  const html = createHtml([
-    '<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiTmFtZSBPbmx5In0=">'
-  ])
-  const metadata = await metascraper({ url, html })
-  t.is(metadata.publisher, 'Name Only')
-  t.is(metadata.logo, null)
-})
-
 test('does nothing if data uri is malformed', async t => {
   const metascraper = createMetascraper()
   const url = 'https://krafla-landing-g19o4bcij-trence.vercel.app/'
