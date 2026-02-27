@@ -4,7 +4,9 @@ const debug = require('debug-logfmt')('metascraper:get-data')
 const { findRule, has } = require('@metascraper/helpers')
 
 const getData = async ({ rules, ...props }) => {
-  const data = await Promise.all(
+  const data = {}
+
+  await Promise.all(
     rules.map(async ([propName, innerRules]) => {
       const duration = debug.duration()
       let normalizedValue = null
@@ -26,11 +28,11 @@ const getData = async ({ rules, ...props }) => {
       duration(
         `${propName}=${normalizedValue} rules=${innerRules.length} status=${status}`
       )
-      return [propName, normalizedValue]
+      data[propName] = normalizedValue
     })
   )
 
-  return Object.fromEntries(data)
+  return data
 }
 
 module.exports = getData
