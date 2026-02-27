@@ -11,33 +11,28 @@ const {
   video
 } = require('@metascraper/helpers')
 
-const { chain, find, isEqual } = require('lodash')
-
 const toUrl = toRule(urlFn)
 
 const toVideo = toRule(video)
 
-const toVideoFromDom = toRule((domNodes, opts) => {
-  const values = chain(domNodes)
-    .map(domNode => ({
-      src: domNode?.attribs.src,
-      type: chain(domNode)
-        .get('attribs.type')
-        .split(';')
-        .get(0)
-        .split('/')
-        .get(1)
-        .value()
-    }))
-    .uniqWith(isEqual)
-    .value()
+const getMediaType = domNode => {
+  const type = domNode?.attribs.type
+  if (!type) return
+  return type.split(';')[0]?.split('/')[1]
+}
 
-  let result
-  find(
-    values,
-    ({ src, type }) => (result = video(src, Object.assign({ type }, opts)))
-  )
-  return result
+const toVideoFromDom = toRule((domNodes, opts) => {
+  const seen = new Set()
+  for (const domNode of domNodes) {
+    const src = domNode?.attribs.src
+    const type = getMediaType(domNode)
+    const key = `${src}::${type}`
+    if (seen.has(key)) continue
+    seen.add(key)
+
+    const result = video(src, { type, ...opts })
+    if (result !== undefined) return result
+  }
 })
 
 const videoRules = [
@@ -78,16 +73,15 @@ const _getIframe = (url, $, { src }) =>
 const withIframe = (rules, getIframe) =>
   rules.concat(
     async ({ htmlDom: $, url }) => {
-      const srcs = [
-        ...new $('iframe[src^="http"], iframe[src^="/"]')
-          .map((_, element) => $(element).attr('src'))
-          .get()
-          .map(src => normalizeUrl(url, src))
-      ]
+      const srcs = $('iframe[src^="http"], iframe[src^="/"]')
+        .map((_, element) => $(element).attr('src'))
+        .get()
       if (srcs.length === 0) return
       for (const src of srcs) {
         try {
-          const htmlDom = await getIframe(url, $, { src })
+          const normalizedSrc = normalizeUrl(url, src)
+          if (!normalizedSrc) continue
+          const htmlDom = await getIframe(url, $, { src: normalizedSrc })
           const result = await findRule(rules, { htmlDom, url })
           if (has(result)) return result
         } catch (_) {}
