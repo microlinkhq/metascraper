@@ -19,13 +19,24 @@ const RE_DOWNLOAD = /[?&]download=1(?:[&#]|$)/i
 
 const isHttps = ({ url = '' }) => RE_HTTPS.test(url)
 
-const getPathname = (url = '') => {
+const hasPathSuffix = (url = '', suffixCodes = []) => {
   const queryIndex = url.indexOf('?')
   const hashIndex = url.indexOf('#')
   let end = url.length
   if (queryIndex !== -1 && queryIndex < end) end = queryIndex
   if (hashIndex !== -1 && hashIndex < end) end = hashIndex
-  return end === url.length ? url : url.slice(0, end)
+
+  const suffixLength = suffixCodes.length
+  if (end < suffixLength) return false
+
+  const suffixStart = end - suffixLength
+  for (let i = 0; i < suffixLength; i++) {
+    let code = url.charCodeAt(suffixStart + i)
+    if (code >= 65 && code <= 90) code += 32
+    if (code !== suffixCodes[i]) return false
+  }
+
+  return true
 }
 
 const isMIME =
@@ -42,10 +53,13 @@ const isAac = isMIME('aac')
 const isWav = isMIME('wav')
 const isMpga = isMIME('mpga')
 
-const isM3u8 = ({ url = '' }) =>
-  getPathname(url).toLowerCase().endsWith('.m3u8')
+const M3U8_SUFFIX = [46, 109, 51, 117, 56] // .m3u8
 
-const isMpd = ({ url = '' }) => getPathname(url).toLowerCase().endsWith('.mpd')
+const MPD_SUFFIX = [46, 109, 112, 100] // .mpd
+
+const isM3u8 = ({ url = '' }) => hasPathSuffix(url, M3U8_SUFFIX)
+
+const isMpd = ({ url = '' }) => hasPathSuffix(url, MPD_SUFFIX)
 
 const hasCodec = prop => format => format[prop] !== 'none'
 
