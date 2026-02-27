@@ -3,6 +3,7 @@
 const test = require('ava')
 const path = require('path')
 const fs = require('fs')
+const { load } = require('cheerio')
 
 const metascraper = require('metascraper')([
   require('metascraper-readability')()
@@ -58,4 +59,24 @@ test('chowhanandsons.com', async t => {
   )
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
+})
+
+test('serializes html once per invocation', async t => {
+  const url = 'https://microlink.io'
+  const html = fs.readFileSync(
+    path.resolve(__dirname, 'fixtures/microlink.io.html'),
+    'utf-8'
+  )
+
+  const $ = load(html, { baseURI: url })
+  const originalHtml = $.html.bind($)
+  let htmlCalls = 0
+
+  $.html = (...args) => {
+    if (args.length === 0) htmlCalls++
+    return originalHtml(...args)
+  }
+
+  await metascraper({ htmlDom: $, url })
+  t.is(htmlCalls, 1)
 })
