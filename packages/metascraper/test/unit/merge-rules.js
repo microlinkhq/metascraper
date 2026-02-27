@@ -190,3 +190,31 @@ test('baseRules array should not be mutated (fails without cloneDeep)', t => {
     'Title rule should have more rules after merging'
   )
 })
+
+test('reuse baseRules reference when no inline rules or filters', t => {
+  const { mergeRules } = require('../../src/rules')
+
+  const baseRules = [['title', [() => 'title']]]
+  const result = mergeRules(undefined, baseRules)
+
+  t.is(result, baseRules)
+})
+
+test('reuse inner rule arrays when only filtering properties', t => {
+  const { mergeRules } = require('../../src/rules')
+
+  const titleRules = [() => 'title']
+  const descriptionRules = [() => 'description']
+  const baseRules = [
+    ['title', titleRules],
+    ['description', descriptionRules]
+  ]
+
+  const result = mergeRules(undefined, baseRules, new Set(['description']))
+
+  t.deepEqual(
+    result.map(([propName]) => propName),
+    ['title']
+  )
+  t.is(result[0][1], titleRules)
+})
