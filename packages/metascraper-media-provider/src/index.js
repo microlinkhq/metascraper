@@ -78,18 +78,35 @@ const compareOrderByAsc = (left, right) => {
   return 0
 }
 
+const getFormats = input =>
+  get(input, 'formats') || get(input, 'entries[0].formats') || [input]
+
+const selectLastFormat = (state, format, { orderBy, urlProp }) => {
+  const currentOrderByValue = format?.[orderBy]
+  if (
+    !state.hasValue ||
+    compareOrderByAsc(currentOrderByValue, state.orderByValue) >= 0
+  ) {
+    return {
+      hasValue: true,
+      orderByValue: currentOrderByValue,
+      url: format?.[urlProp]
+    }
+  }
+  return state
+}
+
+const getSelectedUrl = selected =>
+  !isEmpty(selected.url) ? selected.url : undefined
+
 const getFormatUrls =
   (basicFilters, { orderBy }) =>
     (input, extraFilters, { isStream }) => {
       const filters = extraFilters.concat(basicFilters({ isStream }))
-
-      const formats = get(input, 'formats') ||
-      get(input, 'entries[0].formats') || [input]
+      const formats = getFormats(input)
 
       const urlProp = isStream ? 'manifest_url' : 'url'
-      let lastUrl
-      let lastOrderByValue
-      let hasLast = false
+      let selected = { hasValue: false }
 
       for (const format of formats) {
         let isMatch = true
@@ -101,30 +118,11 @@ const getFormatUrls =
         }
         if (!isMatch) continue
 
-        const currentOrderByValue = format?.[orderBy]
-        if (
-          !hasLast ||
-        compareOrderByAsc(currentOrderByValue, lastOrderByValue) >= 0
-        ) {
-          lastUrl = format?.[urlProp]
-          lastOrderByValue = currentOrderByValue
-          hasLast = true
-        }
+        selected = selectLastFormat(selected, format, { orderBy, urlProp })
       }
 
-      return !isEmpty(lastUrl) ? lastUrl : undefined
+      return getSelectedUrl(selected)
     }
-
-const VIDEO_FILTERS = ({ isStream }) =>
-  [
-    isStream ? undefined : hasVideo,
-    isMp4,
-    isHttps,
-    negate(isDownloadable),
-    isStream ? undefined : negate(isM3u8),
-    negate(isMpd),
-    isStream ? undefined : hasVideoCodec
-  ].filter(Boolean)
 
 const AUDIO_FILTERS = () => [
   hasAudio,
@@ -133,14 +131,63 @@ const AUDIO_FILTERS = () => [
   hasAudioCodec
 ]
 
-const getVideoUrls = getFormatUrls(VIDEO_FILTERS, { orderBy: 'tbr' })
-
 const getAudioUrls = getFormatUrls(AUDIO_FILTERS, { orderBy: 'abr' })
 
-const getVideo = data =>
-  getVideoUrls(data, [hasAudioCodec], { isStream: false }) ||
-  getVideoUrls(data, [], { isStream: false }) ||
-  getVideoUrls(data, [], { isStream: true })
+const getVideo = data => {
+  const formats = getFormats(data)
+
+  let selectedVideoWithAudio = { hasValue: false }
+  let selectedVideo = { hasValue: false }
+  let selectedStreamVideo = { hasValue: false }
+
+  for (const format of formats) {
+    const hasRegularVideo =
+      hasVideo(format) &&
+      isMp4(format) &&
+      isHttps(format) &&
+      !isDownloadable(format) &&
+      !isM3u8(format) &&
+      !isMpd(format) &&
+      hasVideoCodec(format)
+
+    if (hasRegularVideo) {
+      selectedVideo = selectLastFormat(selectedVideo, format, {
+        orderBy: 'tbr',
+        urlProp: 'url'
+      })
+
+      if (hasAudioCodec(format)) {
+        selectedVideoWithAudio = selectLastFormat(
+          selectedVideoWithAudio,
+          format,
+          {
+            orderBy: 'tbr',
+            urlProp: 'url'
+          }
+        )
+      }
+    }
+
+    const hasStreamVideo =
+      isMp4(format) &&
+      isHttps(format) &&
+      !isDownloadable(format) &&
+      !isMpd(format)
+
+    if (hasStreamVideo) {
+      selectedStreamVideo = selectLastFormat(selectedStreamVideo, format, {
+        orderBy: 'tbr',
+        urlProp: 'manifest_url'
+      })
+    }
+  }
+
+  return (
+    getSelectedUrl(selectedVideoWithAudio) ||
+    getSelectedUrl(selectedVideo) ||
+    getSelectedUrl(selectedStreamVideo)
+  )
+}
 
 const getAudio = data => getAudioUrls(data, [], { isStream: false })
 
