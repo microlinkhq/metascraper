@@ -68,3 +68,28 @@ test('stop iframe probing after first video match', async t => {
   t.is(metadata.video, 'https://cdn.microlink.io/file-examples/sample.mp4')
   t.deepEqual(calls, ['https://example.com/ok'])
 })
+
+test('reuse iframe fetch across image and video extraction', async t => {
+  let calls = 0
+  const metascraper = createMetascraper({
+    getIframe: async (url, $, { src }) => {
+      calls += 1
+      t.is(src, 'https://example.com/ok')
+      return cheerio.load(`
+        <video
+          poster="https://cdn.microlink.io/file-examples/sample.png"
+          src="https://cdn.microlink.io/file-examples/sample.mp4"
+        ></video>
+      `)
+    }
+  })
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<iframe src="/ok"></iframe>'
+  })
+
+  t.is(metadata.image, 'https://cdn.microlink.io/file-examples/sample.png')
+  t.is(metadata.video, 'https://cdn.microlink.io/file-examples/sample.mp4')
+  t.is(calls, 1)
+})
