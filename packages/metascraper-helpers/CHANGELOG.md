@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Bug Fixes
+
+* **helpers:** terminate iframe workers after settle ([#809](https://github.com/microlinkhq/metascraper/issues/809)) ([c7317ac](https://github.com/microlinkhq/metascraper/commit/c7317ac628c3112dc7bda259de815f9d651b2f6c))
+
+### Performance Improvements
+
+* **helpers:** use reference-only html dom memoization ([#816](https://github.com/microlinkhq/metascraper/issues/816)) ([bb90b1c](https://github.com/microlinkhq/metascraper/commit/bb90b1cbb1a0470c61611539d339e952a6018690))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 ### Bug Fixes

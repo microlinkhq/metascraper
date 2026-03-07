@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Bug Fixes
+
+* **instagram:** avoid stale description cache for date parsing ([#804](https://github.com/microlinkhq/metascraper/issues/804)) ([31ac6c3](https://github.com/microlinkhq/metascraper/commit/31ac6c3b870484ffd4fa8d5d368d59728eab2299))
+
+### Reverts
+
+* Revert "fix(instagram): avoid stale description cache for date parsing" ([0677cd6](https://github.com/microlinkhq/metascraper/commit/0677cd66f325378c3b0e70e3a0eb4b6ee678c42a))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 **Note:** Version bump only for package metascraper-instagram

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Bug Fixes
+
+* **media-provider:** bound retry loop and add coverage ([#800](https://github.com/microlinkhq/metascraper/issues/800)) ([2be6d3b](https://github.com/microlinkhq/metascraper/commit/2be6d3b08d63a6edbd601b184cae338e911f6114))
+
+### Performance Improvements
+
+* **media-provider:** select best format in linear time ([#819](https://github.com/microlinkhq/metascraper/issues/819)) ([97587f3](https://github.com/microlinkhq/metascraper/commit/97587f33ed2e4244600a27cb3816d31abb2cc566))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 **Note:** Version bump only for package metascraper-media-provider

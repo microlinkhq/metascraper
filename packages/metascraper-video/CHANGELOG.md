@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Performance Improvements
+
+* **audio,video:** replace lodash media scans with native loops ([#811](https://github.com/microlinkhq/metascraper/issues/811)) ([c175eb4](https://github.com/microlinkhq/metascraper/commit/c175eb4d02c69dddd82f5083c0ac41222bcf78f3))
+* **audio,video:** short-circuit iframe probing on first hit ([#810](https://github.com/microlinkhq/metascraper/issues/810)) ([ac8fc2a](https://github.com/microlinkhq/metascraper/commit/ac8fc2a03e983a194a8b34e6a14b1b133502a1c8))
+* **video:** share iframe fetch cache across rules ([#817](https://github.com/microlinkhq/metascraper/issues/817)) ([a54cc73](https://github.com/microlinkhq/metascraper/commit/a54cc73e99a67e14237f42c74d2d9cdb3bdbed3d))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 **Note:** Version bump only for package metascraper-video

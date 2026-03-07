@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Performance Improvements
+
+* **readability:** cache html serialization per htmlDom ([#823](https://github.com/microlinkhq/metascraper/issues/823)) ([a1b10fc](https://github.com/microlinkhq/metascraper/commit/a1b10fcb5708d6cc6ee5ec90c945d6960863b929))
+* **readability:** use happy-dom window parser ([#822](https://github.com/microlinkhq/metascraper/issues/822)) ([0333253](https://github.com/microlinkhq/metascraper/commit/033325361132fcb56093e46c6b9ca70b09018c29))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 **Note:** Version bump only for package metascraper-readability

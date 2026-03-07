@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Bug Fixes
+
+* **helpers:** terminate iframe workers after settle ([#809](https://github.com/microlinkhq/metascraper/issues/809)) ([c7317ac](https://github.com/microlinkhq/metascraper/commit/c7317ac628c3112dc7bda259de815f9d651b2f6c))
+* **instagram:** avoid stale description cache for date parsing ([#804](https://github.com/microlinkhq/metascraper/issues/804)) ([31ac6c3](https://github.com/microlinkhq/metascraper/commit/31ac6c3b870484ffd4fa8d5d368d59728eab2299))
+* **manifest:** fallback publisher to name when short_name missing ([#803](https://github.com/microlinkhq/metascraper/issues/803)) ([0fc8043](https://github.com/microlinkhq/metascraper/commit/0fc8043050a12d0acf0478e80833a3d1942ef0c7))
+* **media-provider:** bound retry loop and add coverage ([#800](https://github.com/microlinkhq/metascraper/issues/800)) ([2be6d3b](https://github.com/microlinkhq/metascraper/commit/2be6d3b08d63a6edbd601b184cae338e911f6114))
+* regression ([#813](https://github.com/microlinkhq/metascraper/issues/813)) ([64aa483](https://github.com/microlinkhq/metascraper/commit/64aa483a9b4b076b907f292d926f74c3c8bab7eb))
+* rule error isolation ([#801](https://github.com/microlinkhq/metascraper/issues/801)) ([5c702f0](https://github.com/microlinkhq/metascraper/commit/5c702f00b56b351b8ed0b2f959682853213c58b5))
+* **tiktok:** fallback date parsing when video id is invalid ([#807](https://github.com/microlinkhq/metascraper/issues/807)) ([f92682a](https://github.com/microlinkhq/metascraper/commit/f92682a0ee770552d39d164dee161e9f9504704a))
+
+### Performance Improvements
+
+* **audio,video:** replace lodash media scans with native loops ([#811](https://github.com/microlinkhq/metascraper/issues/811)) ([c175eb4](https://github.com/microlinkhq/metascraper/commit/c175eb4d02c69dddd82f5083c0ac41222bcf78f3))
+* **audio,video:** short-circuit iframe probing on first hit ([#810](https://github.com/microlinkhq/metascraper/issues/810)) ([ac8fc2a](https://github.com/microlinkhq/metascraper/commit/ac8fc2a03e983a194a8b34e6a14b1b133502a1c8))
+* **audio:** cache iframe fetches and dedupe probing urls ([#818](https://github.com/microlinkhq/metascraper/issues/818)) ([db184af](https://github.com/microlinkhq/metascraper/commit/db184af45f94dc079d5382f66c0e984ec8d885df))
+* **helpers:** use reference-only html dom memoization ([#816](https://github.com/microlinkhq/metascraper/issues/816)) ([bb90b1c](https://github.com/microlinkhq/metascraper/commit/bb90b1cbb1a0470c61611539d339e952a6018690))
+* **logo-favicon:** reduce favicon candidate allocations ([#814](https://github.com/microlinkhq/metascraper/issues/814)) ([d2f4291](https://github.com/microlinkhq/metascraper/commit/d2f429164af7f2d32c6c63ca21e940d13584eb2b))
+* **media-provider:** select best format in linear time ([#819](https://github.com/microlinkhq/metascraper/issues/819)) ([97587f3](https://github.com/microlinkhq/metascraper/commit/97587f33ed2e4244600a27cb3816d31abb2cc566))
+* **metascraper:** fast-path mergeRules in common case ([#820](https://github.com/microlinkhq/metascraper/issues/820)) ([7dc559a](https://github.com/microlinkhq/metascraper/commit/7dc559ab2435b61fffa1822dd75aac9c204ee05f))
+* **metascraper:** reduce getData allocations ([#827](https://github.com/microlinkhq/metascraper/issues/827)) ([5c674af](https://github.com/microlinkhq/metascraper/commit/5c674af31952a85907bb8d6fdbdb15e65d9ce2aa))
+* **readability:** cache html serialization per htmlDom ([#823](https://github.com/microlinkhq/metascraper/issues/823)) ([a1b10fc](https://github.com/microlinkhq/metascraper/commit/a1b10fcb5708d6cc6ee5ec90c945d6960863b929))
+* **readability:** use happy-dom window parser ([#822](https://github.com/microlinkhq/metascraper/issues/822)) ([0333253](https://github.com/microlinkhq/metascraper/commit/033325361132fcb56093e46c6b9ca70b09018c29))
+* **video:** share iframe fetch cache across rules ([#817](https://github.com/microlinkhq/metascraper/issues/817)) ([a54cc73](https://github.com/microlinkhq/metascraper/commit/a54cc73e99a67e14237f42c74d2d9cdb3bdbed3d))
+
+### Reverts
+
+* Revert "fix(instagram): avoid stale description cache for date parsing" ([0677cd6](https://github.com/microlinkhq/metascraper/commit/0677cd66f325378c3b0e70e3a0eb4b6ee678c42a))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 ### Bug Fixes

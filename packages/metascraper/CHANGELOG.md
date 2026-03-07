@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Bug Fixes
+
+* rule error isolation ([#801](https://github.com/microlinkhq/metascraper/issues/801)) ([5c702f0](https://github.com/microlinkhq/metascraper/commit/5c702f00b56b351b8ed0b2f959682853213c58b5))
+
+### Performance Improvements
+
+* **metascraper:** fast-path mergeRules in common case ([#820](https://github.com/microlinkhq/metascraper/issues/820)) ([7dc559a](https://github.com/microlinkhq/metascraper/commit/7dc559ab2435b61fffa1822dd75aac9c204ee05f))
+* **metascraper:** reduce getData allocations ([#827](https://github.com/microlinkhq/metascraper/issues/827)) ([5c674af](https://github.com/microlinkhq/metascraper/commit/5c674af31952a85907bb8d6fdbdb15e65d9ce2aa))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 **Note:** Version bump only for package metascraper

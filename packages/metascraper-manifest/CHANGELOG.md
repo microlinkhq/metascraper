@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.49.25](https://github.com/microlinkhq/metascraper/compare/v5.49.24...v5.49.25) (2026-03-07)
+
+### Bug Fixes
+
+* **manifest:** fallback publisher to name when short_name missing ([#803](https://github.com/microlinkhq/metascraper/issues/803)) ([0fc8043](https://github.com/microlinkhq/metascraper/commit/0fc8043050a12d0acf0478e80833a3d1942ef0c7))
+* regression ([#813](https://github.com/microlinkhq/metascraper/issues/813)) ([64aa483](https://github.com/microlinkhq/metascraper/commit/64aa483a9b4b076b907f292d926f74c3c8bab7eb))
+
+### Performance Improvements
+
+* **logo-favicon:** reduce favicon candidate allocations ([#814](https://github.com/microlinkhq/metascraper/issues/814)) ([d2f4291](https://github.com/microlinkhq/metascraper/commit/d2f429164af7f2d32c6c63ca21e940d13584eb2b))
+
 ## [5.49.24](https://github.com/microlinkhq/metascraper/compare/v5.49.23...v5.49.24) (2026-02-17)
 
 **Note:** Version bump only for package metascraper-manifest
