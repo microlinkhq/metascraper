@@ -1,6 +1,6 @@
 {
   "name": "metascraper-defuddle",
-  "description": "A Defuddle connector for metascraper.",
+  "description": "A Defuddle connector for metascraper",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-defuddle",
   "version": "5.49.25",
   "types": "src/index.d.ts",
@@ -20,13 +20,12 @@
   },
   "keywords": [
     "metascraper",
-    "defuddle",
-    "metadata",
-    "readability"
+    "defuddle"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.1.9",
+    "debug-logfmt": "~1.4.7",
     "defuddle": "~0.14.0",
     "happy-dom": "~20.3.4"
   },

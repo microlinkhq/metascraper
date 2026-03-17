@@ -4,6 +4,8 @@ const { memoizeOne, composeRule } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
 const { Window } = require('happy-dom')
 
+const debug = require('debug-logfmt')('metascraper-defuddle')
+
 const DOCUMENT_SETTINGS = {
   disableComputedStyleRendering: true,
   disableCSSFileLoading: true,
@@ -19,6 +21,9 @@ const defuddleExtract = asyncMemoizeOne(async (url, html) => {
   try {
     const result = await Defuddle(window.document, url, { useAsync: false })
     return result
+  } catch (err) {
+    debug('Defuddle failed, fallback to next rule', { message: err.message })
+    return undefined
   } finally {
     await window.happyDOM.close()
   }
