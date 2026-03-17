@@ -444,20 +444,19 @@ const $jsonld = propName => $ => {
   const collection = jsonld($)
   const props = propName.split('.')
   let value
-  const found = collection.find(item => {
+
+  for (const item of collection) {
     value = get(item, propName)
-    return !isEmpty(value) || isNumber(value) || isBoolean(value)
-  })
-  if (!found && value === undefined) {
-    for (const item of collection) {
-      let results = searchSchemaResults(item, props, true)
-      if (results.length === 0) { results = searchSchemaResults(item, props, false) }
-      if (results.length > 0) {
-        value = results.filter(Boolean)[0]
-        break
-      }
+    if (!isEmpty(value) || isNumber(value) || isBoolean(value)) break
+    if (value !== undefined) continue
+    let results = searchSchemaResults(item, props, true)
+    if (results.length === 0) results = searchSchemaResults(item, props, false)
+    if (results.length > 0) {
+      value = results.filter(Boolean)[0]
+      if (value !== undefined) break
     }
   }
+
   if (
     value != null &&
     typeof value === 'object' &&

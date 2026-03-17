@@ -3,7 +3,7 @@
 const cheerio = require('cheerio')
 const test = require('ava')
 
-const { jsonld } = require('..')
+const { $jsonld, jsonld } = require('..')
 
 test('empty object if JSON-LD is not preset into the html', t => {
   const $ = cheerio.load('')
@@ -159,4 +159,169 @@ test('group all properties of the same node together', t => {
       headline: 'Hello World'
     }
   ])
+})
+
+test('$jsonld finds nested contentUrl under mainEntity', t => {
+  const expected = 'https://audio-ssl.itunes.apple.com/example/preview.m4a'
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntity": {
+        "@type": "MusicRecording",
+        "name": "Example Track",
+        "contentUrl": "${expected}"
+      }
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), expected)
+})
+
+test('$jsonld finds nested property inside @graph item', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Home"
+        },
+        {
+          "@type": "MusicAlbum",
+          "track": {
+            "@type": "MusicRecording",
+            "contentUrl": "https://example.com/track.m4a"
+          }
+        }
+      ]
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/track.m4a')
+})
+
+test('$jsonld traverses arrays to find property', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicAlbum",
+      "track": [
+        { "@type": "MusicRecording", "name": "Track 1" },
+        { "@type": "MusicRecording", "name": "Track 2", "contentUrl": "https://example.com/t2.m4a" }
+      ]
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/t2.m4a')
+})
+
+test('$jsonld resolves object with .name to its name string', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "nested": {
+        "author": { "@type": "Person", "name": "Jane Doe" }
+      }
+    }
+    </script>`)
+  t.is($jsonld('author')($), 'Jane Doe')
+})
+
+test('$jsonld returns first match when multiple nested values exist', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicAlbum",
+      "track": [
+        { "@type": "MusicRecording", "contentUrl": "https://example.com/first.m4a" },
+        { "@type": "MusicRecording", "contentUrl": "https://example.com/second.m4a" }
+      ]
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/first.m4a')
+})
+
+test('$jsonld prefers direct path over recursive search', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicRecording",
+      "contentUrl": "https://example.com/top-level.m4a",
+      "associatedMedia": {
+        "contentUrl": "https://example.com/nested.m4a"
+      }
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/top-level.m4a')
+})
+
+test('$jsonld returns undefined for truly missing properties', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Hello"
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), undefined)
+})
+
+test('$jsonld decodes HTML entities from recursive results', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntity": {
+        "@type": "Article",
+        "headline": "Rock &amp; Roll"
+      }
+    }
+    </script>`)
+  t.is($jsonld('headline')($), 'Rock & Roll')
+})
+
+test('$jsonld handles deeply nested properties (3+ levels)', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntity": {
+        "@type": "MusicAlbum",
+        "byArtist": {
+          "@type": "MusicGroup",
+          "track": {
+            "@type": "MusicRecording",
+            "contentUrl": "https://example.com/deep.m4a"
+          }
+        }
+      }
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/deep.m4a')
+})
+
+test('$jsonld finds property across multiple JSON-LD blocks', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "Organization", "name": "Acme" }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntity": {
+        "@type": "MusicRecording",
+        "contentUrl": "https://example.com/audio.m4a"
+      }
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/audio.m4a')
 })

@@ -409,25 +409,6 @@ test('.$jsonld', t => {
   }
 })
 
-test('.$jsonld finds nested contentUrl when direct path is missing (recursive search fallback)', t => {
-  const nestedContentUrl =
-    'https://audio-ssl.itunes.apple.com/example/preview.m4a'
-  const $ = cheerio.load(`
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "mainEntity": {
-        "@type": "MusicRecording",
-        "name": "Example Track",
-        "contentUrl": "${nestedContentUrl}"
-      }
-    }
-    </script>`)
-  const value = $jsonld('contentUrl')($)
-  t.is(value, nestedContentUrl)
-})
-
 test('.lang', t => {
   t.is(lang(undefined), undefined)
   t.is(lang(NaN), undefined)
