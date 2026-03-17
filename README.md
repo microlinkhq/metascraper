@@ -329,7 +329,7 @@ A set of property names to pick for the metadata extraction process. When specif
 
 Type: `Array`
 
-You can pass additional rules to add on execution time. 
+You can pass additional rules to add on execution time.
 
 These rules will be merged with your loaded [rules](#rules) at the beginning.
 
