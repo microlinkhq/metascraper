@@ -453,7 +453,7 @@ const $jsonld = propName => $ => {
       let results = searchSchemaResults(item, props, true)
       if (results.length === 0) { results = searchSchemaResults(item, props, false) }
       if (results.length > 0) {
-        value = results.filter(Boolean).join(', ')
+        value = results.filter(Boolean)[0]
         break
       }
     }
