@@ -389,14 +389,82 @@ const jsonld = memoizeOne(
   (newArgs, oldArgs) => isSameHtmlDom(newArgs[0], oldArgs[0])
 )
 
+/**
+ * Recursive schema.org search with array traversal and object-to-name resolution.
+ * Returns array of primitive values (strings, numbers, booleans) for the given path.
+ */
+function searchSchemaResults (data, props, isExact) {
+  if (data === null || data === undefined) return []
+  if (
+    typeof data === 'string' ||
+    typeof data === 'number' ||
+    typeof data === 'boolean'
+  ) {
+    return props.length === 0 ? [data] : []
+  }
+  if (Array.isArray(data)) {
+    const current = props[0]
+    if (current && /^\[\d+\]$/.test(current)) {
+      const index = parseInt(current.slice(1, -1), 10)
+      if (data[index] !== undefined) {
+        return searchSchemaResults(data[index], props.slice(1), isExact)
+      }
+      return []
+    }
+    if (
+      props.length === 0 &&
+      data.every(item => typeof item === 'string' || typeof item === 'number')
+    ) {
+      return data.map(String)
+    }
+    return data.flatMap(item => searchSchemaResults(item, props, isExact))
+  }
+  if (typeof data === 'object') {
+    const [currentProp, ...rest] = props
+    if (!currentProp) {
+      if (data.name != null && typeof data.name === 'string') return [data.name]
+      return []
+    }
+    if (Object.prototype.hasOwnProperty.call(data, currentProp)) {
+      return searchSchemaResults(data[currentProp], rest, isExact)
+    }
+    if (!isExact) {
+      const nested = []
+      for (const key of Object.keys(data)) {
+        nested.push(...searchSchemaResults(data[key], props, false))
+      }
+      return nested
+    }
+    return []
+  }
+  return []
+}
+
 const $jsonld = propName => $ => {
   const collection = jsonld($)
+  const props = propName.split('.')
   let value
-  collection.find(item => {
+  const found = collection.find(item => {
     value = get(item, propName)
     return !isEmpty(value) || isNumber(value) || isBoolean(value)
   })
-
+  if (!found && value === undefined) {
+    for (const item of collection) {
+      let results = searchSchemaResults(item, props, true)
+      if (results.length === 0) { results = searchSchemaResults(item, props, false) }
+      if (results.length > 0) {
+        value = results.filter(Boolean).join(', ')
+        break
+      }
+    }
+  }
+  if (
+    value != null &&
+    typeof value === 'object' &&
+    typeof value.name === 'string'
+  ) {
+    value = value.name
+  }
   return isString(value) ? decodeHTML(value) : value
 }
 
