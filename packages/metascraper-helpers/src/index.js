@@ -453,10 +453,15 @@ const $jsonld = propName => $ => {
     if (!isEmpty(value) || isNumber(value) || isBoolean(value)) break
     if (value != null) continue
     if (fallback !== undefined) continue
-    let results = searchSchemaResults(item, props, true)
-    if (results.length === 0) results = searchSchemaResults(item, props, false)
-    if (results.length > 0) {
-      fallback = results.find(v => v != null)
+    const exactResults = searchSchemaResults(item, props, true)
+    if (exactResults.length > 0) {
+      const filtered = exactResults.filter(v => v != null)
+      fallback = filtered.length > 1 ? filtered.join(' and ') : filtered[0]
+    } else {
+      const fuzzyResults = searchSchemaResults(item, props, false)
+      if (fuzzyResults.length > 0) {
+        fallback = fuzzyResults.find(v => v != null)
+      }
     }
   }
 

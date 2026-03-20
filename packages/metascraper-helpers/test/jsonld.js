@@ -399,6 +399,21 @@ test('$jsonld does not convert ImageObject with .name to its name string', t => 
   t.is(result.url, 'https://example.com/photo.jpg')
 })
 
+test('$jsonld joins multiple author names from array of Person objects', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "author": [
+        { "@type": "Person", "name": "David K. Li" },
+        { "@type": "Person", "name": "Doha Madani" }
+      ]
+    }
+    </script>`)
+  t.is($jsonld('author.name')($), 'David K. Li and Doha Madani')
+})
+
 test('$jsonld returns full object for direct get() when object has .name and non-name properties', t => {
   const $ = cheerio.load(`
     <script type="application/ld+json">
