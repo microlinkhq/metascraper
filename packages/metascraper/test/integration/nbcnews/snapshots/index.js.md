@@ -1,4 +1,4 @@
-# Snapshot report for `test/integration/nbcnews/index.js`
+# Snapshot report for `packages/metascraper/test/integration/nbcnews/index.js`
 
 The actual snapshot is saved in `index.js.snap`.
 

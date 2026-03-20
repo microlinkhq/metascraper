@@ -239,6 +239,7 @@ const metascraper = require('metascraper')([
 - [metascraper-audio](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio) – Get audio property from HTML markup.
 - [metascraper-author](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-author) – Get author property from HTML markup.
 - [metascraper-date](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-date) – Get date property from HTML markup.
+- [metascraper-defuddle](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-defuddle) – A Defuddle connector for metascraper.
 - [metascraper-description](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description) – Get description property from HTML markup.
 - [metascraper-feed](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-feed) – Get RSS/Atom feed URL from HTML markup.
 - [metascraper-feeds](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-feeds) – Extract feed links (RSS/Atom/JSON) from HTML markup.
@@ -328,7 +329,7 @@ A set of property names to pick for the metadata extraction process. When specif
 
 Type: `Array`
 
-You can pass additional rules to add on execution time. 
+You can pass additional rules to add on execution time.
 
 These rules will be merged with your loaded [rules](#rules) at the beginning.
 

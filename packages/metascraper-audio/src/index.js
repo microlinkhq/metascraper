@@ -4,9 +4,10 @@ const {
   $filter,
   $jsonld,
   audio,
+  createGetIframeCached,
+  defaultGetIframe,
   findRule,
   has,
-  loadIframe,
   normalizeUrl,
   toRule
 } = require('@metascraper/helpers')
@@ -67,33 +68,7 @@ const audioRules = [
   ({ htmlDom: $ }) => $filter($, $('a[href]'), el => audio(el.attr('href')))
 ]
 
-const _getIframe = (url, $, { src }) =>
-  loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
-
-const createGetIframeCached = getIframe => {
-  const cacheByHtmlDom = new WeakMap()
-
-  return async (url, $, src) => {
-    let cacheBySrc = cacheByHtmlDom.get($)
-    if (!cacheBySrc) {
-      cacheBySrc = new Map()
-      cacheByHtmlDom.set($, cacheBySrc)
-    }
-
-    const cachedHtmlDom = cacheBySrc.get(src)
-    if (cachedHtmlDom) return cachedHtmlDom
-
-    const pendingHtmlDom = getIframe(url, $, { src }).catch(error => {
-      cacheBySrc.delete(src)
-      throw error
-    })
-
-    cacheBySrc.set(src, pendingHtmlDom)
-    return pendingHtmlDom
-  }
-}
-
-module.exports = ({ getIframe = _getIframe } = {}) => {
+module.exports = ({ getIframe = defaultGetIframe } = {}) => {
   const getIframeCached = createGetIframeCached(getIframe)
   const rules = {
     audio: audioRules.concat(

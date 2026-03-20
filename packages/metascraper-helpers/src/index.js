@@ -389,13 +389,85 @@ const jsonld = memoizeOne(
   (newArgs, oldArgs) => isSameHtmlDom(newArgs[0], oldArgs[0])
 )
 
+/**
+ * Recursive schema.org search with array traversal and object-to-name resolution.
+ * Returns array of primitive values (strings, numbers, booleans) for the given path.
+ */
+function searchSchemaResults (data, props, isExact) {
+  if (data === null || data === undefined) return []
+  if (
+    typeof data === 'string' ||
+    typeof data === 'number' ||
+    typeof data === 'boolean'
+  ) {
+    return props.length === 0 ? [data] : []
+  }
+  if (Array.isArray(data)) {
+    const current = props[0]
+    if (current && /^\[\d+\]$/.test(current)) {
+      const index = parseInt(current.slice(1, -1), 10)
+      if (data[index] !== undefined) {
+        return searchSchemaResults(data[index], props.slice(1), isExact)
+      }
+      return []
+    }
+    if (
+      props.length === 0 &&
+      data.every(item => typeof item === 'string' || typeof item === 'number')
+    ) {
+      return data.map(String)
+    }
+    return data.flatMap(item => searchSchemaResults(item, props, isExact))
+  }
+  if (typeof data === 'object') {
+    const [currentProp, ...rest] = props
+    if (!currentProp) {
+      if (data.name != null && typeof data.name === 'string') return [data.name]
+      return []
+    }
+    if (Object.prototype.hasOwnProperty.call(data, currentProp)) {
+      const result = searchSchemaResults(data[currentProp], rest, isExact)
+      if (result.length > 0) return result
+    }
+    if (!isExact) {
+      const nested = []
+      for (const key of Object.keys(data)) {
+        if (key.startsWith('@')) continue
+        nested.push(...searchSchemaResults(data[key], props, false))
+      }
+      return nested
+    }
+    return []
+  }
+  return []
+}
+
 const $jsonld = propName => $ => {
   const collection = jsonld($)
+  const props = propName.split('.')
   let value
-  collection.find(item => {
+  let fallback
+
+  for (const item of collection) {
     value = get(item, propName)
-    return !isEmpty(value) || isNumber(value) || isBoolean(value)
-  })
+    if (!isEmpty(value) || isNumber(value) || isBoolean(value)) break
+    if (value != null) continue
+    if (fallback !== undefined) continue
+    const exactResults = searchSchemaResults(item, props, true)
+    if (exactResults.length > 0) {
+      const filtered = exactResults.filter(v => v != null)
+      fallback = filtered.length > 1 ? filtered.join(' and ') : filtered[0]
+    } else {
+      const fuzzyResults = searchSchemaResults(item, props, false)
+      if (fuzzyResults.length > 0) {
+        fallback = fuzzyResults.find(v => v != null)
+      }
+    }
+  }
+
+  if (value == null && !isNumber(value) && !isBoolean(value)) {
+    value = fallback
+  }
 
   return isString(value) ? decodeHTML(value) : value
 }
@@ -483,6 +555,43 @@ const has = value =>
 
 const getUrls = input => String(input).match(urlRegexForMatch) ?? []
 
+const htmlCache = new WeakMap()
+
+const getHtml = htmlDom => {
+  if (!htmlCache.has(htmlDom)) {
+    htmlCache.set(htmlDom, htmlDom.html())
+  }
+  return htmlCache.get(htmlDom)
+}
+
+const loadIframe = require('./load-iframe')
+
+const defaultGetIframe = (url, $, { src }) =>
+  loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
+
+const createGetIframeCached = getIframe => {
+  const cacheByHtmlDom = new WeakMap()
+
+  return async (url, $, src) => {
+    let cacheBySrc = cacheByHtmlDom.get($)
+    if (!cacheBySrc) {
+      cacheBySrc = new Map()
+      cacheByHtmlDom.set($, cacheBySrc)
+    }
+
+    const cachedHtmlDom = cacheBySrc.get(src)
+    if (cachedHtmlDom) return cachedHtmlDom
+
+    const pendingHtmlDom = getIframe(url, $, { src }).catch(error => {
+      cacheBySrc.delete(src)
+      throw error
+    })
+
+    cacheBySrc.set(src, pendingHtmlDom)
+    return pendingHtmlDom
+  }
+}
+
 module.exports = {
   $filter,
   $jsonld,
@@ -491,11 +600,14 @@ module.exports = {
   audioExtensions,
   author,
   composeRule,
+  createGetIframeCached,
   date,
+  defaultGetIframe,
   description,
   extension,
   fileExtension,
   findRule,
+  getHtml,
   getUrls,
   has,
   image,
@@ -517,7 +629,7 @@ module.exports = {
   iso6393,
   jsonld,
   lang,
-  loadIframe: require('./load-iframe'),
+  loadIframe,
   logo,
   memoizeOne,
   mimeExtension,

@@ -2,9 +2,10 @@
 
 const {
   $jsonld,
+  createGetIframeCached,
+  defaultGetIframe,
   findRule,
   has,
-  loadIframe,
   normalizeUrl,
   toRule,
   url: urlFn,
@@ -67,32 +68,6 @@ const videoRules = [
 
 const imageRules = [toUrl($ => $('video').attr('poster'))]
 
-const _getIframe = (url, $, { src }) =>
-  loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
-
-const createGetIframeCached = getIframe => {
-  const cacheByHtmlDom = new WeakMap()
-
-  return async (url, $, src) => {
-    let cacheBySrc = cacheByHtmlDom.get($)
-    if (!cacheBySrc) {
-      cacheBySrc = new Map()
-      cacheByHtmlDom.set($, cacheBySrc)
-    }
-
-    const cachedHtmlDom = cacheBySrc.get(src)
-    if (cachedHtmlDom) return cachedHtmlDom
-
-    const pendingHtmlDom = getIframe(url, $, { src }).catch(error => {
-      cacheBySrc.delete(src)
-      throw error
-    })
-
-    cacheBySrc.set(src, pendingHtmlDom)
-    return pendingHtmlDom
-  }
-}
-
 const withIframe = (rules, getIframe) =>
   rules.concat(
     async ({ htmlDom: $, url }) => {
@@ -125,7 +100,7 @@ const withIframe = (rules, getIframe) =>
     }
   )
 
-module.exports = ({ getIframe = _getIframe } = {}) => {
+module.exports = ({ getIframe = defaultGetIframe } = {}) => {
   const getIframeCached = createGetIframeCached(getIframe)
   const rules = {
     image: withIframe(imageRules, getIframeCached),
