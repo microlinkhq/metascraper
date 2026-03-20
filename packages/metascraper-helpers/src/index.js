@@ -464,13 +464,6 @@ const $jsonld = propName => $ => {
     value = fallback
   }
 
-  if (
-    value != null &&
-    typeof value === 'object' &&
-    typeof value.name === 'string'
-  ) {
-    value = value.name
-  }
   return isString(value) ? decodeHTML(value) : value
 }
 

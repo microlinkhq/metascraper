@@ -379,3 +379,40 @@ test('$jsonld ignores @context when it is an object with property definitions', 
   t.is($jsonld('name')($), 'Actual Article Title')
   t.is($jsonld('description')($), undefined)
 })
+
+test('$jsonld does not convert ImageObject with .name to its name string', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SocialMediaPosting",
+      "image": {
+        "@type": "ImageObject",
+        "name": "photo.jpg",
+        "url": "https://example.com/photo.jpg",
+        "contentUrl": "https://example.com/photo.jpg"
+      }
+    }
+    </script>`)
+  const result = $jsonld('image')($)
+  t.is(typeof result, 'object')
+  t.is(result.url, 'https://example.com/photo.jpg')
+})
+
+test('$jsonld returns full object for direct get() when object has .name and non-name properties', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acme Corp",
+        "logo": { "url": "https://example.com/logo.png", "width": 100, "height": 100 }
+      }
+    }
+    </script>`)
+  const result = $jsonld('publisher')($)
+  t.is(typeof result, 'object')
+  t.is(result.name, 'Acme Corp')
+})
