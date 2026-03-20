@@ -1,6 +1,6 @@
 'use strict'
 
-const { memoizeOne, composeRule } = require('@metascraper/helpers')
+const { memoizeOne, composeRule, getHtml } = require('@metascraper/helpers')
 const { Readability } = require('@mozilla/readability')
 const asyncMemoizeOne = require('async-memoize-one')
 const { Window } = require('happy-dom')
@@ -40,16 +40,6 @@ const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
     await teardown()
   }
 }, memoizeOne.EqualityFirstArgument)
-
-const htmlCache = new WeakMap()
-
-const getHtml = htmlDom => {
-  if (!htmlCache.has(htmlDom)) {
-    htmlCache.set(htmlDom, htmlDom.html())
-  }
-
-  return htmlCache.get(htmlDom)
-}
 
 module.exports = ({ readabilityOpts } = {}) => {
   const getReadbility = composeRule(($, url) =>

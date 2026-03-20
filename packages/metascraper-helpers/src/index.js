@@ -550,6 +550,43 @@ const has = value =>
 
 const getUrls = input => String(input).match(urlRegexForMatch) ?? []
 
+const htmlCache = new WeakMap()
+
+const getHtml = htmlDom => {
+  if (!htmlCache.has(htmlDom)) {
+    htmlCache.set(htmlDom, htmlDom.html())
+  }
+  return htmlCache.get(htmlDom)
+}
+
+const loadIframe = require('./load-iframe')
+
+const defaultGetIframe = (url, $, { src }) =>
+  loadIframe(url, $.load(`<iframe src="${src}"></iframe>`))
+
+const createGetIframeCached = getIframe => {
+  const cacheByHtmlDom = new WeakMap()
+
+  return async (url, $, src) => {
+    let cacheBySrc = cacheByHtmlDom.get($)
+    if (!cacheBySrc) {
+      cacheBySrc = new Map()
+      cacheByHtmlDom.set($, cacheBySrc)
+    }
+
+    const cachedHtmlDom = cacheBySrc.get(src)
+    if (cachedHtmlDom) return cachedHtmlDom
+
+    const pendingHtmlDom = getIframe(url, $, { src }).catch(error => {
+      cacheBySrc.delete(src)
+      throw error
+    })
+
+    cacheBySrc.set(src, pendingHtmlDom)
+    return pendingHtmlDom
+  }
+}
+
 module.exports = {
   $filter,
   $jsonld,
@@ -558,11 +595,14 @@ module.exports = {
   audioExtensions,
   author,
   composeRule,
+  createGetIframeCached,
   date,
+  defaultGetIframe,
   description,
   extension,
   fileExtension,
   findRule,
+  getHtml,
   getUrls,
   has,
   image,
@@ -584,7 +624,7 @@ module.exports = {
   iso6393,
   jsonld,
   lang,
-  loadIframe: require('./load-iframe'),
+  loadIframe,
   logo,
   memoizeOne,
   mimeExtension,

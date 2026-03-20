@@ -1,6 +1,6 @@
 'use strict'
 
-const { memoizeOne, composeRule } = require('@metascraper/helpers')
+const { memoizeOne, composeRule, getHtml } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
 const { Window } = require('happy-dom')
 
@@ -28,15 +28,6 @@ const defuddleExtract = asyncMemoizeOne(async (url, html) => {
     await window.happyDOM.close()
   }
 }, memoizeOne.EqualityFirstArgument)
-
-const htmlCache = new WeakMap()
-
-const getHtml = htmlDom => {
-  if (!htmlCache.has(htmlDom)) {
-    htmlCache.set(htmlDom, htmlDom.html())
-  }
-  return htmlCache.get(htmlDom)
-}
 
 module.exports = () => {
   const getDefuddle = composeRule(($, url) => defuddleExtract(url, getHtml($)))
