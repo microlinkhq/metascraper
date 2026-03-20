@@ -325,3 +325,57 @@ test('$jsonld finds property across multiple JSON-LD blocks', t => {
     </script>`)
   t.is($jsonld('contentUrl')($), 'https://example.com/audio.m4a')
 })
+
+test('$jsonld preserves falsy primitives (0, false) from recursive search', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntity": {
+        "@type": "Product",
+        "offers": { "@type": "Offer", "price": 0 }
+      }
+    }
+    </script>`)
+  t.is($jsonld('price')($), 0)
+})
+
+test('$jsonld prefers direct get() in later block over recursive match in earlier block', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntity": {
+        "@type": "MusicRecording",
+        "contentUrl": "https://example.com/nested.m4a"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicRecording",
+      "contentUrl": "https://example.com/direct.m4a"
+    }
+    </script>`)
+  t.is($jsonld('contentUrl')($), 'https://example.com/direct.m4a')
+})
+
+test('$jsonld ignores @context when it is an object with property definitions', t => {
+  const $ = cheerio.load(`
+    <script type="application/ld+json">
+    {
+      "@context": {
+        "@vocab": "http://schema.org/",
+        "name": "http://schema.org/name",
+        "description": "http://schema.org/description"
+      },
+      "@type": "Article",
+      "name": "Actual Article Title"
+    }
+    </script>`)
+  t.is($jsonld('name')($), 'Actual Article Title')
+  t.is($jsonld('description')($), undefined)
+})

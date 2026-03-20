@@ -431,6 +431,7 @@ function searchSchemaResults (data, props, isExact) {
     if (!isExact) {
       const nested = []
       for (const key of Object.keys(data)) {
+        if (key.startsWith('@')) continue
         nested.push(...searchSchemaResults(data[key], props, false))
       }
       return nested
@@ -444,17 +445,22 @@ const $jsonld = propName => $ => {
   const collection = jsonld($)
   const props = propName.split('.')
   let value
+  let fallback
 
   for (const item of collection) {
     value = get(item, propName)
     if (!isEmpty(value) || isNumber(value) || isBoolean(value)) break
     if (value !== undefined) continue
+    if (fallback !== undefined) continue
     let results = searchSchemaResults(item, props, true)
     if (results.length === 0) results = searchSchemaResults(item, props, false)
     if (results.length > 0) {
-      value = results.filter(Boolean)[0]
-      if (value !== undefined) break
+      fallback = results.find(v => v != null)
     }
+  }
+
+  if (value == null && !isNumber(value) && !isBoolean(value)) {
+    value = fallback
   }
 
   if (
