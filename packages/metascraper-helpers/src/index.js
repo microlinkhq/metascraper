@@ -426,7 +426,8 @@ function searchSchemaResults (data, props, isExact) {
       return []
     }
     if (Object.prototype.hasOwnProperty.call(data, currentProp)) {
-      return searchSchemaResults(data[currentProp], rest, isExact)
+      const result = searchSchemaResults(data[currentProp], rest, isExact)
+      if (result.length > 0) return result
     }
     if (!isExact) {
       const nested = []
@@ -450,7 +451,7 @@ const $jsonld = propName => $ => {
   for (const item of collection) {
     value = get(item, propName)
     if (!isEmpty(value) || isNumber(value) || isBoolean(value)) break
-    if (value !== undefined) continue
+    if (value != null) continue
     if (fallback !== undefined) continue
     let results = searchSchemaResults(item, props, true)
     if (results.length === 0) results = searchSchemaResults(item, props, false)
