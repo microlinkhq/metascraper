@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "lodash": "^4.18.0"
+    "lodash": "~4.18.0"
   },
   "engines": {
     "node": ">= 22"
