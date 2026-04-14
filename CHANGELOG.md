@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.50.1](https://github.com/microlinkhq/metascraper/compare/v5.50.0...v5.50.1) (2026-04-14)
+
+### Bug Fixes
+
+* **security:** bump lodash from ~4.17.23 to ~4.18.0 ([#833](https://github.com/microlinkhq/metascraper/issues/833)) ([e89d9d3](https://github.com/microlinkhq/metascraper/commit/e89d9d3f0bfdebd76aba8cb5561b146152872cfb)), closes [#832](https://github.com/microlinkhq/metascraper/issues/832)
+
 # [5.50.0](https://github.com/microlinkhq/metascraper/compare/v5.49.25...v5.50.0) (2026-03-20)
 
 ### Features

@@ -2,7 +2,7 @@
   "name": "metascraper-defuddle",
   "description": "A Defuddle connector for metascraper",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-defuddle",
-  "version": "5.50.0",
+  "version": "5.50.1",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
