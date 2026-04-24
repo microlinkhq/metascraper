@@ -1,0 +1,41 @@
+{
+  "name": "metascraper-reddit",
+  "description": "Metascraper integration with Reddit",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-reddit",
+  "version": "5.50.1",
+  "types": "src/index.d.ts",
+  "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-reddit",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "metascraper",
+    "reddit"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "workspace:*"
+  },
+  "devDependencies": {
+    "ava": "5"
+  },
+  "engines": {
+    "node": ">= 22"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}

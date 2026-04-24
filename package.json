@@ -220,6 +220,7 @@
   },
   "nano-staged": {
     "*.js": [
+      "npx -y @kikobeats/prettier-standard",
       "standard --fix"
     ],
     "package.json": [
