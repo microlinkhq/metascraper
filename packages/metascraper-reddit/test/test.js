@@ -34,8 +34,20 @@ test('rules are functions', t => {
 test('previewUrl for string', t => {
   t.is(
     previewUrl('https://preview.redd.it/nodejs.png'),
-    'https://s.microlink.io/?c=1&o1=ro&url=https://preview.redd.it/nodejs.png'
+    'https://s.microlink.io/?c=1&o1=ro&url=https%3A%2F%2Fpreview.redd.it%2Fnodejs.png'
   )
+})
+
+test('previewUrl for string with query params', t => {
+  const output = previewUrl(
+    'https://preview.redd.it/image.jpg?width=640&format=pjpg'
+  )
+  const parsed = new URL(output)
+  t.is(
+    parsed.searchParams.get('url'),
+    'https://preview.redd.it/image.jpg?width=640&format=pjpg'
+  )
+  t.is(parsed.searchParams.get('format'), null)
 })
 
 test('previewUrl for non-string', t => {

@@ -20,7 +20,7 @@ const test = memoizeOne(url => REDDIT_DOMAINS.includes(parseUrl(url).domain))
 
 const previewUrl = url =>
   typeof url === 'string'
-    ? `https://s.microlink.io/?c=1&o1=ro&url=${url}`
+    ? `https://s.microlink.io/?c=1&o1=ro&url=${encodeURIComponent(url)}`
     : undefined
 
 module.exports = () => {
