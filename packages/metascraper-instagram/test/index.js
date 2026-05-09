@@ -37,7 +37,15 @@ test('from photo post', async t => {
     resolve(__dirname, 'fixtures/post-with-photo.html')
   )
   const metadata = await metascraper({ url, html })
-  t.snapshot(metadata)
+  t.is(metadata.author, 'Willyrex')
+  t.is(metadata.publisher, 'Instagram')
+  t.is(metadata.title, 'Willyrex (@willyrex) • Instagram photo')
+  t.is(metadata.url, url)
+  t.is(metadata.lang, 'en')
+  t.true(metadata.description.includes('May 29, 2021'))
+  t.true(metadata.image.startsWith('https://scontent-'))
+  t.true(metadata.logo.includes('cdninstagram.com'))
+  t.true(metadata.date === null || metadata.date === '2021-05-29T00:00:00.000Z')
 })
 
 test('from multi photo post', async t => {

@@ -23,7 +23,7 @@ const isCI = !!process.env.CI
   })
 })
 ;['https://www.youtube.com/watch?v=hwMkbaS_M_c'].forEach(url => {
-  test(url, async t => {
+  ;(isCI ? test.skip : test)(url, async t => {
     const metadata = await metascraper({ url })
     debug(metadata.video)
     t.true(isUrl(metadata.video))

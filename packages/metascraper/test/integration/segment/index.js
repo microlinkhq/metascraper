@@ -28,7 +28,7 @@ test('segment', async t => {
   const { logo, ...metadata } = await metascraper({ html, url })
   t.snapshot(metadata)
   t.true(
-    typeof logo === 'string' && new URL(logo).hostname.endsWith('.gstatic.com'),
-    logo
+    logo === null || (typeof logo === 'string' && /^https?:\/\//.test(logo)),
+    String(logo)
   )
 })

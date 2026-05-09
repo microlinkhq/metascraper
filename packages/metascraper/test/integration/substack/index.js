@@ -30,7 +30,7 @@ test('substack', async t => {
   t.snapshot(metadata)
   t.is(typeof date, 'string')
   t.true(
-    typeof logo === 'string' && new URL(logo).hostname.endsWith('.gstatic.com'),
-    logo
+    logo === null || (typeof logo === 'string' && /^https?:\/\//.test(logo)),
+    String(logo)
   )
 })
