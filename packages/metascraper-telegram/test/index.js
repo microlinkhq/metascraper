@@ -19,17 +19,22 @@ const createMetascraper = (...args) =>
     require('metascraper-url')()
   ])
 
+const createTelegramMetascraper = (...args) =>
+  require('metascraper')([require('metascraper-telegram')(...args)])
+
 test('avoid non allowed URLs', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/channel.html'))
   const url = 'https://t.co/d0rwf2dLIp'
-  const metascraper = createMetascraper()
-  const metadata = await metascraper({ url })
+  const metascraper = createTelegramMetascraper()
+  const metadata = await metascraper({ html, url })
   t.is(metadata.audio, undefined)
 })
 
 test('avoid URLs with no iframe src', async t => {
+  const html = await readFile(resolve(__dirname, 'fixtures/channel.html'))
   const url = 'https://t.me/unlimitedhangout'
-  const metascraper = createMetascraper()
-  const metadata = await metascraper({ url })
+  const metascraper = createTelegramMetascraper()
+  const metadata = await metascraper({ html, url })
   t.is(metadata.audio, undefined)
 })
 
@@ -49,7 +54,7 @@ test('avoid URLs with no iframe src as http', async t => {
     }
   }
 
-  const metascraper = createMetascraper({ gotOpts })
+  const metascraper = createTelegramMetascraper({ gotOpts })
   const metadata = await metascraper({ html, url })
   t.is(errors.length, 0)
   t.is(metadata.audio, undefined)
