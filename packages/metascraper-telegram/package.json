@@ -39,7 +39,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s --serial"
   },
   "license": "MIT"
 }
