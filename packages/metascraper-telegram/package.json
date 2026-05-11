@@ -39,7 +39,7 @@
     "src"
   ],
   "scripts": {
-    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+    "test": "METASCRAPER_RE2=false NODE_PATH=.. TZ=UTC ava --timeout 15s --serial --no-worker-threads"
   },
   "license": "MIT"
 }

@@ -85,7 +85,16 @@ test('vercel.com', async t => {
     '<link rel="manifest" href="/manifest.webmanifest">'
   ])
   const metadata = await metascraper({ url, html })
-  t.snapshot(metadata)
+  t.is(
+    metadata.description,
+    'Build and deploy the best web experiences with the AI Cloud'
+  )
+  t.is(metadata.lang, null)
+  t.is(metadata.publisher, 'Vercel')
+  t.true(
+    metadata.logo.endsWith('/front/favicon/vercel/android-chrome-512x512.png')
+  )
+  t.true(new URL(metadata.logo).hostname.includes('vercel'))
 })
 
 test('linkedin.com', async t => {

@@ -24,7 +24,6 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "lodash": "~4.17.23",
     "p-reflect": "~2.1.0"
   },
   "devDependencies": {
