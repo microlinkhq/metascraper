@@ -38,8 +38,8 @@ const createGetIframe = gotOpts => async (url, $) => {
   return response.body
 }
 
-module.exports = ({ gotOpts, keyvOpts } = {}) => {
-  const getIframe = memoize(createGetIframe(gotOpts), keyvOpts, {
+module.exports = ({ gotOpts, keyvOpts, getIframe: _getIframe } = {}) => {
+  const getIframe = memoize(_getIframe || createGetIframe(gotOpts), keyvOpts, {
     key: url => sanetizeUrl(url, { removeQueryParameters: true })
   })
 
