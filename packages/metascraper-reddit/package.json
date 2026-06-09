@@ -2,7 +2,7 @@
   "name": "metascraper-reddit",
   "description": "Metascraper integration with Reddit",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-reddit",
-  "version": "5.50.2",
+  "version": "5.50.5",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
