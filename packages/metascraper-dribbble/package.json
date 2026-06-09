@@ -19,8 +19,8 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "metascraper",
-    "dribbble"
+    "dribbble",
+    "metascraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

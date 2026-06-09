@@ -19,15 +19,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "metascraper",
-    "defuddle"
+    "defuddle",
+    "metascraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "async-memoize-one": "~1.1.9",
-    "debug-logfmt": "~1.4.7",
-    "defuddle": "~0.14.0",
-    "happy-dom": "~20.10.1"
+    "async-memoize-one": "~1.2.1",
+    "debug-logfmt": "~1.4.12",
+    "defuddle": "~0.18.1",
+    "happy-dom": "~20.10.2"
   },
   "devDependencies": {
     "ava": "5"

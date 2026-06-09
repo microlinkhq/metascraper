@@ -19,9 +19,9 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
-    "metascraper",
     "bluesky",
-    "bsky"
+    "bsky",
+    "metascraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"
