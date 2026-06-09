@@ -1,9 +1,17 @@
 version: 2
 updates:
-  - package-ecosystem: npm
-    directory: "/"
+  - package-ecosystem: "npm"
+    directories:
+      - "/"
+      - "/benchmark"
+      - "/packages/*"
+      - "/packages/*/benchmark"
     schedule:
-      interval: daily
+      interval: "daily"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

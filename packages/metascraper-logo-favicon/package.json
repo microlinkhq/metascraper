@@ -26,7 +26,7 @@
   "dependencies": {
     "@keyvhq/memoize": "~2.1.11",
     "@metascraper/helpers": "workspace:*",
-    "lodash": "~4.18.0",
+    "lodash": "~4.18.1",
     "reachable-url": "~1.8.3"
   },
   "devDependencies": {

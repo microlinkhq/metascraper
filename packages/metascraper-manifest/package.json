@@ -24,12 +24,12 @@
     "pwa"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.1.11",
+    "@keyvhq/memoize": "~2.2.4",
     "@metascraper/helpers": "workspace:*",
-    "async-memoize-one": "~1.1.9",
+    "async-memoize-one": "~1.2.1",
     "data-uri-to-buffer": "~5.0.1",
     "got": "~11.8.6",
-    "lodash": "~4.18.0"
+    "lodash": "~4.18.1"
   },
   "devDependencies": {
     "ava": "5"

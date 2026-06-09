@@ -25,8 +25,8 @@
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "@mozilla/readability": "~0.6.0",
-    "async-memoize-one": "~1.1.9",
-    "happy-dom": "~20.10.1"
+    "async-memoize-one": "~1.2.1",
+    "happy-dom": "~20.10.2"
   },
   "devDependencies": {
     "ava": "5"
