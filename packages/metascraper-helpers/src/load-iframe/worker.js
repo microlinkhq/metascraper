@@ -50,4 +50,6 @@ async function main ({ url, html, timeout }) {
   return Promise.race([waitForIframe, timeoutReached])
 }
 
-main(workerData).then(html => parentPort.postMessage(html))
+main(workerData)
+  .then(html => parentPort.postMessage(html))
+  .catch(() => parentPort.postMessage(undefined))
