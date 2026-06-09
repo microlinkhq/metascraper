@@ -27,11 +27,11 @@
     "@keyvhq/memoize": "~2.2.4",
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.2.1",
-    "got": "~11.8.6",
+    "got": "~15.0.5",
     "spotify-url-info": "~3.3.0"
   },
   "devDependencies": {
-    "ava": "5",
+    "ava": "8",
     "kind-of": "latest",
     "lodash": "latest"
   },

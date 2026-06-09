@@ -26,14 +26,14 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "got": "~11.8.6",
+    "got": "~15.0.5",
     "lodash": "~4.18.1",
     "oembed-spec": "~1.4.6",
-    "p-reflect": "~2.1.0"
+    "p-reflect": "~3.1.0"
   },
   "devDependencies": {
-    "ava": "5",
-    "cacheable-lookup": "6",
+    "ava": "8",
+    "cacheable-lookup": "7",
     "cheerio": "latest"
   },
   "engines": {

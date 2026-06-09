@@ -24,15 +24,15 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.1.11",
+    "@keyvhq/memoize": "~2.2.4",
     "@metascraper/helpers": "workspace:*",
     "lodash": "~4.18.1",
     "reachable-url": "~1.8.3"
   },
   "devDependencies": {
     "async-listen": "latest",
-    "ava": "5",
-    "got": "11"
+    "ava": "8",
+    "got": "15"
   },
   "engines": {
     "node": ">= 22"
