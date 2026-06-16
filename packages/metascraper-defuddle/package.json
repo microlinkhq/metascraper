@@ -27,7 +27,7 @@
     "async-memoize-one": "~1.2.1",
     "debug-logfmt": "~1.4.12",
     "defuddle": "~0.18.1",
-    "happy-dom": "~20.10.2"
+    "linkedom": "~0.18.12"
   },
   "devDependencies": {
     "ava": "5"

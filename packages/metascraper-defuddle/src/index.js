@@ -2,30 +2,18 @@
 
 const { memoizeOne, composeRule, getHtml } = require('@metascraper/helpers')
 const asyncMemoizeOne = require('async-memoize-one')
-const { Window } = require('happy-dom')
+const { parseHTML } = require('linkedom')
 
 const debug = require('debug-logfmt')('metascraper-defuddle')
 
-const DOCUMENT_SETTINGS = {
-  disableComputedStyleRendering: true,
-  disableCSSFileLoading: true,
-  disableIframePageLoading: true,
-  disableJavaScriptEvaluation: true,
-  disableJavaScriptFileLoading: true
-}
-
 const defuddleExtract = asyncMemoizeOne(async (url, html) => {
   const { Defuddle } = await import('defuddle/node')
-  const window = new Window({ url, settings: DOCUMENT_SETTINGS })
-  window.document.documentElement.innerHTML = html
   try {
-    const result = await Defuddle(window.document, url, { useAsync: false })
-    return result
+    const { document } = parseHTML(html)
+    return await Defuddle(document, url, { useAsync: false })
   } catch (err) {
     debug('Defuddle failed, fallback to next rule', { message: err.message })
     return undefined
-  } finally {
-    await window.happyDOM.close()
   }
 }, memoizeOne.EqualityFirstArgument)
 
