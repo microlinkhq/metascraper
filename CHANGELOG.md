@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.51.0](https://github.com/microlinkhq/metascraper/compare/v5.50.7...v5.51.0) (2026-06-16)
+
+### Features
+
+* **defuddle:** add preprocess and defuddleOpts options ([#844](https://github.com/microlinkhq/metascraper/issues/844)) ([c0717b5](https://github.com/microlinkhq/metascraper/commit/c0717b5d3ad4edc8c2e6f00ab4fb47017640207a))
+
 ## [5.50.7](https://github.com/microlinkhq/metascraper/compare/v5.50.6...v5.50.7) (2026-06-16)
 
 **Note:** Version bump only for package metascraper
