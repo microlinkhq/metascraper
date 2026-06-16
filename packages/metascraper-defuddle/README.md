@@ -14,6 +14,25 @@
 $ npm install metascraper-defuddle --save
 ```
 
+## Usage
+
+```js
+const metascraper = require('metascraper')([require('metascraper-defuddle')()])
+```
+
+It runs a single [Defuddle](https://github.com/kepano/defuddle) `parseInternal` pass — not the high-level `Defuddle()`, whose `parse()` re-runs on low `wordCount` to recover _content_. This connector extracts metadata, which is read from meta tags/schema regardless of content removals, so those retries add nothing here.
+
+The Defuddle result is memoized by HTML, so the same page is defuddled once even when several rules (or another consumer, such as a markdown renderer) request it; the same URL re-fetched with different HTML still re-extracts.
+
+### Options
+
+```js
+require('metascraper-defuddle')({ preprocess, defuddleOpts })
+```
+
+- **preprocess** `(document, html) => void` — mutate the parsed DOM before extraction (e.g. strip noise, normalize flattened shadow-DOM content).
+- **defuddleOpts** `object` — options forwarded to Defuddle's `parseInternal` (e.g. `{ removeLowScoring: false }` to keep link-heavy blocks).
+
 ## License
 
 **metascraper-defuddle** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/metascraper/blob/master/LICENSE.md) License.<br>
