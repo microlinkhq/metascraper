@@ -1,11 +1,24 @@
 'use strict'
 
-const { memoizeOne, composeRule, getHtml } = require('@metascraper/helpers')
+const { composeRule, getHtml } = require('@metascraper/helpers')
 const debug = require('debug-logfmt')('metascraper-defuddle')
 const asyncMemoizeOne = require('async-memoize-one')
 const { parseHTML } = require('linkedom')
 
-// Single Defuddle `parseInternal` pass, memoized by HTML. See README for the
+// Cache key = HTML + url + the identity of `preprocess`/`defuddleOpts`, so a
+// call with the same HTML but a different hook or options (e.g. another
+// metascraper-defuddle() instance or defuddleExtract consumer) re-extracts
+// instead of reusing a result produced with different ones.
+const isSameExtraction = (
+  [html, url, opts = {}],
+  [oldHtml, oldUrl, oldOpts = {}]
+) =>
+  html === oldHtml &&
+  url === oldUrl &&
+  opts.preprocess === oldOpts.preprocess &&
+  opts.defuddleOpts === oldOpts.defuddleOpts
+
+// Single Defuddle `parseInternal` pass, memoized. See README for the
 // `preprocess` / `defuddleOpts` options and the rationale.
 const extractMemo = asyncMemoizeOne(
   async (html, url, { preprocess, defuddleOpts } = {}) => {
@@ -19,7 +32,7 @@ const extractMemo = asyncMemoizeOne(
       return undefined
     }
   },
-  memoizeOne.EqualityFirstArgument
+  isSameExtraction
 )
 
 const defuddleExtract = (url, html, options) => extractMemo(html, url, options)
