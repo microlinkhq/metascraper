@@ -30,7 +30,7 @@
     "linkedom": "~0.18.12"
   },
   "devDependencies": {
-    "ava": "5"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"

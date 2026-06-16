@@ -28,7 +28,7 @@
     "@metascraper/helpers": "workspace:*"
   },
   "devDependencies": {
-    "ava": "5"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"
