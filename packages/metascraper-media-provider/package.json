@@ -27,20 +27,20 @@
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.2.1",
     "debug-logfmt": "~1.4.12",
-    "got": "~11.8.6",
+    "got": "~15.0.5",
     "lodash": "~4.18.1",
-    "p-reflect": "~2.1.0",
-    "p-retry": "~4.6.1",
-    "p-timeout": "~4.1.0",
-    "serialize-error": "~8.1.0",
+    "p-reflect": "~3.1.0",
+    "p-retry": "~8.0.0",
+    "p-timeout": "~7.0.1",
+    "serialize-error": "~13.0.1",
     "youtube-dl-exec": "~3.1.7"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",
-    "ava": "5",
+    "ava": "8",
     "parse-proxy-uri": "latest",
     "pretty-ms": "latest",
-    "unique-random-array": "2"
+    "unique-random-array": "4"
   },
   "engines": {
     "node": ">= 22"
