@@ -154,7 +154,10 @@ const sanetizeUrl = (url, opts) =>
 
 const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
-    return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
+    const absolute = absoluteUrl(baseUrl, relativePath)
+    // normalize-url v9 no longer rejects `javascript:` URLs; keep them out
+    if (urlObject(absolute).protocol === 'javascript:') return undefined
+    return sanetizeUrl(absolute, opts)
   } catch (_) {}
 }
 
