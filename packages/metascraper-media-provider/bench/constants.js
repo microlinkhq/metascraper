@@ -1,4 +1,4 @@
-const uniqueRandomArray = require('unique-random-array')
+const uniqueRandomArray = require('unique-random-array').default
 
 const timeout = 4000
 

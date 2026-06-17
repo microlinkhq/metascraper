@@ -3,7 +3,7 @@
 const cheerio = require('cheerio')
 const { spawn } = require('child_process')
 const path = require('path')
-const test = require('ava')
+const test = require('ava').default
 
 const { loadIframe } = require('..')
 

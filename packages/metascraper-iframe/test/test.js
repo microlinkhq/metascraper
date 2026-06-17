@@ -3,7 +3,7 @@
 const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const cheerio = require('cheerio')
-const test = require('ava')
+const test = require('ava').default
 
 const { commonProviders } = require('./helpers')
 const { test: validator } = require('..')

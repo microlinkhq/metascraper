@@ -12,7 +12,7 @@ const {
 } = require('@metascraper/helpers')
 
 const memoize = require('@keyvhq/memoize')
-const pReflect = require('p-reflect')
+const pReflect = require('p-reflect').default
 const cssUrls = require('css-urls')
 const got = require('got')
 

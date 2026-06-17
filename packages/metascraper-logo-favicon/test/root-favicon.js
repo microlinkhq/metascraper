@@ -1,6 +1,6 @@
 'use strict'
 
-const test = require('ava')
+const test = require('ava').default
 const got = require('got')
 
 const { createGetLogo, createRootFavicon, google } = require('..')
@@ -36,7 +36,7 @@ test('exclude certain subdomains', async t => {
   t.is(logoUrl, undefined)
 })
 
-test('disable it when \'{ withRootFavicon: false}\'', async t => {
+test("disable it when '{ withRootFavicon: false}'", async t => {
   const rootFavicon = createRootFavicon({ withRootFavicon: false })
   t.is(rootFavicon, undefined)
 })

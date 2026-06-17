@@ -1,6 +1,6 @@
 'use strict'
 
-const test = require('ava')
+const test = require('ava').default
 
 const { test: validator, previewUrl } = require('..')
 const metascraperReddit = require('..')

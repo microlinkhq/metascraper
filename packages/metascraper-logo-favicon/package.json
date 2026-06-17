@@ -32,7 +32,7 @@
   "devDependencies": {
     "async-listen": "latest",
     "ava": "8",
-    "got": "15"
+    "got": "11"
   },
   "engines": {
     "node": ">= 22"

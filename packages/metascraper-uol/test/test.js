@@ -1,7 +1,7 @@
 'use strict'
 
 const wordSlug = require('word-slug')
-const test = require('ava')
+const test = require('ava').default
 
 const { test: validator } = require('..')
 

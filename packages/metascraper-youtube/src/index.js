@@ -2,7 +2,7 @@
 
 const reachableUrl = require('reachable-url')
 const getVideoId = require('get-video-id')
-const pLocate = require('p-locate')
+const pLocate = require('p-locate').default
 
 const {
   $filter,
