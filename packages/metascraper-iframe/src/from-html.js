@@ -2,7 +2,7 @@
 
 const { normalizeUrl, memoizeOne } = require('@metascraper/helpers')
 const { forEach, get } = require('lodash')
-const pReflect = require('p-reflect')
+const pReflect = require('p-reflect').default
 const got = require('got')
 
 const getOembedUrl = memoizeOne(
@@ -26,12 +26,14 @@ const getOembedUrl = memoizeOne(
     memoizeOne.EqualityUrlAndHtmlDom(newArgs, oldArgs)
 )
 
-const fromHTML = ({ gotOpts }) => async ({ htmlDom, url, iframe }) => {
-  const oembedUrl = getOembedUrl(url, htmlDom, iframe)
-  if (!oembedUrl) return
-  const { value } = await pReflect(got(oembedUrl, gotOpts).json())
-  return get(value, 'html')
-}
+const fromHTML =
+  ({ gotOpts }) =>
+    async ({ htmlDom, url, iframe }) => {
+      const oembedUrl = getOembedUrl(url, htmlDom, iframe)
+      if (!oembedUrl) return
+      const { value } = await pReflect(got(oembedUrl, gotOpts).json())
+      return get(value, 'html')
+    }
 
 fromHTML.test = (url, $) => getOembedUrl(url, $) !== undefined
 

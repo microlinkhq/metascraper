@@ -26,11 +26,11 @@
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "get-video-id": "3",
-    "p-locate": "~5.0.0",
+    "p-locate": "~7.0.0",
     "reachable-url": "~1.8.3"
   },
   "devDependencies": {
-    "ava": "5"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"

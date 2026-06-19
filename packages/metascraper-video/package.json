@@ -24,11 +24,11 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "p-reflect": "~2.1.0"
+    "p-reflect": "~3.1.0"
   },
   "devDependencies": {
     "async-listen": "latest",
-    "ava": "5"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"

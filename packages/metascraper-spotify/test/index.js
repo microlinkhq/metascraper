@@ -4,7 +4,7 @@ const { readFile } = require('fs/promises')
 const { mapValues } = require('lodash')
 const { resolve } = require('path')
 const kindOf = require('kind-of')
-const test = require('ava')
+const test = require('ava').default
 
 const { fixtures, allUrls } = require('./helpers')
 

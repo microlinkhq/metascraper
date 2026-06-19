@@ -1,6 +1,6 @@
 'use strict'
 
-const test = require('ava')
+const test = require('ava').default
 
 const createMetascraperFeed = require('..')
 const createMetascraper = require('metascraper')

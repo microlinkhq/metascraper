@@ -3,7 +3,7 @@
 // Isolated in its own file: the extractor memoizes a single result keyed by its
 // arguments, so a colliding call from another concurrent test would mask the
 // behaviour under test. A dedicated process keeps these two calls deterministic.
-const test = require('ava')
+const test = require('ava').default
 const path = require('path')
 const fs = require('fs')
 

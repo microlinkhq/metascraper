@@ -26,11 +26,11 @@
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.2.1",
     "debug-logfmt": "~1.4.12",
-    "defuddle": "~0.18.1",
+    "defuddle": "~0.19.0",
     "linkedom": "~0.18.12"
   },
   "devDependencies": {
-    "ava": "5"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"

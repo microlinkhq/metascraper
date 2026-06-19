@@ -2,7 +2,7 @@
 
 const debug = require('debug-logfmt')('metascraper-media-provider:test')
 const { extension, isUrl } = require('@metascraper/helpers')
-const test = require('ava')
+const test = require('ava').default
 
 const { metascraper } = require('../helpers')
 

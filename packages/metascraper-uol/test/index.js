@@ -2,7 +2,7 @@
 
 const { readFile } = require('fs/promises')
 const { resolve } = require('path')
-const test = require('ava')
+const test = require('ava').default
 
 const metascraperUol = require('..')
 

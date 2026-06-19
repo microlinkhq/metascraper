@@ -2,16 +2,17 @@
 
 const memoizeOne = require('memoize-one').default || require('memoize-one')
 const debug = require('debug-logfmt')('metascraper:find-rule')
-const condenseWhitespace = require('condense-whitespace')
-const { getExtension: mimeExtension } = require('mime')
+const condenseWhitespace = require('condense-whitespace').default
+const mime = require('mime').default
+const mimeExtension = mime.getExtension.bind(mime)
 const capitalize = require('microsoft-capitalize')
-const isRelativeUrl = require('is-relative-url')
+const isRelativeUrl = require('is-relative-url').default
 const fileExtension = require('file-extension')
-const _normalizeUrl = require('normalize-url')
+const _normalizeUrl = require('normalize-url').default
 const { jsonrepair } = require('jsonrepair')
 const smartquotes = require('smartquotes')
 const { decodeHTML } = require('entities')
-const iso6393 = require('iso-639-3/to-1')
+const { iso6393To1: iso6393 } = require('iso-639-3/iso6393-to-1.js')
 const dataUri = require('data-uri-utils')
 const hasValues = require('has-values')
 const chrono = require('chrono-node')
@@ -102,7 +103,7 @@ const audioExtensions = chain(require('audio-extensions'))
   }, {})
   .value()
 
-const videoExtensions = chain(require('video-extensions'))
+const videoExtensions = chain(require('video-extensions').default)
   .reduce((acc, ext) => {
     acc[ext] = VIDEO
     return acc
@@ -153,7 +154,10 @@ const sanetizeUrl = (url, opts) =>
 
 const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
-    return sanetizeUrl(absoluteUrl(baseUrl, relativePath), opts)
+    const absolute = absoluteUrl(baseUrl, relativePath)
+    // normalize-url v9 no longer rejects `javascript:` URLs; keep them out
+    if (urlObject(absolute).protocol === 'javascript:') return undefined
+    return sanetizeUrl(absolute, opts)
   } catch (_) {}
 }
 
