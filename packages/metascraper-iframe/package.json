@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "ava": "8",
-    "cacheable-lookup": "6",
+    "cacheable-lookup": "7",
     "cheerio": "latest"
   },
   "engines": {
