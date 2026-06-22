@@ -26,7 +26,7 @@
     "@keyvhq/memoize": "~2.2.4",
     "@metascraper/helpers": "workspace:*",
     "css-urls": "~2.0.49",
-    "got": "~11.8.6",
+    "got": "~15.0.6",
     "p-reflect": "~3.1.0"
   },
   "devDependencies": {
