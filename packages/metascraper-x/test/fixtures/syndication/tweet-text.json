@@ -1,0 +1,46 @@
+{
+  "__typename": "Tweet",
+  "favorite_count": 308153,
+  "lang": "en",
+  "created_at": "2006-03-21T20:50:14.000Z",
+  "display_text_range": [
+    0,
+    24
+  ],
+  "entities": {},
+  "id_str": "20",
+  "text": "just setting up my twttr",
+  "user": {
+    "id_str": "12",
+    "name": "jack",
+    "screen_name": "jack",
+    "is_blue_verified": true,
+    "profile_image_shape": "Circle",
+    "verified": false,
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1661201415899951105/azNjKOSH_normal.jpg",
+    "highlighted_label": {
+      "badge": {
+        "url": "https://pbs.twimg.com/profile_images/1285655593592791040/HtwPZgej_bigger.jpg"
+      },
+      "description": "Square",
+      "url": {
+        "url": "https://twitter.com/Square",
+        "url_type": "DeepLink"
+      },
+      "user_label_display_type": "Badge",
+      "user_label_type": "BusinessLabel"
+    }
+  },
+  "edit_control": {
+    "edit_tweet_ids": [
+      "20"
+    ],
+    "editable_until_msecs": "1142976014000",
+    "edits_remaining": "5",
+    "is_edit_eligible": true
+  },
+  "conversation_count": 17948,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
+}

@@ -1,0 +1,116 @@
+{
+  "__typename": "Tweet",
+  "favorite_count": 460083,
+  "lang": "en",
+  "possibly_sensitive": false,
+  "created_at": "2012-11-07T04:16:18.000Z",
+  "display_text_range": [
+    0,
+    37
+  ],
+  "entities": {
+    "media": [
+      {
+        "display_url": "pic.x.com/bAJE6Vom",
+        "expanded_url": "https://x.com/BarackObama/status/266031293945503744/photo/1",
+        "indices": [
+          17,
+          37
+        ],
+        "url": "http://t.co/bAJE6Vom"
+      }
+    ]
+  },
+  "id_str": "266031293945503744",
+  "text": "Four more years. http://t.co/bAJE6Vom",
+  "user": {
+    "id_str": "813286",
+    "name": "Barack Obama",
+    "screen_name": "BarackObama",
+    "is_blue_verified": true,
+    "profile_image_shape": "Circle",
+    "verified": false,
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1329647526807543809/2SGvnHYV_normal.jpg",
+    "highlighted_label": {
+      "badge": {
+        "url": "https://pbs.twimg.com/profile_images/1644381876465938433/7TiSgwTB_bigger.jpg"
+      },
+      "description": "The Office of Barack and Michelle Obama",
+      "url": {
+        "url": "https://twitter.com/TheObamaOffice",
+        "url_type": "DeepLink"
+      },
+      "user_label_display_type": "Badge",
+      "user_label_type": "BusinessLabel"
+    }
+  },
+  "edit_control": {
+    "edit_tweet_ids": [
+      "266031293945503744"
+    ],
+    "editable_until_msecs": "1352263577756",
+    "edits_remaining": "5",
+    "is_edit_eligible": true
+  },
+  "mediaDetails": [
+    {
+      "display_url": "pic.x.com/bAJE6Vom",
+      "expanded_url": "https://x.com/BarackObama/status/266031293945503744/photo/1",
+      "ext_media_availability": {
+        "status": "Available"
+      },
+      "indices": [
+        17,
+        37
+      ],
+      "media_url_https": "https://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg",
+      "original_info": {
+        "focus_rects": [],
+        "height": 532,
+        "width": 800
+      },
+      "sizes": {
+        "large": {
+          "h": 532,
+          "resize": "fit",
+          "w": 800
+        },
+        "medium": {
+          "h": 532,
+          "resize": "fit",
+          "w": 800
+        },
+        "small": {
+          "h": 452,
+          "resize": "fit",
+          "w": 680
+        },
+        "thumb": {
+          "h": 150,
+          "resize": "crop",
+          "w": 150
+        }
+      },
+      "type": "photo",
+      "url": "http://t.co/bAJE6Vom"
+    }
+  ],
+  "photos": [
+    {
+      "backgroundColor": {
+        "red": 204,
+        "green": 214,
+        "blue": 221
+      },
+      "cropCandidates": [],
+      "expandedUrl": "https://x.com/BarackObama/status/266031293945503744/photo/1",
+      "url": "https://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg",
+      "width": 800,
+      "height": 532
+    }
+  ],
+  "conversation_count": 46970,
+  "news_action_type": "conversation",
+  "isEdited": false,
+  "isStaleEdit": false
+}

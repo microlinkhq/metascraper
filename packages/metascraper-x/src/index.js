@@ -135,3 +135,10 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
 }
 
 module.exports.test = test
+
+const { parseTweetId, getToken, buildHtml, getEmbed } = require('./syndication')
+
+module.exports.parseTweetId = parseTweetId
+module.exports.getToken = getToken
+module.exports.buildHtml = buildHtml
+module.exports.getEmbed = getEmbed

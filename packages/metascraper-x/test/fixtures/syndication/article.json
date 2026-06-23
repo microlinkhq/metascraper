@@ -1,0 +1,62 @@
+{
+  "__typename": "Tweet",
+  "favorite_count": 65,
+  "lang": "zxx",
+  "possibly_sensitive": false,
+  "created_at": "2026-06-11T09:04:37.000Z",
+  "display_text_range": [
+    0,
+    23
+  ],
+  "entities": {
+    "urls": [
+      {
+        "display_url": "x.com/i/article/2064…",
+        "expanded_url": "http://x.com/i/article/2064823727674503169",
+        "indices": [
+          0,
+          23
+        ],
+        "url": "https://t.co/iX1DJVOMkS"
+      }
+    ]
+  },
+  "id_str": "2064997219648913457",
+  "text": "https://t.co/iX1DJVOMkS",
+  "user": {
+    "id_str": "1870642493693583360",
+    "name": "Eliana",
+    "screen_name": "eliana_jordan",
+    "is_blue_verified": true,
+    "profile_image_shape": "Circle",
+    "verified": false,
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1966795855354060800/Nt--wKfR_normal.jpg"
+  },
+  "edit_control": {
+    "edit_tweet_ids": [
+      "2064997219648913457"
+    ],
+    "editable_until_msecs": "1781172277000",
+    "edits_remaining": "5",
+    "is_edit_eligible": false
+  },
+  "conversation_count": 14,
+  "news_action_type": "conversation",
+  "article": {
+    "cover_media": {
+      "id": "QXBpTWVkaWE6DAAFCgABHKe+43fX0AAKAAIZ9dtv2ltgAAAA",
+      "media_info": {
+        "__typename": "ApiImage",
+        "original_img_height": 768,
+        "original_img_url": "https://pbs.twimg.com/media/HKe-43fX0AAfDI_.jpg",
+        "original_img_width": 1920
+      }
+    },
+    "id": "QXJ0aWNsZUVudGl0eToyMDY0ODIzNzI3Njc0NTAzMTY5",
+    "preview_text": "My Instagram had 23K followers and was completely dead.\n800 views per reel. Zero reach. The algorithm had forgotten me.\nHere's the real context: I built that account as a travel and lifestyle creator.",
+    "rest_id": "2064823727674503169",
+    "title": "My Instagram was dead for a year. One weekend changed that. 100K views, 500+ followers, 300+ users"
+  },
+  "isEdited": false,
+  "isStaleEdit": false
+}
