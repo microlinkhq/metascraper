@@ -14,15 +14,17 @@ updates:
           - "*"
     ignore:
       # These packages are ESM-only from their next major and the codebase
-      # is CommonJS, so stay on the latest CJS-compatible major.
+      # is CommonJS, so stay on the latest CJS-compatible major. Pinned via
+      # explicit version ranges because grouped updates do not reliably honor
+      # `update-types: version-update:semver-major`.
       - dependency-name: "got"
-        update-types: ["version-update:semver-major"]
+        versions: [">=12"]
       - dependency-name: "cacheable-lookup"
-        update-types: ["version-update:semver-major"]
+        versions: [">=7"]
       - dependency-name: "data-uri-to-buffer"
-        update-types: ["version-update:semver-major"]
+        versions: [">=6"]
       - dependency-name: "get-video-id"
-        update-types: ["version-update:semver-major"]
+        versions: [">=4"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
