@@ -53,7 +53,9 @@ const escapeHtml = value =>
 const expandText = tweet => {
   let text = tweet.text || ''
   const entities = tweet.entities || {}
-  for (const media of entities.media || []) { text = text.split(media.url).join('') }
+  for (const media of entities.media || []) {
+    text = text.split(media.url).join('')
+  }
   for (const url of entities.urls || []) {
     text = text.split(url.url).join(url.expanded_url || url.url)
   }
@@ -80,7 +82,9 @@ const collectImages = tweet => {
     }
   }
   if (images.length === 0) {
-    for (const photo of tweet.photos || []) { images.push({ url: photo.url, alt: '' }) }
+    for (const photo of tweet.photos || []) {
+      images.push({ url: photo.url, alt: '' })
+    }
   }
   return images.filter(image => image.url)
 }
@@ -119,6 +123,17 @@ const buildHtml = (tweet, url) => {
   const article = tweet.article
 
   const ogTitle = authorName
+
+  // Rebuild the canonical URL with the real screen_name so /i/status, /i/article
+  // and /i/web/status URLs (whose first path segment is `i`) don't yield a
+  // "{name} (@i) on X" title downstream.
+  const id = tweet.id_str || parseTweetId(url)
+  const canonical =
+    user.screen_name && id
+      ? `https://x.com/${user.screen_name}/${
+        article ? 'article' : 'status'
+      }/${id}`
+      : url
 
   let pageTitle
   let description
@@ -159,8 +174,8 @@ const buildHtml = (tweet, url) => {
     `<title>${escapeHtml(pageTitle)}</title>`,
     '<meta property="og:type" content="article">',
     '<meta property="og:site_name" content="X">',
-    `<meta property="og:url" content="${escapeHtml(url)}">`,
-    `<link rel="canonical" href="${escapeHtml(url)}">`,
+    `<meta property="og:url" content="${escapeHtml(canonical)}">`,
+    `<link rel="canonical" href="${escapeHtml(canonical)}">`,
     `<meta property="og:title" content="${escapeHtml(ogTitle)}">`,
     description &&
       `<meta property="og:description" content="${escapeHtml(description)}">`,
@@ -204,16 +219,22 @@ const fetchTweet = async (
   endpoint.searchParams.set('token', getToken(id))
   endpoint.searchParams.set('lang', 'en')
 
-  const response = await fetch(endpoint, {
-    headers: { accept: 'application/json' },
-    signal: timeout > 0 ? AbortSignal.timeout(Math.floor(timeout)) : undefined
-  })
-  if (!response.ok) return undefined
+  // Network errors, aborted timeouts, and invalid JSON must degrade to
+  // `undefined` so callers can fall back to their normal fetch pipeline.
+  try {
+    const response = await fetch(endpoint, {
+      headers: { accept: 'application/json' },
+      signal: timeout > 0 ? AbortSignal.timeout(Math.floor(timeout)) : undefined
+    })
+    if (!response.ok) return undefined
 
-  const body = await response.json()
-  // Tombstoned, protected, or removed posts come back as a non-Tweet typename.
-  if (!body || body.__typename !== 'Tweet') return undefined
-  return body
+    const body = await response.json()
+    // Tombstoned, protected, or removed posts come back as a non-Tweet typename.
+    if (!body || body.__typename !== 'Tweet') return undefined
+    return body
+  } catch {
+    return undefined
+  }
 }
 
 /**

@@ -38,7 +38,9 @@ test('parseTweetId extracts the status id from X post URLs', t => {
     'https://x.com/i/article/2064997219648913457': '2064997219648913457',
     'https://x.com/jack/status/20?s=21&t=abc': '20'
   }
-  for (const [url, id] of Object.entries(cases)) { t.is(parseTweetId(url), id, url) }
+  for (const [url, id] of Object.entries(cases)) {
+    t.is(parseTweetId(url), id, url)
+  }
 })
 
 test('parseTweetId returns undefined for non-post URLs', t => {
@@ -167,4 +169,32 @@ test('getEmbed: returns undefined on a non-ok response', async t => {
   const url = 'https://x.com/jack/status/20'
   const fetch = async () => ({ ok: false, json: async () => ({}) })
   t.is(await getEmbed(url, { fetch }), undefined)
+})
+
+test('getEmbed: returns undefined (not throws) when fetch rejects', async t => {
+  const url = 'https://x.com/jack/status/20'
+  const fetch = async () => {
+    throw new Error('network down')
+  }
+  t.is(await getEmbed(url, { fetch }), undefined)
+})
+
+test('getEmbed: returns undefined (not throws) on invalid JSON', async t => {
+  const url = 'https://x.com/jack/status/20'
+  const fetch = async () => ({
+    ok: true,
+    json: async () => {
+      throw new SyntaxError('Unexpected token')
+    }
+  })
+  t.is(await getEmbed(url, { fetch }), undefined)
+})
+
+test('i-path URL keeps the real @handle in the title', async t => {
+  // first path segment is `i`, not the screen_name
+  const url = 'https://x.com/i/article/2064997219648913457'
+  const html = buildHtml(fixture('article'), url)
+  const metadata = await createMetascraper()({ html, url })
+  t.is(metadata.title, 'Eliana (@eliana_jordan) on X')
+  t.is(metadata.url, 'https://x.com/eliana_jordan/article/2064997219648913457')
 })

@@ -29,6 +29,17 @@ const getAuthorName = memoizeOne(ogTitle =>
   ogTitle?.split(' on X:')[0].split(' (@')[0].trim()
 )
 
+// The handle is the first path segment. Prefer the canonical link (which
+// carries the real screen_name) over the request URL, whose first segment is
+// `i` for /i/status, /i/web/status and /i/article URLs.
+const getHandle = value => {
+  try {
+    return new URL(value).pathname.split('/')[1] || undefined
+  } catch {
+    return undefined
+  }
+}
+
 module.exports = ({ resolveUrl = url => url } = {}) => {
   const rules = {
     author: [
@@ -38,7 +49,13 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
     ],
     title: [
       toTitle(($, url) => {
-        const username = new URL(url).pathname.split('/')[1]
+        const fromUrl = getHandle(url)
+        // `i` is the reserved segment of /i/status, /i/web/status and /i/article
+        // URLs — fall back to the canonical link, which carries the real handle.
+        const username =
+          fromUrl && fromUrl !== 'i'
+            ? fromUrl
+            : getHandle($('link[rel="canonical"]').attr('href')) || fromUrl
         const authorName = getAuthorName(
           $('meta[property="og:title"]').attr('content')
         )
