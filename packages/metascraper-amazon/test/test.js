@@ -33,4 +33,8 @@ test('false', t => {
   t.false(validator('https://asitea.com/x'))
   t.false(validator('https://notamazon.com/x'))
   t.false(validator('https://amazon-fake.com/x'))
+  // Subdomain spoofs where the registrable domain is the attacker's
+  t.false(validator('https://amazon.evil.com/x'))
+  t.false(validator('https://amzn.evil.com/x'))
+  t.false(validator('https://amazon.com.evil.org/x'))
 })
