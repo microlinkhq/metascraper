@@ -11,10 +11,13 @@ const {
   url
 } = require('@metascraper/helpers')
 
-const REGEX_AMAZON_URL =
-  /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
+const isAmazonDomain = domain => {
+  if (!domain) return false
+  if (domain === 'a.co') return true
+  return /^(?:amazon|amzn)\./.test(domain)
+}
 
-const test = memoizeOne(url => REGEX_AMAZON_URL.test(url))
+const test = memoizeOne(url => isAmazonDomain(parseUrl(url).domain))
 
 const SUFFIX_LANGUAGES = {
   ca: 'en',

@@ -26,4 +26,11 @@ test('false', t => {
   t.false(validator('https://twitter.com/username/'))
   t.false(validator('https://www.youtube.com/watch?v=123'))
   t.false(validator('https://example.com'))
+  // Hosts that merely contain "a.co" or "amazon" as a substring must not match
+  t.false(validator('https://www.rangemedia.co/some-post'))
+  t.false(validator('https://formula.co/post'))
+  t.false(validator('https://asitea.co/x'))
+  t.false(validator('https://asitea.com/x'))
+  t.false(validator('https://notamazon.com/x'))
+  t.false(validator('https://amazon-fake.com/x'))
 })
