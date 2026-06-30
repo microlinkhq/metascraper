@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.51.2](https://github.com/microlinkhq/metascraper/compare/v5.51.1...v5.51.2) (2026-06-30)
+
+### Bug Fixes
+
+* **metascraper-amazon:** match Amazon domains via PSL hostname, not substring regex ([#852](https://github.com/microlinkhq/metascraper/issues/852)) ([ec0d494](https://github.com/microlinkhq/metascraper/commit/ec0d494dcc37b48c2091505a2a305762f965a257)), closes [#851](https://github.com/microlinkhq/metascraper/issues/851)
+
 ## [5.51.1](https://github.com/microlinkhq/metascraper/compare/v5.51.0...v5.51.1) (2026-06-19)
 
 **Note:** Version bump only for package metascraper
