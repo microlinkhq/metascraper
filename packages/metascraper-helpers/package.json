@@ -42,7 +42,7 @@
     "microsoft-capitalize": "~1.0.8",
     "mime": "4",
     "normalize-url": "9",
-    "re2": "~1.25.0",
+    "re2": "~1.26.0",
     "smartquotes": "~2.3.2",
     "tldts": "~7.4.2",
     "url-regex-safe": "~4.0.0",
