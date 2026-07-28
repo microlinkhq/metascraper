@@ -12,7 +12,7 @@
 
 [BIMI](https://datatracker.ietf.org/doc/draft-blank-ietf-bimi/) is the standard behind the brand logo mailbox providers show next to an email. Domains publish it as a TXT record:
 
-```
+```console
 $ dig +short TXT default._bimi.microlink.io
 "v=BIMI1; l=https://cdn.microlink.io/logo/logo.svg;"
 ```
