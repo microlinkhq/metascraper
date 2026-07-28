@@ -10,14 +10,16 @@
 
 ## Why
 
-[BIMI](https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi) is the standard behind the brand logo mailbox providers show next to an email. Domains publish it as a TXT record:
+[BIMI](https://datatracker.ietf.org/doc/draft-blank-ietf-bimi/) is the standard behind the brand logo mailbox providers show next to an email. Domains publish it as a TXT record:
 
 ```
 $ dig +short TXT default._bimi.microlink.io
 "v=BIMI1; l=https://cdn.microlink.io/logo/logo.svg;"
 ```
 
-The specification constrains the logo to [SVG Tiny P/S](https://www.w3.org/TR/SVGTiny12/): vector, square, and transparent, which is exactly the shape a logo is expected to have. When the domain also publishes a Verified Mark Certificate (`a=`), a certificate authority has verified the mark against the trademark owner.
+The specification constrains the logo to [SVG Tiny P/S](https://www.w3.org/TR/SVGTiny12/): vector, square, and transparent, which is exactly the shape a logo is expected to have.
+
+The record is published in the domain's own DNS, so it is self asserted: the same level of trust as `og:logo`. Domains may also publish a Verified Mark Certificate under `a=`, where a certificate authority has attested the mark against the trademark owner, but this package does not read or validate it, so treat the result as a BIMI published logo rather than a verified one.
 
 That makes it a higher quality source than a favicon, and it doesn't need the markup: a single DNS lookup, so it works even when the page is JavaScript rendered or unreachable.
 
@@ -31,7 +33,7 @@ $ npm install metascraper-logo-bimi --save
 
 ## Usage
 
-Rules are evaluated in the order the packages are declared, so put it first to prefer the verified logo over anything found in the markup:
+Rules are evaluated in the order the packages are declared, so put it first to prefer the BIMI published logo over anything found in the markup:
 
 ```js
 const metascraper = require('metascraper')([
@@ -53,7 +55,7 @@ The lookup is done against the registrable domain, meaning `https://blog.example
 
 Type: `object`
 
-Any option to be passed to [got](https://github.com/sindresorhus/got#options) when the logo URL is verified.
+Any option to be passed to [got](https://github.com/sindresorhus/got#options) when the logo URL is checked.
 
 ##### keyvOpts
 
@@ -63,6 +65,21 @@ Any option to be passed to [@keyvhq/memoize](https://github.com/microlinkhq/keyv
 
 The resolution is memoized per domain, including the absence of a record.
 
+The default store is an in-memory map that never evicts, so a long running process scraping many domains should supply its own store, plus a `ttl` in milliseconds to bound how long a record is trusted:
+
+```js
+const KeyvRedis = require('@keyvhq/redis')
+
+const metascraper = require('metascraper')([
+  require('metascraper-logo-bimi')({
+    keyvOpts: {
+      store: new KeyvRedis('redis://localhost:6379'),
+      ttl: 24 * 60 * 60 * 1000
+    }
+  })
+])
+```
+
 ##### resolveLogoUrl
 
 Type: `function`<br>
@@ -70,7 +87,7 @@ Default: `require('metascraper-logo-bimi').resolveLogoUrl`
 
 It determines if the logo URL published in the record is valid, returning the URL or `undefined`.
 
-The default implementation discards anything not reachable or not served as `image/svg+xml`.
+The default implementation discards anything not reachable, not served as `image/svg+xml`, or that redirects away from `https`.
 
 ##### resolveTxt
 

@@ -51,12 +51,19 @@ const isSvg = ({ headers }) =>
   headers['content-type']?.split(';')[0].trim().toLowerCase() ===
   SVG_CONTENT_TYPE
 
-const defaultResolveLogoUrl = async (logoUrl, gotOpts) => {
-  const response = await reachableUrl(logoUrl, gotOpts)
-  return reachableUrl.isReachable(response) && isSvg(response)
+const isHttps = url => url.startsWith('https://')
+
+/**
+ * The record location is verified to be https when parsed, but redirects are
+ * followed, so the URL that ends up being served has to be checked again.
+ */
+const toLogoUrl = response =>
+  reachableUrl.isReachable(response) && isSvg(response) && isHttps(response.url)
     ? response.url
     : undefined
-}
+
+const defaultResolveLogoUrl = async (logoUrl, gotOpts) =>
+  toLogoUrl(await reachableUrl(logoUrl, gotOpts))
 
 const createGetLogo = ({
   gotOpts,
@@ -93,3 +100,4 @@ module.exports = options => {
 module.exports.createGetLogo = createGetLogo
 module.exports.parseRecord = parseRecord
 module.exports.resolveLogoUrl = defaultResolveLogoUrl
+module.exports.toLogoUrl = toLogoUrl
