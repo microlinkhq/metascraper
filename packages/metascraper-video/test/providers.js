@@ -43,7 +43,7 @@ test('9gag.com', async t => {
     resolve(__dirname, 'fixtures/providers/9gag.com.html')
   )
   const url = 'https://9gag.com/gag/abY5Mm9'
-  const metascraper = createMetascraper()
+  const metascraper = createMetascraper({ getIframe: async () => undefined })
   const metadata = await metascraper({ html, url })
 
   t.is(
