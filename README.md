@@ -247,6 +247,7 @@ const metascraper = require('metascraper')([
 - [metascraper-iframe](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-iframe) – Get iframe for embedding content for the supported providers.
 - [metascraper-image](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-image) – Get image property from HTML markup.
 - [metascraper-lang](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-lang) – Get lang property from HTML markup.
+- [metascraper-logo-bimi](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo-bimi) – Get logo property from the BIMI DNS record.
 - [metascraper-logo-favicon](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo-favicon) – Metascraper logo favicon fallback.
 - [metascraper-logo](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo) – Get logo property from HTML markup.
 - [metascraper-manifest](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-manifest) –  Metascraper integration for detecting PWA Web app [manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest).
