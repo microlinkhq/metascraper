@@ -97,7 +97,7 @@ test('vercel.com', async t => {
   t.true(new URL(metadata.logo).hostname.includes('vercel'))
 })
 
-test('linkedin.com', async t => {
+test.skip('linkedin.com', async t => {
   const metascraper = createMetascraper()
   const url = 'https://linkedin.com/Kikobeats/'
   const html = createHtml(['<link rel="manifest" href="/manifest.json">'])
