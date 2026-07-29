@@ -1,6 +1,7 @@
 'use strict'
 
 const test = require('ava').default
+const reachableUrl = require('reachable-url')
 
 const { resolveLogoUrl, toLogoUrl } = require('..')
 const { runServer } = require('./helpers')
@@ -47,6 +48,27 @@ test('return undefined when a redirect downgrades the logo to http', t => {
     toLogoUrl(response({ url: 'http://cdn.microlink.io/logo/logo.svg' })),
     undefined
   )
+})
+
+/**
+ * What `toLogoUrl` inspects is the URL a redirect landed on, not the one the
+ * record published, which is why the https check cannot stop at `parseRecord`.
+ */
+test('report the URL a redirect lands on, not the one requested', async t => {
+  const target = await runServer(t, ({ res }) => {
+    res.writeHead(200, { 'content-type': 'image/svg+xml' })
+    res.end('<svg xmlns="http://www.w3.org/2000/svg" />')
+  })
+
+  const source = await runServer(t, ({ res }) => {
+    res.writeHead(302, { location: `${target}logo.svg` })
+    res.end()
+  })
+
+  const response = await reachableUrl(`${source}logo.svg`)
+
+  t.is(response.url, `${target}logo.svg`)
+  t.is(toLogoUrl(response), undefined)
 })
 
 test('return undefined when the logo is not served over https', async t => {
