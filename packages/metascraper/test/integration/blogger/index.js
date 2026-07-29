@@ -26,10 +26,6 @@ const url = 'https://blog.gardeviance.org/2024/02/a-good-enough-map.html'
 test('blogger', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
 
-  // The fixture declares no logo, so it is resolved by probing the live site:
-  // whichever of `metascraper-logo-favicon`'s providers answers first wins, and
-  // a probe that times out from the runner silently demotes to the Google
-  // service. Asserted rather than snapshotted so the run reflects the fixture.
   const { logo, ...metadata } = await metascraper({ html, url })
 
   t.regex(logo, /^https:\/\//)
