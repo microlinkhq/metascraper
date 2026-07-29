@@ -11,16 +11,19 @@ const {
   createResolveTxt
 } = require('./helpers')
 
-const createMetascraper = resolveTxt =>
+const createMetascraper = records =>
   require('metascraper')([
-    metascraperLogoBimi({ resolveTxt, resolveLogoUrl: acceptLogoUrl }),
+    metascraperLogoBimi({
+      resolveTxt: createResolveTxt(records),
+      resolveLogoUrl: acceptLogoUrl
+    }),
     require('metascraper-logo')()
   ])
 
 const BIMI_RECORDS = { 'default._bimi.microlink.io': [[RECORD]] }
 
 test('get the logo of the registrable domain', async t => {
-  const metascraper = createMetascraper(createResolveTxt(BIMI_RECORDS))
+  const metascraper = createMetascraper(BIMI_RECORDS)
 
   const { logo } = await metascraper({
     url: 'https://cdn.microlink.io/docs/getting-started',
@@ -31,7 +34,7 @@ test('get the logo of the registrable domain', async t => {
 })
 
 test('take precedence over the HTML markup', async t => {
-  const metascraper = createMetascraper(createResolveTxt(BIMI_RECORDS))
+  const metascraper = createMetascraper(BIMI_RECORDS)
 
   const { logo } = await metascraper({
     url: 'https://microlink.io',
@@ -42,7 +45,7 @@ test('take precedence over the HTML markup', async t => {
 })
 
 test('fall back to the next rule when there is no BIMI record', async t => {
-  const metascraper = createMetascraper(createResolveTxt({}))
+  const metascraper = createMetascraper({})
 
   const { logo } = await metascraper({
     url: 'https://example.com',
@@ -53,7 +56,7 @@ test('fall back to the next rule when there is no BIMI record', async t => {
 })
 
 test('return null when nothing resolves', async t => {
-  const metascraper = createMetascraper(createResolveTxt({}))
+  const metascraper = createMetascraper({})
 
   const { logo } = await metascraper({
     url: 'https://example.com',

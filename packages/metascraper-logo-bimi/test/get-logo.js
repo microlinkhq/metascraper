@@ -11,14 +11,6 @@ const {
   dnsError
 } = require('./helpers')
 
-test('resolve the logo published in the BIMI record', async t => {
-  const getLogo = createGetLogoFrom(
-    createResolveTxt({ 'default._bimi.microlink.io': [[RECORD]] })
-  )
-
-  t.is(await getLogo('microlink.io'), LOGO_URL)
-})
-
 test('join TXT strings split into multiple chunks', async t => {
   const getLogo = createGetLogoFrom(
     createResolveTxt({
@@ -70,11 +62,13 @@ test('return undefined when the logo cannot be resolved', async t => {
 })
 
 test('pass the logo location and the got options to resolveLogoUrl', async t => {
-  const gotOpts = { timeout: 1000 }
-  const seen = []
+  t.plan(3)
 
-  const resolveLogoUrl = async (...args) => {
-    seen.push(args)
+  const gotOpts = { timeout: 1000 }
+
+  const resolveLogoUrl = async (location, opts) => {
+    t.is(location, LOGO_URL)
+    t.is(opts, gotOpts)
     return LOGO_URL
   }
 
@@ -84,7 +78,6 @@ test('pass the logo location and the got options to resolveLogoUrl', async t => 
   )
 
   t.is(await getLogo('microlink.io'), LOGO_URL)
-  t.deepEqual(seen, [[LOGO_URL, gotOpts]])
 })
 
 test('query the selector provided', async t => {

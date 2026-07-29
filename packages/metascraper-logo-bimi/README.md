@@ -63,7 +63,7 @@ Type: `object`
 
 Any option to be passed to [@keyvhq/memoize](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
-The resolution is memoized per domain and selector, including the absence of a record. A resolver failure is not memoized, since it means the record is unknown rather than absent.
+The resolution is memoized per domain and selector, including the absence of a record. A rejection from `resolveTxt` or `resolveLogoUrl` is not memoized: it means the logo is unknown rather than absent, so the next lookup retries it.
 
 The default store is an in-memory map that never evicts, so a long running process scraping many domains should supply its own store, plus a `ttl` in milliseconds to bound how long a record is trusted:
 
@@ -87,7 +87,7 @@ Default: `require('metascraper-logo-bimi').resolveLogoUrl`
 
 It determines if the logo URL published in the record is valid, returning the URL or `undefined`.
 
-The default implementation discards anything not reachable, not served as `image/svg+xml`, or that redirects away from `https`.
+The default implementation discards anything not reachable, not served as `image/svg+xml`, or that redirects away from `https`. Its verdict is exposed as `require('metascraper-logo-bimi').toLogoUrl(response)`, so a custom implementation can reuse it over its own request.
 
 ##### resolveTxt
 

@@ -41,10 +41,6 @@ const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
 
 const NO_RECORD_CODES = new Set(['ENODATA', 'ENOTFOUND'])
 
-/**
- * Anything else the resolver reports means the record is unknown rather than
- * absent, so it is rethrown to keep it out of the cache.
- */
 const toAnswers = error => {
   if (!NO_RECORD_CODES.has(error.code)) throw error
   return []
