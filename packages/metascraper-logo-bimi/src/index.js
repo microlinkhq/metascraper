@@ -25,7 +25,7 @@ const parseTags = record => record.split(';').map(parseTag)
 const isVersionTag = ([name, value]) =>
   name === 'v' && value.toLowerCase() === 'bimi1'
 
-const isRecord = record => isVersionTag(parseTags(record)[0])
+const isRecord = record => isVersionTag(parseTag(record.split(';', 1)[0]))
 
 /**
  * A BIMI record is a list of `;` separated `tag=value` pairs where `v=BIMI1`
@@ -39,6 +39,14 @@ const parseRecord = record => {
   return isHttps(location) ? location : undefined
 }
 
+const resolveAnswers = async (hostname, resolveTxt) => {
+  try {
+    return await resolveTxt(hostname)
+  } catch {
+    return []
+  }
+}
+
 /**
  * Other TXT records can share the hostname, so they are discarded rather than
  * read as an absent record. What remains has to be a single record, so a second
@@ -47,14 +55,10 @@ const parseRecord = record => {
  * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-7.2
  */
 const getRecord = async (domain, { resolveTxt, selector }) => {
-  let answers
-
-  try {
-    answers = await resolveTxt(`${selector}._bimi.${domain}`)
-  } catch {
-    return undefined
-  }
-
+  const answers = await resolveAnswers(
+    `${selector}._bimi.${domain}`,
+    resolveTxt
+  )
   const records = answers.map(answer => answer.join('')).filter(isRecord)
   return records.length === 1 ? parseRecord(records[0]) : undefined
 }

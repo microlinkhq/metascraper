@@ -21,6 +21,12 @@ const runServer = async (t, handler, opts) => {
   return url.toString()
 }
 
+const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
+
+const RECORD = `v=BIMI1; l=${LOGO_URL};`
+
+const acceptLogoUrl = async logoUrl => logoUrl
+
 const bimi = (domain, ...record) => ({ [`default._bimi.${domain}`]: [record] })
 
 const dnsError = code => {
@@ -35,4 +41,12 @@ const createResolveTxt = records => async hostname => {
   return answers
 }
 
-module.exports = { bimi, createResolveTxt, dnsError, runServer }
+module.exports = {
+  LOGO_URL,
+  RECORD,
+  acceptLogoUrl,
+  bimi,
+  createResolveTxt,
+  dnsError,
+  runServer
+}

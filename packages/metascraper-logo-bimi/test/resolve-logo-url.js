@@ -1,12 +1,16 @@
 'use strict'
 
-const test = require('ava').default
 const reachableUrl = require('reachable-url')
+const test = require('ava').default
 
 const { resolveLogoUrl, toLogoUrl } = require('..')
-const { runServer } = require('./helpers')
+const { LOGO_URL, runServer } = require('./helpers')
 
-const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
+const runSvgServer = t =>
+  runServer(t, ({ res }) => {
+    res.writeHead(200, { 'content-type': 'image/svg+xml' })
+    res.end('<svg xmlns="http://www.w3.org/2000/svg" />')
+  })
 
 const response = ({
   contentType = 'image/svg+xml',
@@ -55,27 +59,21 @@ test('return undefined when a redirect downgrades the logo to http', t => {
  * record published, which is why the https check cannot stop at `parseRecord`.
  */
 test('report the URL a redirect lands on, not the one requested', async t => {
-  const target = await runServer(t, ({ res }) => {
-    res.writeHead(200, { 'content-type': 'image/svg+xml' })
-    res.end('<svg xmlns="http://www.w3.org/2000/svg" />')
-  })
+  const target = await runSvgServer(t)
 
   const source = await runServer(t, ({ res }) => {
     res.writeHead(302, { location: `${target}logo.svg` })
     res.end()
   })
 
-  const response = await reachableUrl(`${source}logo.svg`)
+  const redirected = await reachableUrl(`${source}logo.svg`)
 
-  t.is(response.url, `${target}logo.svg`)
-  t.is(toLogoUrl(response), undefined)
+  t.is(redirected.url, `${target}logo.svg`)
+  t.is(toLogoUrl(redirected), undefined)
 })
 
 test('return undefined when the logo is not served over https', async t => {
-  const url = await runServer(t, ({ res }) => {
-    res.writeHead(200, { 'content-type': 'image/svg+xml' })
-    res.end('<svg xmlns="http://www.w3.org/2000/svg" />')
-  })
+  const url = await runSvgServer(t)
 
   t.is(await resolveLogoUrl(`${url}logo.svg`), undefined)
 })

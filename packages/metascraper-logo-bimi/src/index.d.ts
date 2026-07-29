@@ -1,3 +1,5 @@
+type ResolveLogoUrl = (logoUrl: string, gotOpts?: import('got').Options) => Promise<string | undefined>
+
 type Options = {
   /**
    * https://github.com/sindresorhus/got#options
@@ -13,7 +15,7 @@ type Options = {
    * It will be used to determine if the logo URL published in the BIMI record
    * is valid.
    */
-  resolveLogoUrl?: (logoUrl: string, gotOpts?: import('got').Options) => Promise<string | undefined>,
+  resolveLogoUrl?: ResolveLogoUrl,
 
   /**
    * The DNS resolver used to read the TXT record, matching the signature of
@@ -30,4 +32,9 @@ type Options = {
 }
 
 declare function rules(options?: Options): import('metascraper').Rules;
+
+declare namespace rules {
+  const resolveLogoUrl: ResolveLogoUrl;
+}
+
 export = rules;

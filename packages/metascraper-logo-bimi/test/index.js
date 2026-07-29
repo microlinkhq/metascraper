@@ -3,15 +3,18 @@
 const test = require('ava').default
 
 const metascraperLogoBimi = require('..')
-const { bimi, createResolveTxt } = require('./helpers')
 
-const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
-
-const RECORD = `v=BIMI1; l=${LOGO_URL};`
+const {
+  LOGO_URL,
+  RECORD,
+  acceptLogoUrl,
+  bimi,
+  createResolveTxt
+} = require('./helpers')
 
 const createMetascraper = resolveTxt =>
   require('metascraper')([
-    metascraperLogoBimi({ resolveTxt, resolveLogoUrl: async url => url }),
+    metascraperLogoBimi({ resolveTxt, resolveLogoUrl: acceptLogoUrl }),
     require('metascraper-logo')()
   ])
 
