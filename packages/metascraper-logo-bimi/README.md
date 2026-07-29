@@ -51,16 +51,21 @@ The lookup is done against the registrable domain, meaning `https://blog.example
 
 The record is read by [bimi-url](https://github.com/kikobeats/bimi-url), and every option is passed to it: `gotOpts`, `keyvOpts`, `resolveLogoUrl`, `resolveTxt`, and `selector` are [documented there](https://github.com/kikobeats/bimi-url#api).
 
-Supplying your own `resolveTxt` is the common one, so the lookup goes through the same egress as the rest of your traffic rather than `node:dns`:
+Supplying your own `resolveTxt` is the common one, since `node:dns` resolves with no timeout by default:
 
 ```js
+const { Resolver } = require('dns').promises
+
+const resolver = new Resolver({ timeout: 2000 })
+
 const metascraper = require('metascraper')([
   require('metascraper-logo-bimi')({
-    keyvOpts: { store: new KeyvRedis('redis://localhost:6379') },
-    resolveTxt: hostname => myResolver.resolveTxt(hostname)
+    resolveTxt: hostname => resolver.resolveTxt(hostname)
   })
 ])
 ```
+
+The same seam takes a [DNS over HTTPS](https://datatracker.ietf.org/doc/html/rfc8484) resolver, so the lookup leaves through the same egress as the rest of your traffic. [bimi-url](https://github.com/kikobeats/bimi-url#resolvetxt) has that example.
 
 `createGetLogo`, `resolveLogoUrl` and `toLogoUrl` are re-exported from `bimi-url` for use outside a metascraper rule.
 
