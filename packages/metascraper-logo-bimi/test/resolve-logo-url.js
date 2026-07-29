@@ -1,13 +1,23 @@
 'use strict'
 
+const { default: listen } = require('async-listen')
 const reachableUrl = require('reachable-url')
+const { createServer } = require('http')
+const { promisify } = require('util')
 const test = require('ava').default
 
 const { resolveLogoUrl, toLogoUrl } = require('..')
-const { LOGO_URL, runServer } = require('./helpers')
+const { LOGO_URL } = require('./helpers')
+
+const runServer = async (t, handler) => {
+  const server = createServer(handler)
+  const url = await listen(server, { port: 0, host: '127.0.0.1' })
+  t.teardown(() => promisify(server.close.bind(server))())
+  return url.toString()
+}
 
 const runSvgServer = t =>
-  runServer(t, ({ res }) => {
+  runServer(t, (_, res) => {
     res.writeHead(200, { 'content-type': 'image/svg+xml' })
     res.end('<svg xmlns="http://www.w3.org/2000/svg" />')
   })
@@ -55,7 +65,7 @@ test('return undefined when a redirect downgrades the logo to http', t => {
 test('report the URL a redirect lands on, not the one requested', async t => {
   const target = await runSvgServer(t)
 
-  const source = await runServer(t, ({ res }) => {
+  const source = await runServer(t, (_, res) => {
     res.writeHead(302, { location: `${target}logo.svg` })
     res.end()
   })

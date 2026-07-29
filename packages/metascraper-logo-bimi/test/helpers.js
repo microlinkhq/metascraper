@@ -1,31 +1,15 @@
 'use strict'
 
-const { default: listen } = require('async-listen')
-const { createServer } = require('http')
-
-const closeServer = server =>
-  require('util').promisify(server.close.bind(server))()
-
-const runServer = async (t, handler, opts) => {
-  const server = createServer(async (req, res) => {
-    try {
-      await handler({ req, res })
-    } catch (error) {
-      console.error(error)
-      res.statusCode = 500
-      res.end()
-    }
-  })
-  const url = await listen(server, { port: 0, host: '127.0.0.1', ...opts })
-  t.teardown(() => closeServer(server))
-  return url.toString()
-}
+const { createGetLogo } = require('..')
 
 const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
 
 const RECORD = `v=BIMI1; l=${LOGO_URL};`
 
 const acceptLogoUrl = async logoUrl => logoUrl
+
+const createGetLogoFrom = (resolveTxt, options) =>
+  createGetLogo({ resolveLogoUrl: acceptLogoUrl, resolveTxt, ...options })
 
 const dnsError = code => {
   const error = new Error(`queryTxt ${code}`)
@@ -53,7 +37,7 @@ module.exports = {
   RECORD,
   acceptLogoUrl,
   countCalls,
+  createGetLogoFrom,
   createResolveTxt,
-  dnsError,
-  runServer
+  dnsError
 }

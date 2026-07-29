@@ -2,19 +2,14 @@
 
 const test = require('ava').default
 
-const { createGetLogo } = require('..')
-
 const {
   LOGO_URL,
   RECORD,
-  acceptLogoUrl,
   countCalls,
+  createGetLogoFrom,
   createResolveTxt,
   dnsError
 } = require('./helpers')
-
-const createGetLogoFrom = (resolveTxt, options) =>
-  createGetLogo({ resolveLogoUrl: acceptLogoUrl, resolveTxt, ...options })
 
 test('resolve the logo published in the BIMI record', async t => {
   const getLogo = createGetLogoFrom(
@@ -65,12 +60,6 @@ test('honor a declination published next to another BIMI record', async t => {
   t.is(await getLogo('microlink.io'), undefined)
 })
 
-test('return undefined when the DNS lookup fails', async t => {
-  const getLogo = createGetLogoFrom(createResolveTxt({}))
-
-  t.is(await getLogo('example.com'), undefined)
-})
-
 test('return undefined when the logo cannot be resolved', async t => {
   const getLogo = createGetLogoFrom(
     createResolveTxt({ 'default._bimi.microlink.io': [[RECORD]] }),
@@ -119,14 +108,23 @@ test('resolve the DNS record once per domain', async t => {
 })
 
 test('cache the absence of a record', async t => {
-  const resolveTxt = countCalls(async () => {
-    throw dnsError('ENODATA')
-  })
+  const resolveTxt = countCalls(createResolveTxt({}))
   const getLogo = createGetLogoFrom(resolveTxt)
 
   t.is(await getLogo('example.com'), undefined)
   t.is(await getLogo('example.com'), undefined)
   t.is(resolveTxt.calls, 1)
+})
+
+test('do not cache a resolver failure', async t => {
+  const resolveTxt = countCalls(async () => {
+    throw dnsError('ESERVFAIL')
+  })
+  const getLogo = createGetLogoFrom(resolveTxt)
+
+  t.is(await getLogo('example.com'), undefined)
+  t.is(await getLogo('example.com'), undefined)
+  t.is(resolveTxt.calls, 2)
 })
 
 test('scope the cache to the selector', async t => {

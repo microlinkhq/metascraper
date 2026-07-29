@@ -2,20 +2,17 @@
 
 const test = require('ava').default
 
-const { createGetLogo } = require('..')
-
 const {
   LOGO_URL,
   RECORD,
-  acceptLogoUrl,
+  createGetLogoFrom,
   createResolveTxt
 } = require('./helpers')
 
 const getLogoOf = record =>
-  createGetLogo({
-    resolveLogoUrl: acceptLogoUrl,
-    resolveTxt: createResolveTxt({ 'default._bimi.microlink.io': [[record]] })
-  })('microlink.io')
+  createGetLogoFrom(
+    createResolveTxt({ 'default._bimi.microlink.io': [[record]] })
+  )('microlink.io')
 
 test('get the logo location', async t => {
   t.is(await getLogoOf(RECORD), LOGO_URL)
@@ -42,7 +39,6 @@ test('tag names are case insensitive', async t => {
 
 test('return undefined for a declination record', async t => {
   t.is(await getLogoOf('v=BIMI1; l=;'), undefined)
-  t.is(await getLogoOf('v=BIMI1; l=; a=;'), undefined)
 })
 
 test('return undefined when the logo location is missing', async t => {

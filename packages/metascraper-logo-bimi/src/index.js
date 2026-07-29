@@ -39,6 +39,17 @@ const toLocation = tags => {
 
 const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
 
+const NO_RECORD_CODES = new Set(['ENODATA', 'ENOTFOUND'])
+
+/**
+ * Anything else the resolver reports means the record is unknown rather than
+ * absent, so it is rethrown to keep it out of the cache.
+ */
+const toAnswers = error => {
+  if (!NO_RECORD_CODES.has(error.code)) throw error
+  return []
+}
+
 /**
  * Other TXT records can share the hostname, so they are discarded rather than
  * read as an absent record. What remains has to be a single record, so a second
@@ -46,8 +57,8 @@ const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
  *
  * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-7.2
  */
-const getRecord = async (hostname, resolveTxt) => {
-  const answers = await resolveTxt(hostname).catch(() => [])
+const getLocation = async (hostname, resolveTxt) => {
+  const answers = await resolveTxt(hostname).catch(toAnswers)
   const records = answers
     .map(answer => parseTags(answer.join('')))
     .filter(isBimi)
@@ -76,18 +87,23 @@ const createGetLogo = ({
   selector = 'default'
 } = {}) => {
   const getLogo = async hostname => {
-    const logoUrl = await getRecord(hostname, resolveTxt)
-    if (logoUrl) return resolveLogoUrl(logoUrl, gotOpts)
+    const location = await getLocation(hostname, resolveTxt)
+    if (location) return resolveLogoUrl(location, gotOpts)
   }
 
   const fn = memoize(getLogo, keyvOpts, {
     value: value => (value === undefined ? null : value)
   })
 
+  /**
+   * A rejection is never stored, so it is swallowed here instead: throwing
+   * would abort the whole `logo` rule chain, taking the markup rules declared
+   * after this one down with it.
+   */
   return domain =>
-    fn(toHostname(domain, selector)).then(value =>
-      value === null ? undefined : value
-    )
+    fn(toHostname(domain, selector))
+      .then(value => (value === null ? undefined : value))
+      .catch(() => undefined)
 }
 
 module.exports = options => {

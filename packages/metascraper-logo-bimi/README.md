@@ -63,7 +63,7 @@ Type: `object`
 
 Any option to be passed to [@keyvhq/memoize](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
-The resolution is memoized per domain and selector, including the absence of a record.
+The resolution is memoized per domain and selector, including the absence of a record. A resolver failure is not memoized, since it means the record is unknown rather than absent.
 
 The default store is an in-memory map that never evicts, so a long running process scraping many domains should supply its own store, plus a `ttl` in milliseconds to bound how long a record is trusted:
 
