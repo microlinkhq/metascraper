@@ -25,6 +25,9 @@ const url = 'https://blog.gardeviance.org/2024/02/a-good-enough-map.html'
 
 test('blogger', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+
+  const { logo, ...metadata } = await metascraper({ html, url })
+
+  t.regex(logo, /^https:\/\//)
   t.snapshot(metadata)
 })
