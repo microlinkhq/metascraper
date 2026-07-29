@@ -21,6 +21,8 @@ const runServer = async (t, handler, opts) => {
   return url.toString()
 }
 
+const bimi = (domain, ...record) => ({ [`default._bimi.${domain}`]: [record] })
+
 const dnsError = code => {
   const error = new Error(`queryTxt ${code}`)
   error.code = code
@@ -33,4 +35,4 @@ const createResolveTxt = records => async hostname => {
   return answers
 }
 
-module.exports = { createResolveTxt, dnsError, runServer }
+module.exports = { bimi, createResolveTxt, dnsError, runServer }

@@ -1,16 +1,24 @@
 'use strict'
 
-const { promises: dns } = require('dns')
 const memoize = require('@keyvhq/memoize')
 const reachableUrl = require('reachable-url')
 
-const { logo, parseUrl, toRule } = require('@metascraper/helpers')
-
-const SVG_CONTENT_TYPE = 'image/svg+xml'
-
-const VERSION_TAG = /^\s*v\s*=\s*BIMI1\s*$/i
+const {
+  logo,
+  mimeExtension,
+  parseUrl,
+  protocol,
+  toRule
+} = require('@metascraper/helpers')
 
 const toLogo = toRule(logo)
+
+const isHttps = url => protocol(url) === 'https'
+
+const parseTag = tag => {
+  const [name, ...value] = tag.split('=')
+  return [name.trim().toLowerCase(), value.join('=').trim()]
+}
 
 /**
  * A BIMI record is a list of `;` separated `tag=value` pairs where `v=BIMI1`
@@ -20,16 +28,10 @@ const toLogo = toRule(logo)
  * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi
  */
 const parseRecord = record => {
-  const [version, ...tags] = String(record).split(';')
-  if (!VERSION_TAG.test(version)) return undefined
-
-  for (const tag of tags) {
-    const separatorIndex = tag.indexOf('=')
-    if (separatorIndex === -1) continue
-    if (tag.slice(0, separatorIndex).trim().toLowerCase() !== 'l') continue
-    const location = tag.slice(separatorIndex + 1).trim()
-    return location.startsWith('https://') ? location : undefined
-  }
+  const [[versionTag, version], ...tags] = record.split(';').map(parseTag)
+  if (versionTag !== 'v' || version.toLowerCase() !== 'bimi1') return undefined
+  const location = tags.find(([name]) => name === 'l')?.[1]
+  return isHttps(location) ? location : undefined
 }
 
 const getRecord = async (domain, { resolveTxt, selector }) => {
@@ -47,11 +49,7 @@ const getRecord = async (domain, { resolveTxt, selector }) => {
   }
 }
 
-const isSvg = ({ headers }) =>
-  headers['content-type']?.split(';')[0].trim().toLowerCase() ===
-  SVG_CONTENT_TYPE
-
-const isHttps = url => url.startsWith('https://')
+const isSvg = ({ headers }) => mimeExtension(headers['content-type']) === 'svg'
 
 /**
  * The record location is verified to be https when parsed, but redirects are
@@ -65,16 +63,23 @@ const toLogoUrl = response =>
 const defaultResolveLogoUrl = async (logoUrl, gotOpts) =>
   toLogoUrl(await reachableUrl(logoUrl, gotOpts))
 
+/**
+ * Loaded lazily so runtimes without `node:dns` can still require the package
+ * and supply their own resolver.
+ */
+const systemResolveTxt = hostname =>
+  require('dns').promises.resolveTxt(hostname)
+
 const createGetLogo = ({
   gotOpts,
   keyvOpts,
   resolveLogoUrl = defaultResolveLogoUrl,
-  resolveTxt = dns.resolveTxt,
+  resolveTxt = systemResolveTxt,
   selector = 'default'
 } = {}) => {
   const getLogo = async domain => {
     const logoUrl = await getRecord(domain, { resolveTxt, selector })
-    return logoUrl === undefined ? undefined : resolveLogoUrl(logoUrl, gotOpts)
+    if (logoUrl) return resolveLogoUrl(logoUrl, gotOpts)
   }
 
   const fn = memoize(getLogo, keyvOpts, {

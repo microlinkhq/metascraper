@@ -2,10 +2,12 @@
 
 const test = require('ava').default
 
-const metascraperLogoBimi = require('metascraper-logo-bimi')
-const { createResolveTxt } = require('./helpers')
+const metascraperLogoBimi = require('..')
+const { bimi, createResolveTxt } = require('./helpers')
 
 const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
+
+const RECORD = `v=BIMI1; l=${LOGO_URL};`
 
 const createMetascraper = resolveTxt =>
   require('metascraper')([
@@ -15,9 +17,7 @@ const createMetascraper = resolveTxt =>
 
 test('get the logo of the registrable domain', async t => {
   const metascraper = createMetascraper(
-    createResolveTxt({
-      'default._bimi.microlink.io': [[`v=BIMI1; l=${LOGO_URL};`]]
-    })
+    createResolveTxt(bimi('microlink.io', RECORD))
   )
 
   const { logo } = await metascraper({
@@ -30,9 +30,7 @@ test('get the logo of the registrable domain', async t => {
 
 test('take precedence over the HTML markup', async t => {
   const metascraper = createMetascraper(
-    createResolveTxt({
-      'default._bimi.microlink.io': [[`v=BIMI1; l=${LOGO_URL};`]]
-    })
+    createResolveTxt(bimi('microlink.io', RECORD))
   )
 
   const { logo } = await metascraper({

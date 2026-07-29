@@ -3,32 +3,29 @@
 const test = require('ava').default
 
 const { createGetLogo } = require('..')
-const { createResolveTxt, dnsError } = require('./helpers')
+const { bimi, createResolveTxt, dnsError } = require('./helpers')
 
 const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
 
-const resolveLogoUrl = async logoUrl => logoUrl
+const RECORD = `v=BIMI1; l=${LOGO_URL};`
 
-const bimi = (domain, record) => ({ [`default._bimi.${domain}`]: [[record]] })
+const resolveLogoUrl = async logoUrl => logoUrl
 
 test('resolve the logo published in the BIMI record', async t => {
   const getLogo = createGetLogo({
     resolveLogoUrl,
-    resolveTxt: createResolveTxt(
-      bimi('microlink.io', `v=BIMI1; l=${LOGO_URL};`)
-    )
+    resolveTxt: createResolveTxt(bimi('microlink.io', RECORD))
   })
 
   t.is(await getLogo('microlink.io'), LOGO_URL)
 })
 
 test('join TXT strings split into multiple chunks', async t => {
-  const record = `v=BIMI1; l=${LOGO_URL};`
   const getLogo = createGetLogo({
     resolveLogoUrl,
-    resolveTxt: createResolveTxt({
-      'default._bimi.microlink.io': [[record.slice(0, 20), record.slice(20)]]
-    })
+    resolveTxt: createResolveTxt(
+      bimi('microlink.io', RECORD.slice(0, 20), RECORD.slice(20))
+    )
   })
 
   t.is(await getLogo('microlink.io'), LOGO_URL)
@@ -40,7 +37,7 @@ test('skip TXT records of other protocols sharing the hostname', async t => {
     resolveTxt: createResolveTxt({
       'default._bimi.microlink.io': [
         ['v=spf1 include:_spf.google.com ~all'],
-        [`v=BIMI1; l=${LOGO_URL};`]
+        [RECORD]
       ]
     })
   })
@@ -80,9 +77,7 @@ test('return undefined for a declination record', async t => {
 test('return undefined when the logo cannot be resolved', async t => {
   const getLogo = createGetLogo({
     resolveLogoUrl: async () => undefined,
-    resolveTxt: createResolveTxt(
-      bimi('microlink.io', `v=BIMI1; l=${LOGO_URL};`)
-    )
+    resolveTxt: createResolveTxt(bimi('microlink.io', RECORD))
   })
 
   t.is(await getLogo('microlink.io'), undefined)
@@ -92,17 +87,14 @@ test('query the selector provided', async t => {
   const getLogo = createGetLogo({
     resolveLogoUrl,
     selector: 'brand',
-    resolveTxt: createResolveTxt({
-      'brand._bimi.microlink.io': [[`v=BIMI1; l=${LOGO_URL};`]]
-    })
+    resolveTxt: createResolveTxt({ 'brand._bimi.microlink.io': [[RECORD]] })
   })
 
   t.is(await getLogo('microlink.io'), LOGO_URL)
 })
 
 test('resolve the DNS record once per domain', async t => {
-  const records = bimi('microlink.io', `v=BIMI1; l=${LOGO_URL};`)
-  const resolveTxt = createResolveTxt(records)
+  const resolveTxt = createResolveTxt(bimi('microlink.io', RECORD))
 
   let calls = 0
   const getLogo = createGetLogo({
