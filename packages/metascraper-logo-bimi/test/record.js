@@ -55,7 +55,7 @@ test('return undefined when the version tag is not first', async t => {
   t.is(await getLogoOf(`l=${LOGO_URL}; v=BIMI1;`), undefined)
 })
 
-test('return undefined for a record of a different protocol', async t => {
+test('return undefined when the record is not BIMI', async t => {
   t.is(await getLogoOf('v=spf1 include:_spf.google.com ~all'), undefined)
   t.is(await getLogoOf('v=DMARC1; p=reject;'), undefined)
   t.is(await getLogoOf(''), undefined)

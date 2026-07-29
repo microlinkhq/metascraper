@@ -41,11 +41,6 @@ const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
 
 const NO_RECORD_CODES = new Set(['ENODATA', 'ENOTFOUND'])
 
-const toAnswers = error => {
-  if (!NO_RECORD_CODES.has(error.code)) throw error
-  return []
-}
-
 /**
  * Other TXT records can share the hostname, so they are discarded rather than
  * read as an absent record. What remains has to be a single record, so a second
@@ -54,7 +49,10 @@ const toAnswers = error => {
  * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-7.2
  */
 const getLocation = async (hostname, resolveTxt) => {
-  const answers = await resolveTxt(hostname).catch(toAnswers)
+  const answers = await resolveTxt(hostname).catch(error => {
+    if (NO_RECORD_CODES.has(error.code)) return []
+    throw error
+  })
   const records = answers
     .map(answer => parseTags(answer.join('')))
     .filter(isBimi)

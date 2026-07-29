@@ -34,22 +34,14 @@ test('skip TXT records of other protocols sharing the hostname', async t => {
   t.is(await getLogo('microlink.io'), LOGO_URL)
 })
 
-test('return undefined when a second BIMI record is published', async t => {
-  const getLogo = createGetLogoFrom(
-    createResolveTxt({ 'default._bimi.microlink.io': [[RECORD], [RECORD]] })
-  )
+test('return undefined when more than one BIMI record is published', async t => {
+  const getLogoOf = answers =>
+    createGetLogoFrom(
+      createResolveTxt({ 'default._bimi.microlink.io': answers })
+    )('microlink.io')
 
-  t.is(await getLogo('microlink.io'), undefined)
-})
-
-test('honor a declination published next to another BIMI record', async t => {
-  const getLogo = createGetLogoFrom(
-    createResolveTxt({
-      'default._bimi.microlink.io': [['v=BIMI1; l=; a=;'], [RECORD]]
-    })
-  )
-
-  t.is(await getLogo('microlink.io'), undefined)
+  t.is(await getLogoOf([[RECORD], [RECORD]]), undefined)
+  t.is(await getLogoOf([['v=BIMI1; l=; a=;'], [RECORD]]), undefined)
 })
 
 test('return undefined when the logo cannot be resolved', async t => {
