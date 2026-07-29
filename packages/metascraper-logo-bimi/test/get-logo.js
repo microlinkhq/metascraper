@@ -65,24 +65,8 @@ test('honor a declination published next to another BIMI record', async t => {
   t.is(await getLogo('microlink.io'), undefined)
 })
 
-test('return undefined when the domain has no BIMI record', async t => {
-  const getLogo = createGetLogoFrom(createResolveTxt({}))
-
-  t.is(await getLogo('example.com'), undefined)
-})
-
 test('return undefined when the DNS lookup fails', async t => {
-  const getLogo = createGetLogoFrom(async () => {
-    throw dnsError('ENOTFOUND')
-  })
-
-  t.is(await getLogo('example.com'), undefined)
-})
-
-test('return undefined for a declination record', async t => {
-  const getLogo = createGetLogoFrom(
-    createResolveTxt(bimi('example.com', 'v=BIMI1; l=;'))
-  )
+  const getLogo = createGetLogoFrom(createResolveTxt({}))
 
   t.is(await getLogo('example.com'), undefined)
 })

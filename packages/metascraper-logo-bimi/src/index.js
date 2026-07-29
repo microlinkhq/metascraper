@@ -2,6 +2,7 @@
 
 const memoize = require('@keyvhq/memoize')
 const reachableUrl = require('reachable-url')
+const dns = require('dns')
 
 const {
   logo,
@@ -22,20 +23,21 @@ const parseTag = tag => {
 
 const parseTags = record => record.split(';').map(parseTag)
 
-const isVersionTag = ([name, value]) =>
+const isBimi = ([[name, value]]) =>
   name === 'v' && value.toLowerCase() === 'bimi1'
-
-const isRecord = record => isVersionTag(parseTags(record)[0])
 
 /**
  * An empty `l` is a declination: the domain explicitly opts out of publishing
  * a logo.
  */
-const parseRecord = record => {
-  const tags = parseTags(record)
-  if (!isVersionTag(tags[0])) return undefined
+const toLocation = tags => {
   const location = tags.find(([name]) => name === 'l')?.[1]
   return isHttps(location) ? location : undefined
+}
+
+const parseRecord = record => {
+  const tags = parseTags(record)
+  return isBimi(tags) ? toLocation(tags) : undefined
 }
 
 const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
@@ -47,10 +49,12 @@ const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
  *
  * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-7.2
  */
-const getRecord = async (domain, { resolveTxt, selector }) => {
-  const answers = await resolveTxt(toHostname(domain, selector)).catch(() => [])
-  const records = answers.map(answer => answer.join('')).filter(isRecord)
-  return records.length === 1 ? parseRecord(records[0]) : undefined
+const getRecord = async (hostname, resolveTxt) => {
+  const answers = await resolveTxt(hostname).catch(() => [])
+  const records = answers
+    .map(answer => parseTags(answer.join('')))
+    .filter(isBimi)
+  return records.length === 1 ? toLocation(records[0]) : undefined
 }
 
 const isSvg = ({ headers }) => mimeExtension(headers['content-type']) === 'svg'
@@ -67,32 +71,26 @@ const toLogoUrl = response =>
 const defaultResolveLogoUrl = async (logoUrl, gotOpts) =>
   toLogoUrl(await reachableUrl(logoUrl, gotOpts))
 
-/**
- * Loaded lazily so runtimes without `node:dns` can still require the package
- * and supply their own resolver.
- */
-const systemResolveTxt = hostname =>
-  require('dns').promises.resolveTxt(hostname)
-
 const createGetLogo = ({
   gotOpts,
   keyvOpts,
   resolveLogoUrl = defaultResolveLogoUrl,
-  resolveTxt = systemResolveTxt,
+  resolveTxt = dns.promises.resolveTxt,
   selector = 'default'
 } = {}) => {
-  const getLogo = async domain => {
-    const logoUrl = await getRecord(domain, { resolveTxt, selector })
+  const getLogo = async hostname => {
+    const logoUrl = await getRecord(hostname, resolveTxt)
     if (logoUrl) return resolveLogoUrl(logoUrl, gotOpts)
   }
 
   const fn = memoize(getLogo, keyvOpts, {
-    key: domain => toHostname(domain, selector),
     value: value => (value === undefined ? null : value)
   })
 
   return domain =>
-    fn(domain).then(value => (value === null ? undefined : value))
+    fn(toHostname(domain, selector)).then(value =>
+      value === null ? undefined : value
+    )
 }
 
 module.exports = options => {

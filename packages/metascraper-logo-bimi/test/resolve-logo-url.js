@@ -55,8 +55,8 @@ test('return undefined when a redirect downgrades the logo to http', t => {
 })
 
 /**
- * What `toLogoUrl` inspects is the URL a redirect landed on, not the one the
- * record published, which is why the https check cannot stop at `parseRecord`.
+ * The https check cannot stop at `parseRecord` because a redirect can land on
+ * a URL the record never published.
  */
 test('report the URL a redirect lands on, not the one requested', async t => {
   const target = await runSvgServer(t)
@@ -78,6 +78,9 @@ test('return undefined when the logo is not served over https', async t => {
   t.is(await resolveLogoUrl(`${url}logo.svg`), undefined)
 })
 
-test('return undefined when the host does not exist', async t => {
-  t.is(await resolveLogoUrl('https://idontexist.lol/logo.svg'), undefined)
+test('return undefined when the logo cannot be fetched', async t => {
+  t.is(
+    await resolveLogoUrl('https://127.0.0.1:1/logo.svg', { retry: 0 }),
+    undefined
+  )
 })

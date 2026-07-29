@@ -94,7 +94,7 @@ The default implementation discards anything not reachable, not served as `image
 Type: `function`<br>
 Default: `require('dns').promises.resolveTxt`
 
-The DNS resolver used to read the TXT record. Provide your own to run the lookup over [DNS over HTTPS](https://datatracker.ietf.org/doc/html/rfc8484) on runtimes without access to `node:dns`:
+The DNS resolver used to read the TXT record. Provide your own to run the lookup over [DNS over HTTPS](https://datatracker.ietf.org/doc/html/rfc8484), so it goes through the same egress as the rest of your traffic:
 
 ```js
 const metascraper = require('metascraper')([
