@@ -25,14 +25,11 @@
     "metascraper"
   ],
   "dependencies": {
-    "@keyvhq/memoize": "~2.2.4",
     "@metascraper/helpers": "workspace:*",
-    "reachable-url": "~1.8.3"
+    "bimi-url": "~1.0.0"
   },
   "devDependencies": {
-    "async-listen": "latest",
-    "ava": "8",
-    "got": "11"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"

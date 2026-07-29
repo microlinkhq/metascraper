@@ -49,76 +49,20 @@ The lookup is done against the registrable domain, meaning `https://blog.example
 
 ### metascraper-logo-bimi([options])
 
-#### options
+The record is read by [bimi-url](https://github.com/kikobeats/bimi-url), and every option is passed to it: `gotOpts`, `keyvOpts`, `resolveLogoUrl`, `resolveTxt`, and `selector` are [documented there](https://github.com/kikobeats/bimi-url#api).
 
-##### gotOpts
-
-Type: `object`
-
-Any option to be passed to [got](https://github.com/sindresorhus/got#options) when the logo URL is checked.
-
-##### keyvOpts
-
-Type: `object`
-
-Any option to be passed to [@keyvhq/memoize](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
-
-The resolution is memoized per domain and selector, including the absence of a record. A rejection from `resolveTxt` or `resolveLogoUrl` is not memoized: it means the logo is unknown rather than absent, so the next lookup retries it.
-
-The default store is an in-memory map that never evicts, so a long running process scraping many domains should supply its own store, plus a `ttl` in milliseconds to bound how long a record is trusted:
-
-```js
-const KeyvRedis = require('@keyvhq/redis')
-
-const metascraper = require('metascraper')([
-  require('metascraper-logo-bimi')({
-    keyvOpts: {
-      store: new KeyvRedis('redis://localhost:6379'),
-      ttl: 24 * 60 * 60 * 1000
-    }
-  })
-])
-```
-
-##### resolveLogoUrl
-
-Type: `function`<br>
-Default: `require('metascraper-logo-bimi').resolveLogoUrl`
-
-It determines if the logo URL published in the record is valid, returning the URL or `undefined`.
-
-The default implementation discards anything not reachable, not served as `image/svg+xml`, or that redirects away from `https`. Its verdict is exposed as `require('metascraper-logo-bimi').toLogoUrl(response)`, so a custom implementation can reuse it over its own request.
-
-##### resolveTxt
-
-Type: `function`<br>
-Default: `require('dns').promises.resolveTxt`
-
-The DNS resolver used to read the TXT record. Provide your own to run the lookup over [DNS over HTTPS](https://datatracker.ietf.org/doc/html/rfc8484), so it goes through the same egress as the rest of your traffic:
+Supplying your own `resolveTxt` is the common one, so the lookup goes through the same egress as the rest of your traffic rather than `node:dns`:
 
 ```js
 const metascraper = require('metascraper')([
   require('metascraper-logo-bimi')({
-    resolveTxt: async hostname => {
-      const response = await fetch(
-        `https://cloudflare-dns.com/dns-query?name=${hostname}&type=TXT`,
-        { headers: { accept: 'application/dns-json' } }
-      )
-      const { Answer = [] } = await response.json()
-      return Answer.filter(({ type }) => type === 16).map(({ data }) =>
-        data.match(/"[^"]*"/g).map(chunk => chunk.slice(1, -1))
-      )
-    }
+    keyvOpts: { store: new KeyvRedis('redis://localhost:6379') },
+    resolveTxt: hostname => myResolver.resolveTxt(hostname)
   })
 ])
 ```
 
-##### selector
-
-Type: `string`<br>
-Default: `'default'`
-
-The BIMI selector to query, used as `<selector>._bimi.<domain>`.
+`createGetLogo`, `resolveLogoUrl` and `toLogoUrl` are re-exported from `bimi-url` for use outside a metascraper rule.
 
 ## License
 
