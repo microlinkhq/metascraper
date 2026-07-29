@@ -8,7 +8,7 @@ const {
   LOGO_URL,
   RECORD,
   acceptLogoUrl,
-  bimi,
+  countCalls,
   createResolveTxt,
   dnsError
 } = require('./helpers')
@@ -18,7 +18,7 @@ const createGetLogoFrom = (resolveTxt, options) =>
 
 test('resolve the logo published in the BIMI record', async t => {
   const getLogo = createGetLogoFrom(
-    createResolveTxt(bimi('microlink.io', RECORD))
+    createResolveTxt({ 'default._bimi.microlink.io': [[RECORD]] })
   )
 
   t.is(await getLogo('microlink.io'), LOGO_URL)
@@ -26,9 +26,9 @@ test('resolve the logo published in the BIMI record', async t => {
 
 test('join TXT strings split into multiple chunks', async t => {
   const getLogo = createGetLogoFrom(
-    createResolveTxt(
-      bimi('microlink.io', RECORD.slice(0, 20), RECORD.slice(20))
-    )
+    createResolveTxt({
+      'default._bimi.microlink.io': [[RECORD.slice(0, 20), RECORD.slice(20)]]
+    })
   )
 
   t.is(await getLogo('microlink.io'), LOGO_URL)
@@ -73,11 +73,29 @@ test('return undefined when the DNS lookup fails', async t => {
 
 test('return undefined when the logo cannot be resolved', async t => {
   const getLogo = createGetLogoFrom(
-    createResolveTxt(bimi('microlink.io', RECORD)),
+    createResolveTxt({ 'default._bimi.microlink.io': [[RECORD]] }),
     { resolveLogoUrl: async () => undefined }
   )
 
   t.is(await getLogo('microlink.io'), undefined)
+})
+
+test('pass the logo location and the got options to resolveLogoUrl', async t => {
+  const gotOpts = { timeout: 1000 }
+  const seen = []
+
+  const resolveLogoUrl = async (...args) => {
+    seen.push(args)
+    return LOGO_URL
+  }
+
+  const getLogo = createGetLogoFrom(
+    createResolveTxt({ 'default._bimi.microlink.io': [[RECORD]] }),
+    { gotOpts, resolveLogoUrl }
+  )
+
+  t.is(await getLogo('microlink.io'), LOGO_URL)
+  t.deepEqual(seen, [[LOGO_URL, gotOpts]])
 })
 
 test('query the selector provided', async t => {
@@ -90,17 +108,25 @@ test('query the selector provided', async t => {
 })
 
 test('resolve the DNS record once per domain', async t => {
-  const resolveTxt = createResolveTxt(bimi('microlink.io', RECORD))
+  const resolveTxt = countCalls(
+    createResolveTxt({ 'default._bimi.microlink.io': [[RECORD]] })
+  )
+  const getLogo = createGetLogoFrom(resolveTxt)
 
-  let calls = 0
-  const getLogo = createGetLogoFrom(hostname => {
-    calls++
-    return resolveTxt(hostname)
+  t.is(await getLogo('microlink.io'), LOGO_URL)
+  t.is(await getLogo('microlink.io'), LOGO_URL)
+  t.is(resolveTxt.calls, 1)
+})
+
+test('cache the absence of a record', async t => {
+  const resolveTxt = countCalls(async () => {
+    throw dnsError('ENODATA')
   })
+  const getLogo = createGetLogoFrom(resolveTxt)
 
-  t.is(await getLogo('microlink.io'), LOGO_URL)
-  t.is(await getLogo('microlink.io'), LOGO_URL)
-  t.is(calls, 1)
+  t.is(await getLogo('example.com'), undefined)
+  t.is(await getLogo('example.com'), undefined)
+  t.is(resolveTxt.calls, 1)
 })
 
 test('scope the cache to the selector', async t => {
@@ -117,16 +143,4 @@ test('scope the cache to the selector', async t => {
 
   t.is(await getDefaultLogo('microlink.io'), undefined)
   t.is(await getBrandLogo('microlink.io'), LOGO_URL)
-})
-
-test('cache the absence of a record', async t => {
-  let calls = 0
-  const getLogo = createGetLogoFrom(async () => {
-    calls++
-    throw dnsError('ENODATA')
-  })
-
-  t.is(await getLogo('example.com'), undefined)
-  t.is(await getLogo('example.com'), undefined)
-  t.is(calls, 1)
 })

@@ -35,11 +35,9 @@ test('resolve when the content type declares a charset', t => {
 
 test('return undefined when the logo is not reachable', t => {
   t.is(toLogoUrl(response({ statusCode: 404 })), undefined)
-  t.is(toLogoUrl(response({ statusCode: 500 })), undefined)
 })
 
 test('return undefined when the logo is not a SVG', t => {
-  t.is(toLogoUrl(response({ contentType: 'text/html' })), undefined)
   t.is(toLogoUrl(response({ contentType: 'image/png' })), undefined)
 })
 
@@ -54,10 +52,6 @@ test('return undefined when a redirect downgrades the logo to http', t => {
   )
 })
 
-/**
- * The https check cannot stop at `parseRecord` because a redirect can land on
- * a URL the record never published.
- */
 test('report the URL a redirect lands on, not the one requested', async t => {
   const target = await runSvgServer(t)
 

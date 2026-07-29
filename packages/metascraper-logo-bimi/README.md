@@ -19,7 +19,7 @@ $ dig +short TXT default._bimi.microlink.io
 
 The specification constrains the logo to [SVG Tiny P/S](https://www.w3.org/TR/SVGTiny12/): vector, square, and transparent, which is exactly the shape a logo is expected to have.
 
-The record is published in the domain's own DNS, so it is self asserted: the same level of trust as `og:logo`. Domains may also publish a Verified Mark Certificate under `a=`, where a certificate authority has attested the mark against the trademark owner, but this package does not read or validate it, so treat the result as a BIMI published logo rather than a verified one.
+The record is published in the domain's own DNS, so it is self asserted: the same level of trust as `og:logo`. Domains may also publish a Verified Mark Certificate under `a=`, where a certificate authority has attested the mark against the trademark owner, but this package does not read or validate it.
 
 That makes it a higher quality source than a favicon, and it doesn't need the markup: a single DNS lookup, so it works even when the page is JavaScript rendered or unreachable.
 
@@ -63,7 +63,7 @@ Type: `object`
 
 Any option to be passed to [@keyvhq/memoize](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
-The resolution is memoized per domain, including the absence of a record.
+The resolution is memoized per domain and selector, including the absence of a record.
 
 The default store is an in-memory map that never evicts, so a long running process scraping many domains should supply its own store, plus a `ttl` in milliseconds to bound how long a record is trusted:
 

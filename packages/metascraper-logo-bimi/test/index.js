@@ -8,7 +8,6 @@ const {
   LOGO_URL,
   RECORD,
   acceptLogoUrl,
-  bimi,
   createResolveTxt
 } = require('./helpers')
 
@@ -18,10 +17,10 @@ const createMetascraper = resolveTxt =>
     require('metascraper-logo')()
   ])
 
+const BIMI_RECORDS = { 'default._bimi.microlink.io': [[RECORD]] }
+
 test('get the logo of the registrable domain', async t => {
-  const metascraper = createMetascraper(
-    createResolveTxt(bimi('microlink.io', RECORD))
-  )
+  const metascraper = createMetascraper(createResolveTxt(BIMI_RECORDS))
 
   const { logo } = await metascraper({
     url: 'https://cdn.microlink.io/docs/getting-started',
@@ -32,9 +31,7 @@ test('get the logo of the registrable domain', async t => {
 })
 
 test('take precedence over the HTML markup', async t => {
-  const metascraper = createMetascraper(
-    createResolveTxt(bimi('microlink.io', RECORD))
-  )
+  const metascraper = createMetascraper(createResolveTxt(BIMI_RECORDS))
 
   const { logo } = await metascraper({
     url: 'https://microlink.io',

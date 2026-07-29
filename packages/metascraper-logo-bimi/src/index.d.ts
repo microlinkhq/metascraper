@@ -35,7 +35,6 @@ declare function rules(options?: Options): import('metascraper').Rules;
 
 declare namespace rules {
   function createGetLogo(options?: Options): (domain: string) => Promise<string | undefined>;
-  function parseRecord(record: string): string | undefined;
   function toLogoUrl(response: import('got').Response): string | undefined;
 
   const resolveLogoUrl: ResolveLogoUrl;

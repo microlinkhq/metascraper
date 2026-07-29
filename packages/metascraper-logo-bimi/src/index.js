@@ -17,8 +17,8 @@ const toLogo = toRule(logo)
 const isHttps = url => protocol(url) === 'https'
 
 const parseTag = tag => {
-  const [name, ...value] = tag.split('=')
-  return [name.trim().toLowerCase(), value.join('=').trim()]
+  const [name, ...rest] = tag.split('=')
+  return [name.trim().toLowerCase(), rest.join('=').trim()]
 }
 
 const parseTags = record => record.split(';').map(parseTag)
@@ -27,17 +27,14 @@ const isBimi = ([[name, value]]) =>
   name === 'v' && value.toLowerCase() === 'bimi1'
 
 /**
- * An empty `l` is a declination: the domain explicitly opts out of publishing
- * a logo.
+ * `l` is https only, and an empty one is a declination: the domain opting out
+ * of publishing a logo. Both leave nothing to resolve.
+ *
+ * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-4.2
  */
 const toLocation = tags => {
   const location = tags.find(([name]) => name === 'l')?.[1]
   return isHttps(location) ? location : undefined
-}
-
-const parseRecord = record => {
-  const tags = parseTags(record)
-  return isBimi(tags) ? toLocation(tags) : undefined
 }
 
 const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
@@ -106,6 +103,5 @@ module.exports = options => {
 }
 
 module.exports.createGetLogo = createGetLogo
-module.exports.parseRecord = parseRecord
 module.exports.resolveLogoUrl = defaultResolveLogoUrl
 module.exports.toLogoUrl = toLogoUrl

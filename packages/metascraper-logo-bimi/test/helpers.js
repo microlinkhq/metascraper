@@ -27,8 +27,6 @@ const RECORD = `v=BIMI1; l=${LOGO_URL};`
 
 const acceptLogoUrl = async logoUrl => logoUrl
 
-const bimi = (domain, ...record) => ({ [`default._bimi.${domain}`]: [record] })
-
 const dnsError = code => {
   const error = new Error(`queryTxt ${code}`)
   error.code = code
@@ -41,11 +39,20 @@ const createResolveTxt = records => async hostname => {
   return answers
 }
 
+const countCalls = resolveTxt => {
+  const counted = hostname => {
+    counted.calls++
+    return resolveTxt(hostname)
+  }
+  counted.calls = 0
+  return counted
+}
+
 module.exports = {
   LOGO_URL,
   RECORD,
   acceptLogoUrl,
-  bimi,
+  countCalls,
   createResolveTxt,
   dnsError,
   runServer
