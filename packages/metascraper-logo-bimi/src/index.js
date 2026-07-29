@@ -20,20 +20,32 @@ const parseTag = tag => {
   return [name.trim().toLowerCase(), value.join('=').trim()]
 }
 
+const parseTags = record => record.split(';').map(parseTag)
+
+const isVersionTag = ([name, value]) =>
+  name === 'v' && value.toLowerCase() === 'bimi1'
+
+const isRecord = record => isVersionTag(parseTags(record)[0])
+
 /**
  * A BIMI record is a list of `;` separated `tag=value` pairs where `v=BIMI1`
  * comes first and `l` points to the logo. An empty `l` is a declination: the
  * domain explicitly opts out of publishing a logo.
- *
- * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi
  */
 const parseRecord = record => {
-  const [[versionTag, version], ...tags] = record.split(';').map(parseTag)
-  if (versionTag !== 'v' || version.toLowerCase() !== 'bimi1') return undefined
+  const [versionTag, ...tags] = parseTags(record)
+  if (!isVersionTag(versionTag)) return undefined
   const location = tags.find(([name]) => name === 'l')?.[1]
   return isHttps(location) ? location : undefined
 }
 
+/**
+ * Other TXT records can share the hostname, so they are discarded rather than
+ * read as an absent record. What remains has to be a single record, so a second
+ * one cannot override the first, including its declination.
+ *
+ * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-7.2
+ */
 const getRecord = async (domain, { resolveTxt, selector }) => {
   let answers
 
@@ -43,10 +55,8 @@ const getRecord = async (domain, { resolveTxt, selector }) => {
     return undefined
   }
 
-  for (const answer of answers) {
-    const logoUrl = parseRecord(answer.join(''))
-    if (logoUrl) return logoUrl
-  }
+  const records = answers.map(answer => answer.join('')).filter(isRecord)
+  return records.length === 1 ? parseRecord(records[0]) : undefined
 }
 
 const isSvg = ({ headers }) => mimeExtension(headers['content-type']) === 'svg'
