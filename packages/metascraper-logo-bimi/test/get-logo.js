@@ -119,6 +119,22 @@ test('resolve the DNS record once per domain', async t => {
   t.is(calls, 1)
 })
 
+test('scope the cache to the selector', async t => {
+  const resolveTxt = createResolveTxt({
+    'brand._bimi.microlink.io': [[RECORD]]
+  })
+  const store = new Map()
+
+  const getDefaultLogo = createGetLogoFrom(resolveTxt, { keyvOpts: { store } })
+  const getBrandLogo = createGetLogoFrom(resolveTxt, {
+    keyvOpts: { store },
+    selector: 'brand'
+  })
+
+  t.is(await getDefaultLogo('microlink.io'), undefined)
+  t.is(await getBrandLogo('microlink.io'), LOGO_URL)
+})
+
 test('cache the absence of a record', async t => {
   let calls = 0
   const getLogo = createGetLogoFrom(async () => {

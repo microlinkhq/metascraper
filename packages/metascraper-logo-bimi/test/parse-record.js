@@ -3,11 +3,10 @@
 const test = require('ava').default
 
 const { parseRecord } = require('..')
-
-const LOGO_URL = 'https://cdn.microlink.io/logo/logo.svg'
+const { LOGO_URL, RECORD } = require('./helpers')
 
 test('get the logo location', t => {
-  t.is(parseRecord(`v=BIMI1; l=${LOGO_URL};`), LOGO_URL)
+  t.is(parseRecord(RECORD), LOGO_URL)
 })
 
 test('get the logo location when a certificate is present', t => {

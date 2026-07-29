@@ -25,27 +25,20 @@ const parseTags = record => record.split(';').map(parseTag)
 const isVersionTag = ([name, value]) =>
   name === 'v' && value.toLowerCase() === 'bimi1'
 
-const isRecord = record => isVersionTag(parseTag(record.split(';', 1)[0]))
+const isRecord = record => isVersionTag(parseTags(record)[0])
 
 /**
- * A BIMI record is a list of `;` separated `tag=value` pairs where `v=BIMI1`
- * comes first and `l` points to the logo. An empty `l` is a declination: the
- * domain explicitly opts out of publishing a logo.
+ * An empty `l` is a declination: the domain explicitly opts out of publishing
+ * a logo.
  */
 const parseRecord = record => {
-  const [versionTag, ...tags] = parseTags(record)
-  if (!isVersionTag(versionTag)) return undefined
+  const tags = parseTags(record)
+  if (!isVersionTag(tags[0])) return undefined
   const location = tags.find(([name]) => name === 'l')?.[1]
   return isHttps(location) ? location : undefined
 }
 
-const resolveAnswers = async (hostname, resolveTxt) => {
-  try {
-    return await resolveTxt(hostname)
-  } catch {
-    return []
-  }
-}
+const toHostname = (domain, selector) => `${selector}._bimi.${domain}`
 
 /**
  * Other TXT records can share the hostname, so they are discarded rather than
@@ -55,10 +48,7 @@ const resolveAnswers = async (hostname, resolveTxt) => {
  * https://datatracker.ietf.org/doc/html/draft-blank-ietf-bimi-02#section-7.2
  */
 const getRecord = async (domain, { resolveTxt, selector }) => {
-  const answers = await resolveAnswers(
-    `${selector}._bimi.${domain}`,
-    resolveTxt
-  )
+  const answers = await resolveTxt(toHostname(domain, selector)).catch(() => [])
   const records = answers.map(answer => answer.join('')).filter(isRecord)
   return records.length === 1 ? parseRecord(records[0]) : undefined
 }
@@ -97,6 +87,7 @@ const createGetLogo = ({
   }
 
   const fn = memoize(getLogo, keyvOpts, {
+    key: domain => toHostname(domain, selector),
     value: value => (value === undefined ? null : value)
   })
 
