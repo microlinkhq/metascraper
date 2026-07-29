@@ -1,5 +1,4 @@
 dangerouslyAllowAllBuilds: true
-minimumReleaseAgeExclude:
-  - bimi-url@1.0.0
+minimumReleaseAge: 0
 packages:
   - 'packages/*'
