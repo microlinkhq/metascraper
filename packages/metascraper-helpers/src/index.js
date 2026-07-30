@@ -123,6 +123,16 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const REGEX_TITLE_SEPARATOR = /^[^|\-/•—]+/
 
+// https://url.spec.whatwg.org/#scheme-state
+const REGEX_SCHEME = /^[A-Za-z][A-Za-z0-9+\-.]*:/
+
+const REGEX_URL_TAB_OR_NEWLINE = /[\t\n\r]/
+
+// A leading C0 control or space, and any ASCII tab or newline, are stripped by
+// the URL parser before it reads the scheme, ruling out the fast path.
+const isUrlTrimmable = value =>
+  value.charCodeAt(0) <= 0x20 || REGEX_URL_TAB_OR_NEWLINE.test(value)
+
 const AUTHOR_MAX_LENGTH = 128
 
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
@@ -205,7 +215,13 @@ const isAuthor = (str, opts = { relative: false }) =>
 const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
   titleize(str, { removeBy, ...opts })
 
+const hasNoScheme = value =>
+  isString(value) && !REGEX_SCHEME.test(value) && !isUrlTrimmable(value)
+
 const protocol = url => {
+  // Such a value cannot parse without a base, and reaching '' by constructing
+  // `new URL` only to catch the throw is orders of magnitude more expensive.
+  if (hasNoScheme(url)) return ''
   const { protocol = '' } = urlObject(url)
   return protocol.replace(':', '')
 }
