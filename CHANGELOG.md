@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.53.0](https://github.com/microlinkhq/metascraper/compare/v5.52.1...v5.53.0) (2026-07-30)
+
+### Features
+
+* **helpers:** read the declared protocol instead of resolving it ([#864](https://github.com/microlinkhq/metascraper/issues/864)) ([2d72298](https://github.com/microlinkhq/metascraper/commit/2d72298eda16e72cc46c32ce2f6a0d4f30e88655))
+
 ## [5.52.1](https://github.com/microlinkhq/metascraper/compare/v5.52.0...v5.52.1) (2026-07-29)
 
 **Note:** Version bump only for package metascraper
