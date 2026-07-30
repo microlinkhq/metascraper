@@ -85,7 +85,8 @@ test('.protocol', t => {
   t.is(protocol('#fragment'), '')
   t.is(protocol(''), '')
 
-  /* the declared scheme is read, even when the authority is unparseable */
+  /* the declared scheme is read, even when the rest is not a URL */
+  t.is(protocol('example.com:8080/path'), 'example.com')
   t.is(protocol('http://'), 'http')
   t.is(protocol('http://['), 'http')
   t.is(protocol('foo://['), 'foo')

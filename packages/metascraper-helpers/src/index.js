@@ -146,32 +146,33 @@ const absoluteUrl = (baseUrl, relativePath) => {
 }
 
 // https://url.spec.whatwg.org/#scheme-state
-const isSchemeHead = code =>
-  (code >= 0x61 && code <= 0x7a) || (code >= 0x41 && code <= 0x5a)
-
-const isSchemeChar = code =>
-  isSchemeHead(code) ||
-  (code >= 0x30 && code <= 0x39) ||
-  code === 0x2b ||
-  code === 0x2d ||
-  code === 0x2e
-
 const protocol = url => {
   if (!isString(url)) return ''
-  let index = 0
-  while (index < url.length && url.charCodeAt(index) <= 0x20) index++
-  const start = index
-  for (; index < url.length; index++) {
+  const { length } = url
+  let start = 0
+  while (start < length && url.charCodeAt(start) <= 0x20) start++
+  const head = url.charCodeAt(start)
+  const isLower = head >= 0x61 && head <= 0x7a
+  if (!isLower && !(head >= 0x41 && head <= 0x5a)) return ''
+  let isLowerCased = isLower
+  for (let index = start + 1; index < length; index++) {
     const code = url.charCodeAt(index)
     if (code === 0x3a) {
-      return index === start ? '' : url.slice(start, index).toLowerCase()
+      const scheme = url.slice(start, index)
+      return isLowerCased ? scheme : scheme.toLowerCase()
     }
-    // the parser removes every ASCII tab or newline before reading the scheme,
-    // so `mai\tlto:a@b` declares `mailto`
+    if (code >= 0x61 && code <= 0x7a) continue
+    if (code >= 0x41 && code <= 0x5a) {
+      isLowerCased = false
+      continue
+    }
+    const isDigit = code >= 0x30 && code <= 0x39
+    if (isDigit || code === 0x2b || code === 0x2d || code === 0x2e) continue
+    // `mai\tlto:a@b` declares `mailto`
     if (code === 0x09 || code === 0x0a || code === 0x0d) {
       return protocol(url.replace(REGEX_URL_TAB_OR_NEWLINE, ''))
     }
-    if (!(index === start ? isSchemeHead(code) : isSchemeChar(code))) return ''
+    return ''
   }
   return ''
 }
