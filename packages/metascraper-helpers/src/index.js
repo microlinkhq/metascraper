@@ -123,24 +123,7 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const REGEX_TITLE_SEPARATOR = /^[^|\-/•—]+/
 
-// https://url.spec.whatwg.org/#scheme-state
-const REGEX_SCHEME = /^([A-Za-z][A-Za-z0-9+\-.]*):/
-
 const REGEX_URL_TAB_OR_NEWLINE = /[\t\n\r]/g
-
-const hasTabOrNewline = value =>
-  value.includes('\t') || value.includes('\n') || value.includes('\r')
-
-// The URL parser strips a leading C0 control or space, and removes every ASCII tab
-// or newline, before it reads the scheme: ' mai\tlto:a@b' declares `mailto`.
-const forScheme = value => {
-  let start = 0
-  while (start < value.length && value.charCodeAt(start) <= 0x20) start++
-  const trimmed = start === 0 ? value : value.slice(start)
-  return hasTabOrNewline(trimmed)
-    ? trimmed.replace(REGEX_URL_TAB_OR_NEWLINE, '')
-    : trimmed
-}
 
 const AUTHOR_MAX_LENGTH = 128
 
@@ -162,6 +145,37 @@ const absoluteUrl = (baseUrl, relativePath) => {
   return urlObject(relativePath, baseUrl).toString()
 }
 
+// https://url.spec.whatwg.org/#scheme-state
+const isSchemeHead = code =>
+  (code >= 0x61 && code <= 0x7a) || (code >= 0x41 && code <= 0x5a)
+
+const isSchemeChar = code =>
+  isSchemeHead(code) ||
+  (code >= 0x30 && code <= 0x39) ||
+  code === 0x2b ||
+  code === 0x2d ||
+  code === 0x2e
+
+const protocol = url => {
+  if (!isString(url)) return ''
+  let index = 0
+  while (index < url.length && url.charCodeAt(index) <= 0x20) index++
+  const start = index
+  for (; index < url.length; index++) {
+    const code = url.charCodeAt(index)
+    if (code === 0x3a) {
+      return index === start ? '' : url.slice(start, index).toLowerCase()
+    }
+    // the parser removes every ASCII tab or newline before reading the scheme,
+    // so `mai\tlto:a@b` declares `mailto`
+    if (code === 0x09 || code === 0x0a || code === 0x0d) {
+      return protocol(url.replace(REGEX_URL_TAB_OR_NEWLINE, ''))
+    }
+    if (!(index === start ? isSchemeHead(code) : isSchemeChar(code))) return ''
+  }
+  return ''
+}
+
 const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
     stripWWW: false,
@@ -175,7 +189,7 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
     const absolute = absoluteUrl(baseUrl, relativePath)
     // normalize-url v9 no longer rejects `javascript:` URLs; keep them out
-    if (urlObject(absolute).protocol === 'javascript:') return undefined
+    if (protocol(absolute) === 'javascript') return undefined
     return sanetizeUrl(absolute, opts)
   } catch (_) {}
 }
@@ -223,15 +237,6 @@ const isAuthor = (str, opts = { relative: false }) =>
 
 const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
   titleize(str, { removeBy, ...opts })
-
-// Which scheme a value declares is a lexical question, so it is read rather than
-// resolved: `new URL` rejects an authority it cannot parse, and answering '' for
-// `http://` describes the whole URL, not the scheme sitting in front of it.
-const protocol = url => {
-  if (!isString(url)) return ''
-  const match = REGEX_SCHEME.exec(forScheme(url))
-  return match === null ? '' : match[1].toLowerCase()
-}
 
 const isExtension = (url, type, ext = extension(url)) =>
   type === EXTENSIONS[ext]

@@ -78,7 +78,6 @@ test('.protocol', t => {
   t.is(protocol('urn:isbn:0451450523'), 'urn')
   t.is(protocol('blob:https://example.com/uuid'), 'blob')
 
-  /* schemeless input cannot be parsed without a base */
   t.is(protocol('/path/to/page'), '')
   t.is(protocol('page.html'), '')
   t.is(protocol('../up'), '')
@@ -97,7 +96,6 @@ test('.protocol', t => {
   t.is(protocol('mai\tlto:user@example.com'), 'mailto')
   t.is(protocol('ht\ntp://example.com'), 'http')
 
-  /* a scheme cannot start with a digit or a sign */
   t.is(protocol('1http://example.com'), '')
   t.is(protocol('+http://example.com'), '')
 
