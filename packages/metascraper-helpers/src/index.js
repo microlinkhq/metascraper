@@ -124,14 +124,23 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 const REGEX_TITLE_SEPARATOR = /^[^|\-/•—]+/
 
 // https://url.spec.whatwg.org/#scheme-state
-const REGEX_SCHEME = /^[A-Za-z][A-Za-z0-9+\-.]*:/
+const REGEX_SCHEME = /^([A-Za-z][A-Za-z0-9+\-.]*):/
 
-const REGEX_URL_TAB_OR_NEWLINE = /[\t\n\r]/
+const REGEX_URL_TAB_OR_NEWLINE = /[\t\n\r]/g
 
-// A leading C0 control or space, and any ASCII tab or newline, are stripped by
-// the URL parser before it reads the scheme, ruling out the fast path.
-const isUrlTrimmable = value =>
-  value.charCodeAt(0) <= 0x20 || REGEX_URL_TAB_OR_NEWLINE.test(value)
+const hasTabOrNewline = value =>
+  value.includes('\t') || value.includes('\n') || value.includes('\r')
+
+// The URL parser strips a leading C0 control or space, and removes every ASCII tab
+// or newline, before it reads the scheme: ' mai\tlto:a@b' declares `mailto`.
+const forScheme = value => {
+  let start = 0
+  while (start < value.length && value.charCodeAt(start) <= 0x20) start++
+  const trimmed = start === 0 ? value : value.slice(start)
+  return hasTabOrNewline(trimmed)
+    ? trimmed.replace(REGEX_URL_TAB_OR_NEWLINE, '')
+    : trimmed
+}
 
 const AUTHOR_MAX_LENGTH = 128
 
@@ -215,15 +224,13 @@ const isAuthor = (str, opts = { relative: false }) =>
 const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
   titleize(str, { removeBy, ...opts })
 
-const hasNoScheme = value =>
-  isString(value) && !REGEX_SCHEME.test(value) && !isUrlTrimmable(value)
-
+// Which scheme a value declares is a lexical question, so it is read rather than
+// resolved: `new URL` rejects an authority it cannot parse, and answering '' for
+// `http://` describes the whole URL, not the scheme sitting in front of it.
 const protocol = url => {
-  // Such a value cannot parse without a base, and reaching '' by constructing
-  // `new URL` only to catch the throw is orders of magnitude more expensive.
-  if (hasNoScheme(url)) return ''
-  const { protocol = '' } = urlObject(url)
-  return protocol.replace(':', '')
+  if (!isString(url)) return ''
+  const match = REGEX_SCHEME.exec(forScheme(url))
+  return match === null ? '' : match[1].toLowerCase()
 }
 
 const isExtension = (url, type, ext = extension(url)) =>

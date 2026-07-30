@@ -86,9 +86,10 @@ test('.protocol', t => {
   t.is(protocol('#fragment'), '')
   t.is(protocol(''), '')
 
-  /* a scheme the URL parser rejects as a whole resolves to no protocol */
-  t.is(protocol('http://'), '')
-  t.is(protocol('http://['), '')
+  /* the declared scheme is read, even when the authority is unparseable */
+  t.is(protocol('http://'), 'http')
+  t.is(protocol('http://['), 'http')
+  t.is(protocol('foo://['), 'foo')
 
   /* the URL parser strips these before reading the scheme */
   t.is(protocol('  mailto:user@example.com'), 'mailto')
