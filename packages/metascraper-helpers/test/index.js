@@ -27,6 +27,7 @@ const {
   lang,
   normalizeUrl,
   parseUrl,
+  protocol,
   url,
   video
 } = require('../src')
@@ -62,6 +63,46 @@ test('.parseUrl', t => {
   const fn = () => parseUrl('https://example.com')
   /* this assertion ensure parseUrl memoize the value */
   t.true(measure(fn) > measure(fn)) // eslint-disable-line
+})
+
+test('.protocol', t => {
+  t.is(protocol('http://example.com'), 'http')
+  t.is(protocol('HTTPS://Example.com'), 'https')
+  t.is(protocol('mailto:user@example.com'), 'mailto')
+  t.is(protocol('MAILTO:user@example.com'), 'mailto')
+  t.is(protocol('tel:+34123456789'), 'tel')
+  t.is(protocol('javascript:alert(1)'), 'javascript')
+  t.is(protocol('data:text/plain,hello'), 'data')
+  t.is(protocol('ftp://example.com/file.txt'), 'ftp')
+  t.is(protocol('file:///etc/passwd'), 'file')
+  t.is(protocol('urn:isbn:0451450523'), 'urn')
+  t.is(protocol('blob:https://example.com/uuid'), 'blob')
+
+  t.is(protocol('/path/to/page'), '')
+  t.is(protocol('page.html'), '')
+  t.is(protocol('../up'), '')
+  t.is(protocol('//example.com/path'), '')
+  t.is(protocol('#fragment'), '')
+  t.is(protocol(''), '')
+
+  /* the declared scheme is read, even when the rest is not a URL */
+  t.is(protocol('example.com:8080/path'), 'example.com')
+  t.is(protocol('http://'), 'http')
+  t.is(protocol('http://['), 'http')
+  t.is(protocol('foo://['), 'foo')
+
+  /* whitespace and tabs are stripped before the scheme is read */
+  t.is(protocol('  mailto:user@example.com'), 'mailto')
+  t.is(protocol('\tmailto:user@example.com'), 'mailto')
+  t.is(protocol('mai\tlto:user@example.com'), 'mailto')
+  t.is(protocol('ht\ntp://example.com'), 'http')
+
+  t.is(protocol('1http://example.com'), '')
+  t.is(protocol('+http://example.com'), '')
+
+  t.is(protocol(undefined), '')
+  t.is(protocol(null), '')
+  t.is(protocol(0), '')
 })
 
 test('.normalizeUrl', t => {

@@ -123,6 +123,8 @@ const REGEX_LOCATION = /^[A-Z\s]+\s+[-—–]\s+/
 
 const REGEX_TITLE_SEPARATOR = /^[^|\-/•—]+/
 
+const REGEX_URL_TAB_OR_NEWLINE = /[\t\n\r]/g
+
 const AUTHOR_MAX_LENGTH = 128
 
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
@@ -143,6 +145,37 @@ const absoluteUrl = (baseUrl, relativePath) => {
   return urlObject(relativePath, baseUrl).toString()
 }
 
+// https://url.spec.whatwg.org/#scheme-state
+const protocol = url => {
+  if (!isString(url)) return ''
+  const { length } = url
+  let start = 0
+  while (start < length && url.charCodeAt(start) <= 0x20) start++
+  const head = url.charCodeAt(start)
+  let isLowerCased = head >= 0x61 && head <= 0x7a
+  if (!isLowerCased && !(head >= 0x41 && head <= 0x5a)) return ''
+  for (let index = start + 1; index < length; index++) {
+    const code = url.charCodeAt(index)
+    if (code === 0x3a) {
+      const scheme = url.slice(start, index)
+      return isLowerCased ? scheme : scheme.toLowerCase()
+    }
+    if (code >= 0x61 && code <= 0x7a) continue
+    if (code >= 0x41 && code <= 0x5a) {
+      isLowerCased = false
+      continue
+    }
+    if (code >= 0x30 && code <= 0x39) continue
+    if (code === 0x2b || code === 0x2d || code === 0x2e) continue
+    // `mai\tlto:a@b` declares `mailto`
+    if (code === 0x09 || code === 0x0a || code === 0x0d) {
+      return protocol(url.replace(REGEX_URL_TAB_OR_NEWLINE, ''))
+    }
+    return ''
+  }
+  return ''
+}
+
 const sanetizeUrl = (url, opts) =>
   _normalizeUrl(url, {
     stripWWW: false,
@@ -156,7 +189,7 @@ const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
     const absolute = absoluteUrl(baseUrl, relativePath)
     // normalize-url v9 no longer rejects `javascript:` URLs; keep them out
-    if (urlObject(absolute).protocol === 'javascript:') return undefined
+    if (protocol(absolute) === 'javascript') return undefined
     return sanetizeUrl(absolute, opts)
   } catch (_) {}
 }
@@ -204,11 +237,6 @@ const isAuthor = (str, opts = { relative: false }) =>
 
 const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
   titleize(str, { removeBy, ...opts })
-
-const protocol = url => {
-  const { protocol = '' } = urlObject(url)
-  return protocol.replace(':', '')
-}
 
 const isExtension = (url, type, ext = extension(url)) =>
   type === EXTENSIONS[ext]
