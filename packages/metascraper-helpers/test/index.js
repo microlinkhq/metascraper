@@ -91,7 +91,7 @@ test('.protocol', t => {
   t.is(protocol('http://['), 'http')
   t.is(protocol('foo://['), 'foo')
 
-  /* the URL parser strips these before reading the scheme */
+  /* stripped before the scheme is read, as the URL parser does */
   t.is(protocol('  mailto:user@example.com'), 'mailto')
   t.is(protocol('\tmailto:user@example.com'), 'mailto')
   t.is(protocol('mai\tlto:user@example.com'), 'mailto')

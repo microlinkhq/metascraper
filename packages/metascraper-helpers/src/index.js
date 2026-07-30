@@ -152,9 +152,8 @@ const protocol = url => {
   let start = 0
   while (start < length && url.charCodeAt(start) <= 0x20) start++
   const head = url.charCodeAt(start)
-  const isLower = head >= 0x61 && head <= 0x7a
-  if (!isLower && !(head >= 0x41 && head <= 0x5a)) return ''
-  let isLowerCased = isLower
+  let isLowerCased = head >= 0x61 && head <= 0x7a
+  if (!isLowerCased && !(head >= 0x41 && head <= 0x5a)) return ''
   for (let index = start + 1; index < length; index++) {
     const code = url.charCodeAt(index)
     if (code === 0x3a) {
@@ -166,8 +165,8 @@ const protocol = url => {
       isLowerCased = false
       continue
     }
-    const isDigit = code >= 0x30 && code <= 0x39
-    if (isDigit || code === 0x2b || code === 0x2d || code === 0x2e) continue
+    if (code >= 0x30 && code <= 0x39) continue
+    if (code === 0x2b || code === 0x2d || code === 0x2e) continue
     // `mai\tlto:a@b` declares `mailto`
     if (code === 0x09 || code === 0x0a || code === 0x0d) {
       return protocol(url.replace(REGEX_URL_TAB_OR_NEWLINE, ''))
