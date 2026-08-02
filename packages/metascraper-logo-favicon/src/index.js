@@ -137,7 +137,9 @@ pickBiggerSize.sortBySize = collection =>
   orderBy(collection, ['size.priority'], ['desc'])
 
 const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
-  const response = await reachableUrl(faviconUrl, gotOpts)
+  // One byte is what the check below reads, and it is the byte the range
+  // request already asks for, so nothing else has to be downloaded.
+  const response = await reachableUrl(faviconUrl, { maxBody: 1, ...gotOpts })
   if (!reachableUrl.isReachable(response)) return undefined
 
   const contentType = response.headers['content-type']
@@ -148,7 +150,9 @@ const defaultResolveFaviconUrl = async (faviconUrl, contentTypes, gotOpts) => {
     return undefined
   }
 
-  // 60 is the ASCII code for '<'
+  // An absent body is a server that announced an image and sent none of it, and
+  // 60 is the ASCII code for '<', so the route answered with markup rather than
+  // the image its content type claimed.
   if (contentTypes && (!response.body || response.body[0] === 60)) {
     return undefined
   }
