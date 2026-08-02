@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.53.1](https://github.com/microlinkhq/metascraper/compare/v5.53.0...v5.53.1) (2026-08-02)
+
+### Bug Fixes
+
+* keep the favicon body under reachable-url v2 ([#865](https://github.com/microlinkhq/metascraper/issues/865)) ([ce4536f](https://github.com/microlinkhq/metascraper/commit/ce4536f173309c6e7fa429f3d953178336100e7b))
+
 # [5.53.0](https://github.com/microlinkhq/metascraper/compare/v5.52.1...v5.53.0) (2026-07-30)
 
 **Note:** Version bump only for package metascraper-youtube
