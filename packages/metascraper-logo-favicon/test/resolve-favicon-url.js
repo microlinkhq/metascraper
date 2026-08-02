@@ -1,7 +1,6 @@
 'use strict'
 
 const test = require('ava').default
-const got = require('got')
 
 const { resolveFaviconUrl } = require('..')
 const { runServer } = require('./helpers')
@@ -25,12 +24,12 @@ test('undefined if content type is not expected', async t => {
   t.is(await resolveFaviconUrl(toUrl(url, 'favicon.ico'), []), undefined)
 })
 
+// Only the first byte is read, so what disqualifies a favicon is announcing an
+// image and sending none of it, rather than a transfer that stopped part way.
 test('undefined if body is not present', async t => {
   const url = await runServer(t, async ({ res }) => {
-    const stream = got.stream(
-      'https://cdn.microlink.io/file-examples/sample-big.jpg'
-    )
-    stream.pipe(res)
+    res.writeHead(200, { 'content-type': 'image/jpeg' })
+    res.flushHeaders()
     setTimeout(() => res.destroy(), 100)
   })
 
