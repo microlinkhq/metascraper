@@ -1,6 +1,6 @@
 {
   "name": "metascraper-author",
-  "description": "Get author property from HTML markup",
+  "description": "Metascraper rule to extract the author from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://metascraper.js.org",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,7 +19,15 @@
   },
   "keywords": [
     "author",
-    "metascraper"
+    "byline",
+    "creator",
+    "extract",
+    "html",
+    "json-ld",
+    "metadata",
+    "metascraper",
+    "open-graph",
+    "scraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

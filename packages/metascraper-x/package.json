@@ -1,6 +1,6 @@
 {
   "name": "metascraper-x",
-  "description": "Metascraper integration with x.com",
+  "description": "Metascraper rules for X (Twitter) posts — author, text, media, and engagement metadata.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-x",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,7 +19,14 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "extract",
+    "html",
+    "metadata",
     "metascraper",
+    "preview",
+    "scraper",
+    "social",
+    "tweet",
     "twitter",
     "x"
   ],

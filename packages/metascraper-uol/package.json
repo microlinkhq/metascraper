@@ -1,6 +1,6 @@
 {
   "name": "metascraper-uol",
-  "description": "metascraper integration for website under Universo Online group",
+  "description": "Metascraper rules for Universo Online (UOL) news and media properties in Brazil.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-uol",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,9 +19,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "brazil",
+    "extract",
+    "html",
+    "metadata",
     "metascraper",
-    "online",
-    "universo",
+    "news",
+    "publisher",
+    "scraper",
+    "universo-online",
     "uol"
   ],
   "dependencies": {

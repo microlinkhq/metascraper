@@ -1,6 +1,6 @@
 {
   "name": "@metascraper/helpers",
-  "description": "Collection of helper functions used by metascraper",
+  "description": "Shared helper utilities used across metascraper rules for parsing and normalizing metadata.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-helpers",
   "version": "5.53.0",
   "main": "src/index.js",
@@ -19,7 +19,15 @@
   },
   "keywords": [
     "helpers",
-    "metascraper"
+    "html",
+    "json-ld",
+    "metadata",
+    "metascraper",
+    "normalize",
+    "open-graph",
+    "parse",
+    "scraper",
+    "utils"
   ],
   "dependencies": {
     "audio-extensions": "0.0.0",

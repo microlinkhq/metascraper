@@ -1,6 +1,6 @@
 {
   "name": "metascraper-soundcloud",
-  "description": "Metascraper integration with SoundCloud",
+  "description": "Metascraper rules tailored for SoundCloud pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-soundcloud",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -20,8 +20,15 @@
   },
   "keywords": [
     "audio",
+    "extract",
+    "html",
+    "metadata",
     "metascraper",
-    "soundcloud"
+    "music",
+    "preview",
+    "scraper",
+    "soundcloud",
+    "track"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

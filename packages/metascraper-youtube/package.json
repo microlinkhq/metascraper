@@ -1,6 +1,6 @@
 {
   "name": "metascraper-youtube",
-  "description": "Metascraper integration with YouTube",
+  "description": "Metascraper rules tailored for YouTube pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-youtube",
   "version": "5.53.1",
   "types": "src/index.d.ts",
@@ -19,8 +19,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "channel",
+    "extract",
+    "html",
+    "metadata",
     "metascraper",
+    "preview",
+    "scraper",
     "video",
+    "watch",
     "youtube"
   ],
   "dependencies": {

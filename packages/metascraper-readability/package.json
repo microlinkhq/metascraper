@@ -1,6 +1,6 @@
 {
   "name": "metascraper-readability",
-  "description": "A Readability connector for metascraper",
+  "description": "Metascraper connector using Mozilla Readability for main article content extraction.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-readability",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,7 +19,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "article",
+    "cleanup",
+    "content",
+    "extract",
+    "html",
+    "metadata",
     "metascraper",
+    "mozilla",
+    "parser",
     "readability"
   ],
   "dependencies": {

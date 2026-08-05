@@ -1,6 +1,6 @@
 {
   "name": "metascraper-dribbble",
-  "description": "Metascraper integration for Dribbble",
+  "description": "Metascraper rules tailored for Dribbble pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-dribbble",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,8 +19,16 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "design",
     "dribbble",
-    "metascraper"
+    "extract",
+    "html",
+    "metadata",
+    "metascraper",
+    "portfolio",
+    "preview",
+    "scraper",
+    "shot"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

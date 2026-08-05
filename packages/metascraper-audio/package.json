@@ -1,6 +1,6 @@
 {
   "name": "metascraper-audio",
-  "description": "Get audio property from HTML markup",
+  "description": "Metascraper rule to extract the audio from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-audio",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -20,7 +20,15 @@
   },
   "keywords": [
     "audio",
-    "metascraper"
+    "extract",
+    "html",
+    "json-ld",
+    "media",
+    "metadata",
+    "metascraper",
+    "og:audio",
+    "open-graph",
+    "scraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",

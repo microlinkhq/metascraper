@@ -1,6 +1,6 @@
 {
   "name": "metascraper-spotify",
-  "description": "Metascraper integration with Spotify",
+  "description": "Metascraper rules tailored for Spotify pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-spotify",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -20,8 +20,15 @@
   },
   "keywords": [
     "audio",
+    "extract",
+    "html",
+    "metadata",
     "metascraper",
-    "spotify"
+    "music",
+    "preview",
+    "scraper",
+    "spotify",
+    "track"
   ],
   "dependencies": {
     "@keyvhq/memoize": "~2.2.4",

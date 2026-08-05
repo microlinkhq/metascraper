@@ -1,6 +1,6 @@
 {
   "name": "metascraper-url",
-  "description": "Get url property from HTML markup",
+  "description": "Metascraper rule to extract the url from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://metascraper.js.org",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -18,7 +18,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "canonical",
+    "extract",
+    "html",
+    "json-ld",
+    "metadata",
     "metascraper",
+    "og:url",
+    "open-graph",
+    "scraper",
     "url"
   ],
   "dependencies": {

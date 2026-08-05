@@ -1,6 +1,6 @@
 {
   "name": "metascraper-lang",
-  "description": "Get lang property from HTML markup",
+  "description": "Metascraper rule to extract the lang from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-lang",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,8 +19,16 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "extract",
+    "html",
+    "json-ld",
     "lang",
-    "metascraper"
+    "language",
+    "locale",
+    "metadata",
+    "metascraper",
+    "open-graph",
+    "scraper"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

@@ -1,6 +1,6 @@
 {
   "name": "metascraper-bluesky",
-  "description": "Metascraper integration with Bluesky",
+  "description": "Metascraper rules tailored for Bluesky pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-bluesky",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,9 +19,16 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "atproto",
     "bluesky",
     "bsky",
-    "metascraper"
+    "extract",
+    "html",
+    "metadata",
+    "metascraper",
+    "preview",
+    "scraper",
+    "social"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

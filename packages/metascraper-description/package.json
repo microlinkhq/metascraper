@@ -1,6 +1,6 @@
 {
   "name": "metascraper-description",
-  "description": "Get description property from HTML markup",
+  "description": "Metascraper rule to extract the description from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-description",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -20,7 +20,15 @@
   },
   "keywords": [
     "description",
-    "metascraper"
+    "extract",
+    "html",
+    "json-ld",
+    "metadata",
+    "metascraper",
+    "og:description",
+    "open-graph",
+    "scraper",
+    "summary"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

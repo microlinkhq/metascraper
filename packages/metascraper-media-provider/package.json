@@ -1,6 +1,6 @@
 {
   "name": "metascraper-media-provider",
-  "description": "Get video property from HTML markup",
+  "description": "Metascraper media provider that resolves video URLs via youtube-dl compatible extractors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-media-provider",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,9 +19,16 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "download",
+    "extract",
+    "html",
     "media",
     "metascraper",
-    "youtube-dl"
+    "provider",
+    "stream",
+    "video",
+    "youtube-dl",
+    "yt-dlp"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",

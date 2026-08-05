@@ -1,6 +1,6 @@
 {
   "name": "metascraper-feed",
-  "description": "Get RSS/Atom feed URL from HTML markup",
+  "description": "Metascraper rule to discover RSS and Atom feed URLs from HTML markup and link tags.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-description",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -20,9 +20,15 @@
   },
   "keywords": [
     "atom",
+    "discover",
+    "extract",
     "feed",
+    "html",
+    "metadata",
     "metascraper",
-    "rss"
+    "rss",
+    "syndication",
+    "xml"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*"

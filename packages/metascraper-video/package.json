@@ -1,6 +1,6 @@
 {
   "name": "metascraper-video",
-  "description": "Get video property from HTML markup",
+  "description": "Metascraper rule to extract the video from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-video",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -19,7 +19,15 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "extract",
+    "html",
+    "json-ld",
+    "media",
+    "metadata",
     "metascraper",
+    "og:video",
+    "open-graph",
+    "scraper",
     "video"
   ],
   "dependencies": {

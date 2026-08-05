@@ -1,6 +1,6 @@
 {
   "name": "metascraper-logo-favicon",
-  "description": "metascraper logo favicon fallback",
+  "description": "Metascraper logo fallback that picks favicons and apple-touch icons from HTML.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-logo-favicon",
   "version": "5.53.1",
   "types": "src/index.d.ts",
@@ -19,9 +19,16 @@
     "url": "https://github.com/microlinkhq/metascraper/issues"
   },
   "keywords": [
+    "apple-touch-icon",
+    "brand",
+    "extract",
     "favicon",
+    "html",
+    "icon",
     "logo",
-    "metascraper"
+    "metadata",
+    "metascraper",
+    "scraper"
   ],
   "dependencies": {
     "@keyvhq/memoize": "~2.2.4",

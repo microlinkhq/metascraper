@@ -1,6 +1,6 @@
 {
   "name": "metascraper-iframe",
-  "description": "Embed a representation of an URL on third party sites",
+  "description": "Metascraper rule to resolve oEmbed iframes for embedding third-party URL representations.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-iframe",
   "version": "5.53.0",
   "types": "src/index.d.ts",
@@ -20,9 +20,15 @@
   },
   "keywords": [
     "embed",
+    "extract",
+    "html",
     "iframe",
+    "media",
     "metascraper",
-    "oembed"
+    "oembed",
+    "preview",
+    "provider",
+    "widget"
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
