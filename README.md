@@ -360,7 +360,8 @@ The hook receives the value plus `{ propName, rule, args }`, and it can be async
 const metadata = await metascraper({
   url,
   html,
-  validate: (value, { propName }) => !value.startsWith('data:')
+  validate: value =>
+    typeof value !== 'string' || !value.startsWith('data:')
 })
 ```
 

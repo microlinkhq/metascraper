@@ -548,9 +548,6 @@ const validator = {
 
 const truthyTest = () => true
 
-const toValidate = (validate, propName) =>
-  typeof validate === 'function' ? validate : validate?.[propName]
-
 const isValidValue = async (validate, value, context) => {
   try {
     return await validate(value, context)
@@ -568,7 +565,10 @@ const isValidValue = async (validate, value, context) => {
 const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
-  const validate = toValidate(args.validate, propName)
+  const validate =
+    typeof args.validate === 'function'
+      ? args.validate
+      : args.validate?.[propName]
 
   do {
     const rule = rules[index++]
@@ -655,6 +655,36 @@ const createGetIframeCached = getIframe => {
   }
 }
 
+const withIframe = (rules, getIframe, propName) => {
+  const probe = async (src, args) => {
+    try {
+      return await findRule(
+        rules,
+        { ...args, htmlDom: await getIframe(args.url, args.htmlDom, src) },
+        propName
+      )
+    } catch (_) {}
+  }
+
+  return rules.concat(async args => {
+    const { htmlDom: $, url } = args
+    const seen = new Set()
+
+    for (const src of $('iframe[src^="http"], iframe[src^="/"]')
+      .map((_, el) => $(el).attr('src'))
+      .get()) {
+      const normalized = normalizeUrl(url, src)
+      if (!normalized || seen.has(normalized)) continue
+      seen.add(normalized)
+      const value = await probe(normalized, args)
+      if (has(value)) return value
+    }
+
+    const twitter = $('meta[name="twitter:player"]').attr('content')
+    return twitter ? probe(twitter, args) : undefined
+  })
+}
+
 module.exports = {
   $filter,
   $jsonld,
@@ -707,5 +737,6 @@ module.exports = {
   url,
   validator,
   video,
-  videoExtensions
+  videoExtensions,
+  withIframe
 }

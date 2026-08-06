@@ -59,7 +59,7 @@ declare namespace createMetascraper {
   export interface ValidateContext {
     propName: string;
     rule: RulesOptions;
-    args: RulesTestOptions;
+    args: MetascraperOptions & RulesTestOptions;
   }
 
   export type Validate = (

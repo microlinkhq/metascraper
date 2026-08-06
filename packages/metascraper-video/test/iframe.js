@@ -84,7 +84,26 @@ test('validate reaches the rules nested behind an iframe', async t => {
     url: 'https://example.com',
     html: '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>',
     pickPropNames: new Set(['video']),
-    validate: value => !value.endsWith('/hostile.mp4')
+    validate: { video: value => !value.endsWith('/hostile.mp4') }
+  })
+
+  t.is(metadata.video, 'https://cdn.microlink.io/safe.mp4')
+})
+
+test('validate reaches the rules nested behind twitter:player', async t => {
+  const metascraper = createMetascraper({
+    getIframe: async () =>
+      cheerio.load(`
+        <meta property="og:video" content="https://cdn.microlink.io/hostile.mp4">
+        <meta name="twitter:player:stream" content="https://cdn.microlink.io/safe.mp4">
+      `)
+  })
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<meta name="twitter:player" content="https://example.com/player">',
+    pickPropNames: new Set(['video']),
+    validate: { video: value => !value.endsWith('/hostile.mp4') }
   })
 
   t.is(metadata.video, 'https://cdn.microlink.io/safe.mp4')
