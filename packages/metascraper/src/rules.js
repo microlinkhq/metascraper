@@ -62,12 +62,12 @@ const mergeRules = (
     return Object.entries(result)
   }
 
-  for (const { test, validate, ...ruleSet } of rules) {
+  for (const { test, validate, pkgName, ...ruleSet } of rules) {
     for (const [propName, innerRules] of Object.entries(ruleSet)) {
       if (!shouldIncludeProp(propName)) continue
 
       const processedRules = castArray(innerRules)
-      attachRuleMeta(processedRules, { test, validate })
+      attachRuleMeta(processedRules, { test, validate, pkgName })
 
       if (result[propName]) {
         result[propName] = processedRules.concat(result[propName])

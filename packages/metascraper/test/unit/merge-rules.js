@@ -177,6 +177,28 @@ test('propagate inline validate function only to inline rules', t => {
   t.is(baseRule.validate, undefined)
 })
 
+test('propagate inline pkgName only to inline rules', t => {
+  const baseRule = { id: 'base-title-1' }
+  const inlineOne = { id: 'inline-title-1' }
+  const inlineTwo = { id: 'inline-title-2' }
+
+  const baseRules = [['title', [baseRule]]]
+  const inlineRules = [
+    {
+      pkgName: 'inline-bundle',
+      title: [inlineOne, inlineTwo]
+    }
+  ]
+
+  const merged = mergeRules(inlineRules, baseRules)
+  const titleRules = findRules(merged, 'title')
+
+  t.is(titleRules[0].pkgName, 'inline-bundle')
+  t.is(titleRules[1].pkgName, 'inline-bundle')
+  t.is(baseRule.pkgName, undefined)
+  t.false(merged.some(([propName]) => propName === 'pkgName'))
+})
+
 test('does not mutate original rule objects', t => {
   const originalRule1 = { fn: () => 'value1', originalProp: 'unchanged' }
   const originalRule2 = { fn: () => 'value2', originalProp: 'unchanged' }
