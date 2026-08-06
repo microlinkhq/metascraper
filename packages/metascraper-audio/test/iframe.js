@@ -69,7 +69,7 @@ test('stop iframe probing after first audio match', async t => {
 })
 
 test('validate reaches the rules nested behind an iframe', async t => {
-  const metascraper = createMetascraper({
+  const rules = require('../src')({
     getIframe: async (url, $, { src }) =>
       cheerio.load(
         `<meta property="og:audio" content="https://cdn.microlink.io${src.replace(
@@ -78,29 +78,31 @@ test('validate reaches the rules nested behind an iframe', async t => {
         )}.mp3">`
       )
   })
+  rules.validate = value => !value.endsWith('/hostile.mp3')
+  const metascraper = require('metascraper')([rules])
 
   const metadata = await metascraper({
     url: 'https://example.com',
-    html: '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>',
-    validate: { audio: value => !value.endsWith('/hostile.mp3') }
+    html: '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>'
   })
 
   t.is(metadata.audio, 'https://cdn.microlink.io/safe.mp3')
 })
 
 test('validate reaches the rules nested behind twitter:player', async t => {
-  const metascraper = createMetascraper({
+  const rules = require('../src')({
     getIframe: async () =>
       cheerio.load(`
         <meta property="og:audio" content="https://cdn.microlink.io/hostile.mp3">
         <meta name="twitter:player:stream" content="https://cdn.microlink.io/safe.mp3">
       `)
   })
+  rules.validate = value => !value.endsWith('/hostile.mp3')
+  const metascraper = require('metascraper')([rules])
 
   const metadata = await metascraper({
     url: 'https://example.com',
-    html: '<meta name="twitter:player" content="https://example.com/player">',
-    validate: { audio: value => !value.endsWith('/hostile.mp3') }
+    html: '<meta name="twitter:player" content="https://example.com/player">'
   })
 
   t.is(metadata.audio, 'https://cdn.microlink.io/safe.mp3')

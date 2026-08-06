@@ -45,27 +45,7 @@ declare namespace createMetascraper {
      * Takes precedence over omitPropNames when both are specified.
      */
     pickPropNames?: Set<string>;
-    /**
-     * A validation hook executed for every value produced by a rule.
-     * Returning a falsy value (or throwing) discards the candidate and
-     * moves on to the next rule for that property.
-     *
-     * Pass a function to validate every property, or an object keyed by
-     * property name to validate only the properties you list.
-     */
-    validate?: Validate | { [propName: string]: Validate };
   }
-
-  export interface ValidateContext {
-    propName: string;
-    rule: RulesOptions;
-    args: MetascraperOptions & RulesTestOptions;
-  }
-
-  export type Validate = (
-    value: string,
-    context: ValidateContext
-  ) => boolean | Promise<boolean>;
 
   export interface Metadata {
     /**
@@ -109,7 +89,7 @@ declare namespace createMetascraper {
      */
     publisher?: string;
     /**
-     * Get title property from HTML markup
+     * Get title property from HTML markup.
      * The package [metascraper-title](https://example.com/metascraper-title) needs to be loaded.
      */
     title?: string;
@@ -130,11 +110,25 @@ declare namespace createMetascraper {
     [C in keyof Metadata as string extends C ? never : C]?: Array<RulesOptions> | RulesOptions;
   };
 
+  /**
+   * Post-accept check for a rule candidate. Falsy or throw rejects the
+   * candidate and findRule continues with the next rule.
+   */
+  export type Validate = (
+    value: string,
+    options: RulesTestOptions
+  ) => boolean | Promise<boolean>;
+
   export interface Rules extends NamedRules {
     /**
      * The test function to be executed for skipping rules that doesn't return `true`.
      */
     test?: (options: RulesTestOptions) => boolean;
+    /**
+     * Copied onto each rule in the bundle. Runs after a rule produces a value;
+     * falsy or throw rejects that candidate and continues.
+     */
+    validate?: Validate;
     /**
      * The package name associated with the rule, used for debugging purposes.
      */
@@ -142,19 +136,27 @@ declare namespace createMetascraper {
     /**
      * allow any other string key to be
      * a rule-function (for ad-hoc metadata),
-     * or the two special keys above.
+     * or the special keys above.
      **/
     [key: string]:
       | Array<RulesOptions>
       | RulesOptions
       | ((options: RulesTestOptions) => boolean)
+      | Validate
       | string
       | undefined;
   }
 
-  export type RulesOptions = (
-    options: RulesTestOptions
-  ) => string | null | undefined;
+  export interface RulesOptions {
+    (options: RulesTestOptions):
+      | string
+      | null
+      | undefined
+      | Promise<string | null | undefined>;
+    test?: (options: RulesTestOptions) => boolean;
+    validate?: Validate;
+    pkgName?: string;
+  }
 
   export interface RulesTestOptions {
     htmlDom: import("cheerio").CheerioAPI;

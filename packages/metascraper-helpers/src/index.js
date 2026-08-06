@@ -548,13 +548,12 @@ const validator = {
 
 const truthyTest = () => true
 
-const isValidValue = async (validate, value, context) => {
+const isValidValue = async (validate, value, args, rule) => {
   try {
-    return await validate(value, context)
+    return await validate(value, args)
   } catch (error) {
     debug('validate:error', {
-      propName: context.propName,
-      pkgName: context.rule.pkgName,
+      pkgName: rule.pkgName,
       errorName: error?.name,
       errorMessage: error?.message
     })
@@ -565,10 +564,6 @@ const isValidValue = async (validate, value, context) => {
 const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
-  const validate =
-    typeof args.validate === 'function'
-      ? args.validate
-      : args.validate?.[propName]
 
   do {
     const rule = rules[index++]
@@ -577,12 +572,8 @@ const findRule = async (rules, args = {}, propName) => {
       const duration = debug.duration()
       value = await rule(args)
       let isRejected = false
-      if (has(value) && validate) {
-        isRejected = !(await isValidValue(validate, value, {
-          propName,
-          rule,
-          args
-        }))
+      if (has(value) && rule.validate) {
+        isRejected = !(await isValidValue(rule.validate, value, args, rule))
         if (isRejected) value = undefined
       }
       duration(

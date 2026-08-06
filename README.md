@@ -32,7 +32,6 @@
     - [pickPropNames](#pickpropnames)
     - [rules](#rules-1)
     - [url](#url)
-    - [validate](#validate)
     - [validateUrl](#validateurl)
 - [Environment Variables](#environment-variables)
     - [METASCRAPER\_RE2](#metascraper_re2)
@@ -346,38 +345,6 @@ The URL associated with the HTML markup.
 It is used for resolve relative links that can be present in the HTML markup.
 
 it can be used as fallback field for different rules as well.
-
-#### validate
-
-Type: `function|object`<br>
-Default: `undefined`
-
-A hook executed for every value a rule produces. Returning a falsy value discards that candidate and moves on to the next rule for the property, exactly as if the rule had returned nothing. If every rule is rejected, the property is `null`.
-
-The hook receives the value plus `{ propName, rule, args }`, and it can be async:
-
-```js
-const metadata = await metascraper({
-  url,
-  html,
-  validate: value =>
-    typeof value !== 'string' || !value.startsWith('data:')
-})
-```
-
-A function form runs for **every** property. To validate specific properties, pass an object keyed by property name; properties you don't list are untouched:
-
-```js
-const metadata = await metascraper({
-  url,
-  html,
-  validate: {
-    logo: async value => (await isReachable(value)) && !isSvg(value)
-  }
-})
-```
-
-A hook that throws rejects the candidate it was called with, not the whole property. Set `DEBUG=metascraper:find-rule` to see rejections.
 
 #### validateUrl
 
