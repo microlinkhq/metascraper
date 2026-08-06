@@ -68,6 +68,26 @@ test('stop iframe probing after first audio match', async t => {
   t.deepEqual(calls, ['https://example.com/ok'])
 })
 
+test('validate reaches the rules nested behind an iframe', async t => {
+  const metascraper = createMetascraper({
+    getIframe: async (url, $, { src }) =>
+      cheerio.load(
+        `<meta property="og:audio" content="https://cdn.microlink.io${src.replace(
+          'https://example.com',
+          ''
+        )}.mp3">`
+      )
+  })
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>',
+    validate: value => !value.endsWith('/hostile.mp3')
+  })
+
+  t.is(metadata.audio, 'https://cdn.microlink.io/safe.mp3')
+})
+
 test('dedupe normalized iframe urls while probing', async t => {
   let calls = 0
   const metascraper = createMetascraper({

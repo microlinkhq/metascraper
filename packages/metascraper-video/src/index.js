@@ -68,9 +68,10 @@ const videoRules = [
 
 const imageRules = [toUrl($ => $('video').attr('poster'))]
 
-const withIframe = (rules, getIframe) =>
+const withIframe = (rules, getIframe, propName) =>
   rules.concat(
-    async ({ htmlDom: $, url }) => {
+    async args => {
+      const { htmlDom: $, url } = args
       const srcs = $('iframe[src^="http"], iframe[src^="/"]')
         .map((_, element) => $(element).attr('src'))
         .get()
@@ -84,18 +85,20 @@ const withIframe = (rules, getIframe) =>
           seenSrcs.add(normalizedSrc)
 
           const htmlDom = await getIframe(url, $, normalizedSrc)
-          const result = await findRule(rules, { htmlDom, url })
+          const result = await findRule(rules, { ...args, htmlDom }, propName)
           if (has(result)) return result
         } catch (_) {}
       }
     },
-    async ({ htmlDom: $, url }) => {
+    async args => {
+      const { htmlDom: $, url } = args
       const src = $('meta[name="twitter:player"]').attr('content')
       return src
-        ? findRule(rules, {
-          htmlDom: await getIframe(url, $, src),
-          url
-        })
+        ? findRule(
+          rules,
+          { ...args, htmlDom: await getIframe(url, $, src) },
+          propName
+        )
         : undefined
     }
   )
@@ -103,8 +106,8 @@ const withIframe = (rules, getIframe) =>
 module.exports = ({ getIframe = defaultGetIframe } = {}) => {
   const getIframeCached = createGetIframeCached(getIframe)
   const rules = {
-    image: withIframe(imageRules, getIframeCached),
-    video: withIframe(videoRules, getIframeCached)
+    image: withIframe(imageRules, getIframeCached, 'image'),
+    video: withIframe(videoRules, getIframeCached, 'video')
   }
 
   rules.pkgName = 'metascraper-video'

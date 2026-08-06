@@ -45,7 +45,27 @@ declare namespace createMetascraper {
      * Takes precedence over omitPropNames when both are specified.
      */
     pickPropNames?: Set<string>;
+    /**
+     * A validation hook executed for every value produced by a rule.
+     * Returning a falsy value (or throwing) discards the candidate and
+     * moves on to the next rule for that property.
+     *
+     * Pass a function to validate every property, or an object keyed by
+     * property name to validate only the properties you list.
+     */
+    validate?: Validate | { [propName: string]: Validate };
   }
+
+  export interface ValidateContext {
+    propName: string;
+    rule: RulesOptions;
+    args: RulesTestOptions;
+  }
+
+  export type Validate = (
+    value: string,
+    context: ValidateContext
+  ) => boolean | Promise<boolean>;
 
   export interface Metadata {
     /**

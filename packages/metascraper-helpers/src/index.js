@@ -548,10 +548,27 @@ const validator = {
 
 const truthyTest = () => true
 
-const findRule = async (rules, args, propName) => {
+const toValidate = (validate, propName) =>
+  typeof validate === 'function' ? validate : validate?.[propName]
+
+const isValidValue = async (validate, value, context) => {
+  try {
+    return await validate(value, context)
+  } catch (error) {
+    debug('validate:error', {
+      propName: context.propName,
+      pkgName: context.rule.pkgName,
+      errorName: error?.name,
+      errorMessage: error?.message
+    })
+    return false
+  }
+}
+
+const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
-  const { validate } = args
+  const validate = toValidate(args.validate, propName)
 
   do {
     const rule = rules[index++]
@@ -559,11 +576,20 @@ const findRule = async (rules, args, propName) => {
     if (test(args)) {
       const duration = debug.duration()
       value = await rule(args)
+      let isRejected = false
       if (has(value) && validate) {
-        const isValid = await validate(value, { propName, rule, args })
-        if (!isValid) value = undefined
+        isRejected = !(await isValidValue(validate, value, {
+          propName,
+          rule,
+          args
+        }))
+        if (isRejected) value = undefined
       }
-      duration(`${rule.pkgName}:${propName}:${index - 1}:${has(value)}`)
+      duration(
+        `${rule.pkgName}:${propName}:${index - 1}:${has(value)}${
+          isRejected ? ':rejected' : ''
+        }`
+      )
     }
   } while (!has(value) && index < rules.length)
 

@@ -23,3 +23,27 @@ const payload = await metascraper({
 })
 
 console.log(payload.author)
+
+/* validate */
+
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: value => value.startsWith('https://')
+})
+
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: async (value, { propName, rule, args }) =>
+    propName !== 'url' || value !== args.url
+})
+
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: {
+    author: value => value.length > 1,
+    url: async value => value.startsWith('https://')
+  }
+})
