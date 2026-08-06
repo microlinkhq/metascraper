@@ -72,8 +72,7 @@ module.exports = ({ getIframe = defaultGetIframe } = {}) => {
   const getIframeCached = createGetIframeCached(getIframe)
   const rules = {
     audio: audioRules.concat(
-      async args => {
-        const { htmlDom: $, url } = args
+      async ({ htmlDom: $, url, ...args }) => {
         const srcs = $('iframe[src^="http"], iframe[src^="/"]')
           .map((_, element) => $(element).attr('src'))
           .get()
@@ -89,20 +88,19 @@ module.exports = ({ getIframe = defaultGetIframe } = {}) => {
             const htmlDom = await getIframeCached(url, $, normalizedSrc)
             const result = await findRule(
               audioRules,
-              { ...args, htmlDom },
+              { ...args, htmlDom, url },
               'audio'
             )
             if (has(result)) return result
           } catch (_) {}
         }
       },
-      async args => {
-        const { htmlDom: $, url } = args
+      async ({ htmlDom: $, url, ...args }) => {
         const src = $('meta[name="twitter:player"]').attr('content')
         return src
           ? findRule(
             audioRules,
-            { ...args, htmlDom: await getIframeCached(url, $, src) },
+            { ...args, htmlDom: await getIframeCached(url, $, src), url },
             'audio'
           )
           : undefined

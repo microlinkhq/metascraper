@@ -70,8 +70,7 @@ const imageRules = [toUrl($ => $('video').attr('poster'))]
 
 const withIframe = (rules, getIframe, propName) =>
   rules.concat(
-    async args => {
-      const { htmlDom: $, url } = args
+    async ({ htmlDom: $, url, ...args }) => {
       const srcs = $('iframe[src^="http"], iframe[src^="/"]')
         .map((_, element) => $(element).attr('src'))
         .get()
@@ -85,18 +84,21 @@ const withIframe = (rules, getIframe, propName) =>
           seenSrcs.add(normalizedSrc)
 
           const htmlDom = await getIframe(url, $, normalizedSrc)
-          const result = await findRule(rules, { ...args, htmlDom }, propName)
+          const result = await findRule(
+            rules,
+            { ...args, htmlDom, url },
+            propName
+          )
           if (has(result)) return result
         } catch (_) {}
       }
     },
-    async args => {
-      const { htmlDom: $, url } = args
+    async ({ htmlDom: $, url, ...args }) => {
       const src = $('meta[name="twitter:player"]').attr('content')
       return src
         ? findRule(
           rules,
-          { ...args, htmlDom: await getIframe(url, $, src) },
+          { ...args, htmlDom: await getIframe(url, $, src), url },
           propName
         )
         : undefined
