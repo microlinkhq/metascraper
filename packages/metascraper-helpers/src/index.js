@@ -551,6 +551,7 @@ const truthyTest = () => true
 const findRule = async (rules, args, propName) => {
   let index = 0
   let value
+  const { validate } = args
 
   do {
     const rule = rules[index++]
@@ -558,6 +559,10 @@ const findRule = async (rules, args, propName) => {
     if (test(args)) {
       const duration = debug.duration()
       value = await rule(args)
+      if (has(value) && validate) {
+        const isValid = await validate(value, { propName, rule, args })
+        if (!isValid) value = undefined
+      }
       duration(`${rule.pkgName}:${propName}:${index - 1}:${has(value)}`)
     }
   } while (!has(value) && index < rules.length)
