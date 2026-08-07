@@ -127,8 +127,9 @@ test('no iframe and no twitter:player yields nothing', async t => {
 })
 
 test('validate on a nested rule rejects the candidate behind the iframe', async t => {
-  const validate = value => !value.endsWith('/hostile.mp4')
-  const rule = Object.assign(contentRule, { validate })
+  const rule = Object.assign(args => contentRule(args), {
+    validate: value => !value.endsWith('/hostile.mp4')
+  })
 
   const rules = withIframe(
     [rule],

@@ -111,6 +111,11 @@ declare namespace createMetascraper {
   };
 
   /**
+   * Pre-run gate for a rule. A falsy result skips the rule entirely.
+   */
+  export type Test = (options: RulesTestOptions) => boolean;
+
+  /**
    * Post-accept check for a rule candidate. Falsy or throw rejects the
    * candidate and findRule continues with the next rule.
    */
@@ -136,7 +141,7 @@ declare namespace createMetascraper {
     /**
      * The test function to be executed for skipping rules that doesn't return `true`.
      */
-    test?: (options: RulesTestOptions) => boolean;
+    test?: Test;
     /**
      * Copied onto each rule in the bundle. Runs after a rule produces a value;
      * falsy or throw rejects that candidate and continues.
@@ -154,7 +159,7 @@ declare namespace createMetascraper {
     [key: string]:
       | Array<RulesOptions>
       | RulesOptions
-      | ((options: RulesTestOptions) => boolean)
+      | Test
       | Validate
       | string
       | undefined;
@@ -166,7 +171,7 @@ declare namespace createMetascraper {
       | null
       | undefined
       | Promise<string | null | undefined>;
-    test?: (options: RulesTestOptions) => boolean;
+    test?: Test;
     validate?: Validate;
     pkgName?: string;
   }

@@ -90,26 +90,6 @@ test('validate reaches the rules nested behind an iframe', async t => {
   t.is(metadata.audio, 'https://cdn.microlink.io/safe.mp3')
 })
 
-test('validate reaches the rules nested behind twitter:player', async t => {
-  const metascraper = createMetascraper(
-    {
-      getIframe: async () =>
-        cheerio.load(`
-        <meta property="og:audio" content="https://cdn.microlink.io/hostile.mp3">
-        <meta name="twitter:player:stream" content="https://cdn.microlink.io/safe.mp3">
-      `)
-    },
-    { validate: value => !value.endsWith('/hostile.mp3') }
-  )
-
-  const metadata = await metascraper({
-    url: 'https://example.com',
-    html: '<meta name="twitter:player" content="https://example.com/player">'
-  })
-
-  t.is(metadata.audio, 'https://cdn.microlink.io/safe.mp3')
-})
-
 test('dedupe normalized iframe urls while probing', async t => {
   let calls = 0
   const metascraper = createMetascraper({

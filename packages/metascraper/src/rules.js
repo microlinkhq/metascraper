@@ -14,10 +14,9 @@ const loadRules = rulesBundle => {
   const acc = {}
 
   for (const { test, validate, pkgName, ...rules } of rulesBundle) {
-    const hasMeta = Boolean(test || validate || pkgName)
     for (const [propName, innerRules] of Object.entries(rules)) {
       const processedRules = castArray(innerRules)
-      if (hasMeta) attachRuleMeta(processedRules, test, validate, pkgName)
+      attachRuleMeta(processedRules, test, validate, pkgName)
 
       if (acc[propName]) {
         acc[propName].push(...processedRules)
@@ -63,12 +62,11 @@ const mergeRules = (
   }
 
   for (const { test, validate, pkgName, ...ruleSet } of rules) {
-    const hasMeta = Boolean(test || validate || pkgName)
     for (const [propName, innerRules] of Object.entries(ruleSet)) {
       if (!shouldIncludeProp(propName)) continue
 
       const processedRules = castArray(innerRules)
-      if (hasMeta) attachRuleMeta(processedRules, test, validate, pkgName)
+      attachRuleMeta(processedRules, test, validate, pkgName)
 
       if (result[propName]) {
         result[propName] = processedRules.concat(result[propName])
