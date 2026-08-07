@@ -89,7 +89,7 @@ declare namespace createMetascraper {
      */
     publisher?: string;
     /**
-     * Get title property from HTML markup
+     * Get title property from HTML markup.
      * The package [metascraper-title](https://example.com/metascraper-title) needs to be loaded.
      */
     title?: string;
@@ -110,11 +110,43 @@ declare namespace createMetascraper {
     [C in keyof Metadata as string extends C ? never : C]?: Array<RulesOptions> | RulesOptions;
   };
 
+  /**
+   * Pre-run gate for a rule. A falsy result skips the rule entirely.
+   */
+  export type Test = (options: RulesTestOptions) => boolean;
+
+  /**
+   * Post-accept check for a rule candidate. Falsy or throw rejects the
+   * candidate and findRule continues with the next rule.
+   */
+  export type Validate = (
+    value: string,
+    options: RulesTestOptions,
+    debug: Debug
+  ) => boolean | Promise<boolean>;
+
+  /**
+   * The `metascraper:find-rule` logger, so a validate can explain a rejection.
+   * Only writes when `DEBUG=metascraper:find-rule` is enabled.
+   */
+  export interface Debug {
+    (...args: Array<string | object>): void;
+    readonly enabled: boolean | undefined;
+    info(...args: Array<string | object>): void;
+    warn(...args: Array<string | object>): void;
+    error(...args: Array<string | object>): void;
+  }
+
   export interface Rules extends NamedRules {
     /**
      * The test function to be executed for skipping rules that doesn't return `true`.
      */
-    test?: (options: RulesTestOptions) => boolean;
+    test?: Test;
+    /**
+     * Copied onto each rule in the bundle. Runs after a rule produces a value;
+     * falsy or throw rejects that candidate and continues.
+     */
+    validate?: Validate;
     /**
      * The package name associated with the rule, used for debugging purposes.
      */
@@ -122,19 +154,27 @@ declare namespace createMetascraper {
     /**
      * allow any other string key to be
      * a rule-function (for ad-hoc metadata),
-     * or the two special keys above.
+     * or the special keys above.
      **/
     [key: string]:
       | Array<RulesOptions>
       | RulesOptions
-      | ((options: RulesTestOptions) => boolean)
+      | Test
+      | Validate
       | string
       | undefined;
   }
 
-  export type RulesOptions = (
-    options: RulesTestOptions
-  ) => string | null | undefined;
+  export interface RulesOptions {
+    (options: RulesTestOptions):
+      | string
+      | null
+      | undefined
+      | Promise<string | null | undefined>;
+    test?: Test;
+    validate?: Validate;
+    pkgName?: string;
+  }
 
   export interface RulesTestOptions {
     htmlDom: import("cheerio").CheerioAPI;

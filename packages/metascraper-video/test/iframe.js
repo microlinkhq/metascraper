@@ -5,8 +5,8 @@ const test = require('ava').default
 
 const { runServer } = require('./helpers')
 
-const createMetascraper = (...args) =>
-  require('metascraper')([require('../src')(...args)])
+const createMetascraper = (opts, meta) =>
+  require('metascraper')([Object.assign(require('../src')(opts), meta)])
 
 test('absolute http', async t => {
   const url = await runServer(t, ({ res }) => {
@@ -67,6 +67,29 @@ test('stop iframe probing after first video match', async t => {
 
   t.is(metadata.video, 'https://cdn.microlink.io/file-examples/sample.mp4')
   t.deepEqual(calls, ['https://example.com/ok'])
+})
+
+test('validate reaches the rules nested behind an iframe', async t => {
+  const metascraper = createMetascraper(
+    {
+      getIframe: async (url, $, { src }) =>
+        cheerio.load(
+          `<meta property="og:video" content="https://cdn.microlink.io${src.replace(
+            'https://example.com',
+            ''
+          )}.mp4">`
+        )
+    },
+    { validate: value => !value.endsWith('/hostile.mp4') }
+  )
+
+  const metadata = await metascraper({
+    url: 'https://example.com',
+    html: '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>',
+    pickPropNames: new Set(['video'])
+  })
+
+  t.is(metadata.video, 'https://cdn.microlink.io/safe.mp4')
 })
 
 test('reuse iframe fetch across image and video extraction', async t => {

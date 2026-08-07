@@ -125,35 +125,41 @@ test('accept non-array inline rule values', t => {
   ])
 })
 
-test('propagate inline test function only to inline rules', t => {
-  const baseRule = { id: 'base-title-1' }
-  const inlineOne = { id: 'inline-title-1' }
-  const inlineTwo = { id: 'inline-title-2' }
-  const inlineDescription = { id: 'inline-description-1' }
-  const testFn = () => true
+for (const [metaName, metaValue] of [
+  ['test', () => true],
+  ['validate', () => true],
+  ['pkgName', 'inline-bundle']
+]) {
+  test(`propagate inline ${metaName} only to inline rules`, t => {
+    const baseRule = { id: 'base-title-1' }
+    const inlineOne = { id: 'inline-title-1' }
+    const inlineTwo = { id: 'inline-title-2' }
+    const inlineDescription = { id: 'inline-description-1' }
 
-  const baseRules = [
-    ['title', [baseRule]],
-    ['description', []]
-  ]
+    const baseRules = [
+      ['title', [baseRule]],
+      ['description', []]
+    ]
 
-  const inlineRules = [
-    {
-      test: testFn,
-      title: [inlineOne, inlineTwo],
-      description: inlineDescription
-    }
-  ]
+    const inlineRules = [
+      {
+        [metaName]: metaValue,
+        title: [inlineOne, inlineTwo],
+        description: inlineDescription
+      }
+    ]
 
-  const merged = mergeRules(inlineRules, baseRules)
-  const titleRules = findRules(merged, 'title')
-  const descriptionRules = findRules(merged, 'description')
+    const merged = mergeRules(inlineRules, baseRules)
+    const titleRules = findRules(merged, 'title')
+    const descriptionRules = findRules(merged, 'description')
 
-  t.is(titleRules[0].test, testFn)
-  t.is(titleRules[1].test, testFn)
-  t.is(descriptionRules[0].test, testFn)
-  t.is(baseRule.test, undefined)
-})
+    t.is(titleRules[0][metaName], metaValue)
+    t.is(titleRules[1][metaName], metaValue)
+    t.is(descriptionRules[0][metaName], metaValue)
+    t.is(baseRule[metaName], undefined)
+    t.false(merged.some(([propName]) => propName === metaName))
+  })
+}
 
 test('does not mutate original rule objects', t => {
   const originalRule1 = { fn: () => 'value1', originalProp: 'unchanged' }

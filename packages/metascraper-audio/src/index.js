@@ -6,10 +6,8 @@ const {
   audio,
   createGetIframeCached,
   defaultGetIframe,
-  findRule,
-  has,
-  normalizeUrl,
-  toRule
+  toRule,
+  withIframe
 } = require('@metascraper/helpers')
 
 const toAudio = toRule(audio)
@@ -71,36 +69,7 @@ const audioRules = [
 module.exports = ({ getIframe = defaultGetIframe } = {}) => {
   const getIframeCached = createGetIframeCached(getIframe)
   const rules = {
-    audio: audioRules.concat(
-      async ({ htmlDom: $, url }) => {
-        const srcs = $('iframe[src^="http"], iframe[src^="/"]')
-          .map((_, element) => $(element).attr('src'))
-          .get()
-        if (srcs.length === 0) return
-        const seenSrcs = new Set()
-        for (const src of srcs) {
-          try {
-            const normalizedSrc = normalizeUrl(url, src)
-            if (!normalizedSrc) continue
-            if (seenSrcs.has(normalizedSrc)) continue
-            seenSrcs.add(normalizedSrc)
-
-            const htmlDom = await getIframeCached(url, $, normalizedSrc)
-            const result = await findRule(audioRules, { htmlDom, url })
-            if (has(result)) return result
-          } catch (_) {}
-        }
-      },
-      async ({ htmlDom: $, url }) => {
-        const src = $('meta[name="twitter:player"]').attr('content')
-        return src
-          ? findRule(audioRules, {
-            htmlDom: await getIframeCached(url, $, src),
-            url
-          })
-          : undefined
-      }
-    )
+    audio: withIframe(audioRules, getIframeCached, 'audio')
   }
 
   rules.pkgName = 'metascraper-audio'

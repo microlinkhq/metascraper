@@ -548,9 +548,23 @@ const validator = {
 
 const truthyTest = () => true
 
-const findRule = async (rules, args, propName) => {
+const isValidValue = async (rule, value, args) => {
+  try {
+    return await rule.validate(value, args, debug)
+  } catch (error) {
+    debug('validate:error', {
+      pkgName: rule.pkgName,
+      errorName: error?.name,
+      errorMessage: error?.message
+    })
+    return false
+  }
+}
+
+const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
+  let hasValue = false
 
   do {
     const rule = rules[index++]
@@ -558,9 +572,20 @@ const findRule = async (rules, args, propName) => {
     if (test(args)) {
       const duration = debug.duration()
       value = await rule(args)
-      duration(`${rule.pkgName}:${propName}:${index - 1}:${has(value)}`)
+      hasValue = has(value)
+      const isRejected =
+        hasValue && rule.validate && !(await isValidValue(rule, value, args))
+      if (isRejected) {
+        value = undefined
+        hasValue = false
+      }
+      duration(
+        `${rule.pkgName}:${propName}:${index - 1}:${hasValue}${
+          isRejected ? ':rejected' : ''
+        }`
+      )
     }
-  } while (!has(value) && index < rules.length)
+  } while (!hasValue && index < rules.length)
 
   return value
 }
@@ -624,6 +649,39 @@ const createGetIframeCached = getIframe => {
   }
 }
 
+const withIframe = (rules, getIframe, propName) => {
+  const probe = async (src, args) => {
+    try {
+      return await findRule(
+        rules,
+        { ...args, htmlDom: await getIframe(args.url, args.htmlDom, src) },
+        propName
+      )
+    } catch (_) {}
+  }
+
+  return rules.concat(async args => {
+    const { htmlDom: $, url } = args
+    const srcs = $('iframe[src^="http"], iframe[src^="/"]')
+      .map((_, el) => $(el).attr('src'))
+      .get()
+
+    if (srcs.length > 0) {
+      const seen = new Set()
+      for (const src of srcs) {
+        const normalized = normalizeUrl(url, src)
+        if (!normalized || seen.has(normalized)) continue
+        seen.add(normalized)
+        const value = await probe(normalized, args)
+        if (has(value)) return value
+      }
+    }
+
+    const twitter = $('meta[name="twitter:player"]').attr('content')
+    if (twitter) return probe(twitter, args)
+  })
+}
+
 module.exports = {
   $filter,
   $jsonld,
@@ -676,5 +734,6 @@ module.exports = {
   url,
   validator,
   video,
-  videoExtensions
+  videoExtensions,
+  withIframe
 }
