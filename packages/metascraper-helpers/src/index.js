@@ -548,9 +548,9 @@ const validator = {
 
 const truthyTest = () => true
 
-const isValidValue = async (validate, value, args) => {
+const isValidValue = async (value, args) => {
   try {
-    return await validate(value, args, debug)
+    return await args.validate(value, args, debug)
   } catch (error) {
     debug('validate:error', {
       errorName: error?.name,
@@ -561,7 +561,6 @@ const isValidValue = async (validate, value, args) => {
 }
 
 const findRule = async (rules, args = {}, propName) => {
-  const { validate } = args
   let index = 0
   let value
   let hasValue = false
@@ -574,7 +573,7 @@ const findRule = async (rules, args = {}, propName) => {
       value = await rule(args)
       hasValue = has(value)
       const isRejected =
-        hasValue && validate && !(await isValidValue(validate, value, args))
+        hasValue && args.validate && !(await isValidValue(value, args))
       if (isRejected) {
         value = undefined
         hasValue = false
