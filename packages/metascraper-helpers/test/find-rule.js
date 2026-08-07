@@ -2,7 +2,7 @@
 
 const test = require('ava').default
 
-const { findRule } = require('../src')
+const { findRule } = require('..')
 
 const withValidate = (fn, validate) => Object.assign(fn, { validate })
 
