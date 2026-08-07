@@ -24,33 +24,26 @@ const payload = await metascraper({
 
 console.log(payload.author)
 
-/* validate on rules bundle */
+/* scrape-level validate */
 
-createMetascraper([
-  {
-    logo: [() => 'https://example.com/a.png'],
-    validate: value => value.startsWith('https://')
-  }
-])
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: value => value.startsWith('https://')
+})
 
-createMetascraper([
-  {
-    logo: [
-      Object.assign(() => 'https://example.com/a.png', {
-        validate: async (value: string, { url }: { url: string }) =>
-          value !== url
-      })
-    ]
-  }
-])
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: async (value: string, { url }: { url: string }) => value !== url
+})
 
-createMetascraper([
-  {
-    logo: [() => 'https://example.com/a.png'],
-    validate: (value, { url }, debug) => {
-      if (value !== url) return true
-      if (debug.enabled) debug('logo:rejected', { url, reason: 'same-as-url' })
-      return false
-    }
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: (value, { url }, debug) => {
+    if (value !== url) return true
+    if (debug.enabled) debug('logo:rejected', { url, reason: 'same-as-url' })
+    return false
   }
-])
+})

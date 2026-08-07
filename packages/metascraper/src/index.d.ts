@@ -35,6 +35,11 @@ declare namespace createMetascraper {
      */
     validateUrl?: boolean;
     /**
+     * Runs inside `findRule` after each rule produces a value. Falsy or throw
+     * rejects that candidate and continues with the next rule.
+     */
+    validate?: Validate;
+    /**
      * A Set of property names to omit from the metadata extraction process.
      * These properties will be filtered out before processing the rules.
      */
@@ -116,8 +121,8 @@ declare namespace createMetascraper {
   export type Test = (options: RulesTestOptions) => boolean;
 
   /**
-   * Post-accept check for a rule candidate. Falsy or throw rejects the
-   * candidate and findRule continues with the next rule.
+   * Scrape-level check inside `findRule`. Falsy or throw rejects the candidate
+   * and continues with the next rule.
    */
   export type Validate = (
     value: string,
@@ -143,11 +148,6 @@ declare namespace createMetascraper {
      */
     test?: Test;
     /**
-     * Copied onto each rule in the bundle. Runs after a rule produces a value;
-     * falsy or throw rejects that candidate and continues.
-     */
-    validate?: Validate;
-    /**
      * The package name associated with the rule, used for debugging purposes.
      */
     pkgName?: string;
@@ -160,7 +160,6 @@ declare namespace createMetascraper {
       | Array<RulesOptions>
       | RulesOptions
       | Test
-      | Validate
       | string
       | undefined;
   }
@@ -172,7 +171,6 @@ declare namespace createMetascraper {
       | undefined
       | Promise<string | null | undefined>;
     test?: Test;
-    validate?: Validate;
     pkgName?: string;
   }
 

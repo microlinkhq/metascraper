@@ -60,34 +60,25 @@ rules.test = ({ url }) => test(url)
 
 ### Defining `validate` function
 
-You can associate a `validate` function with a single rule or with the whole rules bundle (copied onto every rule, like `test`):
+Pass `validate` on the scrape call. It runs inside `findRule` after every rule produces a value, across all properties:
 
 ```js
-rules.validate = async (value, { url }) =>
-  typeof value !== 'string' || !value.startsWith('data:')
-```
-
-Or per rule:
-
-```js
-Object.assign(() => 'https://example.com/logo.png', {
-  validate: async value => !(await isHostile(value))
+const metadata = await metascraper({
+  url,
+  html,
+  validate: async (value, { url }, debug) => {
+    if (await isHostile(value)) {
+      debug('validate:rejected', { value })
+      return false
+    }
+    return true
+  }
 })
 ```
 
-`validate` runs after a rule produces a value. Returning a falsy value (or throwing) discards that candidate and `findRule` continues with the next rule for the property — exactly as if the rule had returned nothing. If every rule is rejected, the property is `null`.
+Returning a falsy value (or throwing) discards that candidate and `findRule` continues with the next rule. If every rule is rejected, the property is `null`.
 
-The first argument is the candidate value; the second is the same args object passed to the rule / `test`; the third is the `metascraper:find-rule` logger, so a rejection can explain itself:
-
-```js
-rules.validate = (value, { url }, debug) => {
-  if (!value.startsWith('data:')) return true
-  debug('logo:rejected', { url, reason: 'data-uri' })
-  return false
-}
-```
-
-Set `DEBUG=metascraper:find-rule` to see those lines, plus the rejections metascraper logs on its own.
+Set `DEBUG=metascraper:find-rule` to see rejections.
 
 ### Defining `pkgName` property
 

@@ -70,23 +70,21 @@ test('stop iframe probing after first video match', async t => {
 })
 
 test('validate reaches the rules nested behind an iframe', async t => {
-  const metascraper = createMetascraper(
-    {
-      getIframe: async (url, $, { src }) =>
-        cheerio.load(
-          `<meta property="og:video" content="https://cdn.microlink.io${src.replace(
-            'https://example.com',
-            ''
-          )}.mp4">`
-        )
-    },
-    { validate: value => !value.endsWith('/hostile.mp4') }
-  )
+  const metascraper = createMetascraper({
+    getIframe: async (url, $, { src }) =>
+      cheerio.load(
+        `<meta property="og:video" content="https://cdn.microlink.io${src.replace(
+          'https://example.com',
+          ''
+        )}.mp4">`
+      )
+  })
 
   const metadata = await metascraper({
     url: 'https://example.com',
     html: '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>',
-    pickPropNames: new Set(['video'])
+    pickPropNames: new Set(['video']),
+    validate: value => !value.endsWith('/hostile.mp4')
   })
 
   t.is(metadata.video, 'https://cdn.microlink.io/safe.mp4')

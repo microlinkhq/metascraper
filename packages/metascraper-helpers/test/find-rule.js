@@ -4,8 +4,6 @@ const test = require('ava').default
 
 const { findRule } = require('..')
 
-const withValidate = (fn, validate) => Object.assign(fn, { validate })
-
 test('args are optional', async t => {
   t.is(await findRule([() => 'value']), 'value')
 })
@@ -31,64 +29,39 @@ test('a rule test skips the rule entirely', async t => {
 
 test('validate rejects a candidate and resumes at the next rule', async t => {
   t.is(
-    await findRule([
-      withValidate(
-        () => 'bad',
-        v => v === 'good'
-      ),
-      withValidate(
-        () => 'good',
-        v => v === 'good'
-      )
-    ]),
+    await findRule([() => 'bad', () => 'good'], {
+      validate: v => v === 'good'
+    }),
     'good'
   )
 })
 
 test('validate rejecting every rule returns undefined', async t => {
   t.is(
-    await findRule([
-      withValidate(
-        () => 'a',
-        () => false
-      ),
-      withValidate(
-        () => 'b',
-        () => false
-      )
-    ]),
+    await findRule([() => 'a', () => 'b'], { validate: () => false }),
     undefined
   )
 })
 
 test('a throwing validate rejects only that candidate', async t => {
-  const value = await findRule([
-    withValidate(
-      () => 'a',
-      v => {
-        if (v === 'a') throw new Error('boom')
-      }
-    ),
-    withValidate(
-      () => 'b',
-      () => true
-    )
-  ])
+  const value = await findRule([() => 'a', () => 'b'], {
+    validate: v => {
+      if (v === 'a') throw new Error('boom')
+      return true
+    }
+  })
 
   t.is(value, 'b')
 })
 
 test('validate receives the find-rule debug logger', async t => {
   let debug
-  await findRule([
-    withValidate(
-      () => 'value',
-      (value, args, logger) => {
-        debug = logger
-        return true
-      }
-    )
-  ])
+  await findRule([() => 'value'], {
+    validate: (value, args, logger) => {
+      debug = logger
+      return true
+    }
+  })
 
   t.is(typeof debug, 'function')
   t.falsy(debug.enabled)
