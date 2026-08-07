@@ -12,35 +12,47 @@ test('validate false skips to the next rule', async t => {
   const scraper = metascraper([
     {
       logo: [
-        Object.assign(() => 'https://example.com/bad.svg', {
-          validate: async value => value !== 'https://example.com/bad.svg'
-        }),
-        Object.assign(() => 'https://example.com/good.png', {
-          validate: async value => value !== 'https://example.com/bad.svg'
-        }),
-        Object.assign(
-          () => {
-            third += 1
-            return 'https://example.com/never.png'
-          },
-          {
-            validate: async value => value !== 'https://example.com/bad.svg'
-          }
-        )
+        () => 'https://example.com/bad.svg',
+        () => 'https://example.com/good.png',
+        () => {
+          third += 1
+          return 'https://example.com/never.png'
+        }
       ]
     }
   ])
 
-  const data = await scraper({ url, html })
+  const data = await scraper({
+    url,
+    html,
+    validate: async value => value !== 'https://example.com/bad.svg'
+  })
 
   t.is(data.logo, 'https://example.com/good.png')
   t.is(third, 0)
 })
 
-test('bundle validate is copied onto every rule', async t => {
+test('validate applies across every property', async t => {
   const scraper = metascraper([
     {
-      validate: value => value.endsWith('b.png'),
+      logo: [() => 'https://example.com/a.png'],
+      image: [() => 'https://example.com/b.png']
+    }
+  ])
+
+  const data = await scraper({
+    url,
+    html,
+    validate: value => value.endsWith('b.png')
+  })
+
+  t.is(data.logo, null)
+  t.is(data.image, 'https://example.com/b.png')
+})
+
+test('validate is sync friendly', async t => {
+  const scraper = metascraper([
+    {
       logo: [
         () => 'https://example.com/a.png',
         () => 'https://example.com/b.png'
@@ -48,26 +60,11 @@ test('bundle validate is copied onto every rule', async t => {
     }
   ])
 
-  const data = await scraper({ url, html })
-
-  t.is(data.logo, 'https://example.com/b.png')
-})
-
-test('validate is sync friendly', async t => {
-  const scraper = metascraper([
-    {
-      logo: [
-        Object.assign(() => 'https://example.com/a.png', {
-          validate: value => value.endsWith('b.png')
-        }),
-        Object.assign(() => 'https://example.com/b.png', {
-          validate: value => value.endsWith('b.png')
-        })
-      ]
-    }
-  ])
-
-  const data = await scraper({ url, html })
+  const data = await scraper({
+    url,
+    html,
+    validate: value => value.endsWith('b.png')
+  })
 
   t.is(data.logo, 'https://example.com/b.png')
 })
@@ -76,20 +73,20 @@ test('validate throw rejects the candidate, not the property', async t => {
   const scraper = metascraper([
     {
       logo: [
-        Object.assign(() => 'https://example.com/a.png', {
-          validate: async value => {
-            if (value.endsWith('a.png')) throw new Error('validator boom')
-            return true
-          }
-        }),
-        Object.assign(() => 'https://example.com/b.png', {
-          validate: async () => true
-        })
+        () => 'https://example.com/a.png',
+        () => 'https://example.com/b.png'
       ]
     }
   ])
 
-  const data = await scraper({ url, html })
+  const data = await scraper({
+    url,
+    html,
+    validate: async value => {
+      if (value.endsWith('a.png')) throw new Error('validator boom')
+      return true
+    }
+  })
 
   t.is(data.logo, 'https://example.com/b.png')
 })
@@ -97,7 +94,6 @@ test('validate throw rejects the candidate, not the property', async t => {
 test('validate rejecting every rule nulls the property', async t => {
   const scraper = metascraper([
     {
-      validate: () => false,
       logo: [
         () => 'https://example.com/a.png',
         () => 'https://example.com/b.png'
@@ -105,25 +101,9 @@ test('validate rejecting every rule nulls the property', async t => {
     }
   ])
 
-  const data = await scraper({ url, html })
+  const data = await scraper({ url, html, validate: () => false })
 
   t.is(data.logo, null)
-})
-
-test('bundle validate only applies to rules from that bundle', async t => {
-  const scraper = metascraper([
-    {
-      validate: () => false,
-      logo: [() => 'https://example.com/a.png']
-    },
-    {
-      title: [() => 'hello']
-    }
-  ])
-
-  const data = await scraper({ url, html })
-
-  t.deepEqual(data, { logo: null, title: 'hello' })
 })
 
 test('validate receives the scraping args', async t => {
@@ -131,18 +111,18 @@ test('validate receives the scraping args', async t => {
   const scraper = metascraper([
     {
       pkgName: 'metascraper-test',
-      logo: [
-        Object.assign(() => 'https://example.com/a.png', {
-          validate: (value, args, debug) => {
-            received = { value, args, debug }
-            return true
-          }
-        })
-      ]
+      logo: [() => 'https://example.com/a.png']
     }
   ])
 
-  await scraper({ url, html })
+  await scraper({
+    url,
+    html,
+    validate: (value, args, debug) => {
+      received = { value, args, debug }
+      return true
+    }
+  })
 
   t.is(received.value, 'https://example.com/a.png')
   t.is(received.args.url, url)
@@ -151,9 +131,9 @@ test('validate receives the scraping args', async t => {
 
 test('no validate is byte-identical to accepting every value', async t => {
   const scraper = metascraper([{ title: [() => 'hello'] }])
-  const withValidate = metascraper([
-    { validate: async () => true, title: [() => 'hello'] }
-  ])
 
-  t.deepEqual(await withValidate({ url, html }), await scraper({ url, html }))
+  t.deepEqual(
+    await scraper({ url, html, validate: async () => true }),
+    await scraper({ url, html })
+  )
 })

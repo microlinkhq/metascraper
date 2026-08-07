@@ -127,7 +127,6 @@ test('accept non-array inline rule values', t => {
 
 for (const [metaName, metaValue] of [
   ['test', () => true],
-  ['validate', () => true],
   ['pkgName', 'inline-bundle']
 ]) {
   test(`propagate inline ${metaName} only to inline rules`, t => {

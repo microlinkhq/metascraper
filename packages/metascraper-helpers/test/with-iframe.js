@@ -126,13 +126,9 @@ test('no iframe and no twitter:player yields nothing', async t => {
   t.is(await scrape('<p>nothing here</p>', rules), undefined)
 })
 
-test('validate on a nested rule rejects the candidate behind the iframe', async t => {
-  const rule = Object.assign(args => contentRule(args), {
-    validate: value => !value.endsWith('/hostile.mp4')
-  })
-
+test('validate rejects the candidate behind an iframe', async t => {
   const rules = withIframe(
-    [rule],
+    [contentRule],
     async (_url, _$, src) =>
       cheerio.load(
         `<meta property="og:video" content="${
@@ -143,9 +139,16 @@ test('validate on a nested rule rejects the candidate behind the iframe', async 
   )
 
   t.is(
-    await scrape(
-      '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>',
-      rules
+    await findRule(
+      rules,
+      {
+        htmlDom: cheerio.load(
+          '<iframe src="/hostile"></iframe><iframe src="/safe"></iframe>'
+        ),
+        url,
+        validate: value => !value.endsWith('/hostile.mp4')
+      },
+      'video'
     ),
     '/safe.mp4'
   )
