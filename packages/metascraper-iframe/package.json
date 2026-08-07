@@ -2,7 +2,7 @@
   "name": "metascraper-iframe",
   "description": "Metascraper rule to resolve oEmbed iframes for embedding third-party URL representations.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-iframe",
-  "version": "5.54.0",
+  "version": "5.54.1",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

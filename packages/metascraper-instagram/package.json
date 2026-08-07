@@ -2,7 +2,7 @@
   "name": "metascraper-instagram",
   "description": "Metascraper rules tailored for Instagram pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-instagram",
-  "version": "5.54.0",
+  "version": "5.54.1",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
