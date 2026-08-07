@@ -43,3 +43,14 @@ createMetascraper([
     ]
   }
 ])
+
+createMetascraper([
+  {
+    logo: [() => 'https://example.com/a.png'],
+    validate: (value, { url }, debug) => {
+      if (value !== url) return true
+      if (debug.enabled) debug('logo:rejected', { url, reason: 'same-as-url' })
+      return false
+    }
+  }
+])

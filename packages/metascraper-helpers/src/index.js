@@ -550,7 +550,7 @@ const truthyTest = () => true
 
 const isValidValue = async (validate, value, args, rule) => {
   try {
-    return await validate(value, args)
+    return await validate(value, args, debug)
   } catch (error) {
     debug('validate:error', {
       pkgName: rule.pkgName,

@@ -133,8 +133,8 @@ test('validate receives the scraping args', async t => {
       pkgName: 'metascraper-test',
       logo: [
         Object.assign(() => 'https://example.com/a.png', {
-          validate: (value, args) => {
-            received = { value, args }
+          validate: (value, args, debug) => {
+            received = { value, args, debug }
             return true
           }
         })
@@ -146,6 +146,7 @@ test('validate receives the scraping args', async t => {
 
   t.is(received.value, 'https://example.com/a.png')
   t.is(received.args.url, url)
+  t.is(typeof received.debug, 'function')
 })
 
 test('no validate is byte-identical to accepting every value', async t => {

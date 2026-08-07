@@ -78,6 +78,23 @@ test('a throwing validate rejects only that candidate', async t => {
   t.is(value, 'b')
 })
 
+test('validate receives the find-rule debug logger', async t => {
+  let debug
+  await findRule([
+    withValidate(
+      () => 'value',
+      (value, args, logger) => {
+        debug = logger
+        return true
+      }
+    )
+  ])
+
+  t.is(typeof debug, 'function')
+  t.falsy(debug.enabled)
+  t.notThrows(() => debug('validate:custom', { reason: 'test' }))
+})
+
 test('rules without validate are unchanged', async t => {
   t.is(await findRule([() => 'value']), 'value')
 })

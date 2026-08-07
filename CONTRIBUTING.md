@@ -77,7 +77,17 @@ Object.assign(() => 'https://example.com/logo.png', {
 
 `validate` runs after a rule produces a value. Returning a falsy value (or throwing) discards that candidate and `findRule` continues with the next rule for the property — exactly as if the rule had returned nothing. If every rule is rejected, the property is `null`.
 
-The first argument is the candidate value; the second is the same args object passed to the rule / `test`. Set `DEBUG=metascraper:find-rule` to see rejections.
+The first argument is the candidate value; the second is the same args object passed to the rule / `test`; the third is the `metascraper:find-rule` logger, so a rejection can explain itself:
+
+```js
+rules.validate = (value, { url }, debug) => {
+  if (!value.startsWith('data:')) return true
+  debug('logo:rejected', { url, reason: 'data-uri' })
+  return false
+}
+```
+
+Set `DEBUG=metascraper:find-rule` to see those lines, plus the rejections metascraper logs on its own.
 
 ### Defining `pkgName` property
 

@@ -116,8 +116,21 @@ declare namespace createMetascraper {
    */
   export type Validate = (
     value: string,
-    options: RulesTestOptions
+    options: RulesTestOptions,
+    debug: Debug
   ) => boolean | Promise<boolean>;
+
+  /**
+   * The `metascraper:find-rule` logger, so a validate can explain a rejection.
+   * Only writes when `DEBUG=metascraper:find-rule` is enabled.
+   */
+  export interface Debug {
+    (...args: Array<string | object>): void;
+    readonly enabled: boolean | undefined;
+    info(...args: Array<string | object>): void;
+    warn(...args: Array<string | object>): void;
+    error(...args: Array<string | object>): void;
+  }
 
   export interface Rules extends NamedRules {
     /**
