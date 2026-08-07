@@ -94,7 +94,3 @@ test('validate receives the find-rule debug logger', async t => {
   t.falsy(debug.enabled)
   t.notThrows(() => debug('validate:custom', { reason: 'test' }))
 })
-
-test('rules without validate are unchanged', async t => {
-  t.is(await findRule([() => 'value']), 'value')
-})

@@ -548,9 +548,9 @@ const validator = {
 
 const truthyTest = () => true
 
-const isValidValue = async (validate, value, args, rule) => {
+const isValidValue = async (rule, value, args) => {
   try {
-    return await validate(value, args, debug)
+    return await rule.validate(value, args, debug)
   } catch (error) {
     debug('validate:error', {
       pkgName: rule.pkgName,
@@ -564,6 +564,7 @@ const isValidValue = async (validate, value, args, rule) => {
 const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
+  let hasValue = false
 
   do {
     const rule = rules[index++]
@@ -571,18 +572,20 @@ const findRule = async (rules, args = {}, propName) => {
     if (test(args)) {
       const duration = debug.duration()
       value = await rule(args)
-      let isRejected = false
-      if (has(value) && rule.validate) {
-        isRejected = !(await isValidValue(rule.validate, value, args, rule))
-        if (isRejected) value = undefined
+      hasValue = has(value)
+      const isRejected =
+        hasValue && rule.validate && !(await isValidValue(rule, value, args))
+      if (isRejected) {
+        value = undefined
+        hasValue = false
       }
       duration(
-        `${rule.pkgName}:${propName}:${index - 1}:${has(value)}${
+        `${rule.pkgName}:${propName}:${index - 1}:${hasValue}${
           isRejected ? ':rejected' : ''
         }`
       )
     }
-  } while (!has(value) && index < rules.length)
+  } while (!hasValue && index < rules.length)
 
   return value
 }
@@ -659,20 +662,23 @@ const withIframe = (rules, getIframe, propName) => {
 
   return rules.concat(async args => {
     const { htmlDom: $, url } = args
-    const seen = new Set()
-
-    for (const src of $('iframe[src^="http"], iframe[src^="/"]')
+    const srcs = $('iframe[src^="http"], iframe[src^="/"]')
       .map((_, el) => $(el).attr('src'))
-      .get()) {
-      const normalized = normalizeUrl(url, src)
-      if (!normalized || seen.has(normalized)) continue
-      seen.add(normalized)
-      const value = await probe(normalized, args)
-      if (has(value)) return value
+      .get()
+
+    if (srcs.length > 0) {
+      const seen = new Set()
+      for (const src of srcs) {
+        const normalized = normalizeUrl(url, src)
+        if (!normalized || seen.has(normalized)) continue
+        seen.add(normalized)
+        const value = await probe(normalized, args)
+        if (has(value)) return value
+      }
     }
 
     const twitter = $('meta[name="twitter:player"]').attr('content')
-    return twitter ? probe(twitter, args) : undefined
+    if (twitter) return probe(twitter, args)
   })
 }
 
