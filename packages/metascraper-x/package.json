@@ -2,7 +2,7 @@
   "name": "metascraper-x",
   "description": "Metascraper rules for X (Twitter) posts — author, text, media, and engagement metadata.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-x",
-  "version": "5.53.0",
+  "version": "5.54.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

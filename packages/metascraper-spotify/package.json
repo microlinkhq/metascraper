@@ -2,7 +2,7 @@
   "name": "metascraper-spotify",
   "description": "Metascraper rules tailored for Spotify pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-spotify",
-  "version": "5.53.0",
+  "version": "5.54.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

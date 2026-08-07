@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.54.0](https://github.com/microlinkhq/metascraper/compare/v5.53.1...v5.54.0) (2026-08-07)
+
+### Features
+
+* **helpers:** add rule-level validate (like test) ([#866](https://github.com/microlinkhq/metascraper/issues/866)) ([d40856b](https://github.com/microlinkhq/metascraper/commit/d40856b05ee271baa0322288da7d9c8f0ce68177))
+
 ## [5.53.1](https://github.com/microlinkhq/metascraper/compare/v5.53.0...v5.53.1) (2026-08-02)
 
 ### Bug Fixes
