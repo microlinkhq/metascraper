@@ -2,7 +2,7 @@
   "name": "metascraper-media-provider",
   "description": "Metascraper media provider that resolves video URLs via youtube-dl compatible extractors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-media-provider",
-  "version": "5.54.1",
+  "version": "5.55.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

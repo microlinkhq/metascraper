@@ -2,7 +2,7 @@
   "name": "metascraper-author",
   "description": "Metascraper rule to extract the author from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://metascraper.js.org",
-  "version": "5.54.1",
+  "version": "5.55.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

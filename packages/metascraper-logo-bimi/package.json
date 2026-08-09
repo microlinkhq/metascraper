@@ -2,7 +2,7 @@
   "name": "metascraper-logo-bimi",
   "description": "Metascraper logo fallback that resolves brand marks from BIMI DNS TXT records.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-logo-bimi",
-  "version": "5.54.1",
+  "version": "5.55.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

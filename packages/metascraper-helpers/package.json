@@ -2,7 +2,7 @@
   "name": "@metascraper/helpers",
   "description": "Shared helper utilities used across metascraper rules for parsing and normalizing metadata.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-helpers",
-  "version": "5.54.1",
+  "version": "5.55.0",
   "main": "src/index.js",
   "author": {
     "email": "hello@microlink.io",

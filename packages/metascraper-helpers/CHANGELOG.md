@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.55.0](https://github.com/microlinkhq/metascraper/compare/v5.54.1...v5.55.0) (2026-08-09)
+
+### Features
+
+* **helpers:** pass propName to validate ([#868](https://github.com/microlinkhq/metascraper/issues/868)) ([8e0a75f](https://github.com/microlinkhq/metascraper/commit/8e0a75f9d0ae5896ecae7776c5ca00ca87d954d2))
+
 ## [5.54.1](https://github.com/microlinkhq/metascraper/compare/v5.54.0...v5.54.1) (2026-08-07)
 
 **Note:** Version bump only for package @metascraper/helpers
