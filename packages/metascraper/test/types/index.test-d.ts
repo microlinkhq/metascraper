@@ -47,3 +47,9 @@ await metascraper({
     return false
   }
 })
+
+await metascraper({
+  url: 'https://example.com',
+  html: '',
+  validate: (value, { propName, url }) => propName !== 'logo' || value !== url
+})

@@ -106,6 +106,29 @@ test('validate rejecting every rule nulls the property', async t => {
   t.is(data.logo, null)
 })
 
+test('validate receives the property name it is judging', async t => {
+  const seen = []
+  const scraper = metascraper([
+    {
+      logo: [() => 'https://example.com/a.png'],
+      title: [() => 'hello']
+    }
+  ])
+
+  const data = await scraper({
+    url,
+    html,
+    validate: (value, { propName }) => {
+      seen.push(propName)
+      return propName !== 'logo'
+    }
+  })
+
+  t.deepEqual(seen.sort(), ['logo', 'title'])
+  t.is(data.logo, null)
+  t.is(data.title, 'hello')
+})
+
 test('validate receives the scraping args', async t => {
   let received
   const scraper = metascraper([
