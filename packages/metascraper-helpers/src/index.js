@@ -564,6 +564,7 @@ const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
   let hasValue = false
+  const validateArgs = args.validate ? { ...args, propName } : args
 
   do {
     const rule = rules[index++]
@@ -573,7 +574,7 @@ const findRule = async (rules, args = {}, propName) => {
       value = await rule(args)
       hasValue = has(value)
       const isRejected =
-        hasValue && args.validate && !(await isValidValue(value, args))
+        hasValue && args.validate && !(await isValidValue(value, validateArgs))
       if (isRejected) {
         value = undefined
         hasValue = false

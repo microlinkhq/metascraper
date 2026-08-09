@@ -123,10 +123,14 @@ declare namespace createMetascraper {
   /**
    * Scrape-level check inside `findRule`. Falsy or throw rejects the candidate
    * and continues with the next rule.
+   *
+   * `options.propName` is the property being resolved, so a validate can scope
+   * itself: the same value is a hostile asset under `logo` and the expected
+   * result under `url`.
    */
   export type Validate = (
     value: string,
-    options: RulesTestOptions,
+    options: RulesTestOptions & { propName: string },
     debug: Debug
   ) => boolean | Promise<boolean>;
 
