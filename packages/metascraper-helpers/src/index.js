@@ -564,10 +564,6 @@ const findRule = async (rules, args = {}, propName) => {
   let index = 0
   let value
   let hasValue = false
-
-  // A validate needs to know which property it is judging: a `logo` candidate
-  // and the `url` property want opposite answers for the same bytes. Built once
-  // per property rather than per candidate, and only when there is a validate.
   const validateArgs = args.validate ? { ...args, propName } : args
 
   do {
