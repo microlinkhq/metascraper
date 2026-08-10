@@ -9,8 +9,7 @@ const { metascraper } = require('./helpers')
 test('get the high image size', async t => {
   const html = await readFile(resolve(__dirname, 'fixtures/image-size.html'))
   const url = 'https://www.youtube.com/watch?v=A0FZIwabctw'
-  const { date, ...metadata } = await metascraper({ html, url })
-  t.is(typeof date, 'string')
+  const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
 })
 
@@ -20,6 +19,16 @@ test('youtube video', async t => {
 
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
+})
+
+test('a video is dated by its upload date, not by its comments', async t => {
+  const html = await readFile(
+    resolve(__dirname, 'fixtures/youtube-video-comments.html')
+  )
+  const url = 'https://www.youtube.com/watch?v=arj7oStGLkU'
+
+  const { date } = await metascraper({ html, url })
+  t.is(date, '2016-04-06T16:59:35.000Z')
 })
 
 test('youtube video old', async t => {
