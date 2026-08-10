@@ -37,7 +37,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v6
         with:
-          version: 11.11.0
+          version: latest
       - name: Install
         run: pnpm install --dangerously-allow-all-builds
       - name: Test
