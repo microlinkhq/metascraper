@@ -5,6 +5,13 @@ on:
     branches:
       - master
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SKIP_INSTALL_SIMPLE_GIT_HOOKS: true
+
 jobs:
   contributors:
     if: "${{ github.event.head_commit.message != 'build: contributors' }}"
@@ -21,7 +28,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v6
         with:
-          version: 11.11.0
+          version: latest
       - name: Install
         run: pnpm install --dangerously-allow-all-builds
       - name: Contributors
@@ -32,6 +39,7 @@ jobs:
       - name: Push changes
         run: |
           git push origin ${{ github.head_ref }}
+
   matrix:
     runs-on: ubuntu-latest
     steps:
@@ -42,6 +50,25 @@ jobs:
       - run: echo ${{ steps.matrix.outputs.matrix }}
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+        with:
+          version: latest
+      - name: Install
+        run: pnpm install --dangerously-allow-all-builds
+      - name: Lint
+        run: pnpm lint
+
   test:
     name: Test ${{ matrix.package.name }}
     if: |
@@ -63,7 +90,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v6
         with:
-          version: 11.11.0
+          version: latest
       - name: Install
         run: pnpm install --dangerously-allow-all-builds
       - name: Test
@@ -87,3 +114,36 @@ jobs:
         uses: coverallsapp/github-action@main
         with:
           parallel-finished: true
+
+  release:
+    needs: [test, lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: master
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+        with:
+          version: latest
+      - name: Install
+        run: pnpm install --dangerously-allow-all-builds
+      - name: Sync master
+        run: |
+          git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git config --global user.name ${{ secrets.GIT_USERNAME }}
+          git pull origin master
+      - name: Release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          pnpm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
+          pnpm run release
