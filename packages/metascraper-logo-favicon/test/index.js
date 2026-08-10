@@ -236,10 +236,10 @@ test('use non square logo as in the worst scenario', async t => {
 })
 
 test('resolve logo using favicon associated with the domain', async t => {
-  const url = 'https://cdn.teslahunt.io/foo/bar'
+  const url = 'https://microlink.io/foo/bar'
   const metascraper = createMetascraper()
   const metadata = await metascraper({ url })
-  t.is(metadata.logo, 'https://teslahunt.io/favicon.ico')
+  t.is(metadata.logo, 'https://microlink.io/favicon.ico')
 })
 
 test('resolve logo using favicon should be an image content-type', async t => {
