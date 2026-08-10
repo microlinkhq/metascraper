@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.55.1](https://github.com/microlinkhq/metascraper/compare/v5.55.0...v5.55.1) (2026-08-10)
+
+### Bug Fixes
+
+* **youtube:** date a video by its upload date ([#869](https://github.com/microlinkhq/metascraper/issues/869)) ([7040d5c](https://github.com/microlinkhq/metascraper/commit/7040d5c832d7cc34c8ad61b3e97e4adb080770a6))
+
 # [5.55.0](https://github.com/microlinkhq/metascraper/compare/v5.54.1...v5.55.0) (2026-08-09)
 
 ### Features

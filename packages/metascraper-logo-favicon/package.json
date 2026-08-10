@@ -2,7 +2,7 @@
   "name": "metascraper-logo-favicon",
   "description": "Metascraper logo fallback that picks favicons and apple-touch icons from HTML.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-logo-favicon",
-  "version": "5.55.0",
+  "version": "5.55.1",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
