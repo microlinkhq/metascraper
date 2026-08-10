@@ -7,6 +7,7 @@ const pLocate = require('p-locate').default
 const {
   $filter,
   author,
+  date,
   memoizeOne,
   title,
   toRule
@@ -32,6 +33,8 @@ const getThumbnailUrl = (id, gotOpts) => {
 
 const toAuthor = toRule(author)
 
+const toDate = toRule(date)
+
 const toTitle = toRule(title)
 
 const getVideoInfo = memoizeOne(getVideoId)
@@ -45,6 +48,7 @@ module.exports = ({ gotOpts } = {}) => {
       toAuthor($ => $filter($, $('[class*="user-info" i]'))),
       toAuthor($ => $('[itemprop="author"] [itemprop="name"]').attr('content'))
     ],
+    date: [toDate($ => $('[itemprop="uploadDate" i]').attr('content'))],
     publisher: () => 'YouTube',
     image: [
       ({ url }) => {
