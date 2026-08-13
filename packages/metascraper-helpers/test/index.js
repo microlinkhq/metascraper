@@ -149,6 +149,27 @@ test('.normalizeUrl', t => {
     undefined
   )
   t.is(normalizeUrl('https://www.example.com', 'javascript:void(0)'), undefined)
+  t.is(
+    normalizeUrl(
+      'https://legacylis.virginia.gov/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
+    ),
+    'https://legacylis.virginia.gov/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
+  )
+  t.is(
+    normalizeUrl(
+      'https://legacylis.virginia.gov/',
+      '/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
+    ),
+    'https://legacylis.virginia.gov/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
+  )
+  t.is(
+    normalizeUrl('https://example.com/?q=hello+world'),
+    'https://example.com/?q=hello+world'
+  )
+  t.is(
+    normalizeUrl('https://example.com/?q=hello%20world'),
+    'https://example.com/?q=hello%20world'
+  )
 })
 
 test('.author', t => {
@@ -214,6 +235,18 @@ test('.url', t => {
       }
     ),
     'http://cdn2.cloudpro.co.uk/sites/cloudprod7/files/4/29/handshake_0.jpg'
+  )
+  t.is(
+    url(
+      'https://legacylis.virginia.gov/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
+    ),
+    'https://legacylis.virginia.gov/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
+  )
+  t.is(
+    url('/cgi-bin/legp604.exe?241+ful+HB1288+pdf', {
+      url: 'https://legacylis.virginia.gov/'
+    }),
+    'https://legacylis.virginia.gov/cgi-bin/legp604.exe?241+ful+HB1288+pdf'
   )
 })
 

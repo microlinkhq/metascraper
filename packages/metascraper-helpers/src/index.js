@@ -176,14 +176,66 @@ const protocol = url => {
   return ''
 }
 
-const sanetizeUrl = (url, opts) =>
-  _normalizeUrl(url, {
+/**
+ * `normalize-url` treats `+` as a space in query keys that have no `=`
+ * (CGI-style `?241+ful+HB1288+pdf`) and emits `%20`. Restore those pluses —
+ * they are delimiters, not encoded spaces.
+ *
+ * @param {string} original
+ * @param {string} normalized
+ * @returns {string}
+ */
+const restoreCgiPlus = (original, normalized) => {
+  const origMark = original.indexOf('?')
+  const normMark = normalized.indexOf('?')
+  if (origMark === -1 || normMark === -1) return normalized
+
+  const origHash = original.indexOf('#', origMark)
+  const origSearch = original.slice(
+    origMark + 1,
+    origHash === -1 ? undefined : origHash
+  )
+  if (!origSearch.includes('+')) return normalized
+
+  const origByEncoded = new Map()
+  for (const orig of origSearch.split('&')) {
+    if (!orig.includes('=') && orig.includes('+')) {
+      origByEncoded.set(orig.replaceAll('+', '%20'), orig)
+    }
+  }
+  if (origByEncoded.size === 0) return normalized
+
+  const normHash = normalized.indexOf('#', normMark)
+  const normSearch = normalized.slice(
+    normMark + 1,
+    normHash === -1 ? undefined : normHash
+  )
+  let changed = false
+  const restored = normSearch.split('&').map(norm => {
+    const orig = origByEncoded.get(norm)
+    if (!orig) return norm
+    changed = true
+    return orig
+  })
+  if (!changed) return normalized
+
+  const hash = normHash === -1 ? '' : normalized.slice(normHash)
+  return `${normalized.slice(0, normMark + 1)}${restored.join('&')}${hash}`
+}
+
+const sanetizeUrl = (url, opts) => {
+  const normalized = _normalizeUrl(url, {
     stripWWW: false,
     sortQueryParameters: false,
     removeSingleSlash: false,
     removeTrailingSlash: false,
     ...opts
   })
+  const queryStart = url.indexOf('?')
+  return queryStart !== -1 && url.indexOf('+', queryStart) !== -1
+    ? restoreCgiPlus(url, normalized)
+    : normalized
+}
 
 const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
