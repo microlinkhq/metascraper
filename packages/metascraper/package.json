@@ -2,7 +2,7 @@
   "name": "metascraper",
   "description": "Scrape metadata from any URL using Open Graph, JSON-LD, HTML meta tags, and smart fallbacks.",
   "homepage": "https://metascraper.js.org",
-  "version": "5.55.1",
+  "version": "5.55.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "repository": {

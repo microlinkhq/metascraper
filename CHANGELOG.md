@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.55.2](https://github.com/microlinkhq/metascraper/compare/v5.55.1...v5.55.2) (2026-08-13)
+
+### Bug Fixes
+
+* **helpers:** keep CGI + in query strings ([#872](https://github.com/microlinkhq/metascraper/issues/872)) ([4743562](https://github.com/microlinkhq/metascraper/commit/474356207e70c989654a1e2c4da7af025daf7a3f))
+
 ## [5.55.1](https://github.com/microlinkhq/metascraper/compare/v5.55.0...v5.55.1) (2026-08-10)
 
 ### Bug Fixes

@@ -2,7 +2,7 @@
   "name": "metascraper-video",
   "description": "Metascraper rule to extract the video from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-video",
-  "version": "5.55.0",
+  "version": "5.55.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
