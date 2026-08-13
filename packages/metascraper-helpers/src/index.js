@@ -223,17 +223,18 @@ const restoreCgiPlus = (original, normalized) => {
   return `${normalized.slice(0, normMark + 1)}${restored.join('&')}${hash}`
 }
 
-const sanetizeUrl = (url, opts) =>
-  restoreCgiPlus(
-    url,
-    _normalizeUrl(url, {
-      stripWWW: false,
-      sortQueryParameters: false,
-      removeSingleSlash: false,
-      removeTrailingSlash: false,
-      ...opts
-    })
-  )
+const sanetizeUrl = (url, opts) => {
+  const normalized = _normalizeUrl(url, {
+    stripWWW: false,
+    sortQueryParameters: false,
+    removeSingleSlash: false,
+    removeTrailingSlash: false,
+    ...opts
+  })
+  const queryStart = url.indexOf('?')
+  if (queryStart === -1 || url.indexOf('+', queryStart) === -1) { return normalized }
+  return restoreCgiPlus(url, normalized)
+}
 
 const normalizeUrl = (baseUrl, relativePath, opts) => {
   try {
