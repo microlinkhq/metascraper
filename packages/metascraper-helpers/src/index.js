@@ -232,9 +232,9 @@ const sanetizeUrl = (url, opts) => {
     ...opts
   })
   const queryStart = url.indexOf('?')
-  return queryStart === -1 || url.indexOf('+', queryStart) === -1
-    ? normalized
-    : restoreCgiPlus(url, normalized)
+  return queryStart !== -1 && url.indexOf('+', queryStart) !== -1
+    ? restoreCgiPlus(url, normalized)
+    : normalized
 }
 
 const normalizeUrl = (baseUrl, relativePath, opts) => {
