@@ -1,0 +1,49 @@
+{
+  "name": "metascraper-citation",
+  "description": "Metascraper rules for Highwire Press / Google Scholar citation_* meta tags.",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-citation",
+  "version": "5.55.2",
+  "types": "src/index.d.ts",
+  "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-citation",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "citation",
+    "extract",
+    "google-scholar",
+    "highwire",
+    "html",
+    "metadata",
+    "metascraper",
+    "scraper",
+    "scholar"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "workspace:*"
+  },
+  "devDependencies": {
+    "ava": "8",
+    "cheerio": "latest"
+  },
+  "engines": {
+    "node": ">= 22"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 15s"
+  },
+  "license": "MIT"
+}
