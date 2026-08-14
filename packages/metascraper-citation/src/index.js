@@ -14,29 +14,44 @@ const toDate = toRule(date)
 const toPublisher = toRule(publisher)
 const toTitle = toRule(title)
 
+const meta = name => $ => $(`meta[name="${name}" i]`).attr('content')
+
+const MARKUP =
+  'meta[name^="citation_" i], meta[name^="dc." i], meta[name^="dcterms." i]'
+
 const test = memoizeOne(
-  $ => $('meta[name^="citation_" i]').length > 0,
+  $ => $(MARKUP).length > 0,
   memoizeOne.EqualityFirstArgument
 )
 
 module.exports = () => {
   const rules = {
-    title: [toTitle($ => $('meta[name="citation_title" i]').attr('content'))],
+    title: [
+      toTitle(meta('citation_title')),
+      toTitle(meta('dc.title')),
+      toTitle(meta('dcterms.title'))
+    ],
     author: [
-      toAuthor($ => $('meta[name="citation_author" i]').attr('content'))
+      toAuthor(meta('citation_author')),
+      toAuthor(meta('dc.creator')),
+      toAuthor(meta('dcterms.creator')),
+      toAuthor(meta('dc.contributor')),
+      toAuthor(meta('dcterms.contributor'))
     ],
     date: [
-      toDate($ =>
-        $('meta[name="citation_publication_date" i]').attr('content')
-      ),
-      toDate($ => $('meta[name="citation_online_date" i]').attr('content')),
-      toDate($ => $('meta[name="citation_date" i]').attr('content'))
+      toDate(meta('citation_publication_date')),
+      toDate(meta('citation_online_date')),
+      toDate(meta('citation_date')),
+      toDate(meta('dcterms.issued')),
+      toDate(meta('dcterms.created')),
+      toDate(meta('dc.date')),
+      toDate(meta('dcterms.date'))
     ],
     publisher: [
-      toPublisher($ => $('meta[name="citation_publisher" i]').attr('content')),
-      toPublisher($ =>
-        $('meta[name="citation_journal_title" i]').attr('content')
-      )
+      toPublisher(meta('citation_publisher')),
+      toPublisher(meta('citation_journal_title')),
+      toPublisher(meta('dc.publisher')),
+      toPublisher(meta('dcterms.publisher'))
     ]
   }
 

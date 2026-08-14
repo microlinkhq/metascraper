@@ -1,6 +1,6 @@
 {
   "name": "metascraper-citation",
-  "description": "Metascraper rules for Highwire Press / Google Scholar citation_* meta tags.",
+  "description": "Metascraper rules for Highwire Press citation_* and Dublin Core dc.* / dcterms.* meta tags.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-citation",
   "version": "5.55.2",
   "types": "src/index.d.ts",
@@ -20,6 +20,7 @@
   },
   "keywords": [
     "citation",
+    "dublin-core",
     "extract",
     "google-scholar",
     "highwire",

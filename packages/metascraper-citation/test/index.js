@@ -23,10 +23,34 @@ const loadHtml = url =>
 
 test('test() is true when citation tags are present', t => {
   t.true(hasCitation(load('<meta name="citation_title" content="A paper">')))
+  t.true(
+    hasCitation(
+      load('<meta name="citation_doi" content="10.1371/journal.pone.0000001">')
+    )
+  )
 })
 
-test('test() is false when citation tags are absent', t => {
+test('test() is true when Dublin Core tags are present', t => {
+  t.true(hasCitation(load('<meta name="dc.title" content="A paper">')))
+  t.true(hasCitation(load('<meta name="DC.Title" content="A paper">')))
+  t.true(hasCitation(load('<meta name="dcterms.title" content="A paper">')))
+  t.true(
+    hasCitation(
+      load('<meta name="dc.identifier" content="10.1101/2020.03.22.002386">')
+    )
+  )
+})
+
+test('test() is false when Highwire and Dublin Core tags are absent', t => {
   t.false(hasCitation(load('<title>Example</title>')))
+  t.false(
+    hasCitation(load('<meta name="DOI" content="10.1038/s41586-021-03819-2">'))
+  )
+  t.false(
+    hasCitation(
+      load('<meta name="prism.doi" content="doi:10.1038/s41586-021-03819-2">')
+    )
+  )
 })
 
 test('journals.plos.org/plosone/article?id=10.1371/journal.pone.0000001', async t => {
@@ -65,6 +89,36 @@ test('www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2014.00781/
   const url =
     'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2014.00781/full'
   t.snapshot(await metascraper({ html: await loadHtml(url), url }))
+})
+
+test('Dublin Core tags are used when citation tags are absent', async t => {
+  const metadata = await metascraper({
+    html: `
+      <meta name="DC.Title" content="A SARS-CoV-2-Human Protein-Protein Interaction Map">
+      <meta name="DC.Contributor" content="David E. Gordon">
+      <meta name="DC.Date" content="2020-03-27">
+      <meta name="DC.Publisher" content="Cold Spring Harbor Laboratory">
+    `,
+    url: 'https://example.com'
+  })
+  t.is(metadata.title, 'A SARS-CoV-2-Human Protein-Protein Interaction Map')
+  t.is(metadata.author, 'David E. Gordon')
+  t.is(metadata.date, '2020-03-27T00:00:00.000Z')
+  t.is(metadata.publisher, 'Cold Spring Harbor Laboratory')
+})
+
+test('citation tags win over Dublin Core', async t => {
+  const metadata = await metascraper({
+    html: `
+      <meta name="citation_title" content="Highwire title">
+      <meta name="dc.title" content="Dublin Core title">
+      <meta name="citation_author" content="Jane Doe">
+      <meta name="dc.creator" content="John Smith">
+    `,
+    url: 'https://example.com'
+  })
+  t.is(metadata.title, 'Highwire title')
+  t.is(metadata.author, 'Jane Doe')
 })
 
 test('no citation_author falls through to meta[name=author]', async t => {
