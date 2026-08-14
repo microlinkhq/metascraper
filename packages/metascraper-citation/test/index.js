@@ -41,6 +41,32 @@ test('www.sciencedirect.com/science/article/abs/pii/S2352485522001888', async t 
   t.snapshot(await metascraper({ html: await loadHtml(url), url }))
 })
 
+test('pmc.ncbi.nlm.nih.gov/articles/PMC3531190', async t => {
+  const url = 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3531190'
+  t.snapshot(await metascraper({ html: await loadHtml(url), url }))
+})
+
+test('www.nature.com/articles/s41586-021-03819-2', async t => {
+  const url = 'https://www.nature.com/articles/s41586-021-03819-2'
+  t.snapshot(await metascraper({ html: await loadHtml(url), url }))
+})
+
+test('arxiv.org/abs/1706.03762', async t => {
+  const url = 'https://arxiv.org/abs/1706.03762'
+  t.snapshot(await metascraper({ html: await loadHtml(url), url }))
+})
+
+test('www.biorxiv.org/content/10.1101/2020.03.22.002386v3', async t => {
+  const url = 'https://www.biorxiv.org/content/10.1101/2020.03.22.002386v3'
+  t.snapshot(await metascraper({ html: await loadHtml(url), url }))
+})
+
+test('www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2014.00781/full', async t => {
+  const url =
+    'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2014.00781/full'
+  t.snapshot(await metascraper({ html: await loadHtml(url), url }))
+})
+
 test('no citation_author falls through to meta[name=author]', async t => {
   const metadata = await metascraper({
     html: `
