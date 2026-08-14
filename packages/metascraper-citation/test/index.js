@@ -107,6 +107,18 @@ test('Dublin Core tags are used when citation tags are absent', async t => {
   t.is(metadata.publisher, 'Cold Spring Harbor Laboratory')
 })
 
+test('citation_date wins over citation_online_date', async t => {
+  const metadata = await metascraper({
+    html: `
+      <meta name="citation_title" content="Attention Is All You Need">
+      <meta name="citation_date" content="2017/06/12">
+      <meta name="citation_online_date" content="2023/08/02">
+    `,
+    url: 'https://arxiv.org/abs/1706.03762'
+  })
+  t.is(metadata.date, '2017-06-12T12:00:00.000Z')
+})
+
 test('citation tags win over Dublin Core', async t => {
   const metadata = await metascraper({
     html: `

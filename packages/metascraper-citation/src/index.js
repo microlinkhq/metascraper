@@ -40,8 +40,8 @@ module.exports = () => {
     ],
     date: [
       toDate(meta('citation_publication_date')),
-      toDate(meta('citation_online_date')),
       toDate(meta('citation_date')),
+      toDate(meta('citation_online_date')),
       toDate(meta('dcterms.issued')),
       toDate(meta('dcterms.created')),
       toDate(meta('dc.date')),
