@@ -1,5 +1,7 @@
 'use strict'
 
+const { readFile } = require('fs/promises')
+const { resolve } = require('path')
 const { load } = require('cheerio')
 const test = require('ava').default
 
@@ -14,6 +16,12 @@ const metascraper = require('metascraper')([
   require('metascraper-url')()
 ])
 
+const plosOneUrl =
+  'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000001'
+
+const loadPlosOne = () =>
+  readFile(resolve(__dirname, 'fixtures/plos-one.html'), 'utf8')
+
 const sciencedirect = `
 <meta property="og:title" content="Genetic monitoring of the critically endangered leatherback turtle (Dermochelys coriacea) in the South West Atlantic">
 <title>Genetic monitoring of the critically endangered leatherback turtle (Dermochelys coriacea) in the South West Atlantic - ScienceDirect</title>
@@ -25,18 +33,9 @@ const sciencedirect = `
 <meta name="citation_online_date" content="2022/07/08">
 `
 
-const plos = `
-<meta name="citation_title" content="Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases">
-<meta name="citation_author" content="Alice Smith">
-<meta name="citation_author" content="Bob Jones">
-<meta name="citation_publication_date" content="2006/12/20">
-<meta name="citation_publisher" content="Public Library of Science">
-<meta name="citation_journal_title" content="PLOS ONE">
-`
-
-test('test() is true when citation tags are present', t => {
+test('test() is true when citation tags are present', async t => {
   t.true(hasCitation(load(sciencedirect)))
-  t.true(hasCitation(load(plos)))
+  t.true(hasCitation(load(await loadPlosOne())))
 })
 
 test('test() is false when citation tags are absent', t => {
@@ -54,12 +53,16 @@ test('citation_title wins over og:title and title', async t => {
   )
 })
 
-test('first citation_author only', async t => {
-  const metadata = await metascraper({
-    html: plos,
-    url: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000001'
-  })
-  t.is(metadata.author, 'Alice Smith')
+test('plos one fixture', async t => {
+  const html = await loadPlosOne()
+  const metadata = await metascraper({ html, url: plosOneUrl })
+  t.is(
+    metadata.title,
+    'Neural Substrate of Cold-Seeking Behavior in Endotoxin Shock'
+  )
+  t.is(metadata.author, 'Maria C Almeida')
+  t.is(metadata.publisher, 'Public Library of Science')
+  t.is(metadata.date, '2006-12-20T12:00:00.000Z')
 })
 
 test('no citation_author falls through to meta[name=author]', async t => {
