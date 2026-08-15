@@ -238,6 +238,7 @@ const metascraper = require('metascraper')([
 
 - [metascraper-audio](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-audio) – Get audio property from HTML markup.
 - [metascraper-author](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-author) – Get author property from HTML markup.
+- [metascraper-citation](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-citation) – Get title, author, date, and publisher from Highwire Press `citation_*` and Dublin Core `dc.*` / `dcterms.*` tags.
 - [metascraper-date](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-date) – Get date property from HTML markup.
 - [metascraper-defuddle](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-defuddle) – A Defuddle connector for metascraper.
 - [metascraper-description](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-description) – Get description property from HTML markup.
