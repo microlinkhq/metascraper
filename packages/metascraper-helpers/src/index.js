@@ -556,6 +556,9 @@ const $jsonld = propName => $ => {
   return isString(value) ? decodeHTML(value) : value
 }
 
+const $meta = attr => $ =>
+  $(`meta[name="${attr}" i], meta[property="${attr}" i]`).attr('content')
+
 const image = (value, opts) => {
   const urlValue = url(value, opts)
 
@@ -737,6 +740,7 @@ const withIframe = (rules, getIframe, propName) => {
 module.exports = {
   $filter,
   $jsonld,
+  $meta,
   absoluteUrl,
   audio,
   audioExtensions,

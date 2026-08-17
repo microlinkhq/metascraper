@@ -1,6 +1,12 @@
 'use strict'
 
-const { $filter, $jsonld, publisher, toRule } = require('@metascraper/helpers')
+const {
+  $filter,
+  $jsonld,
+  $meta,
+  publisher,
+  toRule
+} = require('@metascraper/helpers')
 
 const REGEX_TITLE = /^.*?[-|]\s+(.*)$/
 
@@ -18,27 +24,14 @@ module.exports = () => {
   const rules = {
     publisher: [
       toPublisher($jsonld('publisher.name')),
-      toPublisher($ => $('meta[property="og:site_name"]').attr('content')),
+      toPublisher($meta('og:site_name')),
       toPublisher($ => $('meta[name*="application-name" i]').attr('content')),
       toPublisher($ => $('meta[name*="app-title" i]').attr('content')),
       toPublisher($ => $('meta[property*="app_name" i]').attr('content')),
-      toPublisher($ => $('meta[name="publisher" i]').attr('content')),
-      toPublisher($ =>
-        $('meta[name="twitter:app:name:iphone"]').attr('content')
-      ),
-      toPublisher($ =>
-        $('meta[property="twitter:app:name:iphone"]').attr('content')
-      ),
-      toPublisher($ => $('meta[name="twitter:app:name:ipad"]').attr('content')),
-      toPublisher($ =>
-        $('meta[property="twitter:app:name:ipad"]').attr('content')
-      ),
-      toPublisher($ =>
-        $('meta[name="twitter:app:name:googleplay"]').attr('content')
-      ),
-      toPublisher($ =>
-        $('meta[property="twitter:app:name:googleplay"]').attr('content')
-      ),
+      toPublisher($meta('publisher')),
+      toPublisher($meta('twitter:app:name:iphone')),
+      toPublisher($meta('twitter:app:name:ipad')),
+      toPublisher($meta('twitter:app:name:googleplay')),
       toPublisher($ => $filter($, $('#logo'))),
       toPublisher($ => $filter($, $('.logo'))),
       toPublisher($ => $filter($, $('a[class*="brand" i]'))),

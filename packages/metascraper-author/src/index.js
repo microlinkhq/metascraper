@@ -3,6 +3,7 @@
 const {
   $jsonld,
   $filter,
+  $meta,
   toRule,
   date,
   author
@@ -29,8 +30,8 @@ module.exports = () => {
     author: [
       toAuthor($jsonld('author.name')),
       toAuthor($jsonld('brand.name')),
-      toAuthor($ => $('meta[name="author"]').attr('content')),
-      toAuthor($ => $('meta[property="article:author"]').attr('content')),
+      toAuthor($meta('author')),
+      toAuthor($meta('article:author')),
       toAuthor($ => $filter($, $('[itemprop*="author" i] [itemprop="name"]'))),
       toAuthor($ => $filter($, $('[itemprop*="author" i]'))),
       toAuthor($ => $filter($, $('[rel="author"]'))),
@@ -47,8 +48,7 @@ module.exports = () => {
           })
         )
       ),
-      toAuthor($ => $('meta[name="twitter:creator"]').attr('content')),
-      toAuthor($ => $('meta[property="twitter:creator"]').attr('content'))
+      toAuthor($meta('twitter:creator'))
     ]
   }
 
