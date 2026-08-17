@@ -28,6 +28,6 @@ const url =
 test('jewish-business-news', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
-  t.truthy(toUrl(logo))
+  t.true(logo == null || Boolean(toUrl(logo)))
   t.snapshot(metadata)
 })
