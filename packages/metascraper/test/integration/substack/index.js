@@ -1,5 +1,6 @@
 'use strict'
 
+const { url: toUrl } = require('@metascraper/helpers')
 const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const test = require('ava').default
@@ -27,10 +28,7 @@ const url =
 test('substack', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { date, logo, ...metadata } = await metascraper({ html, url })
-  t.snapshot(metadata)
   t.is(typeof date, 'string')
-  t.true(
-    logo === null || (typeof logo === 'string' && /^https?:\/\//.test(logo)),
-    String(logo)
-  )
+  t.truthy(toUrl(logo))
+  t.snapshot(metadata)
 })
