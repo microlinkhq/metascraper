@@ -155,23 +155,6 @@ test('citation_journal_title is used when publisher is absent', async t => {
   t.is(metadata.publisher, 'PLOS ONE')
 })
 
-test('given-name/surname HTML is used when citation_author is absent', async t => {
-  const metadata = await metascraper({
-    html: `
-      <meta name="citation_title" content="A paper">
-      <span class="given-name">Sarah Maria</span>
-      <span class="surname">Vargas</span>
-      <span class="given-name">Ana Carolina</span>
-      <span class="surname">Barcelos</span>
-      <div class="content-authors">
-        <a class="anchor">Get rights and content</a>
-      </div>
-    `,
-    url: 'https://www.sciencedirect.com/science/article/abs/pii/S2352485522001888'
-  })
-  t.is(metadata.author, 'Sarah Maria Vargas, Ana Carolina Barcelos')
-})
-
 test('pages without citation tags use generic rules', async t => {
   const html = `
     <title>Example page - Site</title>

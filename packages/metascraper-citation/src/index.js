@@ -16,23 +16,6 @@ const toTitle = toRule(title)
 
 const meta = name => $ => $(`meta[name="${name}" i]`).attr('content')
 
-/** Collect JATS-style given-name + surname pairs when citation/DC author tags are absent. */
-const $authors = $ => {
-  const names = []
-  const seen = new Set()
-
-  $('.given-name').each((_, el) => {
-    const given = $(el).text()
-    const surname = $(el).nextAll('.surname').first().text()
-    const name = `${given} ${surname}`.replace(/\s+/g, ' ').trim()
-    if (!name || seen.has(name)) return
-    seen.add(name)
-    names.push(name)
-  })
-
-  return names.length ? names : undefined
-}
-
 const MARKUP =
   'meta[name^="citation_" i], meta[name^="dc." i], meta[name^="dcterms." i]'
 
@@ -53,8 +36,7 @@ module.exports = () => {
       toAuthor(meta('dc.creator')),
       toAuthor(meta('dcterms.creator')),
       toAuthor(meta('dc.contributor')),
-      toAuthor(meta('dcterms.contributor')),
-      toAuthor($authors)
+      toAuthor(meta('dcterms.contributor'))
     ],
     date: [
       toDate(meta('citation_publication_date')),

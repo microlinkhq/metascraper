@@ -357,14 +357,8 @@ const getDescription = (
 const publisher = value =>
   isString(value) ? condenseWhitespace(value) : undefined
 
-const author = (value, opts) => {
-  if (Array.isArray(value)) {
-    const authors = value.map(item => author(item, opts)).filter(Boolean)
-    if (authors.length === 0) return undefined
-    return authors.length === 1 ? authors[0] : authors.join(', ')
-  }
-  return isAuthor(value) ? getAuthor(value, opts) : undefined
-}
+const author = (value, opts) =>
+  isAuthor(value) ? getAuthor(value, opts) : undefined
 
 const url = (value, { url = '' } = {}) => {
   if (!isString(value) || isEmpty(value)) return
