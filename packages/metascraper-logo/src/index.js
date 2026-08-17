@@ -25,6 +25,7 @@ module.exports = ({ filter } = {}) => {
       toLogo($ => $('meta[property="og:logo"]').attr('content')),
       toLogo($ => $('meta[itemprop="logo"]').attr('content')),
       toLogo($ => $('img[itemprop="logo"]').attr('src')),
+      toLogo($ => $('[itemprop="logo"] img').attr('src')),
       toLogo($ => toLogoUrl($, 'brand.logo')),
       toLogo($ => toLogoUrl($, 'organization.logo')),
       toLogo($ => toLogoUrl($, 'place.logo')),
