@@ -13,7 +13,6 @@ const metascraper = require('../../..')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
-  require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
@@ -26,9 +25,6 @@ const url = 'https://share.transistor.fm/e/70c487ed'
 test('transistor.fm', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
+  t.is(logo, null)
   t.snapshot(metadata)
-  t.true(
-    logo === null || (typeof logo === 'string' && /^https?:\/\//.test(logo)),
-    String(logo)
-  )
 })

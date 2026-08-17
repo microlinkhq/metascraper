@@ -13,7 +13,6 @@ const metascraper = require('../../..')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
-  require('metascraper-logo-favicon')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
@@ -27,10 +26,7 @@ const url =
 test('substack', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { date, logo, ...metadata } = await metascraper({ html, url })
-  t.snapshot(metadata)
   t.is(typeof date, 'string')
-  t.true(
-    logo === null || (typeof logo === 'string' && /^https?:\/\//.test(logo)),
-    String(logo)
-  )
+  t.is(logo, null)
+  t.snapshot(metadata)
 })

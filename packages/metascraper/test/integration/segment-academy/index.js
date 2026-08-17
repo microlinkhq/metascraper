@@ -13,8 +13,6 @@ const metascraper = require('../../..')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
-  require('metascraper-logo-favicon')(),
-  require('metascraper-manifest')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
@@ -27,5 +25,6 @@ const url =
 test('segment-academy', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
+  t.is(logo, null)
   t.snapshot(metadata)
 })

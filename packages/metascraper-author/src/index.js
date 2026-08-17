@@ -46,7 +46,9 @@ module.exports = () => {
             return !date(value) && value
           })
         )
-      )
+      ),
+      toAuthor($ => $('meta[name="twitter:creator"]').attr('content')),
+      toAuthor($ => $('meta[property="twitter:creator"]').attr('content'))
     ]
   }
 

@@ -27,9 +27,9 @@ const url =
 test('jewish-business-news', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
-  t.snapshot(metadata)
-  t.true(
-    logo === null || (typeof logo === 'string' && /^https?:\/\//.test(logo)),
-    String(logo)
+  t.is(
+    logo,
+    'https://s3.amazonaws.com/media.jewishbusinessnews.com/2021/06/08195152/logo-full.png'
   )
+  t.snapshot(metadata)
 })

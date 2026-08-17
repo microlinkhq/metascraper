@@ -13,8 +13,6 @@ const metascraper = require('../../..')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
-  require('metascraper-logo-favicon')(),
-  require('metascraper-manifest')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
@@ -26,6 +24,7 @@ const url =
 
 test('silicon-angle', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.is(logo, null)
   t.snapshot(metadata)
 })

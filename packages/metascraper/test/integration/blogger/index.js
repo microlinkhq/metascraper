@@ -13,8 +13,6 @@ const metascraper = require('../../..')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
-  require('metascraper-logo-favicon')(),
-  require('metascraper-manifest')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
@@ -28,6 +26,6 @@ test('blogger', async t => {
 
   const { logo, ...metadata } = await metascraper({ html, url })
 
-  t.regex(logo, /^https:\/\//)
+  t.is(logo, null)
   t.snapshot(metadata)
 })
