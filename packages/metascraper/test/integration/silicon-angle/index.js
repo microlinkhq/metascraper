@@ -27,5 +27,6 @@ const url =
 test('silicon-angle', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
+  t.regex(logo, /^https?:\/\//)
   t.snapshot(metadata)
 })
