@@ -35,7 +35,7 @@ Only the four properties below are set. Bibliographic extras (`citation_doi`, `d
 | Property | Tags (first match wins) |
 | --- | --- |
 | **title** | `citation_title`, `dc.title`, `dcterms.title` |
-| **author** | `citation_author`, `dc.creator`, `dcterms.creator`, `dc.contributor`, `dcterms.contributor` (first author only). If those tags are absent, names in `#author-group` are collected and joined. |
+| **author** | `citation_author`, `dc.creator`, `dcterms.creator`, `dc.contributor`, `dcterms.contributor` (first author only). If those tags are absent, `.given-name` / `.surname` pairs are collected and joined. |
 | **date** | `citation_publication_date`, `citation_date`, `citation_online_date`, `dcterms.issued`, `dcterms.created`, `dc.date`, `dcterms.date` |
 | **publisher** | `citation_publisher`, `citation_journal_title`, `dc.publisher`, `dcterms.publisher` |
 

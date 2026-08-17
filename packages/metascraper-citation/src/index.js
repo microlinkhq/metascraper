@@ -16,28 +16,18 @@ const toTitle = toRule(title)
 
 const meta = name => $ => $(`meta[name="${name}" i]`).attr('content')
 
-/** Collect `#author-group` names when Highwire/DC author tags are absent. */
+/** Collect JATS-style given-name + surname pairs when citation/DC author tags are absent. */
 const $authors = $ => {
   const names = []
   const seen = new Set()
-  const add = text => {
-    const name = String(text || '')
-      .replace(/\s+/g, ' ')
-      .trim()
+
+  $('.given-name').each((_, el) => {
+    const given = $(el).text()
+    const surname = $(el).nextAll('.surname').first().text()
+    const name = `${given} ${surname}`.replace(/\s+/g, ' ').trim()
     if (!name || seen.has(name)) return
     seen.add(name)
     names.push(name)
-  }
-
-  $('#author-group .react-xocs-alternative-link').each((_, el) =>
-    add($(el).text())
-  )
-  if (names.length) return names
-
-  $('#author-group .given-name').each((_, el) => {
-    const given = $(el).text()
-    const surname = $(el).nextAll('.surname').first().text()
-    add(`${given} ${surname}`)
   })
 
   return names.length ? names : undefined
