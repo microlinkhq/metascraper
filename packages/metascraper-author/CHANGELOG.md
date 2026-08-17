@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.56.1](https://github.com/microlinkhq/metascraper/packages/metascraper-author/compare/v5.56.0...v5.56.1) (2026-08-17)
+
+### Bug Fixes
+
+* **author:** fall back to twitter:creator ([#874](https://github.com/microlinkhq/metascraper/packages/metascraper-author/issues/874)) ([d1ec557](https://github.com/microlinkhq/metascraper/packages/metascraper-author/commit/d1ec557fdeb1f44d3bb9f1543a88fa4d0e0055c4)), closes [#author-group](https://github.com/microlinkhq/metascraper/packages/metascraper-author/issues/author-group) [#author-group](https://github.com/microlinkhq/metascraper/packages/metascraper-author/issues/author-group)
+
 ## [5.55.2](https://github.com/microlinkhq/metascraper/packages/metascraper-author/compare/v5.55.1...v5.55.2) (2026-08-13)
 
 **Note:** Version bump only for package metascraper-author
