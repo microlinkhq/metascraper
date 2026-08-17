@@ -732,7 +732,7 @@ const withIframe = (rules, getIframe, propName) => {
       }
     }
 
-    const twitter = $('meta[name="twitter:player"]').attr('content')
+    const twitter = $meta('twitter:player')($)
     if (twitter) return probe(twitter, args)
   })
 }

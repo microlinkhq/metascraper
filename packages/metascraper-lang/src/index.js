@@ -1,13 +1,13 @@
 'use strict'
 
-const { lang, toRule } = require('@metascraper/helpers')
+const { $meta, lang, toRule } = require('@metascraper/helpers')
 
 const toLang = toRule(lang)
 
 module.exports = () => {
   const rules = {
     lang: [
-      toLang($ => $('meta[property="og:locale"]').attr('content')),
+      toLang($meta('og:locale')),
       toLang($ => $('meta[itemprop="inLanguage"]').attr('content')),
       toLang($ => $('html').attr('lang'))
     ]

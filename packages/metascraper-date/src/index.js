@@ -1,12 +1,18 @@
 'use strict'
 
-const { date, $filter, $jsonld, toRule } = require('@metascraper/helpers')
+const {
+  date,
+  $filter,
+  $jsonld,
+  $meta,
+  toRule
+} = require('@metascraper/helpers')
 
 const toDate = toRule(date)
 
 const dateRules = () => {
   return [
-    toDate($ => $('meta[name="date" i]').attr('content')),
+    toDate($meta('date')),
     toDate($ => $('[itemprop*="date" i]').attr('content')),
     toDate($ => $('[itemprop*="date" i]').attr('title')),
     toDate($ => $('time[itemprop*="date" i]').attr('datetime')),

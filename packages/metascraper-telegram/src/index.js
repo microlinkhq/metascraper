@@ -1,6 +1,7 @@
 'use strict'
 
 const {
+  $meta,
   author,
   date,
   image,
@@ -49,8 +50,8 @@ module.exports = ({ gotOpts, keyvOpts, getIframe: _getIframe } = {}) => {
   }
 
   const rules = {
-    author: [toAuthor($ => $('meta[property="og:title"]').attr('content'))],
-    logo: [toLogo($ => $('meta[property="og:image"]').attr('content'))],
+    author: [toAuthor($meta('og:title'))],
+    logo: [toLogo($meta('og:image'))],
     image: [
       toImage(
         loadIframe(($iframe, url) => {

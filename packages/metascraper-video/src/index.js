@@ -2,6 +2,7 @@
 
 const {
   $jsonld,
+  $meta,
   createGetIframeCached,
   defaultGetIframe,
   toRule,
@@ -37,25 +38,23 @@ const toVideoFromDom = toRule((domNodes, opts) => {
 const videoRules = [
   ({ url, htmlDom: $ }) => {
     const src =
-      $('meta[property="og:video:secure_url"]').attr('content') ||
-      $('meta[property="og:video:url"]').attr('content') ||
-      $('meta[property="og:video"]').attr('content')
+      $meta('og:video:secure_url')($) ||
+      $meta('og:video:url')($) ||
+      $meta('og:video')($)
 
     return src
       ? video(src, {
         url,
-        type: $('meta[property="og:video:type"]').attr('content')
+        type: $meta('og:video:type')($)
       })
       : undefined
   },
   ({ url, htmlDom: $ }) => {
-    const src = $('meta[name="twitter:player:stream"]').attr('content')
+    const src = $meta('twitter:player:stream')($)
     return src
       ? video(src, {
         url,
-        type: $('meta[name="twitter:player:stream:content_type"]').attr(
-          'content'
-        )
+        type: $meta('twitter:player:stream:content_type')($)
       })
       : undefined
   },
