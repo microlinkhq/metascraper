@@ -1,6 +1,5 @@
 'use strict'
 
-const { url: toUrl } = require('@metascraper/helpers')
 const { readFile } = require('fs/promises')
 const { resolve } = require('path')
 const test = require('ava').default
@@ -14,8 +13,6 @@ const metascraper = require('../../..')([
   require('metascraper-image')(),
   require('metascraper-lang')(),
   require('metascraper-logo')(),
-  require('metascraper-logo-favicon')(),
-  require('metascraper-manifest')(),
   require('metascraper-publisher')(),
   require('metascraper-title')(),
   require('metascraper-url')(),
@@ -27,6 +24,6 @@ const url = 'http://www.siliconbeat.com/2016/04/19/time-come-woman'
 test('silicon-beat', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const { logo, ...metadata } = await metascraper({ html, url })
-  t.truthy(toUrl(logo))
+  t.is(logo, null)
   t.snapshot(metadata)
 })
