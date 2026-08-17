@@ -11,7 +11,6 @@ const {
 const REGEX_STRICT = /^\S+\s+\S+/
 
 const toAuthor = toRule(author)
-const toAuthorHandle = toRule(author, { removeBy: false })
 
 /**
  * Enforce stricter matching for a `rule`.
@@ -48,8 +47,8 @@ module.exports = () => {
           })
         )
       ),
-      toAuthorHandle($ => $('meta[name="twitter:creator"]').attr('content')),
-      toAuthorHandle($ => $('meta[property="twitter:creator"]').attr('content'))
+      toAuthor($ => $('meta[name="twitter:creator"]').attr('content')),
+      toAuthor($ => $('meta[property="twitter:creator"]').attr('content'))
     ]
   }
 

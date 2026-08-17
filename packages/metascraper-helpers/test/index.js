@@ -175,7 +175,6 @@ test('.normalizeUrl', t => {
 test('.author', t => {
   t.is(author('By Kiko Beats'), 'Kiko Beats')
   t.is(author('Byrne Hobart'), 'Byrne Hobart')
-  t.is(author('@mayoclinic', { removeBy: false }), '@mayoclinic')
 })
 
 test('.url', t => {

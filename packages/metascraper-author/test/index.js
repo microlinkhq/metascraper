@@ -17,7 +17,7 @@ test('twitter:creator is used when no other author markup exists', async t => {
     `,
     url: 'https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007'
   })
-  t.is(metadata.author, '@mayoclinic')
+  t.is(metadata.author, 'mayoclinic')
 })
 
 test('meta author wins over twitter:creator', async t => {
