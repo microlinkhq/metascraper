@@ -2,7 +2,7 @@
   "name": "metascraper-telegram",
   "description": "Metascraper rules tailored for Telegram pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-telegram",
-  "version": "5.55.2",
+  "version": "5.56.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

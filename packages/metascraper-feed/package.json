@@ -2,7 +2,7 @@
   "name": "metascraper-feed",
   "description": "Metascraper rule to discover RSS and Atom feed URLs from HTML markup and link tags.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-description",
-  "version": "5.55.2",
+  "version": "5.56.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {

@@ -2,7 +2,7 @@
   "name": "metascraper-audio",
   "description": "Metascraper rule to extract the audio from HTML using Open Graph, JSON-LD, and fallback selectors.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-audio",
-  "version": "5.55.2",
+  "version": "5.56.2",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
