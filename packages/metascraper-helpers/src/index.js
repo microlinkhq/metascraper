@@ -127,20 +127,6 @@ const REGEX_URL_TAB_OR_NEWLINE = /[\t\n\r]/g
 
 const AUTHOR_MAX_LENGTH = 128
 
-const AUTHOR_CHROME = new Set([
-  'print',
-  'share',
-  'tweet',
-  'follow',
-  'like',
-  'save',
-  'email',
-  'copy',
-  'subscribe',
-  'get rights and content',
-  'author links open overlay panel'
-])
-
 const removeLocation = value => replace(value, REGEX_LOCATION, '')
 
 const isUrl = (url, { relative = false } = {}) =>
@@ -299,8 +285,7 @@ const isAuthor = (str, opts = { relative: false }) =>
   !isUrl(str, opts) &&
   !isEmpty(str) &&
   isString(str) &&
-  lte(size(str), AUTHOR_MAX_LENGTH) &&
-  !AUTHOR_CHROME.has(toLower(condenseWhitespace(str)))
+  lte(size(str), AUTHOR_MAX_LENGTH)
 
 const getAuthor = (str, { removeBy = true, ...opts } = {}) =>
   titleize(str, { removeBy, ...opts })

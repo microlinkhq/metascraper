@@ -30,15 +30,3 @@ test('meta author wins over twitter:creator', async t => {
   })
   t.is(metadata.author, 'Nina Totenberg')
 })
-
-test('UI chrome is not used as author', async t => {
-  const metadata = await metascraper({
-    html: `
-      <div class="content-authors">
-        <a class="anchor">Get rights and content</a>
-      </div>
-    `,
-    url: 'https://www.sciencedirect.com/science/article/abs/pii/S2352485522001888'
-  })
-  t.is(metadata.author, null)
-})
