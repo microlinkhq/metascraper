@@ -16,6 +16,33 @@ const toTitle = toRule(title)
 
 const meta = name => $ => $(`meta[name="${name}" i]`).attr('content')
 
+/** Collect `#author-group` names when Highwire/DC author tags are absent. */
+const $authors = $ => {
+  const names = []
+  const seen = new Set()
+  const add = text => {
+    const name = String(text || '')
+      .replace(/\s+/g, ' ')
+      .trim()
+    if (!name || seen.has(name)) return
+    seen.add(name)
+    names.push(name)
+  }
+
+  $('#author-group .react-xocs-alternative-link').each((_, el) =>
+    add($(el).text())
+  )
+  if (names.length) return names
+
+  $('#author-group .given-name').each((_, el) => {
+    const given = $(el).text()
+    const surname = $(el).nextAll('.surname').first().text()
+    add(`${given} ${surname}`)
+  })
+
+  return names.length ? names : undefined
+}
+
 const MARKUP =
   'meta[name^="citation_" i], meta[name^="dc." i], meta[name^="dcterms." i]'
 
@@ -36,7 +63,8 @@ module.exports = () => {
       toAuthor(meta('dc.creator')),
       toAuthor(meta('dcterms.creator')),
       toAuthor(meta('dc.contributor')),
-      toAuthor(meta('dcterms.contributor'))
+      toAuthor(meta('dcterms.contributor')),
+      toAuthor($authors)
     ],
     date: [
       toDate(meta('citation_publication_date')),

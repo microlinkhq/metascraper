@@ -175,6 +175,14 @@ test('.normalizeUrl', t => {
 test('.author', t => {
   t.is(author('By Kiko Beats'), 'Kiko Beats')
   t.is(author('Byrne Hobart'), 'Byrne Hobart')
+  t.is(author('Print'), undefined)
+  t.is(author('Get rights and content'), undefined)
+  t.is(author(['Print', 'Sarah Maria Vargas']), 'Sarah Maria Vargas')
+  t.is(
+    author(['Sarah Maria Vargas', 'Ana Carolina Barcelos']),
+    'Sarah Maria Vargas, Ana Carolina Barcelos'
+  )
+  t.is(author('@mayoclinic', { removeBy: false }), '@mayoclinic')
 })
 
 test('.url', t => {
@@ -396,6 +404,11 @@ test('.isAuthor', t => {
   t.false(isAuthor(''))
   t.true(isAuthor('Kiko'))
   t.false(isAuthor('https://metascraper.org'))
+  t.false(isAuthor('Print'))
+  t.false(isAuthor('print'))
+  t.false(isAuthor('Get rights and content'))
+  t.true(isAuthor('@mayoclinic'))
+  t.true(isAuthor('Sarah Maria Vargas'))
 })
 
 test('.isVideoExtension', t => {
