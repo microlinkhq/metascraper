@@ -1,6 +1,12 @@
 'use strict'
 
-const { $jsonld, $filter, image, toRule } = require('@metascraper/helpers')
+const {
+  $jsonld,
+  $filter,
+  $meta,
+  image,
+  toRule
+} = require('@metascraper/helpers')
 
 const toImage = toRule(image)
 
@@ -9,13 +15,11 @@ const getSrc = el => el.attr('src')
 module.exports = () => {
   const rules = {
     image: [
-      toImage($ => $('meta[property="og:image:secure_url"]').attr('content')),
-      toImage($ => $('meta[property="og:image:url"]').attr('content')),
-      toImage($ => $('meta[property="og:image"]').attr('content')),
-      toImage($ => $('meta[name="twitter:image:src"]').attr('content')),
-      toImage($ => $('meta[property="twitter:image:src"]').attr('content')),
-      toImage($ => $('meta[name="twitter:image"]').attr('content')),
-      toImage($ => $('meta[property="twitter:image"]').attr('content')),
+      toImage($meta('og:image:secure_url')),
+      toImage($meta('og:image:url')),
+      toImage($meta('og:image')),
+      toImage($meta('twitter:image:src')),
+      toImage($meta('twitter:image')),
       toImage($ => $('meta[itemprop="image"]').attr('content')),
       toImage($jsonld('image.0.url')),
       toImage($jsonld('image.url')),

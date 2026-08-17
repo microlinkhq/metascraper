@@ -1,13 +1,14 @@
 'use strict'
 
 const {
+  $filter,
+  $meta,
   description,
   image,
   memoizeOne,
   parseUrl,
-  toRule,
-  $filter,
-  title
+  title,
+  toRule
 } = require('@metascraper/helpers')
 
 const toDescription = toRule(description)
@@ -25,13 +26,11 @@ const previewUrl = url =>
 
 module.exports = () => {
   const rules = {
-    description: [
-      toDescription($ => $('meta[name="description"]').attr('content'))
-    ],
+    description: [toDescription($meta('description'))],
     title: [toTitle($ => $filter($, $('title')))],
     image: [
       toImage($ => {
-        const imageUrl = $('meta[property="og:image"]').attr('content')
+        const imageUrl = $meta('og:image')($)
         return imageUrl ? previewUrl(imageUrl) : undefined
       })
     ],

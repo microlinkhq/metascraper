@@ -6,6 +6,7 @@ const got = require('got')
 
 const {
   $jsonld,
+  $meta,
   author,
   composeRule,
   description,
@@ -56,7 +57,7 @@ module.exports = ({ gotOpts, keyvOpts } = {}) => {
     date: getSpotify({ from: 'date' }),
     description: [
       toDescription($ => {
-        const description = $('meta[property="og:description"]').attr('content')
+        const description = $meta('og:description')($)
         if (!description) return
         return description.includes('on Spotify. ')
           ? description.split('on Spotify. ')[1]

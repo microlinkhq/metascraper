@@ -1,15 +1,14 @@
 'use strict'
 
-const { toRule, url: urlFn } = require('@metascraper/helpers')
+const { $meta, toRule, url: urlFn } = require('@metascraper/helpers')
 
 const toUrl = toRule(urlFn)
 
 module.exports = () => {
   const rules = {
     url: [
-      toUrl($ => $('meta[property="og:url"]').attr('content')),
-      toUrl($ => $('meta[name="twitter:url"]').attr('content')),
-      toUrl($ => $('meta[property="twitter:url"]').attr('content')),
+      toUrl($meta('og:url')),
+      toUrl($meta('twitter:url')),
       toUrl($ => $('link[rel="canonical"]').attr('href')),
       toUrl($ => $('link[rel="alternate"][hreflang="x-default"]').attr('href')),
       ({ url }) => url

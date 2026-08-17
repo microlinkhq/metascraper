@@ -2,6 +2,7 @@
 
 const {
   $jsonld,
+  $meta,
   author,
   date,
   description,
@@ -31,17 +32,11 @@ const getAuthorName = memoizeOne(ogTitle =>
 
 module.exports = ({ resolveUrl = url => url } = {}) => {
   const rules = {
-    author: [
-      toAuthor($ =>
-        getAuthorName($('meta[property="og:title"]').attr('content'))
-      )
-    ],
+    author: [toAuthor($ => getAuthorName($meta('og:title')($)))],
     title: [
       toTitle(($, url) => {
         const username = new URL(url).pathname.split('/')[1]
-        const authorName = getAuthorName(
-          $('meta[property="og:title"]').attr('content')
-        )
+        const authorName = getAuthorName($meta('og:title')($))
         return authorName
           ? `${authorName} (@${username}) on X`
           : `@${username} on X`
@@ -51,11 +46,10 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
     description: [
       toDescription(async $ => {
         let description =
-          $jsonld('mainEntity.description')($) ||
-          $('meta[property="og:description"]').attr('content')
+          $jsonld('mainEntity.description')($) || $meta('og:description')($)
 
         if (!description) {
-          const ogTitle = $('meta[property="og:title"]').attr('content')
+          const ogTitle = $meta('og:title')($)
           if (ogTitle?.includes(' on X: "')) {
             description = ogTitle.split(' on X: "')[1].split('" / X')[0]
             const urls = getUrls(description)
@@ -90,7 +84,7 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
           $('[data-testid="tweetPhoto"] img').attr('src') ||
           /* embebbed image from a link */
           $('[data-testid="card.layoutLarge.media"] img').attr('src') ||
-          $('meta[property="og:image"]').attr('content')
+          $meta('og:image')($)
 
         return imageUrl?.endsWith('_200x200.jpg')
           ? imageUrl.replace('_200x200.jpg', '_400x400.jpg')

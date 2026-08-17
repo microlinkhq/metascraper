@@ -3,6 +3,7 @@
 const {
   $filter,
   $jsonld,
+  $meta,
   audio,
   createGetIframeCached,
   defaultGetIframe,
@@ -38,25 +39,23 @@ const toAudioFromDom = toRule((domNodes, opts) => {
 const audioRules = [
   ({ url, htmlDom: $ }) => {
     const src =
-      $('meta[property="og:audio:secure_url"]').attr('content') ||
-      $('meta[property="og:audio:url"]').attr('content') ||
-      $('meta[property="og:audio"]').attr('content')
+      $meta('og:audio:secure_url')($) ||
+      $meta('og:audio:url')($) ||
+      $meta('og:audio')($)
 
     return src
       ? audio(src, {
         url,
-        type: $('meta[property="og:audio:type"]').attr('content')
+        type: $meta('og:audio:type')($)
       })
       : undefined
   },
   ({ url, htmlDom: $ }) => {
-    const src = $('meta[name="twitter:player:stream"]').attr('content')
+    const src = $meta('twitter:player:stream')($)
     return src
       ? audio(src, {
         url,
-        type: $('meta[name="twitter:player:stream:content_type"]').attr(
-          'content'
-        )
+        type: $meta('twitter:player:stream:content_type')($)
       })
       : undefined
   },

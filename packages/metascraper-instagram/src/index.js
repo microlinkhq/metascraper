@@ -1,6 +1,7 @@
 'use strict'
 
 const {
+  $meta,
   author,
   date,
   memoizeOne,
@@ -13,14 +14,14 @@ const test = memoizeOne(
 )
 
 const getDescription = memoizeOne(
-  (_, $) => $('meta[property="og:description"]').attr('content'),
+  (_, $) => $meta('og:description')($),
   memoizeOne.EqualityFirstArgument
 )
 
 module.exports = () => {
   const rules = {
     author: ({ htmlDom: $ }) => {
-      const title = $('meta[property="og:title"]').attr('content')
+      const title = $meta('og:title')($)
       const value = title?.split(' on Instagram')[0]
       return author(value)
     },
@@ -31,8 +32,7 @@ module.exports = () => {
       const dateString = `${dateMatch[1]} GMT`
       return date(new Date(dateString))
     },
-    title: ({ htmlDom: $ }) =>
-      title($('meta[name="twitter:title"]').attr('content'))
+    title: ({ htmlDom: $ }) => title($meta('twitter:title')($))
   }
 
   rules.test = ({ url }) => test(url)

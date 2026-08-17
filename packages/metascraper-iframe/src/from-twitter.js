@@ -1,17 +1,16 @@
 'use strict'
 
-const { memoizeOne } = require('@metascraper/helpers')
+const { $meta, memoizeOne } = require('@metascraper/helpers')
 const { map } = require('lodash')
 
 const getPlayerUrl = memoizeOne(
-  (_, $) => $('meta[name="twitter:player"]').attr('content'),
+  (_, $) => $meta('twitter:player')($),
   memoizeOne.EqualityUrlAndHtmlDom
 )
 
-const playerWidth = $ => $('meta[name="twitter:player:width"]').attr('content')
+const playerWidth = $ => $meta('twitter:player:width')($)
 
-const playerHeight = $ =>
-  $('meta[name="twitter:player:height"]').attr('content')
+const playerHeight = $ => $meta('twitter:player:height')($)
 
 const fromTwitter =
   () =>

@@ -2,6 +2,7 @@
 
 const {
   $jsonld,
+  $meta,
   image,
   memoizeOne,
   author,
@@ -27,7 +28,7 @@ module.exports = () => {
         ).attr('src')
       ),
       toImage($jsonld('mainEntity.image')),
-      toImage($ => $('meta[property="og:image"]').attr('content'))
+      toImage($meta('og:image'))
     ],
     author: [
       toAuthor($jsonld('author.name')),

@@ -1,6 +1,7 @@
 'use strict'
 
 const {
+  $meta,
   author,
   date,
   memoizeOne,
@@ -22,7 +23,7 @@ const getTimestampFromId = id => {
 }
 
 const getAuthorAndUsername = memoizeOne((url, $) => {
-  const ogTitle = $('meta[property="og:title"]').attr('content')
+  const ogTitle = $meta('og:title')($)
   const authorName = ogTitle
     ?.split(' on TikTok')[0]
     ?.split(' (@')[0]

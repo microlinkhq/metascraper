@@ -1,6 +1,6 @@
 'use strict'
 
-const { $jsonld, logo: logoFn, toRule } = require('@metascraper/helpers')
+const { $jsonld, $meta, logo: logoFn, toRule } = require('@metascraper/helpers')
 const { eq, get } = require('lodash')
 
 const toLogoUrl = ($, propName) => {
@@ -22,7 +22,7 @@ module.exports = ({ filter } = {}) => {
 
   const rules = {
     logo: [
-      toLogo($ => $('meta[property="og:logo"]').attr('content')),
+      toLogo($meta('og:logo')),
       toLogo($ => $('meta[itemprop="logo"]').attr('content')),
       toLogo($ => $('img[itemprop="logo"]').attr('src')),
       toLogo($ => $('[itemprop="logo"] img').attr('src')),

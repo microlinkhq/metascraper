@@ -2,6 +2,7 @@
 
 const {
   $jsonld,
+  $meta,
   memoizeOne,
   author,
   date,
@@ -41,7 +42,7 @@ module.exports = () => {
     author: [
       toAuthor($jsonld('creator.name')),
       toAuthor($ => {
-        const description = $('meta[name="description"]').attr('content')
+        const description = $meta('description')($)
         const { author } = parseMetaDescription(description)
         return author
       }),
@@ -49,7 +50,7 @@ module.exports = () => {
     ],
     description: [
       toDescription($ => {
-        const desc = $('meta[name="description"]').attr('content')
+        const desc = $meta('description')($)
         const { description } = parseMetaDescription(desc)
         return description
       })

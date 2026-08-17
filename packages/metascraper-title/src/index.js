@@ -1,15 +1,20 @@
 'use strict'
 
-const { $jsonld, $filter, title, toRule } = require('@metascraper/helpers')
+const {
+  $jsonld,
+  $filter,
+  $meta,
+  title,
+  toRule
+} = require('@metascraper/helpers')
 
 const toTitle = toRule(title)
 
 module.exports = () => {
   const rules = {
     title: [
-      toTitle($ => $('meta[property="og:title"]').attr('content')),
-      toTitle($ => $('meta[name="twitter:title"]').attr('content')),
-      toTitle($ => $('meta[property="twitter:title"]').attr('content')),
+      toTitle($meta('og:title')),
+      toTitle($meta('twitter:title')),
       toTitle($ => $filter($, $('title'))),
       toTitle($jsonld('headline')),
       toTitle($ => $filter($, $('.post-title'))),
