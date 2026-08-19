@@ -2,7 +2,7 @@
   "name": "metascraper-imdb",
   "description": "Metascraper rules tailored for IMDb pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-imdb",
-  "version": "5.56.2",
+  "version": "5.57.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
