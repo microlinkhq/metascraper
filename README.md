@@ -264,6 +264,7 @@ const metascraper = require('metascraper')([
 - [metascraper-amazon](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-amazon) – Metascraper integration for Amazon.
 - [metascraper-bluesky](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-bluesky) – Metascraper integration for Bluesky.
 - [metascraper-dribbble](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-dribbble) – Metascraper integration for Dribble.
+- [metascraper-imdb](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-imdb) – Metascraper integration for IMDb.
 - [metascraper-instagram](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-instagram) – Metascraper integration for Instagram.
 - [metascraper-reddit](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-reddit) – Metascraper integration for Reddit.
 - [metascraper-soundcloud](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-soundcloud) – Metascraper integration for SoundCloud.
