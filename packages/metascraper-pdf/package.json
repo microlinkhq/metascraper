@@ -1,0 +1,58 @@
+{
+  "name": "metascraper-pdf",
+  "description": "Metascraper rules for extracting title, author, date, description, publisher, image, logo, and lang from PDF documents.",
+  "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-pdf",
+  "version": "5.57.0",
+  "types": "src/index.d.ts",
+  "main": "src/index.js",
+  "author": {
+    "email": "hello@microlink.io",
+    "name": "microlink.io",
+    "url": "https://microlink.io"
+  },
+  "repository": {
+    "directory": "packages/metascraper-pdf",
+    "type": "git",
+    "url": "git+https://github.com/microlinkhq/metascraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microlinkhq/metascraper/issues"
+  },
+  "keywords": [
+    "document",
+    "extract",
+    "metadata",
+    "metascraper",
+    "paper",
+    "pdf",
+    "scraper"
+  ],
+  "dependencies": {
+    "@keyvhq/memoize": "~2.2.4",
+    "@metascraper/helpers": "workspace:*",
+    "async-memoize-one": "~1.2.1",
+    "got": "~11.8.6",
+    "unpdf": "~1.8.1"
+  },
+  "devDependencies": {
+    "async-listen": "~3.1.0",
+    "ava": "8",
+    "metascraper": "workspace:*"
+  },
+  "engines": {
+    "node": ">= 22"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "NODE_PATH=.. TZ=UTC ava --timeout 30s"
+  },
+  "license": "MIT",
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/helpers/**"
+    ]
+  }
+}

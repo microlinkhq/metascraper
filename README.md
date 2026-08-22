@@ -253,6 +253,7 @@ const metascraper = require('metascraper')([
 - [metascraper-logo](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-logo) – Get logo property from HTML markup.
 - [metascraper-manifest](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-manifest) –  Metascraper integration for detecting PWA Web app [manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 - [metascraper-media-provider](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-media-provider) – Get specific video provider url (Facebook/Twitter/Vimeo/etc).
+- [metascraper-pdf](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-pdf) – Get title, author, date, description, publisher, image, logo, and lang from a PDF document.
 - [metascraper-publisher](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-publisher) – Get publisher property from HTML markup.
 - [metascraper-readability](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-readability) – A Mozilla readability connector for metascraper.
 - [metascraper-title](https://github.com/microlinkhq/metascraper/tree/master/packages/metascraper-title) – Get title property from HTML markup.
