@@ -155,6 +155,7 @@ test('the description is the abstract, never the running header', t => {
 test('an inverted name is one author', t => {
   t.is(nameCount('Doe, Jane'), 1)
   t.is(nameCount('Jane Doe, John Smith'), 2)
+  t.is(nameCount('Jane Doe AND John Smith'), 2)
   t.is(nameCount('Doe, Jane; Smith, John'), 2)
 })
 

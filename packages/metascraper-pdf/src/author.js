@@ -131,7 +131,7 @@ const nameCount = value => {
     const trimmed = part.trim()
     if (!trimmed) return count
     if (isInvertedName(trimmed)) return count + 1
-    return count + trimmed.split(/,| and /).filter(Boolean).length
+    return count + trimmed.split(/,|\s+and\s+/i).filter(Boolean).length
   }, 0)
 }
 
