@@ -20,7 +20,7 @@ declare namespace rules {
     /**
      * Called to get the PDF bytes behind `url`. Defaults to a `got` download.
      */
-    getPdf?: (url: string) => Buffer | Uint8Array | null | undefined | Promise<Buffer | Uint8Array | null | undefined>;
+    getPdf?: (url: string) => ArrayBuffer | Buffer | Uint8Array | null | undefined | Promise<ArrayBuffer | Buffer | Uint8Array | null | undefined>;
   }
 
   /** `true` when `url` points at a PDF document. */

@@ -46,9 +46,10 @@ const sameAsGenerator = (value, { creator, producer }) =>
     .some(generator => generator.toLowerCase() === value.toLowerCase())
 
 const toDate = value => {
-  const match = /^D:(\d{4})(\d{2})?(\d{2})?(\d{2})?(\d{2})?(\d{2})?/.exec(
-    String(value || '')
-  )
+  const match =
+    /^D:(\d{4})(\d{2})?(\d{2})?(\d{2})?(\d{2})?(\d{2})?(?:([Zz]|[+-])(\d{2})'?(\d{2})?'?)?/.exec(
+      String(value || '')
+    )
   if (!match) return null
   const [
     ,
@@ -57,10 +58,25 @@ const toDate = value => {
     day = '01',
     hour = '00',
     minute = '00',
-    second = '00'
+    second = '00',
+    sign,
+    offsetHour = '00',
+    offsetMinute = '00'
   ] = match
-  const date = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}Z`)
-  return Number.isNaN(date.getTime()) ? null : date.toISOString()
+  if (Number(year) < 1800) return null
+  let time = Date.UTC(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    Number(hour),
+    Number(minute),
+    Number(second)
+  )
+  if (sign === '+' || sign === '-') {
+    const offset = (Number(offsetHour) * 60 + Number(offsetMinute)) * 60 * 1000
+    time -= sign === '+' ? offset : -offset
+  }
+  return Number.isFinite(time) ? new Date(time).toISOString() : null
 }
 
 /**

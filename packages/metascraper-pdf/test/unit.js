@@ -11,7 +11,7 @@ const {
   publisherFromUrl,
   isVenue
 } = require('../src/publisher')
-const { readEmbedded } = require('../src/embedded')
+const { readEmbedded, toDate } = require('../src/embedded')
 const { nameCount, toAuthor } = require('../src/author')
 const { getLang } = require('../src/lang')
 const { getMedia } = require('../src/media')
@@ -156,6 +156,13 @@ test('an inverted name is one author', t => {
   t.is(nameCount('Doe, Jane'), 1)
   t.is(nameCount('Jane Doe, John Smith'), 2)
   t.is(nameCount('Doe, Jane; Smith, John'), 2)
+})
+
+test('a PDF date keeps its offset and rejects year zero', t => {
+  t.is(toDate("D:20201111104150-05'00'"), '2020-11-11T15:41:50.000Z')
+  t.is(toDate('D:20201111104150Z'), '2020-11-11T10:41:50.000Z')
+  t.is(toDate('D:20201111104150'), '2020-11-11T10:41:50.000Z')
+  t.is(toDate('D:00000000000000'), null)
 })
 
 test('generator noise never reaches a property', t => {

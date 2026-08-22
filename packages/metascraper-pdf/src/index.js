@@ -18,16 +18,36 @@ const { readDocument } = require('./document')
 const { readEmbedded } = require('./embedded')
 const { isInvertedName } = require('./text')
 
-const PDF_MAGIC = '%PDF-'
+const PDF_MAGIC = [0x25, 0x50, 0x44, 0x46]
+const PDF_HEAD = 1024
 const PDF_PATH = /(?:^|\/)pdf(?:\/|$)/i
 const PDF_TYPE = /^(?:pdf|printable)$/i
 const MAX_PAGES = 2
 
-const isPdf = value =>
-  ArrayBuffer.isView(value) &&
-  value.byteLength >= PDF_MAGIC.length &&
-  Buffer.from(value.buffer, value.byteOffset, PDF_MAGIC.length).toString() ===
-    PDF_MAGIC
+const toBytes = input =>
+  input instanceof ArrayBuffer
+    ? new Uint8Array(input)
+    : ArrayBuffer.isView(input)
+      ? new Uint8Array(input.buffer, input.byteOffset, input.byteLength)
+      : null
+
+/** `%PDF` may sit anywhere in the first 1KB; the spec allows leading junk. */
+const isPdf = input => {
+  const bytes = toBytes(input)
+  if (!bytes || bytes.length < PDF_MAGIC.length) return false
+  const head = bytes.subarray(0, PDF_HEAD)
+  for (let i = 0; i <= head.length - PDF_MAGIC.length; i++) {
+    if (
+      head[i] === PDF_MAGIC[0] &&
+      head[i + 1] === PDF_MAGIC[1] &&
+      head[i + 2] === PDF_MAGIC[2] &&
+      head[i + 3] === PDF_MAGIC[3]
+    ) {
+      return true
+    }
+  }
+  return false
+}
 
 const isPdfLink = url => {
   if (!url || !helpers.isUrl(url)) return false
@@ -139,8 +159,8 @@ const createLoad = ({ maxPages, gotOpts, keyvOpts, getPdf }) => {
   const fetchPdf = getPdf || defaultGetPdf(gotOpts)
 
   const parse = async url => {
-    const pdf = await fetchPdf(url)
-    if (!pdf) return {}
+    const pdf = toBytes(await fetchPdf(url))
+    if (!isPdf(pdf)) return {}
     return extract({ url, pdf, maxPages })
   }
 

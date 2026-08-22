@@ -98,6 +98,17 @@ test('reads the metadata of a paper', async t => {
   )
 })
 
+test('reads a PDF with leading junk or an ArrayBuffer', async t => {
+  const url = 'https://arxiv.org/pdf/1706.03762v7'
+  const junk = Buffer.concat([Buffer.from('\0\0'), PAPER])
+  const fromJunk = await createMetascraper(junk)({ url })
+  t.is(fromJunk.title, 'Attention Is All You Need')
+
+  const copy = Uint8Array.from(PAPER)
+  const fromArrayBuffer = await createMetascraper(copy.buffer)({ url })
+  t.is(fromArrayBuffer.title, 'Attention Is All You Need')
+})
+
 test('skips the banner a working paper prints above its title', async t => {
   const metascraper = createMetascraper(WORKING_PAPER)
   const metadata = await metascraper({

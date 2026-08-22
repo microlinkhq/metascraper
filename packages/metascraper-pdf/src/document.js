@@ -56,32 +56,42 @@ const pageLines = async (pdf, pageNumber) => {
 }
 
 const readDocument = async (buffer, { maxPages = DEFAULT_MAX_PAGES } = {}) => {
-  const pdf = await getDocumentProxy(Uint8Array.from(buffer))
-  const { info, metadata } = await pdf.getMetadata()
-  const pages = []
+  const pdf = await getDocumentProxy(buffer, {
+    isEvalSupported: false,
+    verbosity: 0
+  })
 
-  for (
-    let pageNumber = 1;
-    pageNumber <= Math.min(maxPages, pdf.numPages);
-    pageNumber++
-  ) {
-    pages.push(await pageLines(pdf, pageNumber))
-  }
-
-  const lines = pages.flat()
-  let images = []
   try {
-    images = await extractImages(pdf, 1)
-  } catch (_) {}
+    const { info, metadata } = await pdf.getMetadata()
+    const pages = []
 
-  return {
-    info: info || {},
-    xmp: (metadata && metadata.getAll && metadata.getAll()) || {},
-    pageCount: pdf.numPages,
-    firstPageLines: pages[0] || [],
-    lines,
-    images,
-    text: lines.map(line => line.text).join('\n')
+    for (
+      let pageNumber = 1;
+      pageNumber <= Math.min(maxPages, pdf.numPages);
+      pageNumber++
+    ) {
+      pages.push(await pageLines(pdf, pageNumber))
+    }
+
+    const lines = pages.flat()
+    let images = []
+    try {
+      images = await extractImages(pdf, 1)
+    } catch (_) {}
+
+    return {
+      info: info || {},
+      xmp: (metadata && metadata.getAll && metadata.getAll()) || {},
+      pageCount: pdf.numPages,
+      firstPageLines: pages[0] || [],
+      lines,
+      images,
+      text: lines.map(line => line.text).join('\n')
+    }
+  } finally {
+    try {
+      await pdf.loadingTask.destroy()
+    } catch (_) {}
   }
 }
 
