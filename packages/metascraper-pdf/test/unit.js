@@ -97,7 +97,12 @@ test('a venue is read out of the running header', t => {
     publisherFromLine('4 3 6 | N A T U R E | V O L 5 2 1 | 2 8 M A Y 2 0 1 5'),
     'NATURE'
   )
-  t.is(publisherFromUrl('https://cdn.openai.com/papers/gpt-4.pdf'), 'Openai')
+  t.is(publisherFromUrl('https://cdn.openai.com/papers/gpt-4.pdf'), 'OpenAI')
+  t.is(
+    publisherFromUrl('https://www.berkshirehathaway.com/letters/2023ltr.pdf'),
+    'Berkshire Hathaway'
+  )
+  t.is(publisherFromUrl('https://bitcoin.org/bitcoin.pdf'), 'Bitcoin')
   t.is(publisherFromUrl('https://arxiv.org/pdf/1706.03762v7'), 'arXiv')
   t.is(publisherFromUrl('https://www.nber.org/papers/w31161.pdf'), 'NBER')
   t.true(

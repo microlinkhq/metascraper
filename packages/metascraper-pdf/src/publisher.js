@@ -37,7 +37,10 @@ const HOST_PUBLISHER = {
   'ceur-ws': 'CEUR-WS',
   springer: 'Springer',
   biomedcentral: 'BMC',
-  bis: 'BIS'
+  bis: 'BIS',
+  bitcoin: 'Bitcoin',
+  berkshirehathaway: 'Berkshire Hathaway',
+  openai: 'OpenAI'
 }
 
 const MAX_PUBLISHER_WORDS = 12
@@ -52,7 +55,9 @@ const hostName = url => {
 
 const publisherFromUrl = url => {
   const { domainWithoutSuffix, hostname } = parseUrl(url) || {}
-  if (HOST_PUBLISHER[domainWithoutSuffix]) { return HOST_PUBLISHER[domainWithoutSuffix] }
+  if (HOST_PUBLISHER[domainWithoutSuffix]) {
+    return HOST_PUBLISHER[domainWithoutSuffix]
+  }
   const name = domainWithoutSuffix || hostname || url
   return name.length > 1 ? name[0].toUpperCase() + name.slice(1) : name
 }

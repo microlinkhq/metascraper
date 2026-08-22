@@ -48,3 +48,6 @@ https://ceur-ws.org/Vol-3226/paper1.pdf
 https://www.redalyc.org/pdf/567/56712871011.pdf
 https://bmcbioinformatics.biomedcentral.com/counter/pdf/10.1186/s12859-020-3418-9.pdf
 https://www.bis.org/publ/work1000.pdf
+https://bitcoin.org/bitcoin.pdf
+https://www.berkshirehathaway.com/letters/2023ltr.pdf
+https://cdn.openai.com/papers/gpt-4.pdf
