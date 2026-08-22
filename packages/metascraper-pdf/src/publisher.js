@@ -2,7 +2,7 @@
 
 const { parseUrl } = require('@metascraper/helpers')
 
-const { flatten, isBannerLine, tidy } = require('./text')
+const { comparable, flatten, isBannerLine, tidy } = require('./text')
 
 const PUBLISHER_NOISE =
   /https?:\/\/\S+|\bwww\.\S+|\bdoi:\S+|\b10\.\d{4,9}\/\S+|\(\s*\d{4}\s*\)|,?\s*\bpages?\b.*$|\b\d[\d:;,.()-]*\b/gi
@@ -65,10 +65,9 @@ const publisherFromUrl = url => {
 const matchesHost = (value, url) => {
   const host = hostName(url)
   if (!host) return false
-  const normalize = input => input.toLowerCase().replace(/[^a-z0-9]/g, '')
   return (
-    normalize(value).startsWith(normalize(host)) ||
-    normalize(host).startsWith(normalize(value))
+    comparable(value).startsWith(comparable(host)) ||
+    comparable(host).startsWith(comparable(value))
   )
 }
 
@@ -96,13 +95,8 @@ const publisherFromLine = text =>
       )
     })[0] || null
 
-const sameText = (left, right) => {
-  const normalize = value =>
-    String(value || '')
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g, '')
-  return Boolean(left && right) && normalize(left) === normalize(right)
-}
+const sameText = (left, right) =>
+  Boolean(left && right) && comparable(left) === comparable(right)
 
 const isUsablePublisher = (value, { author, title }) =>
   Boolean(value) &&

@@ -12,7 +12,7 @@ const normalizeSpaces = text =>
   text
     .replace(/[^\S ]+/g, ' ')
     .replace(/ {3,}/g, '  ')
-    .replace(/^ +| +$/g, '')
+    .trim()
 
 const toLines = items => {
   const lines = []
@@ -81,7 +81,7 @@ const readDocument = async (buffer, { maxPages = DEFAULT_MAX_PAGES } = {}) => {
 
     return {
       info: info || {},
-      xmp: (metadata && metadata.getAll && metadata.getAll()) || {},
+      xmp: metadata?.getAll?.() || {},
       pageCount: pdf.numPages,
       firstPageLines: pages[0] || [],
       lines,

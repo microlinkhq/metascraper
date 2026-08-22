@@ -30,6 +30,6 @@ const fromText = text => {
 }
 
 const getLang = (text, { url, embedded } = {}) =>
-  lang(embedded && embedded.lang) || hostLang(url) || fromText(text)
+  lang(embedded?.lang) || hostLang(url) || fromText(text)
 
 module.exports = { getLang }

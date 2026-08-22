@@ -53,6 +53,11 @@ const tidy = value =>
 
 const flatten = value => value.replace(/\s+/g, ' ').trim()
 
+const comparable = value =>
+  String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+
 const stripNoise = text =>
   tidy(
     text
@@ -135,11 +140,11 @@ module.exports = {
   EMAIL,
   ORGANIZATION_WORDS,
   PLACE_NAME,
+  comparable,
   flatten,
   isBannerLine,
   isInvertedName,
   isPersonName,
-  isShouting,
   splitNamePairs,
   splitNames,
   stripNoise,

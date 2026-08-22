@@ -40,16 +40,6 @@ const titleLines = (lines, titleLine) => {
   return block
 }
 
-const titleBlock = (lines, titleLine) =>
-  flatten(
-    titleLines(lines, titleLine)
-      .map(line => line.text.replace(LINE_NUMBER, ''))
-      .join(' ')
-  )
-
-const titleBlockIndexes = (lines, titleLine) =>
-  titleLines(lines, titleLine).map(line => line.index)
-
 /** A line of names, rather than a title, has more names set beside it. */
 const isByline = (line, lines) =>
   isPersonName(line.text) &&
@@ -87,17 +77,13 @@ const isUsableTitle = text =>
 const getTitle = lines => {
   const line = findTitleLine(lines)
   if (!line) return null
-  const text = titleBlock(lines, line)
+  const block = titleLines(lines, line)
+  const text = flatten(
+    block.map(entry => entry.text.replace(LINE_NUMBER, '')).join(' ')
+  )
   return isUsableTitle(text)
-    ? { text, line, indexes: titleBlockIndexes(lines, line) }
+    ? { text, indexes: block.map(entry => entry.index) }
     : null
 }
 
-module.exports = {
-  findTitleLine,
-  getTitle,
-  isByline,
-  isUsableTitle,
-  titleBlock,
-  titleBlockIndexes
-}
+module.exports = { getTitle, isByline }

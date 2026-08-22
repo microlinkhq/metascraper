@@ -56,11 +56,8 @@ const headerLines = lines => {
     .slice(-MAX_FOOTER_LINES)
 
   const chosen = new Map()
-  for (const line of [...leading, ...prominentLines(numbered)]) {
-    chosen.set(line.pageIndex, { ...line, region: 'body' })
-  }
-  for (const line of footer) {
-    chosen.set(line.pageIndex, { ...line, region: 'footer' })
+  for (const line of [...leading, ...prominentLines(numbered), ...footer]) {
+    chosen.set(line.pageIndex, line)
   }
 
   return [...chosen.values()]

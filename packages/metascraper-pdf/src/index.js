@@ -16,37 +16,28 @@ const { getMedia } = require('./media')
 const { headerLines } = require('./layout')
 const { readDocument } = require('./document')
 const { readEmbedded } = require('./embedded')
-const { isInvertedName } = require('./text')
+const { comparable, isInvertedName } = require('./text')
 
-const PDF_MAGIC = [0x25, 0x50, 0x44, 0x46]
+const PDF_MAGIC = Buffer.from('%PDF')
 const PDF_HEAD = 1024
 const PDF_PATH = /(?:^|\/)pdf(?:\/|$)/i
 const PDF_TYPE = /^(?:pdf|printable)$/i
 const MAX_PAGES = 2
 
-const toBytes = input =>
-  input instanceof ArrayBuffer
-    ? new Uint8Array(input)
-    : ArrayBuffer.isView(input)
-      ? new Uint8Array(input.buffer, input.byteOffset, input.byteLength)
-      : null
+const toBytes = input => {
+  if (input instanceof ArrayBuffer) return new Uint8Array(input)
+  if (ArrayBuffer.isView(input)) {
+    return new Uint8Array(input.buffer, input.byteOffset, input.byteLength)
+  }
+  return null
+}
 
 /** `%PDF` may sit anywhere in the first 1KB; the spec allows leading junk. */
 const isPdf = input => {
   const bytes = toBytes(input)
-  if (!bytes || bytes.length < PDF_MAGIC.length) return false
-  const head = bytes.subarray(0, PDF_HEAD)
-  for (let i = 0; i <= head.length - PDF_MAGIC.length; i++) {
-    if (
-      head[i] === PDF_MAGIC[0] &&
-      head[i + 1] === PDF_MAGIC[1] &&
-      head[i + 2] === PDF_MAGIC[2] &&
-      head[i + 3] === PDF_MAGIC[3]
-    ) {
-      return true
-    }
-  }
-  return false
+  return Boolean(
+    bytes && Buffer.from(bytes.subarray(0, PDF_HEAD)).includes(PDF_MAGIC)
+  )
 }
 
 const isPdfLink = url => {
@@ -74,6 +65,11 @@ const firstAuthor = value => {
   return first.split(/,\s*/)[0]
 }
 
+const appearsIn = (value, text) => {
+  const needle = comparable(value)
+  return needle.length > 0 && comparable(text).includes(needle)
+}
+
 /** A name lifted out of the title block is a title fragment, not an author. */
 const withoutContext = (names, context) => {
   if (!names) return null
@@ -81,15 +77,6 @@ const withoutContext = (names, context) => {
     .split(', ')
     .filter(name => !context.some(entry => entry && appearsIn(name, entry)))
   return kept.length > 0 ? kept.join(', ') : null
-}
-
-const appearsIn = (value, text) => {
-  const normalize = input =>
-    String(input || '')
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g, '')
-  const needle = normalize(value)
-  return needle.length > 0 && normalize(text).includes(needle)
 }
 
 const extract = async ({ url, pdf, maxPages }) => {
@@ -107,11 +94,11 @@ const extract = async ({ url, pdf, maxPages }) => {
   const title =
     embedded.title && appearsIn(embedded.title, document.text)
       ? embedded.title
-      : (layoutTitle && layoutTitle.text) || embedded.title
+      : layoutTitle?.text || embedded.title
 
   const layoutAuthor = withoutContext(
     getAuthor(lines, {
-      titleIndexes: (layoutTitle && layoutTitle.indexes) || []
+      titleIndexes: layoutTitle?.indexes || []
     }),
     [title]
   )
@@ -186,7 +173,7 @@ const fromPdf =
   (propName, load) =>
     async ({ url }) => {
       const metadata = await load(url)
-      return NORMALIZERS[propName](metadata && metadata[propName], { url })
+      return NORMALIZERS[propName](metadata?.[propName], { url })
     }
 
 module.exports = ({ maxPages = MAX_PAGES, gotOpts, keyvOpts, getPdf } = {}) => {

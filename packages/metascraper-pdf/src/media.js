@@ -75,13 +75,11 @@ const favicon = url =>
   )}&sz=128`
 
 const getMedia = (images, { url } = {}) => {
-  const candidates = usable(images)
-    .slice()
-    .sort(
-      (left, right) => right.width * right.height - left.width * left.height
-    )
+  const candidates = usable(images).sort(
+    (left, right) => right.width * right.height - left.width * left.height
+  )
 
-  const logoImage = [...candidates].reverse().find(isLogo)
+  const logoImage = candidates.findLast(isLogo)
   const picture = candidates.find(img => img !== logoImage) || logoImage
   const logo = logoImage ? toPngDataUri(logoImage) : url ? favicon(url) : null
 
