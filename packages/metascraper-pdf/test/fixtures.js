@@ -33,9 +33,10 @@ const summarize = metadata => {
   }
 }
 
+const run = skipReason ? test.skip : test
+
 for (const url of urls) {
-  test(url, async t => {
-    if (skipReason) return t.pass()
+  run(url, async t => {
     t.snapshot(summarize(await metascraper({ url })))
   })
 }

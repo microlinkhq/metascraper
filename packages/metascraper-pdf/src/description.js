@@ -2,12 +2,14 @@
 
 const ABSTRACT_HEADING =
   /(?:^|\n)\s*(?:abstract|summary|executive summary)\b[.:—-]?\s*/i
-const RUNNING_HEADER = /[|·•‖]|^\d+\s|\bdoi:/i
+const NEXT_SECTION =
+  /(?:^|\n)\s*(?:(?:\d+|[ivxlc]+)\.?\s+)?(?:introduction|keywords|contents|table of contents|references|acknowledgements?)\b/i
+const RUNNING_HEADER = /[|·•‖]|^\d+\s*$|\bdoi:/i
 const SENTENCE_END = /(?<=[.!?])\s+/
 const MAX_SUMMARY_LENGTH = 300
 const MIN_SUMMARY_LENGTH = 40
 
-const dehyphenate = text => text.replace(/([a-z])-\s+([a-z])/g, '$1$2')
+const dehyphenate = text => text.replace(/(\p{Ll})-\s+(\p{Ll})/gu, '$1$2')
 
 /** The size that carries most of the page is the body text, not the furniture. */
 const dominantSize = lines => {
@@ -45,7 +47,7 @@ const getDescription = (lines, { maxLength = MAX_SUMMARY_LENGTH } = {}) => {
 
   const bodySize = dominantSize(readable)
   const body = abstract
-    ? text.slice(abstract.index + abstract[0].length)
+    ? text.slice(abstract.index + abstract[0].length).split(NEXT_SECTION)[0]
     : readable
       .filter(line => line.size === bodySize)
       .map(line => line.text)

@@ -12,7 +12,7 @@ const {
   isVenue
 } = require('../src/publisher')
 const { readEmbedded } = require('../src/embedded')
-const { toAuthor } = require('../src/author')
+const { nameCount, toAuthor } = require('../src/author')
 const { getLang } = require('../src/lang')
 const { getMedia } = require('../src/media')
 
@@ -138,10 +138,19 @@ test('the description is the abstract, never the running header', t => {
       3,
       10,
       'This work analyses the psychological consequences of institutional violence in family law courts.'
-    )
+    ),
+    line(4, 10, '1 Introduction'),
+    line(5, 10, 'Funding was provided by the ministry of science.')
   ]
 
   t.true(getDescription(lines).startsWith('This work analyses'))
+  t.false(getDescription(lines).includes('Funding was provided'))
+})
+
+test('an inverted name is one author', t => {
+  t.is(nameCount('Doe, Jane'), 1)
+  t.is(nameCount('Jane Doe, John Smith'), 2)
+  t.is(nameCount('Doe, Jane; Smith, John'), 2)
 })
 
 test('generator noise never reaches a property', t => {
@@ -202,6 +211,8 @@ test('a small square image is the logo; otherwise the host favicon', t => {
   t.is(fallback.image, null)
   t.is(
     fallback.logo,
-    'https://www.google.com/s2/favicons?domain_url=https://arxiv.org/pdf/x&sz=128'
+    `https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(
+      'https://arxiv.org/pdf/x'
+    )}&sz=128`
   )
 })

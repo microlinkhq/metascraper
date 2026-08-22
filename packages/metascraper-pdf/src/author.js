@@ -5,6 +5,7 @@ const {
   PLACE_NAME,
   flatten,
   isBannerLine,
+  isInvertedName,
   isPersonName,
   splitNamePairs,
   splitNames,
@@ -124,8 +125,15 @@ const expandAuthorLines = (lines, indexes, { titleIndexes = [] } = {}) => {
     .map(line => line.index)
 }
 
-const nameCount = value =>
-  value ? value.split(/[,;]| and /).filter(Boolean).length : 0
+const nameCount = value => {
+  if (!value) return 0
+  return value.split(/\s*;\s*/).reduce((count, part) => {
+    const trimmed = part.trim()
+    if (!trimmed) return count
+    if (isInvertedName(trimmed)) return count + 1
+    return count + trimmed.split(/,| and /).filter(Boolean).length
+  }, 0)
+}
 
 const getAuthor = (lines, { titleIndexes = [] } = {}) => {
   const titleIndex =

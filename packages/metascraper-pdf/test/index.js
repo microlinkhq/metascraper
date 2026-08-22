@@ -89,7 +89,9 @@ test('reads the metadata of a paper', async t => {
   t.is(metadata.lang, 'en')
   t.is(
     metadata.logo,
-    'https://www.google.com/s2/favicons?domain_url=https://arxiv.org/pdf/1706.03762v7&sz=128'
+    `https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(
+      'https://arxiv.org/pdf/1706.03762v7'
+    )}&sz=128`
   )
   t.true(
     metadata.description.startsWith('The dominant sequence transduction models')

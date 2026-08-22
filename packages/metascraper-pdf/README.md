@@ -37,7 +37,7 @@ const metadata = await metascraper({
 // }
 ```
 
-The bundle is a no-op unless [`test`](#test) sees a PDF URL, so it is safe to mix with the HTML rules:
+The bundle is a no-op unless [`.test()`](#testprops) sees a PDF URL, so it is safe to mix with the HTML rules:
 
 ```js
 const metascraper = require('metascraper')([
@@ -87,13 +87,13 @@ page; the extra page feeds the description when a document has no abstract.
 
 Type: `object`
 
-Any option provided here will passed to [got#options](https://github.com/sindresorhus/got#options).
+Any option provided here will be passed to [got#options](https://github.com/sindresorhus/got#options).
 
 ##### keyvOpts
 
 Type: `object`
 
-Any option provided here will passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
+Any option provided here will be passed to [@keyvhq/memoize#options](https://github.com/microlinkhq/keyv/tree/master/packages/memoize#keyvoptions).
 
 ##### getPdf
 
