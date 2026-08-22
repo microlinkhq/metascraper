@@ -164,6 +164,7 @@ test('a PDF date keeps its offset and rejects year zero', t => {
   t.is(toDate('D:20201111104150Z'), '2020-11-11T10:41:50.000Z')
   t.is(toDate('D:20201111104150'), '2020-11-11T10:41:50.000Z')
   t.is(toDate('D:00000000000000'), null)
+  t.is(toDate('D:20240230'), null)
 })
 
 test('generator noise never reaches a property', t => {

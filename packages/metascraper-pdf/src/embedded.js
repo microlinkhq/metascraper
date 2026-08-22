@@ -47,7 +47,7 @@ const sameAsGenerator = (value, { creator, producer }) =>
 
 const toDate = value => {
   const match =
-    /^D:(\d{4})(\d{2})?(\d{2})?(\d{2})?(\d{2})?(\d{2})?(?:([Zz]|[+-])(\d{2})'?(\d{2})?'?)?/.exec(
+    /^D:(\d{4})(\d{2})?(\d{2})?(\d{2})?(\d{2})?(\d{2})?(?:Z|z|([+-])(\d{2})'?(\d{2})?'?)?$/.exec(
       String(value || '')
     )
   if (!match) return null
@@ -63,20 +63,41 @@ const toDate = value => {
     offsetHour = '00',
     offsetMinute = '00'
   ] = match
-  if (Number(year) < 1800) return null
-  let time = Date.UTC(
-    Number(year),
-    Number(month) - 1,
-    Number(day),
-    Number(hour),
-    Number(minute),
-    Number(second)
-  )
-  if (sign === '+' || sign === '-') {
-    const offset = (Number(offsetHour) * 60 + Number(offsetMinute)) * 60 * 1000
-    time -= sign === '+' ? offset : -offset
+  const y = Number(year)
+  const mo = Number(month)
+  const d = Number(day)
+  const h = Number(hour)
+  const mi = Number(minute)
+  const s = Number(second)
+  const oh = Number(offsetHour)
+  const om = Number(offsetMinute)
+  if (
+    y < 1800 ||
+    mo < 1 ||
+    mo > 12 ||
+    d < 1 ||
+    d > 31 ||
+    h > 23 ||
+    mi > 59 ||
+    s > 59 ||
+    oh > 14 ||
+    om > 59
+  ) {
+    return null
   }
-  return Number.isFinite(time) ? new Date(time).toISOString() : null
+  let time = Date.UTC(y, mo - 1, d, h, mi, s)
+  const utc = new Date(time)
+  if (
+    utc.getUTCFullYear() !== y ||
+    utc.getUTCMonth() !== mo - 1 ||
+    utc.getUTCDate() !== d
+  ) {
+    return null
+  }
+  if (sign === '+' || sign === '-') {
+    time -= (sign === '+' ? 1 : -1) * (oh * 60 + om) * 60 * 1000
+  }
+  return new Date(time).toISOString()
 }
 
 /**

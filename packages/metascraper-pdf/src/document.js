@@ -56,7 +56,7 @@ const pageLines = async (pdf, pageNumber) => {
 }
 
 const readDocument = async (buffer, { maxPages = DEFAULT_MAX_PAGES } = {}) => {
-  const pdf = await getDocumentProxy(buffer, {
+  const pdf = await getDocumentProxy(Uint8Array.from(buffer), {
     isEvalSupported: false,
     verbosity: 0
   })
