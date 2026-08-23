@@ -1,4 +1,5 @@
 dangerouslyAllowAllBuilds: true
+lockfile: false
 minimumReleaseAge: 0
 packages:
   - 'packages/*'

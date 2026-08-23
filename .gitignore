@@ -4,6 +4,7 @@
 node_modules
 npm-debug.log
 lerna-debug.log
+pnpm-lock.yaml
 
 ############################
 # tmp, editor & OS files
