@@ -5,6 +5,7 @@
  */
 
 const {
+  $jsonld,
   $meta,
   getHtml,
   image,
@@ -25,13 +26,17 @@ const USER_IMAGE =
 
 const decodeJsonUrl = value => value?.replace(/\\u002F/g, '/')
 
+const avatar = $ =>
+  $jsonld('mainEntity.image.contentUrl')($) ||
+  decodeJsonUrl(getHtml($).match(USER_IMAGE)?.[1])
+
 module.exports = () => {
   const rules = {
     image: [
       toImage($ => {
         const og = $meta('og:image')($)
         if (!og?.includes(DEFAULT_OG)) return
-        return decodeJsonUrl(getHtml($).match(USER_IMAGE)?.[1])
+        return avatar($)
       })
     ]
   }
