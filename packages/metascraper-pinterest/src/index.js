@@ -7,7 +7,6 @@
 const {
   $jsonld,
   $meta,
-  getHtml,
   image,
   memoizeOne,
   parseUrl,
@@ -21,14 +20,6 @@ const test = memoizeOne(
 )
 
 const DEFAULT_OG = 'default_open_graph'
-const USER_IMAGE =
-  /"image_xlarge_url":"(https:\\u002F\\u002Fi\.pinimg\.com[^"]+|https:\/\/i\.pinimg\.com\/[^"]+)"/
-
-const decodeJsonUrl = value => value?.replace(/\\u002F/g, '/')
-
-const avatar = $ =>
-  $jsonld('mainEntity.image.contentUrl')($) ||
-  decodeJsonUrl(getHtml($).match(USER_IMAGE)?.[1])
 
 module.exports = () => {
   const rules = {
@@ -36,7 +27,7 @@ module.exports = () => {
       toImage($ => {
         const og = $meta('og:image')($)
         if (!og?.includes(DEFAULT_OG)) return
-        return avatar($)
+        return $jsonld('mainEntity.image.contentUrl')($)
       })
     ]
   }
