@@ -2,7 +2,7 @@
   "name": "metascraper-pinterest",
   "description": "Metascraper rules tailored for Pinterest pages — richer metadata than generic HTML parsers.",
   "homepage": "https://github.com/microlinkhq/metascraper/packages/metascraper-pinterest",
-  "version": "5.57.0",
+  "version": "5.58.0",
   "types": "src/index.d.ts",
   "main": "src/index.js",
   "author": {
