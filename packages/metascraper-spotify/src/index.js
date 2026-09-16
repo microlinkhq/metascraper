@@ -2,7 +2,7 @@
 
 const asyncMemoizeOne = require('async-memoize-one')
 const memoize = require('@keyvhq/memoize')
-const got = require('got')
+const got = require('@kikobeats/got')
 
 const {
   $jsonld,

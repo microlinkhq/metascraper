@@ -6,7 +6,7 @@ const asyncMemoizeOne = require('async-memoize-one')
 const { chain, toLower } = require('lodash')
 const memoize = require('@keyvhq/memoize')
 
-const got = require('got')
+const got = require('@kikobeats/got')
 
 const parseSize = str => {
   const parse = Number(chain(str).split('x').first().value())

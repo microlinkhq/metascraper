@@ -31,8 +31,8 @@
     "widget"
   ],
   "dependencies": {
+    "@kikobeats/got": "~11.8.8",
     "@metascraper/helpers": "workspace:*",
-    "got": "~11.8.6",
     "lodash": "~4.18.1",
     "oembed-spec": "~1.4.6",
     "p-reflect": "~3.1.0"
