@@ -84,6 +84,20 @@ test('from igtv', async t => {
   t.snapshot(metadata)
 })
 
+test('prefers apple-touch-icon 180 over a tiny favicon', async t => {
+  const url = 'https://www.instagram.com/evolving.ai'
+  const html = `<html><head>
+    <link rel="icon" sizes="192x192" href="https://static.cdninstagram.com/rsrc.php/yr/r/rzWiSjZRxk5.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://static.cdninstagram.com/rsrc.php/yw/r/icwX0xAk0pz.webp">
+    <link rel="shortcut icon" href="https://static.cdninstagram.com/rsrc.php/y4/r/QaBlI0OZiks.ico">
+  </head></html>`
+  const metadata = await metascraper({ url, html })
+  t.is(
+    metadata.logo,
+    'https://static.cdninstagram.com/rsrc.php/yw/r/icwX0xAk0pz.webp'
+  )
+})
+
 test('from profile', async t => {
   const url = 'https://www.instagram.com/pluto__travel/'
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
