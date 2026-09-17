@@ -2,3 +2,7 @@ dangerouslyAllowAllBuilds: true
 minimumReleaseAge: 0
 packages:
   - 'packages/*'
+overrides:
+  # got@11 crashes on Node.js 24.20+ after retried connection errors
+  # (nodejs/node#64847). @kikobeats/got is got@11 with that fix backported.
+  got: npm:@kikobeats/got@~11.8.8

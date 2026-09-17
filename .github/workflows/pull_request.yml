@@ -10,6 +10,7 @@ on:
 
 env:
   pnpm_config_dangerously_allow_all_builds: true
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   matrix:

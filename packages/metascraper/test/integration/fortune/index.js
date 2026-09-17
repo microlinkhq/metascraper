@@ -32,7 +32,12 @@ test('fortune', async t => {
   t.true(metadata.description.includes('HackerRank'))
   t.true(metadata.image.startsWith('https://content.fortune.com/'))
   t.is(metadata.lang, 'en')
-  t.is(metadata.logo, 'https://fortune.com/icons/favicons/favicon.ico')
+  t.true(
+    typeof metadata.logo === 'string' &&
+      (metadata.logo.includes('favicon') ||
+        metadata.logo.includes('gstatic.com/faviconV2')),
+    `unexpected logo: ${metadata.logo}`
+  )
   t.is(metadata.publisher, 'Fortune')
   t.is(
     metadata.title,

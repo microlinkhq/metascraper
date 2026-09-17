@@ -66,7 +66,9 @@ const getSize = (url, sizes) =>
 const getDomNodeSizes = (domNodes, attr, url) =>
   domNodes.reduce((acc, domNode) => {
     const relativeUrl = domNode.attribs[attr]
-    if (!relativeUrl || relativeUrl === url) return acc
+    if (!relativeUrl || relativeUrl === url || relativeUrl.startsWith('#')) {
+      return acc
+    }
 
     const normalizedUrl = normalizeUrl(url, relativeUrl)
     if (!normalizedUrl) return acc
@@ -92,7 +94,11 @@ const getSizes = ($, collection, url) =>
 
 const sizeSelectors = [
   { tag: 'link[rel*="icon" i]', attr: 'href' }, // apple-icon, // fluid-icon
-  { tag: 'meta[name*="msapplication" i]', attr: 'content' } // Windows 8, Internet Explorer 11 Tiles
+  // TileImage / *logo — not TileColor, navbutton-color, or browserconfig.
+  {
+    tag: 'meta[name="msapplication-TileImage" i], meta[name*="msapplication-" i][name*="logo" i]',
+    attr: 'content'
+  }
 ]
 
 const firstReachable = async (domNodeSizes, resolveFaviconUrl, gotOpts) => {
