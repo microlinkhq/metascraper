@@ -36,17 +36,19 @@ test('from a X profile from og:image', async t => {
   t.snapshot(metadata)
 })
 
+const resolveUrl = async shortUrl => {
+  // Don't follow the final hop: destinations like teslahunt.io can be dead
+  // while t.co still knows the Location.
+  const response = await fetch(shortUrl, { method: 'HEAD', redirect: 'manual' })
+  const location = response.headers.get('location') || shortUrl
+  const urlObj = new URL(location)
+  urlObj.search = ''
+  return urlObj.toString().replace('https://', '').replace('/', '')
+}
+
 test('from a X profile resolving URLs', async t => {
   const url = 'https://x.com/Kikobeats'
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
-
-  const resolveUrl = async shortUrl => {
-    const { url } = await fetch(shortUrl, { method: 'HEAD' })
-    const urlObj = new URL(url)
-    urlObj.search = ''
-    return urlObj.toString().replace('https://', '').replace('/', '')
-  }
-
   const metascraper = createMetascraper({ resolveUrl })
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
@@ -55,14 +57,6 @@ test('from a X profile resolving URLs', async t => {
 test('from a X profile from og:image resolving URLs', async t => {
   const url = 'https://x.com/Kikobeats'
   const html = await readFile(resolve(__dirname, 'fixtures/profile-og.html'))
-
-  const resolveUrl = async shortUrl => {
-    const { url } = await fetch(shortUrl, { method: 'HEAD' })
-    const urlObj = new URL(url)
-    urlObj.search = ''
-    return urlObj.toString().replace('https://', '').replace('/', '')
-  }
-
   const metascraper = createMetascraper({ resolveUrl })
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)

@@ -23,7 +23,7 @@ const metascraper = require('../../..')([
 
 const url = 'https://teslahunt.io/5YJSA7E49JF269238'
 
-test('teslahunt', async t => {
+;(process.env.CI ? test.skip : test)('teslahunt', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
   const metadata = await metascraper({ html, url })
   t.snapshot(metadata)
