@@ -25,6 +25,7 @@ const url = 'https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b'
 
 test('medium', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })

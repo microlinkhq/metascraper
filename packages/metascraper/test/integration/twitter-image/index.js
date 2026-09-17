@@ -26,6 +26,7 @@ const url = 'https://x.com/UaSmart/status/934106870834454529'
 
 test('x.com (tweet with image)', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })

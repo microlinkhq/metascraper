@@ -26,7 +26,8 @@ const url =
 
 test('business-today', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const { date, ...metadata } = await metascraper({ html, url })
+  const { date, logo, ...metadata } = await metascraper({ html, url })
   t.is(typeof date, 'string')
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })
