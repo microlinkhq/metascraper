@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.1](https://github.com/microlinkhq/metascraper/compare/v5.58.0...v5.58.1) (2026-09-17)
+
+### Bug Fixes
+
+* **metascraper-instagram:** prefer 180px apple-touch logo ([#882](https://github.com/microlinkhq/metascraper/issues/882)) ([a586af5](https://github.com/microlinkhq/metascraper/commit/a586af51d3852d66b81edbf40c18d3a3557e00ec))
+* use @kikobeats/got to support Node.js 24.20 ([#881](https://github.com/microlinkhq/metascraper/issues/881)) ([41a626b](https://github.com/microlinkhq/metascraper/commit/41a626b911a7e5297e6b0854c109a54ec8e765d7)), closes [nodejs/node#64847](https://github.com/nodejs/node/issues/64847)
+
 # [5.58.0](https://github.com/microlinkhq/metascraper/compare/v5.57.0...v5.58.0) (2026-09-15)
 
 ### Bug Fixes

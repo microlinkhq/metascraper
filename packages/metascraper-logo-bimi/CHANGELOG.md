@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.1](https://github.com/microlinkhq/metascraper/compare/v5.58.0...v5.58.1) (2026-09-17)
+
+### Bug Fixes
+
+* use @kikobeats/got to support Node.js 24.20 ([#881](https://github.com/microlinkhq/metascraper/issues/881)) ([41a626b](https://github.com/microlinkhq/metascraper/commit/41a626b911a7e5297e6b0854c109a54ec8e765d7)), closes [nodejs/node#64847](https://github.com/nodejs/node/issues/64847)
+
 ## [5.56.2](https://github.com/microlinkhq/metascraper/compare/v5.56.1...v5.56.2) (2026-08-17)
 
 **Note:** Version bump only for package metascraper-logo-bimi

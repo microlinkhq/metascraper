@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.1](https://github.com/microlinkhq/metascraper/compare/v5.58.0...v5.58.1) (2026-09-17)
+
+### Bug Fixes
+
+* **metascraper-instagram:** prefer 180px apple-touch logo ([#882](https://github.com/microlinkhq/metascraper/issues/882)) ([a586af5](https://github.com/microlinkhq/metascraper/commit/a586af51d3852d66b81edbf40c18d3a3557e00ec))
+
 ## [5.56.2](https://github.com/microlinkhq/metascraper/compare/v5.56.1...v5.56.2) (2026-08-17)
 
 **Note:** Version bump only for package metascraper-instagram
