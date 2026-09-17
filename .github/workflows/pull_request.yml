@@ -10,7 +10,6 @@ on:
 
 env:
   pnpm_config_dangerously_allow_all_builds: true
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   matrix:
@@ -43,6 +42,8 @@ jobs:
         with:
           version: latest
       - name: Install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm install
       - name: Test
         run: pnpm --filter "${{ matrix.package.filter }}" exec c8 pnpm test
