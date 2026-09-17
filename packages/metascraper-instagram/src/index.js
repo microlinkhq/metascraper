@@ -56,7 +56,7 @@ module.exports = () => {
     // og:image is a signed 640 crop. Posts embed a larger feed candidate.
     image: [
       toImage(($, url) => {
-        if (!POST_PATH.test(url)) return
+        if (!POST_PATH.test(new URL(url).pathname)) return
         return firstImageVersion(getHtml($))
       })
     ],

@@ -97,7 +97,7 @@ test('prefers image_versions2 over 640 og:image on posts', async t => {
 })
 
 test('does not use grid image_versions2 on profiles', async t => {
-  const url = 'https://www.instagram.com/evolving.ai'
+  const url = 'https://www.instagram.com/evolving.ai?next=/p/example/'
   const html = `<html><head>
     <meta property="og:image" content="https://scontent.cdninstagram.com/v/avatar.jpg?stp=dst-jpg_e0_s150x150_tt6">
   </head><body><script>{"image_versions2":{"candidates":[{"url":"https://instagram.fna.fbcdn.net/v/photo.jpg?stp=dst-jpg_e35_p1179x1179_tt6"}]}}</script></body></html>`
