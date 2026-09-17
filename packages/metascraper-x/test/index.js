@@ -55,7 +55,7 @@ test('keeps original URL when resolveUrl throws synchronously', async t => {
     }
   })
   const metadata = await metascraper({ url, html })
-  t.true(typeof metadata.description === 'string')
+  t.true(metadata.description.includes('https://t.co/4PQvCsVNsA'))
 })
 
 test('from a X profile resolving URLs', async t => {

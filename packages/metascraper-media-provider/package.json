@@ -31,7 +31,6 @@
     "yt-dlp"
   ],
   "dependencies": {
-    "@kikobeats/got": "~11.8.8",
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.2.1",
     "debug-logfmt": "~1.4.12",
