@@ -4,10 +4,14 @@ const {
   $meta,
   author,
   date,
+  logo,
   memoizeOne,
   parseUrl,
-  title
+  title,
+  toRule
 } = require('@metascraper/helpers')
+
+const toLogo = toRule(logo)
 
 const test = memoizeOne(
   url => parseUrl(url).domainWithoutSuffix === 'instagram'
@@ -32,7 +36,13 @@ module.exports = () => {
       const dateString = `${dateMatch[1]} GMT`
       return date(new Date(dateString))
     },
-    title: ({ htmlDom: $ }) => title($meta('twitter:title')($))
+    title: ({ htmlDom: $ }) => title($meta('twitter:title')($)),
+    // rel=icon claims 192x192 but the file is 32x32. The 180 apple-touch is real.
+    logo: [
+      toLogo($ =>
+        $('link[rel="apple-touch-icon"][sizes="180x180"]').attr('href')
+      )
+    ]
   }
 
   rules.test = ({ url }) => test(url)
