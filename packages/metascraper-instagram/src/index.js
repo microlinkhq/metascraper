@@ -4,6 +4,8 @@ const {
   $meta,
   author,
   date,
+  getHtml,
+  image,
   logo,
   memoizeOne,
   parseUrl,
@@ -11,7 +13,21 @@ const {
   toRule
 } = require('@metascraper/helpers')
 
+const toImage = toRule(image)
 const toLogo = toRule(logo)
+
+const POST_PATH = /\/(?:p|reels?|tv|stories)\//
+
+/** First `image_versions2` URL — Instagram lists the largest candidate first. */
+const firstImageVersion = html => {
+  const raw = html.match(
+    /"image_versions2":\{"candidates":\[\{[^[]*?"url":"([^"]+)"/
+  )?.[1]
+  if (!raw) return
+  try {
+    return JSON.parse(`"${raw}"`)
+  } catch {}
+}
 
 const test = memoizeOne(
   url => parseUrl(url).domainWithoutSuffix === 'instagram'
@@ -37,6 +53,13 @@ module.exports = () => {
       return date(new Date(dateString))
     },
     title: ({ htmlDom: $ }) => title($meta('twitter:title')($)),
+    // og:image is a signed 640 crop. Posts embed a larger feed candidate.
+    image: [
+      toImage(($, url) => {
+        if (!POST_PATH.test(url)) return
+        return firstImageVersion(getHtml($))
+      })
+    ],
     // rel=icon claims 192x192 but the file is 32x32. The 180 apple-touch is real.
     logo: [
       toLogo($ =>
