@@ -37,9 +37,9 @@
     "reachable-url": "~2.1.4"
   },
   "devDependencies": {
+    "@kikobeats/got": "11",
     "async-listen": "latest",
-    "ava": "8",
-    "got": "11"
+    "ava": "8"
   },
   "engines": {
     "node": ">= 22"
