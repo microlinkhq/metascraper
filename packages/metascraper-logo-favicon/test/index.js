@@ -17,13 +17,30 @@ const createHtml = meta =>
 
 test('provide `keyvOpts`', async t => {
   const cache = new Map()
-  const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+  const hitUrl = await runServer(t, async ({ req, res }) => {
+    if (req.url === '/favicon.ico') {
+      res.setHeader('content-type', 'image/x-icon')
+      res.end(Buffer.from([0, 0, 1, 0]))
+      return
+    }
+    res.statusCode = 404
+    res.end()
+  })
+  const missUrl = await runServer(t, async ({ res }) => {
+    res.statusCode = 404
+    res.end()
+  })
+  const metascraper = createMetascraper({
+    keyvOpts: { store: cache },
+    google: false,
+    rootFavicon: false
+  })
 
-  const metadataOne = await metascraper({ url: 'https://teslahunt.io' })
+  const metadataOne = await metascraper({ url: hitUrl })
   t.truthy(metadataOne.logo)
   t.is(cache.size, 1)
 
-  const metadataTwo = await metascraper({ url: 'https://lolwerhere.com' })
+  const metadataTwo = await metascraper({ url: missUrl })
   t.falsy(metadataTwo.logo)
   t.is(cache.size, 2)
 })
