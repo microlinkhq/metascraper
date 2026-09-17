@@ -8,6 +8,9 @@ on:
     branches:
       - master
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   matrix:
     if: github.ref != 'refs/heads/master'

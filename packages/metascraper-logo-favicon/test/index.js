@@ -98,6 +98,21 @@ test("don't resolve root path as logo", async t => {
   t.is(metadata.logo, null)
 })
 
+test("don't treat TileColor or fragment icon values as logo", async t => {
+  const url = 'https://example.com/article'
+  const metascraper = createMetascraper({
+    google: false,
+    favicon: false,
+    rootFavicon: false
+  })
+  const html = createHtml([
+    '<meta name="msapplication-TileColor" content="#ffc40d">',
+    '<link rel="icon" href="#000000">'
+  ])
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, null)
+})
+
 test('get the biggest respecting the format', async t => {
   const url = 'https://github.com'
   const metascraper = createMetascraper()
