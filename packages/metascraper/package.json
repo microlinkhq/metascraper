@@ -50,7 +50,7 @@
   "license": "MIT",
   "ava": {
     "timeout": "30s",
-    "failFast": true
+    "failFast": false
   },
   "tsd": {
     "directory": "test/types"

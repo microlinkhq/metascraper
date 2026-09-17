@@ -25,6 +25,7 @@ const url = 'https://teslahunt.io/5YJSA7E49JF269238'
 
 ;(process.env.CI ? test.skip : test)('teslahunt', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })

@@ -25,7 +25,8 @@ const url = 'https://yandex.ru/'
 
 test('yandex', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const { date, ...metadata } = await metascraper({ html, url })
+  const { date, logo, ...metadata } = await metascraper({ html, url })
   t.is(typeof date, 'string')
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })
