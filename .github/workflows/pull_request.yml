@@ -8,9 +8,6 @@ on:
     branches:
       - master
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   matrix:
     if: github.ref != 'refs/heads/master'
@@ -42,6 +39,8 @@ jobs:
         with:
           version: latest
       - name: Install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm install --dangerously-allow-all-builds
       - name: Test
         run: pnpm --filter "${{ matrix.package.filter }}" exec c8 pnpm test
