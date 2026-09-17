@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
-    "bimi-url": "~1.0.0"
+    "bimi-url": "~1.0.5"
   },
   "devDependencies": {
     "ava": "8"

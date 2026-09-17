@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  pnpm_config_dangerously_allow_all_builds: true
   SKIP_INSTALL_SIMPLE_GIT_HOOKS: true
 
 jobs:
@@ -30,7 +31,7 @@ jobs:
         with:
           version: latest
       - name: Install
-        run: pnpm install --dangerously-allow-all-builds
+        run: pnpm install
       - name: Contributors
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}
@@ -65,7 +66,7 @@ jobs:
         with:
           version: latest
       - name: Install
-        run: pnpm install --dangerously-allow-all-builds
+        run: pnpm install
       - name: Lint
         run: pnpm lint
 
@@ -92,7 +93,7 @@ jobs:
         with:
           version: latest
       - name: Install
-        run: pnpm install --dangerously-allow-all-builds
+        run: pnpm install
       - name: Test
         run: pnpm --filter "${{ matrix.package.filter }}" exec c8 pnpm test
       - name: Coverage
@@ -134,7 +135,7 @@ jobs:
         with:
           version: latest
       - name: Install
-        run: pnpm install --dangerously-allow-all-builds
+        run: pnpm install
       - name: Sync master
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}

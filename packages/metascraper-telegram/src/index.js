@@ -15,7 +15,7 @@ const {
 const memoize = require('@keyvhq/memoize')
 const pReflect = require('p-reflect').default
 const cssUrls = require('css-urls')
-const got = require('got')
+const got = require('@kikobeats/got')
 
 const toAuthor = toRule(author)
 const toImage = toRule(image)

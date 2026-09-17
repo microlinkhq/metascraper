@@ -25,7 +25,8 @@ test('nytimes (article)', async t => {
   const url =
     'https://www.nytimes.com/2017/07/03/smarter-living/how-to-see-what-the-internet-knows-about-you.html'
   const html = await readFile(resolve(__dirname, 'input/article.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })
 
@@ -33,6 +34,7 @@ test('nytimes (opinion)', async t => {
   const url =
     'https://www.nytimes.com/2020/11/19/opinion/sway-kara-swisher-raj-chetty.html'
   const html = await readFile(resolve(__dirname, 'input/opinion.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })

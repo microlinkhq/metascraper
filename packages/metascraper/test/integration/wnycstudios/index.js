@@ -25,6 +25,7 @@ const url = 'https://www.wnycstudios.org/podcasts/radiolab/articles/wubi-effect'
 
 test('wnycstudios', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })

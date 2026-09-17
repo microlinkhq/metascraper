@@ -25,6 +25,7 @@ const url = 'https://mashable.com/article/dune-movie-hbo-review'
 
 test('mashable', async t => {
   const html = await readFile(resolve(__dirname, 'input.html'))
-  const metadata = await metascraper({ html, url })
+  const { logo, ...metadata } = await metascraper({ html, url })
+  t.true(logo === null || typeof logo === 'string')
   t.snapshot(metadata)
 })

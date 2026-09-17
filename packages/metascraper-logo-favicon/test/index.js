@@ -17,13 +17,30 @@ const createHtml = meta =>
 
 test('provide `keyvOpts`', async t => {
   const cache = new Map()
-  const metascraper = createMetascraper({ keyvOpts: { store: cache } })
+  const hitUrl = await runServer(t, async ({ req, res }) => {
+    if (req.url === '/favicon.ico') {
+      res.setHeader('content-type', 'image/x-icon')
+      res.end(Buffer.from([0, 0, 1, 0]))
+      return
+    }
+    res.statusCode = 404
+    res.end()
+  })
+  const missUrl = await runServer(t, async ({ res }) => {
+    res.statusCode = 404
+    res.end()
+  })
+  const metascraper = createMetascraper({
+    keyvOpts: { store: cache },
+    google: false,
+    rootFavicon: false
+  })
 
-  const metadataOne = await metascraper({ url: 'https://teslahunt.io' })
+  const metadataOne = await metascraper({ url: hitUrl })
   t.truthy(metadataOne.logo)
   t.is(cache.size, 1)
 
-  const metadataTwo = await metascraper({ url: 'https://lolwerhere.com' })
+  const metadataTwo = await metascraper({ url: missUrl })
   t.falsy(metadataTwo.logo)
   t.is(cache.size, 2)
 })
@@ -93,6 +110,21 @@ test("don't resolve root path as logo", async t => {
     '<link rel="icon" type="image/x-icon" href="">',
     `<link rel="icon" type="image/x-icon" href="${url}">`,
     '<link rel="icon" type="image/x-icon" href>'
+  ])
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.logo, null)
+})
+
+test("don't treat TileColor or fragment icon values as logo", async t => {
+  const url = 'https://example.com/article'
+  const metascraper = createMetascraper({
+    google: false,
+    favicon: false,
+    rootFavicon: false
+  })
+  const html = createHtml([
+    '<meta name="msapplication-TileColor" content="#ffc40d">',
+    '<link rel="icon" href="#000000">'
   ])
   const metadata = await metascraper({ url, html })
   t.is(metadata.logo, null)

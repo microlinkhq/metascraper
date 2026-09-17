@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('ava').default
-const got = require('got')
+const got = require('@kikobeats/got')
 
 const { google } = require('..')
 
