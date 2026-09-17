@@ -66,7 +66,11 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
 
         const urls = getUrls(description)
         const resolvedUrls = await Promise.all(
-          urls.map(url => Promise.resolve(resolveUrl(url)).catch(() => url))
+          urls.map(url =>
+            Promise.resolve()
+              .then(() => resolveUrl(url))
+              .catch(() => url)
+          )
         )
 
         for (const [index, url] of resolvedUrls.entries()) {

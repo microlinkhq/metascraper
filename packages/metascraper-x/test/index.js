@@ -43,8 +43,20 @@ const resolveUrl = async shortUrl => {
   const location = response.headers.get('location') || shortUrl
   const urlObj = new URL(location)
   urlObj.search = ''
-  return urlObj.toString().replace('https://', '').replace('/', '')
+  return urlObj.toString().replace('https://', '').replace(/\/$/, '')
 }
+
+test('keeps original URL when resolveUrl throws synchronously', async t => {
+  const url = 'https://x.com/kikobeats?mx=2'
+  const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
+  const metascraper = createMetascraper({
+    resolveUrl: () => {
+      throw new Error('boom')
+    }
+  })
+  const metadata = await metascraper({ url, html })
+  t.true(typeof metadata.description === 'string')
+})
 
 test('from a X profile resolving URLs', async t => {
   const url = 'https://x.com/Kikobeats'
