@@ -84,6 +84,30 @@ test('from igtv', async t => {
   t.snapshot(metadata)
 })
 
+test('prefers image_versions2 over 640 og:image on posts', async t => {
+  const url = 'https://www.instagram.com/p/DdWpGUXgJTg/'
+  const html = `<html><head>
+    <meta property="og:image" content="https://scontent.cdninstagram.com/v/photo.jpg?stp=dst-jpg_e35_s640x640_tt6">
+  </head><body><script>{"image_versions2":{"candidates":[{"url":"https://instagram.fna.fbcdn.net/v/photo.jpg?stp=dst-jpg_e35_p1179x1179_tt6\\u0026oh=hd"},{"url":"https://instagram.fna.fbcdn.net/v/photo.jpg?stp=dst-jpg_e35_p412x412_tt6"}]}}</script></body></html>`
+  const metadata = await metascraper({ url, html })
+  t.is(
+    metadata.image,
+    'https://instagram.fna.fbcdn.net/v/photo.jpg?stp=dst-jpg_e35_p1179x1179_tt6&oh=hd'
+  )
+})
+
+test('does not use grid image_versions2 on profiles', async t => {
+  const url = 'https://www.instagram.com/evolving.ai?next=/p/example/'
+  const html = `<html><head>
+    <meta property="og:image" content="https://scontent.cdninstagram.com/v/avatar.jpg?stp=dst-jpg_e0_s150x150_tt6">
+  </head><body><script>{"image_versions2":{"candidates":[{"url":"https://instagram.fna.fbcdn.net/v/photo.jpg?stp=dst-jpg_e35_p1179x1179_tt6"}]}}</script></body></html>`
+  const metadata = await metascraper({ url, html })
+  t.is(
+    metadata.image,
+    'https://scontent.cdninstagram.com/v/avatar.jpg?stp=dst-jpg_e0_s150x150_tt6'
+  )
+})
+
 test('prefers apple-touch-icon 180 over a tiny favicon', async t => {
   const url = 'https://www.instagram.com/evolving.ai'
   const html = `<html><head>
