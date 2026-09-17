@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.2](https://github.com/microlinkhq/metascraper/compare/v5.58.1...v5.58.2) (2026-09-17)
+
+### Bug Fixes
+
+* **metascraper-instagram:** prefer larger post image ([#883](https://github.com/microlinkhq/metascraper/issues/883)) ([f994913](https://github.com/microlinkhq/metascraper/commit/f994913b7b3c33039844b1b6b061ec4f3cdfa348))
+
 ## [5.58.1](https://github.com/microlinkhq/metascraper/compare/v5.58.0...v5.58.1) (2026-09-17)
 
 ### Bug Fixes
