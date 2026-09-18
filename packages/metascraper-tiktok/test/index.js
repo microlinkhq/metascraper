@@ -28,6 +28,14 @@ test('from video post', async t => {
   t.snapshot(metadata)
 })
 
+test('from video post without open graph', async t => {
+  const url = 'https://www.tiktok.com/@msnow/video/7685447773642083597'
+  const html = await readFile(resolve(__dirname, 'fixtures/video-pwa.html'))
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.snapshot(metadata)
+})
+
 test('from profile', async t => {
   const url = 'https://www.tiktok.com/@illojuan'
   const html = await readFile(resolve(__dirname, 'fixtures/profile.html'))
