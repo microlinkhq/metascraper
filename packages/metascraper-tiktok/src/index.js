@@ -4,6 +4,8 @@ const {
   $meta,
   author,
   date,
+  description,
+  image,
   memoizeOne,
   parseUrl,
   title,
@@ -12,6 +14,8 @@ const {
 
 const toAuthor = toRule(author)
 const toDate = toRule(date)
+const toDescription = toRule(description)
+const toImage = toRule(image)
 const toTitle = toRule(title)
 
 const test = memoizeOne(url => parseUrl(url).domain === 'tiktok.com')
@@ -22,7 +26,24 @@ const getTimestampFromId = id => {
   return new Date(timestamp * 1000).toISOString()
 }
 
+const getScope = memoizeOne($ => {
+  const content = $('script[id="__UNIVERSAL_DATA_FOR_REHYDRATION__"]').text()
+  if (!content) return
+  try {
+    return JSON.parse(content).__DEFAULT_SCOPE__
+  } catch {}
+})
+
+const getVideo = $ => getScope($)?.['webapp.video-detail']?.itemInfo?.itemStruct
+
+const getUser = $ => getScope($)?.['webapp.user-detail']?.userInfo?.user
+
 const getAuthorAndUsername = memoizeOne((url, $) => {
+  const video = getVideo($)
+  const user = video?.author || getUser($)
+  if (user?.nickname) {
+    return { authorName: user.nickname, username: user.uniqueId }
+  }
   const ogTitle = $meta('og:title')($)
   const authorName = ogTitle
     ?.split(' on TikTok')[0]
@@ -49,6 +70,13 @@ module.exports = () => {
           : authorName
       })
     ],
+    description: [toDescription($ => getVideo($)?.desc)],
+    image: [
+      toImage($ => getVideo($)?.video?.originCover),
+      toImage($ => getVideo($)?.video?.cover),
+      toImage($ => getUser($)?.avatarLarger)
+    ],
+    publisher: () => 'TikTok',
     date: [
       toDate((_, url) => {
         const id = url.split('/video/')[1]?.split('?')[0]
@@ -56,19 +84,10 @@ module.exports = () => {
         return getTimestampFromId(id)
       }),
       toDate($ => {
-        const content = $(
-          'script[id="__UNIVERSAL_DATA_FOR_REHYDRATION__"]'
-        ).text()
-        if (!content) return
-        try {
-          const json = JSON.parse(content)
-          const createTime =
-            json.__DEFAULT_SCOPE__?.['webapp.user-detail']?.userInfo?.user
-              ?.createTime
-          return createTime
-            ? new Date(createTime * 1000).toISOString()
-            : undefined
-        } catch (_) {}
+        const createTime = getVideo($)?.createTime ?? getUser($)?.createTime
+        return createTime
+          ? new Date(createTime * 1000).toISOString()
+          : undefined
       })
     ]
   }
