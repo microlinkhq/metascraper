@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.3](https://github.com/microlinkhq/metascraper/compare/v5.58.2...v5.58.3) (2026-09-18)
+
+### Bug Fixes
+
+* **metascraper-tiktok:** read rehydration JSON ([#885](https://github.com/microlinkhq/metascraper/issues/885)) ([1ce9525](https://github.com/microlinkhq/metascraper/commit/1ce952566fdc3797f2efbdee8a6a3cdfb46a6349))
+
 ## [5.58.2](https://github.com/microlinkhq/metascraper/compare/v5.58.1...v5.58.2) (2026-09-17)
 
 ### Bug Fixes
