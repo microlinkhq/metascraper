@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.4](https://github.com/microlinkhq/metascraper/compare/v5.58.3...v5.58.4) (2026-10-09)
+
+**Note:** Version bump only for package metascraper-iframe
+
 ## [5.58.1](https://github.com/microlinkhq/metascraper/compare/v5.58.0...v5.58.1) (2026-09-17)
 
 ### Bug Fixes
