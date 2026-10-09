@@ -29,8 +29,8 @@
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "cheerio": "~1.2.0",
-    "debug-logfmt": "~1.4.12",
-    "whoops": "~5.1.2"
+    "debug-logfmt": "~1.4.15",
+    "whoops": "~5.1.4"
   },
   "devDependencies": {
     "ava": "8",
