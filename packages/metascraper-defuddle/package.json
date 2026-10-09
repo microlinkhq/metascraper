@@ -33,9 +33,9 @@
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.2.1",
-    "debug-logfmt": "~1.4.12",
+    "debug-logfmt": "~1.4.15",
     "defuddle": "~0.19.4",
-    "linkedom": "~0.18.12"
+    "linkedom": "~0.18.13"
   },
   "devDependencies": {
     "ava": "8"

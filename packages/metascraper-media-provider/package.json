@@ -33,13 +33,13 @@
   "dependencies": {
     "@metascraper/helpers": "workspace:*",
     "async-memoize-one": "~1.2.1",
-    "debug-logfmt": "~1.4.12",
+    "debug-logfmt": "~1.4.15",
     "lodash": "~4.18.1",
     "p-reflect": "~3.1.0",
-    "p-retry": "~8.0.0",
-    "p-timeout": "~7.0.1",
-    "serialize-error": "~13.0.1",
-    "youtube-dl-exec": "~3.1.7"
+    "p-retry": "~8.0.1",
+    "p-timeout": "~7.0.2",
+    "serialize-error": "~13.0.2",
+    "youtube-dl-exec": "~3.1.17"
   },
   "devDependencies": {
     "@kikobeats/time-span": "latest",
