@@ -20,9 +20,9 @@ const toAuthor = toRule(author)
  * @return {Function} stricter
  */
 
-const strict = rule => $ => {
-  const value = rule($)
-  return REGEX_STRICT.test(value) && value
+const strict = rule => async $ => {
+  const value = await rule($)
+  return REGEX_STRICT.test(value) ? value : undefined
 }
 
 module.exports = () => {
