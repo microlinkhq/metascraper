@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.5](https://github.com/microlinkhq/metascraper/packages/metascraper-author/compare/v5.58.4...v5.58.5) (2026-10-15)
+
+### Bug Fixes
+
+* **metascraper-author:** make strict guard await its rule ([#888](https://github.com/microlinkhq/metascraper/packages/metascraper-author/issues/888)) ([c1188fc](https://github.com/microlinkhq/metascraper/packages/metascraper-author/commit/c1188fc243fe5b52618e1f542f0bec793c16e7d2)), closes [#887](https://github.com/microlinkhq/metascraper/packages/metascraper-author/issues/887)
+
 ## [5.58.4](https://github.com/microlinkhq/metascraper/packages/metascraper-author/compare/v5.58.3...v5.58.4) (2026-10-09)
 
 **Note:** Version bump only for package metascraper-author
