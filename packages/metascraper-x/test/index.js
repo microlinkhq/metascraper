@@ -171,3 +171,13 @@ test('from a post with a name containing "on X"', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
+test('from a post without media uses the post card', async t => {
+  const url = 'https://x.com/Kikobeats/status/2110627638049910905'
+  const html = await readFile(
+    resolve(__dirname, 'fixtures/post-syndication.html')
+  )
+  const metascraper = createMetascraper()
+  const metadata = await metascraper({ url, html })
+  t.is(metadata.image, 'https://jf.x.com/images/post/2110627638049910905.png')
+})

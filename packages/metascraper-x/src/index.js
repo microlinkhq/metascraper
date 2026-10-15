@@ -30,6 +30,22 @@ const getAuthorName = memoizeOne(ogTitle =>
   ogTitle?.split(' on X:')[0].split(' (@')[0].trim()
 )
 
+const STATUS_ID_REGEX = /^\/[^/]+\/status\/(\d+)/
+
+const NON_MEDIA_IMAGE_REGEX = /\/profile_images\/|\/rweb\/ssr\/default\//
+
+const getPostCardUrl = url => {
+  const statusId = new URL(url).pathname.match(STATUS_ID_REGEX)?.[1]
+  return statusId && `https://jf.x.com/images/post/${statusId}.png`
+}
+
+const getShareImage = ($, url) => {
+  const ogImage = $meta('og:image')($)
+  const postCardUrl = getPostCardUrl(url)
+  if (!postCardUrl) return ogImage
+  return ogImage && !NON_MEDIA_IMAGE_REGEX.test(ogImage) ? ogImage : postCardUrl
+}
+
 module.exports = ({ resolveUrl = url => url } = {}) => {
   const rules = {
     author: [toAuthor($ => getAuthorName($meta('og:title')($)))],
@@ -82,7 +98,7 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
       })
     ],
     image: [
-      toImage($ => {
+      toImage(($, url) => {
         const imageUrl =
           $jsonld('mainEntity.image.contentUrl')($) ||
           $('video').attr('poster') ||
@@ -90,7 +106,7 @@ module.exports = ({ resolveUrl = url => url } = {}) => {
           $('[data-testid="tweetPhoto"] img').attr('src') ||
           /* embebbed image from a link */
           $('[data-testid="card.layoutLarge.media"] img').attr('src') ||
-          $meta('og:image')($)
+          getShareImage($, url)
 
         return imageUrl?.endsWith('_200x200.jpg')
           ? imageUrl.replace('_200x200.jpg', '_400x400.jpg')
