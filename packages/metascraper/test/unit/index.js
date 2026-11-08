@@ -86,3 +86,42 @@ test('avoid to run rules by `omitPropNames`', async t => {
     rulesNames.filter(field => field !== 'author')
   )
 })
+
+test('a rule value without a string form is returned as is', async t => {
+  const location = Object.assign(Object.create(null), {
+    href: 'https://example.com/'
+  })
+  const cyclic = { name: 'cyclic' }
+  cyclic.self = cyclic
+  const customInspect = {
+    name: 'custom',
+    [Symbol.for('nodejs.util.inspect.custom')]: () => {
+      throw new Error('custom')
+    }
+  }
+  const revoked = Proxy.revocable({}, {})
+  revoked.revoke()
+  const symbol = Symbol('value')
+  const bareFunction = Object.setPrototypeOf(() => {}, null)
+
+  const metascraper = createMetascraper([
+    {
+      location: [() => location],
+      cyclic: [() => cyclic],
+      customInspect: [() => customInspect],
+      revoked: [() => revoked.proxy],
+      symbol: [() => symbol],
+      bareFunction: [() => bareFunction],
+      title: [() => 'title']
+    }
+  ])
+  const metadata = await metascraper({ url: 'https://example.com' })
+
+  t.is(metadata.location, location)
+  t.is(metadata.cyclic, cyclic)
+  t.is(metadata.customInspect, customInspect)
+  t.is(metadata.revoked, null)
+  t.is(metadata.symbol, symbol)
+  t.is(metadata.bareFunction, bareFunction)
+  t.is(metadata.title, 'title')
+})
