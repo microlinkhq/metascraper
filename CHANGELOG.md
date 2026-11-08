@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.6](https://github.com/microlinkhq/metascraper/compare/v5.58.5...v5.58.6) (2026-11-08)
+
+### Bug Fixes
+
+* **metascraper:** log rule values without a string form ([#890](https://github.com/microlinkhq/metascraper/issues/890)) ([0566137](https://github.com/microlinkhq/metascraper/commit/05661376157826296c232627e5f02cdbc3f23a85))
+
 ## [5.58.5](https://github.com/microlinkhq/metascraper/compare/v5.58.4...v5.58.5) (2026-10-15)
 
 ### Bug Fixes
