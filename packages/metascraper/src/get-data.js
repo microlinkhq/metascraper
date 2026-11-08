@@ -3,13 +3,7 @@
 const debug = require('debug-logfmt')('metascraper:get-data')
 const { findRule, has } = require('@metascraper/helpers')
 
-const PRINTABLE_TYPES = new Set([
-  'string',
-  'number',
-  'boolean',
-  'bigint',
-  'undefined'
-])
+const PRINTABLE_TYPES = new Set(['string', 'number', 'boolean', 'bigint'])
 
 const formatValue = value =>
   value === null || PRINTABLE_TYPES.has(typeof value) ? value : typeof value
