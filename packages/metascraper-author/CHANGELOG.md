@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.7](https://github.com/microlinkhq/metascraper/packages/metascraper-author/compare/v5.58.6...v5.58.7) (2026-11-15)
+
+**Note:** Version bump only for package metascraper-author
+
 ## [5.58.5](https://github.com/microlinkhq/metascraper/packages/metascraper-author/compare/v5.58.4...v5.58.5) (2026-10-15)
 
 ### Bug Fixes
