@@ -2,7 +2,7 @@
 
 const { normalizeUrl, memoizeOne } = require('@metascraper/helpers')
 const { forEach, get } = require('lodash')
-const pReflect = require('p-reflect').default
+const pReflect = require('p-reflect')
 const got = require('@kikobeats/got')
 
 const getOembedUrl = memoizeOne(
