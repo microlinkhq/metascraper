@@ -31,8 +31,7 @@
     "video"
   ],
   "dependencies": {
-    "@metascraper/helpers": "workspace:*",
-    "p-reflect": "~3.1.0"
+    "@metascraper/helpers": "workspace:*"
   },
   "devDependencies": {
     "async-listen": "latest",
