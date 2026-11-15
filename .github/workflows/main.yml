@@ -31,6 +31,8 @@ jobs:
         with:
           version: latest
       - name: Install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm install
       - name: Contributors
         run: |
@@ -66,6 +68,8 @@ jobs:
         with:
           version: latest
       - name: Install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm install
       - name: Lint
         run: pnpm lint
@@ -93,6 +97,8 @@ jobs:
         with:
           version: latest
       - name: Install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm install
       - name: Test
         run: pnpm --filter "${{ matrix.package.filter }}" exec c8 pnpm test
@@ -135,6 +141,8 @@ jobs:
         with:
           version: latest
       - name: Install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm install
       - name: Sync master
         run: |
