@@ -35,7 +35,7 @@
     "@kikobeats/got": "~11.8.9",
     "@metascraper/helpers": "workspace:*",
     "css-urls": "~2.0.55",
-    "p-reflect": "~3.1.0"
+    "p-reflect": "~2.1.0"
   },
   "devDependencies": {
     "ava": "8"

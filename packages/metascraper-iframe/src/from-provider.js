@@ -1,7 +1,7 @@
 'use strict'
 
 const { memoizeOne } = require('@metascraper/helpers')
-const pReflect = require('p-reflect').default
+const pReflect = require('p-reflect')
 const oEmbed = require('oembed-spec')
 const { get } = require('lodash')
 
