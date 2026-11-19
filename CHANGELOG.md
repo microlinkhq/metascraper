@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.8](https://github.com/microlinkhq/metascraper/compare/v5.58.7...v5.58.8) (2026-11-19)
+
+### Bug Fixes
+
+* **defuddle:** require defuddle ~0.19.7 ([#893](https://github.com/microlinkhq/metascraper/issues/893)) ([5c19763](https://github.com/microlinkhq/metascraper/commit/5c19763f121b7ac74170585d6f00372e1f3436d7))
+
 ## [5.58.7](https://github.com/microlinkhq/metascraper/compare/v5.58.6...v5.58.7) (2026-11-15)
 
 **Note:** Version bump only for package metascraper
