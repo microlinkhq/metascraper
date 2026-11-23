@@ -35,7 +35,7 @@ const test = memoizeOne(
 
 const getDescription = memoizeOne(
   (_, $) => $meta('og:description')($),
-  memoizeOne.EqualityFirstArgument
+  memoizeOne.EqualityUrlAndHtmlDom
 )
 
 module.exports = () => {

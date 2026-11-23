@@ -52,7 +52,7 @@ const getAuthorAndUsername = memoizeOne((url, $) => {
     ?.trim()
   const username = url.split('@')[1]?.split('/')[0]
   return { authorName, username }
-}, memoizeOne.EqualityFirstArgument)
+}, memoizeOne.EqualityUrlAndHtmlDom)
 
 module.exports = () => {
   const rules = {

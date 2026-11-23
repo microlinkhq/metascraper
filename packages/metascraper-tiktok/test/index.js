@@ -55,3 +55,16 @@ test('fallback date extraction when video id is invalid', async t => {
 
   t.truthy(metadata.date)
 })
+
+test('a second document at the same url is read on its own', async t => {
+  const url = 'https://www.tiktok.com/@someone/video/1'
+  const page = name =>
+    `<html><head><meta property="og:title" content="${name} on TikTok"></head><body></body></html>`
+  const metascraper = createMetascraper()
+
+  const first = await metascraper({ url, html: page('First Author') })
+  const second = await metascraper({ url, html: page('Second Author') })
+
+  t.is(first.author, 'First Author')
+  t.is(second.author, 'Second Author')
+})
