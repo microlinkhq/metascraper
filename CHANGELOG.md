@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.58.9](https://github.com/microlinkhq/metascraper/compare/v5.58.8...v5.58.9) (2026-11-23)
+
+### Bug Fixes
+
+* memoize readability, instagram and tiktok per document, not per url ([#894](https://github.com/microlinkhq/metascraper/issues/894)) ([03afa46](https://github.com/microlinkhq/metascraper/commit/03afa46b8bb102e09c09641cff847f7fb3128873))
+
 ## [5.58.8](https://github.com/microlinkhq/metascraper/compare/v5.58.7...v5.58.8) (2026-11-19)
 
 ### Bug Fixes
