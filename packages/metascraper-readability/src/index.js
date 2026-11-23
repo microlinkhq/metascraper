@@ -39,7 +39,7 @@ const readability = asyncMemoizeOne(async (url, html, readabilityOpts) => {
   } finally {
     await teardown()
   }
-}, memoizeOne.EqualityFirstArgument)
+}, memoizeOne.EqualityUrlAndHtmlDom)
 
 module.exports = ({ readabilityOpts } = {}) => {
   const getReadbility = composeRule(($, url) =>

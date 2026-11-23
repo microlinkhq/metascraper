@@ -136,3 +136,15 @@ test('from story', async t => {
   const metadata = await metascraper({ url, html })
   t.snapshot(metadata)
 })
+
+test('a second document at the same url is read on its own', async t => {
+  const url = 'https://www.instagram.com/p/same-url/'
+  const page = day =>
+    `<html><head><meta property="og:description" content="10 likes - someone on ${day}, 2024: caption"></head><body></body></html>`
+
+  const first = await metascraper({ url, html: page('March 1') })
+  const second = await metascraper({ url, html: page('June 2') })
+
+  t.true(first.date.startsWith('2024-03-01'))
+  t.true(second.date.startsWith('2024-06-02'))
+})

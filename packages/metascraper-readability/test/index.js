@@ -92,3 +92,18 @@ test('extracts lang from <html lang> attribute', async t => {
   const metadata = await metascraper({ html, url })
   t.is(metadata.lang, 'en')
 })
+
+test('a second document at the same url is read on its own', async t => {
+  const url = 'https://example.com/post'
+  const article = `<html><head><title>Post</title></head><body><article><p>${'This domain is for use in illustrative examples in documents. '.repeat(
+    8
+  )}</p></article></body></html>`
+  const shell =
+    '<html><head><title>Shell</title></head><body><p>Nothing here.</p></body></html>'
+
+  const first = await metascraper({ html: article, url })
+  const second = await metascraper({ html: shell, url })
+
+  t.true(first.description.includes('illustrative'))
+  t.false(String(second.description).includes('illustrative'))
+})
