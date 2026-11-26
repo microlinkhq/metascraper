@@ -1,6 +1,6 @@
 'use strict'
 
-const memoizeOne = require('memoize-one').default || require('memoize-one')
+const { memoizeOne } = require('memoize-one')
 const debug = require('debug-logfmt')('metascraper:find-rule')
 const condenseWhitespace = require('condense-whitespace').default
 const mime = require('mime').default
